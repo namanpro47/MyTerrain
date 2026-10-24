@@ -1,0 +1,22 @@
+{
+  "verifiedUtc": "2026-10-24T23:54:32.656856+00:00",
+  "baseCommit": "08092a1f19ceb064ab21c11c6f97dd221693d410",
+  "plainSourceAssertions": 81,
+  "unity": {
+    "passed": true,
+    "checks": 86,
+    "legacyChecks": 139,
+    "mapActions": 32,
+    "historyYears": 10,
+    "closingCashCents": 22520000
+  },
+  "scope": "Unity compile/import, pure state, actual map offers, serializer/session and ten-year restore; no new annual HUD/browser or live LLM verification",
+  "sourceSha256": {
+    "Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs": "33e7225c3f1277e9486c8c715563f2b5c51f97f835753fd0fae73e15cd41ee44",
+    "Assets/Terra/Scripts/Core/AnnualTown.cs": "7c3f3c24cba9cfc0b7a2fdd3e790914cab4d205bf0289c0d271a45ac1432ae78",
+    "Assets/Terra/Scripts/Core/AnnualTownDemo.cs": "bfee9505ef5520992942dc5e9f3e775e3569fdf7f7ae9de4048a8fded91897f4",
+    "Assets/Terra/Scripts/Core/TownCopies.cs": "d6778fa37cf110ba59a84fdd757b95ee8ee1211cf4fb241d2df31e916bf9e836",
+    "Assets/Terra/Scripts/Gameplay/AnnualTownSession.cs": "922c47baabd79e73fff5f73887394bda422e74be8fd0f67071fbeadc417ff85d",
+    "Assets/Editor/AnnualTownChecks.cs": "cdcb1ef54654f8eca570d8ecd6dc0b0b03f25080c1fd28ef4c9dd6a36416ad7f"
+  }
+}

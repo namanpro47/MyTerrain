@@ -1,0 +1,4 @@
+# Exact WorldPack bytes must survive a Windows checkout for checksum verification.
+worlds/**/*.json text eol=lf
+worlds/**/*.geojson text eol=lf
+worlds/**/*.sha256 text eol=lf

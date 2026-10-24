@@ -1,5 +1,13 @@
 # Project reference
 
+## Start from current remote state
+
+Before each new implementation task, inspect local status, run `git fetch --prune origin`, and record the latest `origin/main` commit. Create a fresh isolated worktree from that refreshed ref unless Peter explicitly chooses another base. Do not reset, overwrite or pull over an existing worktree's uncommitted work. For continuing feature work, fetch and review incoming changes before integrating them. Never force-push or deploy as part of this synchronization instruction.
+
+## Authorized annual foundation
+
+Peter explicitly requested annual town state, the public budget and three yearly outcomes on October 24, 2026, after agreeing that undo/refunds end when the year is submitted. Follow `docs/PRD_ANNUAL_GAMEPLAY.md` for this bounded module. It supersedes the old immediate-only/no-annual-model assumption for this task. Keep scenes, renderer, HUD and the ongoing visual rebuild with the engine owner; this module is an additive state/session handoff, not approval to complete later phases or certify Phase 2A.
+
 Read [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) before planning features or making product, gameplay, architecture, or scope decisions. It is Terra's north star for the intended vision, priorities, and constraints.
 
 Keep work aligned with that vision within the user's requested scope. The spec's implementation directives and task lists describe the roadmap; they are not authorization to execute the entire roadmap on every request. Follow the current user's instructions if they change or narrow the scope, and surface material conflicts with the spec.

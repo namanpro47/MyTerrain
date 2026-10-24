@@ -1,5 +1,7 @@
 # Terra — parallel engineer handoffs
 
+**Annual foundation assignment — October 24, 2026:** Peter explicitly requested the annual state/public ledger/three-outcome module. This additive handoff owns `AnnualTownContracts.cs`, `AnnualTown.cs`, `AnnualTownDemo.cs`, `TownCopies.cs`, `AnnualTownSession.cs` and their dedicated checks/docs. It leaves original WorldPack/runoff contracts, legacy `WorldStateStore`, main scene, renderer and HUD with the engine owner. See [annual integration notes](annual-town-runtime.md). This is a specific exception to the historical ownership table, not a start of packages A/B/C/D or the rest of the roadmap.
+
 **Status:** Phase 2/package A is implemented and integrated locally by the primary engineer. No package has been delegated. Phase 2A is active under the primary engineer; packages B/C/D remain undelegated and require separate authorization. This handoff does not start them.
 
 Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMPLEMENTATION_PLAN.md). The primary engineer owns the running game. These packages let another engineer work in a separate checkout without touching the main scene, UI, or integration state. **Every package improves the same selected rural location across its full game scope.** Do not create additional levels, city assets, or a live location generator as parallel work.

@@ -1,5 +1,11 @@
 # Terra — phase status and evidence
 
+## Annual state foundation — separately authorized October 24, 2026
+
+Peter requested annual town state, a USD public ledger and three yearly outcomes while the main engineer continues the basics. The [additive state/session module](annual-town-runtime.md) implements Planning/Resolving/Reviewing/Completed, pre-submission queue-only undo, full-term public commitments and annual payments, funded lifecycle effects, derived contextual scores, idempotent annual history, save/replay and offline continuation to Year 10. It does not modify the main scene, renderer or HUD, finish the wider action catalog, connect a live LLM, or certify Phase 2A/later-phase completion.
+
+The updated public-budget PRD is preserved in [PRD_ANNUAL_GAMEPLAY.md](PRD_ANNUAL_GAMEPLAY.md). Initial base `e355fa1` was refreshed to the teammate's `08092a1` checkpoint before handoff. On that latest base: **81 plain-source checks**, **86 annual Unity checks** (including the 81), **139 legacy map/transaction checks**, 32 existing map offers, real Unity JSON/session round-trips and ten saved years pass. [Verification scope/hashes](evidence/annual-town/verification.json). Demo costs, annual drivers and score weights remain explicitly authored, uncalibrated assumptions. Main-game annual controls and their browser/visual acceptance remain pending with the engine owner.
+
 **Browser preference — October 24, 2026:** The user confirmed Chrome is sufficient throughout this project. Use Chrome for current and future phase acceptance; do not launch or retest Safari or request Private Browsing unlocks unless explicitly asked. Phase 2 Safari retesting was waived. Earlier Chrome/Safari records below remain historical evidence, not recurring requirements.
 
 **Last updated:** October 24, 2026, Phase 2 complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
