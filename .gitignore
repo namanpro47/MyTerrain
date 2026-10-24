@@ -29,3 +29,7 @@
 /Assets/Resources/PerformanceTestRun*.json*
 
 # Keep Assets (including .meta), Packages, and ProjectSettings in source control.
+
+# Generated from the canonical worlds/ source before build.
+/Assets/StreamingAssets/WorldPacks/
+/Assets/StreamingAssets/WorldPacks.meta

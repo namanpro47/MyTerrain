@@ -1,0 +1,9 @@
+{
+  "id": "fixture-intro",
+  "title": "Make space. Keep balance.",
+  "body": "Try a hypothetical land-use proposal. Production units and credits are illustrative; runoff calculations are pending in this development fixture.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

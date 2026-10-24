@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 99,
+  "packId": "fixture-v1",
+  "fixtureVersion": "1.0.0",
+  "geographyKind": "synthetic-development-fixture",
+  "selectedLocationId": "coon-valley-brye-v1",
+  "sourceCrs": "LOCAL_ENGINEERING_METERS",
+  "elevationDatum": "synthetic; not NAVD88",
+  "boundsWgs84": [],
+  "originWgs84": [],
+  "originElevationM": 0,
+  "editableBounds": [
+    -40,
+    -28,
+    40,
+    30
+  ],
+  "contextBounds": [
+    -50,
+    -40,
+    50,
+    40
+  ],
+  "worldDataPath": "world.json",
+  "scenarioPath": "scenario.json",
+  "rasterRows": "south-to-north",
+  "winding": "counterclockwise-xz",
+  "layers": [
+    {
+      "id": "terrain",
+      "path": "world.json",
+      "availability": "synthetic"
+    },
+    {
+      "id": "cover",
+      "path": "world.json",
+      "availability": "synthetic"
+    },
+    {
+      "id": "water",
+      "path": "world.json",
+      "availability": "synthetic"
+    },
+    {
+      "id": "paths",
+      "path": "world.json",
+      "availability": "synthetic"
+    },
+    {
+      "id": "sites",
+      "path": "world.json",
+      "availability": "synthetic"
+    },
+    {
+      "id": "buildings",
+      "path": "",
+      "availability": "absent"
+    }
+  ],
+  "sources": [
+    {
+      "id": "fixture-authored-v1",
+      "title": "Authored technical fixture; not real geography",
+      "url": "",
+      "date": "2026-10-24",
+      "license": "project-original",
+      "role": "synthetic geometry"
+    },
+    {
+      "id": "scenario-assumptions-v1",
+      "title": "Illustrative scenario assumptions",
+      "url": "",
+      "date": "2026-10-24",
+      "license": "project-original",
+      "role": "fictional cost, capacity and connection assumptions"
+    }
+  ]
+}

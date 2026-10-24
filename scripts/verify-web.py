@@ -15,7 +15,9 @@ args = parser.parse_args()
 root = Path(args.build)
 context = ssl.create_default_context(cafile="/etc/ssl/cert.pem" if sys.platform == "darwin" else None)
 results = []
-for path in [root / "index.html", *sorted((root / "Build").iterdir())]:
+served = [root / "index.html", *sorted((root / "Build").iterdir())]
+served += sorted(path for path in (root / "StreamingAssets").rglob("*") if path.is_file())
+for path in served:
     relative = path.relative_to(root).as_posix()
     expected = path.read_bytes()
     with urlopen(args.url.rstrip("/") + "/" + relative, timeout=60, context=context) as response:

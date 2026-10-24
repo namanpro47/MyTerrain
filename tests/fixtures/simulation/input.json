@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "storm": {
+    "id": "storm-example-50mm",
+    "rainfallMm": 50,
+    "initialAbstractionRatio": 0.2,
+    "soilGroup": "B",
+    "antecedentCondition": "average; educational assumption",
+    "sourceId": "scenario-assumptions-v1"
+  },
+  "sites": [
+    {
+      "siteId": "a",
+      "contributingAreaId": "east",
+      "areaM2": 1000,
+      "curveNumber": 78,
+      "retentionCapacityM3": 0
+    },
+    {
+      "siteId": "b",
+      "contributingAreaId": "east",
+      "areaM2": 1000,
+      "curveNumber": 61,
+      "retentionCapacityM3": 8
+    },
+    {
+      "siteId": "c",
+      "contributingAreaId": "west",
+      "areaM2": 1000,
+      "curveNumber": 78,
+      "retentionCapacityM3": 0
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "revision": 7,
+  "generatedM3": 25.42162632835775,
+  "retainedM3": 8,
+  "dischargedM3": 17.42162632835775,
+  "sites": [
+    {
+      "siteId": "a",
+      "generatedM3": 11.85764145695332,
+      "retainedM3": 6.9936034694061515,
+      "dischargedM3": 4.864037987547169,
+      "production": 0,
+      "productionDelta": 0
+    },
+    {
+      "siteId": "b",
+      "generatedM3": 1.706343414451108,
+      "retainedM3": 1.0063965305938485,
+      "dischargedM3": 0.6999468838572596,
+      "production": 0,
+      "productionDelta": 0
+    },
+    {
+      "siteId": "c",
+      "generatedM3": 11.85764145695332,
+      "retainedM3": 0,
+      "dischargedM3": 11.85764145695332,
+      "production": 0,
+      "productionDelta": 0
+    }
+  ],
+  "explanations": [
+    {
+      "code": "group-capacity-capped",
+      "siteId": "b",
+      "treatmentId": "water-swale",
+      "value": 8,
+      "unit": "m3",
+      "sourceId": "scenario-assumptions-v1"
+    }
+  ]
+}

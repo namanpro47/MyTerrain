@@ -10,13 +10,13 @@
 
 ---
 
-**Scope revision — October 24, 2026:** Rural land use is the primary use case. Build and refine **one real rural location across the full game scope** before considering another location. This supersedes the previous Mission Dolores/city-first opening and the early multi-level/generator roadmap. Choose the exact rural site during early planning; no location has been selected yet.
+**Scope revision — October 24, 2026:** Rural land use is the primary use case. Build and refine **one real rural location across the full game scope** before considering another location. This supersedes the previous Mission Dolores/city-first opening and the early multi-level/generator roadmap. The Phase 1 selection is Coon Valley / Brye Lane, Wisconsin; the frozen bounds, evidence and data gaps are recorded in [docs/location-selection.md](docs/location-selection.md).
 
 ## 0. Read This First — The Project in One Minute
 
 **Terra turns a real rural landscape into a beautiful, playable environmental strategy game.**
 
-A player lands in a stylized 3D reconstruction of one actual rural place. Terrain, vegetation, water features, paths, and any relevant small structures are grounded in geographic data, with sources and dates recorded. The exact location will be chosen during early planning for strong visual composition, accessible data, and a clear land-use trade-off.
+A player lands in a stylized 3D reconstruction of one actual rural place. Terrain, vegetation, water features, paths, and any relevant small structures are grounded in geographic data, with sources and dates recorded. The selected Coon Valley / Brye Lane location and its source evidence are documented in [the selection note](docs/location-selection.md).
 
 The working opening scenario is **meeting a rural community's illustrative productive-land needs while restoring vegetation and managing rainfall runoff under a limited budget**. This is a design starting point to refine in phase 1, not a claim about the selected place's actual agricultural needs or yields. The player chooses an intervention, previews its effects, and places it on the world. The landscape visibly transforms; productive capacity, costs, land cover, and a transparent environmental estimate update immediately.
 
