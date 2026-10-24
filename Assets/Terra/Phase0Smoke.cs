@@ -31,11 +31,11 @@ namespace Terra
             view.backgroundColor = new Color(0.07f, 0.12f, 0.16f);
             view.nearClipPlane = 0.1f;
             view.farClipPlane = 100;
-            var shader = Shader.Find("Universal Render Pipeline/Lit");
-            Make(PrimitiveType.Cube, "Base", new Vector3(0, -0.3f, 0), new Vector3(9, 0.6f, 7), new Color(0.3f, 0.47f, 0.46f), shader);
-            Make(PrimitiveType.Cube, "Coral cube", new Vector3(-2, 0.8f, 0), Vector3.one * 1.6f, new Color(0.95f, 0.46f, 0.3f), shader);
-            Make(PrimitiveType.Sphere, "Gold sphere", new Vector3(0, 1, 1.2f), Vector3.one * 2, new Color(1, 0.77f, 0.28f), shader);
-            Make(PrimitiveType.Cylinder, "Teal cylinder", new Vector3(2.3f, 1.3f, -0.6f), new Vector3(1.4f, 1.3f, 1.4f), new Color(0.26f, 0.8f, 0.72f), shader);
+            var material = Resources.Load<Material>("Phase0Material");
+            Make(PrimitiveType.Cube, "Base", new Vector3(0, -0.3f, 0), new Vector3(9, 0.6f, 7), new Color(0.3f, 0.47f, 0.46f), material);
+            Make(PrimitiveType.Cube, "Coral cube", new Vector3(-2, 0.8f, 0), Vector3.one * 1.6f, new Color(0.95f, 0.46f, 0.3f), material);
+            Make(PrimitiveType.Sphere, "Gold sphere", new Vector3(0, 1, 1.2f), Vector3.one * 2, new Color(1, 0.77f, 0.28f), material);
+            Make(PrimitiveType.Cylinder, "Teal cylinder", new Vector3(2.3f, 1.3f, -0.6f), new Vector3(1.4f, 1.3f, 1.4f), new Color(0.26f, 0.8f, 0.72f), material);
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput = false;
 #endif
@@ -43,13 +43,13 @@ namespace Terra
             Debug.Log("TERRA_PHASE0_READY");
         }
 
-        private static void Make(PrimitiveType type, string label, Vector3 position, Vector3 scale, Color color, Shader shader)
+        private static void Make(PrimitiveType type, string label, Vector3 position, Vector3 scale, Color color, Material material)
         {
             var item = GameObject.CreatePrimitive(type);
             item.name = label;
             item.transform.position = position;
             item.transform.localScale = scale;
-            item.GetComponent<Renderer>().material = new Material(shader) { color = color };
+            item.GetComponent<Renderer>().material = new Material(material) { color = color };
         }
 
         public void ResetView()

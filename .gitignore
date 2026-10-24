@@ -26,5 +26,6 @@
 .vercel/
 # Burst's generated Web native plugin intermediates (rebuilt by Unity).
 /Data/
+/Assets/Resources/PerformanceTestRun*.json*
 
 # Keep Assets (including .meta), Packages, and ProjectSettings in source control.
