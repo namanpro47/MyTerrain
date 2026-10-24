@@ -27,6 +27,7 @@ namespace Terra.UI
 #endif
             }
             font=TMP_Settings.defaultFontAsset;rounded=RoundSprite();
+            Panel(root,"Location label backing",new Vector2(0,1),new Vector2(16,-16),new Vector2(370,162),new Color(.97f,.96f,.90f,.96f));
             Label(root,"TERRA",new Vector2(0,1),new Vector2(28,-22),new Vector2(290,42),34,ink,FontStyles.Bold);
             Label(root,"Meadowbrook Valley / Wisconsin",new Vector2(0,1),new Vector2(29,-67),new Vector2(320,25),17,ink);
             Label(root,"REAL GEOGRAPHY · hypothetical choices",new Vector2(0,1),new Vector2(29,-97),new Vector2(340,24),13,muted);

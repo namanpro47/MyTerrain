@@ -98,7 +98,7 @@ def build(output=PACK):
     write(output/'provenance.json',{'displayName':'Meadowbrook Valley','realPlace':'Coon Valley / Brye Lane / Coon Creek, Wisconsin',
         'retrieved':'2026-10-24','originProjectedM':[OX,OZ],'exactEditablePolygon':ring(exact_editable),
         'contextWgs84Envelope':[-91.044,43.696,-91.030,43.707],
-        'contextNote':'10 m local axis grid encloses the frozen WGS84 context; edge margin up to 39 m. Editable sites remain strictly inside the exact frozen WGS84 polygon.',
+        'contextNote':'10 m local axis grid encloses the frozen WGS84 context; maximum extra corner margin 40.886 m. Editable sites remain strictly inside the exact frozen WGS84 polygon. Vector queries select features intersecting the frozen WGS84 context; wholly external features in the small extra corners are not inventoried.',
         'verticalExaggeration':1,'absoluteElevationRangeM':[float(height.min()+origin),float(height.max()+origin)],
         'processing':['DEM bilinear 1 m to 10 m vertices; no datum conversion or invented infill',
             'NLCD native 30 m cells projected corner-by-corner, clipped to context; original class retained by ID in cover-classes.json',
