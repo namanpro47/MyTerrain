@@ -1,6 +1,8 @@
 # Terra visual contract v1
 
-Status: Phase 1 visual contract frozen; browser review passed. One Meadowbrook Valley landscape (fictional game name for the selected Wisconsin AOI) is the intended full game. The current scene is explicitly an invented technical fixture, not real geography.
+**Persistent reference:** [Terra Nil + Cities: Skylines design library](DESIGN_REFERENCE.md). Read its relevant pattern IDs before player-facing work. **Upcoming revision:** [Phase 2A](PHASE_2A_GOAL.md) establishes a stricter reference-quality bar after Phase 2 and before Phase 3. The contract below remains the historical implemented v1 foundation; do not present the proposed v2 direction as already shipped. Phase 2A will replace current tokens/layout guidance with the verified v2 system and link accepted browser captures here. Shared schema and data-contract versions do not change merely because art direction becomes v2.
+
+Status: Phase 1 visual contract frozen; browser review passed. One Meadowbrook Valley landscape (fictional game name for the selected Wisconsin AOI) is the intended full game. At that checkpoint the scene was explicitly an invented technical fixture, not real geography. Current real-landscape integration status is recorded in [PHASE_STATUS.md](PHASE_STATUS.md); the historical v1 details below are not a statement that Phase 2 still uses synthetic terrain.
 
 ## Direction
 
@@ -32,3 +34,11 @@ Kenney Nature Kit and Interface Sounds retain their source license files (CC0). 
 Pointer and keyboard share the same command path. Drag threshold prevents camera motion from placing, UI raycasts isolate clicks, Escape cancels/closes the top modal, Tab cycles sites, Enter commits, 1/2/3 choose tools, M selects the margin, Z undoes, R resets camera. Pan/orbit/zoom are bounded. Motion is a 550 ms settling reveal; reduced motion publishes state instantly without the reveal. Panels have visible close/back controls.
 
 The review requires browser captures at both target sizes for default, hover, blocked, placement and modal states, plus a short actual interaction capture. Score scene appeal, legibility, feedback, ease and coherence 1–5; repair the weakest category before calling Phase 1 complete. Evidence and final scores belong in PHASE_STATUS.md, not invented here. Internal scores are design review, not novice-user research.
+
+## Phase 2 implemented landscape baseline
+
+The canonical scene now loads `meadowbrook-v1`: real 10 m terrain, native 30 m source-cover polygons, mapped stream/road centerlines, a two-layer diorama edge and decorative woodland/field detail constrained by those layers. Individual trees and rows are not survey data. Cover and proposal meshes clip to the same terrain triangles; plant roots use sampled ground contact. Ten hypothetical editable sites and two scenario no-edit zones share the existing placement/undo semantics.
+
+The Web profile now uses native render scale and a 3 km shadow distance appropriate to the real AOI. The authored wide view and F close-up replace fixture camera bounds. The location label has a cream backing for contrast over moving scenery. A two-page source panel distinguishes real place/bounds/sources from fiction. Current label: **REAL GEOGRAPHY · hypothetical choices**.
+
+The old 2 m floating settling translation was removed to keep proposals seated; commits update immediately with existing sound/toast/outline feedback. Reduced motion also freezes subtle water glints. This is a deliberate Phase 2 correction to the historical v1 reveal above; Phase 2A may author a grounded reveal. No reference-quality parity, illustrated tools, redesigned HUD, ambient soundtrack or novice usability result is claimed. TN-01/02 (world and readable cover), TN-05 (preview), AX-01 (backed text), and CS-02 (spatial constraints) guide this baseline. Final captures and remaining design gaps are in [the Phase 2 audit](PHASE_2_AUDIT.md).

@@ -1,15 +1,50 @@
 # Phase 2 acceptance audit
 
-Active goal: real Meadowbrook Valley landscape for the frozen Wisconsin AOI. Stop before Phase 3. No new locations or live generator. All items require direct evidence before completion.
+**Engineering and Phase 2 internal visual gates passed — October 24, 2026.** The real Meadowbrook Valley landscape uses the frozen Wisconsin AOI. Stop here: the next separately authorized phase is [Phase 2A](PHASE_2A_GOAL.md), before Phase 3. No new locations, live generator, later editing mechanics or runoff model were added.
 
-| Gate | Required evidence | State |
+Final runtime **`35fb7e8edf7c92b37acebfee5656b0bf4991544b`**, [public build](https://terra-browser.vercel.app/), [build/deployment/pack identity](evidence/phase2/identity.json). Evidence/planning commits after this SHA do not alter the export. Chrome is sufficient per the user's project-wide preference; Safari retesting is waived.
+
+| Phase 2 requirement | Direct evidence and conclusion |
+|---|---|
+| 1. Ingest the single rural pack | `worlds/meadowbrook-v1` loads through the unchanged v1 DTOs/validator and the loader's existing three-file path. [139 Unity checks](evidence/phase2/contract-checks.json), actual `TERRA_PHASE2_READY` in [Chrome Console](evidence/phase2/chrome-console.json), [11 anonymous files matched byte-for-byte](evidence/phase2/public-assets.json). Loading progress is visible. [Local rejected schema](evidence/phase2/local-load-error.png) and [Retry recovery](evidence/phase2/local-load-recovered.png) verify error presentation. |
+| 2. Actual terrain, cover, water and paths | [34 geography checks](evidence/phase2/geography-checks.json), [alignment map](../worlds/meadowbrook-v1/alignment.png), [source/provenance/rebuild](geography.md), [final wide browser view](evidence/phase2/public-1440-default.png). Northern ridge/woodland, southern cultivation, western stream junction, eastern road/stream corridor and southern meanders retain the source topology. Numerical processing limits: elevation mean/p95/max 0.217/0.808/2.329 m; vector Hausdorff <1 m. Individual plants/rows/line widths are decorative, not mapped objects. |
+| 3. Authored hero and close views | Wide yaw −18°, pitch 40°, zoom 900, target (0,25,−75); F close view zoom160. Two-layer earth edge, native Web render scale, extended shadows, source-constrained vegetation masses, subtle cover variation and water-glint modulation. [Wide](evidence/phase2/public-1280-default.png), [close crop](evidence/phase2/public-1280-close.png), [living margin](evidence/phase2/public-margin.png), [restoration](evidence/phase2/public-restore.png), [swale](evidence/phase2/public-swale.png), [camera change](evidence/phase2/public-camera.png). Reduced motion freezes glints and all state remains usable. |
+| 4. Curated hypothetical sites | Ten editable sites + two protected scenario zones, all inside the exact frozen editable polygon. [Measured clearances](../worlds/meadowbrook-v1/site-clearances.json) preserve mapped woodland/wetland and scenario water/road buffers. Rest outlines are subtle, active outlines/ghosts clear; [protected rejection](evidence/phase2/public-1280-blocked.png) and [ineligible rejection](evidence/phase2/public-ineligible.png) leave accounting untouched. No legal protection or conversion-right claim. |
+| 5. Data & Assumptions | Actual place/bounds, fictional display name, sources/dates, gaps, decoration and fictional soil/storm/production/credits disclosed on two pages. [Place/assumptions](evidence/phase2/public-1280-modal.png), [sources/limits](evidence/phase2/public-1280-sources.png); both pages fit both target viewports. Runoff remains Pending. |
+| 6. Surface quality and actual browser profile | Cover/line/proposal meshes clip to the same terrain triangles; roots use sampled ground contact; the floating proposal translation was removed. Wide, focused West field/Meadow edge, all four treatments and rotated views show no visible floating roots/proposals, mesh gaps or z-fighting. This is sampled inspection, not an exhaustive every-camera guarantee. [Final actual 30-second path](evidence/phase2/public-performance.json): p95 9 ms, max20 ms, no frames >33.3/200 ms, zero unfocused frames. |
+| Browser review and interaction capture | Default/hover/blocked/placed/modal/source/close states captured at **1280×720 and 1440×900**. [Observed checks and coverage limits](evidence/phase2/browser-checks.json). [Sampled interaction GIF](evidence/phase2/interaction.gif), [capture method](evidence/phase2/interaction.json): real browser frames after real actions, condensed to 1.2 s/frame; not a continuous video or frame-pacing proof. Live performance instrumentation supplies separate timing evidence. |
+| Handoff and scope boundary | Reproducible [build/deploy](deployment.md) and [data rebuild](geography.md), [runtime identity](evidence/phase2/identity.json), [portable checkout instructions](PARALLEL_WORK.md#current-phase-2-local-handoff). Fresh-clone verification is recorded in [handoff-check.json](evidence/phase2/handoff-check.json). Phase 2A and Phase 3 remain unstarted. |
+
+## Browser state matrix
+
+| State | 1280×720 | 1440×900 |
 |---|---|---|
-| Single real pack | [Rebuild/source manifest](geography.md), [34 source checks](evidence/phase2/geography-checks.json), [Unity v1 checks](evidence/phase2/contract-checks.json) | Export validated; browser loading pending |
-| Geographic fidelity | [Alignment](../worlds/meadowbrook-v1/alignment.png), control points and measured processing error in [geography evidence](evidence/phase2/geography-checks.json) | Offline fidelity passed; rendered fidelity pending |
-| Authored presentation | Opening camera, diorama edge, lighting, vegetation masses, ground variation, ambient motion, close-up areas | Pending |
-| Curated sites | Ten editable + two no-edit sites; [clearances](../worlds/meadowbrook-v1/site-clearances.json); Unity commit/undo/protection checks | Data passed; visual review pending |
-| Source panel | Actual place and bounds, layers/dates, missing data, decorative inference, fictional settings | Pending |
-| Surface quality | No floating objects, seams, clipping or z-fighting in opening/close-up browser views | Pending |
-| Browser review | 1280×720 / 1440×900 state captures, interaction capture, weakest issue fixed, all five scores ≥4 | Pending |
-| Performance | Actual deployed 30-second camera/placement path, frame time, interaction/load/download observations | Pending |
-| Handoff and boundary | Source/build/deployment identity, reproducible commands/evidence, stop before Phase 3 | Pending |
+| Default | [Capture](evidence/phase2/public-1280-default.png) | [Capture](evidence/phase2/public-1440-default.png) |
+| Hover / keyboard preview | [Capture](evidence/phase2/public-1280-hover.png) | [Capture](evidence/phase2/public-1440-hover.png) |
+| Protected / rejected | [Capture](evidence/phase2/public-1280-blocked.png) | [Capture](evidence/phase2/public-1440-blocked.png) |
+| Placed | [Capture](evidence/phase2/public-1280-placed.png) | [Capture](evidence/phase2/public-1440-placed.png) |
+| Place and assumptions | [Capture](evidence/phase2/public-1280-modal.png) | [Capture](evidence/phase2/public-1440-modal.png) |
+| Sources and limits | [Capture](evidence/phase2/public-1280-sources.png) | [Capture](evidence/phase2/public-1440-sources.png) |
+| Close view | [Capture](evidence/phase2/public-1280-close.png) | [Capture](evidence/phase2/public-1440-close.png) |
+
+## Internal foundation review and actual fixes
+
+These are the **Phase 2 five-category foundation scores**, not Phase 2A's stricter reference-calibrated rubric and not novice-user research. Patterns: TN-01/02 for scenery composition/readable cover, TN-05 for truthful preview, CS-02 for spatial constraints and AX-01 for backed text. [Design reference](DESIGN_REFERENCE.md) remains the next phase's comparison source.
+
+| Category | Final /5 | Observation, change and remaining gap |
+|---|---:|---|
+| Scene appeal | 4 | Coherent warm miniature palette, recognizably different woodland/fields/water, visible terrain relief and deliberate edge. Initial cropped opening, 0.8 scale and short shadow range were fixed. Canopies still repeat and the palette is restrained; Phase 2A should deepen composition/detail without altering geography. |
+| Legibility | 4 | Readable core measures, selected tools and two-page disclosures at both sizes. The weakest later issue was location text over trees; a cream backing fixes it in the final close capture. HUD still occupies more space than the reference target, and secondary labels remain small; compact hierarchy/larger-text work belongs to the prepared Phase 2A gate. |
+| Feedback | 4 | Ghost and exact costs/production precede placement; visible ground/plant transformations, toast and undo agree. Rejection includes a reason and leaves baseline intact. Reduced motion/mute preserve meaning. A richer grounded reveal and illustrated tools remain future polish; no growth animation is claimed now. |
+| Ease of interaction | 4 | Pointer preview/commit and keyboard Tab/Enter/Z work; F/R makes small wide-view sites inspectable. Drag and modal input do not place. Reload/refocus and local error/Retry recover. Wider usability, full keyboard menu focus and physical trackpad testing are not claimed. |
+| Coherence | 4 | One AOI, one type/palette, consistent preview/placement states, fictional metrics clearly separated from source geography. Data pages remain text-heavy and the several HUD strips should be consolidated in Phase 2A. |
+
+Before: [initial wide](evidence/phase2/iteration/initial-wide.png), [initial close](evidence/phase2/iteration/initial-close.png), [later label contrast defect](evidence/phase2/iteration/label-over-scenery.png). After: final state matrix above. The concrete weakest issues were fixed, while the newly planned reference-quality redesign remains explicitly unimplemented.
+
+## Performance and limitations
+
+On **Apple M1 Max, 32 GB, macOS26.5.2, Chrome155.0.8059.85**, the final 1280×720 foreground path ran **30.008 s / 3,602 frames**, average **120.03 fps**, p50/p95/p99 **8/9/10 ms**, maximum **20 ms**, zero frames >33.3 or200 ms. Four preview events had max handler CPU0.6 ms; one placement CPU3.5 ms. DOM input to first rAF after feedback was **2.9–15.2 ms for preview**, **13.6 ms for placement**. Those samples satisfy the observed budgets but do not measure physical display latency or establish a population percentile. See [raw metrics and method](evidence/phase2/public-performance.json).
+
+First usable interaction on the changed public export was **8.282 s**; the later reload is separately logged. Existing Chrome session, cache not forcibly cleared, connection speed not measured. The complete verified file set is **14,696,090 bytes** (~14.70 MB decimal, an upper bound including the tiny unused fixture files). No controlled three-load benchmark is claimed; that stronger protocol is Phase 2A. Final build **64.452 s, 0 errors / 7 nonblocking toolchain warnings**. Chrome has **0 errors**; optional stripped FSR upscaling and streamed-response Content-Length advisories remain. The current rendering does not use that upscaler; all critical assets match and execute.
+
+Source accuracy is limited by dated 3DEP/NLCD/vector products, simplification, illustrative widths and missing soils/parcels/structures. The extra rectangular context corners extend at most40.886 m past frozen WGS84 context; wholly external vector features in those corners are not inventoried. No soil survey, real yields, ownership, legal setbacks or flood prediction is implied. Geography provenance and numerical processing checks are stronger than visual resemblance alone, but do not turn this game into a survey or hydraulic model.

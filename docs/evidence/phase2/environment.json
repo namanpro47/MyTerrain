@@ -1,0 +1,12 @@
+{
+  "chrome": "155.0.8059.85",
+  "safari": "26.5.2",
+  "macOS": "26.5.2",
+  "chip": "Apple M1 Max",
+  "memory": "32 GB",
+  "model": "MacBookPro18,2",
+  "testedBrowsers": [
+    "Chrome"
+  ],
+  "safariStatus": "Not retested for Phase 2; Chrome is sufficient per user preference."
+}

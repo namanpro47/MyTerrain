@@ -9,3 +9,7 @@ The weakest initial issues were opening composition (the southern map edge sat b
 `initial-console.json` includes the initial local 30-second camera/placement path: R, F9, right-arrow 8 s, Tab/F, Enter/Z, left-arrow 8 s, zoom out 6 s, zoom in 5 s, R and right-arrow 4 s. 3,590 frames over 30.000 s: average 119.67 fps, p95 9 ms, p99 10 ms, maximum 120 ms; one frame >33.34 ms, none >200 ms. Three preview events (maximum CPU 0.5 ms), one placement (CPU 4.4 ms), 3,579 camera updates and zero unfocused frames. These are local observations of the initial export, not the final public performance gate. CPU handler timing does not measure browser dispatch or display latency; the next build adds DOM-input-to-next-rAF instrumentation.
 
 Initial screenshots document the iteration, not final acceptance. Final 1280/1440 review, public deployment, actual public performance, error recovery and handoff remain pending.
+
+## Final outcome
+
+The final export fixed the initial framing/render-scale/shadow issues. A later close-up exposed location text over trees (`label-over-scenery.png`); source `35fb7e8` adds a cream backing. Final [close view](../public-1280-close.png), [wide view](../public-1440-default.png), [browser checks](../browser-checks.json) and [measured public performance](../public-performance.json) supersede the pending notes above. The larger reference-quality redesign remains Phase 2A; this iteration does not certify parity with Terra Nil.

@@ -1,10 +1,12 @@
 # Terra — parallel engineer handoffs
 
-**Status:** Phase 1 handoff verified. No package has been delegated or started. Phase 2 and package implementation require separate authorization.
+**Status:** Phase 2/package A is implemented and integrated locally by the primary engineer. No package has been delegated. Packages B/C/D and Phase 2A require separate authorization; this handoff does not start them.
 
 Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMPLEMENTATION_PLAN.md). The primary engineer owns the running game. These packages let another engineer work in a separate checkout without touching the main scene, UI, or integration state. **Every package improves the same selected rural location across its full game scope.** Do not create additional levels, city assets, or a live location generator as parallel work.
 
 ## Start condition and recommended assignment
+
+**Design reference for every handoff:** read [DESIGN_REFERENCE.md](DESIGN_REFERENCE.md) and the current [art contract](art-direction.md) for any player-facing asset, visualization or copy. Cite applicable TN/CS/AX pattern IDs and attach relevant previews/evidence. **Phase 2A now sits between Phases 2 and 3** and establishes the quality benchmark before further gameplay integration; the primary engineer owns that HUD/camera/rendering integration. Package work remains within the ownership table and does not start automatically from this planning change.
 
 Phases 0–1 are local to Naman's computer. All packages use **Meadowbrook Valley** for player-facing copy and planning. This is a display-name change only; preserve the existing AOI, source attribution and internal ID. See [naming policy](location-selection.md#name-and-provenance).
 
@@ -18,10 +20,10 @@ Frozen Phase 1 baseline:
 | Selected rural AOI, bounds, and source-review note | **Meadowbrook Valley** (game name); `coon-valley-brye-v1`; WGS84 [-91.043,43.697,-91.031,43.706], EPSG:26915; [selection and evidence](location-selection.md) |
 | Contract/schema version | WorldPack/runtime/art v1; DTO schemaVersion 1; uGUI + TextMeshPro |
 | Fixture path/version | `worlds/fixture-v1`, 1.0.0; exact bytes in `checksums.sha256` |
-| Browser preview URL | [Public Phase 1 fixture](https://terra-browser.vercel.app/); [build/browser evidence](PHASE_STATUS.md) |
+| Browser preview URL | [Public alias, now the Phase 2 landscape](https://terra-browser.vercel.app/); [build/browser evidence](PHASE_STATUS.md) |
 | Contract owner / integration owner | Primary engineer |
 
-**Best first assignment: package A, the geography generator.** It is a distinct Python/data task and has the earliest dependency. Deliver a small usable pack for the selected rural AOI first, then improve its layers. **Best second assignment: package B, simulation**, which can be developed against tiny pure-data fixtures while the primary engineer builds the world and interactions.
+**Historical Phase 1 assignment order (package A is now complete locally): package A, the geography generator.** It is a distinct Python/data task and has the earliest dependency. Deliver a small usable pack for the selected rural AOI first, then improve its layers. **Best second assignment: package B, simulation**, which can be developed against tiny pure-data fixtures while the primary engineer builds the world and interactions.
 
 If the other engineer uses several agents, divide A, B, C, and D by the ownership table below. If they work alone, do A → B, then use spare time for C/D. Do not assume all four packages will finish simultaneously. The primary engineer should absorb a delayed package's minimum required work if necessary, after explicitly transferring ownership.
 
@@ -31,7 +33,7 @@ If the other engineer uses several agents, divide A, B, C, and D by the ownershi
 |---|---|---|---|---|
 | A: Geography | `worldgen/`, `worlds/`, geography tests, `docs/geography.md`, generated attribution/provenance | Runtime loader/renderers, main scene, shared contracts | Phase 1 exit | Phase 2; refined throughout 3–8 |
 | B: Simulation | `Assets/Terra/Scripts/Simulation/`, dedicated simulation tests, `docs/model-assumptions.md` | State store, placement, objectives, UI, site geometry, shared contracts | Phase 1 exit | Phase 4 |
-| C: Art/audio kit | `Assets/Terra/Art/ExternalKit/`, `Assets/Terra/Audio/ExternalKit/`, isolated preview scene, `docs/asset-kit.md` | Main scene, global URP settings, runtime/HUD, packages | Phase 1 exit | Early kit in 2; final kit in 7 |
+| C: Art/audio kit | `Assets/Terra/Art/ExternalKit/`, `Assets/Terra/Audio/ExternalKit/`, isolated preview scene, `docs/asset-kit.md` | Main scene, global URP settings, runtime/HUD, packages | Phase 1 exit | Early kit in 2; reference-quality kit in 2A; full-game consistency in 7 |
 | D: Learning/content | `content/education/`, `docs/learning-content.md` | HUD layouts, objective logic, numerical science parameters | Phase 1 exit | Phases 5–6 |
 
 All paths above are planned ownership boundaries. The main engineer owns Contracts, Core, Geography runtime, Gameplay, UI, main Scenes, build scripts, `ProjectSettings/`, `Packages/`, shared documentation, and release assembly. Within `worlds/`, A owns geography layers and may deliver an initial scenario fixture; after its first integration, the primary engineer owns `scenario.json` and numerical mission balance. A's regeneration command must preserve that authored scenario or emit its seed separately. Packages submit requested contract changes separately before depending on them.
@@ -109,6 +111,8 @@ Independence means each package can compile/validate/show its result against the
 
 **Inputs:** frozen palette/type/style sheet; local units; footprint and pivot rules; target lighting; material/shader compatibility; representative terrain/cover/sites from the fixture.
 
+Use TN-01/02/04/07 in [the design reference](DESIGN_REFERENCE.md) for composition, readable vegetation/cover, tool illustration coherence and quiet audio. Coordinate with the primary owner on Phase 2A's proposed v2 direction before depending on changed tokens. The main engineer integrates original treatment illustrations into uGUI; package C may supply those assets within its owned art path. Retain small, cohesive deliverables and the reference-quality target rather than postponing the first polished kit until Phase 7.
+
 **Scope:** cohesive terrain/ground-cover materials, cultivated-plot patterns and a vegetated-margin variant, a small locally appropriate grass/shrub/tree set, restoration transitions, one swale/retention module, placement accents, and restrained ambient/interaction audio. Sparse structures are optional context; do not make a city building kit. Prioritize the one landscape's opening camera and common placements.
 
 **Independent acceptance:**
@@ -130,6 +134,8 @@ Independence means each package can compile/validate/show its result against the
 **Deliverable:** structured content files and a short storyboard that can be bound to existing UI by stable IDs.
 
 **Scope:** concise hypothetical rural productive-land brief, progressive tutorial hints, tool intents, invalid-action reason copy, model/fiction disclosures, one entry prediction, one unseen transfer question with feedback, and a few Take It Home question-card choices. Use result placeholders rather than hardcoded calculated values.
+
+Use TN-06/08 and CS-04 in [the design reference](DESIGN_REFERENCE.md) for guide-style explanation, quiet appreciation and contextual teaching. Phase 2A polishes only existing help/source surfaces; mission and ending content still integrates in Phases 5–6. Copy must fit the accepted art contract and keep geography, assumptions and estimates distinct.
 
 **Independent acceptance:**
 
@@ -161,7 +167,7 @@ Extra capacity should improve package A's existing landscape/inputs, B's model a
 Shared scenes, shared contracts, input action assets, package manifests, and global rendering settings always have one integration owner. Independent assets/data and plain simulation code are the preferred merge surfaces.
 
 
-## Runnable local handoff
+## Historical Phase 1 local handoff
 
 No Git remote is configured in this repository. The portable bundle supplied with the completed checkpoint is a full Git checkout source, not the multi-GB Unity Library/build cache. Transfer the bundle to the other engineer through the team's chosen channel; this task does not message another person or create a remote repository.
 
@@ -178,6 +184,23 @@ Open this folder in **Unity 6000.6.6f1** with Web Build Support. Packages are lo
 
 With the Editor connected, `unity command script eval --caller plugin --skill unity-cli 'return Phase1Checks.Run();' --format json` verifies contracts without opening or modifying TerraMain. Package A validates against manifest/world/scenario DTOs and the invalid examples; package B runs the scalar I/O example independently and implements the pure seam; C opens the gallery independently. Shared-contract changes go through the primary engineer. Only one package owner edits a path at a time.
 
-The next allowed implementation after this handoff is Phase 2/package A **only when separately authorized**. This Phase 1 goal does not start it.
+At this historical checkpoint the next implementation was Phase 2/package A; the subsequently authorized Phase 2 goal completed it locally. The next implementation is now Phase 2A, only when separately authorized.
 
 The source baseline was cloned from a complete Git bundle and passed packaging/checksum and simulation-example checks with a clean Git status: [handoff check](evidence/phase1/handoff-check.json). Final bundle regeneration includes the committed audit and evidence. The generated bundle is local and ignored by Git; no remote push or delivery to another person is claimed.
+
+## Current Phase 2 local handoff
+
+The canonical same-AOI pack is `worlds/meadowbrook-v1`, schema/version 1 / 1.0.0. Runtime source **`35fb7e8edf7c92b37acebfee5656b0bf4991544b`** is the exact final public export; later evidence/planning commits do not alter runtime. `WorldPackLoader` accepts this pack through unchanged DTOs. Package A's deterministic source workflow, alignment, 34 geography checks and limitations are in [geography.md](geography.md); 139 Unity checks cover every offered site/treatment, preservation and invalid inputs.
+
+```sh
+git clone -b codex/unity-setup /path/to/terra-phase2.bundle Terra
+cd Terra
+python3 scripts/prepare-world.py
+python3 scripts/verify-simulation-example.py
+```
+
+The current `prepare-world.py` defaults to the real pack. `--pack fixture-v1` explicitly prepares the old golden fixture; it does not change TerraMain's canonical real-pack selection. Open TerraMain in Unity 6000.6.6f1. The live Editor check is `unity command script eval --caller plugin --skill unity-cli 'return Phase2Checks.Run();' --format json`. Use [deployment.md](deployment.md) for the existing Web build route. The isolated art gallery remains available. Raw GIS caches, Python environment, Unity Library, builds and credentials are excluded from the portable Git bundle; the normalized ready pack is included, so initial Play/build does not need GIS downloads.
+
+`Builds/Handoff/terra-phase2.bundle` contains the complete local branch and history. Verify with `git bundle verify Builds/Handoff/terra-phase2.bundle`; the neighboring `.sha256` records its current transfer hash. [Handoff verification](evidence/phase2/handoff-check.json) records a fresh bundle clone and its pack/example checks. No Git remote, source push or message to another engineer is claimed.
+
+Next: **stop here**. Phase 2A's prepared design gate is the next separately authorized goal, before Phase 3. B/C/D ownership boundaries remain valid, but assignments should branch from this current real-landscape checkpoint rather than reimplement completed package A. The current no-runoff, hypothetical-site and fictional-accounting disclosures remain binding.

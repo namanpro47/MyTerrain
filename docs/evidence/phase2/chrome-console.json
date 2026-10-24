@@ -1,0 +1,932 @@
+[
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-24T22:06:03.520Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.data.unityweb\" file.",
+    "timestamp": "2026-10-24T22:06:03.626Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'https://terra-browser.vercel.app/Build/Web.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-24T22:06:03.672Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.wasm.unityweb\" file.",
+    "timestamp": "2026-10-24T22:06:05.684Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-24T22:06:07.241Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-24T22:06:07.241Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-24T22:06:07.242Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:06:07.242Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-24T22:06:07.243Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-24T22:06:07.244Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-24T22:06:07.281Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-24T22:06:07.284Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-24T22:06:07.286Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-24T22:06:07.286Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-24T22:06:07.287Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-24T22:06:07.293Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-24T22:06:07.293Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-24T22:06:07.294Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-24T22:06:07.309Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-24T22:06:07.310Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-24T22:06:07.310Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-24T22:06:07.310Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-24T22:06:07.310Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-24T22:06:07.310Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-24T22:06:07.316Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-24T22:06:07.357Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-24T22:06:07.404Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.699999 ms\n",
+    "timestamp": "2026-10-24T22:06:07.435Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 5116ms",
+    "timestamp": "2026-10-24T22:06:07.465Z",
+    "url": "https://terra-browser.vercel.app/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:06:09.807Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:06:09.807Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/BokehDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldBokehPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:06:09.807Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:06:09.808Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:06:09.808Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:06:09.852Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:06:09.925Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:06:09.978Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=529; meshes=94; vertices=761197; materials=31\n",
+    "timestamp": "2026-10-24T22:06:10.613Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 revision=0; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:06:10.634Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 8282",
+    "timestamp": "2026-10-24T22:06:10.634Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-24T22:06:23.570Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-24T22:06:23.570Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=1; production=17; credits=36; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:06:23.578Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 16.405 seconds.",
+    "timestamp": "2026-10-24T22:06:23.733Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=2; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:06:26.441Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-24T22:06:36.458Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=3; production=14; credits=30; hover=; tool=cultivate-margin\n",
+    "timestamp": "2026-10-24T22:06:44.952Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=4; production=6; credits=60; hover=; tool=cultivate-margin\n",
+    "timestamp": "2026-10-24T22:06:45.058Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.007997512817383,\"averageFps\":120.03466796875,\"frameP50Ms\":8.000006675720215,\"frameP95Ms\":9.0,\"frameP99Ms\":10.0,\"maxFrameMs\":20.0,\"maxPreviewCpuMs\":0.6000000238418579,\"maxPlacementCpuMs\":3.5,\"frames\":3602,\"framesOver33Ms\":0,\"framesOver200Ms\":0,\"previewEvents\":4,\"placementEvents\":1,\"cameraEvents\":3260,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-24T22:07:06.470Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[{\"kind\":\"preview\",\"source\":\"pointer\",\"milliseconds\":2.9000000059604645},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":15.199999988079071},{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":13.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":11.099999994039536}],\"discardedStale\":0}",
+    "timestamp": "2026-10-24T22:07:06.473Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=5; production=17; credits=36; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:07:18.990Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=6; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:07:24.148Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=7; production=14; credits=30; hover=; tool=cultivate-margin\n",
+    "timestamp": "2026-10-24T22:07:36.376Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=8; production=6; credits=60; hover=; tool=cultivate-margin\n",
+    "timestamp": "2026-10-24T22:07:41.916Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=9; production=5; credits=42; hover=; tool=restore-grass\n",
+    "timestamp": "2026-10-24T22:07:42.434Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=10; production=6; credits=60; hover=; tool=restore-grass\n",
+    "timestamp": "2026-10-24T22:07:42.723Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=11; production=6; credits=32; hover=; tool=water-swale\n",
+    "timestamp": "2026-10-24T22:07:49.257Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=12; production=6; credits=60; hover=; tool=water-swale\n",
+    "timestamp": "2026-10-24T22:07:49.573Z",
+    "url": "blob:https://terra-browser.vercel.app/2e6cac74-197b-4036-829f-8fcc8224af20"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'https://terra-browser.vercel.app/Build/Web.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-24T22:07:58.195Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.data.unityweb\" file.",
+    "timestamp": "2026-10-24T22:07:58.197Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-24T22:07:58.198Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/Web.wasm.unityweb\" file.",
+    "timestamp": "2026-10-24T22:07:58.200Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-24T22:08:00.048Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-24T22:08:00.050Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-24T22:08:00.051Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-24T22:08:00.052Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-24T22:08:00.085Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-24T22:08:00.088Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-24T22:08:00.090Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-24T22:08:00.090Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-24T22:08:00.091Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-24T22:08:00.096Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-24T22:08:00.096Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-24T22:08:00.097Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-24T22:08:00.112Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-24T22:08:00.112Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-24T22:08:00.112Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-24T22:08:00.113Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-24T22:08:00.113Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-24T22:08:00.113Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-24T22:08:00.116Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-24T22:08:00.154Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-24T22:08:00.154Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-24T22:08:00.154Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-24T22:08:00.154Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-24T22:08:00.154Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-24T22:08:00.155Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-24T22:08:00.199Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.900000 ms\n",
+    "timestamp": "2026-10-24T22:08:00.236Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 2202ms",
+    "timestamp": "2026-10-24T22:08:00.266Z",
+    "url": "https://terra-browser.vercel.app/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:08:02.528Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:08:02.528Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/BokehDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldBokehPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:08:02.528Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:08:02.528Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-24T22:08:02.528Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:08:02.574Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:08:02.663Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-24T22:08:02.732Z",
+    "url": "https://terra-browser.vercel.app/Build/Web.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=481; meshes=94; vertices=761197; materials=31\n",
+    "timestamp": "2026-10-24T22:08:03.311Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 revision=0; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:08:03.322Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 5260",
+    "timestamp": "2026-10-24T22:08:03.323Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 11.205 seconds.",
+    "timestamp": "2026-10-24T22:08:11.333Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-24T22:08:11.362Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-24T22:08:11.362Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=1; production=17; credits=36; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:08:11.363Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=2; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T22:08:11.657Z",
+    "url": "blob:https://terra-browser.vercel.app/b31859a7-4a37-49d6-8498-3e0037078fe0"
+  }
+]

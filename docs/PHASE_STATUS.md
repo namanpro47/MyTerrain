@@ -1,14 +1,17 @@
 # Terra — phase status and evidence
 
-**Last updated:** October 24, 2026, Phase 2 in progress. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+**Browser preference — October 24, 2026:** The user confirmed Chrome is sufficient throughout this project. Use Chrome for current and future phase acceptance; do not launch or retest Safari or request Private Browsing unlocks unless explicitly asked. Phase 2 Safari retesting was waived. Earlier Chrome/Safari records below remain historical evidence, not recurring requirements.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is active; phases 3–8 remain planned.
+**Last updated:** October 24, 2026, Phase 2 complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; the newly inserted Phase 2A and phases 3–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
-| 2 — One real rural landscape | In progress | Real AOI ingestion, aligned rendering, curated sites, source panel and browser/performance evidence pending |
+| 2 — One real rural landscape | Gate passed | Real pack/provenance, 34 geography + 139 Unity checks, 12 sites, Chrome state matrix and measured public performance; [audit](PHASE_2_AUDIT.md) |
+| **2A — Reference-quality presentation / interaction** | **Planned; not started** | [Prepared goal brief](PHASE_2A_GOAL.md), [persistent research/reference](DESIGN_REFERENCE.md); requires final Phase 2 baseline, actual browser comparisons, current-slice polish, accessibility/performance evidence and explicit human-review status |
 | 3 — Editing | Planned | Full reversible edit path required |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
 | 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
@@ -18,15 +21,24 @@
 
 ## Current handoff
 
-- **Next action:** complete the authorized Phase 2 real-landscape goal, then stop before Phase 3.
-- **Goal outcome:** Phases 0–1 complete; Phase 2 active.
-- **Parallel packages:** package A geography work is being performed locally by the primary engineer for Phase 2; none delegated.
-- **Phase 2 progress:** real `meadowbrook-v1` pack exported; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Terrain/cover/mapped lines, batched scenery, 12 hypothetical sites and source panel are implemented. First local browser export loads and places/undoes without errors; composition/shadow/readability iteration and final public browser/performance gates remain. [Geography](geography.md), [audit](PHASE_2_AUDIT.md).
-- **Latest verified build:** `Builds/Web/`, 13,679,471 bytes; [public fixture](https://terra-browser.vercel.app/), naming-update source `25067bcf36b575d3fafc12100d179f1a8bc19404`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
+- **Next action:** stop. The authorized Phase 2 real-landscape goal is complete. The next separately authorized implementation is **Phase 2A**, before Phase 3.
+- **Goal outcome:** Phases 0–2 complete. Phase 2A and later phases have not started.
+- **Parallel packages:** package A geography work was completed locally by the primary engineer for Phase 2; none delegated.
+- **Phase 2 result:** real `meadowbrook-v1` pack ingested; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Final Chrome reviews at 1280×720 and 1440×900, transformations/rejections/undo, source panel, recovery and measured performance pass. [Geography](geography.md), [requirement-by-requirement audit](PHASE_2_AUDIT.md).
+- **Latest verified build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
 - **Working scenario:** illustrative productive land versus restoration and runoff; frozen v1 treatment details are in worldpack-format.md. No production scalability or seasonal farm simulation is required.
+
+## Phase 2A planning and persistent design research — October 24, 2026
+
+- **Requested change:** establish a Terra Nil-led visual/UX quality gate after Phase 2, before more gameplay features, and keep a reusable game-design reference visible throughout implementation.
+- **Prepared:** [DESIGN_REFERENCE.md](DESIGN_REFERENCE.md), with dated source register, inspected reference visuals, TN/CS/AX pattern IDs, Terra gap assessment and later-phase review procedure; [PHASE_2A_GOAL.md](PHASE_2A_GOAL.md), with scoped work slices, copyable kickoff, hard gates and required evidence.
+- **Project integration:** AGENTS, README, spec section 7, implementation dependency map, art contract and package handoffs point to the reference. Phase 3 now depends on Phase 2A; Phase 7 preserves the established quality across the full game.
+- **Research evidence:** official Terra Nil product material and sampled publisher tutorial; versioned WSGF desktop captures; original Cities: Skylines manual interface diagram; dated Cities: Skylines II official redesign articles/image; W3C contrast/target guidance. Reviewed the existing initial Phase 2 wide/close browser captures and relevant HUD/gameplay/rendering source. This is desk/visual research, not installed-game testing or a new Terra browser acceptance run.
+- **Execution status:** no Phase 2A implementation, export, deployment, goal or delegation started by this planning task. Phase 2's ongoing implementation remains intact. Internal/external reference-quality acceptance is **not yet tested**. Historical Phase 1 scores do not satisfy Phase 2A's new rubric.
+- **Planning verification:** checked local Markdown links/anchors and code fences across all ten affected planning/reference documents, Phase 2 → 2A → 3 ordering and diagram dependencies, all 14 reference pattern headings, and `git diff --check`; all passed. No runtime test result is claimed for these documentation changes.
 
 ## Location naming update — October 24, 2026
 
@@ -104,6 +116,7 @@ Copy this section for a phase when work starts. Keep notes brief and link concre
 - **Automated correctness checks:** command, result, relevant cases.
 - **Browser checks:** browser/version, viewport, input path, console/network findings.
 - **Design review:** capture paths, weakest item, improvements, final assessment.
+- **Design reference:** relevant TN/CS/AX pattern IDs from DESIGN_REFERENCE.md, matched reference/build states, retained Phase 2A benchmark, deliberate deviations; separate internal visual judgment from external human review.
 - **Measured performance:** hardware, build, download/load time, frame time and interaction latency where relevant.
 - **Human playtest:** tester count/context, observed difficulty, revisions, retest. Write “not tested” when unavailable.
 - **Assumptions, known gaps, and blockers:**
@@ -120,3 +133,16 @@ This setup pass adds tooling and an isolated asset preview; it does not certify 
 - Toolkit Web build: succeeded, 12,913,018 bytes, zero build errors/warnings. Chrome rendered the assets and replayed all 24 animations; a sound button triggered playback. No browser errors observed; optional URP spatial-upscaling shader warning recorded.
 - Guide: `docs/HACKATHON_TOOLKIT.md`. Evidence: `Logs/Setup/toolkit-verification.json`, `toolkit-build.json`, `toolkit-mcp.json`, and `toolkit-browser.png` (local, Git-ignored).
 - A later read-only Editor query timed out while another build was running; that build was left untouched.
+
+
+## Phase 2 — real landscape completed October 24, 2026
+
+[Full acceptance audit](PHASE_2_AUDIT.md) maps every numbered requirement and the visual/performance gates to actual source, browser and handoff evidence. The final pack contains real terrain/cover/mapped context, ten editable hypothetical sites and two scenario no-edit zones. Source geography and illustrative decoration/management are distinguished in the two-page Data & Assumptions panel.
+
+- **Build/public identity:** `35fb7e8edf7c92b37acebfee5656b0bf4991544b`; 64.452 s, 14,696,090 bytes, 0 errors/7 nonblocking toolchain warnings. Deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. All 11 [anonymous public assets](evidence/phase2/public-assets.json) match [local export hashes](evidence/phase2/local-assets.json).
+- **Correctness:** [34 geography checks](evidence/phase2/geography-checks.json), [139 Unity checks](evidence/phase2/contract-checks.json). The original contract fixture still passes; schema v1 remains frozen. One selected AOI; no extra playable level.
+- **Actual Chrome review:** both target viewport state matrices, wide/close crop/margin/restore/swale views, protected/ineligible rejection, exact preview/commit/undo accounting, source modal isolation, resize/reload/refocus, camera input and local invalid-pack Retry pass. [Browser checks](evidence/phase2/browser-checks.json), [Console](evidence/phase2/chrome-console.json), [sampled interaction sequence](evidence/phase2/interaction.gif). No Console errors. Chrome is sufficient; Safari was not retested.
+- **Measured performance:** final 30.008 s foreground run, 120.03 average fps, p95 9 ms / p99 10 ms / max20 ms; no frames >33.3/200 ms. Preview handler ≤0.6 ms, placement3.5 ms; sampled DOM-to-rAF preview≤15.2 ms, placement13.6 ms. First usable interaction8.282 s on the changed export. [Methods and limitations](evidence/phase2/public-performance.json); these are single-machine observations, not physical display latency or a controlled benchmark.
+- **Internal foundation scores:** scene appeal4, legibility4, feedback4, ease4, coherence4. Initial framing, Web render scale/shadows and later header-over-trees contrast were fixed. No claim of Terra Nil parity or novice evaluation; the prepared Phase 2A gate addresses compact HUD hierarchy, richer canopy/treatment detail, illustrated tools, grounded reveal, accessibility and broader validation.
+- **Handoff:** [current runnable bundle instructions](PARALLEL_WORK.md#current-phase-2-local-handoff), [fresh-clone evidence](evidence/phase2/handoff-check.json). Raw source cache/Library/builds/credentials excluded; normalized ready pack included.
+- **Stop:** Phase 2A, Phase 3 editing, Phase 4 runoff and later mission/learning remain unstarted. No automatic expansion or parallel delegation is authorized by this completion.

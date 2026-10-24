@@ -1,0 +1,22 @@
+{
+  "method": "Sampled sequence of actual Chrome screenshots taken after real pointer/keyboard actions; assembled at 1.2 seconds per frame. Condensed interaction storyboard, not a continuous or real-time video, and not evidence of frame pacing. See public-performance.json for measured live frame times.",
+  "frames": [
+    "public-1280-default.png",
+    "public-1280-hover.png",
+    "public-1280-placed.png",
+    "public-1280-close.png",
+    "public-margin-preview.png",
+    "public-margin.png",
+    "public-restore-preview.png",
+    "public-restore.png",
+    "public-swale-preview.png",
+    "public-swale.png",
+    "public-ineligible.png",
+    "public-camera.png"
+  ],
+  "viewport": [
+    1280,
+    720
+  ],
+  "sourceCommit": "35fb7e8edf7c92b37acebfee5656b0bf4991544b"
+}

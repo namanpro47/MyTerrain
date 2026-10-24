@@ -14,18 +14,18 @@
     {
       "file": "Build/Web.data.unityweb",
       "status": 200,
-      "bytes": 4058066,
-      "sha256": "c563ec0f115a8f75744b129b7a2cd908ffe47da4f0b21f1141b655c7954513d1",
+      "bytes": 4057116,
+      "sha256": "b00c2744386c0e667422f5fa7a7de1f30665fe31e4150dcf6c72b37756373fa6",
       "contentType": "application/vnd.unity",
       "contentEncoding": null,
       "cacheControl": null,
-      "decodedBytes": 11013328
+      "decodedBytes": 11013360
     },
     {
       "file": "Build/Web.framework.js.unityweb",
       "status": 200,
       "bytes": 76866,
-      "sha256": "6b0a03e2fa9ae83d1c9e6b2fafa5f2c3ac09328d4eb03d7c8b34e242706ee8bf",
+      "sha256": "1ecb7995c05f9f60a9ad2d0077e01a9312b3a75cacd5333e1ac75dccb95e53dc",
       "contentType": "application/vnd.unity",
       "contentEncoding": null,
       "cacheControl": null,
@@ -35,7 +35,7 @@
       "file": "Build/Web.loader.js",
       "status": 200,
       "bytes": 48779,
-      "sha256": "033b53d56cd729d4e6229b7d179d07352ed6cb8e9e91087952b52831e33aedec",
+      "sha256": "fb3d0a1d2547b73b3f8764bedc217d5b2832a7c4427febee7b5d70855ca6da56",
       "contentType": "text/javascript",
       "contentEncoding": null,
       "cacheControl": null
@@ -43,12 +43,12 @@
     {
       "file": "Build/Web.wasm.unityweb",
       "status": 200,
-      "bytes": 9544060,
-      "sha256": "a8c479f377c475dd2051dab59fcd0d2a9d0b18063f26a72d918104f9d98b7ca1",
+      "bytes": 9544253,
+      "sha256": "5cdf99613ec6b05da9636001481d50af87bd0e0b46742db92f4ac3234b8c8aeb",
       "contentType": "application/vnd.unity",
       "contentEncoding": null,
       "cacheControl": null,
-      "decodedBytes": 35672654
+      "decodedBytes": 35672951
     },
     {
       "file": "StreamingAssets/WorldPacks/fixture-v1/manifest.json",

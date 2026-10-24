@@ -1,0 +1,40 @@
+{
+  "sourceCommit": "35fb7e8edf7c92b37acebfee5656b0bf4991544b",
+  "browser": "Chrome 155.0.8059.85",
+  "url": "https://terra-browser.vercel.app/",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "observed": [
+    "Final public source opens real meadowbrook-v1 with baseline production 6 and credits 60; no authentication prompt on production alias.",
+    "Default, hover, protected rejection, committed plot, place/assumptions modal, sources modal and close view captured at both target sizes.",
+    "Pointer West field open plot: preview +11 / cost24; commit 17/36; undo 6/60.",
+    "Keyboard West field living margin: preview +8 / cost30; commit 14/30; undo 6/60.",
+    "Keyboard West field restore: preview -1 / cost18; commit 5/42; undo 6/60.",
+    "Keyboard Meadow edge swale: preview +0 / cost28; commit 6/32; undo 6/60.",
+    "Wooded slope protected zone rejects Enter at both sizes and leaves 6/60; copy explicitly says scenario no-edit zone, not legal designation.",
+    "West field swale is ineligible; red ghost and reason shown; Enter leaves 6/60.",
+    "Data modal blocks Right-arrow and Enter world actions; source paging and Escape close work.",
+    "Motion reduced and Sound muted labels update; subsequent preview/commit/undo remain usable.",
+    "Pointer drag rotates camera without placement; wheel changes framing; F close and R wide reset work; keyboard orbit/zoom exercised in live performance path.",
+    "Reload restores 6/60/default camera; canvas refocus followed by Tab/Enter commits West field to17/36 and Z restores6/60.",
+    "Local-only malformed schema999 manifest yields explicit unsupported-schema error; after exact-byte restoration, visible Retry recovers real scene6/60. Invalid pack was never deployed.",
+    "Final Chrome Console error filter is empty; optional stripped FSR shader and UnityCache Content-Length advisories remain nonblocking."
+  ],
+  "visualInspection": "Wide, focused West field and Meadow edge, placed crop/margin/restoration/swale, and rotated views reviewed for grounded geometry, cover joins and line/terrain alignment. No visible floating roots/proposals, mesh gaps or z-fighting found in these views. This is sampled visual inspection, not exhaustive every-camera proof.",
+  "geographyComparison": "Compared final default/camera captures to worlds/meadowbrook-v1/alignment.png: northern wooded ridge and northeast channel, southwest woodland, western stream junction, east Highway162/Brye junction and southern stream meanders retain relative topology. Quantitative source processing tolerances are in geography-checks.json; exact published runtime bytes match source hashes.",
+  "limits": [
+    "Safari retesting waived project-wide by user; Chrome is sufficient.",
+    "No physical trackpad, Shift/middle pan or novice usability test claimed.",
+    "Interaction GIF is a condensed sampled sequence, not a continuous motion recording.",
+    "No full WCAG/screen-reader conformance, reference-game visual parity or educational efficacy claim.",
+    "Phase 2A remains separately authorized future work; no Phase 3 implementation."
+  ]
+}

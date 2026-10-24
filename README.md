@@ -1,10 +1,12 @@
 # Terra
 
-A browser-based rural land-use game in development. Phase 2 is integrating the real Meadowbrook Valley landscape into the frozen v1 interaction foundation.
+A browser-based rural land-use game in development. Phase 2 delivers the real Meadowbrook Valley landscape on the frozen v1 interaction foundation.
 
 The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); this setup does not implement those gameplay features.
 
 ## Project vision — start here
+
+**Design reference:** [Terra Nil + Cities: Skylines research and visual pattern library](docs/DESIGN_REFERENCE.md). This is the project-wide reference for landscape, HUD, tools, feedback, camera, audio and onboarding. **Next planned gate after Phase 2:** [Phase 2A — reference-quality presentation and interaction](docs/PHASE_2A_GOAL.md), before Phase 3 adds more gameplay. The brief includes a copyable goal prompt and concrete acceptance evidence; execution has not started.
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) is the project's north star and primary reference for product vision, gameplay, scope, priorities, and design constraints. Consult it when planning features or making implementation decisions, and update it when the team explicitly agrees to change the vision.
 
@@ -23,7 +25,7 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 
 The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. Runoff simulation is not implemented yet. [Source data, reproducible export and geographic limits](docs/geography.md).
 
-The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It still contains the Phase 1 fixture while the Phase 2 export is being reviewed. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phase 1 is complete; Phase 2 is in progress.
+The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A and later gameplay remain unstarted.
 
 ## Build for the browser
 

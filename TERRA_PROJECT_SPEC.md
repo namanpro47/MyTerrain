@@ -314,6 +314,10 @@ In MVP, do **not** invent official public-consultation links. Verified local URL
 
 ## 7. Visual & UX Direction
 
+**Design priority — October 24, 2026:** Use **Terra Nil as the primary reference for visual and experiential quality**, with **Cities: Skylines as a selective reference for contextual information and tool organization**. The persistent [design research and reference library](docs/DESIGN_REFERENCE.md) contains dated visual sources, reusable patterns and Terra-specific adaptations. Consult it throughout implementation. It supports this specification rather than replacing the one-location scope, rural livelihoods, or scientific-honesty requirements.
+
+Establish that quality on the existing placement slice in **Phase 2A, immediately after Phase 2 and before further gameplay expansion in Phase 3**. Treat world composition, tool artwork, readable HUD, placement feedback, camera, motion, sound, accessibility and browser responsiveness as one experience. Carry the accepted standard through all later phases; Phase 7 is a whole-game consistency pass, not the first opportunity to make the game feel finished. Detailed tasks, evidence and status belong in the [Phase 2A brief](docs/PHASE_2A_GOAL.md) and evidence ledger. This is a quality ambition, not a claim that parity has already been achieved.
+
 ### Visual identity
 
 **Beautiful, readable 3D diorama based on actual geography.** Draw inspiration from Terra Nil's vivid transformations and readable miniature landscapes. Rural simplicity must produce stronger composition and interaction, not a sparse unfinished scene.
@@ -624,7 +628,7 @@ Use code-owned, data-driven systems rather than one large hand-edited scene. Com
 ### Web constraints and deployment
 
 - **Build and deploy a minimal Unity Web project before doing large-scale world work.** This must be an early feasibility gate.
-- Target modern **64-bit desktop browsers with WebGL 2 and WebAssembly**; verify the exact engine/browser compatibility and test the deployed build in Chrome/Safari/Firefox as practical.
+- Target modern **64-bit desktop browsers with WebGL 2 and WebAssembly**; verify the exact engine/browser compatibility and test the deployed build in Chrome. Chrome is sufficient for project acceptance; test Safari or Firefox only when the user explicitly requests it. Do not request Safari or Private Browsing unlocks for routine verification.
 - Use URP features and shaders that work in Unity Web builds; don't assume all desktop GPU effects will work.
 - Watch memory usage, static asset sizes, network transfer, shader variants, batching and GPU draw calls.
 - Package only the one rural world; measure and reduce its load size before adding loading infrastructure.
@@ -810,7 +814,9 @@ These are **implementation research starting points**, not a substitute for chec
 
 ### Design inspirations (not scientific sources)
 
-- **Terra Nil:** choose/position/restore/progress, immediate visual transformation.
+- **[Persistent design reference](docs/DESIGN_REFERENCE.md):** source register, inspected visuals, pattern IDs, limits and review procedure for all future player-facing work.
+- **Terra Nil:** primary visual/feel reference; choose/position/restore/progress, immediate visual transformation, landscape prominence, illustrated tools and quiet feedback.
+- **Cities: Skylines:** secondary reference for stable tool categories, contextual guidance and spatial information; not a mandate for city content or dense simulation dashboards.
 - **Rural landscape dioramas:** readable land-cover patterns and spatial trade-offs without dense city-building complexity.
 - **Geographic digital twins:** anchored real-world geometry with a more approachable, gamified interface.
 
@@ -832,7 +838,7 @@ Build the highest-quality playable **single rural location** described above. Ru
 4. Choose and document the rural AOI during phase 1, then keep one canonical playable location throughout iteration.
 5. Keep data and state separate from presentation for easy handoffs, without building a generalized platform.
 6. Derive visible numbers from actual state. Label illustrative productive units and model assumptions; do not invent local yields, hydrology, or legal rights.
-7. Make design/UI quality a gate throughout the work, not a final skin. Test the opening view, tools, invalid states, and ending in the browser.
+7. Make design/UI quality a gate throughout the work, not a final skin. Complete Phase 2A before Phase 3, consult docs/DESIGN_REFERENCE.md for every player-facing change, and preserve its accepted benchmark through later phases. Test the opening view, tools, invalid states, and ending in the browser.
 8. Let parallel engineers contribute data, math, assets, and content for this same location; avoid shared-scene ownership conflicts.
 9. Implement all three tools and the full edit/mission/comparison/learning/replay scope before claiming the game complete.
 10. Prefer direct code, small authored site lists, offline data prep, and simple hosting to scalability work. No AI runtime dependency.
@@ -845,6 +851,7 @@ Build the highest-quality playable **single rural location** described above. Ru
 1. Verify the existing Unity setup and deploy a minimal browser prototype.
 2. During local phase 1, compare a short rural shortlist using source coverage and visual previews, choose one AOI, and establish the interaction/art/contracts baseline.
 3. Generate one validated rural WorldPack with terrain, cover, relevant water/path context, and hypothetical management sites; render it attractively.
+   Before the next gameplay step, complete Phase 2A's reference-quality presentation and interaction gate on that existing slice.
 4. Implement Cultivate/Restore and reversible placement with budget, productive-capacity, and cover accounting.
 5. Integrate runoff and Manage Water, then finish the mission, comparison, learning, replay, and repeated polish **on that same map**.
 

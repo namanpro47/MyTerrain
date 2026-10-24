@@ -1,0 +1,55 @@
+{
+  "sourceCommit": "35fb7e8edf7c92b37acebfee5656b0bf4991544b",
+  "url": "https://terra-browser.vercel.app/",
+  "viewport": [
+    1280,
+    720
+  ],
+  "frameTimes": {
+    "seconds": 30.007997512817383,
+    "averageFps": 120.03466796875,
+    "frameP50Ms": 8.000006675720215,
+    "frameP95Ms": 9,
+    "frameP99Ms": 10,
+    "maxFrameMs": 20,
+    "maxPreviewCpuMs": 0.6000000238418579,
+    "maxPlacementCpuMs": 3.5,
+    "frames": 3602,
+    "framesOver33Ms": 0,
+    "framesOver200Ms": 0,
+    "previewEvents": 4,
+    "placementEvents": 1,
+    "cameraEvents": 3260,
+    "unfocusedFrames": 0
+  },
+  "inputLatency": {
+    "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+    "samples": [
+      {
+        "kind": "preview",
+        "source": "pointer",
+        "milliseconds": 2.9000000059604645
+      },
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 15.199999988079071
+      },
+      {
+        "kind": "placement",
+        "source": "keyboard",
+        "milliseconds": 13.599999994039536
+      },
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 11.099999994039536
+      }
+    ],
+    "discardedStale": 0
+  },
+  "interactiveMs": 8282,
+  "downloadBytes": 14696090,
+  "path": "R, F9, right arrow 8s, R, pointer preview West field, F, M, Enter, Z, left arrow 8s, zoom out 6s, zoom in 5s, R, right arrow 4s. Capture automatically ends at 30s.",
+  "limits": "One observed foreground run on M1 Max; actual monitor refresh approximately 120 Hz. Load was first navigation to this changed export in an existing Chrome session; cache not forcibly cleared and connection speed not measured. rAF denotes a presentation opportunity, not physical display latency. No controlled population benchmark."
+}

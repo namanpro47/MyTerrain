@@ -4,6 +4,8 @@
 
 **Planning baseline / rural-first revision:** October 24, 2026. **Status:** proposed execution plan; no implementation phase is certified complete by this document.
 
+**Presentation-first revision — October 24, 2026:** insert **Phase 2A** after Phase 2 and before Phase 3. Existing phase numbers and evidence remain stable. [DESIGN_REFERENCE.md](docs/DESIGN_REFERENCE.md) is the persistent project-wide design reference; [PHASE_2A_GOAL.md](docs/PHASE_2A_GOAL.md) contains the prepared goal loop and stricter quality gate. Terra Nil is the primary visual/feel reference, with selected Cities: Skylines information patterns. Establish this standard before adding more gameplay, then preserve it throughout Phases 3–8.
+
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) remains the north star. This plan turns it into ordered, bounded work. The user's latest direction governs execution: win through a beautiful, enjoyable, working hackathon game; use pragmatic shortcuts and avoid unnecessary production infrastructure.
 
 **Build and refine one excellent rural game through phases 0–8.** The rural location is the primary product, not a temporary city prototype. Every phase completes or improves the full experience in that same place. Choose the exact AOI during phase 1, then keep it stable while mechanics, UI, and balance evolve. Additional levels, cities, and live generation are outside the active phases; they require the one-location quality gate and a separate explicit scope decision. Parallel packages can proceed independently after phase 1, with explicit integration points.
@@ -11,6 +13,8 @@
 Human playtesting can run alongside engineering: if a tester is unavailable, finish the browser/technical gate, mark the human usability check pending, and allow the next requested phase to proceed. Do not claim that usability is verified. This exception prevents a goal loop from waiting indefinitely for a person while useful implementation remains.
 
 Companion documents: [parallel engineer handoffs](docs/PARALLEL_WORK.md) and [phase status / evidence ledger](docs/PHASE_STATUS.md).
+
+For Phase 2A, distinguish **engineering/internal visual gate passed** from **external usability/reference validation passed**. Missing human testers may remain explicitly pending under the exception above; missing browser, input, truthful-state or visual evidence may not. The next phase still requires separate authorization.
 
 ## 1. Scope and working assumptions
 
@@ -38,6 +42,7 @@ Keep the existing root Unity layout, as reflected in the revised master spec.
 | 0 | The game opens from a real browser URL | Local machine only | Editor smoke check, Web export, deployed load |
 | 1 | One selected rural AOI and a coherent visual/interaction foundation | Local machine only | Site-selection evidence, styled fixture, camera, hover/preview/undo, handoff contracts |
 | 2 | A beautiful, geographically grounded rural diorama | Primary + geography/art deliveries | Real pack loaded, geographic alignment, hero screenshots |
+| **2A** | **Reference-quality presentation and interaction on the existing slice** | Primary; scoped art/audio deliveries | Terra Nil comparisons, complete current UI states, browser interaction recording, stricter visual/accessibility/performance gates; human status explicit |
 | 3 | A satisfying editable world | Primary | Cultivate/Restore, credits/productive capacity, reversible edits |
 | 4 | Choices have credible, spatial consequences | Primary + simulation delivery | Same-storm runoff, bounded Manage Water, contrasting strategies |
 | 5 | A complete, balanced rural mission | Primary + content delivery | Uncoached playthrough, multiple winning solutions |
@@ -49,7 +54,8 @@ Keep the existing root Unity layout, as reflected in the revised master spec.
 flowchart LR
   P0[0 Browser gate] --> P1[1 Local foundation]
   P1 --> P2[2 One real rural landscape]
-  P2 --> P3[3 Editable world]
+  P2 --> P2A[2A Reference-quality presentation]
+  P2A --> P3[3 Editable world]
   P3 --> P4[4 Consequences]
   P4 --> P5[5 Mission]
   P5 --> P6[6 Ending]
@@ -62,6 +68,7 @@ flowchart LR
   B --> P4
   P1 --> C[C Art and audio kit]
   C --> P2
+  C --> P2A
   C --> P7
   P1 --> D[D Educational content]
   D --> P5
@@ -125,6 +132,8 @@ Start with same-origin static files and an explicit pack base URL. Prefer JSON u
 
 ## 4. Design and interaction standards
 
+Read [the persistent design reference](docs/DESIGN_REFERENCE.md) for all player-facing work. Cite applicable TN/CS/AX pattern IDs in phase evidence and compare actual browser captures against the latest accepted benchmark. The numeric/timing defaults below are superseded by the accepted art contract where Phase 2A refines them; product truth and scope remain governed by the spec.
+
 **The scene is the product's first impression.** The player should see an inviting, readable miniature rural landscape, understand one useful next action, and see a rewarding transformation within the first minute after loading.
 
 ### Visual direction to establish in phase 1
@@ -167,6 +176,8 @@ Capture the **browser**, not just Unity Scene view, at 1280×720 and 1440×900. 
 
 Use a 1–5 internal score for scene appeal, legibility, feedback, ease of interaction, and coherence. A working but ugly/unreadable feature is not done. Target at least 4 in every relevant category; record the weakest item and fix it. Scores guide review rather than pretending to be objective user research.
 
+**From Phase 2A onward**, use its reference-calibrated six-dimension rubric: every dimension at least 4/5, mean at least 4.5/5, all hard gates passed, and both normal and adverse/recovery states reviewed. This supersedes the generic foundation score above. Scores require reference comparisons and specific remaining-gap notes; a working feature or a single attractive hero shot does not establish reference quality. Later phases must meet this bar for new surfaces and preserve accepted existing ones.
+
 From phase 2 onward, measure a 30-second camera/placement path in the deployed browser on the actual demo laptop. Target 60 fps, accept a stable 30 fps if necessary, and aim for preview response within 100 ms and no placement stalls above 200 ms. Record frame time and load duration; these are budgets to test, not claims. Start with a compressed initial-download goal below roughly 50 MB and first interaction within 15 seconds on the measured demo connection; reduce scenery/texture cost if reality misses it badly.
 
 ## 5. Phases and acceptance gates
@@ -180,7 +191,7 @@ Use [docs/PHASE_0_GOAL.md](docs/PHASE_0_GOAL.md) for the prepared kickoff prompt
 1. Verify the pinned Editor, Web Build Support, license, disk headroom, VS Code integration, URP configuration, scene list, and Git ignores. Preserve useful setup work.
 2. Open the existing scene, enter Play mode, inspect Console, and verify input and rendering. Add only the minimal camera/input needed for a smoke test.
 3. Use the existing Web build script. Serve the result over HTTP locally; then deploy through the intended static host. Verify loading paths, compression behavior, resizing, and focus/input in the deployed build.
-4. Test Chrome and Safari on the demo machine; record Firefox coverage when available. Record exact tested versions and any actual limitations rather than claiming universal browser support.
+4. Test Chrome on the demo machine; Chrome is sufficient for phase acceptance. Test other browsers only when explicitly requested by the user; do not launch Safari or request Private Browsing unlocks by default. Record exact tested versions and any actual limitations rather than claiming universal browser support.
 5. Update `SETUP.md` to observed reality, document the deployment commands/URL, and establish the initial Git checkpoint.
 
 **Done when:** a clean page load displays a controllable 3D scene at a real URL, with no blocking browser console/network errors, and the build can be repeated. Editor-only success does not satisfy the gate.
@@ -217,9 +228,26 @@ Use [docs/PHASE_0_GOAL.md](docs/PHASE_0_GOAL.md) for the prepared kickoff prompt
 
 **Shortcut:** one bounded AOI, simplified offline data, shared terrain/vegetation materials, authored site polygons, a few hero details. **Fallback:** reduce the same AOI or use a documented adequate-resolution layer; never silently fabricate geography. Reopen site selection only if a fundamental data blocker makes the chosen place unusable, and replace it rather than keeping multiple playable locations.
 
+### Phase 2A — Reference-quality presentation and interaction
+
+**Goal:** bring the existing Meadowbrook Valley placement slice to a high, Terra Nil-led visual and experiential bar before adding further mechanics. **Depends on:** completed Phase 2 engineering/browser gates. **Owner:** primary integration engineer; package C may supply scoped art/audio. This insertion does not renumber Phases 3–8.
+
+Use [docs/PHASE_2A_GOAL.md](docs/PHASE_2A_GOAL.md) for the executable brief, acceptance matrix, reference-calibrated rubric, evidence bundle, stop conditions and copyable kickoff. Use [docs/DESIGN_REFERENCE.md](docs/DESIGN_REFERENCE.md) throughout implementation.
+
+1. Freeze the actual Phase 2 browser baseline and its remaining gaps against dated references.
+2. Improve landscape composition, lighting, readable cover masses, canopy/field detail and wide/close views while preserving geographic truth.
+3. Establish compact HUD hierarchy, original illustrated tools, coherent typography/tokens, structured previews and complete control states using uGUI/TMP.
+4. Refine existing placement, rejection, cancel and undo feedback; polish camera, motion, sound, guide-style help/sources, settings, loading and error recovery.
+5. Verify the actual browser at target sizes and increased text scale; record reference comparisons, an interaction video, correctness/accessibility checks and measured performance. Fix the weakest material gap.
+6. Publish accepted art contract v2 and benchmark captures. Record engineering/internal visual completion separately from pending external human review; prepare the Phase 3 handoff.
+
+**Done when:** every Phase 2A hard gate and internal visual threshold passes, the public build/evidence identify the tested source, and human review is either evidenced or explicitly pending under the existing exception. Do not claim human-validated parity from agent scoring. **Stop before Phase 3.**
+
+**Protect:** the quality bar, existing state semantics, truthful pending runoff, one real location. **Defer:** new simulation, full editing/history mechanics, mission/ending flow, additional tools or maps. Narrow the number of assets/effects rather than accepting visibly unfinished presentation.
+
 ### Phase 3 — The editable-world foundation
 
-**Goal:** building and revising proposals feels good even without mission framing. **Depends on:** phase 2.
+**Goal:** building and revising proposals feels good even without mission framing. **Depends on:** phase 2A engineering/internal visual gate; any pending human review stays explicit. Preserve the accepted Phase 2A components and design benchmark when adding editing operations.
 
 1. Finish `WorldStateStore`, intervention rules, command validation, snapshot history, and full recomputation over the small set of sites.
 2. Implement Cultivate with a standard plot and a vegetated-margin variant, plus Restore with one locally fitting treatment. Each has site eligibility, productive/vegetated area fractions, illustrative capacity per productive area, cost, and a visual recipe from data. The recipes remain configurable and must not be presented as measured yield forecasts.
@@ -279,7 +307,7 @@ Use [docs/PHASE_0_GOAL.md](docs/PHASE_0_GOAL.md) for the prepared kickoff prompt
 
 ### Phase 7 — Design, sound, performance, and usability pass
 
-**Goal:** every important screen and interaction feels intentional. **Depends on:** phase 6.
+**Goal:** every important screen and interaction retains the quality established in Phase 2A across the now-complete game. **Depends on:** phase 6. This is a consistency and refinement pass, not the first visual/UX redesign.
 
 1. Audit the actual browser flow: loading, opening view, all tools/variants, preview, blocked state, edit history, success, comparison, learning, retry, and loading failure.
 2. Improve weak composition, clutter, text hierarchy, colors, site readability, camera feel, and animation timing. Review both default and close-up cameras; remove generic prototype styling.
@@ -325,13 +353,16 @@ This plan prepares future goal loops; it does not start one or authorize the ent
 
 **Reusable kickoff prompt:**
 
-> Start a goal to complete Phase [N] in IMPLEMENTATION_PLAN.md. Read TERRA_PROJECT_SPEC.md, the phase entry, docs/PHASE_STATUS.md, and applicable repository instructions. Honor the current hackathon scope and package ownership. Implement the phase end to end, including its browser and design acceptance gates. Keep the last working build available. Use focused tests for state/model/data correctness and visually inspect the actual browser UI. Update docs/PHASE_STATUS.md with what works, validation evidence, remaining gaps, and the next phase handoff. Do not count mocks, an Editor-only run, or unverified user testing as completed acceptance evidence. Keep all work on the same selected rural location. Do not create another level, city, or live generator. Do not start the next phase automatically; after phase 8, propose or carry out only explicitly requested refinement of this same game.
+Every player-facing phase also reads `docs/DESIGN_REFERENCE.md` and the accepted `docs/art-direction.md`, cites relevant pattern IDs, and preserves Phase 2A's benchmark. For Phase 2A itself, use its dedicated kickoff instead of relying on this generic prompt.
+
+> Start a goal to complete Phase [N] in IMPLEMENTATION_PLAN.md. Read TERRA_PROJECT_SPEC.md, the phase entry, docs/PHASE_STATUS.md, docs/DESIGN_REFERENCE.md, docs/art-direction.md, and applicable repository instructions. Honor the current hackathon scope and package ownership. Implement the phase end to end, including its browser and design acceptance gates. Keep the last working build available. Use focused tests for state/model/data correctness and visually inspect the actual browser UI. For player-facing changes, cite relevant reference pattern IDs and preserve the accepted Phase 2A quality benchmark. Update docs/PHASE_STATUS.md with what works, validation evidence, remaining gaps, and the next phase handoff. Do not count mocks, an Editor-only run, or unverified user testing as completed acceptance evidence. Keep all work on the same selected rural location. Do not create another level, city, or live generator. Do not start the next phase automatically; after phase 8, propose or carry out only explicitly requested refinement of this same game.
 
 | Phase | Concrete goal objective |
 |---|---|
 | 0 | Verify and deploy a reproducible minimal Unity Web build on the current machine. |
 | 1 | Deliver one selected rural AOI, a polished local interaction fixture, and a committed runnable v1 handoff kit. |
 | 2 | Load and render a geographically aligned, attractive rural landscape in the browser. |
+| **2A** | **Meet the Terra Nil-led visual/interaction quality gate on the existing slice, with reference comparisons, accessibility/performance evidence and a reusable art/UI v2 benchmark.** |
 | 3 | Make Cultivate/Restore and all reversible editing operations reliable and satisfying on this rural location’s sites. |
 | 4 | Integrate deterministic runoff and bounded Manage Water with matching previews and explanations. |
 | 5 | Deliver a balanced rural mission with multiple solutions and uncoached usability evidence. |

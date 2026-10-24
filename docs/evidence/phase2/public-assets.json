@@ -1,0 +1,108 @@
+{
+  "url": "https://terra-browser.vercel.app",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 4306,
+      "sha256": "5442b883adec04f3189207a4f6d831209d441742b65056d8d15afa5bd3687a04",
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "Build/Web.data.unityweb",
+      "status": 200,
+      "bytes": 4057116,
+      "sha256": "b00c2744386c0e667422f5fa7a7de1f30665fe31e4150dcf6c72b37756373fa6",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "decodedBytes": 11013360
+    },
+    {
+      "file": "Build/Web.framework.js.unityweb",
+      "status": 200,
+      "bytes": 76866,
+      "sha256": "1ecb7995c05f9f60a9ad2d0077e01a9312b3a75cacd5333e1ac75dccb95e53dc",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "decodedBytes": 339009
+    },
+    {
+      "file": "Build/Web.loader.js",
+      "status": 200,
+      "bytes": 48779,
+      "sha256": "fb3d0a1d2547b73b3f8764bedc217d5b2832a7c4427febee7b5d70855ca6da56",
+      "contentType": "application/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "Build/Web.wasm.unityweb",
+      "status": 200,
+      "bytes": 9544253,
+      "sha256": "5cdf99613ec6b05da9636001481d50af87bd0e0b46742db92f4ac3234b8c8aeb",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "decodedBytes": 35672951
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/manifest.json",
+      "status": 200,
+      "bytes": 1681,
+      "sha256": "d6ef8e709ea60052d57ac52cfbb6a198eef2552541a845fd5131e06ede5e6573",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/scenario.json",
+      "status": 200,
+      "bytes": 2248,
+      "sha256": "eebe27f84514c894ebcfd07281ae2740f5a610887008a7d41c0ec066d281cce6",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/world.json",
+      "status": 200,
+      "bytes": 7448,
+      "sha256": "04115619580381ad6b3ea3e14d389a7ed4e55750f68f999c7b3e3d5987d8ae77",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  ]
+}
