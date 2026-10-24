@@ -1,12 +1,12 @@
 # Terra — parallel engineer handoffs
 
-**Status:** Phase 2/package A is implemented and integrated locally by the primary engineer. No package has been delegated. Packages B/C/D and Phase 2A require separate authorization; this handoff does not start them.
+**Status:** Phase 2/package A is implemented and integrated locally by the primary engineer. No package has been delegated. Phase 2A is active under the primary engineer; packages B/C/D remain undelegated and require separate authorization. This handoff does not start them.
 
 Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMPLEMENTATION_PLAN.md). The primary engineer owns the running game. These packages let another engineer work in a separate checkout without touching the main scene, UI, or integration state. **Every package improves the same selected rural location across its full game scope.** Do not create additional levels, city assets, or a live location generator as parallel work.
 
 ## Start condition and recommended assignment
 
-**Design reference for every handoff:** read [DESIGN_REFERENCE.md](DESIGN_REFERENCE.md) and the current [art contract](art-direction.md) for any player-facing asset, visualization or copy. Cite applicable TN/CS/AX pattern IDs and attach relevant previews/evidence. **Phase 2A now sits between Phases 2 and 3** and establishes the quality benchmark before further gameplay integration; the primary engineer owns that HUD/camera/rendering integration. Package work remains within the ownership table and does not start automatically from this planning change.
+**Design reference for every handoff:** read [DESIGN_REFERENCE.md](DESIGN_REFERENCE.md) and the current [art contract](art-direction.md) for any player-facing asset, visualization or copy. Cite applicable TN/CS/AX pattern IDs and attach relevant previews/evidence. **Phase 2A is an active visual rebuild between Phases 2 and 3.** The user rejected the current appearance and authorized replacing whole aspects of the implementation. Read the [rewritten goal](PHASE_2A_GOAL.md) and [visual studies/resources](VISUAL_REBUILD.md). Direct landscape quality against Terra Nil is the gate; HUD and UX polish cannot compensate. The old art contract is historical until a stronger direction is implemented. The primary engineer owns that integrated rebuild and may revise implementation contracts. Package work remains within the ownership table and does not start automatically from this planning change.
 
 Phases 0–1 are local to Naman's computer. All packages use **Meadowbrook Valley** for player-facing copy and planning. This is a display-name change only; preserve the existing AOI, source attribution and internal ID. See [naming policy](location-selection.md#name-and-provenance).
 
@@ -111,7 +111,7 @@ Independence means each package can compile/validate/show its result against the
 
 **Inputs:** frozen palette/type/style sheet; local units; footprint and pivot rules; target lighting; material/shader compatibility; representative terrain/cover/sites from the fixture.
 
-Use TN-01/02/04/07 in [the design reference](DESIGN_REFERENCE.md) for composition, readable vegetation/cover, tool illustration coherence and quiet audio. Coordinate with the primary owner on Phase 2A's proposed v2 direction before depending on changed tokens. The main engineer integrates original treatment illustrations into uGUI; package C may supply those assets within its owned art path. Retain small, cohesive deliverables and the reference-quality target rather than postponing the first polished kit until Phase 7.
+Use TN-01/02/09–12 (direct visual quality) and TN-04/07 in [the design reference](DESIGN_REFERENCE.md) for composition, readable vegetation/cover, tool illustration coherence and quiet audio. Coordinate with the primary owner on Phase 2A's proposed v2 direction before depending on changed tokens. The main engineer integrates original treatment illustrations into uGUI; package C may supply those assets within its owned art path. Retain small, cohesive deliverables and the reference-quality target rather than postponing the first polished kit until Phase 7.
 
 **Scope:** cohesive terrain/ground-cover materials, cultivated-plot patterns and a vegetated-margin variant, a small locally appropriate grass/shrub/tree set, restoration transitions, one swale/retention module, placement accents, and restrained ambient/interaction audio. Sparse structures are optional context; do not make a city building kit. Prioritize the one landscape's opening camera and common placements.
 
@@ -135,7 +135,7 @@ Use TN-01/02/04/07 in [the design reference](DESIGN_REFERENCE.md) for compositio
 
 **Scope:** concise hypothetical rural productive-land brief, progressive tutorial hints, tool intents, invalid-action reason copy, model/fiction disclosures, one entry prediction, one unseen transfer question with feedback, and a few Take It Home question-card choices. Use result placeholders rather than hardcoded calculated values.
 
-Use TN-06/08 and CS-04 in [the design reference](DESIGN_REFERENCE.md) for guide-style explanation, quiet appreciation and contextual teaching. Phase 2A polishes only existing help/source surfaces; mission and ending content still integrates in Phases 5–6. Copy must fit the accepted art contract and keep geography, assumptions and estimates distinct.
+Use TN-06/08 and CS-04 in [the design reference](DESIGN_REFERENCE.md) for guide-style explanation, quiet appreciation and contextual teaching. Phase 2A may replace or simplify existing help/source surfaces to support the visual rebuild; mission and ending content still integrates in Phases 5–6. Copy must fit the accepted art contract and keep geography, assumptions and estimates distinct.
 
 **Independent acceptance:**
 
@@ -184,7 +184,7 @@ Open this folder in **Unity 6000.6.6f1** with Web Build Support. Packages are lo
 
 With the Editor connected, `unity command script eval --caller plugin --skill unity-cli 'return Phase1Checks.Run();' --format json` verifies contracts without opening or modifying TerraMain. Package A validates against manifest/world/scenario DTOs and the invalid examples; package B runs the scalar I/O example independently and implements the pure seam; C opens the gallery independently. Shared-contract changes go through the primary engineer. Only one package owner edits a path at a time.
 
-At this historical checkpoint the next implementation was Phase 2/package A; the subsequently authorized Phase 2 goal completed it locally. The next implementation is now Phase 2A, only when separately authorized.
+At this historical checkpoint the next implementation was Phase 2/package A; the subsequently authorized Phase 2 goal completed it locally. Phase 2A was subsequently authorized and is now an active visual rebuild; see the current status at the top of this document.
 
 The source baseline was cloned from a complete Git bundle and passed packaging/checksum and simulation-example checks with a clean Git status: [handoff check](evidence/phase1/handoff-check.json). Final bundle regeneration includes the committed audit and evidence. The generated bundle is local and ignored by Git; no remote push or delivery to another person is claimed.
 
@@ -203,4 +203,4 @@ The current `prepare-world.py` defaults to the real pack. `--pack fixture-v1` ex
 
 `Builds/Handoff/terra-phase2.bundle` contains the complete local branch and history. Verify with `git bundle verify Builds/Handoff/terra-phase2.bundle`; the neighboring `.sha256` records its current transfer hash. [Handoff verification](evidence/phase2/handoff-check.json) records a fresh bundle clone and its pack/example checks. No Git remote, source push or message to another engineer is claimed.
 
-Next: **stop here**. Phase 2A's prepared design gate is the next separately authorized goal, before Phase 3. B/C/D ownership boundaries remain valid, but assignments should branch from this current real-landscape checkpoint rather than reimplement completed package A. The current no-runoff, hypothetical-site and fictional-accounting disclosures remain binding.
+Historical stop at the Phase 2 checkpoint. Phase 2A was subsequently authorized and is active under its rewritten visual goal; Phase 3 remains unstarted. B/C/D ownership boundaries remain valid, but assignments should branch from this current real-landscape checkpoint rather than reimplement completed package A. The current no-runoff, hypothetical-site and fictional-accounting disclosures remain binding.

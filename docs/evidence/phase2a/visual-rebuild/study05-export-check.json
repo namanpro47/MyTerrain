@@ -1,0 +1,108 @@
+{
+  "url": "http://127.0.0.1:8081",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 5577,
+      "sha256": "15e529438f984aa2bfea9ecb596f7f19ad36e6f2bec46c73bbb36e5ab97e8630",
+      "contentType": "text/html",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+      "status": 200,
+      "bytes": 76877,
+      "sha256": "dcc1a2305dd71a555416d758581bf0f66b397719398cf2329154d3eaa30d1837",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 339104
+    },
+    {
+      "file": "Build/1f8a1fe9095e5f840361e9e7ef1a1104.loader.js",
+      "status": 200,
+      "bytes": 48779,
+      "sha256": "185dec0576529c63aee54bb9212cf485389748af8bfd62eb6668907d9991294a",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/33cfdd00be35feb697dafbb443ab4f4f.data.unityweb",
+      "status": 200,
+      "bytes": 8130868,
+      "sha256": "962bc09ba92f417cf866150733cd159902cf61bd978fe53c2c7be1e2007ef89d",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 15706870
+    },
+    {
+      "file": "Build/ae9b32cdd837ddb1534f573c3a09313d.wasm.unityweb",
+      "status": 200,
+      "bytes": 9568259,
+      "sha256": "7383468ab4399cc44e9e1f38832ffb5f26135c1f71045c3e8a85332f5b88d83b",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 35768302
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/manifest.json",
+      "status": 200,
+      "bytes": 1681,
+      "sha256": "d6ef8e709ea60052d57ac52cfbb6a198eef2552541a845fd5131e06ede5e6573",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/scenario.json",
+      "status": 200,
+      "bytes": 2248,
+      "sha256": "eebe27f84514c894ebcfd07281ae2740f5a610887008a7d41c0ec066d281cce6",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/fixture-v1/world.json",
+      "status": 200,
+      "bytes": 7448,
+      "sha256": "04115619580381ad6b3ea3e14d389a7ed4e55750f68f999c7b3e3d5987d8ae77",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    }
+  ]
+}

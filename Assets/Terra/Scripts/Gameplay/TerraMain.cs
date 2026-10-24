@@ -19,20 +19,21 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-18,pitch=46,zoom=730;Vector3 target=new Vector3(0,25,-20);
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=150;Vector3 target=new Vector3(-35,25,-65);
+        bool perspective=true;
         UnityEngine.UI.Button uiDown;
-        bool ready,pressed,dragged,overUi,pan,committing;Vector2 down,last;float toastUntil;
+        bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
-        float shownYaw=-18,shownPitch=46,shownZoom=730;Vector3 shownTarget=new Vector3(0,25,-20);
+        float shownYaw=-32,shownPitch=37,shownZoom=150;Vector3 shownTarget=new Vector3(-35,25,-65);
         public int Revision=>state?.Revision??-1;
         public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
         void Start()
         {
             gameObject.name="TerraMain";Application.runInBackground=true;
-            view=Camera.main;view.orthographic=true;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
+            view=Camera.main;view.orthographic=false;view.fieldOfView=36;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.54f,.61f,.63f);RenderSettings.ambientEquatorColor=new Color(.40f,.47f,.39f);RenderSettings.ambientGroundColor=new Color(.25f,.29f,.22f);
-            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.35f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(48,-35,0);}
+            RenderSettings.ambientSkyColor=new Color(.41f,.49f,.57f);RenderSettings.ambientEquatorColor=new Color(.30f,.37f,.32f);RenderSettings.ambientGroundColor=new Color(.18f,.23f,.18f);
+            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.20f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(38,-105,0);}
             hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -54,7 +55,7 @@ namespace Terra.Gameplay
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            ready=true;hud.Ready();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            ready=true;ApplyView();hud.Ready();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();
         }
         void Update()
@@ -65,6 +66,10 @@ namespace Terra.Gameplay
                 bool uiHandled=hud.KeyboardInput(k);
                 if(k.escapeKey.wasPressedThisFrame&&!uiHandled)Cancel();
                 if(k.f9Key.wasPressedThisFrame)performance.Start();
+                if(k.f4Key.wasPressedThisFrame)Toast(landscape.ToggleForestStudy()?"Painted forest study":"Textured mesh forest study");
+                if(k.f5Key.wasPressedThisFrame){perspective=true;yaw=-32;pitch=36;zoom=75;target=new Vector3(40,65,160);ApplyView();}
+                if(k.f6Key.wasPressedThisFrame){perspective=false;yaw=-32;pitch=58;zoom=580;target=new Vector3(0,30,0);ApplyView();Toast("Overview study · R returns to the landscape");}
+                if(k.f7Key.wasPressedThisFrame){perspective=!perspective;ApplyView();Toast(perspective?"Perspective study":"Orthographic study");}
                 if(k.f10Key.wasPressedThisFrame)Debug.Log("TERRA_UI_AUDIT: "+hud.Audit());
                 if(!uiHandled&&!hud.ModalOpen)
                 {
@@ -73,7 +78,8 @@ namespace Terra.Gameplay
                     if(k.fKey.wasPressedThisFrame)FocusSite();
                     if(k.tabKey.wasPressedThisFrame){int i=Array.FindIndex(world.sites,s=>s.id==hoverId);SetHover(world.sites[(i+1)%world.sites.Length]);}
                     if(k.enterKey.wasPressedThisFrame)Commit();
-                    float turn=(k.rightArrowKey.isPressed?1:0)-(k.leftArrowKey.isPressed?1:0);if(turn!=0){yaw+=turn*Time.unscaledDeltaTime*50;ApplyView();}
+                    var movement=new Vector3((k.rightArrowKey.isPressed?1:0)-(k.leftArrowKey.isPressed?1:0),0,(k.upArrowKey.isPressed?1:0)-(k.downArrowKey.isPressed?1:0));
+                    if(movement.sqrMagnitude>0){target+=Quaternion.Euler(0,yaw,0)*movement.normalized*zoom*.7f*Time.unscaledDeltaTime;ApplyView();}
                     if(k.equalsKey.isPressed){zoom-=Time.unscaledDeltaTime*240;ApplyView();}if(k.minusKey.isPressed){zoom+=Time.unscaledDeltaTime*240;ApplyView();}
                 }
             }
@@ -83,8 +89,8 @@ namespace Terra.Gameplay
             {
                 Vector2 p=mouse.position.ReadValue();
                 if(mouse.leftButton.wasPressedThisFrame||mouse.middleButton.wasPressedThisFrame)Pointer(0,p,mouse.middleButton.isPressed||(k?.shiftKey.isPressed??false));
-                if(p!=last)Pointer(1,p,pan);
-                if(mouse.leftButton.wasReleasedThisFrame||mouse.middleButton.wasReleasedThisFrame)Pointer(2,p,pan);
+                if(p!=last)Pointer(1,p,false);
+                if(mouse.leftButton.wasReleasedThisFrame||mouse.middleButton.wasReleasedThisFrame)Pointer(2,p,false);
                 if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y/120);
             }
 #endif
@@ -120,7 +126,7 @@ namespace Terra.Gameplay
             }
 #endif
             if(kind==3){pressed=false;return;}
-            if(kind==0){pressed=true;dragged=false;down=last=position;overUi=UiAt(position)||hud.ModalOpen;pan=panning;return;}
+            if(kind==0){pressed=true;dragged=false;down=last=position;overUi=UiAt(position)||hud.ModalOpen;return;}
             if(!ready)return;
             if(kind==1)
             {
@@ -128,7 +134,7 @@ namespace Terra.Gameplay
                 {
                     if(Vector2.Distance(position,down)>6)dragged=true;
                     if(dragged)
-                    {Vector2 delta=(position-last)/Screen.height;if(pan){var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;}else{yaw+=delta.x*160;pitch-=delta.y*100;}ApplyView();landscape.ClearGhost();}
+                    {Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();}
                 }
                 else if(!hud.ModalOpen)SetHover(UiAt(position)?null:landscape.Hit(view.ScreenPointToRay(position)));
                 last=position;return;
@@ -139,10 +145,33 @@ namespace Terra.Gameplay
         public void Scroll(float amount){if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
-        void ApplyView(){pitch=Mathf.Clamp(pitch,32,72);zoom=Mathf.Clamp(zoom,150,1000);target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);if(!ready)RenderView();performance.Camera();}
-        void RenderView(){float t=!ready||hud.ReducedMotion?1:1-Mathf.Exp(-Time.unscaledDeltaTime*16);shownYaw=Mathf.LerpAngle(shownYaw,yaw,t);shownPitch=Mathf.Lerp(shownPitch,pitch,t);shownZoom=Mathf.Lerp(shownZoom,zoom,t);shownTarget=Vector3.Lerp(shownTarget,target,t);view.orthographicSize=shownZoom;view.transform.rotation=Quaternion.Euler(shownPitch,shownYaw,0);view.transform.position=shownTarget-view.transform.forward*1500;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));}
-        void ResetView(){yaw=-18;pitch=46;zoom=730;target=new Vector3(0,25,-20);ApplyView();}
-        void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=160;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
+        void ApplyView()
+        {
+            // Deliberate illustrated camera: pan and zoom keep painted forms and light coherent.
+            yaw=-32;pitch=37;zoom=Mathf.Clamp(zoom,55,1000);
+            target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
+            if(ready)
+            {
+                target.y=landscape.Height(target.x,target.z)+8;
+                var offset=Quaternion.Euler(pitch,yaw,0)*Vector3.forward*(perspective?zoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850);
+                var position=target-offset;
+                target.y=Mathf.Max(target.y,landscape.Height(position.x,position.z)+35+offset.y);
+            }
+            if(!ready)RenderView();performance.Camera();
+        }
+        void RenderView()
+        {
+            float t=!ready||hud.ReducedMotion?1:1-Mathf.Exp(-Time.unscaledDeltaTime*16);
+            shownYaw=Mathf.LerpAngle(shownYaw,yaw,t);shownPitch=Mathf.Lerp(shownPitch,pitch,t);shownZoom=Mathf.Lerp(shownZoom,zoom,t);shownTarget=Vector3.Lerp(shownTarget,target,t);
+            view.orthographic=!perspective;view.orthographicSize=shownZoom;view.transform.rotation=Quaternion.Euler(shownPitch,shownYaw,0);
+            float distance=perspective?shownZoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850;
+            var position=shownTarget-view.transform.forward*distance;
+            // Also protect the interpolated camera while crossing a wooded hillside.
+            if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
+            view.transform.position=position;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));
+        }
+        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=150;target=new Vector3(-35,25,-65);ApplyView();}
+        void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}
         void Cancel(){if(hud.ModalOpen){hud.CloseModal();return;}treatmentId="";hoverId=null;landscape.ClearGhost();hud.Selected("");UpdatePreview();}
@@ -165,7 +194,7 @@ namespace Terra.Gameplay
             if(!hud.Muted&&placementSound!=null)sound.PlayOneShot(placementSound);
             float change=result.result.production-before.production;
             Toast(site.name+": "+(change>=0?"+":"")+change.ToString("0.#")+" illustrative units · "+(result.result.spentCredits-before.spentCredits)+" credits");
-            hoverId=null;Refresh();landscape.Settle(selectedId);performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_COMMIT: "+Diagnostic);
+            hoverId=null;Refresh();landscape.Settle(selectedId,hud.ReducedMotion);performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_COMMIT: "+Diagnostic);
         }
         void Undo()
         {

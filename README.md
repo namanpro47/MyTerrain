@@ -6,7 +6,9 @@ The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA
 
 ## Project vision — start here
 
-**Design reference:** [Terra Nil + Cities: Skylines research and visual pattern library](docs/DESIGN_REFERENCE.md). This is the project-wide reference for landscape, HUD, tools, feedback, camera, audio and onboarding. **Next planned gate after Phase 2:** [Phase 2A — reference-quality presentation and interaction](docs/PHASE_2A_GOAL.md), before Phase 3 adds more gameplay. The brief includes a copyable goal prompt and concrete acceptance evidence; execution has not started.
+**Current priority: [Phase 2A — visual rebuild from first principles](docs/PHASE_2A_GOAL.md).** The current visual direction was rejected; existing renderer, assets, camera and UI are replaceable. **[Visual target and resource register](docs/VISUAL_REBUILD.md)** · **[Terra Nil + Cities: Skylines reference library](docs/DESIGN_REFERENCE.md)** · [Evidence/status](docs/PHASE_STATUS.md). Direct visual quality comes before further UX polish or gameplay expansion.
+
+**Asset approach:** existing coherent game-asset families and their intended shaders/materials first. Image generation is stopped for this pass; generated-art studies remain unaccepted and replaceable. Judge the complete playable scene against Terra Nil.
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) is the project's north star and primary reference for product vision, gameplay, scope, priorities, and design constraints. Consult it when planning features or making implementation decisions, and update it when the team explicitly agrees to change the vision.
 
@@ -25,7 +27,7 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 
 The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. Runoff simulation is not implemented yet. [Source data, reproducible export and geographic limits](docs/geography.md).
 
-The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A and later gameplay remain unstarted.
+The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A is being reset around a first-principles visual rebuild; no new visual acceptance is claimed. Later gameplay remains unstarted.
 
 ## Build for the browser
 

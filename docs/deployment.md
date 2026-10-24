@@ -40,6 +40,8 @@ References: [Unity decompression fallback](https://docs.unity.com/en-us/engine/6
 
 ## Verification identity
 
+Latest hosting refresh (October 24, 2026): deployment `dpl_FQ2Yv3sQyZ7M6VPDEfPaUDpYWVxW` publishes the completed 15:41 local Web export. [Identity](evidence/deployment-2026-10-24/identity.json), [anonymous asset checks](evidence/deployment-2026-10-24/public-assets.json), and [Chrome render/undo capture](evidence/deployment-2026-10-24/chrome-live.png). Ongoing visual-rebuild source changes are not certified as part of this export. No new project, Git integration, or Unity rebuild was needed.
+
 Build, URL, source checkpoint, browser captures and test results are recorded in [PHASE_STATUS.md](PHASE_STATUS.md) after the public browser gate. Generated build products and verbose logs are Git-ignored; concise evidence and selected browser captures are committed under `docs/evidence/phase0/` and `docs/evidence/phase1/`; Phase 2 evidence is in `docs/evidence/phase2/`.
 
 Original Phase 1 runtime source: `a78f49cf401a6ff602676b35f23c84fb5866ae93`; [deployment identity](evidence/phase1/identity.json). The final build started from `fbab39f` and Unity added the Input System preload; `a78f49c` records that exact resulting setting. Subsequent documentation/evidence commits do not change the export. Phase 1 is complete; publishing this fixture does not start Phase 2 or authorize real-geography ingestion.

@@ -11,7 +11,7 @@
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
 | 2 — One real rural landscape | Gate passed | Real pack/provenance, 34 geography + 139 Unity checks, 12 sites, Chrome state matrix and measured public performance; [audit](PHASE_2_AUDIT.md) |
-| **2A — Reference-quality presentation / interaction** | **In progress; no acceptance pass yet** | [Prepared goal brief](PHASE_2A_GOAL.md), [persistent research/reference](DESIGN_REFERENCE.md); requires final Phase 2 baseline, actual browser comparisons, current-slice polish, accessibility/performance evidence and explicit human-review status |
+| **2A — Visual rebuild from first principles** | **Visual reset; current direction rejected** | [Rewritten goal](PHASE_2A_GOAL.md), [visual studies and resources](VISUAL_REBUILD.md), [persistent reference](DESIGN_REFERENCE.md); requires rebuilt scenery, matched browser comparisons, every visual category ≥4.5/5, and supporting delivery checks |
 | 3 — Editing | Planned | Full reversible edit path required |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
 | 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
@@ -19,9 +19,15 @@
 | 7 — Polish | Planned | Visual/interaction review and measured performance required |
 | 8 — Release/refinement | Planned | Full single-location build, rehearsed demo, and focused refinement backlog |
 
+## Hosting refresh — October 24, 2026
+
+At the user's request, republished the latest completed `Builds/Web` export (15:41 local) to the existing `terra-browser` Vercel project. Production: [terra-browser.vercel.app](https://terra-browser.vercel.app/), deployment `dpl_FQ2Yv3sQyZ7M6VPDEfPaUDpYWVxW`. [Identity](evidence/deployment-2026-10-24/identity.json) · [anonymous asset verification](evidence/deployment-2026-10-24/public-assets.json) · [Chrome capture](evidence/deployment-2026-10-24/chrome-live.png).
+
+All 11 checked files returned HTTP 200 and matched the local export, including gzip decoding and WASM validation. An initial check during alias propagation saw the previous HTML; the subsequent complete check passed. Chrome rendered the landscape; Tab/Enter placed West field (6→17 illustrative units, 60→36 credits), and Z restored 6/60. No console errors were captured. The Unity-ready log reported 16,845 ms; this is a startup observation, not a performance acceptance pass. This hosting task did not rebuild Unity or certify ongoing visual-rebuild source changes or Phase 2A acceptance. Existing phase evidence below remains historical.
+
 ## Current handoff
 
-- **Next action:** continue the active Phase 2A visual/interaction goal, using its browser acceptance gates. Phase 3 is not authorized.
+- **Next action:** rebuild Phase 2A visuals from first principles; compare new scene/camera/asset studies before refining the interface. Phase 3 is not authorized.
 - **Goal outcome:** Phases 0–2 complete. Phase 2A implementation is in progress; later phases have not started.
 - **Parallel packages:** package A geography work was completed locally by the primary engineer for Phase 2; none delegated.
 - **Phase 2 result:** real `meadowbrook-v1` pack ingested; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Final Chrome reviews at 1280×720 and 1440×900, transformations/rejections/undo, source panel, recovery and measured performance pass. [Geography](geography.md), [requirement-by-requirement audit](PHASE_2_AUDIT.md).
@@ -31,9 +37,15 @@
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
 - **Working scenario:** illustrative productive land versus restoration and runoff; frozen v1 treatment details are in worldpack-format.md. No production scalability or seasonal farm simulation is required.
 
-## Phase 2A active implementation — October 24, 2026
+## Phase 2A visual reset — October 24, 2026
 
-The separately activated goal is to complete Phase 2A at the reference quality bar. The [baseline](evidence/phase2a/baseline.md) and [iteration notes](evidence/phase2a/iteration-notes.md) record the actual comparison and failures found. Compact HUD, original treatment miniatures, canopy grouping, guide keyboard focus and rendering refinements are being iterated locally. All 139 existing geography/transaction checks passed again. **No final design score, public deployment, complete accessibility/performance pass or human validation is claimed.** The accepted art contract remains v1 until the new browser gate passes.
+The user explicitly rejected the current visual quality as far below the references and asked for a first-principles rebuild, with permission to replace entire existing aspects. The [rewritten goal](PHASE_2A_GOAL.md) prioritizes direct rendered quality. [VISUAL_REBUILD.md](VISUAL_REBUILD.md) tracks the new direction and resource investigation. No visual acceptance, reference parity, or phase completion is claimed.
+
+New [visual rebuild studies](evidence/phase2a/visual-rebuild/README.md) include licensed assets, actual Chrome comparisons, continuous blended ground, inset illustrative water/banks, a perspective camera and original painted trees. Study 08 fixed a missing browser shader variant and verified a real click/undo transaction, but steep tilt visibly flattened the tree cards. Study 09 therefore tests replacing free orbit with a fixed illustrated angle and pan/zoom, plus matching original painted shrubs. These are active art decisions, not an accepted contract. Field repetition, stream/bank integration, whole-scene consistency and final performance/delivery remain open.
+
+The earlier compact HUD, vector tool miniatures, canopy grouping, procedural ground grain, keyboard/contrast/viewport work and captures remain recoverable experiments. They are **a rejected baseline**, not an accepted art contract. The earlier benchmark and 139 state/geography checks are historical engineering observations, not evidence that the visuals pass. The previous brief is [archived](evidence/phase2a/superseded-ui-first-goal.md).
+
+**Latest user correction:** stop image generation in this pass and prioritize coherent existing game assets with their intended materials/shaders. Generated trees, shrubs and the fixed-camera workaround remain disposable experiments. Study 09 exported successfully and has actual Chrome normal/pan/hillside/overview captures; it has not passed the visual gate. Elijah Cobden's Nature Pack v1.1 was downloaded and inspected outside Assets (30 FBX, 37 prefabs, 20 materials, 3 shader graphs, one demo; attribution required). It has not been imported or selected. Next: evaluate the creator's complete setup and its suitability at Terra's elevated gameplay scale, then test a representative section of the same AOI. Prove the world treatment before broad UX certification. Primary agent owns this rebuild; no parallel assignment or later-phase work was started.
 
 ## Phase 2A planning and persistent design research — October 24, 2026
 

@@ -1,0 +1,7 @@
+# Painted leaf cluster
+
+Generated with the built-in image_gen tool on October 24, 2026; real alpha preserved. Saved to `Assets/Terra/Resources/LeafPaint.png`. This texture is original illustrative game art, not a botanical observation or reference-game asset.
+
+## Exact prompt
+
+Use case: stylized-concept. Asset type: a single ORIGINAL painted broadleaf foliage cluster for a 3D game foliage-card albedo texture, with true transparent background. Subject: one organic, roughly rounded but irregular cluster of many small overlapping deciduous leaves, with three or four gently lobed sprays around its perimeter and small natural gaps between sprays. No trunk and no visible thick branches. The leaf cluster fills the central 80 percent of a square canvas, with a clean transparent margin all around. Individual leaves are distinct grouped brush shapes, not photographic noise: muted olive greens, fresh yellow-green tips, cool mossy green shaded recesses. Paint convincing layered depth within the leaf group using subtle gouache/value variation, neutral diffuse lighting with NO directional cast shadow or dramatic baked sunlight. High-quality hand-painted environment-art texture; rich internal leaf structure that reads even when the image is small. Direct top-down view of the leaf cluster, not a whole tree, not a landscape, not a sphere, no text, no icons, no border, no checkerboard painted into the image. Crisp irregular leaf silhouette and real alpha transparency.

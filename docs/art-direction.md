@@ -1,4 +1,6 @@
-# Terra visual contract v1
+# Terra visual contract — v1 is historical, replacement in progress
+
+> **User-directed visual reset, October 24, 2026:** The current visuals were rejected. This v1 contract and the incremental Phase 2A experiments are not an accepted target. The [rewritten visual goal](PHASE_2A_GOAL.md) and [new direction/resource register](VISUAL_REBUILD.md) govern the rebuild. Existing meshes, materials, renderer, camera, layout and feature presentation may be replaced. Keep useful provenance/license facts below; do not preserve obsolete art prescriptions.
 
 **Persistent reference:** [Terra Nil + Cities: Skylines design library](DESIGN_REFERENCE.md). Read its relevant pattern IDs before player-facing work. **Upcoming revision:** [Phase 2A](PHASE_2A_GOAL.md) establishes a stricter reference-quality bar after Phase 2 and before Phase 3. The contract below remains the historical implemented v1 foundation; do not present the proposed v2 direction as already shipped. Phase 2A will replace current tokens/layout guidance with the verified v2 system and link accepted browser captures here. Shared schema and data-contract versions do not change merely because art direction becomes v2.
 

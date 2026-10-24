@@ -240,7 +240,7 @@ This is a designed journey, not a mandatory scripted solution. All of it takes p
 
 | Minute | Player action | Experience / lesson |
 |---|---|---|
-| 0–1 | Arrive in the landscape, orbit, read the brief | Beautiful real terrain; a clear productive-land/water trade-off |
+| 0–1 | Arrive in the landscape, explore, read the brief | Beautiful real terrain; a clear productive-land/water trade-off |
 | 1–2 | Inspect two hypothetical sites | Cover, capacity, cost, and connection differ by place |
 | 2–3 | Choose Cultivate, compare treatments, place one | Ground transforms; productive units, credits, and runoff respond |
 | 3–4 | Preview another site or treatment | The same tool can have different effects by location |
@@ -318,6 +318,8 @@ In MVP, do **not** invent official public-consultation links. Verified local URL
 
 Establish that quality on the existing placement slice in **Phase 2A, immediately after Phase 2 and before further gameplay expansion in Phase 3**. Treat world composition, tool artwork, readable HUD, placement feedback, camera, motion, sound, accessibility and browser responsiveness as one experience. Carry the accepted standard through all later phases; Phase 7 is a whole-game consistency pass, not the first opportunity to make the game feel finished. Detailed tasks, evidence and status belong in the [Phase 2A brief](docs/PHASE_2A_GOAL.md) and evidence ledger. This is a quality ambition, not a claim that parity has already been achieved.
 
+**Visual reset — October 24, 2026, explicitly requested by the user:** Phase 2A is a first-principles visual rebuild. Direct visual quality takes precedence over further UX refinement. The current implementation is not a constraint: assets, renderer, materials, camera, floating-board framing, UI, and entire existing aspects may be replaced or simplified when that produces a stronger game. Research and acquire appropriate licensed resources and tools. Judge actual browser imagery against Terra Nil, not against the prototype or a checklist. The existing one-location educational purpose and honest distinction between geographic evidence and illustration remain; raw raster-cell rendering and the distant full-AOI camera are not product requirements. The [rewritten goal](docs/PHASE_2A_GOAL.md) supersedes the earlier incremental presentation plan.
+
 ### Visual identity
 
 **Beautiful, readable 3D diorama based on actual geography.** Draw inspiration from Terra Nil's vivid transformations and readable miniature landscapes. Rural simplicity must produce stronger composition and interaction, not a sparse unfinished scene.
@@ -333,6 +335,8 @@ Establish that quality on the existing placement slice in **Phase 2A, immediatel
 
 ### Screen layout
 
+The following is a starting arrangement, not a frozen contract. Recompose or replace it around the new visual direction; prioritize a compelling playable world.
+
 - **Center:** the 3D world occupies the great majority of the screen.
 - **Bottom:** three clear placement cards, with sub-variants inside a tool.
 - **Top:** a compact objective strip—productive capacity, runoff, budget, and optional cover indicator.
@@ -342,7 +346,7 @@ Establish that quality on the existing placement slice in **Phase 2A, immediatel
 
 ### Camera & interaction
 
-- Orbit, pan, zoom with forgiving controls and recognizable camera bounds.
+- Pan and zoom with forgiving controls and recognizable camera bounds. The Phase 2A visual rebuild may replace free orbit with a deliberate illustrated camera when that produces a stronger playable world; camera freedom is not more important than visual coherence.
 - Click/drag or site selection to place interventions.
 - Ghost geometry in green/amber/red to indicate eligibility; never rely on color alone.
 - Undo/redo, move, replace, delete and reset.
@@ -851,7 +855,7 @@ Build the highest-quality playable **single rural location** described above. Ru
 1. Verify the existing Unity setup and deploy a minimal browser prototype.
 2. During local phase 1, compare a short rural shortlist using source coverage and visual previews, choose one AOI, and establish the interaction/art/contracts baseline.
 3. Generate one validated rural WorldPack with terrain, cover, relevant water/path context, and hypothetical management sites; render it attractively.
-   Before the next gameplay step, complete Phase 2A's reference-quality presentation and interaction gate on that existing slice.
+   Before the next gameplay step, complete Phase 2A's first-principles visual rebuild. The current implementation is replaceable; the direct rendered quality must meet the Terra Nil-led gate.
 4. Implement Cultivate/Restore and reversible placement with budget, productive-capacity, and cover accounting.
 5. Integrate runoff and Manage Water, then finish the mission, comparison, learning, replay, and repeated polish **on that same map**.
 

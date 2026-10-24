@@ -1,0 +1,161 @@
+{
+  "method": "WCAG relative luminance from opaque sRGB style tokens; text threshold 4.5, state outlines 3.0. Disabled controls excluded. Actual rendered surfaces checked separately.",
+  "colors": {
+    "ink": [
+      0.075,
+      0.15,
+      0.14
+    ],
+    "panel": [
+      0.1,
+      0.2,
+      0.18
+    ],
+    "raised": [
+      0.17,
+      0.29,
+      0.25
+    ],
+    "paper": [
+      0.96,
+      0.95,
+      0.87
+    ],
+    "soft": [
+      0.71,
+      0.79,
+      0.69
+    ],
+    "amber": [
+      0.88,
+      0.78,
+      0.43
+    ],
+    "selected": [
+      0.24,
+      0.34,
+      0.24
+    ],
+    "blocked": [
+      1,
+      0.69,
+      0.55
+    ],
+    "guide-label": [
+      0.31,
+      0.4,
+      0.31
+    ],
+    "guide-card": [
+      0.86,
+      0.89,
+      0.79
+    ]
+  },
+  "text": [
+    {
+      "foreground": "paper",
+      "background": "panel",
+      "ratio": 11.996,
+      "pass": true
+    },
+    {
+      "foreground": "soft",
+      "background": "panel",
+      "ratio": 7.708,
+      "pass": true
+    },
+    {
+      "foreground": "amber",
+      "background": "panel",
+      "ratio": 8.079,
+      "pass": true
+    },
+    {
+      "foreground": "paper",
+      "background": "raised",
+      "ratio": 8.655,
+      "pass": true
+    },
+    {
+      "foreground": "soft",
+      "background": "raised",
+      "ratio": 5.561,
+      "pass": true
+    },
+    {
+      "foreground": "amber",
+      "background": "raised",
+      "ratio": 5.829,
+      "pass": true
+    },
+    {
+      "foreground": "paper",
+      "background": "selected",
+      "ratio": 7.119,
+      "pass": true
+    },
+    {
+      "foreground": "soft",
+      "background": "selected",
+      "ratio": 4.574,
+      "pass": true
+    },
+    {
+      "foreground": "amber",
+      "background": "selected",
+      "ratio": 4.794,
+      "pass": true
+    },
+    {
+      "foreground": "blocked",
+      "background": "panel",
+      "ratio": 7.611,
+      "pass": true
+    },
+    {
+      "foreground": "ink",
+      "background": "paper",
+      "ratio": 13.993,
+      "pass": true
+    },
+    {
+      "foreground": "guide-label",
+      "background": "paper",
+      "ratio": 5.576,
+      "pass": true
+    },
+    {
+      "foreground": "ink",
+      "background": "guide-card",
+      "ratio": 11.887,
+      "pass": true
+    }
+  ],
+  "stateOutlines": [
+    {
+      "foreground": "amber",
+      "background": "selected",
+      "ratio": 4.794,
+      "pass": true
+    },
+    {
+      "foreground": "amber",
+      "background": "raised",
+      "ratio": 5.829,
+      "pass": true
+    },
+    {
+      "foreground": "paper",
+      "background": "raised",
+      "ratio": 8.655,
+      "pass": true
+    },
+    {
+      "foreground": "ink",
+      "background": "paper",
+      "ratio": 13.993,
+      "pass": true
+    }
+  ]
+}

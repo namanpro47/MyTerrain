@@ -4,7 +4,7 @@
 
 **Planning baseline / rural-first revision:** October 24, 2026. **Status:** proposed execution plan; no implementation phase is certified complete by this document.
 
-**Presentation-first revision — October 24, 2026:** insert **Phase 2A** after Phase 2 and before Phase 3. Existing phase numbers and evidence remain stable. [DESIGN_REFERENCE.md](docs/DESIGN_REFERENCE.md) is the persistent project-wide design reference; [PHASE_2A_GOAL.md](docs/PHASE_2A_GOAL.md) contains the prepared goal loop and stricter quality gate. Terra Nil is the primary visual/feel reference, with selected Cities: Skylines information patterns. Establish this standard before adding more gameplay, then preserve it throughout Phases 3–8.
+**Visual-rebuild revision — October 24, 2026:** insert **Phase 2A** after Phase 2 and before Phase 3. Existing phase numbers and evidence remain stable. [DESIGN_REFERENCE.md](docs/DESIGN_REFERENCE.md) is the persistent project-wide design reference; [PHASE_2A_GOAL.md](docs/PHASE_2A_GOAL.md) contains the rewritten active goal loop and stricter visual gate. Terra Nil is the primary visual/feel reference, with selected Cities: Skylines information patterns. Establish this standard before adding more gameplay, then preserve it throughout Phases 3–8.
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) remains the north star. This plan turns it into ordered, bounded work. The user's latest direction governs execution: win through a beautiful, enjoyable, working hackathon game; use pragmatic shortcuts and avoid unnecessary production infrastructure.
 
@@ -14,7 +14,7 @@ Human playtesting can run alongside engineering: if a tester is unavailable, fin
 
 Companion documents: [parallel engineer handoffs](docs/PARALLEL_WORK.md) and [phase status / evidence ledger](docs/PHASE_STATUS.md).
 
-For Phase 2A, distinguish **engineering/internal visual gate passed** from **external usability/reference validation passed**. Missing human testers may remain explicitly pending under the exception above; missing browser, input, truthful-state or visual evidence may not. The next phase still requires separate authorization.
+For Phase 2A, distinguish **engineering/internal visual gate passed** from **external usability/reference validation passed**. Missing human testers may remain explicitly pending under the exception above; missing browser, input, truthful-state or visual evidence may not. Known user rejection or a substantial visual gap cannot use that exception. The next phase still requires separate authorization.
 
 ## 1. Scope and working assumptions
 
@@ -42,7 +42,7 @@ Keep the existing root Unity layout, as reflected in the revised master spec.
 | 0 | The game opens from a real browser URL | Local machine only | Editor smoke check, Web export, deployed load |
 | 1 | One selected rural AOI and a coherent visual/interaction foundation | Local machine only | Site-selection evidence, styled fixture, camera, hover/preview/undo, handoff contracts |
 | 2 | A beautiful, geographically grounded rural diorama | Primary + geography/art deliveries | Real pack loaded, geographic alignment, hero screenshots |
-| **2A** | **Reference-quality presentation and interaction on the existing slice** | Primary; scoped art/audio deliveries | Terra Nil comparisons, complete current UI states, browser interaction recording, stricter visual/accessibility/performance gates; human status explicit |
+| **2A** | **Visual rebuild from first principles** | Primary; no parallel packages delegated | Rebuilt scenery and transformations against Terra Nil; each visual dimension ≥4.5/5; actual Chrome comparisons; supporting interaction/performance safeguards |
 | 3 | A satisfying editable world | Primary | Cultivate/Restore, credits/productive capacity, reversible edits |
 | 4 | Choices have credible, spatial consequences | Primary + simulation delivery | Same-storm runoff, bounded Manage Water, contrasting strategies |
 | 5 | A complete, balanced rural mission | Primary + content delivery | Uncoached playthrough, multiple winning solutions |
@@ -54,7 +54,7 @@ Keep the existing root Unity layout, as reflected in the revised master spec.
 flowchart LR
   P0[0 Browser gate] --> P1[1 Local foundation]
   P1 --> P2[2 One real rural landscape]
-  P2 --> P2A[2A Reference-quality presentation]
+  P2 --> P2A[2A First-principles visual rebuild]
   P2A --> P3[3 Editable world]
   P3 --> P4[4 Consequences]
   P4 --> P5[5 Mission]
@@ -176,7 +176,7 @@ Capture the **browser**, not just Unity Scene view, at 1280×720 and 1440×900. 
 
 Use a 1–5 internal score for scene appeal, legibility, feedback, ease of interaction, and coherence. A working but ugly/unreadable feature is not done. Target at least 4 in every relevant category; record the weakest item and fix it. Scores guide review rather than pretending to be objective user research.
 
-**From Phase 2A onward**, use its reference-calibrated six-dimension rubric: every dimension at least 4/5, mean at least 4.5/5, all hard gates passed, and both normal and adverse/recovery states reviewed. This supersedes the generic foundation score above. Scores require reference comparisons and specific remaining-gap notes; a working feature or a single attractive hero shot does not establish reference quality. Later phases must meet this bar for new surfaces and preserve accepted existing ones.
+**From Phase 2A onward**, use its reference-calibrated six-dimension rubric: every visual dimension at least 4.5/5 individually, with no averaging or compensation from UX/performance scores. Review normal, close, overview and transformed states, then pass supporting browser safeguards. This supersedes the generic foundation score above. Scores require reference comparisons and specific remaining-gap notes; a working feature or a single attractive hero shot does not establish reference quality. Later phases must meet this bar for new surfaces and preserve accepted existing ones.
 
 From phase 2 onward, measure a 30-second camera/placement path in the deployed browser on the actual demo laptop. Target 60 fps, accept a stable 30 fps if necessary, and aim for preview response within 100 ms and no placement stalls above 200 ms. Record frame time and load duration; these are budgets to test, not claims. Start with a compressed initial-download goal below roughly 50 MB and first interaction within 15 seconds on the measured demo connection; reduce scenery/texture cost if reality misses it badly.
 
@@ -228,22 +228,22 @@ Use [docs/PHASE_0_GOAL.md](docs/PHASE_0_GOAL.md) for the prepared kickoff prompt
 
 **Shortcut:** one bounded AOI, simplified offline data, shared terrain/vegetation materials, authored site polygons, a few hero details. **Fallback:** reduce the same AOI or use a documented adequate-resolution layer; never silently fabricate geography. Reopen site selection only if a fundamental data blocker makes the chosen place unusable, and replace it rather than keeping multiple playable locations.
 
-### Phase 2A — Reference-quality presentation and interaction
+### Phase 2A — First-principles visual rebuild
 
-**Goal:** bring the existing Meadowbrook Valley placement slice to a high, Terra Nil-led visual and experiential bar before adding further mechanics. **Depends on:** completed Phase 2 engineering/browser gates. **Owner:** primary integration engineer; package C may supply scoped art/audio. This insertion does not renumber Phases 3–8.
+**Goal:** rebuild the actual playable visuals to the Terra Nil-led art bar. The user explicitly rejected the incremental prototype polish and authorized replacing entire existing aspects. Direct visual quality is primary; preserving existing code/assets/UI is not a success criterion. **Depends on:** Phase 2's real-location evidence, already complete. **Owner:** primary integration engineer; no delegation started. Existing phase numbers stay stable.
 
-Use [docs/PHASE_2A_GOAL.md](docs/PHASE_2A_GOAL.md) for the executable brief, acceptance matrix, reference-calibrated rubric, evidence bundle, stop conditions and copyable kickoff. Use [docs/DESIGN_REFERENCE.md](docs/DESIGN_REFERENCE.md) throughout implementation.
+Use the rewritten [goal brief](docs/PHASE_2A_GOAL.md), [visual rebuild direction/resource register](docs/VISUAL_REBUILD.md), and persistent [design library](docs/DESIGN_REFERENCE.md). The earlier 2A captures are a rejected baseline.
 
-1. Freeze the actual Phase 2 browser baseline and its remaining gaps against dated references.
-2. Improve landscape composition, lighting, readable cover masses, canopy/field detail and wide/close views while preserving geographic truth.
-3. Establish compact HUD hierarchy, original illustrated tools, coherent typography/tokens, structured previews and complete control states using uGUI/TMP.
-4. Refine existing placement, rejection, cancel and undo feedback; polish camera, motion, sound, guide-style help/sources, settings, loading and error recovery.
-5. Verify the actual browser at target sizes and increased text scale; record reference comparisons, an interaction video, correctness/accessibility checks and measured performance. Fix the weakest material gap.
-6. Publish accepted art contract v2 and benchmark captures. Record engineering/internal visual completion separately from pending external human review; prepare the Phase 3 handoff.
+1. Inspect matched Terra Nil frames and artist material; identify composition, form, material, lighting, and transformation failures. Research and download suitable licensed resources.
+2. Build materially different visual studies of the same AOI. Reconsider camera scale, scene framing, terrain/cover presentation, vegetation assets, lighting, and water from first principles.
+3. Prove a compelling forest–field–water scene in Unity and Chrome, then extend its coherent visual grammar across the location. Replace obsolete rendering/asset paths.
+4. Make land interventions visually rich and satisfying. Rebuild or simplify existing presentation/features when they obstruct the result.
+5. Fit the minimum useful interface to the world, then validate retained mechanics, accessibility, scientific honesty, browser delivery and performance.
+6. Record two matched visual reviews, actual gameplay captures/video, resource provenance, and an accepted new art contract. Surface these benchmarks throughout the project.
 
-**Done when:** every Phase 2A hard gate and internal visual threshold passes, the public build/evidence identify the tested source, and human review is either evidenced or explicitly pending under the existing exception. Do not claim human-validated parity from agent scoring. **Stop before Phase 3.**
+**Done when:** each of the six visual dimensions in the revised goal reaches at least 4.5/5 with actual evidence and no substantial reference gap, and the supporting browser safeguards pass. No UX score or average can compensate for weak scenery. Missing novice participants do not waive the user's known visual rejection. **Stop before Phase 3.**
 
-**Protect:** the quality bar, existing state semantics, truthful pending runoff, one real location. **Defer:** new simulation, full editing/history mechanics, mission/ending flow, additional tools or maps. Narrow the number of assets/effects rather than accepting visibly unfinished presentation.
+**Protect:** educational purpose, one real location, honest source/model claims, recoverable history. **Replace freely:** existing implementation, art assets, rendering, camera, composition, UI, and obstructive early features. **Defer:** unrelated simulation, additional maps, city content, generators, and later-phase expansion.
 
 ### Phase 3 — The editable-world foundation
 
@@ -362,7 +362,7 @@ Every player-facing phase also reads `docs/DESIGN_REFERENCE.md` and the accepted
 | 0 | Verify and deploy a reproducible minimal Unity Web build on the current machine. |
 | 1 | Deliver one selected rural AOI, a polished local interaction fixture, and a committed runnable v1 handoff kit. |
 | 2 | Load and render a geographically aligned, attractive rural landscape in the browser. |
-| **2A** | **Meet the Terra Nil-led visual/interaction quality gate on the existing slice, with reference comparisons, accessibility/performance evidence and a reusable art/UI v2 benchmark.** |
+| **2A** | **Rebuild the visuals from first principles against Terra Nil. Existing assets, rendering, camera, UI and features are replaceable. Every visual dimension must reach ≥4.5/5 independently; validate actual Chrome output and supporting delivery safeguards before Phase 3.** |
 | 3 | Make Cultivate/Restore and all reversible editing operations reliable and satisfying on this rural location’s sites. |
 | 4 | Integrate deterministic runoff and bounded Manage Water with matching previews and explanations. |
 | 5 | Deliver a balanced rural mission with multiple solutions and uncoached usability evidence. |

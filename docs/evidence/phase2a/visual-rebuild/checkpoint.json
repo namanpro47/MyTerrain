@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-24",
+  "status": "goal-rewritten; visual-rebuild-active-not-passed",
+  "documentation": "Local links and code fences checked; git diff --check passed",
+  "latestStudy": {
+    "job": "b755f8f990a04ad7a86cf90229f17d2f",
+    "build": "success",
+    "executionTimeMs": 58605,
+    "browser": "Chrome",
+    "nativeCaptureDimensions": [
+      1728,
+      940
+    ],
+    "normalCapture": "study09-default.jpg",
+    "panCapture": "study09-pan.jpg",
+    "closeCapture": "study09-hillside.jpg",
+    "overviewCapture": "study09-overview.jpg",
+    "exportCheck": "study09-export-check.json",
+    "visualAcceptance": false
+  },
+  "stateChecks": 139,
+  "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
+  "openGaps": [
+    "painted canopy richness and volume",
+    "cultivated terrain and interventions",
+    "road/bank integration",
+    "whole-scene depth and composition",
+    "final browser performance and delivery gate"
+  ],
+  "temporarySettings": "Chrome viewport reset; Unity background override restored via CLI after checks",
+  "nextDecision": "User rejected image-generation-heavy approach. No further generation this pass. Evaluate coherent existing environment family with supplied shaders/materials/demo, then representative same-AOI scene at gameplay scale. Current painted cards and fixed-camera workaround disposable.",
+  "historicalStudy05BrowserChecks": {
+    "restoreCommit": {
+      "revision": 1,
+      "production": 5,
+      "credits": 42
+    },
+    "undo": {
+      "revision": 2,
+      "production": 6,
+      "credits": 60
+    },
+    "swalePreview": "Meadow edge rendered; cancelled successfully",
+    "console": "No errors returned; existing FSR warning"
+  },
+  "stateChecksNote": "139 checks are historical, not rerun for study09.",
+  "currentBrowserChecks": {
+    "scope": "Study09 limited pan/zoom/render inspection only",
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "resourceCandidate": "Elijah Cobden Nature Pack v1.1 downloaded and inspected outside Assets; not imported or accepted."
+}

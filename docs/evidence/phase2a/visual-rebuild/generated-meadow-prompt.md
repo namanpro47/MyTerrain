@@ -1,0 +1,7 @@
+# Original meadow texture
+
+Built-in image_gen tool; generated October 24, 2026. Output copied to `Assets/Terra/Resources/MeadowPaint.png`. This is a material study, not gameplay evidence. Visually inspected: painted turf/clover detail, opaque surface, no text or large props. Seamlessness and scale must be checked on actual terrain.
+
+## Exact prompt
+
+Use case: stylized-concept. Asset type: an ORIGINAL seamless tileable albedo texture for a painterly 3D rural environmental game. Create one square full-bleed top-down texture of short meadow turf and very small clover-like ground leaves, hand-painted with soft gouache brushwork and carefully grouped shapes. Many tiny overlapping grassy brush marks, occasional subtle earth flecks, varied clump direction, medium sage and fresh olive greens with muted yellow-green highlights and deeper cool green recesses. Texture represents about four meters of ground, all details small and evenly distributed, low to moderate contrast. Orthographic directly overhead, absolutely flat neutral diffuse illumination, no perspective, no horizon, no large objects, no cast shadows, no baked directional sunlight, no vignette, no edge frame, no text, no symbols, no logos. All four edges must tile seamlessly. This is a material texture to wrap onto actual terrain, NOT a landscape illustration or game screenshot. Rich intentional painted surface detail, avoid photorealism, avoid large distinct flower heads, avoid generic blurry noise. Opaque background.

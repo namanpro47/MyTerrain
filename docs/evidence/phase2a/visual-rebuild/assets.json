@@ -1,0 +1,221 @@
+{
+  "acquired": "2026-10-24",
+  "resources": [
+    {
+      "name": "Quaternius Stylized Nature MegaKit",
+      "tier": "Standard (free)",
+      "source": "https://quaternius.itch.io/stylized-nature-megakit",
+      "creator": "Quaternius",
+      "archive": "Builds/ArtResearch/QuaterniusMegaKit/Stylized Nature MegaKit[Standard].zip",
+      "archiveBytes": 104088529,
+      "sha256": "298f6732b872e4cf7b30e6e7abf9641c7f6dc6b326df37ac089533ed7e3d58c9",
+      "license": "CC0 1.0 Universal",
+      "licenseFile": "Builds/ArtResearch/QuaterniusMegaKit/extracted/License_Standard.txt",
+      "contents": {
+        "uniqueModels": 68,
+        "formats": [
+          "FBX",
+          "FBX (Unity)",
+          "glTF",
+          "OBJ"
+        ],
+        "textures": 20,
+        "engineShadersIncluded": false
+      },
+      "status": "Eleven models imported and rendered in Chrome study 05; no final art acceptance",
+      "selectedImports": [
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/LICENSE.txt",
+          "bytes": 852,
+          "sha256": "120710e542c3ebaf83856c4eb55b4a1e680593b39302eba7fdc5d942dfe78c58"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Bush_Common.fbx",
+          "bytes": 84060,
+          "sha256": "f4c057dc7118ab76b946cfa9d01908aa151cc2585bc8799e5a97833bccfec022"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/CommonTree_1.fbx",
+          "bytes": 374492,
+          "sha256": "270b8be7dbde95980a308212319d99580a433821ca8daa7d115f3d289ede9608"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/CommonTree_2.fbx",
+          "bytes": 330636,
+          "sha256": "8a2274f2a86ded8f3f6e3d2fcebb7d2e0449c9d3d3733f86c11e09dd8e4e6804"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/CommonTree_3.fbx",
+          "bytes": 238860,
+          "sha256": "9246334082d5abe40ff4307f138163aa88bbe40bc6ec1124038458ffe8353506"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Flower_3_Group.fbx",
+          "bytes": 49308,
+          "sha256": "c2a4d9369513e1c3cb1b992d5ae036dd86bd39c402a782ce3fe97f9b1a34d8e1"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Flower_4_Group.fbx",
+          "bytes": 80108,
+          "sha256": "1edd78307fcd9618c226c48bd09594462fd21339d7d2b08f732bac649874f623"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Short.fbx",
+          "bytes": 26060,
+          "sha256": "9bdb821b226ec62e485e648f35ea227c21d0245f3aefe1633d560e457476cd09"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Tall.fbx",
+          "bytes": 32892,
+          "sha256": "71e676f1a0b4ad585646c9c8ea68b23320fc5b1db8946bd19a46147b9060bf14"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Wispy_Short.fbx",
+          "bytes": 41084,
+          "sha256": "123e9d77c073e8a22a8a5d49349d0110731f419778185b458f31f5796249f213"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Rock_Medium_1.fbx",
+          "bytes": 30700,
+          "sha256": "e75986c05c1071ca99b8810005aa6d69d575a529e38c7e77c519c592e16f264e"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Models/Rock_Medium_2.fbx",
+          "bytes": 27276,
+          "sha256": "6ffd1e9d4b2898e881e612a01faf7cd8120061aec9f1b7c8abe71d63b205341c"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Bark_NormalTree.png",
+          "bytes": 3894788,
+          "sha256": "f36e94fdd73255347325b998e02a0b2575fdf714b0315bfe5e8ff34bc8e13603"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Bark_NormalTree_Normal.png",
+          "bytes": 4384496,
+          "sha256": "852f6155404b8c39e100e41e26970e02a6a5c81b482d3726618dab28e3ad03a2"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Flowers.png",
+          "bytes": 444609,
+          "sha256": "5c531f2329c241c625aafd6cb769de29f33b480ef2a16491c2489f3c68e62a6a"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Grass.png",
+          "bytes": 33605,
+          "sha256": "5d69048193b246a73c996b892607fb36c75d0c60afcb2dab8aa12de3c0b2d9bd"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Leaves_NormalTree.png",
+          "bytes": 158772,
+          "sha256": "171ad1c8fa6ddde351a3b3c9e2b1457d5c7a4a43ba4fd55a83801029db797151"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Leaves_TwistedTree.png",
+          "bytes": 69611,
+          "sha256": "d548e707fa34a558f88f477fa98f7b4ad3afbd4ceb7ab954506be694edf0f2ba"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Rocks_Diffuse.png",
+          "bytes": 2517398,
+          "sha256": "b813696df6081f469a127092eb0ce45cc39d56f3ccc0699152bfcd3804810b48"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusNature/Textures/Leaves.png",
+          "bytes": 2586432,
+          "sha256": "23248cebe28a24e78add32db3c2ee2f4d7b9219e9d2467279722f0197a7b6bd5"
+        }
+      ]
+    },
+    {
+      "name": "Original painted meadow texture",
+      "source": "Built-in image_gen tool",
+      "date": "2026-10-24",
+      "path": "Assets/Terra/Resources/MeadowPaint.png",
+      "sha256": "83dc53cb9af0a9b1aa986138a5ae61c34eda25a24c99e2c0d54877c92d1603d4",
+      "status": "Imported and rendered as the ground detail layer in study 03; visual gate not passed",
+      "promptRecord": "generated-meadow-prompt.md",
+      "use": "Illustrative terrain albedo; not measured vegetation or reference-game artwork"
+    },
+    {
+      "name": "Original painted broadleaf cluster",
+      "source": "Built-in image_gen tool",
+      "date": "2026-10-24",
+      "path": "Assets/Terra/Resources/LeafPaint.png",
+      "sha256": "c75ec5bee043d70778c265d735713689429aee03fa82a0d305c371abdfaf9352",
+      "status": "Imported and rendered in Chrome study 05; leaf detail increased, but canopy remains too flat and busy; not accepted",
+      "promptRecord": "generated-leaf-prompt.md",
+      "use": "Illustrative leaf-card albedo and alpha; no surveyed species claim"
+    },
+    {
+      "name": "Original painted temperate tree atlas",
+      "source": "Built-in image_gen tool",
+      "date": "2026-10-24",
+      "path": "Assets/Terra/Resources/PaintedTrees.png",
+      "sha256": "dcf91955bb9b065cfec5f384f12b3ae2b8e27e3c5ff72a4e5a29b58a46544747",
+      "promptRecord": "generated-trees-prompt.md",
+      "status": "Rendered in Chrome study 08 after explicit material fixed stripped instancing variants; steep camera tilt exposes flat cards, so study 09 tests a deliberate fixed-angle camera; not accepted",
+      "use": "Original illustrative tree sprites; no measured species or individual-tree claim"
+    },
+    {
+      "name": "Original painted woodland understory atlas",
+      "source": "Built-in image_gen tool",
+      "date": "2026-10-24",
+      "path": "Assets/Terra/Resources/PaintedUnderstory.png",
+      "sha256": "0ee7450db26fb1abc6e05553ea88e2d426f7cbe4ed94b1ea530e75613120315c",
+      "promptRecord": "generated-understory-prompt.md",
+      "status": "Rendered in study09 Chrome captures; unaccepted. Further generation stopped after user correction.",
+      "use": "Original illustrative shrubs; no measured species or individual-plant claim"
+    },
+    {
+      "name": "Elijah Cobden Stylized Nature Pack",
+      "version": "1.1",
+      "source": "https://elijahcobden.itch.io/stylized-nature-pack",
+      "creator": "Elijah Cobden",
+      "acquired": "2026-10-24",
+      "archive": "Builds/ArtResearch/ElijahCobdenNature/Stylised Nature V1.1.unitypackage",
+      "archiveBytes": 17197862,
+      "sha256": "1fa50e9bbcb9b9edd1008992b8f9891d9be56ff1c51262740a485f42588b3654",
+      "license": "CC BY 4.0 per creator itch.io page; no separate license file found in archive",
+      "attributionRequired": true,
+      "contents": {
+        "fbx": 30,
+        "prefabs": 37,
+        "materials": 20,
+        "shaderGraphs": 3,
+        "demoScenes": 1,
+        "scripts": 0
+      },
+      "inventory": "Builds/ArtResearch/ElijahCobdenNature/inventory.json",
+      "status": "Imported with supplied materials/shaders; demo rendered live in Unity 6 after enabling Terrain/TerrainPhysics. Forest direction not selected. Wheat is used in study11 browser candidate, with identity wrapper correcting prefab scale/origin.",
+      "attributionFile": "Assets/Stylised Nature/ATTRIBUTION.md",
+      "modifications": [
+        "GrassWheat material GPU instancing enabled",
+        "ArtistWheat wrapper preserves source root scale 100 and resets child local position to zero"
+      ],
+      "selectedImports": [
+        "Assets/Terra/Resources/Nature/ArtistWheat.prefab"
+      ]
+    },
+    {
+      "name": "Elijah Cobden Stylized Trees Pack",
+      "source": "https://elijahcobden.itch.io/stylized-trees-pack",
+      "creator": "Elijah Cobden",
+      "acquired": "2026-10-24",
+      "archive": "Builds/ArtResearch/ElijahCobdenTrees/StylizedTreesURP.unitypackage",
+      "archiveBytes": 8249705,
+      "sha256": "14a4088b78c53d042de8775c5bacaeb2bfbeb5a1b2fcce17e23af85788bd1e96",
+      "license": "CC BY 4.0 per creator page",
+      "attributionRequired": true,
+      "contents": {
+        "fbx": 24,
+        "prefabs": 25,
+        "materials": 10,
+        "shaderGraphs": 1,
+        "demoScenes": 1,
+        "scripts": 0
+      },
+      "inventory": "Builds/ArtResearch/ElijahCobdenTrees/inventory.json",
+      "status": "Downloaded and inspected outside Assets. No GUID overlap with Nature Pack. Not imported or accepted."
+    }
+  ]
+}

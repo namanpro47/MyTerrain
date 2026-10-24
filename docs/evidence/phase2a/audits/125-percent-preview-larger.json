@@ -1,0 +1,510 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1.25,
+  "modal": false,
+  "largeText": true,
+  "reducedMotion": true,
+  "muted": true,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 25.760000228881836,
+      "minGlyphCssPx": 25.760000228881836,
+      "preferredHeight": 28.780000686645508,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 24
+    },
+    {
+      "text": "PRODUCTIVE CAPACITY",
+      "rect": {
+        "x": 618,
+        "y": 38,
+        "width": 235,
+        "height": 22
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "6 <size=64%>illustrative units</size>",
+      "rect": {
+        "x": 618,
+        "y": 59,
+        "width": 230,
+        "height": 32
+      },
+      "bodyCssPx": 28,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 31.290000915527344,
+      "availableHeight": 32
+    },
+    {
+      "text": "Runoff: not modeled yet",
+      "rect": {
+        "x": 618,
+        "y": 93,
+        "width": 250,
+        "height": 22
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "CREDITS",
+      "rect": {
+        "x": 882,
+        "y": 38,
+        "width": 104,
+        "height": 22
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "60",
+      "rect": {
+        "x": 882,
+        "y": 63,
+        "width": 96,
+        "height": 36
+      },
+      "bodyCssPx": 32.47999954223633,
+      "minGlyphCssPx": 32.47999954223633,
+      "preferredHeight": 36.290000915527344,
+      "availableHeight": 36
+    },
+    {
+      "text": "Cultivate",
+      "rect": {
+        "x": 246,
+        "y": 474,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 19.040000915527344,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 28
+    },
+    {
+      "text": "Productive land",
+      "rect": {
+        "x": 246,
+        "y": 504,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 38
+    },
+    {
+      "text": "1",
+      "rect": {
+        "x": 168,
+        "y": 457,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 20
+    },
+    {
+      "text": "Restore",
+      "rect": {
+        "x": 484,
+        "y": 474,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 19.040000915527344,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 28
+    },
+    {
+      "text": "Meadow cover",
+      "rect": {
+        "x": 484,
+        "y": 504,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 38
+    },
+    {
+      "text": "2",
+      "rect": {
+        "x": 406,
+        "y": 457,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 20
+    },
+    {
+      "text": "Manage water",
+      "rect": {
+        "x": 722,
+        "y": 474,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 19.040000915527344,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 28
+    },
+    {
+      "text": "Vegetated swale",
+      "rect": {
+        "x": 722,
+        "y": 504,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 38
+    },
+    {
+      "text": "3",
+      "rect": {
+        "x": 644,
+        "y": 457,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 20
+    },
+    {
+      "text": "Open plot",
+      "rect": {
+        "x": 352,
+        "y": 380,
+        "width": 148,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Living margin",
+      "rect": {
+        "x": 520,
+        "y": 380,
+        "width": 152,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 32,
+        "y": 132,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 32,
+        "y": 196,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 860,
+        "y": 132,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 860,
+        "y": 196,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "HYPOTHETICAL SITE",
+      "rect": {
+        "x": 726,
+        "y": 170,
+        "width": 256,
+        "height": 24
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "West field",
+      "rect": {
+        "x": 726,
+        "y": 199,
+        "width": 256,
+        "height": 52
+      },
+      "bodyCssPx": 24.639999389648438,
+      "minGlyphCssPx": 24.639999389648438,
+      "preferredHeight": 27.530000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Open plot\n\n<size=141%><b>24</b></size> credits  ·  <size=141%><b>+11</b></size> units\n<size=82%>Illustrative productive capacity</size>\n<size=82%>Runoff estimate: not available</size>",
+      "rect": {
+        "x": 726,
+        "y": 259,
+        "width": 256,
+        "height": 133
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 15.612800598144531,
+      "preferredHeight": 109.91999816894531,
+      "availableHeight": 133
+    },
+    {
+      "text": "Click / Enter to place   ·   Esc",
+      "rect": {
+        "x": 726,
+        "y": 399,
+        "width": 256,
+        "height": 30
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 30
+    }
+  ],
+  "controls": [
+    {
+      "name": "Tool Cultivate",
+      "enabled": true,
+      "rect": {
+        "x": 158,
+        "y": 452,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Tool Restore",
+      "enabled": true,
+      "rect": {
+        "x": 396,
+        "y": 452,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Tool Manage water",
+      "enabled": true,
+      "rect": {
+        "x": 634,
+        "y": 452,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Button Open plot",
+      "enabled": true,
+      "rect": {
+        "x": 344,
+        "y": 378,
+        "width": 164,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Living margin",
+      "enabled": true,
+      "rect": {
+        "x": 512,
+        "y": 378,
+        "width": 168,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Undo  Z",
+      "enabled": false,
+      "rect": {
+        "x": 24,
+        "y": 130,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Valley view  R",
+      "enabled": true,
+      "rect": {
+        "x": 24,
+        "y": 194,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Field guide  G",
+      "enabled": true,
+      "rect": {
+        "x": 852,
+        "y": 130,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Controls  ?",
+      "enabled": true,
+      "rect": {
+        "x": 852,
+        "y": 194,
+        "width": 148,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 600,
+      "y": 24,
+      "width": 400,
+      "height": 94
+    },
+    {
+      "x": 150,
+      "y": 444,
+      "width": 724,
+      "height": 112
+    },
+    {
+      "x": 342,
+      "y": 376,
+      "width": 340,
+      "height": 60
+    },
+    {
+      "x": 24,
+      "y": 130,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 194,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 852,
+      "y": 130,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 852,
+      "y": 194,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 708,
+      "y": 154,
+      "width": 292,
+      "height": 288
+    }
+  ]
+}

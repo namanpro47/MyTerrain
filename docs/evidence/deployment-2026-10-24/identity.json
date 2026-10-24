@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "project": "terra-browser",
+  "projectId": "prj_PiYOquy8PBxGMztOM61NDOfN5aX0",
+  "team": "namanpro47s-projects",
+  "deploymentId": "dpl_FQ2Yv3sQyZ7M6VPDEfPaUDpYWVxW",
+  "url": "https://terra-browser.vercel.app/",
+  "immutableUrl": "https://terra-browser-3lhdy40o1-namanpro47s-projects.vercel.app",
+  "export": "Builds/Web",
+  "exportCompletedLocal": "2026-10-24 15:41 America/Los_Angeles",
+  "sourceNote": "Published latest completed export; working tree includes ongoing visual rebuild changes that are not certified as part of this export. No Unity rebuild or phase acceptance in this task.",
+  "verifiedFiles": 11,
+  "verifiedBytes": 14744635
+}

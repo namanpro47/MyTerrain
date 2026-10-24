@@ -1,0 +1,67 @@
+{
+  "method": "Source-derived geometry check of legal panning/orbit/zoom limits; not a browser result",
+  "camera": {
+    "perspectiveFov": 36,
+    "yaws": "0 to 315 in 45-degree increments",
+    "pitch": 28,
+    "zoom": 45,
+    "fixedTargetY": 25
+  },
+  "sampledViews": 2888,
+  "belowTerrainCount": 111,
+  "examples": [
+    {
+      "target": [
+        -100,
+        25,
+        450
+      ],
+      "yaw": 0,
+      "cameraY": 90.02,
+      "terrainAtCamera": 97.23
+    },
+    {
+      "target": [
+        -50,
+        25,
+        400
+      ],
+      "yaw": 0,
+      "cameraY": 90.02,
+      "terrainAtCamera": 94.24
+    },
+    {
+      "target": [
+        -50,
+        25,
+        450
+      ],
+      "yaw": 0,
+      "cameraY": 90.02,
+      "terrainAtCamera": 90.11
+    },
+    {
+      "target": [
+        -50,
+        25,
+        450
+      ],
+      "yaw": 45,
+      "cameraY": 90.02,
+      "terrainAtCamera": 100.76
+    },
+    {
+      "target": [
+        0,
+        25,
+        400
+      ],
+      "yaw": 45,
+      "cameraY": 90.02,
+      "terrainAtCamera": 96.42
+    }
+  ],
+  "followTerrainPlus8BelowTerrainCount": 0,
+  "followTerrainExamples": [],
+  "requiredFix": "Update target height during pan/zoom and retain a clearance guard; then verify near, hillside and overview views in Chrome"
+}

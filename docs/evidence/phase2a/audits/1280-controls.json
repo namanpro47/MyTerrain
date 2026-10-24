@@ -1,0 +1,549 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 23,
+      "minGlyphCssPx": 23,
+      "preferredHeight": 25.700000762939453,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "PRODUCTIVE CAPACITY",
+      "rect": {
+        "x": 874,
+        "y": 38,
+        "width": 235,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "6 <size=64%>illustrative units</size>",
+      "rect": {
+        "x": 874,
+        "y": 59,
+        "width": 230,
+        "height": 32
+      },
+      "bodyCssPx": 25,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 27.93000030517578,
+      "availableHeight": 32
+    },
+    {
+      "text": "Runoff: not modeled yet",
+      "rect": {
+        "x": 874,
+        "y": 93,
+        "width": 250,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "CREDITS",
+      "rect": {
+        "x": 1138,
+        "y": 38,
+        "width": 104,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "60",
+      "rect": {
+        "x": 1138,
+        "y": 63,
+        "width": 96,
+        "height": 36
+      },
+      "bodyCssPx": 29,
+      "minGlyphCssPx": 29,
+      "preferredHeight": 32.400001525878906,
+      "availableHeight": 36
+    },
+    {
+      "text": "Cultivate",
+      "rect": {
+        "x": 374,
+        "y": 618,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 28
+    },
+    {
+      "text": "Productive land",
+      "rect": {
+        "x": 374,
+        "y": 648,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "1",
+      "rect": {
+        "x": 296,
+        "y": 601,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Restore",
+      "rect": {
+        "x": 612,
+        "y": 618,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 28
+    },
+    {
+      "text": "Meadow cover",
+      "rect": {
+        "x": 612,
+        "y": 648,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "2",
+      "rect": {
+        "x": 534,
+        "y": 601,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Manage water",
+      "rect": {
+        "x": 850,
+        "y": 618,
+        "width": 138,
+        "height": 28
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 28
+    },
+    {
+      "text": "Vegetated swale",
+      "rect": {
+        "x": 850,
+        "y": 648,
+        "width": 138,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "3",
+      "rect": {
+        "x": 772,
+        "y": 601,
+        "width": 22,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Choose a treatment\nto shape a proposal",
+      "rect": {
+        "x": 36,
+        "y": 130,
+        "width": 286,
+        "height": 48
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 36.279998779296875,
+      "availableHeight": 48
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 32,
+        "y": 646,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 32,
+        "y": 582,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 1116,
+        "y": 646,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 1116,
+        "y": 582,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 272,
+        "y": 57,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Make room for a better balance</b></size>\n\n<b>01   Choose → inspect → place</b>\nUse the three treatments to explore a proposal. Inspect a site to see its exact cost and productive change. All production units are illustrative game accounting.\n\n<b>02   Explore the valley</b>\nDrag to orbit · Shift-drag to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n<b>03   Experiment freely</b>\n1 / 2 / 3: tools · M: living margin · Tab: next site\nEnter: place · Z: undo · Escape: cancel or close\nG: field guide · ?: controls\n\nRunoff estimates are not available in this slice.",
+      "rect": {
+        "x": 272,
+        "y": 96,
+        "width": 736,
+        "height": 440
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 376.260009765625,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 498,
+        "y": 609,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Motion: full",
+      "rect": {
+        "x": 280,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Sound: on",
+      "rect": {
+        "x": 531,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Text: standard",
+      "rect": {
+        "x": 782,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Tool Cultivate",
+      "enabled": true,
+      "rect": {
+        "x": 286,
+        "y": 596,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Tool Restore",
+      "enabled": true,
+      "rect": {
+        "x": 524,
+        "y": 596,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Tool Manage water",
+      "enabled": true,
+      "rect": {
+        "x": 762,
+        "y": 596,
+        "width": 232,
+        "height": 96
+      }
+    },
+    {
+      "name": "Button Undo  Z",
+      "enabled": false,
+      "rect": {
+        "x": 24,
+        "y": 644,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Valley view  R",
+      "enabled": true,
+      "rect": {
+        "x": 24,
+        "y": 580,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Field guide  G",
+      "enabled": true,
+      "rect": {
+        "x": 1108,
+        "y": 644,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Controls  ?",
+      "enabled": true,
+      "rect": {
+        "x": 1108,
+        "y": 580,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 490,
+        "y": 607,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Motion: full",
+      "enabled": true,
+      "rect": {
+        "x": 272,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Sound: on",
+      "enabled": true,
+      "rect": {
+        "x": 523,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Text: standard",
+      "enabled": true,
+      "rect": {
+        "x": 774,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 856,
+      "y": 24,
+      "width": 400,
+      "height": 94
+    },
+    {
+      "x": 278,
+      "y": 588,
+      "width": 724,
+      "height": 112
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 644,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 644,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 580,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 240,
+      "y": 35,
+      "width": 800,
+      "height": 650
+    }
+  ]
+}

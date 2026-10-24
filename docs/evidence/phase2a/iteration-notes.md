@@ -13,3 +13,11 @@ Reloading the old local origin after replacing its export produced `Class::FromI
 During early inspection, both viewport rendering and gameplay changed between agent actions. The user confirmed concurrent play and then yielded the browser for controlled verification. This is not evidence of a gameplay accounting bug. Restore the explicit viewport and a known proposal baseline before measurements; exclude the disturbed intermediate captures from acceptance. Controlled evidence uses Chrome's viewport and DOM keyboard APIs, with actual canvas dimensions recorded.
 
 No public Phase 2A deployment or final visual/interaction/performance pass is claimed by these iteration notes.
+
+### Controlled checks after the user yielded the browser
+
+- Moved persistent guidance below the place identity and shifted the default composition upward so editable land remains clear of the dock.
+- Added a dark backing and unlit, separately ordered foreground for site outlines; disabled boundary depth writes to remove visible self-interference.
+- Measured selected-card secondary text at 3.79:1, below the 4.5:1 criterion. Darkened the selected fill before final acceptance.
+- A separate user checkpoint saved the preceding work as `e355fa1`; subsequent changes continue from that checkpoint.
+- Initial automated benchmark key bursts were too fast for frame-polled input and are excluded. The accepted benchmark uses 150 ms pacing per key.

@@ -1,6 +1,11 @@
 # Terra design reference — Terra Nil and Cities: Skylines
 
-**Project-wide reference · researched October 24, 2026 · revision 1**
+> **Active visual reset — October 24, 2026:** The user rejected the prototype's visual quality and the UX-heavy incremental approach. Read [the rewritten Phase 2A goal](PHASE_2A_GOAL.md) and [VISUAL_REBUILD.md](VISUAL_REBUILD.md) first. This library remains the source reference; earlier Terra screenshots are rejected/historical comparisons. Prioritize the rendered landscape, materials, foliage, lighting and transformations. No current implementation is protected merely because it exists.
+
+
+**Project-wide reference · researched October 24, 2026 · revision 2 — visual rebuild**
+
+**Latest asset direction:** the user rejected overreliance on generated images. No further generation in the current pass. Compare established, coherent asset families with their intended shaders and demo setups, then judge our actual complete scene. The generated canopy studies and their camera compromises remain unaccepted and replaceable. See [resource evaluation](VISUAL_REBUILD.md#resource-register).
 
 **Use Terra Nil as the primary reference for how Terra looks and feels. Use Cities: Skylines selectively for how a spatial decision is explained.** The target is a beautifully composed, responsive rural landscape game whose interface makes choices understandable without dominating the landscape.
 
@@ -10,7 +15,7 @@ This is the reusable reference for all player-facing work, not a record of imple
 
 | Working on… | Read / compare | Terra rule |
 |---|---|---|
-| Landscape, lighting, camera, vegetation | [Visual references](#visual-reference-board), TN-01, TN-02 | The world is the reward; compose wide and close views together |
+| Landscape, lighting, camera, vegetation | [Visual references](#visual-reference-board), [new visual studies](VISUAL_REBUILD.md), TN-01, TN-02, TN-09–12 | The world is the reward; compose wide and close views together |
 | HUD, metrics, tool dock, icons | TN-03, TN-04, CS-01 | A few clear choices; stable locations; readable labels and values |
 | Hover, placement, rejection, undo | TN-05, CS-02, CS-03 | Show where, what, cost, and consequence before commitment |
 | Help, source information, onboarding | TN-06, CS-04 | Brief guidance in context, deeper explanation on request |
@@ -183,7 +188,36 @@ Terra's proposed minimums: body text around 16 effective CSS px, primary control
 
 Keyboard focus must be visible, modal focus must stay within the modal, and closing it must restore a useful focus. Preserve site cycling and keyboard commitment without colliding with menu traversal. Camera gestures must never place accidentally. These checks do not constitute full WCAG or screen-reader conformance for a Unity canvas; record actual support and limitations honestly.
 
-## Initial Terra gap assessment
+## Direct visual patterns added for the rebuild
+
+### TN-09 — Surface art must survive a close view
+
+**Observed:** the [official restored-bank frame](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp) separates cracked barren ground, softened treated soil, green growth and rock with distinct surface marks. Detail follows the material rather than applying the same noise everywhere.
+
+**Terra application:** compose field rhythms, meadow growth and woodland floor as different surfaces. Judge both small-scale massing and close material richness. A flat fill plus a tint/noise pass is insufficient. Painted textures, geometry, shaders and blended layers are available means, not mandated techniques.
+
+### TN-10 — Foliage needs layered silhouettes and internal structure
+
+**Observed:** the [official tropical frame](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp) has overlapping crowns, distinct edge plants, internal light/dark clusters, occasional trunks and restrained color accents. Astrid Bruce documents [painted textures and Unity-ready willow assets](https://astridbruce.artstation.com/projects/zPEND2).
+
+**Terra application:** rebuild a coherent rural foliage family; vary crown shape, height, clearings and edge density. Do not copy tropical species or claim surveyed tree positions. Reject a stock-mesh carpet even if its polygon count is high.
+
+### TN-11 — Water is a layered landscape feature
+
+**Observed:** the tropical frame distinguishes water color/depth, submerged detail, shore contact and bright edge motion. The restored-bank frame uses irregular banks and planted edges around narrower channels.
+
+**Terra application:** develop a Wisconsin-scale stream with bed, bank, surface, vegetation contact and restrained movement. Keep the mapped route and disclose illustrative widths/depths. Do not paste a blue ribbon over the ground and call it finished, or imply a hydrological simulation from attractive water.
+
+### TN-12 — Compose light and scale before adding detail
+
+**Observed:** the [desktop temperate frame](https://www.wsgf.org/f/u/contrib/dr/30168/ingame_16x9.png) separates bright ground, darker canopy masses, side faces and local highlights. Important environmental forms remain large enough to read.
+
+**Terra application:** test a closer valley composition and an authored overview. Tune camera, silhouette, warm/cool relationships, contact shadow and ambient depth together. A muted palette, distant whole-map view or empty surround is not sacred. Review during movement and with the HUD present; grading alone cannot repair weak forms.
+
+## Historical initial Terra gap assessment
+
+**Superseded as the active priority list by the user's visual reset.** Use [the visual rebuild goal](PHASE_2A_GOAL.md) and [its dominant visual failures](PHASE_2A_GOAL.md#why-the-previous-approach-failed). The table below records the earlier UX-heavy audit, not the current work order.
+
 
 This audit uses V5 plus `TerraHud.cs`, `TerraMain.cs`, and `LandscapeRenderer.cs` as read on October 24. It is a prioritized starting hypothesis; Phase 2 work is still in progress.
 
@@ -200,11 +234,11 @@ This audit uses V5 plus `TerraHud.cs`, `TerraMain.cs`, and `LandscapeRenderer.cs
 
 ## Carry-forward review for every phase
 
-Before changing player-facing code or assets, read the relevant patterns and inspect the latest accepted Terra capture. In the phase evidence entry record **pattern IDs, intended improvement, actual browser captures, weakest remaining gap, and any deliberate deviation**. A code test alone cannot close a visual issue.
+Before changing player-facing code or assets, read the relevant patterns and inspect the latest accepted Terra capture. During the current reset there is no accepted Phase 2A visual target: compare against Terra Nil and treat prior Terra captures as rejected or historical. In the phase evidence entry record **pattern IDs, intended improvement, actual browser captures, weakest remaining gap, and any deliberate deviation**. A code test alone cannot close a visual issue.
 
 | Phase | Additional design responsibilities |
 |---|---|
-| 2A | Establish world/HUD/tools/preview/help/settings/loading quality using the existing placement slice |
+| 2A | Rebuild direct visual quality from first principles: composition, foliage, ground, water, light and transformations; replace existing implementation as needed; fit UI afterward |
 | 3 | Extend those components to move, replace, remove, redo and reset without clutter or input ambiguity |
 | 4 | Add truthful runoff/connection information, comparable deltas, legends and causal explanations |
 | 5 | Add mission/goal status and progressive onboarding; test comprehension without coaching |
@@ -230,6 +264,9 @@ All links were consulted October 24, 2026. Dates below refer to the source or te
 | R8 | [Cities: Skylines original publisher manual](https://cdn.akamai.steamstatic.com/steam/apps/255710/manuals/CitiesSkylines-UserManual_EN.pdf) | Historical original-PC interface; pp.8–10, not the sequel |
 | R9 | [Cities: Skylines II visual-update diary, January 29, 2026](https://www.paradoxinteractive.com/games/cities-skylines-ii/news/upcoming-visual-updates) | Official proposed redesign and inspected image; shipping status not established |
 | R10 | [Cities: Skylines II follow-up, February 12, 2026](https://www.paradoxinteractive.com/games/cities-skylines-ii/news/upcoming-gameplay-updates) | Official account of feedback and intended settings; no causal usability study |
+| R12 | [Developer painterly-direction announcement](https://vfqd.itch.io/terra-nil/devlog/188191/the-future-of-terra-nil) | Primary art-direction intent; not a shader specification |
+| R13 | [Astrid Bruce willow-tree portfolio](https://astridbruce.artstation.com/projects/zPEND2) | Artist account of painted textures and game-ready Unity vegetation |
+| R14 | [Free Lives official press kit](https://freelives.net/terra-nil-press-kit/) | Inspected Screen 1 handbook, Screen 2 tropical environment, Screen 3 restoration/banks, Screen 5 snowy environment; direct visual references, not features to copy into Wisconsin |
 | R11 | [W3C text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [control contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), [target sizes](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html) | Primary accessibility guidance informing selected checks, not a full conformance audit |
 
 ## Design review record template
