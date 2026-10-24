@@ -2,7 +2,7 @@
 
 **Last updated:** October 24, 2026, Phase 1 gate passed. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Coon Valley / Brye Lane, Wisconsin is selected. Phases 2–8 remain planned.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phases 2–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
@@ -23,9 +23,13 @@
 - **Parallel packages:** none assigned or started; frozen contracts and runnable local bundle are ready.
 - **Latest verified build:** `Builds/Web/`, 13,678,532 bytes; [public fixture](https://terra-browser.vercel.app/), source `a78f49cf401a6ff602676b35f23c84fb5866ae93`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
-- **Location decision:** `coon-valley-brye-v1`, approximately 0.97 km² around Brye Lane/Coon Creek, Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
+- **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
 - **Working scenario:** illustrative productive land versus restoration and runoff; frozen v1 treatment details are in worldpack-format.md. No production scalability or seasonal farm simulation is required.
+
+## Location naming update — October 24, 2026
+
+The user requested a new name. **Meadowbrook Valley** replaces the old player-facing name across the runtime and active plans. The real AOI, stable internal ID and provenance are unchanged; [naming policy](location-selection.md#name-and-provenance). Earlier evidence and screenshots below retain the names actually shown at capture time. This is a copy update after Phase 1, not the start of Phase 2.
 
 ## Phase-0 preparation check — October 24, 2026
 

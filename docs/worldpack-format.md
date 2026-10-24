@@ -1,6 +1,6 @@
 # WorldPack v1 — Phase 1 contract
 
-Status: implemented fixture contract, **schemaVersion 1**, fixture **1.0.0**. The selected real location is [Coon Valley / Brye Lane](location-selection.md); `worlds/fixture-v1` is synthetic test data only. Neither this format nor the fixture is a completed real location.
+Status: implemented fixture contract, **schemaVersion 1**, fixture **1.0.0**. The selected real location is [Meadowbrook Valley (game name)](location-selection.md); `worlds/fixture-v1` is synthetic test data only. Neither this format nor the fixture is a completed real location. The display name is Meadowbrook Valley; `coon-valley-brye-v1` remains the stable internal ID and source names stay in provenance.
 
 ## Files and serialization
 
@@ -27,7 +27,7 @@ v1 site/cover polygons are convex, simple, nonzero CCW rings, 3–64 points, **n
 
 `schemaVersion=1`, `id,packId,budget,introId,learningId,assumptionsId`; `treatments[]`: `id,family,title,description,visualRecipeId,modelParameterId,productiveFraction,cover[]`. All costs/capacities are site-specific offers, not hidden UI constants. `storm`: `id,soilGroup,antecedentCondition,sourceId,rainfallMm,initialAbstractionRatio`. `objectives`: `productionMin,dischargeMaxM3,runoffEnabled`. When runoffEnabled is false, discharge threshold is inactive, never shown as a zero target. Phase 1 has no win/mission flow.
 
-Fixture recipes: open plot = 100% cultivated; living margin = 75% cultivated/25% grass and 75% of the open-plot illustrative units; restore meadow = 100% grass/no productive units; connected swale = 100% grass, no productive units and finite 8 m³ assumed capacity at its one eligible site. Example costs are 24/30/18/28 credits, initial budget 60. Existing site production totals 6; the illustrative target is 20. These values are test balance, not prescriptions for Coon Valley. No growing, harvest, seasons or crop-yield model.
+Fixture recipes: open plot = 100% cultivated; living margin = 75% cultivated/25% grass and 75% of the open-plot illustrative units; restore meadow = 100% grass/no productive units; connected swale = 100% grass, no productive units and finite 8 m³ assumed capacity at its one eligible site. Example costs are 24/30/18/28 credits, initial budget 60. Existing site production totals 6; the illustrative target is 20. These values are test balance, not prescriptions for the selected real location. No growing, harvest, seasons or crop-yield model.
 
 The margin occupies real area in the model. Its eventual runoff effect comes from cover/CN inputs, not an arbitrary global bonus. Use one 50 mm storm, assumed soil B and initial abstraction 0.2, and cap retention to generated water in the connected group. The test HUD says pending until the simulation package is integrated.
 

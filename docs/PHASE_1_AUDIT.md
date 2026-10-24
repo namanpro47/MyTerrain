@@ -18,3 +18,5 @@
 | Evidence and boundary | PHASE_STATUS.md records actual source/export/deployment/tests/captures/limits; no real terrain ingestion or extra level | Pass |
 
 See [the complete evidence ledger](PHASE_STATUS.md#phase-1--acceptance-evidence-october-24-2026). Hydrology remains explicitly pending. The selected place is real; the playable fixture is invented. No novice playtest, FPS budget, physical trackpad check, or complete game is claimed by this foundation gate.
+
+Subsequent naming-only update: **Meadowbrook Valley** is the fictional game name for this same AOI. Historical evidence preserves the original capture text; [naming policy](location-selection.md#name-and-provenance). Phase 2 remains unstarted.

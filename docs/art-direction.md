@@ -1,6 +1,6 @@
 # Terra visual contract v1
 
-Status: Phase 1 visual contract frozen; browser review passed. One Coon Valley landscape is the intended full game. The current scene is explicitly an invented technical fixture, not real geography.
+Status: Phase 1 visual contract frozen; browser review passed. One Meadowbrook Valley landscape (fictional game name for the selected Wisconsin AOI) is the intended full game. The current scene is explicitly an invented technical fixture, not real geography.
 
 ## Direction
 
@@ -8,7 +8,7 @@ A warm miniature landscape: restrained moss/sage grass, darker clustered woodlan
 
 HUD system is frozen to **uGUI + TextMeshPro**, with a working tool card/preview and information modal in `TerraHud`. One type family (Liberation Sans supplied with TMP Essentials), main title 34, measure values 26–28, tool headings 19, body 16–18, secondary labels 12–14. Base reference 1280×720 with CanvasScaler matched width/height; verify also 1440×900. Use 8/16/24-ish spacing, cream panels, rounded corners, forest-green selection, warm yellow margin choice. No second HUD framework. HTML owns only browser loading/failure and canvas/accessibility hints.
 
-The top measures show illustrative productive capacity, pending same-storm runoff, and abstract credits. Until simulation integration, no zero runoff, percentages, or science-colored success badge. The selected real place name is paired with an explicit invented-terrain label. Tooltips show a hypothetical site label, exact current-to-preview production/cost, availability reason, and a single action hint. They use a fixed safe viewport region to avoid following the pointer off-screen.
+The top measures show illustrative productive capacity, pending same-storm runoff, and abstract credits. Until simulation integration, no zero runoff, percentages, or science-colored success badge. The Meadowbrook Valley game name is paired with an explicit invented-terrain label. Tooltips show a hypothetical site label, exact current-to-preview production/cost, availability reason, and a single action hint. They use a fixed safe viewport region to avoid following the pointer off-screen.
 
 ## Assets and transform conventions
 

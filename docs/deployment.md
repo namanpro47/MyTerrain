@@ -1,6 +1,6 @@
 # Terra browser deployment
 
-The current export is the Phase 1 **synthetic development fixture**, not real Coon Valley geography. Unity **6000.6.6f1** with Web Build Support is pinned. The enabled scene is `Assets/Terra/Scenes/TerraMain.unity`; its bootstrap loads the three fixture JSON files through UnityWebRequest and binds landscape, input and HUD. `SampleScene` and the isolated toolkit gallery remain available but disabled in build settings. The Web wrapper forwards pointer/wheel events; Input System handles keyboard controls.
+The current export is the Phase 1 **synthetic development fixture**, labeled Meadowbrook Valley (a fictional game name), not a reconstruction of the selected real Wisconsin geography. Unity **6000.6.6f1** with Web Build Support is pinned. The enabled scene is `Assets/Terra/Scenes/TerraMain.unity`; its bootstrap loads the three fixture JSON files through UnityWebRequest and binds landscape, input and HUD. `SampleScene` and the isolated toolkit gallery remain available but disabled in build settings. The Web wrapper forwards pointer/wheel events; Input System handles keyboard controls.
 
 ## Rebuild and preview
 

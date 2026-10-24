@@ -31,6 +31,8 @@ Direct runoff convention: S=25400/CN−254 mm; Q=0 when P≤0.2S, otherwise Q=(P
 
 ## Content seam
 
+Player-facing location copy uses **Meadowbrook Valley**. Keep the existing location/source IDs stable, and retain real geographic names in provenance only; see [naming policy](location-selection.md#name-and-provenance).
+
 `ContentEntry {id,title,body,choices[],sourceIds[]}`; choice `{id,text,explanation,correct}`. Stable content/source IDs and plain UTF-8 text. No layout, Unity paths, mission state, hidden science constants or numeric calculations in prose. Empty choices allowed for introductory/information entries. Fixture intro is under `content/education/fixture-intro.json`. Package D authors supported claims and transfer questions for the same location; the primary engineer binds them in later phases.
 
 ## Independent verification

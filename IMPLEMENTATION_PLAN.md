@@ -1,5 +1,7 @@
 # Terra — implementation plan: one rural location
 
+**Location naming:** The single location is **Meadowbrook Valley** in player-facing copy and all future phase/package work. It is a fictional display name for the already selected Wisconsin AOI, not a location change. Preserve real source names and the stable `coon-valley-brye-v1` data ID in provenance. See [the naming decision](docs/location-selection.md#name-and-provenance).
+
 **Planning baseline / rural-first revision:** October 24, 2026. **Status:** proposed execution plan; no implementation phase is certified complete by this document.
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) remains the north star. This plan turns it into ordered, bounded work. The user's latest direction governs execution: win through a beautiful, enjoyable, working hackathon game; use pragmatic shortcuts and avoid unnecessary production infrastructure.

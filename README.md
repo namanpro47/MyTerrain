@@ -8,7 +8,7 @@ The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) is the project's north star and primary reference for product vision, gameplay, scope, priorities, and design constraints. Consult it when planning features or making implementation decisions, and update it when the team explicitly agrees to change the vision.
 
-**Current focus: one excellent rural location across the full game scope.** Coon Valley / Brye Lane, Wisconsin is selected; refine its gameplay, simulation, UI/UX, learning, and replay together. Additional locations, city levels, and live world generation are deferred until this experience is complete and a separate expansion decision is made.
+**Current focus: one excellent rural location across the full game scope.** **Meadowbrook Valley** is the game name for the selected Wisconsin location; refine its gameplay, simulation, UI/UX, learning, and replay together. Additional locations, city levels, and live world generation are deferred until this experience is complete and a separate expansion decision is made.
 
 The spec describes the intended product; it is not a record of completed features. This README covers running and building the current project, and [SETUP.md](SETUP.md) records setup and verification status.
 

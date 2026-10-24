@@ -27,9 +27,9 @@ namespace Terra.UI
             }
             font=TMP_Settings.defaultFontAsset;rounded=RoundSprite();
             Label(root,"TERRA",new Vector2(0,1),new Vector2(28,-22),new Vector2(290,42),34,ink,FontStyles.Bold);
-            Label(root,"Coon Valley / Wisconsin",new Vector2(0,1),new Vector2(29,-67),new Vector2(320,25),17,ink);
+            Label(root,"Meadowbrook Valley / Wisconsin",new Vector2(0,1),new Vector2(29,-67),new Vector2(320,25),17,ink);
             Label(root,"DEVELOPMENT FIXTURE · invented terrain",new Vector2(0,1),new Vector2(29,-97),new Vector2(340,24),13,muted);
-            Button(root,"Data & assumptions",new Vector2(0,1),new Vector2(28,-130),new Vector2(180,34),()=>ShowModal("A real place. A test landscape.","Selected location: Coon Valley, Wisconsin.\n\nThis small landscape is an invented development fixture, not a map of Coon Valley. Its woodland, grass, fields and connected water feature test the game's controls.\n\nProduction units, demand, credits, sites and protection rules are fictional. Runoff calculations are pending; no flood or yield forecast is shown.\n\nThis preview demonstrates controls and illustrative accounting."),16);
+            Button(root,"Data & assumptions",new Vector2(0,1),new Vector2(28,-130),new Vector2(180,34),()=>ShowModal("A real place. A test landscape.","Meadowbrook Valley: a fictional game name for our Wisconsin location.\n\nThis small landscape is an invented development fixture, not a geographic reconstruction. Its woodland, grass, fields and connected water feature test the game's controls.\n\nProduction units, demand, credits, sites and protection rules are fictional. Runoff calculations are pending; no flood or yield forecast is shown.\n\nThis preview demonstrates controls and illustrative accounting."),16);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-26,-24),new Vector2(620,91),cream);
             Label(stats,"PRODUCTIVE CAPACITY",new Vector2(0,1),new Vector2(20,-13),new Vector2(205,20),12,muted,FontStyles.Bold);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(20,-36),new Vector2(220,36),26,ink,FontStyles.Bold);

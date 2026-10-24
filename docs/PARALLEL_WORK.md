@@ -6,14 +6,16 @@ Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMP
 
 ## Start condition and recommended assignment
 
-Phases 0–1 are local to Naman's computer. Frozen Phase 1 baseline:
+Phases 0–1 are local to Naman's computer. All packages use **Meadowbrook Valley** for player-facing copy and planning. This is a display-name change only; preserve the existing AOI, source attribution and internal ID. See [naming policy](location-selection.md#name-and-provenance).
+
+Frozen Phase 1 baseline:
 
 | Handoff item | Value |
 |---|---|
 | Shared baseline commit SHA | `a78f49cf401a6ff602676b35f23c84fb5866ae93` (exported runtime); bundle branch includes subsequent evidence/documentation only |
 | Repository / remote access | No Git remote is configured. Portable bundle: `Builds/Handoff/terra-phase1.bundle`; no credentials or public source push required. |
 | Unity version | 6000.6.6f1; recheck against shared commit |
-| Selected rural AOI, bounds, and source-review note | `coon-valley-brye-v1`; WGS84 [-91.043,43.697,-91.031,43.706], EPSG:26915; [selection and evidence](location-selection.md) |
+| Selected rural AOI, bounds, and source-review note | **Meadowbrook Valley** (game name); `coon-valley-brye-v1`; WGS84 [-91.043,43.697,-91.031,43.706], EPSG:26915; [selection and evidence](location-selection.md) |
 | Contract/schema version | WorldPack/runtime/art v1; DTO schemaVersion 1; uGUI + TextMeshPro |
 | Fixture path/version | `worlds/fixture-v1`, 1.0.0; exact bytes in `checksums.sha256` |
 | Browser preview URL | [Public Phase 1 fixture](https://terra-browser.vercel.app/); [build/browser evidence](PHASE_STATUS.md) |
