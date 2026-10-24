@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var r = UnityEditor.Build.Reporting.BuildReport.GetLatestReport(); return new { result = r.summary.result.ToString(), size = r.summary.totalSize, errors = r.summary.totalErrors, warnings = r.summary.totalWarnings, duration = r.summary.totalTime.TotalSeconds, path = r.summary.outputPath };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "result": "Succeeded",
+        "size": 12777098,
+        "errors": 0,
+        "warnings": 1,
+        "duration": 65.683953,
+        "path": "/Users/naman/Documents/GitHub/Terra/Builds/Staging/Web"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/Documents/GitHub/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

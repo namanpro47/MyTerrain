@@ -56,3 +56,13 @@ The official Unity agent plugin 0.1.8-beta and Pipeline package 0.9.1-exp.1 are 
 DOTween Free 1.3.045 is configured, along with 24 Kenney nature models, 24 prepared prefabs, shared URP materials, and 10 interface sounds. Complete asset archives are retained in `~/Downloads/TerraToolkit`. The isolated `ToolkitPreview` scene completed all 24 animations in Editor Play mode with no Console errors.
 
 See [HACKATHON_TOOLKIT.md](docs/HACKATHON_TOOLKIT.md) for locations, usage, licenses, the MCP configuration, and the separate Web preview.
+
+The toolkit Web build succeeded (12,913,018 bytes; zero build errors/warnings). Chrome verified the gallery, animation replay (24/24 complete), and a sound playback request after clicking Play. There were no observed browser errors; the optional URP spatial-upscaling warning remains. Evidence: `Logs/Setup/toolkit-verification.json` and `Logs/Setup/toolkit-browser.png`.
+
+## Phase 0 browser gate — October 24, 2026
+
+The current sample scene exports a controllable technical fixture. The final Web build succeeded in 65.68 seconds, reporting **12,777,098 bytes**, zero build errors, and one nonblocking CS0414 warning for the Editor-only pan field in the Web compilation. Shader/material and primitive-collider stripping errors found in initial browser runs were fixed with an explicit Resources material and linker preservation rules.
+
+[The public build](https://terra-browser.vercel.app/) passed Chrome **155.0.8059.85** and Safari **26.5.2** checks, including anonymous Safari Private Browsing, orbit/wheel and keyboard zoom, reset, focus recovery, resize, and reload. No browser Console errors remain. Optional URP shader messages persist; Safari also logs the non-portable `WEBGL_polygon_mode` extension warning. Firefox was not installed and was not tested.
+
+Reproduction, serving configuration, and deployment identity: [docs/deployment.md](docs/deployment.md). Committed captures, request hashes, browser logs, and acceptance evidence: [docs/PHASE_STATUS.md](docs/PHASE_STATUS.md). Setup and toolkit checks were reused. Phase 1 remains unstarted.

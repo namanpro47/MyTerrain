@@ -1,0 +1,500 @@
+Window: "Terra · Browser smoke test", App: Safari.
+0 standard window Terra · Browser smoke test, Private Browsing, ID: SafariWindow?IsSecure=true&UUID=A24973D0-CB3F-4C28-9E89-C0E420416E08, Secondary Actions: Raise
+	1 split group
+		2 tab group
+			3 scroll area
+				4 HTML content …
+					5 button Close
+					6 button Dock to left of window
+					7 button Dock to right of window
+					8 button Detach into separate window
+					9 button Start element selection (⇧⌘C)
+					10 button Device Settings
+					11 button Click to show 2 warnings in the Console
+					12 tab group (selectable)
+						13 tab (selectable) Elements
+						14 tab (selected) Console
+						15 tab (selectable) Sources
+						16 tab (selectable) Network
+						17 tab (selectable) Timelines
+						18 tab (selectable) Storage
+						19 tab (selectable) Graphics
+						20 tab (selectable) Layers
+						21 tab (selectable) Audit
+						22 tab (selectable) Search (⇧⌘F)
+						23 tab (selectable) Settings (⌘,)
+					24 container Console
+						25 search text field (settable)
+						26 button (disabled) Find Previous (⇧⌘G)
+						27 button (disabled) Find Next (⌘G)
+						28 text All
+						29 text Evaluations
+						30 text Errors
+						31 text Warnings
+						32 text Logs
+						33 text Infos
+						34 button Other filter options…
+						35 checkbox (settable, integer) Emulate User Gesture, Help: Run console commands as if inside a user gesture, Value: 0
+						36 button Run Console Snippet…
+						37 button Collect garbage
+						38 button Clear log (⌘K or ⌃L)
+						39 container
+							40 text Console opened at 2:01:25 PM
+							41 image
+							42 link Web.loader.js:1:42233, Help: https://terra-browser.vercel.app/Build/Web.loader.js:1:42233, Value: terra-browser.vercel.app/Build/Web.loader.js
+							43 text You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/Web.framework.js.unityweb" file.
+							44 image
+							45 link Web.loader.js:1:42233, Help: https://terra-browser.vercel.app/Build/Web.loader.js:1:42233, Value: terra-browser.vercel.app/Build/Web.loader.js
+							46 text You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/Web.data.unityweb" file.
+							47 image
+							48 container
+								49 image
+								50 text E  —
+								51 link Web.loader.js:1:6985, Help: https://terra-browser.vercel.app/Build/Web.loader.js:1:6985, Value: terra-browser.vercel.app/Build/Web.loader.js
+							52 text [UnityCache] '
+							53 link https://terra-browser.vercel.app/Build/Web.data.unityweb, Value: terra-browser.vercel.app/Build/Web.data.unityweb
+							54 text ' successfully downloaded and stored in the browser cache
+							55 image
+							56 link Web.loader.js:1:42233, Help: https://terra-browser.vercel.app/Build/Web.loader.js:1:42233, Value: terra-browser.vercel.app/Build/Web.loader.js
+							57 text You can reduce startup time if you configure your web server to add "Content-Encoding: gzip" response header when serving "Build/Web.wasm.unityweb" file.
+							58 image
+							59 container
+								60 image
+								61 text _JS_Log_Dump  —
+								62 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							63 text [UnityMemory] Configuration Parameters - Can be set up in boot.config
+
+							64 image
+							65 container
+								66 image
+								67 text _JS_Log_Dump  —
+								68 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							69 text     "memorysetup-bucket-allocator-granularity=16"
+
+							70 image
+							71 container
+								72 image
+								73 text _JS_Log_Dump  —
+								74 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							75 text     "memorysetup-bucket-allocator-bucket-count=8"
+
+							76 image
+							77 container
+								78 image
+								79 text _JS_Log_Dump  —
+								80 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							81 text     "memorysetup-bucket-allocator-block-size=4194304"
+
+							82 image
+							83 container
+								84 image
+								85 text _JS_Log_Dump  —
+								86 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							87 text     "memorysetup-bucket-allocator-block-count=1"
+
+							88 image
+							89 container
+								90 image
+								91 text _JS_Log_Dump  —
+								92 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							93 text     "memorysetup-main-allocator-block-size=16777216"
+
+							94 image
+							95 container
+								96 image
+								97 text _JS_Log_Dump  —
+								98 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							99 text     "memorysetup-thread-allocator-block-size=16777216"
+
+							100 image
+							101 container
+								102 image
+								103 text _JS_Log_Dump  —
+								104 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							105 text     "memorysetup-main-allocator-mimalloc-enabled=1"
+
+							106 image
+							107 container
+								108 image
+								109 text _JS_Log_Dump  —
+								110 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							111 text     "memorysetup-gfx-main-allocator-block-size=16777216"
+
+							112 image
+							113 container
+								114 image
+								115 text _JS_Log_Dump  —
+								116 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							117 text     "memorysetup-gfx-thread-allocator-block-size=16777216"
+
+							118 image
+							119 container
+								120 image
+								121 text _JS_Log_Dump  —
+								122 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							123 text     "memorysetup-cache-allocator-block-size=4194304"
+
+							124 image
+							125 container
+								126 image
+								127 text _JS_Log_Dump  —
+								128 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							129 text     "memorysetup-typetree-allocator-block-size=2097152"
+
+							130 image
+							131 container
+								132 image
+								133 text _JS_Log_Dump  —
+								134 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							135 text     "memorysetup-profiler-bucket-allocator-granularity=16"
+
+							136 image
+							137 container
+								138 image
+								139 text _JS_Log_Dump  —
+								140 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							141 text     "memorysetup-profiler-bucket-allocator-bucket-count=8"
+
+							142 image
+							143 container
+								144 image
+								145 text _JS_Log_Dump  —
+								146 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							147 text     "memorysetup-profiler-bucket-allocator-block-size=4194304"
+
+							148 image
+							149 container
+								150 image
+								151 text _JS_Log_Dump  —
+								152 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							153 text     "memorysetup-profiler-bucket-allocator-block-count=1"
+
+							154 image
+							155 container
+								156 image
+								157 text _JS_Log_Dump  —
+								158 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							159 text     "memorysetup-profiler-allocator-block-size=16777216"
+
+							160 image
+							161 container
+								162 image
+								163 text _JS_Log_Dump  —
+								164 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							165 text     "memorysetup-profiler-editor-allocator-block-size=1048576"
+
+							166 image
+							167 container
+								168 image
+								169 text _JS_Log_Dump  —
+								170 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							171 text     "memorysetup-temp-allocator-size-main=4194304"
+
+							172 image
+							173 container
+								174 image
+								175 text _JS_Log_Dump  —
+								176 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							177 text     "memorysetup-job-temp-allocator-block-size=2097152"
+
+							178 image
+							179 container
+								180 image
+								181 text _JS_Log_Dump  —
+								182 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							183 text     "memorysetup-job-temp-allocator-block-size-background=1048576"
+
+							184 image
+							185 container
+								186 image
+								187 text _JS_Log_Dump  —
+								188 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							189 text     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+
+							190 image
+							191 container
+								192 image
+								193 text _JS_Log_Dump  —
+								194 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							195 text     "memorysetup-temp-allocator-size-background-worker=32768"
+
+							196 image
+							197 container
+								198 image
+								199 text _JS_Log_Dump  —
+								200 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							201 text     "memorysetup-allocator-temp-initial-block-size-main=262144"
+
+							202 image
+							203 container
+								204 image
+								205 text _JS_Log_Dump  —
+								206 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							207 text     "memorysetup-allocator-temp-initial-block-size-worker=262144"
+
+							208 image
+							209 container
+								210 image
+								211 text _JS_Log_Dump  —
+								212 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							213 text     "memorysetup-temp-allocator-size-audio-worker=65536"
+
+							214 image
+							215 container
+								216 image
+								217 text _JS_Log_Dump  —
+								218 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							219 text     "memorysetup-remapper-allocator-initial-capacity=32768"
+
+							220 image
+							221 container
+								222 image
+								223 text _JS_Log_Dump  —
+								224 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							225 text CodeReloadManager initialized
+
+							226 image
+							227 container
+								228 image
+								229 text _JS_Log_Dump  —
+								230 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							231 text Input System module state changed to: Initialized.
+
+							232 image
+							233 container
+								234 image
+								235 text _JS_Log_Dump  —
+								236 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							237 text [Physics::Module] Initialized fallback backend.
+
+							238 image
+							239 container
+								240 image
+								241 text _JS_Log_Dump  —
+								242 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							243 text [Physics::Module] Id: 0xdecafbad
+
+							244 image
+							245 container
+								246 image
+								247 text _JS_Log_Dump  —
+								248 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							249 text Loading player data from data.unity3d
+
+							250 image
+							251 container
+								252 image
+								253 text _JS_Log_Dump  —
+								254 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							255 text Initialize engine version: 6000.6.6f1 (d20c9ac777da)
+
+							256 image
+							257 container
+								258 image
+								259 text _JS_Log_Dump  —
+								260 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							261 text [EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)
+
+							262 image
+							263 container
+								264 image
+								265 text print  —
+								266 link Web.loader.js:1:1422, Help: https://terra-browser.vercel.app/Build/Web.loader.js:1:1422, Value: terra-browser.vercel.app/Build/Web.loader.js
+							267 text Creating WebGL 2.0 context.
+							268 image
+							269 text WebGL: non-portable extension enabled: WEBGL_polygon_mode
+							270 image
+							271 container
+								272 image
+								273 text _JS_Log_Dump  —
+								274 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							275 text Renderer: WebKit WebGL
+
+							276 image
+							277 container
+								278 image
+								279 text _JS_Log_Dump  —
+								280 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							281 text Vendor:   WebKit
+
+							282 image
+							283 container
+								284 image
+								285 text _JS_Log_Dump  —
+								286 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							287 text Version:  OpenGL ES 3.0 (WebGL 2.0)
+
+							288 image
+							289 container
+								290 image
+								291 text _JS_Log_Dump  —
+								292 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							293 text GLES:     3
+
+							294 image
+							295 container
+								296 image
+								297 text _JS_Log_Dump  —
+								298 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							299 text  EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture
+							300 image
+							301 container
+								302 image
+								303 text _JS_Log_Dump  —
+								304 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							305 text exture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode
+
+							306 image
+							307 container
+								308 image
+								309 text _JS_Log_Dump  —
+								310 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							311 text OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1
+
+							312 image
+							313 container
+								314 image
+								315 text _JS_Log_Dump  —
+								316 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							317 text [Physics::Module] Selected backend (deferred post-plugins).
+
+							318 image
+							319 container
+								320 image
+								321 text _JS_Log_Dump  —
+								322 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							323 text [Physics::Module] Name: PhysX
+
+							324 image
+							325 container
+								326 image
+								327 text _JS_Log_Dump  —
+								328 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							329 text [Physics::Module] Id: 0xf2b8ea05
+
+							330 image
+							331 container
+								332 image
+								333 text _JS_Log_Dump  —
+								334 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							335 text [Physics::Module] SDK Version: 4.1.2
+
+							336 image
+							337 container
+								338 image
+								339 text _JS_Log_Dump  —
+								340 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							341 text [Physics::Module] Integration Version: 1.0.0
+
+							342 image
+							343 container
+								344 image
+								345 text _JS_Log_Dump  —
+								346 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							347 text [Physics::Module] Threading Mode: Single-Threaded
+
+							348 image
+							349 container
+								350 image
+								351 text _JS_Log_Dump  —
+								352 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							353 text Input System initialize...
+
+							354 image
+							355 container
+								356 image
+									357 image
+									358 image
+								359 text _JS_Log_Dump  —
+								360 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							361 text UnloadTime: 1.000000 ms
+
+							362 image
+							363 link terra-browser.vercel.app:63, Help: https://terra-browser.vercel.app/:63:20, Value: terra-browser.vercel.app/
+							364 text TERRA_WEB_READY
+							365 text  –
+							366 text "2785ms"
+							367 image
+							368 container
+								369 image
+								370 text _JS_Log_Dump  —
+								371 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1
+							372 text TERRA_PHASE0_READY
+
+							373 image
+							374 text 2
+							375 container
+								376 image
+								377 text _JS_Log_Dump  —
+								378 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: …
+							379 text Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.
+
+							380 image
+							381 container
+								382 image
+								383 text _JS_Log_Dump  —
+								384 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: …
+							385 text Shader 'Hidden/Universal Render Pipeline/BokehDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldBokehPostProcessPass'). PostProcessing render passes will not execute.
+
+							386 image
+							387 container
+								388 image
+								389 text _JS_Log_Dump  —
+								390 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34756, Value: …
+							391 text Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.
+
+							392 image
+							393 container
+								394 image
+								395 text _JS_Log_Dump  —
+								396 link 2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34718, Help: blob:https://terra-browser.vercel.app/2e50ad82-ad94-4b7b-b007-2feee5a0a9f1:2:34718, Value: …
+							397 text Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.
+
+					398 text entry area (settable) Console prompt, Value: [text entry area: Console prompt]
+					399 container
+					400 container Execution context for $0
+						401 text Auto — Page
+			402 scroll area
+				403 HTML content Description: Terra · Browser smoke test, URL: …
+					404 container
+						405 heading Terra · Browser check, Value: 1
+							406 text Terra · Browser check
+						407 text Phase 0 technical fixture · no real location or gameplay
+						408 button Reset view
+					409 image 3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom.
+					410 container
+						411 summary Camera controls, Value: off
+							412 text Camera controls
+						413 text View 35.0° / 35.0° · Distance 15.0 · Pan 0.0, 0.0
+	414 image WindowControlShadowView._shadowImageView
+	415 toolbar
+		416 container Secondary Actions: Move next, Remove from toolbar
+			417 button Description: show sidebar, Help: Show sidebar, ID: SidebarButton
+			418 text Description: Toggle sidebar, Value: Private
+		419 container BackForwardSegmentedControl
+			420 button Description: Go back, Help: Show the previous page, ID: BackButton
+			421 button (disabled) Description: Go forward, Help: Show the next page, ID: ForwardButton
+		422 container Secondary Actions: Move previous, Move next, Remove from toolbar
+			423 button Page Menu, ID: AssistantButton
+			424 button Add page to Reading List, ID: OneStepBookmarkingButton
+			425 text field (settable) Description: smart search field in a private window, Value: https://terra-browser.vercel.app, ID: WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD
+			426 button Reload this page, ID: ReloadButton
+		427 button Description: Show the privacy report for this site, ID: PrivacyReportShieldButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		428 button Description: Share, ID: ShareButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		429 button Description: New Tab, ID: NewTabButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		430 button Description: Tab Overview, ID: TabOverviewButton, Secondary Actions: Move previous, Remove from toolbar
+	431 close button
+	432 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	433 minimize button
+434 menu bar
+	435 Safari
+	436 File
+	437 Edit
+	438 View, ID: SafariViewMenu
+	439 History
+	440 Bookmarks, ID: SafariBookmarksMenu
+	441 Develop
+	442 Window, ID: SafariWindowMenu
+	443 Help, ID: SafariHelpMenu
+
+The focused UI element is 398 text entry area (settable) Console prompt, Value: [text entry area: Console prompt]

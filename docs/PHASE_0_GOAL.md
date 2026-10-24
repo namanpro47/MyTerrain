@@ -1,6 +1,6 @@
 # Phase 0 — prepared goal: browser build and deployment
 
-**Prepared:** October 24, 2026. **State:** ready for the user's next `/goal` message; this preparation did not start a goal, rebuild Unity, or deploy anything.
+**Prepared and executed:** October 24, 2026. **State:** complete; see [the evidence ledger](PHASE_STATUS.md). The original preparation did not start work; the user's subsequent `/goal` authorized execution. Phase 1 has not started.
 
 Read [AGENTS.md](../AGENTS.md), [the north star](../TERRA_PROJECT_SPEC.md), [phase 0 in the implementation plan](../IMPLEMENTATION_PLAN.md), [SETUP.md](../SETUP.md), and [the evidence ledger](PHASE_STATUS.md). This brief scopes the first execution loop to the existing local setup and browser/deployment gate.
 
@@ -41,14 +41,14 @@ The setup build predates ongoing source/asset changes. Do not assume that existi
 
 ## Acceptance checklist
 
-- [ ] Current source exports successfully through the recorded command on the pinned Unity version.
-- [ ] A small controllable 3D scene works locally over HTTP; input and resize/focus behavior have been exercised, not inferred from the presence of Input System assets.
-- [ ] A real public URL serves that export and opens without the developer's authenticated session.
-- [ ] Chrome and Safari load and render it and pass the core camera/input, resize, reload, and focus checks; browser versions and any differences are recorded. Firefox is optional and must be labeled tested or not tested.
-- [ ] Critical loader/data/framework/WASM requests succeed with usable compression/serving behavior; no blocking Console or network errors remain.
-- [ ] At least one actual browser capture and concise check results are saved with build/deployment identity. Record observed load behavior; do not apply the later rural game's polish/performance gates to this small technical fixture.
-- [ ] Build and deployment can be repeated from the documented configuration, and the verified source checkpoint is recorded.
-- [ ] PHASE_STATUS.md reflects the evidence, remaining nonblocking limitations, and a phase-1 handoff. No phase-1 implementation has begun.
+- [x] Current source exports successfully through the recorded command on the pinned Unity version.
+- [x] A small controllable 3D scene works locally over HTTP; input and resize/focus behavior have been exercised, not inferred from the presence of Input System assets.
+- [x] A real public URL serves that export and opens without the developer's authenticated session.
+- [x] Chrome and Safari load and render it and pass the core camera/input, resize, reload, and focus checks; browser versions and any differences are recorded. Firefox is not installed and not tested.
+- [x] Critical loader/data/framework/WASM requests succeed with usable compression/serving behavior; no blocking Console or network errors remain.
+- [x] Actual browser captures and concise check results are saved with build/deployment identity and observed load behavior.
+- [x] Build and deployment can be repeated from the documented configuration, and the verified source checkpoint is recorded.
+- [x] PHASE_STATUS.md reflects the evidence, remaining nonblocking limitations, and a phase-1 handoff. No phase-1 implementation has begun.
 
 Only mark phase 0 complete when these required checks pass. Local rendering alone, readable build files, or a successful upload alone do not satisfy the public-browser gate.
 

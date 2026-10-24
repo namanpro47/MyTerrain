@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:8080",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 5222,
+      "sha256": "6c9f784821b64a5b3f4b1e2269d04178c47f81c88d9eb9d152406efe308ef675",
+      "contentType": "text/html",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/Web.data.unityweb",
+      "status": 200,
+      "bytes": 3361555,
+      "sha256": "219095c35cc4a998e72d3103f157b14e5d5db17334ffde13b5538eb2b6a1bca1",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 10023480
+    },
+    {
+      "file": "Build/Web.framework.js.unityweb",
+      "status": 200,
+      "bytes": 75143,
+      "sha256": "396a6dd3293e77d54da7ebc101fcfe2e21483981b40fbf459825b20ca23b4b8a",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 331652
+    },
+    {
+      "file": "Build/Web.loader.js",
+      "status": 200,
+      "bytes": 48779,
+      "sha256": "dbe241ba35b8469286b51efc6c55a797a6937e4a2baf3346c330b922d7fb1c88",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/Web.wasm.unityweb",
+      "status": 200,
+      "bytes": 9286399,
+      "sha256": "89fd1f037b0e3b77d8d7c3e27f67c8a140c0ed6f7d496bcceff89b2cfbf7892b",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 34580060
+    }
+  ]
+}

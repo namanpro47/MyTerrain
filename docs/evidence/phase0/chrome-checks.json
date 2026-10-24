@@ -1,0 +1,30 @@
+[
+  {
+    "test": "orbit-wheel",
+    "state": "View 85.0° / 45.0° · Distance 20.2 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "keyboard-zoom-bound",
+    "state": "View 85.0° / 45.0° · Distance 8.2 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "min-distance",
+    "state": "View 85.0° / 45.0° · Distance 8.0 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "max-distance",
+    "state": "View 85.0° / 45.0° · Distance 24.0 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "help-isolation",
+    "state": "View 85.0° / 45.0° · Distance 24.0 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "reset-and-focus-recovery",
+    "state": "View 61.6° / 35.0° · Distance 15.0 · Pan 0.0, 0.0"
+  },
+  {
+    "test": "reload-1440x900",
+    "state": "View 35.0° / 35.0° · Distance 15.0 · Pan 0.0, 0.0"
+  }
+]

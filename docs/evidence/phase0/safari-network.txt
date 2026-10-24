@@ -1,0 +1,79 @@
+The following is a diff from the previous accessibility tree for Window: "Terra · Browser smoke test" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 503-556, 558, 566-568, 572
++					572 button Click to show 2 warnings in the Console
++							573 container terra-browser.vercel.app terra-browser.vercel.app document — 2.40 KB 38.1ms
++								574 image
++									575 image
++									576 image
++								577 text terra-browser.vercel.app
++								578 image
++								579 text terra-browser.vercel.app document — 2.40 KB 38.1ms
++								580 container
++							581 container Web.loader.js terra-browser.vercel.app js terra-browser.vercel.app:65 (memory) 25.8ms
++								582 image
++									583 image
++									584 image
++								585 text Web.loader.js
++								586 image
++								587 text terra-browser.vercel.app js terra-browser.vercel.app:65 (memory) 25.8ms
++								588 container
++							589 container Web.framework.js.unityweb terra-browser.vercel.app fetch Web.loader.js:1:11580 75.26 KB 969ms
++								590 image
++								591 text Web.framework.js.unityweb
++								592 image
++								593 text terra-browser.vercel.app fetch Web.loader.js:1:11580 75.26 KB 969ms
++								594 container
++							595 container Web.wasm.unityweb terra-browser.vercel.app fetch Web.loader.js:1:11580 9.29 MB 2.15s
++								596 image
++								597 text Web.wasm.unityweb
++								598 image
++								599 text terra-browser.vercel.app fetch Web.loader.js:1:11580 9.29 MB 2.15s
++								600 container
++							601 container data:, — txt — — 0.65ms
++								602 image
++									603 image
++									604 image
++								605 text data:, — txt — — 0.65ms
++								606 container
++							607 container Web.data.unityweb terra-browser.vercel.app fetch Web.loader.js:1:16200 3.36 MB 1.07s
++								608 image
++									609 image
++								610 text Web.data.unityweb
++								611 image
++								612 text terra-browser.vercel.app fetch Web.loader.js:1:16200 3.36 MB 1.07s
++								613 container
++							614 container 6994d178-c468-45d1-adee-f9a24e898733 — js Web.loader.js:1:42766 22.41 KB 1.19ms
++								615 image
++								616 text 6994d178-c468-45d1-adee-f9a24e898733 — js Web.loader.js:1:42766 22.41 KB 1.19ms
++								617 container
++							618 container 722e54dc-376b-42d5-b0f6-bbb1b490fa6d — js Web.loader.js:1:47612 331.78 KB 0.45ms
++								619 image
++								620 text 722e54dc-376b-42d5-b0f6-bbb1b490fa6d — js Web.loader.js:1:47612 331.78 KB 0.45ms
++								621 container
++							622 text 0ms
++							623 text 200ms
++							624 text 400ms
++							625 text 600ms
++							626 text 800ms
++							627 text 1000ms
++							628 text 1.20s
++							629 text 1.40s
++							630 text 1.60s
++							631 text 1.80s
++							632 text 2s
++							633 text 2.20s
++							634 text 2
+~						496 container 8 resources
++							635 text 8
+~						498 container 13.1 MB total
++							636 text 13.1 MB
+~						500 container 13.1 MB transferred
++							637 text 13.1 MB
++							638 text 0
++							639 text 97.1ms
++					640 container Execution context for $0
++						641 text Auto — Page
+~						565 button Reset view
++					642 image 3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom.
++						643 text View 35.0° / 35.0° · Distance 15.0 · Pan 0.0, 0.0
+The focused UI element is 398 text entry area (settable) Console prompt, Value: [text entry area: Console prompt]

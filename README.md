@@ -21,7 +21,9 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 3. Open `Assets/Scenes/SampleScene.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
-The project uses the official **Universal 3D** template, URP, and the Input System. The sample scene is a clean starting point; land-use simulation mechanics are not implemented yet.
+The project uses the official **Universal 3D** template, URP, and the Input System. The sample scene now runs the Phase 0 camera smoke fixture: drag to orbit, Shift/middle drag to pan, scroll to zoom, and R to reset. Land-use simulation mechanics are not implemented yet.
+
+The verified browser fixture is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). See [deployment instructions](docs/deployment.md) and [Phase 0 evidence](docs/PHASE_STATUS.md). Phase 1 has not started.
 
 ## Build for the browser
 

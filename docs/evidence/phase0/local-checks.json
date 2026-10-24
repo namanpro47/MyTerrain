@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "test": "local-orbit-wheel",
+      "state": "View 85.0° / 45.0° · Distance 20.2 · Pan 0.0, 0.0"
+    },
+    {
+      "test": "local-help-isolation",
+      "state": "View 85.0° / 45.0° · Distance 20.2 · Pan 0.0, 0.0"
+    },
+    {
+      "test": "local-focus-recovery",
+      "state": "View 61.2° / 35.0° · Distance 15.0 · Pan 0.0, 0.0"
+    }
+  ],
+  "reload": "View 35.0° / 35.0° · Distance 15.0 · Pan 0.0, 0.0",
+  "console": [
+    {
+      "level": "warn",
+      "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+      "timestamp": "2026-10-24T20:59:35.669Z",
+      "url": "blob:http://127.0.0.1:8080/02ec4ee4-d6e9-4d99-9390-78ff7481709e"
+    },
+    {
+      "level": "warn",
+      "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+      "timestamp": "2026-10-24T21:01:48.213Z",
+      "url": "blob:http://127.0.0.1:8080/7b8a99b3-d00d-4f6b-bc44-c8b73725c2b4"
+    }
+  ]
+}

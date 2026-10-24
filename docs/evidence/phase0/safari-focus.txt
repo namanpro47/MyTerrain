@@ -1,0 +1,51 @@
+Window: "Terra · Browser smoke test", App: Safari.
+0 standard window Terra · Browser smoke test, Private Browsing, ID: SafariWindow?IsSecure=true&UUID=A24973D0-CB3F-4C28-9E89-C0E420416E08, Secondary Actions: Raise
+	1 split group
+		2 tab group
+			3 scroll area
+				4 HTML content Description: Terra · Browser smoke test, URL: terra-browser.vercel.app/
+					5 container
+						6 heading Terra · Browser check, Value: 1
+							7 text Terra · Browser check
+						8 text Phase 0 technical fixture · no real location or gameplay
+						9 button Reset view
+					10 image 3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom.
+					11 container
+						12 container (expanded) Secondary Actions: Collapse
+							13 summary Camera controls, Value: on
+								14 text Camera controls
+							15 container
+								16 text Drag to orbit · Shift + drag or middle drag to pan · scroll / two-finger scroll to zoom. Click the scene, then use arrow keys to orbit, + / − to zoom, or R to reset. View movement is bounded.
+						17 text View 62.4° / 35.0° · Distance 15.0 · Pan 0.0, 0.0
+	18 image WindowControlShadowView._shadowImageView
+	19 toolbar
+		20 container Secondary Actions: Move next, Remove from toolbar
+			21 button Description: show sidebar, Help: Show sidebar, ID: SidebarButton
+			22 text Description: Toggle sidebar, Value: Private
+		23 container BackForwardSegmentedControl
+			24 button Description: Go back, Help: Show the previous page, ID: BackButton
+			25 button (disabled) Description: Go forward, Help: Show the next page, ID: ForwardButton
+		26 container Secondary Actions: Move previous, Move next, Remove from toolbar
+			27 button Page Menu, ID: AssistantButton
+			28 button Add page to Reading List, ID: OneStepBookmarkingButton
+			29 text field (settable) Description: smart search field in a private window, Value: https://terra-browser.vercel.app, ID: WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD
+			30 button Reload this page, ID: ReloadButton
+		31 button Description: Show the privacy report for this site, ID: PrivacyReportShieldButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		32 button Description: Share, ID: ShareButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		33 button Description: New Tab, ID: NewTabButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		34 button Description: Tab Overview, ID: TabOverviewButton, Secondary Actions: Move previous, Remove from toolbar
+	35 close button
+	36 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	37 minimize button
+38 menu bar
+	39 Safari
+	40 File
+	41 Edit
+	42 View, ID: SafariViewMenu
+	43 History
+	44 Bookmarks, ID: SafariBookmarksMenu
+	45 Develop
+	46 Window, ID: SafariWindowMenu
+	47 Help, ID: SafariHelpMenu
+
+The focused UI element is 10 image 3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom.

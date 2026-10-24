@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-24",
+  "phase": 0,
+  "sourceCommit": "7ae591c54d1796997fcf83ce2f3b99a3b8b8e4c1",
+  "unity": "6000.6.6f1 (d20c9ac777da)",
+  "build": {
+    "result": "Succeeded",
+    "size": 12777098,
+    "errors": 0,
+    "warnings": 1,
+    "duration": 65.683953,
+    "path": "/Users/naman/Documents/GitHub/Terra/Builds/Staging/Web"
+  },
+  "deploymentId": "dpl_9RFbj2UR246HW2zEb5VEfb6RT2de",
+  "publicUrl": "https://terra-browser.vercel.app/",
+  "deploymentUrl": "https://terra-browser-eumlrtz9s-namanpro47s-projects.vercel.app",
+  "projectId": "prj_PiYOquy8PBxGMztOM61NDOfN5aX0",
+  "project": "terra-browser",
+  "scope": "namanpro47s-projects",
+  "vercelLocalCli": "53.3.2",
+  "chrome": "155.0.8059.85",
+  "safari": "26.5.2",
+  "machine": "Apple M1 Max, macOS 26.5.2",
+  "firefox": "not installed; not tested"
+}
