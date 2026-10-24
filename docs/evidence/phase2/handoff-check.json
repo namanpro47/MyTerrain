@@ -1,0 +1,18 @@
+{
+  "testedCommit": "1b76d27e17b70c62c8084548d1ebc60c75e02255",
+  "runtimeCommit": "35fb7e8edf7c92b37acebfee5656b0bf4991544b",
+  "bundle": "Builds/Handoff/terra-phase2.bundle",
+  "checks": [
+    "git bundle verify passed; complete history, no prerequisite commits",
+    "Fresh bundle clone resolves expected branch and commit",
+    "Real pack prepares without GIS cache or Unity Library",
+    "All normalized pack checksum entries match",
+    "Packaged runtime files byte-equal canonical source",
+    "Independent frozen simulation example passes; no integrated runoff model claimed",
+    "Fresh clone Git status clean after packaging/example checks"
+  ],
+  "prepareOutput": "Packaged meadowbrook-v1 / v1 (3 files, checksums verified).",
+  "simulationExampleOutput": "{\n  \"passed\": true,\n  \"fixtureVersion\": \"1.0.0\",\n  \"generatedM3\": 25.42162632835775,\n  \"retainedM3\": 8.0,\n  \"disconnectedSiteRetainedM3\": 0.0,\n  \"note\": \"Scalar interface fixture check, not an integrated simulator\"\n}",
+  "checksumEntries": 10,
+  "limits": "This verifies portable source/ready-pack packaging. It does not claim a second-machine Unity import or browser performance. Final documentation-only handoff evidence is committed afterward and the bundle is regenerated/verified; its current transfer hash is in the neighboring ignored .sha256 file."
+}
