@@ -1,6 +1,6 @@
 # Terra
 
-A browser-based rural land-use game in development. Phase 1 provides a synthetic interaction fixture and frozen v1 handoff contracts.
+A browser-based rural land-use game in development. Phase 2 is integrating the real Meadowbrook Valley landscape into the frozen v1 interaction foundation.
 
 The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); this setup does not implement those gameplay features.
 
@@ -21,9 +21,9 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 3. Run `python3 scripts/prepare-world.py` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
-The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the tiny JSON fixture: hover a site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, R resets the camera. The original `SampleScene` remains a separate Phase 0 smoke fixture. Real geography and runoff simulation are not implemented yet.
+The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. Runoff simulation is not implemented yet. [Source data, reproducible export and geographic limits](docs/geography.md).
 
-The verified browser fixture is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). See [deployment instructions](docs/deployment.md), [Phase 1 evidence](docs/PHASE_STATUS.md), and the [runnable handoff](docs/PARALLEL_WORK.md). Phase 1 is complete; Phase 2 has not started.
+The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It still contains the Phase 1 fixture while the Phase 2 export is being reviewed. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phase 1 is complete; Phase 2 is in progress.
 
 ## Build for the browser
 

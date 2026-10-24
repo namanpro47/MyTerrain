@@ -2,6 +2,8 @@
 
 Selected October 24, 2026 for the full initial game. Game name **Meadowbrook Valley**; stable location ID **coon-valley-brye-v1**. Phase 1 selects the place; it does not ingest its geography or claim the development fixture depicts it.
 
+**Phase 2 update:** the frozen AOI is now ingested as `worlds/meadowbrook-v1`. The [geography handoff](geography.md) records verified NAVD88 elevation, native categorical cover, mapped stream/road vectors, source hashes, coordinate checks, ten hypothetical editable sites and two scenario no-edit zones. Browser presentation acceptance is tracked separately in [the Phase 2 audit](PHASE_2_AUDIT.md). The selection research and then-open gaps below remain the historical Phase 1 record.
+
 ## Name and provenance
 
 On October 24, 2026, the user requested replacing the original name. **Meadowbrook Valley** is the fictional display name for this game location. Use it in the HUD, tooltips, plans, demos, learning content and future package deliveries. The actual AOI remains near Coon Valley / Brye Lane / Coon Creek, Wisconsin; retain those names only for source attribution, geographic lookup and historical records. This changes neither the chosen place nor its bounds, data, lesson or phase scope. Keep `coon-valley-brye-v1` as a stable internal identifier so the frozen fixture, checksums and prior evidence remain valid. The game name is not a claim that an officially named Meadowbrook Valley exists at these coordinates.

@@ -2,6 +2,8 @@
 
 Status: implemented fixture contract, **schemaVersion 1**, fixture **1.0.0**. The selected real location is [Meadowbrook Valley (game name)](location-selection.md); `worlds/fixture-v1` is synthetic test data only. Neither this format nor the fixture is a completed real location. The display name is Meadowbrook Valley; `coon-valley-brye-v1` remains the stable internal ID and source names stay in provenance.
 
+Phase 2 now supplies the same-schema real pack at `worlds/meadowbrook-v1`; see [geography and source evidence](geography.md). The three runtime filenames and DTO definitions are unchanged. The synthetic fixture remains the golden contract test.
+
 ## Files and serialization
 
 Canonical authored sources live in `worlds/<pack-id>/`: `manifest.json`, `world.json`, `scenario.json`. `Phase1Setup.PackageFixture()` copies the three files into ignored `Assets/StreamingAssets/WorldPacks/fixture-v1` before build. Never maintain both copies by hand. Runtime loads all three with `UnityWebRequest`, including in the browser. Fields map directly to the serializable DTOs in `Assets/Terra/Scripts/Contracts/WorldContracts.cs`; plain arrays, nested objects, camelCase public fields, finite JSON numbers, no dictionaries or polymorphic values. No comments, NaN or Infinity. UTF-8 strings; IDs are stable case-sensitive strings. Unknown schema versions fail before rendering; missing required structures fail with a readable error. `Phase1Checks.Run()` exercises actual Unity `JsonUtility` round trips and invalid fixtures.

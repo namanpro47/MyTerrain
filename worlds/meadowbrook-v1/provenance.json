@@ -1,0 +1,191 @@
+{
+  "displayName": "Meadowbrook Valley",
+  "realPlace": "Coon Valley / Brye Lane / Coon Creek, Wisconsin",
+  "retrieved": "2026-10-24",
+  "originProjectedM": [
+    658170.12464317,
+    4840592.3595111435
+  ],
+  "exactEditablePolygon": [
+    {
+      "x": 495.334,
+      "z": -488.327
+    },
+    {
+      "x": 471.591,
+      "z": 511.259
+    },
+    {
+      "x": -495.263,
+      "z": 488.362
+    },
+    {
+      "x": -471.665,
+      "z": -511.223
+    }
+  ],
+  "contextWgs84Envelope": [
+    -91.044,
+    43.696,
+    -91.03,
+    43.707
+  ],
+  "contextNote": "10 m local axis grid encloses the frozen WGS84 context; edge margin up to 39 m. Editable sites remain strictly inside the exact frozen WGS84 polygon.",
+  "verticalExaggeration": 1,
+  "absoluteElevationRangeM": [
+    213.19700622558594,
+    360.593017578125
+  ],
+  "processing": [
+    "DEM bilinear 1 m to 10 m vertices; no datum conversion or invented infill",
+    "NLCD native 30 m cells projected corner-by-corner, clipped to context; original class retained by ID in cover-classes.json",
+    "Vector lines projected, clipped and simplified at 1 m tolerance; MultiLineStrings split; no network inference",
+    "Runtime covers are convex clipped source cells; auxiliary analysis geometry preserves holes and multipart shapes"
+  ],
+  "classMapping": {
+    "11": "water",
+    "12": "sealed",
+    "21": "grass",
+    "22": "sealed",
+    "23": "sealed",
+    "24": "sealed",
+    "31": "sealed",
+    "41": "woodland",
+    "42": "woodland",
+    "43": "woodland",
+    "52": "grass",
+    "71": "grass",
+    "81": "grass",
+    "82": "cultivated",
+    "90": "woodland",
+    "95": "grass"
+  },
+  "sources": [
+    {
+      "id": "usgs-3dep-wi-2020",
+      "title": "USGS 3DEP WI_8County_2020_A20, x65y484 / x65y485",
+      "url": "https://www.sciencebase.gov/catalog/item/65bb34cdd34e18c6baf2e0f6",
+      "date": "Acquired 2020-04-11\u20132020-05-07; published 2024-01-24",
+      "license": "Public domain; credit USGS",
+      "role": "1 m bare-earth elevation, bilinear resampling to 10 m vertices"
+    },
+    {
+      "id": "usgs-nlcd-2021",
+      "title": "USGS/MRLC NLCD 2021 Land Cover L48 (20230630)",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "date": "2021 classification; release 2023-06-30",
+      "license": "Public domain; credit USGS/MRLC",
+      "role": "Native 30 m categorical cover; grouped display classes"
+    },
+    {
+      "id": "usgs-nhd",
+      "title": "USGS NHD high-resolution flowlines",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "date": "Retrieved 2026-10-24; individual feature dates in provenance",
+      "license": "Public domain; credit USGS",
+      "role": "Mapped stream/ditch centreline; rendered width is illustrative"
+    },
+    {
+      "id": "usgs-transport",
+      "title": "USGS National Transportation, road layers 30\u201332",
+      "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer",
+      "date": "Retrieved 2026-10-24; feature metadata retained; not a survey date",
+      "license": "Public domain; credit USGS / US Census Bureau",
+      "role": "Mapped road centreline; rendered width is illustrative"
+    },
+    {
+      "id": "scenario-assumptions-v1",
+      "title": "Terra hypothetical management scenario",
+      "url": "",
+      "date": "2026-10-24",
+      "license": "project-original",
+      "role": "Sites, no-edit rules, costs, production, soil/storm and capacity assumptions"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "x65y484.tif",
+      "bytes": 346988294,
+      "sha256": "08f7f016799816bd437fdce1afe09f66e35b9d3967a0c7b01c7f71c2ed4ff021"
+    },
+    {
+      "file": "x65y485.tif",
+      "bytes": 127490723,
+      "sha256": "2aa33a42df964889abf0d31ee4f7ccd1edf9d2d014e2679182307de222f3f8ea"
+    },
+    {
+      "file": "nlcd-2021.tif",
+      "bytes": 6556,
+      "sha256": "d246a49a3e775c3a5b587bfa78f8bb2f66a3fd7b9eb8218e341c33a58bb05bb9"
+    },
+    {
+      "file": "water.geojson",
+      "bytes": 21163,
+      "sha256": "9c65a27fd29ff26ba9e932f600d0fe84a59cfefbbbf43a0cae6daf232368620a"
+    },
+    {
+      "file": "roads.geojson",
+      "bytes": 6533,
+      "sha256": "ce89e7ce423835cce245dff7ad96f8896a2b2c0d1dcb5df45b02e41fb37f9fa7"
+    },
+    {
+      "file": "connecting-roads.geojson",
+      "bytes": 2228,
+      "sha256": "d1969364cafb438bba5b4e7e4f5d39f3e7af5640ae1e743b39bed5d7103c37ed"
+    },
+    {
+      "file": "highways.geojson",
+      "bytes": 7581,
+      "sha256": "8884bc5b34e868bafdfbea387eea5ceeeba89354c7ddede71339c9f930237bd2"
+    },
+    {
+      "file": "elevation-metadata.json",
+      "bytes": 11223,
+      "sha256": "ecefd206274e7d667f5081aed696c112200fc904f8f7b47793ac6dabaed9200d"
+    }
+  ],
+  "requests": [
+    {
+      "file": "elevation-metadata.json",
+      "url": "https://www.sciencebase.gov/catalog/item/65bb34cdd34e18c6baf2e0f6?format=json"
+    },
+    {
+      "file": "x65y484.tif",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_15_x65y484_WI_8County_2020_A20.tif"
+    },
+    {
+      "file": "x65y485.tif",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/WI_8County_2020_A20/TIFF/USGS_1M_15_x65y485_WI_8County_2020_A20.tif"
+    },
+    {
+      "file": "nlcd-2021.tif",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs?service=WCS&version=1.0.0&request=GetCoverage&coverage=NLCD_2021_Land_Cover_L48&crs=EPSG%3A5070&response_crs=EPSG%3A5070&bbox=397455%2C2310645%2C398895%2C2312205&resx=30&resy=30&format=GeoTIFF&interpolation=nearest+neighbor"
+    },
+    {
+      "file": "water.geojson",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6/query?where=1%3D1&geometry=-91.044%2C43.696%2C-91.03%2C43.707&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&f=geojson"
+    },
+    {
+      "file": "roads.geojson",
+      "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer/32/query?where=1%3D1&geometry=-91.044%2C43.696%2C-91.03%2C43.707&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&f=geojson"
+    },
+    {
+      "file": "connecting-roads.geojson",
+      "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer/31/query?where=1%3D1&geometry=-91.044%2C43.696%2C-91.03%2C43.707&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&f=geojson"
+    },
+    {
+      "file": "highways.geojson",
+      "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer/30/query?where=1%3D1&geometry=-91.044%2C43.696%2C-91.03%2C43.707&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&outFields=%2A&returnGeometry=true&f=geojson"
+    }
+  ],
+  "assumptions": [
+    "Meadowbrook Valley is a fictional game name for this real AOI.",
+    "Rendered tree locations, individual vegetation, crop rows, road/water widths and animation are decorative, not surveyed.",
+    "NLCD developed-open-space, shrub and pasture/hay map to grass; developed classes/barren map to sealed; woody wetland maps to woodland. This display grouping is not an imperviousness or ecological condition estimate.",
+    "Hypothetical sites avoid mapped woodland/wetland and maintain 20 m water / 15 m road centreline clearance; scenario buffers are not legal setbacks.",
+    "No-edit zones are educational assumptions. No ownership, legal conversion rights, farm condition or agricultural suitability is inferred.",
+    "Soil B, 50 mm storm, illustrative production, demand, costs, site-only connection groups and retention capacity are uncalibrated game assumptions. Runoff remains disabled.",
+    "No surveyed parcels, exact tree inventory, structures or local soil survey ingested; NLCD cannot resolve narrow field margins.",
+    "Context crop is not a full watershed; no external inflow, flood depth, downstream flood protection or yield forecasts."
+  ]
+}

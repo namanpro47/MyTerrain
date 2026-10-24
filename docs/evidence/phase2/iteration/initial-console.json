@@ -1,0 +1,56 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 3038ms",
+    "timestamp": "2026-10-24T21:54:38.876Z",
+    "url": "http://127.0.0.1:8080/"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=93; meshes=94; vertices=761197; materials=31\n",
+    "timestamp": "2026-10-24T21:54:41.482Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 revision=0; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:54:41.485Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=1; production=17; credits=36; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:55:09.182Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=2; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:55:21.337Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-24T21:55:21.379Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=3; production=17; credits=36; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:55:29.409Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=4; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:55:29.421Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.000003814697266,\"averageFps\":119.6666488647461,\"frameP50Ms\":8.0,\"frameP95Ms\":9.0,\"frameP99Ms\":10.0,\"maxFrameMs\":120.0,\"maxPreviewCpuMs\":0.5,\"maxPlacementCpuMs\":4.400000095367432,\"frames\":3590,\"framesOver33Ms\":1,\"framesOver200Ms\":0,\"previewEvents\":3,\"placementEvents\":1,\"cameraEvents\":3579,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-24T21:55:51.394Z",
+    "url": "blob:http://127.0.0.1:8080/8d7d4064-223f-45b0-82d6-29ae799f550d"
+  }
+]

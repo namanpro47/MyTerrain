@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-24",
+  "unity": "6000.6.6f1",
+  "job": "debbde2c02f64869b475ef6ac10f69e8",
+  "result": "Succeeded",
+  "seconds": 65.3673,
+  "bytes": 14696847,
+  "errors": 0,
+  "warnings": 7,
+  "status": "Current local export; public verification pending"
+}

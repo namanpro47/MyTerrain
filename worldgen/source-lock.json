@@ -1,0 +1,42 @@
+[
+  {
+    "file": "x65y484.tif",
+    "bytes": 346988294,
+    "sha256": "08f7f016799816bd437fdce1afe09f66e35b9d3967a0c7b01c7f71c2ed4ff021"
+  },
+  {
+    "file": "x65y485.tif",
+    "bytes": 127490723,
+    "sha256": "2aa33a42df964889abf0d31ee4f7ccd1edf9d2d014e2679182307de222f3f8ea"
+  },
+  {
+    "file": "nlcd-2021.tif",
+    "bytes": 6556,
+    "sha256": "d246a49a3e775c3a5b587bfa78f8bb2f66a3fd7b9eb8218e341c33a58bb05bb9"
+  },
+  {
+    "file": "water.geojson",
+    "bytes": 21163,
+    "sha256": "9c65a27fd29ff26ba9e932f600d0fe84a59cfefbbbf43a0cae6daf232368620a"
+  },
+  {
+    "file": "roads.geojson",
+    "bytes": 6533,
+    "sha256": "ce89e7ce423835cce245dff7ad96f8896a2b2c0d1dcb5df45b02e41fb37f9fa7"
+  },
+  {
+    "file": "connecting-roads.geojson",
+    "bytes": 2228,
+    "sha256": "d1969364cafb438bba5b4e7e4f5d39f3e7af5640ae1e743b39bed5d7103c37ed"
+  },
+  {
+    "file": "highways.geojson",
+    "bytes": 7581,
+    "sha256": "8884bc5b34e868bafdfbea387eea5ceeeba89354c7ddede71339c9f930237bd2"
+  },
+  {
+    "file": "elevation-metadata.json",
+    "bytes": 11223,
+    "sha256": "ecefd206274e7d667f5081aed696c112200fc904f8f7b47793ac6dabaed9200d"
+  }
+]

@@ -1,14 +1,14 @@
 # Terra — phase status and evidence
 
-**Last updated:** October 24, 2026, Phase 1 gate passed. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+**Last updated:** October 24, 2026, Phase 2 in progress. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phases 2–8 remain planned.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is active; phases 3–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
-| 2 — One real rural landscape | Planned | Selected AOI's aligned pack and browser visual review required |
+| 2 — One real rural landscape | In progress | Real AOI ingestion, aligned rendering, curated sites, source panel and browser/performance evidence pending |
 | 3 — Editing | Planned | Full reversible edit path required |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
 | 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
@@ -18,9 +18,10 @@
 
 ## Current handoff
 
-- **Next action:** stopped before Phase 2. When separately authorized, ingest the selected AOI through package A and integrate its thin real pack.
-- **Goal outcome:** Phase 0 and separately authorized Phase 1 complete.
-- **Parallel packages:** none assigned or started; frozen contracts and runnable local bundle are ready.
+- **Next action:** complete the authorized Phase 2 real-landscape goal, then stop before Phase 3.
+- **Goal outcome:** Phases 0–1 complete; Phase 2 active.
+- **Parallel packages:** package A geography work is being performed locally by the primary engineer for Phase 2; none delegated.
+- **Phase 2 progress:** real `meadowbrook-v1` pack exported; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Terrain/cover/mapped lines, batched scenery, 12 hypothetical sites and source panel are implemented. First local browser export loads and places/undoes without errors; composition/shadow/readability iteration and final public browser/performance gates remain. [Geography](geography.md), [audit](PHASE_2_AUDIT.md).
 - **Latest verified build:** `Builds/Web/`, 13,679,471 bytes; [public fixture](https://terra-browser.vercel.app/), naming-update source `25067bcf36b575d3fafc12100d179f1a8bc19404`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).

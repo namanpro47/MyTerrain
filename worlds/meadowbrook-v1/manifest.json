@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "packId": "meadowbrook-v1",
+  "fixtureVersion": "1.0.0",
+  "geographyKind": "real-geography",
+  "selectedLocationId": "coon-valley-brye-v1",
+  "sourceCrs": "EPSG:26915",
+  "elevationDatum": "NAVD88 metres (3DEP source metadata)",
+  "boundsWgs84": [
+    -91.043,
+    43.697,
+    -91.031,
+    43.706
+  ],
+  "originWgs84": [
+    -91.037,
+    43.7015
+  ],
+  "originElevationM": 210.0,
+  "editableBounds": [
+    -495.263,
+    -511.223,
+    495.334,
+    511.259
+  ],
+  "contextBounds": [
+    -590,
+    -630,
+    590,
+    630
+  ],
+  "worldDataPath": "world.json",
+  "scenarioPath": "scenario.json",
+  "rasterRows": "south-to-north",
+  "winding": "counterclockwise-xz",
+  "layers": [
+    {
+      "id": "terrain",
+      "path": "world.json",
+      "availability": "observed"
+    },
+    {
+      "id": "cover",
+      "path": "world.json",
+      "availability": "observed"
+    },
+    {
+      "id": "water",
+      "path": "world.json",
+      "availability": "mapped"
+    },
+    {
+      "id": "paths",
+      "path": "world.json",
+      "availability": "mapped"
+    },
+    {
+      "id": "sites",
+      "path": "world.json",
+      "availability": "hypothetical"
+    },
+    {
+      "id": "buildings",
+      "path": "",
+      "availability": "not-ingested"
+    },
+    {
+      "id": "soil",
+      "path": "",
+      "availability": "assumed"
+    }
+  ],
+  "sources": [
+    {
+      "id": "usgs-3dep-wi-2020",
+      "title": "USGS 3DEP WI_8County_2020_A20, x65y484 / x65y485",
+      "url": "https://www.sciencebase.gov/catalog/item/65bb34cdd34e18c6baf2e0f6",
+      "date": "Acquired 2020-04-11\u20132020-05-07; published 2024-01-24",
+      "license": "Public domain; credit USGS",
+      "role": "1 m bare-earth elevation, bilinear resampling to 10 m vertices"
+    },
+    {
+      "id": "usgs-nlcd-2021",
+      "title": "USGS/MRLC NLCD 2021 Land Cover L48 (20230630)",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "date": "2021 classification; release 2023-06-30",
+      "license": "Public domain; credit USGS/MRLC",
+      "role": "Native 30 m categorical cover; grouped display classes"
+    },
+    {
+      "id": "usgs-nhd",
+      "title": "USGS NHD high-resolution flowlines",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer/6",
+      "date": "Retrieved 2026-10-24; individual feature dates in provenance",
+      "license": "Public domain; credit USGS",
+      "role": "Mapped stream/ditch centreline; rendered width is illustrative"
+    },
+    {
+      "id": "usgs-transport",
+      "title": "USGS National Transportation, road layers 30\u201332",
+      "url": "https://carto.nationalmap.gov/arcgis/rest/services/transportation/MapServer",
+      "date": "Retrieved 2026-10-24; feature metadata retained; not a survey date",
+      "license": "Public domain; credit USGS / US Census Bureau",
+      "role": "Mapped road centreline; rendered width is illustrative"
+    },
+    {
+      "id": "scenario-assumptions-v1",
+      "title": "Terra hypothetical management scenario",
+      "url": "",
+      "date": "2026-10-24",
+      "license": "project-original",
+      "role": "Sites, no-edit rules, costs, production, soil/storm and capacity assumptions"
+    }
+  ]
+}

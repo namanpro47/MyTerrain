@@ -13,6 +13,7 @@ namespace Terra.UI
         TextMeshProUGUI production,credits,tip,tooltipText,toast,loadText,modalText;
         GameObject tooltip,loading,modal,modalShade,toastPanel; UnityEngine.UI.Button undoButton,motionButton,muteButton;
         UnityEngine.UI.Image[] cards; UnityEngine.UI.Image standard,margin;
+        UnityEngine.UI.Button dataPageButton;int dataPage;
         public bool ModalOpen=>modal.activeSelf; public bool ReducedMotion {get;private set;} public bool Muted{get;private set;}
         public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry)
         {
@@ -28,8 +29,8 @@ namespace Terra.UI
             font=TMP_Settings.defaultFontAsset;rounded=RoundSprite();
             Label(root,"TERRA",new Vector2(0,1),new Vector2(28,-22),new Vector2(290,42),34,ink,FontStyles.Bold);
             Label(root,"Meadowbrook Valley / Wisconsin",new Vector2(0,1),new Vector2(29,-67),new Vector2(320,25),17,ink);
-            Label(root,"DEVELOPMENT FIXTURE · invented terrain",new Vector2(0,1),new Vector2(29,-97),new Vector2(340,24),13,muted);
-            Button(root,"Data & assumptions",new Vector2(0,1),new Vector2(28,-130),new Vector2(180,34),()=>ShowModal("A real place. A test landscape.","Meadowbrook Valley: a fictional game name for our Wisconsin location.\n\nThis small landscape is an invented development fixture, not a geographic reconstruction. Its woodland, grass, fields and connected water feature test the game's controls.\n\nProduction units, demand, credits, sites and protection rules are fictional. Runoff calculations are pending; no flood or yield forecast is shown.\n\nThis preview demonstrates controls and illustrative accounting."),16);
+            Label(root,"REAL GEOGRAPHY · hypothetical choices",new Vector2(0,1),new Vector2(29,-97),new Vector2(340,24),13,muted);
+            Button(root,"Data & assumptions",new Vector2(0,1),new Vector2(28,-130),new Vector2(180,34),()=>{dataPage=0;ShowData();},16);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-26,-24),new Vector2(620,91),cream);
             Label(stats,"PRODUCTIVE CAPACITY",new Vector2(0,1),new Vector2(20,-13),new Vector2(205,20),12,muted,FontStyles.Bold);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(20,-36),new Vector2(220,36),26,ink,FontStyles.Bold);
@@ -55,17 +56,19 @@ namespace Terra.UI
             toast=Label(toastPanel.transform,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(590,44),17,ink);toast.alignment=TextAlignmentOptions.Center;
             var shade=Rect(root,"Modal backdrop",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);shade.anchorMin=Vector2.zero;shade.anchorMax=Vector2.one;shade.offsetMin=shade.offsetMax=Vector2.zero;
             shade.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.09f,.17f,.12f,.35f);modalShade=shade.gameObject;modalShade.SetActive(false);
-            modal=Panel(root,"Information",new Vector2(.5f,.5f),Vector2.zero,new Vector2(650,480),cream).gameObject;
-            modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-26),new Vector2(586,330),18,ink);
+            modal=Panel(root,"Information",new Vector2(.5f,.5f),Vector2.zero,new Vector2(700,540),cream).gameObject;
+            modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-26),new Vector2(636,378),17,ink);
             Button(modal.transform,"Back to landscape",new Vector2(.5f,0),new Vector2(0,24),new Vector2(240,42),CloseModal,17);
             motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,80),new Vector2(270,36),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");},16);
             muteButton=Button(modal.transform,"Sound: on",new Vector2(1,0),new Vector2(-32,80),new Vector2(270,36),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
+            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,80),new Vector2(280,36),()=>{dataPage=1-dataPage;ShowData();},16);dataPageButton.gameObject.SetActive(false);
             modal.SetActive(false);
             loading=Panel(root,"Loading",new Vector2(.5f,.5f),Vector2.zero,new Vector2(520,230),cream).gameObject;
             loadText=Label(loading.transform,"<b>Preparing the landscape</b>\n\nLoading the local WorldPack…",new Vector2(0,1),new Vector2(30,-28),new Vector2(460,130),21,ink);
             Button(loading.transform,"Retry",new Vector2(.5f,0),new Vector2(0,24),new Vector2(160,36),retry,17).name="Retry loading";
         }
         public void Ready(){loading.SetActive(false);}
+        public void Progress(string message){loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=18>"+message+"</size>";}
         public void Error(string message){loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n<size=16>"+message+"</size>";}
         public void UpdateResult(WorldResult r,bool canUndo,float target)
         {production.text=r.production.ToString("0.#")+" <size=14>/ "+target.ToString("0.#")+" units*</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;}
@@ -75,7 +78,7 @@ namespace Terra.UI
             for(int i=0;i<3;i++){cards[i].color=i==index?green:new Color(.88f,.90f,.81f);cards[i].GetComponentInChildren<TextMeshProUGUI>().color=i==index?cream:ink;}
             standard.gameObject.SetActive(index==0);margin.gameObject.SetActive(index==0);
             standard.color=id=="cultivate-standard"?new Color(.83f,.76f,.48f):cream;margin.color=id=="cultivate-margin"?new Color(.83f,.76f,.48f):cream;
-            tip.text=index<0?"Placement cancelled. Choose a tool to start again.":"Hover a site to preview  ·  Click to place  ·  Tab cycles sites";
+            tip.text=index<0?"Placement cancelled. Choose a tool to start again.":"Hover / Tab: preview  ·  F: close view  ·  Click / Enter: place";
         }
         public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
         {
@@ -89,8 +92,23 @@ namespace Terra.UI
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);}
-        public void ShowHelp()=>ShowModal("Make room for a better balance","Select a tool, inspect a site, then click to place. Every proposal can be undone. *Production units are illustrative game accounting.\n\nDrag: orbit · Shift-drag: pan · Scroll: zoom\n1 / 2 / 3: tools · Tab: next site · Enter: place\nM: living margin · Z: undo · R: reset view\nEscape: close panel or cancel placement\n\nThe bright outline previews a site. A warm red outline and a reason mark an unavailable action.");
-        void ShowModal(string title,string body){tooltip.SetActive(false);modalText.text="<size=27><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);}
+        public void ShowHelp()=>ShowModal("Make room for a better balance","Select a tool, inspect a site, then click to place. Every proposal can be undone. *Production units are illustrative game accounting.\n\nDrag: orbit · Shift-drag: pan · Scroll / + / −: zoom\n1 / 2 / 3: tools · Tab: next site · Enter: place\nF: close view of a site · R: return to the valley\nM: living margin · Z: undo · Escape: cancel / close\n\nThe bright outline previews a site. A warm red outline and a reason mark an unavailable action.");
+        void ShowData()
+        {
+            if(dataPage==0)ShowModal("Real land. Hypothetical choices.",
+                "<b>Meadowbrook Valley</b> is our fictional game name for the Coon Valley / Brye Lane / Coon Creek area in Wisconsin.\n\n"+
+                "<b>Editable WGS84 bounds</b>\n43.697–43.706° N · 91.043–91.031° W (about 0.97 km²)\n\n"+
+                "Real elevation, broad land cover, stream and road lines shape this landscape. Trees, crop rows and line widths are decorative. Individual trees and field parcels were not surveyed.\n\n"+
+                "Ten management sites and two no-edit zones are authored game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, a 50 mm storm and swale capacity are fictional settings. Runoff is pending; no flood or yield forecast is shown.");
+            else ShowModal("Sources, dates & limits",
+                "<b>Terrain · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres; 1 m data simplified to a 10 m grid without vertical exaggeration.\n\n"+
+                "<b>Cover · USGS / MRLC NLCD 2021</b>\n30 m classes, June 2023 release. Narrow margins are unresolved; simplified display groups do not measure ecological condition.\n\n"+
+                "<b>Water & roads · USGS National Map</b>\nNHD flowlines and transportation layers 30–32, retrieved October 24, 2026. Feature dates vary; drawn widths are illustrative. Federal source data are public domain.\n\n"+
+                "No parcel, structure, tree, ownership or local soil survey is included. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.");
+            motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
+            SetButtonText(dataPageButton,dataPage==0?"Sources & limits →":"← Place & assumptions");
+        }
+        void ShowModal(string title,string body){tooltip.SetActive(false);modalText.text="<size=27><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);}
         static void SetButtonText(UnityEngine.UI.Button b,string s)=>b.GetComponentInChildren<TextMeshProUGUI>().text=s;
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size)
         {var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=anchor;r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}

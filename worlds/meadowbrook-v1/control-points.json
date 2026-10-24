@@ -1,0 +1,23 @@
+[
+  {
+    "id": "origin",
+    "longitude": -91.037,
+    "latitude": 43.7015,
+    "localX": 0.0,
+    "localZ": 0.0
+  },
+  {
+    "id": "western-stream-junction",
+    "longitude": -91.04136251631216,
+    "latitude": 43.70247288083808,
+    "localX": -354.072,
+    "localZ": 99.738
+  },
+  {
+    "id": "hwy162-brye-junction",
+    "longitude": -91.03213094478438,
+    "latitude": 43.702001949420364,
+    "localX": 391.011,
+    "localZ": 65.051
+  }
+]

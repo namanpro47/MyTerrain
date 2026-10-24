@@ -1,0 +1,122 @@
+[
+  {
+    "siteId": "south-01",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 38.361999999999995,
+      "path": 57.779
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-02",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 168.3693574258689,
+      "path": 61.67281763885028
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-03",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 49.346337694993494,
+      "path": 85.13969931823814
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-04",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 59.436639045828905,
+      "path": 156.701
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-05",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 118.08188132816989,
+      "path": 181.8673765503178
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-06",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 22.325679994688723,
+      "path": 67.183664060607
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-07",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 55.86260209657263,
+      "path": 195.7255805443395
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "south-08",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 37.142107748484065,
+      "path": 149.75400000000002
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "east-09",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 72.3635309945555,
+      "path": 25.482949897089554
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "west-10",
+    "protected": false,
+    "minimumCenterlineDistanceM": {
+      "water": 43.59117261556516,
+      "path": 145.39200692505491
+    },
+    "woodlandOverlapM2": 0.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "reserve-11",
+    "protected": true,
+    "minimumCenterlineDistanceM": {
+      "water": 159.6667101997157,
+      "path": 174.8173337772888
+    },
+    "woodlandOverlapM2": 19500.0,
+    "wetlandOverlapM2": 0.0
+  },
+  {
+    "siteId": "reserve-12",
+    "protected": true,
+    "minimumCenterlineDistanceM": {
+      "water": 0.0,
+      "path": 0.0
+    },
+    "woodlandOverlapM2": 4750.592179837267,
+    "wetlandOverlapM2": 0.0
+  }
+]

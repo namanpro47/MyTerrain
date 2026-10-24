@@ -33,3 +33,8 @@
 # Generated from the canonical worlds/ source before build.
 /Assets/StreamingAssets/WorldPacks/
 /Assets/StreamingAssets/WorldPacks.meta
+
+# Local GIS runtime and cached upstream rasters; normalized small pack is committed.
+/.venv-worldgen/
+/worldgen/cache/
+__pycache__/

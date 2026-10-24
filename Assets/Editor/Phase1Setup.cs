@@ -24,7 +24,7 @@ public static class Phase1Setup
     }
     public static void PackageFixture()
     {
-        string source="worlds/fixture-v1",target="Assets/StreamingAssets/WorldPacks/fixture-v1";
+        string source="worlds/meadowbrook-v1",target="Assets/StreamingAssets/WorldPacks/meadowbrook-v1";
         Directory.CreateDirectory(target);foreach(var name in new[]{"manifest.json","world.json","scenario.json"})File.Copy(Path.Combine(source,name),Path.Combine(target,name),true);
         AssetDatabase.Refresh();
     }

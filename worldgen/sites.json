@@ -1,0 +1,14 @@
+[
+  {"id":"south-01","name":"West field","bounds":[-95,-190,-5,-115]},
+  {"id":"south-02","name":"Central field","bounds":[35,-185,125,-110]},
+  {"id":"south-03","name":"East field","bounds":[165,-180,255,-105]},
+  {"id":"south-04","name":"Lower west field","bounds":[-90,-310,0,-235]},
+  {"id":"south-05","name":"Lower central field","bounds":[40,-310,130,-235]},
+  {"id":"south-06","name":"Lower east field","bounds":[170,-300,250,-225]},
+  {"id":"south-07","name":"Meadow edge","bounds":[-65,-430,10,-355],"swale":true},
+  {"id":"south-08","name":"Southern field","bounds":[55,-425,145,-350]},
+  {"id":"east-09","name":"Brye-side field","bounds":[405,-220,470,-130],"swale":true},
+  {"id":"west-10","name":"Western terrace","bounds":[-395,195,-315,245]},
+  {"id":"reserve-11","name":"Wooded slope","bounds":[-60,200,90,330],"protected":true},
+  {"id":"reserve-12","name":"Stream corridor","bounds":[310,-100,360,40],"protected":true}
+]
