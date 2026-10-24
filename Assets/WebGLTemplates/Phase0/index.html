@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terra · Browser smoke test</title>
+  <link rel="icon" href="data:,">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#122029;color:#eff6f3;font:16px system-ui,sans-serif;height:100dvh;display:flex;flex-direction:column}
+    header,footer{padding:14px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}header{border-bottom:1px solid #34505a}h1{font-size:20px;margin:0}p{margin:0;color:#c0d4d6;font-size:14px}
+    button{font:inherit;color:#102129;background:#b5e5d5;border:0;border-radius:7px;padding:10px 16px;cursor:pointer}button:focus-visible{outline:3px solid #ffd16c;outline-offset:3px}button:disabled{opacity:.5}header button{margin-left:auto}
+    main{position:relative;flex:1;min-height:180px}canvas{display:block;width:100%;height:100%;outline:none;touch-action:none}canvas:focus-visible{outline:2px solid #b5e5d5;outline-offset:-2px}
+    #loading{position:absolute;top:45%;width:100%;text-align:center;pointer-events:none}footer{justify-content:space-between;font-size:13px}details{max-width:680px}summary{cursor:pointer}details p{padding-top:8px;line-height:1.5}
+    @media(max-width:650px){header,footer{padding:10px 14px;gap:10px}header p{display:none}footer{font-size:12px}}
+  </style>
+</head>
+<body>
+  <header><div><h1>Terra · Browser check</h1><p>Phase 0 technical fixture · no real location or gameplay</p></div><button id="reset" disabled>Reset view</button></header>
+  <main><canvas id="unity-canvas" tabindex="0" aria-label="3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom."></canvas><div id="loading" role="status">Loading Unity…</div></main>
+  <footer><details><summary>Camera controls</summary><p>Drag to orbit · Shift + drag or middle drag to pan · scroll / two-finger scroll to zoom.<br>Click the scene, then use arrow keys to orbit, + / − to zoom, or R to reset. View movement is bounded.</p></details><span id="camera-status">Waiting for scene</span></footer>
+  <script>
+    const canvas = document.getElementById('unity-canvas');
+    const loading = document.getElementById('loading');
+    const reset = document.getElementById('reset');
+    let player;
+    const focus = active => player?.SendMessage('Phase0Smoke', 'SetCanvasFocus', active ? '1' : '0');
+    canvas.addEventListener('pointerdown', () => { canvas.focus(); focus(true); });
+    canvas.addEventListener('focus', () => focus(true));
+    canvas.addEventListener('blur', () => focus(false));
+    window.addEventListener('blur', () => focus(false));
+    document.addEventListener('visibilitychange', () => { if(document.hidden) focus(false); });
+    window.addEventListener('pointerup', event => { if(event.target !== canvas) focus(false); });
+    canvas.addEventListener('wheel', event => event.preventDefault(), {passive:false});
+    canvas.addEventListener('contextmenu', event => event.preventDefault());
+    reset.addEventListener('click', () => { player.SendMessage('Phase0Smoke', 'ResetView'); canvas.focus(); focus(true); });
+    const script = document.createElement('script');
+    script.src = 'Build/{{{ LOADER_FILENAME }}}';
+    script.onerror = () => { loading.textContent = 'Could not load Unity. Reload to try again.'; };
+    script.onload = () => createUnityInstance(canvas, {
+      dataUrl:'Build/{{{ DATA_FILENAME }}}', frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}', codeUrl:'Build/{{{ CODE_FILENAME }}}',
+      streamingAssetsUrl:'StreamingAssets', companyName:{{{ JSON.stringify(COMPANY_NAME) }}}, productName:{{{ JSON.stringify(PRODUCT_NAME) }}}, productVersion:{{{ JSON.stringify(PRODUCT_VERSION) }}},
+      showBanner:(message,type) => { if(type === 'error') {loading.hidden=false; loading.textContent=message;} console[type === 'error' ? 'error' : 'warn'](message); }
+    }, progress => {loading.textContent='Loading Unity… '+Math.round(progress*100)+'%';}).then(instance => {
+      player=instance; loading.hidden=true; reset.disabled=false; canvas.focus(); focus(true);
+      console.info('TERRA_WEB_READY', Math.round(performance.now())+'ms');
+    }).catch(error => {loading.hidden=false; loading.textContent='Unable to start. Reload to try again.'; console.error(error);});
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>

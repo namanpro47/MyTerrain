@@ -1,0 +1,23 @@
+{
+    "files.watcherExclude": {
+        "**/Library/**": true,
+        "**/Temp/**": true,
+        "**/Logs/**": true,
+        "**/Builds/**": true
+    },
+    "search.exclude": {
+        "**/Library": true,
+        "**/Temp": true,
+        "**/Logs": true,
+        "**/Builds": true
+    },
+    "files.exclude": {
+        "**/*.meta": true,
+        "**/*.slnx": true,
+        "Library": true,
+        "Temp": true,
+        "Logs": true,
+        "UserSettings": true
+    },
+    "dotnet.defaultSolution": "Terra.slnx"
+}
