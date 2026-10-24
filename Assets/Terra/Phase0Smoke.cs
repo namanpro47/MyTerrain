@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -67,6 +68,27 @@ namespace Terra
             dragging = panning = false;
         }
 
+        // Browser pointer events retain short drags and use CSS pixels consistently on Retina.
+        public void DragCamera(string value)
+        {
+            var parts = value.Split(',');
+            float x = float.Parse(parts[0], CultureInfo.InvariantCulture);
+            float y = float.Parse(parts[1], CultureInfo.InvariantCulture);
+            if (parts[2] == "1")
+            {
+                var rotation = Quaternion.Euler(0, yaw, 0);
+                target += (-(rotation * Vector3.right) * x + (rotation * Vector3.forward) * y) * distance * 0.0015f;
+            }
+            else { yaw += x * 0.25f; pitch += y * 0.2f; }
+            ApplyView();
+        }
+
+        public void ZoomCamera(float delta)
+        {
+            distance *= Mathf.Exp(Mathf.Clamp(delta, -200, 200) * 0.0015f);
+            ApplyView();
+        }
+
         private void OnApplicationFocus(bool value)
         {
             focused = value;
@@ -76,9 +98,10 @@ namespace Terra
         private void Update()
         {
             if (!focused) return;
-            var mouse = Mouse.current;
             var keyboard = Keyboard.current;
             if (keyboard != null && keyboard.rKey.wasPressedThisFrame) ResetView();
+#if !UNITY_WEBGL || UNITY_EDITOR
+            var mouse = Mouse.current;
             if (mouse != null)
             {
                 if (mouse.leftButton.wasPressedThisFrame) { dragging = true; panning = keyboard != null && keyboard.shiftKey.isPressed; }
@@ -97,6 +120,7 @@ namespace Terra
                 }
                 distance *= Mathf.Exp(-Mathf.Clamp(mouse.scroll.ReadValue().y, -200, 200) * 0.0015f);
             }
+#endif
             if (keyboard != null)
             {
                 float step = Time.unscaledDeltaTime;
@@ -104,15 +128,15 @@ namespace Terra
                 pitch += ((keyboard.downArrowKey.isPressed ? 1 : 0) - (keyboard.upArrowKey.isPressed ? 1 : 0)) * step * 45;
                 distance += ((keyboard.minusKey.isPressed ? 1 : 0) - (keyboard.equalsKey.isPressed ? 1 : 0)) * step * 8;
             }
-            pitch = Mathf.Clamp(pitch, 15, 75);
-            distance = Mathf.Clamp(distance, 8, 24);
-            target.x = Mathf.Clamp(target.x, -2, 2);
-            target.z = Mathf.Clamp(target.z, -2, 2);
             ApplyView();
         }
 
         private void ApplyView()
         {
+            pitch = Mathf.Clamp(pitch, 15, 75);
+            distance = Mathf.Clamp(distance, 8, 24);
+            target.x = Mathf.Clamp(target.x, -2, 2);
+            target.z = Mathf.Clamp(target.z, -2, 2);
             if (view == null) return;
             view.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
             view.transform.position = target - view.transform.forward * distance;

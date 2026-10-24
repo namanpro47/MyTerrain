@@ -23,14 +23,32 @@
     const loading = document.getElementById('loading');
     const reset = document.getElementById('reset');
     let player;
-    const focus = active => player?.SendMessage('Phase0Smoke', 'SetCanvasFocus', active ? '1' : '0');
-    canvas.addEventListener('pointerdown', () => { canvas.focus(); focus(true); });
+    let drag = null;
+    const focus = active => { if(!active) drag=null; player?.SendMessage('Phase0Smoke', 'SetCanvasFocus', active ? '1' : '0'); };
+    canvas.addEventListener('pointerdown', event => {
+      if(!player || (event.button !== 0 && event.button !== 1)) return;
+      event.preventDefault(); canvas.focus(); focus(true);
+      drag={id:event.pointerId,x:event.clientX,y:event.clientY,pan:event.shiftKey || event.button===1};
+      canvas.setPointerCapture(event.pointerId);
+    });
+    canvas.addEventListener('pointermove', event => {
+      if(!drag || drag.id !== event.pointerId) return;
+      player.SendMessage('Phase0Smoke','DragCamera',[event.clientX-drag.x,event.clientY-drag.y,drag.pan?1:0].join(','));
+      drag.x=event.clientX; drag.y=event.clientY;
+    });
+    const release = () => {drag=null;};
+    canvas.addEventListener('pointerup',release);
+    canvas.addEventListener('pointercancel',release);
+    canvas.addEventListener('lostpointercapture',release);
     canvas.addEventListener('focus', () => focus(true));
     canvas.addEventListener('blur', () => focus(false));
     window.addEventListener('blur', () => focus(false));
     document.addEventListener('visibilitychange', () => { if(document.hidden) focus(false); });
     window.addEventListener('pointerup', event => { if(event.target !== canvas) focus(false); });
-    canvas.addEventListener('wheel', event => event.preventDefault(), {passive:false});
+    canvas.addEventListener('wheel', event => {
+      event.preventDefault();
+      if(player) player.SendMessage('Phase0Smoke','ZoomCamera',event.deltaY * (event.deltaMode===1 ? 16 : event.deltaMode===2 ? canvas.clientHeight : 1));
+    }, {passive:false});
     canvas.addEventListener('contextmenu', event => event.preventDefault());
     reset.addEventListener('click', () => { player.SendMessage('Phase0Smoke', 'ResetView'); canvas.focus(); focus(true); });
     const script = document.createElement('script');
