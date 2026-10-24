@@ -15,11 +15,15 @@ namespace Terra.Rendering
         readonly Dictionary<string,Transform> proposals=new Dictionary<string,Transform>();
         readonly Dictionary<string,Transform> baselines=new Dictionary<string,Transform>();
         readonly Dictionary<string,LineRenderer> outlines=new Dictionary<string,LineRenderer>();
+        readonly Dictionary<string,LineRenderer> outlineBackings=new Dictionary<string,LineRenderer>();
+        readonly Dictionary<Color,Material> boundaryMaterials=new Dictionary<Color,Material>();
+        string activeOutline,chosenOutline;float boundaryScale=2;
         readonly Dictionary<Color,Material> materials=new Dictionary<Color,Material>();
+        readonly Dictionary<Color,Material> groundMaterials=new Dictionary<Color,Material>();
         readonly List<Mesh> meshes=new List<Mesh>();
         readonly List<CoverPatch>[,] coverIndex; readonly float xmin,zmin,xmax,zmax,cell;
-        Transform ghost;Material glintMaterial;
-        static readonly Color Wood=new Color(.27f,.43f,.29f),Field=new Color(.68f,.64f,.37f),Meadow=new Color(.54f,.62f,.38f),Water=new Color(.26f,.55f,.61f);
+        Transform ghost;Material glintMaterial;LineRenderer settlingOutline;float settleStarted;
+        static readonly Color Wood=new Color(.20f,.35f,.24f),Field=new Color(.64f,.60f,.34f),Meadow=new Color(.46f,.59f,.34f),Water=new Color(.22f,.48f,.51f);
         sealed class Geometry
         {public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector3> normals=new List<Vector3>();public readonly List<int> triangles=new List<int>();}
         public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub)
@@ -49,6 +53,8 @@ namespace Terra.Rendering
         bool Inside(float x,float z)=>x>=xmin&&x<=xmax&&z>=zmin&&z<=zmax;
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
+        Material GroundMat(Color color)
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
@@ -61,7 +67,7 @@ namespace Terra.Rendering
                 if(!ground.TryGetValue(color,out var geometry)){geometry=new Geometry();ground[color]=geometry;}
                 Surface(c.polygon,0,geometry);
             }
-            foreach(var pair in ground)MeshObject("Mapped land cover",pair.Value,Mat(pair.Key),root);
+            foreach(var pair in ground)MeshObject("Mapped land cover",pair.Value,GroundMat(pair.Key),root);
             BuildEdge();
             foreach(var f in world.features.Where(f=>f.kind=="water"))
             {Ribbon(f.points,f.widthM+5,new Color(.39f,.49f,.32f),.035f,root,"Illustrative stream bank");Ribbon(f.points,f.widthM,Water,.12f,root,"Mapped stream centreline");}
@@ -72,7 +78,8 @@ namespace Terra.Rendering
             {
                 var holder=new GameObject("Baseline "+site.name).transform;holder.SetParent(root,false);baselines[site.id]=holder;
                 if(!site.protectedSite)BaselineRows(site,holder);
-                outlines[site.id]=Outline(site.polygon,new Color(.83f,.83f,.59f),1.1f,.35f,root);
+                outlineBackings[site.id]=Outline(site.polygon,new Color(.10f,.19f,.15f),2.4f,.30f,root);
+                outlines[site.id]=Outline(site.polygon,new Color(.65f,.73f,.50f),1.1f,.36f,root);
             }
             var sparkles=new Geometry();int count=0;
             foreach(var f in world.features.Where(f=>f.kind=="water"))foreach(var p in f.points)
@@ -106,14 +113,20 @@ namespace Terra.Rendering
         }
         void BuildVegetation()
         {
-            var trees=new List<Matrix4x4>();var fieldMarks=new Geometry();
-            for(float z=zmin+12;z<zmax-8;z+=20)for(float x=xmin+12;x<xmax-8;x+=20)
+            var groves=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};var fieldMarks=new Geometry();
+            for(float z=zmin+12;z<zmax-8;z+=15)for(float x=xmin+12;x<xmax-8;x+=15)
             {
                 float px=x+Range(-6,6),pz=z+Range(-6,6);
                 if(CoverAt(px,pz)!="woodland"||NearLine(px,pz,6))continue;
-                trees.Add(PlantMatrix(tree,px,pz,Range(13,21),Range(0,360)));
+                // Broad canopy groups, with occasional small clearings. Decoration only;
+                // neither the source cover geometry nor the analytical land state changes.
+                float group=Mathf.PerlinNoise((px+1500)*.012f,(pz+1500)*.012f);
+                if(group<.28f&&random.NextDouble()<.55)continue;
+                int tone=group<.43f?0:group<.59f?1:2;
+                groves[tone].Add(PlantMatrix(tree,px,pz,Range(22,30)*(group<.32f?.8f:1),Range(0,360)));
             }
-            BatchPrefab("Decorative woodland",tree,trees,root,new Color(.29f,.47f,.31f));
+            var tones=new[]{new Color(.24f,.40f,.29f),new Color(.32f,.47f,.29f),new Color(.38f,.51f,.30f)};
+            for(int i=0;i<groves.Length;i++)BatchPrefab("Decorative canopy group",tree,groves[i],root,tones[i]);
             for(float z=zmin+6;z<zmax-6;z+=13)for(float x=xmin+6;x<xmax-6;x+=12)
             {
                 if(CoverAt(x,z)!="cultivated"||world.sites.Any(s=>Contains(s.polygon,x,z))||NearLine(x,z,7))continue;
@@ -177,7 +190,11 @@ namespace Terra.Rendering
             }
         }
         public void Tick(float time,bool reducedMotion)
-        {if(glintMaterial!=null)glintMaterial.color=Color.Lerp(new Color(.52f,.69f,.67f),new Color(.72f,.83f,.74f),reducedMotion?.4f:(Mathf.Sin(time*.65f)+1)*.5f);}
+        {
+            if(glintMaterial!=null)glintMaterial.color=Color.Lerp(new Color(.52f,.69f,.67f),new Color(.72f,.83f,.74f),reducedMotion?.4f:(Mathf.Sin(time*.65f)+1)*.5f);
+            if(settlingOutline!=null){float t=reducedMotion?1:Mathf.Clamp01((time-settleStarted)/.45f);settlingOutline.startWidth=settlingOutline.endWidth=Mathf.Lerp(4.4f,1.8f,t*t*(3-2*t))*boundaryScale;if(t>=1)settlingOutline=null;}
+        }
+        public void Settle(string id){settlingOutline=outlines[id];settleStarted=Time.unscaledTime;}
         public Site Hit(Ray ray)
         {
             float previous=ray.origin.y-Height(ray.origin.x,ray.origin.z);
@@ -198,14 +215,35 @@ namespace Terra.Rendering
         {for(int i=0;i<p.Length;i++){var a=p[i];var b=p[(i+1)%p.Length];if((b.x-a.x)*(z-a.z)-(b.z-a.z)*(x-a.x)<-.001f)return false;}return true;}
         public void Highlight(string hover,string selected,bool valid)
         {
-            foreach(var pair in outlines)
-            {bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.startWidth=pair.Value.endWidth=active?2.8f:chosen?1.8f:1.1f;pair.Value.sharedMaterial=Mat(active?(valid?new Color(1,.90f,.52f):new Color(.95f,.38f,.25f)):chosen?new Color(.98f,.95f,.78f):new Color(.83f,.83f,.59f));}
+            activeOutline=hover;chosenOutline=selected;settlingOutline=null;
+            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(1,.84f,.36f):new Color(1,.38f,.23f)):chosen?new Color(.96f,.98f,.83f):new Color(.65f,.73f,.50f));}
+            ViewScale(boundaryScale);
+        }
+        Material BoundaryMat(Color color){if(!boundaryMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraBoundary"));material.SetColor("_BaseColor",color);boundaryMaterials.Add(color,material);}return material;}
+        public void ViewScale(float metresPerCssPixel)
+        {
+            boundaryScale=metresPerCssPixel;
+            foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:pair.Key==chosenOutline?1.8f:1;
+                pair.Value.startWidth=pair.Value.endWidth=width*boundaryScale;
+                var backing=outlineBackings[pair.Key];backing.startWidth=backing.endWidth=(width+1.4f)*boundaryScale;}
         }
         public void ClearGhost(){if(ghost!=null)DestroyGroup(ghost);ghost=null;}
-        public void Ghost(Site site,bool valid)
+        public void Ghost(Site site,bool valid,string treatment)
         {
             ClearGhost();if(site==null)return;ghost=new GameObject("Placement preview").transform;ghost.SetParent(root,false);
-            Patch("Preview footprint",site.polygon,valid?new Color(.74f,.72f,.44f):new Color(.70f,.43f,.32f),.19f,ghost);
+            Patch("Preview footprint",site.polygon,valid?new Color(.60f,.72f,.55f):new Color(.70f,.43f,.32f),.19f,ghost);
+            if(!valid)return;
+            float l=site.polygon.Min(p=>p.x),r=site.polygon.Max(p=>p.x),b=site.polygon.Min(p=>p.z),t=site.polygon.Max(p=>p.z);
+            if(treatment.StartsWith("cultivate")){
+                if(treatment=="cultivate-margin"){Patch("Proposed living margin",Rectangle(l,b,r,b+(t-b)*.25f),new Color(.40f,.64f,.45f),.23f,ghost);b+=(t-b)*.25f;}
+                var rows=new Geometry();for(float x=l+5;x<r-3;x+=8)Surface(Rectangle(x-.65f,b+3,x+.65f,t-3),.24f,rows);
+                MeshObject("Proposed crop rhythm",rows,Mat(new Color(.43f,.55f,.37f)),ghost);
+            }
+            else if(treatment=="water-swale")Ribbon(new[]{new Point(l+8,(b+t)*.5f),new Point(r-8,(b+t)*.5f)},9,new Color(.35f,.58f,.51f),.24f,ghost,"Proposed swale footprint");
+            else{
+                var plants=new List<Matrix4x4>();for(float x=l+5;x<r-4;x+=12)for(float z=b+5;z<t-4;z+=12)if(Contains(site.polygon,x,z))plants.Add(PlantMatrix(grass,x,z,4,0));
+                BatchPrefab("Proposed meadow texture",grass,plants,ghost,new Color(.68f,.79f,.52f));
+            }
         }
         public Transform Apply(Site site,string treatment)
         {
@@ -244,7 +282,7 @@ namespace Terra.Rendering
         static Point[] Rectangle(float l,float b,float r,float t)=>new[]{new Point(l,b),new Point(r,b),new Point(r,t),new Point(l,t)};
         float Range(float a,float b)=>a+(float)random.NextDouble()*(b-a);
         void Patch(string name,Point[] p,Color color,float lift,Transform parent)
-        {var geometry=new Geometry();Surface(p,lift,geometry);MeshObject(name,geometry,Mat(color),parent);}
+        {var geometry=new Geometry();Surface(p,lift,geometry);MeshObject(name,geometry,GroundMat(color),parent);}
         // Clip every overlay against terrain triangles. Shared boundaries therefore share heights.
         void Surface(Point[] points,float lift,Geometry g)
         {
@@ -303,7 +341,7 @@ namespace Terra.Rendering
                 var a=p[i];var b=p[(i+1)%p.Length];int count=Mathf.CeilToInt(Vector2.Distance(new Vector2(a.x,a.z),new Vector2(b.x,b.z))/3);
                 for(int j=0;j<count;j++){float x=Mathf.Lerp(a.x,b.x,(float)j/count),z=Mathf.Lerp(a.z,b.z,(float)j/count);vertices.Add(new Vector3(x,Height(x,z)+lift,z));}
             }
-            line.positionCount=vertices.Count;line.SetPositions(vertices.ToArray());line.loop=true;line.startWidth=line.endWidth=width;line.sharedMaterial=Mat(color);line.shadowCastingMode=ShadowCastingMode.Off;return line;
+            line.positionCount=vertices.Count;line.SetPositions(vertices.ToArray());line.loop=true;line.startWidth=line.endWidth=width;line.sharedMaterial=BoundaryMat(color);line.shadowCastingMode=ShadowCastingMode.Off;return line;
         }
         void MeshObject(string name,Geometry geometry,Material material,Transform parent)
         {
@@ -313,6 +351,6 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>()){meshes.Remove(f.sharedMesh);Object.Destroy(f.sharedMesh);}Object.Destroy(group.gameObject);}
-        public void Dispose(){foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);}
+        public void Dispose(){foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
     }
 }

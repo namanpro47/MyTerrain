@@ -1,4 +1,5 @@
 mergeInto(LibraryManager.library, {
+  TerraPixelRatio: function() { return window.devicePixelRatio || 1; },
   TerraLandscapeReady: function() {
     console.info('TERRA_INTERACTIVE_MS', Math.round(performance.now()));
   },

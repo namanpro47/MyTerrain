@@ -19,17 +19,21 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-18,pitch=40,zoom=900;Vector3 target=new Vector3(0,25,-75);
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-18,pitch=46,zoom=730;Vector3 target=new Vector3(0,25,-20);
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,pan,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
+        float shownYaw=-18,shownPitch=46,shownZoom=730;Vector3 shownTarget=new Vector3(0,25,-20);
         public int Revision=>state?.Revision??-1;
         public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
         void Start()
         {
             gameObject.name="TerraMain";Application.runInBackground=true;
-            view=Camera.main;view.orthographic=true;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.84f,.88f,.81f);ApplyView();
-            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+            view=Camera.main;view.orthographic=true;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
+            RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
+            RenderSettings.ambientSkyColor=new Color(.54f,.61f,.63f);RenderSettings.ambientEquatorColor=new Color(.40f,.47f,.39f);RenderSettings.ambientGroundColor=new Color(.25f,.29f,.22f);
+            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.35f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(48,-35,0);}
+            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput=true;
@@ -55,12 +59,14 @@ namespace Terra.Gameplay
         }
         void Update()
         {
-            if(!ready)return;performance.Tick();landscape.Tick(Time.unscaledTime,hud.ReducedMotion);var k=Keyboard.current;
+            hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();var k=Keyboard.current;
             if(k!=null)
             {
-                if(k.escapeKey.wasPressedThisFrame)Cancel();
+                bool uiHandled=hud.KeyboardInput(k);
+                if(k.escapeKey.wasPressedThisFrame&&!uiHandled)Cancel();
                 if(k.f9Key.wasPressedThisFrame)performance.Start();
-                if(!hud.ModalOpen)
+                if(k.f10Key.wasPressedThisFrame)Debug.Log("TERRA_UI_AUDIT: "+hud.Audit());
+                if(!uiHandled&&!hud.ModalOpen)
                 {
                     if(k.digit1Key.wasPressedThisFrame)Choose("cultivate-standard");if(k.digit2Key.wasPressedThisFrame)Choose("restore-grass");if(k.digit3Key.wasPressedThisFrame)Choose("water-swale");if(k.mKey.wasPressedThisFrame)Choose("cultivate-margin");
                     if(k.zKey.wasPressedThisFrame)Undo();if(k.rKey.wasPressedThisFrame)ResetView();
@@ -70,7 +76,6 @@ namespace Terra.Gameplay
                     float turn=(k.rightArrowKey.isPressed?1:0)-(k.leftArrowKey.isPressed?1:0);if(turn!=0){yaw+=turn*Time.unscaledDeltaTime*50;ApplyView();}
                     if(k.equalsKey.isPressed){zoom-=Time.unscaledDeltaTime*240;ApplyView();}if(k.minusKey.isPressed){zoom+=Time.unscaledDeltaTime*240;ApplyView();}
                 }
-                if(k.slashKey.wasPressedThisFrame)hud.ShowHelp();
             }
 #if !UNITY_WEBGL || UNITY_EDITOR
             var mouse=Mouse.current;
@@ -83,6 +88,7 @@ namespace Terra.Gameplay
                 if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y/120);
             }
 #endif
+            RenderView();landscape.Tick(Time.unscaledTime,hud.ReducedMotion);
             if(toastUntil>0&&Time.unscaledTime>toastUntil){hud.Toast("");toastUntil=0;}
         }
         public void PointerMessage(string message)
@@ -97,6 +103,7 @@ namespace Terra.Gameplay
         }
         void Pointer(int kind,Vector2 position,bool panning)
         {
+            hud.PointerHover(position);
             if(kind==0)
             {
                 var hits=new List<RaycastResult>();
@@ -129,11 +136,12 @@ namespace Terra.Gameplay
             if(kind==2)
             {bool place=pressed&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}}
         }
-        public void Scroll(float amount){if(!ready||hud.ModalOpen)return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void Scroll(float amount){if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
-        void ApplyView(){pitch=Mathf.Clamp(pitch,32,72);zoom=Mathf.Clamp(zoom,150,1000);target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);view.orthographicSize=zoom;view.transform.rotation=Quaternion.Euler(pitch,yaw,0);view.transform.position=target-view.transform.forward*2400;performance.Camera();}
-        void ResetView(){yaw=-18;pitch=40;zoom=900;target=new Vector3(0,25,-75);ApplyView();}
+        void ApplyView(){pitch=Mathf.Clamp(pitch,32,72);zoom=Mathf.Clamp(zoom,150,1000);target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);if(!ready)RenderView();performance.Camera();}
+        void RenderView(){float t=!ready||hud.ReducedMotion?1:1-Mathf.Exp(-Time.unscaledDeltaTime*16);shownYaw=Mathf.LerpAngle(shownYaw,yaw,t);shownPitch=Mathf.Lerp(shownPitch,pitch,t);shownZoom=Mathf.Lerp(shownZoom,zoom,t);shownTarget=Vector3.Lerp(shownTarget,target,t);view.orthographicSize=shownZoom;view.transform.rotation=Quaternion.Euler(shownPitch,shownYaw,0);view.transform.position=shownTarget-view.transform.forward*1500;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));}
+        void ResetView(){yaw=-18;pitch=46;zoom=730;target=new Vector3(0,25,-20);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=160;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}
@@ -144,7 +152,7 @@ namespace Terra.Gameplay
         {
             if(!ready)return;var timer=System.Diagnostics.Stopwatch.StartNew();var site=world.sites.FirstOrDefault(s=>s.id==hoverId);var treatment=scenario.treatments.FirstOrDefault(t=>t.id==treatmentId);var result=state.Preview(Command());
             bool alreadyPlaced=site!=null&&state.TreatmentAt(site.id)==treatmentId;
-            hud.Preview(site,treatment,result,state.Result);landscape.Highlight(hoverId,selectedId,result.valid||alreadyPlaced);landscape.ClearGhost();if(site!=null&&treatment!=null&&!alreadyPlaced)landscape.Ghost(site,result.valid);
+            hud.Preview(site,treatment,result,state.Result);landscape.Highlight(hoverId,selectedId,result.valid||alreadyPlaced);landscape.ClearGhost();if(site!=null&&treatment!=null&&!alreadyPlaced)landscape.Ghost(site,result.valid,treatmentId);
             performance.Preview(timer.Elapsed.TotalMilliseconds);
             if(!committing)BrowserPerformance.Feedback(0);
         }
@@ -157,7 +165,7 @@ namespace Terra.Gameplay
             if(!hud.Muted&&placementSound!=null)sound.PlayOneShot(placementSound);
             float change=result.result.production-before.production;
             Toast(site.name+": "+(change>=0?"+":"")+change.ToString("0.#")+" illustrative units · "+(result.result.spentCredits-before.spentCredits)+" credits");
-            hoverId=null;Refresh();performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_COMMIT: "+Diagnostic);
+            hoverId=null;Refresh();landscape.Settle(selectedId);performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_COMMIT: "+Diagnostic);
         }
         void Undo()
         {
@@ -165,6 +173,6 @@ namespace Terra.Gameplay
             foreach(var site in world.sites)landscape.Apply(site,state.TreatmentAt(site.id));selectedId=null;Refresh();Toast("Proposal undone. Previous land cover and credits restored.");Debug.Log("TERRA_UNDO: "+Diagnostic);
         }
         void Refresh(){hud.UpdateResult(state.Result,state.CanUndo,scenario.objectives.productionMin);UpdatePreview();}
-        void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+5;}
+        void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }

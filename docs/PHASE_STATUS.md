@@ -4,14 +4,14 @@
 
 **Last updated:** October 24, 2026, Phase 2 complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; the newly inserted Phase 2A and phases 3–8 remain planned.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is now in progress under its separately activated goal; phases 3–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
 | 2 — One real rural landscape | Gate passed | Real pack/provenance, 34 geography + 139 Unity checks, 12 sites, Chrome state matrix and measured public performance; [audit](PHASE_2_AUDIT.md) |
-| **2A — Reference-quality presentation / interaction** | **Planned; not started** | [Prepared goal brief](PHASE_2A_GOAL.md), [persistent research/reference](DESIGN_REFERENCE.md); requires final Phase 2 baseline, actual browser comparisons, current-slice polish, accessibility/performance evidence and explicit human-review status |
+| **2A — Reference-quality presentation / interaction** | **In progress; no acceptance pass yet** | [Prepared goal brief](PHASE_2A_GOAL.md), [persistent research/reference](DESIGN_REFERENCE.md); requires final Phase 2 baseline, actual browser comparisons, current-slice polish, accessibility/performance evidence and explicit human-review status |
 | 3 — Editing | Planned | Full reversible edit path required |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
 | 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
@@ -21,8 +21,8 @@
 
 ## Current handoff
 
-- **Next action:** stop. The authorized Phase 2 real-landscape goal is complete. The next separately authorized implementation is **Phase 2A**, before Phase 3.
-- **Goal outcome:** Phases 0–2 complete. Phase 2A and later phases have not started.
+- **Next action:** continue the active Phase 2A visual/interaction goal, using its browser acceptance gates. Phase 3 is not authorized.
+- **Goal outcome:** Phases 0–2 complete. Phase 2A implementation is in progress; later phases have not started.
 - **Parallel packages:** package A geography work was completed locally by the primary engineer for Phase 2; none delegated.
 - **Phase 2 result:** real `meadowbrook-v1` pack ingested; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Final Chrome reviews at 1280×720 and 1440×900, transformations/rejections/undo, source panel, recovery and measured performance pass. [Geography](geography.md), [requirement-by-requirement audit](PHASE_2_AUDIT.md).
 - **Latest verified build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
@@ -30,6 +30,10 @@
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
 - **Working scenario:** illustrative productive land versus restoration and runoff; frozen v1 treatment details are in worldpack-format.md. No production scalability or seasonal farm simulation is required.
+
+## Phase 2A active implementation — October 24, 2026
+
+The separately activated goal is to complete Phase 2A at the reference quality bar. The [baseline](evidence/phase2a/baseline.md) and [iteration notes](evidence/phase2a/iteration-notes.md) record the actual comparison and failures found. Compact HUD, original treatment miniatures, canopy grouping, guide keyboard focus and rendering refinements are being iterated locally. All 139 existing geography/transaction checks passed again. **No final design score, public deployment, complete accessibility/performance pass or human validation is claimed.** The accepted art contract remains v1 until the new browser gate passes.
 
 ## Phase 2A planning and persistent design research — October 24, 2026
 

@@ -1,0 +1,17 @@
+{
+  "status": "unaccepted visual iteration",
+  "files": {
+    "Build/Web.data.unityweb": "afa79079e639895d035debd1b5fa4615cd63f7a09bac8922ebad2a098d5a757c",
+    "Build/Web.framework.js.unityweb": "e586e1a9cfaca1132a661029b672fe74e500cd019b08ac1b50d1a49c14b1aabb",
+    "Build/Web.loader.js": "4e3f004ee9b87356672ea399acc8055d8de3cf71c22f480a33ab492ea6bc9f7a",
+    "Build/Web.wasm.unityweb": "64e054b94325968f2c918910907fe5747e40e1d4cdaf32d7c57fb265273daa5f",
+    "StreamingAssets/WorldPacks/fixture-v1/manifest.json": "d6ef8e709ea60052d57ac52cfbb6a198eef2552541a845fd5131e06ede5e6573",
+    "StreamingAssets/WorldPacks/fixture-v1/scenario.json": "eebe27f84514c894ebcfd07281ae2740f5a610887008a7d41c0ec066d281cce6",
+    "StreamingAssets/WorldPacks/fixture-v1/world.json": "04115619580381ad6b3ea3e14d389a7ed4e55750f68f999c7b3e3d5987d8ae77",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/world.json": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+    "index.html": "5442b883adec04f3189207a4f6d831209d441742b65056d8d15afa5bd3687a04",
+    "vercel.json": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+  }
+}

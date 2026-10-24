@@ -1,0 +1,60 @@
+{
+  "packages": [
+    {
+      "name": "nature",
+      "url": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+      "sha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+      "archive": "/Users/naman/Downloads/TerraToolkit/kenney_nature-kit.zip"
+    },
+    {
+      "name": "sounds",
+      "url": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+      "sha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
+      "archive": "/Users/naman/Downloads/TerraToolkit/kenney_interface-sounds.zip"
+    },
+    {
+      "name": "dotween",
+      "url": "https://dotween.demigiant.com/downloads/DOTween_1_3_045.zip",
+      "sha256": "32eba5c48520a541775d00cb396e18975b83587ba79175dbb878d753725ba5d9",
+      "archive": "/Users/naman/Downloads/TerraToolkit/DOTween_1_3_045.zip"
+    }
+  ],
+  "nature_models": [
+    "tree_default",
+    "tree_oak",
+    "tree_small",
+    "tree_pineDefaultA",
+    "tree_pineSmallA",
+    "tree_pineTallA",
+    "plant_bush",
+    "plant_bushSmall",
+    "plant_bushLarge",
+    "grass",
+    "grass_large",
+    "grass_leafs",
+    "rock_largeA",
+    "rock_largeB",
+    "rock_smallA",
+    "rock_smallB",
+    "flower_yellowA",
+    "flower_purpleA",
+    "crops_wheatStageA",
+    "crops_wheatStageB",
+    "crops_leafsStageB",
+    "crops_dirtRow",
+    "fence_simple",
+    "fence_gate"
+  ],
+  "interface_sounds": [
+    "click_001",
+    "select_001",
+    "drop_001",
+    "confirmation_001",
+    "error_001",
+    "back_001",
+    "open_001",
+    "close_001",
+    "toggle_001",
+    "pluck_001"
+  ]
+}

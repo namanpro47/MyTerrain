@@ -23,12 +23,15 @@ public static class TerraBuild
         // The fallback lets a plain local/static web server serve the build.
         PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
         PlayerSettings.WebGL.decompressionFallback = true;
+        // Avoid mixing cached data/framework/wasm across static-site deployments.
+        PlayerSettings.WebGL.nameFilesAsHashes = true;
         bool phase1 = scenes.Any(scene => scene.EndsWith("TerraMain.unity"));
         PlayerSettings.WebGL.template = phase1 ? "PROJECT:Terra" : "PROJECT:Phase0";
         if (phase1) Phase1Setup.PackageFixture();
 
         var output = Path.GetFullPath(Path.Combine(Application.dataPath, "../Builds/Web"));
         var staging = Path.GetFullPath(Path.Combine(Application.dataPath, "../Builds/Staging/Web"));
+        if (Directory.Exists(staging)) Directory.Delete(staging, true);
         var report = BuildPipeline.BuildPlayer(new BuildPlayerOptions
         {
             scenes = scenes,
