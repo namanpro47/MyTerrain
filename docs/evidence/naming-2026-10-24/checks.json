@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-24",
+  "displayName": "Meadowbrook Valley",
+  "sourceCommit": "25067bcf36b575d3fafc12100d179f1a8bc19404",
+  "change": "Player-facing name and planning terminology only; same AOI, contracts, internal ID, fixture hashes and mechanics.",
+  "compile": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "documentationCheck": "Nine active planning/reference documents contain the new name; local links resolve; runtime display copy contains no old name.",
+  "historicalEvidence": "Existing captures and source records retained unchanged.",
+  "build": {
+    "result": "Succeeded",
+    "seconds": 63.440807,
+    "bytes": 13679471,
+    "errors": 0,
+    "warnings": 7,
+    "warningSummary": "Unused Phase0 field, three TMP compilation-splitting notices, two WebGPU Firefox advisories and deprecated toolchain stackTrace symbol."
+  },
+  "deployment": {
+    "publicUrl": "https://terra-browser.vercel.app/",
+    "id": "dpl_EqdnXtyTrgUJg3NKyDXjnrWWc3mP",
+    "url": "https://terra-browser-qf43ald47-namanpro47s-projects.vercel.app"
+  },
+  "browser": {
+    "browser": "Chrome 155.0.8059.85",
+    "viewport": [
+      1280,
+      720
+    ],
+    "checks": [
+      "Public header shows Meadowbrook Valley / Wisconsin without clipping",
+      "Data & assumptions explains fictional game name; all copy fits",
+      "Modal opens/closes normally",
+      "Console error list empty",
+      "Public HTML, build and pack files exactly match exported bytes"
+    ],
+    "errors": 0
+  }
+}

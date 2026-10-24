@@ -21,7 +21,7 @@
 - **Next action:** stopped before Phase 2. When separately authorized, ingest the selected AOI through package A and integrate its thin real pack.
 - **Goal outcome:** Phase 0 and separately authorized Phase 1 complete.
 - **Parallel packages:** none assigned or started; frozen contracts and runnable local bundle are ready.
-- **Latest verified build:** `Builds/Web/`, 13,678,532 bytes; [public fixture](https://terra-browser.vercel.app/), source `a78f49cf401a6ff602676b35f23c84fb5866ae93`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
+- **Latest verified build:** `Builds/Web/`, 13,679,471 bytes; [public fixture](https://terra-browser.vercel.app/), naming-update source `25067bcf36b575d3fafc12100d179f1a8bc19404`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
@@ -30,6 +30,8 @@
 ## Location naming update — October 24, 2026
 
 The user requested a new name. **Meadowbrook Valley** replaces the old player-facing name across the runtime and active plans. The real AOI, stable internal ID and provenance are unchanged; [naming policy](location-selection.md#name-and-provenance). Earlier evidence and screenshots below retain the names actually shown at capture time. This is a copy update after Phase 1, not the start of Phase 2.
+
+Recompiled with 0 errors/warnings; Web rebuild succeeded in 63.44 s (13,679,471 bytes, 0 errors, 7 nonblocking compiler/toolchain warnings). Published deployment `dpl_EqdnXtyTrgUJg3NKyDXjnrWWc3mP`; all public assets match the export. Chrome 1280×720 confirms the new header and full modal copy fit, with no Console errors. [Verification](evidence/naming-2026-10-24/checks.json), [header](evidence/naming-2026-10-24/header.png), [modal](evidence/naming-2026-10-24/modal.png). The portable handoff bundle was refreshed with the naming policy and source update.
 
 ## Phase-0 preparation check — October 24, 2026
 

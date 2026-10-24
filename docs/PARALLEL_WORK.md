@@ -12,7 +12,7 @@ Frozen Phase 1 baseline:
 
 | Handoff item | Value |
 |---|---|
-| Shared baseline commit SHA | `a78f49cf401a6ff602676b35f23c84fb5866ae93` (exported runtime); bundle branch includes subsequent evidence/documentation only |
+| Shared baseline commit SHA | `a78f49cf401a6ff602676b35f23c84fb5866ae93` (frozen Phase 1 runtime); naming-only runtime update `25067bcf36b575d3fafc12100d179f1a8bc19404`; bundle branch includes both and subsequent evidence |
 | Repository / remote access | No Git remote is configured. Portable bundle: `Builds/Handoff/terra-phase1.bundle`; no credentials or public source push required. |
 | Unity version | 6000.6.6f1; recheck against shared commit |
 | Selected rural AOI, bounds, and source-review note | **Meadowbrook Valley** (game name); `coon-valley-brye-v1`; WGS84 [-91.043,43.697,-91.031,43.706], EPSG:26915; [selection and evidence](location-selection.md) |
@@ -168,7 +168,7 @@ No Git remote is configured in this repository. The portable bundle supplied wit
 ```sh
 git clone -b codex/unity-setup /path/to/terra-phase1.bundle Terra
 cd Terra
-# The branch includes the frozen runtime plus its final evidence/docs.
+# The branch includes the frozen runtime, Meadowbrook Valley copy update and evidence/docs.
 # Use a78f49cf401a6ff602676b35f23c84fb5866ae93 for the exact exported runtime.
 python3 scripts/prepare-world.py
 python3 scripts/verify-simulation-example.py
