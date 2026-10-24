@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "phase": 1,
+  "sourceCommit": "a78f49cf401a6ff602676b35f23c84fb5866ae93",
+  "deploymentId": "dpl_ANHXMJ3bUG2NWv3LUybAH4ZfcVc5",
+  "publicUrl": "https://terra-browser.vercel.app/",
+  "deploymentUrl": "https://terra-browser-jzvjmrhfb-namanpro47s-projects.vercel.app",
+  "project": "terra-browser",
+  "scope": "namanpro47s-projects",
+  "unity": "6000.6.6f1",
+  "worldPackSchema": 1,
+  "fixtureVersion": "1.0.0",
+  "selectedLocationId": "coon-valley-brye-v1"
+}

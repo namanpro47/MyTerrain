@@ -1,0 +1,20 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 4012ms",
+    "timestamp": "2026-10-24T21:20:13.043Z",
+    "url": "http://127.0.0.1:8080/?check=invalid-schema"
+  },
+  {
+    "level": "error",
+    "message": "TERRA_PACK_ERROR: Unsupported WorldPack schema. Expected 1.\n",
+    "timestamp": "2026-10-24T21:20:15.406Z",
+    "url": "blob:http://127.0.0.1:8080/93ad4781-6ac3-4123-bf78-97001ecdcef1"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE1_READY: fixture-v1 1.0.0 revision=0; production=6; credits=60; hover=; tool=cultivate-standard\n",
+    "timestamp": "2026-10-24T21:20:43.680Z",
+    "url": "blob:http://127.0.0.1:8080/93ad4781-6ac3-4123-bf78-97001ecdcef1"
+  }
+]

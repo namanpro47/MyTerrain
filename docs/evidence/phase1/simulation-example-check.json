@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "fixtureVersion": "1.0.0",
+  "generatedM3": 25.42162632835775,
+  "retainedM3": 8.0,
+  "disconnectedSiteRetainedM3": 0.0,
+  "note": "Scalar interface fixture check, not an integrated simulator"
+}

@@ -1,13 +1,13 @@
 # Terra — phase status and evidence
 
-**Last updated:** October 24, 2026, Phase 0 public-browser gate passed. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+**Last updated:** October 24, 2026, Phase 1 gate passed. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phases 1–8 remain planned; no rural location has been selected.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Coon Valley / Brye Lane, Wisconsin is selected. Phases 2–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
-| 1 — Rural selection/foundation/contracts | Planned | Choose one rural AOI, then styled fixture, contracts, shared commit and handoff |
+| 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
 | 2 — One real rural landscape | Planned | Selected AOI's aligned pack and browser visual review required |
 | 3 — Editing | Planned | Full reversible edit path required |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
@@ -18,14 +18,14 @@
 
 ## Current handoff
 
-- **Next action:** stop here. Phase 1 requires a separate user request; its first task is rural AOI selection, then foundation/contracts.
-- **Goal outcome:** requested Phase 0 work completed; no Phase 1 work started.
-- **Parallel packages:** none assigned; start after the phase-1 baseline is shared.
-- **Latest verified build:** `Builds/Web/`, 12,777,098 bytes; [public fixture](https://terra-browser.vercel.app/), source `7ae591c54d1796997fcf83ce2f3b99a3b8b8e4c1`. Local checkpoint only; no Git push performed.
+- **Next action:** stopped before Phase 2. When separately authorized, ingest the selected AOI through package A and integrate its thin real pack.
+- **Goal outcome:** Phase 0 and separately authorized Phase 1 complete.
+- **Parallel packages:** none assigned or started; frozen contracts and runnable local bundle are ready.
+- **Latest verified build:** `Builds/Web/`, 13,678,532 bytes; [public fixture](https://terra-browser.vercel.app/), source `a78f49cf401a6ff602676b35f23c84fb5866ae93`. Portable checkout `Builds/Handoff/terra-phase1.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
-- **Location decision:** the user asked to choose the rural AOI during early planning; record one selection in phase 1. No place has been selected yet.
+- **Location decision:** `coon-valley-brye-v1`, approximately 0.97 km² around Brye Lane/Coon Creek, Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
-- **Working scenario:** illustrative productive land versus restoration and runoff; confirm treatment details in phase 1. No production scalability or seasonal farm simulation is required.
+- **Working scenario:** illustrative productive land versus restoration and runoff; frozen v1 treatment details are in worldpack-format.md. No production scalability or seasonal farm simulation is required.
 
 ## Phase-0 preparation check — October 24, 2026
 
@@ -57,6 +57,31 @@
 - **Observed load behavior:** on the M1 Max / macOS 26.5.2, public Chrome logged loader readiness at **8.018 s** initially and **3.736 s** after reload; scene-ready followed on the next advancing Unity frame. Safari logged **2.785 s** on the observed public reload. Safari Inspector showed data 1.07 s, WASM 2.15 s, and framework 969 ms on a further reload. These are individual observations with differing cache/background states, not a controlled benchmark or the later rural-game performance gate.
 - **Visual review:** colored shapes, intact shadows, readable help/reset/status, and a proportional canvas at tested sizes. This passes the small Phase 0 fixture scope; full rural art direction and game HUD remain Phase 1+ work.
 - **Acceptance:** all required items in [PHASE_0_GOAL.md](PHASE_0_GOAL.md) pass. Rebuild and publication are documented, the source/deployment/hash association is recorded, and captures are committed. **Stop before Phase 1.** No AOI, gameplay, contracts, or additional level was authored.
+
+## Phase 1 — acceptance evidence, October 24, 2026
+
+- **Status:** gate passed; [requirement-by-requirement audit](PHASE_1_AUDIT.md). No Phase 2 work started and no packages delegated.
+- **Selected location:** Coon Valley / Brye Lane, Wisconsin, `coon-valley-brye-v1`, WGS84 `[-91.043,43.697,-91.031,43.706]`, about 0.97 km²; offline export CRS EPSG:26915. Three candidates were compared, with source previews and actual USGS elevation product availability, NAIP imagery and NLCD coverage checks. [Selection, sources, rights and remaining ingestion gaps](location-selection.md). Candidate previews are research, not authored levels. No real elevation raster was ingested.
+- **Working slice:** `TerraMain` loads the versioned three-file JSON pack through URLs, renders an explicitly synthetic hillslope/cover/path/connection fixture with three editable sites and a protected woodland, and binds a uGUI/TMP HUD. Hover/keyboard preview, ghost/blocked outlines, placement, cancel and undo work. Baseline production, displaced capacity, credits and cover areas are calculated; runoff remains visibly **Pending**. Open plot, 75% productive living margin, meadow restoration and an eligible connected-swale recipe are frozen as fictional test assumptions, not real farm prescriptions.
+- **Source/export identity:** `a78f49cf401a6ff602676b35f23c84fb5866ae93`. Runtime implementation is `fbab39f`; the next commit preserves the Input System preload automatically added during the final build. [Build report](evidence/phase1/build.json): Unity 6000.6.6f1, **60.46 s**, **13,678,532 bytes**, **0 errors / 4 warnings** (one unused Phase0 pan field, three TMP compilation-splitting notices). Later commits contain documentation/evidence only.
+- **Publication:** [public fixture](https://terra-browser.vercel.app/), deployment `dpl_ANHXMJ3bUG2NWv3LUybAH4ZfcVc5`, existing Vercel project/scope reused; [identity](evidence/phase1/identity.json). Only generated Web output was uploaded. HTML, loader/data/framework/WASM and all three pack files returned anonymous HTTP 200 and matched local bytes exactly: [local check](evidence/phase1/local-assets.json), [public check](evidence/phase1/public-assets.json).
+- **Automated correctness:** **27 checks pass** through the actual Unity serializer and pure core, including nine malformed packs, round trip, preview purity/equality, stale revisions, protection, overspend, replacement/displaced production, area conservation and exact undo: [results](evidence/phase1/contract-checks.json). The independent scalar simulation I/O example passes at 25.42162632835775 m³ generated, 8 m³ retained, zero disconnected retention: [result](evidence/phase1/simulation-example-check.json). This checks the interface example, not an integrated simulator.
+- **Editor/independent art:** main Play-mode frames advanced and the fixture initialized at 6 units/60 credits. The separate toolkit preview shows 24 specimens, 24 completed animations and 10 clips; [check](evidence/phase1/art-preview-check.json), [capture](evidence/phase1/art-preview.png). It is not an enabled export scene. Editor remains stopped with TerraMain open.
+- **Loading/error:** real loading capture and a temporary unsupported-version file in the generated local export produced a readable error; restoring the exact file and pressing Retry recovered 6/60. Authored JSON was unchanged. [Error/recovery record](evidence/phase1/error-recovery.json), [error capture](evidence/phase1/invalid-pack.png), [loading](evidence/phase1/loading.png).
+
+| Browser | Actual final-export evidence |
+|---|---|
+| Chrome 155.0.8059.85, public | Reviewed **1280×720 and 1440×900** default/hover/blocked/placed/modal states. Pointer open plot 6/60→18/36; keyboard margin 6/60→15/30; undo restores baseline. Protected/ineligible placement rejected; eligible swale 2 units/32 credits. Modal isolation, cancel, reduced motion/mute, drag isolation, orbit/wheel/reset, resize and reload pass. Refocused keyboard commit/undo works after reload. [Checks](evidence/phase1/browser-checks.json), [Console](evidence/phase1/chrome-console.json). **0 errors**. |
+| Safari 26.5.2, public Private Browsing | No Vercel login. Render, pointer Valley-field placement (12/36), Tab/M/Enter margin placement (21/6), two undos (6/60), Escape cancellation and drag/wheel/reset work. [Placed](evidence/phase1/safari-placed.png), [undo](evidence/phase1/safari-undo.png), [camera](evidence/phase1/safari-camera.png), [Console](evidence/phase1/safari-console.txt), [empty errors filter](evidence/phase1/safari-errors.txt). Native captures 2982×2170; exact CSS viewport not recorded. Native window focus was intermittent; the later address-bar focus test is inconclusive and is not claimed. |
+
+**Visual review:** [1280 default](evidence/phase1/public-1280-default.png), [hover](evidence/phase1/public-1280-hover.png), [blocked](evidence/phase1/public-1280-blocked.png), [placed](evidence/phase1/public-1280-placed.png), [modal](evidence/phase1/public-1280-modal.png); [1440 default](evidence/phase1/public-1440-default.png), [hover](evidence/phase1/public-1440-hover.png), [blocked](evidence/phase1/public-1440-blocked.png), [placed](evidence/phase1/public-1440-placed.png), [modal](evidence/phase1/public-1440-modal.png). [Condensed actual interaction GIF](evidence/phase1/interaction.gif), [capture timing/method](evidence/phase1/interaction/README.md).
+
+The weakest initial areas were scene composition and feedback readability: sparse protected woodland, weak field identity, unbacked small feedback and success styling that resembled rejection. The final iteration clusters trees over the protected footprint, adds field rows and raised banks, reframes the terrain, backs the feedback/hint with cream panels, and separates success from blocked states. Final internal scores: **scene appeal 4/5, legibility 4/5, feedback 4/5, ease 4/5, coherence 4/5**. Terrain remains dominant and modal/tooltips fit both sizes. This is a successful foundation, not final-game art or human usability research.
+
+- **Measured load observations:** public Chrome loader-ready **7.283 s**, reload **4.256 s**; Safari **2.801 s**. Scene-ready follows Unity's startup/splash. These are single runs with differing cache/background states, not a benchmark. No controlled FPS/latency or novice/educational playtest claimed; those are later gates.
+- **Nonblocking limits:** optional URP postprocess/upscaling shader warnings; Safari WEBGL_polygon_mode warning; Chrome UnityCache Content-Length advice for streamed responses. Byte checks and actual browser execution pass. Firefox unavailable; physical trackpad and Shift/middle pan not separately tested. Move/remove/redo, real geography, mission/learning flow and integrated hydrology remain later-phase work.
+- **Frozen handoff:** WorldPack/runtime/art **v1**, DTO schema **1**, fixture **1.0.0**, three canonical hashes in `worlds/fixture-v1/checksums.sha256`. [WorldPack](worldpack-format.md), [runtime](runtime-contracts.md), [art](art-direction.md). [Ownership and runnable commands](PARALLEL_WORK.md). A complete source bundle cloned cleanly and passed packaging/checksums and scalar simulation example; [handoff verification](evidence/phase1/handoff-check.json). The final local bundle also includes this evidence. No remote or message to another engineer was created.
+- **Stop boundary:** Phase 1 complete. Phase 2/package A is the next separately authorized task on this same selected AOI; it has not begun.
 
 ## Evidence entry template
 

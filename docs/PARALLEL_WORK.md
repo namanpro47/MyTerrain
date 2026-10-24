@@ -1,22 +1,22 @@
 # Terra — parallel engineer handoffs
 
-**Status:** planned packages, released for implementation after phase 1. No package has been delegated or implemented by creating this document.
+**Status:** Phase 1 handoff verified. No package has been delegated or started. Phase 2 and package implementation require separate authorization.
 
 Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMPLEMENTATION_PLAN.md). The primary engineer owns the running game. These packages let another engineer work in a separate checkout without touching the main scene, UI, or integration state. **Every package improves the same selected rural location across its full game scope.** Do not create additional levels, city assets, or a live location generator as parallel work.
 
 ## Start condition and recommended assignment
 
-Phases 0–1 are local to Naman's computer. At phase 1's exit, fill in:
+Phases 0–1 are local to Naman's computer. Frozen Phase 1 baseline:
 
 | Handoff item | Value |
 |---|---|
-| Shared baseline commit SHA | Pending phase 1 |
-| Repository / remote access | Pending phase 1 |
+| Shared baseline commit SHA | `a78f49cf401a6ff602676b35f23c84fb5866ae93` (exported runtime); bundle branch includes subsequent evidence/documentation only |
+| Repository / remote access | No Git remote is configured. Portable bundle: `Builds/Handoff/terra-phase1.bundle`; no credentials or public source push required. |
 | Unity version | 6000.6.6f1; recheck against shared commit |
-| Selected rural AOI, bounds, and source-review note | Pending phase 1; choose once during early planning |
-| Contract/schema version | v1 proposed; freeze during phase 1 |
-| Fixture path/version | Pending phase 1 |
-| Browser preview URL | Pending phase 0/1 |
+| Selected rural AOI, bounds, and source-review note | `coon-valley-brye-v1`; WGS84 [-91.043,43.697,-91.031,43.706], EPSG:26915; [selection and evidence](location-selection.md) |
+| Contract/schema version | WorldPack/runtime/art v1; DTO schemaVersion 1; uGUI + TextMeshPro |
+| Fixture path/version | `worlds/fixture-v1`, 1.0.0; exact bytes in `checksums.sha256` |
+| Browser preview URL | [Public Phase 1 fixture](https://terra-browser.vercel.app/); [build/browser evidence](PHASE_STATUS.md) |
 | Contract owner / integration owner | Primary engineer |
 
 **Best first assignment: package A, the geography generator.** It is a distinct Python/data task and has the earliest dependency. Deliver a small usable pack for the selected rural AOI first, then improve its layers. **Best second assignment: package B, simulation**, which can be developed against tiny pure-data fixtures while the primary engineer builds the world and interactions.
@@ -157,3 +157,25 @@ Extra capacity should improve package A's existing landscape/inputs, B's model a
 6. Record merged commit and evidence in `PHASE_STATUS.md`. Keep the previous working build available until the integrated browser slice passes.
 
 Shared scenes, shared contracts, input action assets, package manifests, and global rendering settings always have one integration owner. Independent assets/data and plain simulation code are the preferred merge surfaces.
+
+
+## Runnable local handoff
+
+No Git remote is configured in this repository. The portable bundle supplied with the completed checkpoint is a full Git checkout source, not the multi-GB Unity Library/build cache. Transfer the bundle to the other engineer through the team's chosen channel; this task does not message another person or create a remote repository.
+
+```sh
+git clone -b codex/unity-setup /path/to/terra-phase1.bundle Terra
+cd Terra
+# The branch includes the frozen runtime plus its final evidence/docs.
+# Use a78f49cf401a6ff602676b35f23c84fb5866ae93 for the exact exported runtime.
+python3 scripts/prepare-world.py
+python3 scripts/verify-simulation-example.py
+```
+
+Open this folder in **Unity 6000.6.6f1** with Web Build Support. Packages are locked; TMP Essentials, Kenney assets/licenses and DOTween are included. Open `Assets/Terra/Scenes/TerraMain.unity` and enter Play for the fixture, or `Assets/Terra/Toolkit/ToolkitPreview.unity` for the isolated art gallery. The build entry packages the fixture automatically. Browser/build commands remain in [deployment.md](deployment.md).
+
+With the Editor connected, `unity command script eval --caller plugin --skill unity-cli 'return Phase1Checks.Run();' --format json` verifies contracts without opening or modifying TerraMain. Package A validates against manifest/world/scenario DTOs and the invalid examples; package B runs the scalar I/O example independently and implements the pure seam; C opens the gallery independently. Shared-contract changes go through the primary engineer. Only one package owner edits a path at a time.
+
+The next allowed implementation after this handoff is Phase 2/package A **only when separately authorized**. This Phase 1 goal does not start it.
+
+The source baseline was cloned from a complete Git bundle and passed packaging/checksum and simulation-example checks with a clean Git status: [handoff check](evidence/phase1/handoff-check.json). Final bundle regeneration includes the committed audit and evidence. The generated bundle is local and ignored by Git; no remote push or delivery to another person is claimed.

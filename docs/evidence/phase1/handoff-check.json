@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "baseline": "a78f49cf401a6ff602676b35f23c84fb5866ae93",
+  "bundleVerified": true,
+  "cleanCheckout": "/tmp/terra-phase1-handoff-check",
+  "checks": [
+    "git bundle verify: complete history",
+    "clean clone and checkout codex/unity-setup",
+    "python3 scripts/prepare-world.py: 3 hashes verified",
+    "python3 scripts/verify-simulation-example.py: passed",
+    "git status --short: empty after packaging"
+  ],
+  "limitation": "No second Unity Editor was launched on the clone; actual Editor, serializer and Web build were verified in the source checkout."
+}

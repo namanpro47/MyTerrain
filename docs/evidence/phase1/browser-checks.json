@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-24",
+  "sourceCommit": "a78f49cf401a6ff602676b35f23c84fb5866ae93",
+  "url": "https://terra-browser.vercel.app/",
+  "chrome": {
+    "version": "155.0.8059.85",
+    "viewports": [
+      [
+        1280,
+        720
+      ],
+      [
+        1440,
+        900
+      ]
+    ],
+    "checks": [
+      "Default, hover, blocked, placed and modal reviewed at both sizes",
+      "Pointer West meadow open plot: 6/60 -> 18/36; Z restores 6/60",
+      "Keyboard living margin: 6/60 -> 15/30; Z restores 6/60",
+      "Protected woodland click rejected; no extra commit",
+      "Modal backdrop prevents tool click-through; Escape closes then cancels placement",
+      "Reduced motion and mute toggles display enabled; margin placement succeeds",
+      "Drag from a site orbits without committing; wheel zoom responds; R resets",
+      "Keyboard Tab cycles sites; ineligible West meadow swale rejected; eligible Valley field gives 2 units/32 credits; undo restores baseline",
+      "Reload returns revision 0, 6 units/60 credits; refocused keyboard placement and undo succeed"
+    ],
+    "errors": 0,
+    "loaderReadyMs": [
+      7283,
+      4256
+    ],
+    "warnings": [
+      "Optional URP spatial-upscaling shader stripped",
+      "UnityCache Content-Length advice on streamed responses; all asset bytes verified"
+    ]
+  },
+  "safari": {
+    "version": "26.5.2",
+    "session": "Private Browsing, no Vercel login",
+    "capturePhysicalPixels": [
+      2982,
+      2170
+    ],
+    "checks": [
+      "Public final export loads and renders",
+      "Pointer click on Valley field: 6/60 -> 12/36",
+      "Tab then M previews West meadow margin; Return gives 21/6",
+      "Two Z undos restore baseline 6/60",
+      "Escape cancels; Return leaves state unchanged",
+      "Drag orbit and wheel zoom visibly change view; R resets",
+      "Console errors filter empty"
+    ],
+    "errors": 0,
+    "loaderReadyMs": [
+      2801
+    ],
+    "warnings": [
+      "WEBGL_polygon_mode portability",
+      "Four optional URP postprocess/upscaling shaders stripped"
+    ],
+    "limits": [
+      "Native window focus intermittently unavailable; connection recovered for recorded checks",
+      "Fresh Safari focus-after-address-bar sequence was inconclusive and is not claimed",
+      "Exact CSS viewport not recorded; target-size review uses Chrome"
+    ]
+  },
+  "coverageLimits": [
+    "Firefox not installed",
+    "Physical trackpad and Shift/middle pan not independently exercised",
+    "No novice playtest or controlled frame-time/latency benchmark; these belong to later gates",
+    "No real terrain ingestion or integrated hydrology"
+  ]
+}

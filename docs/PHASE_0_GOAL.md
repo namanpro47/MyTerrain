@@ -1,6 +1,6 @@
 # Phase 0 — prepared goal: browser build and deployment
 
-**Prepared and executed:** October 24, 2026. **State:** complete; see [the evidence ledger](PHASE_STATUS.md). The original preparation did not start work; the user's subsequent `/goal` authorized execution. Phase 1 has not started.
+**Prepared and executed:** October 24, 2026. **State:** complete; see [the evidence ledger](PHASE_STATUS.md). The original preparation did not start work; the user's subsequent `/goal` authorized execution. Phase 1 had not started at that checkpoint; see PHASE_STATUS.md for subsequent authorized work.
 
 Read [AGENTS.md](../AGENTS.md), [the north star](../TERRA_PROJECT_SPEC.md), [phase 0 in the implementation plan](../IMPLEMENTATION_PLAN.md), [SETUP.md](../SETUP.md), and [the evidence ledger](PHASE_STATUS.md). This brief scopes the first execution loop to the existing local setup and browser/deployment gate.
 

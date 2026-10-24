@@ -1,6 +1,6 @@
 # Terra visual contract v1
 
-Status: Phase 1 implementation and review in progress. One Coon Valley landscape is the intended full game. The current scene is explicitly an invented technical fixture, not real geography.
+Status: Phase 1 visual contract frozen; browser review passed. One Coon Valley landscape is the intended full game. The current scene is explicitly an invented technical fixture, not real geography.
 
 ## Direction
 
@@ -23,7 +23,7 @@ Reusable assets live in `Assets/Terra/Art/ExternalKit/` (package C) or the insta
 
 ## Independent preview and ownership
 
-The existing **`Assets/Terra/Toolkit/ToolkitPreview.unity`** is the isolated asset preview scene: 24 Kenney nature specimens, shared URP materials, replayable DOTween reveal, interface sound button. It remains separate from TerraMain and from enabled build scenes. Its baseline verification is in SETUP.md; the Phase 1 handoff records the exact included assets/checkpoint. Open the scene directly to test geometry/materials/audio without editing the main scene. Package C supplies additions in its own isolated preview scene under its owned ExternalKit folder and includes footprint/scale/material metadata; no main-scene or global-render-settings changes.
+The existing **`Assets/Terra/Toolkit/ToolkitPreview.unity`** is the isolated asset preview scene: 24 Kenney nature specimens, shared URP materials, replayable DOTween reveal, interface sound button. It remains separate from TerraMain and from enabled build scenes. Its fresh Phase 1 verification recorded 24 specimens, 24 completed animations and 10 clips in [art-preview-check.json](evidence/phase1/art-preview-check.json), with [an actual Play-mode capture](evidence/phase1/art-preview.png); the handoff records the included checkpoint. Open the scene directly to test geometry/materials/audio without editing the main scene. Package C supplies additions in its own isolated preview scene under its owned ExternalKit folder and includes footprint/scale/material metadata; no main-scene or global-render-settings changes.
 
 Kenney Nature Kit and Interface Sounds retain their source license files (CC0). DOTween Free retains its included license. TMP Essentials retains its Liberation Sans license. Do not remove attribution/licenses or imply that kit meshes are actual surveyed plants.
 

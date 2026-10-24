@@ -1,6 +1,6 @@
 # Terra
 
-Unity starter project for a land-use simulation.
+A browser-based rural land-use game in development. Phase 1 provides a synthetic interaction fixture and frozen v1 handoff contracts.
 
 The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); this setup does not implement those gameplay features.
 
@@ -8,7 +8,7 @@ The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) is the project's north star and primary reference for product vision, gameplay, scope, priorities, and design constraints. Consult it when planning features or making implementation decisions, and update it when the team explicitly agrees to change the vision.
 
-**Current focus: one excellent rural location across the full game scope.** Choose the exact site during early planning, then refine its gameplay, simulation, UI/UX, learning, and replay together. Additional locations, city levels, and live world generation are deferred until this experience is complete and a separate expansion decision is made.
+**Current focus: one excellent rural location across the full game scope.** Coon Valley / Brye Lane, Wisconsin is selected; refine its gameplay, simulation, UI/UX, learning, and replay together. Additional locations, city levels, and live world generation are deferred until this experience is complete and a separate expansion decision is made.
 
 The spec describes the intended product; it is not a record of completed features. This README covers running and building the current project, and [SETUP.md](SETUP.md) records setup and verification status.
 
@@ -18,12 +18,12 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 
 1. Open **Unity Hub → Projects → Terra**.
 2. Use **Unity 6.6, 6000.6.6f1, Apple Silicon**. Keep this version aligned with the team.
-3. Open `Assets/Scenes/SampleScene.unity` and press **Play**.
+3. Run `python3 scripts/prepare-world.py` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
-The project uses the official **Universal 3D** template, URP, and the Input System. The sample scene now runs the Phase 0 camera smoke fixture: drag to orbit, Shift/middle drag to pan, scroll to zoom, and R to reset. Land-use simulation mechanics are not implemented yet.
+The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the tiny JSON fixture: hover a site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, R resets the camera. The original `SampleScene` remains a separate Phase 0 smoke fixture. Real geography and runoff simulation are not implemented yet.
 
-The verified browser fixture is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). See [deployment instructions](docs/deployment.md) and [Phase 0 evidence](docs/PHASE_STATUS.md). Phase 1 has not started.
+The verified browser fixture is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). See [deployment instructions](docs/deployment.md), [Phase 1 evidence](docs/PHASE_STATUS.md), and the [runnable handoff](docs/PARALLEL_WORK.md). Phase 1 is complete; Phase 2 has not started.
 
 ## Build for the browser
 
@@ -55,4 +55,4 @@ See [SETUP.md](SETUP.md) for installation and verification status.
 
 ## Art and development toolkit
 
-[Hackathon toolkit guide](docs/HACKATHON_TOOLKIT.md): installed Unity agent skills/MCP, DOTween, prepared nature prefabs, sound cues, licenses, and the isolated asset preview scene.
+[Art contract and isolated preview](docs/art-direction.md): included DOTween, prepared nature prefabs, sound cues, licenses and independent gallery. Machine-specific toolkit setup is recorded in SETUP.md.

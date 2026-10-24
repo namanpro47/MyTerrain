@@ -1,0 +1,81 @@
+Window: "Terra · Shape your world", App: Safari.
+0 standard window Terra · Shape your world, Private Browsing, ID: SafariWindow?IsSecure=true&UUID=A24973D0-CB3F-4C28-9E89-C0E420416E08, Secondary Actions: Raise
+	1 split group
+		2 tab group
+			3 scroll area
+				4 HTML content inspector-resource:///Main.html
+					5 button Close
+					6 button Dock to left of window
+					7 button Dock to right of window
+					8 button Detach into separate window
+					9 button Start element selection (⇧⌘C)
+					10 button Device Settings
+					11 button Click to show 5 warnings in the Console
+					12 tab group (selectable)
+						13 tab (selectable) Elements
+						14 tab (selected) Console
+						15 tab (selectable) Sources
+						16 tab (selectable) Network
+						17 tab (selectable) Timelines
+						18 tab (selectable) Storage
+						19 tab (selectable) Graphics
+						20 tab (selectable) Layers
+						21 tab (selectable) Audit
+						22 tab (selectable) Search (⇧⌘F)
+						23 tab (selectable) Settings (⌘,)
+					24 container Console
+						25 search text field (settable)
+						26 button (disabled) Find Previous (⇧⌘G)
+						27 button (disabled) Find Next (⌘G)
+						28 text All
+						29 text Evaluations
+						30 text Errors
+						31 text Warnings
+						32 text Logs
+						33 text Infos
+						34 button Other filter options…
+						35 checkbox (settable, integer) Emulate User Gesture, Help: Run console commands as if inside a user gesture, Value: 0
+						36 button Run Console Snippet…
+						37 button Collect garbage
+						38 button Clear log (⌘K or ⌃L)
+						39 text Console opened at 2:25:50 PM
+					40 text entry area (settable) Console prompt, Value: [text entry area: Console prompt]
+					41 container
+					42 container Execution context for $0
+						43 text Auto — Page
+			44 scroll area
+				45 HTML content Description: Terra · Shape your world, URL: terra-browser.vercel.app/
+					46 image Terra development fixture. 1 Cultivate, 2 Restore, 3 Manage water. Tab cycles sites; Enter places; Z undoes; Escape cancels. Drag to orbit; scroll to zoom; R resets view.
+					47 text Synthetic development terrain, not a map of Coon Valley. Production is illustrative, runoff simulation is pending. Question mark opens controls and motion/sound settings.
+	48 image WindowControlShadowView._shadowImageView
+	49 toolbar
+		50 container Secondary Actions: Move next, Remove from toolbar
+			51 button Description: show sidebar, Help: Show sidebar, ID: SidebarButton
+			52 text Description: Toggle sidebar, Value: Private
+		53 container BackForwardSegmentedControl
+			54 button Description: Go back, Help: Show the previous page, ID: BackButton
+			55 button (disabled) Description: Go forward, Help: Show the next page, ID: ForwardButton
+		56 container Secondary Actions: Move previous, Move next, Remove from toolbar
+			57 button Page Menu, ID: AssistantButton
+			58 button Add page to Reading List, ID: OneStepBookmarkingButton
+			59 text field (settable) Description: smart search field in a private window, Value: https://terra-browser.vercel.app, ID: WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD
+			60 button Reload this page, ID: ReloadButton
+		61 button Description: Show the privacy report for this site, ID: PrivacyReportShieldButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		62 button Description: Share, ID: ShareButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		63 button Description: New Tab, ID: NewTabButton, Secondary Actions: Move previous, Move next, Remove from toolbar
+		64 button Description: Tab Overview, ID: TabOverviewButton, Secondary Actions: Move previous, Remove from toolbar
+	65 close button
+	66 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	67 minimize button
+68 menu bar
+	69 Safari
+	70 File
+	71 Edit
+	72 View, ID: SafariViewMenu
+	73 History
+	74 Bookmarks, ID: SafariBookmarksMenu
+	75 Develop
+	76 Window, ID: SafariWindowMenu
+	77 Help, ID: SafariHelpMenu
+
+The focused UI element is 40 text entry area (settable) Console prompt, Value: [text entry area: Console prompt]
