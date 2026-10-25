@@ -1,0 +1,131 @@
+{
+  "source": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "allInitialOutstandingTipsIncluded": true,
+  "refs": [
+    {
+      "ref": "codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "included": true
+    },
+    {
+      "ref": "codex/annual-feedback",
+      "sha": "a6e555f9b59e1c905f5e5a17adb682080788c003",
+      "included": true
+    },
+    {
+      "ref": "codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "included": true
+    },
+    {
+      "ref": "codex/annual-release-acceptance",
+      "sha": "7798fe43e1a018a055917c33059e9af1860f3160",
+      "included": true
+    },
+    {
+      "ref": "codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "included": true
+    },
+    {
+      "ref": "codex/community-locations",
+      "sha": "d6cd6f082dc7288805bb69a0c024590469045ffa",
+      "included": true
+    },
+    {
+      "ref": "codex/elevenlabs-narration",
+      "sha": "ad2c093e96d13c7f7f60dd74bed630d7f454a261",
+      "included": true
+    },
+    {
+      "ref": "codex/game-overlay-design",
+      "sha": "1acab594936deeae77b5d1697b54e20452cc071a",
+      "included": true
+    },
+    {
+      "ref": "codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "included": true
+    },
+    {
+      "ref": "codex/peter-release-20261025",
+      "sha": "c403a5e0beab151a161acc485e87a6473cffc0d0",
+      "included": true
+    },
+    {
+      "ref": "codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "included": true
+    },
+    {
+      "ref": "codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "included": true
+    },
+    {
+      "ref": "codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "included": true
+    },
+    {
+      "ref": "codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "included": true
+    },
+    {
+      "ref": "codex/wisconsin-start-nudge",
+      "sha": "2cd9e45b16731673cf8ae5ab479d1cf9d3c9f4cc",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/annual-release-acceptance",
+      "sha": "7798fe43e1a018a055917c33059e9af1860f3160",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "included": true
+    },
+    {
+      "ref": "origin/codex/wisconsin-start-nudge",
+      "sha": "ce7fa80e1747f17e3e8ee22d9c866c8be40a13bf",
+      "included": true
+    }
+  ]
+}
