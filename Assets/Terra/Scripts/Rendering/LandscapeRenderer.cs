@@ -367,10 +367,40 @@ namespace Terra.Rendering
             int x0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.x)-xmin)/dx),0,nx-1),x1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.x)-xmin)/dx),0,nx-1);
             int z0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.z)-zmin)/dz),0,nz-1),z1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.z)-zmin)/dz),0,nz-1);
             var polygon=points.Select(p=>new Vector2(p.x,p.z)).ToList();
+            int width=x1-x0+2;
+            var gridVertices=new int[width*(z1-z0+2)];
+            var gridInside=new byte[gridVertices.Length];
             for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
             {
                 float px=xmin+x*dx,pz=zmin+z*dz;var a=new Vector2(px,pz);var b=new Vector2(px+dx,pz);var c=new Vector2(px,pz+dz);var d=new Vector2(px+dx,pz+dz);
+                // Interior cells need no polygon clipping. Share their grid vertices,
+                // retaining the same triangles, display heights and smooth normals.
+                // Only cells touching the polygon edge use the general clipping path.
+                if(Inside(x,z,a)&&Inside(x+1,z,b)&&Inside(x,z+1,c)&&Inside(x+1,z+1,d))
+                {
+                    int ia=Vertex(x,z,a),ib=Vertex(x+1,z,b),ic=Vertex(x,z+1,c),id=Vertex(x+1,z+1,d);
+                    g.triangles.Add(ia);g.triangles.Add(ic);g.triangles.Add(ib);
+                    g.triangles.Add(ib);g.triangles.Add(ic);g.triangles.Add(id);
+                    continue;
+                }
                 Add(ClipTriangle(polygon,a,b,c));Add(ClipTriangle(polygon,b,d,c));
+            }
+            bool Inside(int x,int z,Vector2 p)
+            {
+                int index=(z-z0)*width+x-x0;
+                if(gridInside[index]!=0)return gridInside[index]==1;
+                for(int i=0;i<polygon.Count;i++)
+                    if(Cross(polygon[(i+1)%polygon.Count]-polygon[i],p-polygon[i])<0)
+                    {gridInside[index]=2;return false;}
+                gridInside[index]=1;return true;
+            }
+            int Vertex(int x,int z,Vector2 p)
+            {
+                int index=(z-z0)*width+x-x0;
+                if(gridVertices[index]!=0)return gridVertices[index]-1;
+                int vertex=g.vertices.Count;gridVertices[index]=vertex+1;
+                g.vertices.Add(new Vector3(p.x,Height(p.x,p.y)+lift,p.y));g.normals.Add(Normal(p.x,p.y));
+                return vertex;
             }
             void Add(List<Vector2> poly)
             {
