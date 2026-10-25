@@ -7,6 +7,8 @@ function pointer(kind,e){if(!player)return;window.terraInputPending={at:performa
 canvas.addEventListener('pointerdown',e=>{if(e.button!==0&&e.button!==1)return;e.preventDefault();canvas.focus();canvas.setPointerCapture(e.pointerId);pointer(0,e);});
 canvas.addEventListener('pointermove',e=>pointer(1,e));canvas.addEventListener('pointerup',e=>pointer(2,e));
 function cancel(){player?.SendMessage('TerraMain','LoseFocus','');}
+function audioFocus(){player?.SendMessage('TerraMain','AudioVisibility',document.hidden||!document.hasFocus()?'0':'1');}
+window.addEventListener('blur',audioFocus);window.addEventListener('focus',audioFocus);document.addEventListener('visibilitychange',audioFocus);
 canvas.addEventListener('pointercancel',cancel);canvas.addEventListener('lostpointercapture',cancel);window.addEventListener('blur',cancel);document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel();});
 canvas.addEventListener('wheel',e=>{e.preventDefault();player?.SendMessage('TerraMain','Scroll',e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1)/100);},{passive:false});
 canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('keydown',e=>{window.terraInputPending={at:performance.now(),source:'keyboard'};if(['Tab',' ','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))e.preventDefault();});
