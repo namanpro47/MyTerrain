@@ -72,4 +72,15 @@ Check(stale.ForYear(2)?.mode=="offline","missing prose rebuilt locally from acce
 stale.Continue();stale.ResolveOnline();string third=TownCopies.Hash(newest.State);stale.StopRequest();
 Check(TownCopies.Hash(newest.State)==third&&stale.ForYear(3)!=null,"stop optional AI retains saved year");
 stale.Continue();stale.ResolveOnline();stale.Continue();Check(newest.State.phase==TownPhase.Planning&&newest.State.year==5&&!stale.Busy,"player can continue without waiting for prose");
+Check(!AnnualChapterSession.UsesHostedProtocol("http://127.0.0.1:8787/chapter")&&!AnnualChapterSession.UsesHostedProtocol("http://localhost:8787/chapter"),"loopback uses frozen-request C# protocol");
+Check(AnnualChapterSession.UsesHostedProtocol("https://terra-chapters.vercel.app/chapter"),"hosted uses facts protocol");
+// Finish locally, then request only the ending prose without replaying live cash/events.
+stale.StopRequest();stale.FinishOffline();Check(newest.State.phase==TownPhase.Completed,"offline fast-forward reaches accepted ending");
+var endingHash=TownCopies.Hash(newest.State);stale.ResolveOnline();
+Check(stale.Busy&&TownCopies.Hash(newest.State)==endingHash,"accepted Year 10 can request AI without changing state");
+var endingRequest=JsonUtility.FromJson<AnnualChapterRequest>(System.Text.Encoding.UTF8.GetString(UnityWebRequest.Last.uploadHandler.data));
+Check(endingRequest.snapshot.pendingRequest.year==10&&endingRequest.snapshot.history.Length==9,"ending request retains nine earlier years and original frozen Year 10");
+var endingReceipt=stale.ForYear(10);endingReceipt.mode="gemini";endingReceipt.model="ending-test";
+transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.Success;transport.responseCode=200;transport.downloadHandler.text=JsonUtility.ToJson(endingReceipt);transport.operation.isDone=true;stale.Poll();
+Check(stale.ForYear(10).mode=="gemini"&&TownCopies.Hash(newest.State)==endingHash,"AI ending replaces prose only");
 Console.WriteLine("Save-first chapter session checks passed: "+checks+" (transport/Unity stubs, no live provider)");

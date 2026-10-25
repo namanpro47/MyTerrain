@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "annual-chapter-v1",
+  "mode": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "consequences": {
+    "schemaVersion": 1,
+    "year": 10,
+    "runId": "local-readiness",
+    "requestId": "local-readiness/finish-year-10",
+    "inputHash": "844d64c4aaeb8cea41dda0b3cad7967eedaff0617cd4f6ae7ceec892d0fc1687",
+    "effects": []
+  },
+  "chapter": {
+    "title": "MyTerrain Annual Report: Year 10",
+    "introduction": "This educational game chapter summarizes Year 10 of 10, the final year of the run. No new projects were initiated, and existing land and commitments continued to advance. Outcomes are illustrative, and all stated values reflect game data rather than forecasts or real-world measurements.",
+    "cards": [
+      {
+        "title": "Budget and Economic Status",
+        "explanation": "In Year 10, the economic indicator is 42.3 out of 100 with 8.93 illustrative production units. Operating payments of $10,000.00 were due and fully funded from the public budget. The closing cash balance is $19,044,400.00, and future obligations stand at $10,000.00.",
+        "factIds": [
+          "year",
+          "economic",
+          "budget"
+        ]
+      },
+      {
+        "title": "Social and Environmental Metrics",
+        "explanation": "The social indicator is recorded at 60.4 out of 100 with 8 illustrative service units and zero disrupted sites. The environmental indicator is 38.2 out of 100, reflecting 3.54 out of 15.49 managed hectares vegetated and zero configured retention capacity. These are authored game indices.",
+        "factIds": [
+          "social",
+          "environmental",
+          "weather"
+        ]
+      },
+      {
+        "title": "Site Operations and Land Use",
+        "explanation": "Low-density housing on the west field remains operating at 100% establishment with 0.93 production. Other designated management sites maintained existing uses without changes under this saved scenario year, with no new projects added.",
+        "factIds": [
+          "site:south-01",
+          "site:annual-wind-13",
+          "limits"
+        ]
+      }
+    ]
+  }
+}

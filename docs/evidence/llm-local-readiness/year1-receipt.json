@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "annual-chapter-v1",
+  "mode": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "consequences": {
+    "schemaVersion": 1,
+    "year": 1,
+    "runId": "local-readiness",
+    "requestId": "local-readiness/1",
+    "inputHash": "9b851b683ae1e94ccdf461aa8e80c40e9d7b5f2f8a256696e17e84d001a1685d",
+    "effects": []
+  },
+  "chapter": {
+    "title": "MyTerrain Annual Review: Year 1",
+    "introduction": "Welcome to Year 1 of your educational scenario in MyTerrain. These results are illustrative and depend on authored game rules rather than real-world forecasts.",
+    "cards": [
+      {
+        "title": "Budget and Economic Status",
+        "explanation": "Spent $1,000,000.00 and received $1,000,000.00, resulting in a closing cash balance of $10,000,000.00 with future obligations of $100,000.00. Economic status is recorded at 42.3 out of 100 with 8.93 illustrative production units. Operating payments due are $0.00.",
+        "factIds": [
+          "economic",
+          "budget"
+        ]
+      },
+      {
+        "title": "Social and Environmental Conditions",
+        "explanation": "Social indicator is 58.0 out of 100 with 8 illustrative service units and 0 disrupted sites. Environmental indicator is 38.9 out of 100 with 3.51 of 15.49 managed hectares vegetated and 0 cubic meters configured retention capacity. No regional weather disruptions occurred this year.",
+        "factIds": [
+          "weather",
+          "social",
+          "environmental"
+        ]
+      },
+      {
+        "title": "Site Management and Progress",
+        "explanation": "One new project is committed. West field low-density housing is currently under the Building lifecycle phase, which means it is under construction and does not prove a physical building exists. All other listed management sites maintain their existing uses.",
+        "factIds": [
+          "year",
+          "site:south-01",
+          "limits"
+        ]
+      }
+    ]
+  }
+}

@@ -16,6 +16,9 @@ namespace Terra.Gameplay
         {
             chapters=gameObject.AddComponent<AnnualChapterSession>();chapters.town=annual;
             chapters.endpoint=annualChapterEndpoint;chapters.saveKey=Terra.Core.UniformParcels.Applied(world)?location.ParcelChapterSaveKey:location.IsWisconsin?"terra.meadowbrook.annual-full.chapters.v3.2":location.ChapterSaveKey;
+            // The loopback C# service accepts a frozen game request; the hosted JS
+            // service accepts projected facts and uses guest sessions.
+            chapters.useJavaScriptBackend=AnnualChapterSession.UsesHostedProtocol(annualChapterEndpoint);
             chapters.saveKey+=".player-rules-v5";
             try{chapters.RestoreSaved();}
             catch(Exception e)
