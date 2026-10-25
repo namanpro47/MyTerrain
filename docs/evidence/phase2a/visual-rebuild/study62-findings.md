@@ -1,0 +1,13 @@
+# Study62 — mixed conifer groves, unfinished checkpoint
+
+Patterns TN-02/09/10/12; keep the [design reference](../../../DESIGN_REFERENCE.md) and [visual rebuild goal](../../../PHASE_2A_GOAL.md) visible. Terra Nil remains the whole-scene bar. This checkpoint adds contrasting conifer silhouettes from the same free Quaternius Ultimate Stylized Nature family as the retained broadleaf trees.
+
+[Control](study62-control-normal.png), [native material](study62-native-normal.png), [adapted normal](study62-adapted-normal.png), and [adapted close](study62-adapted-close.png) are actual Editor camera renders of the runtime trial, without HUD. The trial replaced 2,172 of 7,321 trees with coherent groves. Native leaves read too yellow; the adapted project leaf shader and tint retain the original texture pixels and branch geometry. The images suggest useful silhouette variety, but they do not represent a verified integrated build or acceptance.
+
+The saved implementation preserves established tree positions, random stream and mapped woodland. A separate noise field selects groves; pine height is 1.15 times the previous tree height. Species, scale and placement are illustrations, not surveyed vegetation. Annual rules and geography data are unchanged.
+
+The asset builder metric-bakes PineTree_1/3 and preserves all bent leaf fans at every LOD; only bark is simplified. Resulting triangle counts are 2128/1156/992 and 1998/1026/866; heights stay 4.502288m and 2.346961m. The first bake rejected non-quad foliage; inspection found 13/22-vertex branch fans, so the reducer now permits arbitrary topology only when preserving all foliage. Existing broadleaf reduction remains unchanged. [Compilation](study62-compile.json) reports zero errors/warnings and [bake](study62-bake.json) succeeds. These checks do not prove rendered LOD continuity, browser performance or scene correctness.
+
+Next: inspect the integrated normal/close scene, verify all LOD leaf geometry and dependency completeness, then build and compare actual Chrome output with study60. No current-source Web export, new frame-time measurement or visual score is claimed. Phase 2A remains open. The archived import script records the original PineStudy62 location and is not an idempotent installer; committed assets are now under QuaterniusUltimateNature/Pine. Use ConiferForestAssets.Build outside Play mode to regenerate the committed derived assets.
+
+Source files come from the creator-linked CC0 archive already recorded in study42-acquisition.json. Original source hashes and checkpoint files are listed in study62-checkpoint-sha256.json. No purchases or generated imagery.

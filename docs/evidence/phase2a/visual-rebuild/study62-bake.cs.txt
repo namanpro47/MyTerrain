@@ -1,0 +1,6 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires Edit mode");
+if(UnityEditor.AssetDatabase.IsValidFolder("Assets/Terra/Art/QuaterniusUltimateNature/PineStudy62"))
+{
+ var error=UnityEditor.AssetDatabase.MoveAsset("Assets/Terra/Art/QuaterniusUltimateNature/PineStudy62","Assets/Terra/Art/QuaterniusUltimateNature/Pine");if(!string.IsNullOrEmpty(error))throw new System.Exception(error);
+}
+return ConiferForestAssets.Build();

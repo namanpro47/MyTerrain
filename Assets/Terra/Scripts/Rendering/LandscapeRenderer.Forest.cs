@@ -68,7 +68,8 @@ namespace Terra.Rendering
         void BuildClusteredWoodland()
         {
             meshCanopy=new GameObject("Continuous clustered woodland");meshCanopy.transform.SetParent(root,false);
-            var trees=new[]{Resources.Load<GameObject>("ClusterForest/ClusterTree_1"),Resources.Load<GameObject>("ClusterForest/ClusterTree_3"),Resources.Load<GameObject>("ClusterForest/ClusterTree_5")};
+            var trees=new[]{Resources.Load<GameObject>("ClusterForest/ClusterTree_1"),Resources.Load<GameObject>("ClusterForest/ClusterTree_3"),Resources.Load<GameObject>("ClusterForest/ClusterTree_5"),
+                Resources.Load<GameObject>("ClusterForest/ClusterPine_1"),Resources.Load<GameObject>("ClusterForest/ClusterPine_3")};
             var bounds=new Bounds[trees.Length];
             for(int i=0;i<trees.Length;i++)
             {
@@ -76,12 +77,13 @@ namespace Terra.Rendering
                 bounds[i]=trees[i].GetComponent<LODGroup>().GetLODs()[0].renderers[0].GetComponent<MeshFilter>().sharedMesh.bounds;
             }
             var rng=new System.Random(4491);float R(float a,float b)=>a+(b-a)*(float)rng.NextDouble();
-            int total=0,edge=0;
+            int total=0,edge=0,conifers=0;
             // Continuous crowns and broad glades, with lower growth at source woodland edges.
             // Species, ages and placements are illustrative. CoverAt and source terrain do not change.
             for(float z0=zmin;z0<zmax;z0+=80)for(float x0=xmin;x0<xmax;x0+=80)
             {
-                var groups=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};
+                var groups=new List<Matrix4x4>[trees.Length];
+                for(int i=0;i<groups.Length;i++)groups[i]=new List<Matrix4x4>();
                 for(float z=z0+4;z<Mathf.Min(z0+80,zmax);z+=8)for(float x=x0+4;x<Mathf.Min(x0+80,xmax);x+=8)
                 {
                     float px=x+R(-2.2f,2.2f),pz=z+R(-2.2f,2.2f);
@@ -96,17 +98,25 @@ namespace Terra.Rendering
                     float maturity=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.35f,1,enclosed));
                     float height=Mathf.Lerp(5.5f,18,maturity)*R(.86f,1.13f);
                     float species=Mathf.PerlinNoise(px*.029f+9,pz*.029f+61);int variant=species<.43f?0:species<.61f?1:2;
+                    // Groves of contrasting silhouettes, not a random species per tree.
+                    // Keep the established positions and random stream; mapped woodland is unchanged.
+                    if(height>=9&&Mathf.PerlinNoise(px*.013f+431,pz*.013f+831)>=.56f)
+                    {
+                        variant=Mathf.PerlinNoise(px*.05f+221,pz*.05f+581)>.5f?4:3;
+                        height*=1.15f;conifers++;
+                    }
                     float scale=height/bounds[variant].size.y;
                     groups[variant].Add(PlantMatrix(trees[variant],px,pz,scale,R(0,360)));
                     float radius=Mathf.Clamp(Mathf.Max(bounds[variant].extents.x,bounds[variant].extents.z)*scale*.95f,2,13);
                     forestFootprints.Add(new Vector3(px,pz,radius));total++;if(maturity<.7f)edge++;
                 }
-                if(groups[0].Count+groups[1].Count+groups[2].Count==0)continue;
+                bool any=false;foreach(var group in groups)if(group.Count>0){any=true;break;}
+                if(!any)continue;
                 var tile=new GameObject("Clustered woodland tile");tile.transform.SetParent(meshCanopy.transform,false);
                 var nature=tile.AddComponent<InstancedNature>();
                 for(int i=0;i<trees.Length;i++)nature.Add(trees[i],groups[i],Color.white);
             }
-            Debug.Log($"TERRA_WOODLAND: trees={total}; lowerEdgeTrees={edge}; illustrativeSourceWoodland=true");
+            Debug.Log($"TERRA_WOODLAND: trees={total}; lowerEdgeTrees={edge}; illustrativeConifers={conifers}; illustrativeSourceWoodland=true");
         }
         void BuildForestFloor()
         {
