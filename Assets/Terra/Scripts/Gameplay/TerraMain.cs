@@ -76,7 +76,13 @@ namespace Terra.Gameplay
                 if(k.f5Key.wasPressedThisFrame){perspective=true;yaw=-32;pitch=36;zoom=75;target=new Vector3(40,65,160);ApplyView();}
                 if(k.f6Key.wasPressedThisFrame){perspective=false;yaw=-32;pitch=58;zoom=580;target=new Vector3(0,30,0);ApplyView();Toast("Overview study · R returns to the landscape");}
                 if(k.f7Key.wasPressedThisFrame){perspective=!perspective;ApplyView();Toast(perspective?"Perspective study":"Orthographic study");}
-                if(k.f10Key.wasPressedThisFrame)Debug.Log("TERRA_UI_AUDIT: "+hud.Audit());
+                if(k.f10Key.wasPressedThisFrame)
+                {
+                    var audit=hud.Audit();Debug.Log("TERRA_UI_AUDIT: "+audit);
+                    int parts=(audit.Length+3999)/4000;
+                    for(int part=0;part<parts;part++)Debug.Log("TERRA_UI_PART "+part+"/"+parts+": "+audit.Substring(part*4000,Math.Min(4000,audit.Length-part*4000)));
+                    Debug.Log("TERRA_ANNUAL_STATE: "+Diagnostic);
+                }
                 if(!uiHandled&&!hud.ModalOpen)
                 {
                     if(k.digit1Key.wasPressedThisFrame)Choose("cultivate-standard");if(k.digit2Key.wasPressedThisFrame)Choose("restore-grass");if(k.digit3Key.wasPressedThisFrame)Choose("water-swale");if(k.mKey.wasPressedThisFrame)Choose("cultivate-margin");
@@ -178,7 +184,7 @@ namespace Terra.Gameplay
             if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
             view.transform.position=position;float displayRatio=hud?.PixelRatio??1;
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
-            landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();
+            landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}

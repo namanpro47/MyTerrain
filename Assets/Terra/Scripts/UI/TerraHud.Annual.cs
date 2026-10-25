@@ -15,7 +15,7 @@ namespace Terra.UI
         TextMeshProUGUI annualBudget,annualYear,annualWater;
         TextMeshProUGUI[] annualScores=new TextMeshProUGUI[3];
         Image[] annualBars=new Image[3];
-        Button endYearButton,reportButton,annualPrimary;
+        Button endYearButton,reportButton,annualPrimary,annualDetails;
         Action annualPrimaryAction;
         public static string Money(long cents)=>"$"+(cents/100m).ToString("N0",System.Globalization.CultureInfo.InvariantCulture);
         static string Signed(double n)=>n.ToString("+0.0;-0.0;0.0");
@@ -34,15 +34,17 @@ namespace Terra.UI
             var budget=Panel(root,"Annual budget",new Vector2(0,1),new Vector2(24,-126),new Vector2(310,196),PanelColor);
             annualYear=Label(budget,"",new Vector2(0,1),new Vector2(16,-12),new Vector2(278,22),17,Accent,FontStyles.Bold);
             annualWater=Label(budget,"",new Vector2(0,1),new Vector2(16,-146),new Vector2(278,42),13,Soft);
-            annualBudget=Label(budget,"",new Vector2(0,1),new Vector2(16,-40),new Vector2(278,96),15,Paper);
+            annualBudget=Label(budget,"",new Vector2(0,1),new Vector2(16,-40),new Vector2(278,96),16,Paper);
             budget.SetSiblingIndex(modalShade.transform.GetSiblingIndex());panel.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             endYearButton=Button(root,"Review year →",new Vector2(1,0),new Vector2(-24,148),new Vector2(148,56),endYear,16);
             reportButton=Button(root,"Last report",new Vector2(1,0),new Vector2(-24,212),new Vector2(148,56),report,16);
             var restart=Button(root,"New run",new Vector2(0,0),new Vector2(24,276),new Vector2(130,44),newRun,14);
             foreach(var button in new[]{endYearButton,reportButton,restart})button.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             annualPrimary=Button(modal.transform,"",new Vector2(.5f,0),new Vector2(0,86),new Vector2(430,56),()=>annualPrimaryAction?.Invoke(),17);annualPrimary.gameObject.SetActive(false);
+            annualDetails=Button(modal.transform,"All proposals",new Vector2(0,0),new Vector2(32,86),new Vector2(230,56),()=>{},17);annualDetails.gameObject.SetActive(false);
             coverSummary.gameObject.SetActive(false);
-            tooltip.GetComponent<RectTransform>().sizeDelta=new Vector2(292,340);
+            tooltip.GetComponent<RectTransform>().sizeDelta=new Vector2(292,320);
+            sizes[previewBody]=16;sizes[previewAction]=14;
             previewBody.rectTransform.anchoredPosition=new Vector2(18,-95);
             foreach(var pair in actionButtons)
             {
@@ -110,7 +112,8 @@ namespace Terra.UI
             previewKind.color=rejection==null?Accent:Soft;
             if(mode=="remove"||mode=="reset")previewBody.text="Release this year's reservation and restore the previous cover. Accepted projects and completed years stay in place.";
             else if(recipe!=null&&asset==null)
-                previewBody.text="<b>"+recipe.title+"</b>\n"+Money(recipe.upfrontPublicCostCents)+" upfront\n"+Money(recipe.annualPublicOperatingCents)+" / year × "+recipe.operatingYears+"\n"+(recipe.annualPublicReceiptsCents>0?Money(recipe.annualPublicReceiptsCents)+" / year receipts (tentative)\n":"")+"Operating: year "+(state.year+recipe.constructionYears)+" · maturity "+recipe.establishmentYears+" yr\n<size=80%>"+recipe.fundedQuantity.ToString("0")+" "+recipe.fundedUnit+"</size>";
+                previewBody.text="<b>"+recipe.title+"</b>\nUpfront "+Money(recipe.upfrontPublicCostCents)+"\nUpkeep "+Money(recipe.annualPublicOperatingCents)+" / yr × "+recipe.operatingYears+"\n"+(recipe.annualPublicReceiptsCents>0?"Tax "+Money(recipe.annualPublicReceiptsCents)+" / yr (tentative)\n":"")+"Opens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr\n"+Bundle(recipe);
+
             else if(asset!=null)
                 previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\nAccepted projects remain for this run. Plan on another field.";
             else previewBody.text=site?.protectedSite==true?"Protected by the scenario. No construction or conversion here.":"Choose an annual action. Eligible footprints use Peter's metric models.";
@@ -118,21 +121,32 @@ namespace Terra.UI
             moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
             confirmEditButton.gameObject.SetActive(!canEdit);confirmEditButton.interactable=rejection==null;
             SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":"Queue · Enter");
-            previewAction.text=rejection??(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels");
-            previewAction.fontSize=13;previewAction.rectTransform.anchoredPosition=new Vector2(18,68);previewAction.rectTransform.sizeDelta=new Vector2(256,40);
-            previewBody.fontSize=15;previewBody.rectTransform.sizeDelta=new Vector2(256,130);
+            if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
+            previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Accepted projects stay in place.":queued?"Queued · V to move · Delete to remove":"Choose an action and eligible field.";
+            previewAction.fontSize=sizes[previewAction]*(LargeText?1.12f:1);previewAction.rectTransform.anchoredPosition=new Vector2(18,68);previewAction.rectTransform.sizeDelta=new Vector2(256,35);
+            previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);
             Paint();
         }
+        static string Bundle(TownActionDefinition recipe)=>recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
         public void AnnualDialog(string title,string body,string action,Action callback)
         {
-            ShowModal(title,body);motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);
+            ShowModal(title,body);annualDetails.gameObject.SetActive(false);
+            var primaryRect=annualPrimary.GetComponent<RectTransform>();primaryRect.anchorMin=primaryRect.anchorMax=primaryRect.pivot=new Vector2(.5f,0);primaryRect.anchoredPosition=new Vector2(0,86);
+            motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);
             annualPrimaryAction=callback;SetButtonText(annualPrimary,action);annualPrimary.gameObject.SetActive(true);
         }
         public void AnnualConfirmation(AnnualTown town,TownYearReport preview,Action accept)
         {
             var s=town.Snapshot();var l=preview.ledger;
-            string projects=s.queue.Length==0?"Wait: no new projects. Existing projects still age and receive upkeep.":string.Join("\n",s.queue.Select(q=>"• "+annualRules.sites.First(x=>x.id==q.siteId).name+": "+annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title));
+            string projects=s.queue.Length==0?"Wait: no new projects. Existing projects still age and receive upkeep.":string.Join("\n",s.queue.Take(3).Select(q=>"• "+annualRules.sites.First(x=>x.id==q.siteId).name+": "+annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title));
+            if(s.queue.Length>3)projects+="\n+ "+(s.queue.Length-3)+" more proposals · all included in the total";
             AnnualDialog("Submit year "+s.year+"?", "<size=88%>"+projects+"\n\n<b>Pay now</b>  "+Money(l.upfrontPaidCents+l.operatingPaidCents+l.programPaidCents)+"\nClosing appropriation  "+Money(l.appropriationCents)+"   ·   Receipts  "+Money(l.publicReceiptsCents)+"\nExpected closing cash  "+Money(l.closingCashCents)+"\nFuture obligations  "+Money(l.futureCommitmentsCents)+"\n\n"+preview.acceptedRequest.driver.description+"\n\nAccepted years cannot be undone. Authored rules; no forecast.</size>","End year "+s.year,accept);
+            if(s.queue.Length>0)
+            {
+                annualDetails.gameObject.SetActive(true);SetButtonText(annualDetails,"All "+s.queue.Length+" proposals");
+                var primaryRect=annualPrimary.GetComponent<RectTransform>();primaryRect.anchorMin=primaryRect.anchorMax=primaryRect.pivot=new Vector2(1,0);primaryRect.anchoredPosition=new Vector2(-32,86);
+                annualDetails.onClick.RemoveAllListeners();annualDetails.onClick.AddListener(()=>AnnualDialog("Queued projects · year "+s.year,"<size=88%>"+string.Join("\n",s.queue.Select(q=>annualRules.sites.First(x=>x.id==q.siteId).name+" — "+annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title))+"\n\nTotal reserved "+Money(town.QueuedCommitmentCents)+". Cash is unchanged until End Year.</size>","Return to budget review",()=>AnnualConfirmation(town,preview,accept)));
+            }
         }
         public void AnnualReport(AnnualTown town,TownYearOutcomes baseline,Action continuePlanning)
         {

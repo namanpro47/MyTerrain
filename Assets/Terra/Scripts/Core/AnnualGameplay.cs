@@ -30,7 +30,7 @@ namespace Terra.Core
                 switch (a.actionId)
                 {
                     case "cultivate-standard": dollars=100000; upkeep=2000; a.establishmentYears=1; break;
-                    case "conservation-rotation": dollars=160000; upkeep=3200; a.establishmentYears=3; a.productionUnits=site.baselineProduction*1.2; a.serviceUnits=a.productionUnits*.3; a.vegetatedFraction=.3; break;
+                    case "conservation-rotation": dollars=160000; upkeep=3200; a.establishmentYears=3; a.productionUnits=(site.offers.FirstOrDefault(o=>o.treatmentId=="cultivate-standard")?.production??site.baselineProduction)*1.2; a.serviceUnits=a.productionUnits*.3; a.vegetatedFraction=.3; break;
                     case "cultivate-margin": dollars=125000; upkeep=2500; a.establishmentYears=2; break;
                     case "restore-grass": dollars=75000; upkeep=2000; a.establishmentYears=3; a.productionUnits=0; a.serviceUnits=0; break;
                     case "water-swale": dollars=100000; upkeep=3000; a.constructionYears=1; a.establishmentYears=1; a.serviceUnits=0; break;

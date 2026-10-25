@@ -29,6 +29,14 @@ static class GameplayChecks
         d.drivers[0].productionFactor=.5;var independent=new AnnualTown(d,"services");independent.QueueAction(services.siteId,services.actionId,0);
         var report=AnnualTownDemo.Advance(independent,"services-y1",new AuthoredAnnualConsequenceProvider());
         Check(report.outcomes.sites.First(s=>s.siteId==services.siteId).serviceUnits==4,"Homes and recreation don't follow farm weather");
+        var movedRules=AnnualTownChecks.Fixture();movedRules.actions[1].actionId=movedRules.actions[0].actionId;
+        var moved=new AnnualTown(movedRules,"move-valid");moved.QueueAction("a",movedRules.actions[0].actionId,0);
+        long originalReserve=moved.QueuedCommitmentCents;long previewFree=moved.PreviewMove("a","b");
+        moved.MoveQueuedAction("a","b",moved.Revision);
+        Check(moved.Queue.Single().siteId=="b"&&moved.AvailableCents==previewFree&&moved.CashCents==movedRules.startingCashCents,"Move atomically uses destination obligations without spending");
+        moved.UndoPlan(moved.Revision);Check(moved.Queue.Single().siteId=="a"&&moved.QueuedCommitmentCents==originalReserve,"One undo restores the entire move");
+        moved.ClearPlan(moved.Revision);Check(!moved.CanRedo,"A new branch clears redo history");
+        Check(ActionProfiles.Source.Length==12&&ActionProfiles.ForAction("solar").upfrontCents==300000000&&ActionProfiles.ForAction("wind").upfrontCents==300000000,"Twelve source profiles preserve latest renewable price");
         return checks;
     }
 }

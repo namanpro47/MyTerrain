@@ -20,7 +20,7 @@ public static class AnnualGameplayChecks
         var scenario=JsonUtility.FromJson<Scenario>(File.ReadAllText("worlds/meadowbrook-v1/scenario.json"));
         var catalog=AssetDatabase.LoadAssetAtPath<BuildActionCatalog>("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
         var rules=BuildActionRuntime.Expand(catalog,ref world,ref scenario);
-        var definition=AnnualGameplay.Create(world,scenario,"coon-valley-brye-v1",rules.Rejection);
+        var definition=AnnualGameplay.Create(world,scenario,"meadowbrook-v1",rules.Rejection);
         foreach(var id in AnnualGameplay.Supported)Check(definition.actions.Any(a=>a.actionId==id),"Playable recipe has at least one fitting field: "+id);
         foreach(var action in definition.actions)Check(rules.Rejection(world.sites.First(s=>s.id==action.siteId),action.actionId)==null,"Every offered model actually fits");
         Check(definition.actions.First(a=>a.actionId=="low-density-housing").upfrontPublicCostCents==100000000,"Housing source price");

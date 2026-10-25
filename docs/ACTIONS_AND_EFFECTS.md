@@ -136,7 +136,7 @@ The integration branch implements `starter-rubric-v2` with seven recipes. All pr
 | Recipe | Upfront | Annual upkeep / ten operating years | Construction / establishment | Funded bundle and modeled effect |
 |---|---:|---:|---|---|
 | Traditional cultivation | $100K | $2K | 0 / 1 years | Named field; existing authored offer output and 0.25 food-service units per output unit |
-| Conservation rotation | $160K | $3.2K | 0 / 3 years | Named field; gradual establishment toward 1.2× baseline output, 0.3 food-service units per output, 30% vegetated cover |
+| Conservation rotation | $160K | $3.2K | 0 / 3 years | Named field; gradual establishment toward 1.2× the field’s configured conventional-cultivation capacity, 0.3 food-service units per output, 30% vegetated cover |
 | Living margin | $125K | $2.5K | 0 / 2 years | Existing margin offer and cover, gradual establishment |
 | Meadow restoration | $75K | $2K | 0 / 3 years | Named field; gradually restored vegetation, no invented crop/recreation service |
 | Connected swale | $100K | $3K | 1 / 1 years | Eligible named field; existing configured storage only after commissioning |
