@@ -156,7 +156,7 @@ namespace Terra.UI
                 "Balance homes and livelihoods with land and water.\n\n"+
                 "<color=#87D9B0><b>Choose a project  →  Find a place  →  End Year</b></color>\n"+
                 "Edit freely until End Year. Accepted projects take time and need upkeep.\n\n<color=#A8C4CC>Real terrain · fictional community and outcomes.</color>",
-                "Explore the landscape  →",explore);
+                "Choose your run  →",explore);
             modalEyebrow.text=location.Name.ToUpperInvariant()+"  /  YEAR 1";
             var row=Rect(fieldNotesContent,"Starting resources",new Vector2(0,1),Vector2.zero,new Vector2(656,110));
             row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=110;
@@ -179,7 +179,7 @@ namespace Terra.UI
             fieldNotesLayoutDirty=true;
             AnnualSecondary("Your brief & goals",()=>
             {
-                AnnualDialog(scenarioTitle,"<b>Your year "+annualRules.years+" goals</b>\nEconomic "+e.finalEconomicTarget+" · Social "+e.finalSocialTarget+" · Environmental "+e.finalEnvironmentalTarget+"\nEvery run gets an ending.\n\n"+scenarioDetails,"Explore the landscape  →",explore);
+                AnnualDialog(scenarioTitle,"<b>Your year "+annualRules.years+" goals</b>\nEconomic "+e.finalEconomicTarget+" · Social "+e.finalSocialTarget+" · Environmental "+e.finalEnvironmentalTarget+"\nEvery run gets an ending.\n\n"+scenarioDetails,"Choose your run  →",explore);
                 AnnualSecondary("Back to introduction",()=>AnnualWelcome(scenarioTitle,scenarioDetails,explore));
             });
             LayoutFieldNotes();fieldNotesContent.anchoredPosition=Vector2.zero;fieldNotesScroll.verticalNormalizedPosition=1;
