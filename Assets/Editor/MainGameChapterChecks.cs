@@ -126,8 +126,9 @@ public static class MainGameChapterChecks
     }
     static void Click(string caption)
     {
+        var dialog=GameObject.Find("Field guide");
         var button=UnityEngine.Object.FindObjectsByType<Button>(FindObjectsSortMode.None)
-            .Single(b=>b.gameObject.activeInHierarchy&&b.GetComponentInChildren<TextMeshProUGUI>()?.text==caption);
+            .Single(b=>b.gameObject.activeInHierarchy&&(dialog==null||b.transform.IsChildOf(dialog.transform))&&b.GetComponentInChildren<TextMeshProUGUI>()?.text==caption);
         button.onClick.Invoke();
     }
 }
