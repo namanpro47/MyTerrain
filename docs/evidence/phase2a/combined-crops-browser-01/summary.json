@@ -1,0 +1,200 @@
+{
+  "frozenExport": "Web64",
+  "ownerSource": "e3f4905",
+  "reviewBranch": "47ae061",
+  "remoteMainAtTest": "913c79fcfae6da89142762e747550fa8aa2cc240",
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "pixelRatio": 1
+  },
+  "measurements": [
+    {
+      "timestamp": "2026-10-25T15:14:53.605Z",
+      "seconds": 30.009998321533203,
+      "averageFps": 51.54948806762695,
+      "frameP50Ms": 15.0,
+      "frameP95Ms": 37.0,
+      "frameP99Ms": 44.0,
+      "maxFrameMs": 68.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1547,
+      "framesOver33Ms": 152,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1031,
+      "unfocusedFrames": 0
+    },
+    {
+      "timestamp": "2026-10-25T15:15:44.195Z",
+      "seconds": 30.007003784179688,
+      "averageFps": 54.720558166503906,
+      "frameP50Ms": 15.0,
+      "frameP95Ms": 33.0,
+      "frameP99Ms": 40.00000762939453,
+      "maxFrameMs": 66.99999237060547,
+      "maxPreviewCpuMs": 10.100000381469727,
+      "maxPlacementCpuMs": 26.0,
+      "frames": 1642,
+      "framesOver33Ms": 78,
+      "framesOver200Ms": 0,
+      "previewEvents": 8,
+      "placementEvents": 1,
+      "cameraEvents": 0,
+      "unfocusedFrames": 0
+    },
+    {
+      "timestamp": "2026-10-25T15:17:11.629Z",
+      "seconds": 30.003005981445312,
+      "averageFps": 38.99609375,
+      "frameP50Ms": 23.0,
+      "frameP95Ms": 41.0,
+      "frameP99Ms": 59.0,
+      "maxFrameMs": 76.0,
+      "maxPreviewCpuMs": 6.300000190734863,
+      "maxPlacementCpuMs": 18.100000381469727,
+      "frames": 1170,
+      "framesOver33Ms": 354,
+      "framesOver200Ms": 0,
+      "previewEvents": 5,
+      "placementEvents": 1,
+      "cameraEvents": 760,
+      "unfocusedFrames": 0
+    },
+    {
+      "timestamp": "2026-10-25T15:19:00.634Z",
+      "seconds": 30.001007080078125,
+      "averageFps": 48.39837646484375,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 34.0,
+      "frameP99Ms": 48.0,
+      "maxFrameMs": 62.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1452,
+      "framesOver33Ms": 85,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 724,
+      "unfocusedFrames": 0
+    }
+  ],
+  "errors": [],
+  "warningCount": 2,
+  "annualStates": [
+    "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=4; cash=1000000000; queued=2; assets=0",
+    "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=25; cash=1960500000; queued=0; assets=2",
+    "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=25; cash=1960500000; queued=0; assets=2",
+    "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=25; cash=1960500000; queued=0; assets=2",
+    "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+  ],
+  "inputFeedback": [
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 11.599999964237213
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 26
+        },
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 40.90000003576279
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 24.899999976158142
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 18.5
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 19.80000001192093
+        }
+      ],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 22.799999952316284
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 24.899999976158142
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 22.80000001192093
+        },
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 31.19999998807907
+        }
+      ],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    }
+  ]
+}
