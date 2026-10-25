@@ -1,0 +1,370 @@
+{
+  "base": "1330dc966267ba68f0e4f13dca7a0ec67a4e464a",
+  "refs": [
+    {
+      "ref": "codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "nonEquivalentCommits": []
+    },
+    {
+      "ref": "codex/annual-feedback",
+      "sha": "a6e555f9b59e1c905f5e5a17adb682080788c003",
+      "nonEquivalentCommits": [
+        "ad2c093e96d13c7f7f60dd74bed630d7f454a261 Read the atlas starting invitation when present",
+        "d674b4e5d22314b66f3d6f4989fc529843f33a2b Include safe narration status in audio diagnostics",
+        "04fe72e9e24faa98d48171b0bf3c25f432a694b5 Allow the verified deployment origin for preview narration",
+        "d32915851fdbb657876f9050131c0f12333f4e6e Fit long selected-tool names and align review score rounding",
+        "de535592d7e5ca830cf72183aff09264255eea8b Avoid renormalizing unchanged dialogue every frame",
+        "e1887dc56dcaae9cd98dcca94553e1537ca07f49 Name the arrival action for the run setup it opens",
+        "237e1cfbd88454c593e2c4d271241d357906b1c6 Add a small Wisconsin scenario invitation to the globe",
+        "04e2c8c3e3a30a39393db9c2959c37d73970a3b2 Keep the completed ledger action pointed at the ten-year future",
+        "7f1f60c089b902d52dddada3c30137e64c90cd59 Show voice loading state in dialogue controls",
+        "0b5b5cf8d1e5ac9f12ab1844d28b82b94c245f5e Record live ElevenLabs account and Chrome transport verification",
+        "ac09700864e1a8b1fd84ad264b1b6d2683466929 Retire rebuilt choice buttons and retain visible duration selection",
+        "1fe4b5887e6bed713495b72db0591cf5a3825892 Apply consequence eligibility to the replacement lifecycle",
+        "40cbfcb3835e7989aea3f04608199a752d6aab1c Verify score details in the shared reader and simplify metric language",
+        "10a676209498d7de8e04f87a85ddc9a806df2d49 Record first native dialog build and Chrome visual findings",
+        "e8df699b709cde3b255f940a492d9f234d3367c1 Complete decision setup and readable budget conversion and decade flows",
+        "cb78b652f551016f7a7d1b954b40e1252f6d8f1d Finish opaque game dialogs and scalable arrival facts",
+        "600d50d4615c86b690ddda5c184f11634d1fd4b4 Add ElevenLabs dialogue narration with private gateway and playback controls",
+        "4e918f1665c0805b6d533e48d62328e5245b9e34 Wire conversion review and prepare duration and project controls",
+        "a5154ec06a5c0b5b4616d74bf69089d9aa791289 Support current-year budgets, decision horizons and paid land conversions",
+        "8f44645c45305266f189fbfcbab9e9d2e34ccb49 Keep dialog actions below the reading area",
+        "8b60b15df14a8932f710daaeafc60cb61f0f56d9 Replace document-style game dialogs with compact landscape UI"
+      ]
+    },
+    {
+      "ref": "codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "nonEquivalentCommits": [
+        "3d86708e942b596ba2a31e552a5716fc99226fd6 Close numeric retry queue and record active replay release blocker",
+        "5bacb0ef8af04aa0088a1d517da19109f19c6226 Record submission checkpoint and unfinished acceptance gates",
+        "d021fdca315a329879f3c4fcd04e815d0019942e Suspend checkpoint regression inside candidate validation",
+        "e2c53afc967e61b01f81a172ed4fe12615f63a1e Document submission boundary and numeric integration blockers",
+        "22a68bd619ed5cf06a25a2dccebcb00372586499 Yield numeric validation at WebGL frame boundaries",
+        "db98bf05db438b2efec45936bda10b4170071896 Record dense WebGL memory failure and add stage diagnostics",
+        "a808a525fb4a64925bf718ee4397f150dc6b7f79 Record linked numeric WebGL fixture export identity",
+        "71642b58546999c3b5f5b7afc2e667f78d55f56a Verify exact numeric saves in the actual Unity Editor",
+        "ec39e3893a5bd8914d073c7f187554928b492f77 Record elapsed stages in numeric WebGL fixture checks",
+        "c38346bc76eb402d56e8e0dee5cc168782f77a72 Prepare dense runtime vectors and verify exact codec on bundled Mono",
+        "81a170bf2670db5b342bbb31e6ab5d10487af2c1 Record concrete numeric runtime activation handoff",
+        "f0e62e1c02215818184687dc8b3cd84cd5c3484b Preserve exact numeric save values with the tested JSON codec",
+        "7121389d0e3ec63d87ef2355144faf4468cc2432 Verify real Chrome storage transactions and prepare linked runtime checks"
+      ]
+    },
+    {
+      "ref": "codex/annual-release-acceptance",
+      "sha": "7798fe43e1a018a055917c33059e9af1860f3160",
+      "nonEquivalentCommits": [
+        "7798fe43e1a018a055917c33059e9af1860f3160 Measure dense numeric replay allocation on dotnet and Unity Mono",
+        "05a8fd4714d547ca42689ac6b13ff456e66c9059 Record exact deployed runtime and remaining release gates",
+        "9bc8ae2e53f6e1cd26ede446dd866e714acb2a9a Clarify indexed target reads and stable selection retry identity",
+        "c61fb97f08363a5bc000e4254215975988c6c911 Record inactive numeric run-directory boundary and recovery test design",
+        "c3e7ecd4aeb130c39a69c1ee4f0db7e158ab04ae Prepare isolated recording copies with immutable runtime file checks"
+      ]
+    },
+    {
+      "ref": "codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "nonEquivalentCommits": [
+        "8b33cc94b56b4a1363bd92809bff3ab11911ea2d Include standalone numeric directory test project",
+        "57f870f65245e087954c9d6d93e3a34fc7c527eb Add acknowledged numeric run directory and replay preservation"
+      ]
+    },
+    {
+      "ref": "codex/community-locations",
+      "sha": "d6cd6f082dc7288805bb69a0c024590469045ffa",
+      "nonEquivalentCommits": [
+        "d6cd6f082dc7288805bb69a0c024590469045ffa Freeze community selector build for geographic reconstruction followthrough",
+        "7016f14e1a4ed1ef23f75fe5dcedbd50368dada5 Record community import evidence and remaining integration check",
+        "4a6449c1dac992237aaedbbd71bc8a2c589b1c68 Fix browser-detected rotation labels and record initial smoke",
+        "9c6bbe7ccb3bdb542718e42b4f0e50b1a92eeea0 Keep import limits visible and restore selector focus",
+        "cc0c2aa6f8c245777ea03d3b076d8b2847ffbe40 Record authorized community workflow and preserve generated staging boundary",
+        "e7a4b0d1c10c093c13b0aef32504d5244a1d4dc3 Retry catalog loads and disable unavailable pagination",
+        "fa5aa07b9903c51c1b0bbe40471459e70edae266 Place community exploration inside atlas settings and record alignment evidence",
+        "daab19ce6deb2390475553ab5b32f514243cf4a7 Keep terrain validation compatible with bounded custom extents",
+        "9409ed149a2df74b73c5f95561c126aae70d807f Track Unity import identities and skill validation",
+        "64fbdfe5462781cc85bbb0e58703ba12032145ff Publish imports atomically and compare unfiltered source pixels",
+        "dd460e7e6a32968ee830ba663554d4d95a2267e0 Verify rendered imagery registration against source pixels",
+        "7bb64bded50651759caebb1975090881dd556843 Preserve selection and page prepared community imports",
+        "c73aebf836dfaf7aa822394065f6e6dbd52afb7f Add community imagery import skill and native terrain studies"
+      ]
+    },
+    {
+      "ref": "codex/elevenlabs-narration",
+      "sha": "ad2c093e96d13c7f7f60dd74bed630d7f454a261",
+      "nonEquivalentCommits": [
+        "ad2c093e96d13c7f7f60dd74bed630d7f454a261 Read the atlas starting invitation when present",
+        "d674b4e5d22314b66f3d6f4989fc529843f33a2b Include safe narration status in audio diagnostics",
+        "04fe72e9e24faa98d48171b0bf3c25f432a694b5 Allow the verified deployment origin for preview narration",
+        "de535592d7e5ca830cf72183aff09264255eea8b Avoid renormalizing unchanged dialogue every frame",
+        "7f1f60c089b902d52dddada3c30137e64c90cd59 Show voice loading state in dialogue controls",
+        "0b5b5cf8d1e5ac9f12ab1844d28b82b94c245f5e Record live ElevenLabs account and Chrome transport verification",
+        "600d50d4615c86b690ddda5c184f11634d1fd4b4 Add ElevenLabs dialogue narration with private gateway and playback controls"
+      ]
+    },
+    {
+      "ref": "codex/game-overlay-design",
+      "sha": "1acab594936deeae77b5d1697b54e20452cc071a",
+      "nonEquivalentCommits": [
+        "1acab594936deeae77b5d1697b54e20452cc071a Record passing combined native dialog validation and ownership handoff",
+        "10a676209498d7de8e04f87a85ddc9a806df2d49 Record first native dialog build and Chrome visual findings",
+        "cb78b652f551016f7a7d1b954b40e1252f6d8f1d Finish opaque game dialogs and scalable arrival facts",
+        "8f44645c45305266f189fbfcbab9e9d2e34ccb49 Keep dialog actions below the reading area",
+        "8b60b15df14a8932f710daaeafc60cb61f0f56d9 Replace document-style game dialogs with compact landscape UI"
+      ]
+    },
+    {
+      "ref": "codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "nonEquivalentCommits": [
+        "2cf446ba79bed53ea553b07a7bd84fa3666a71ec Complete inactive numeric directory adapter and checkpoint handoff",
+        "22a68bd619ed5cf06a25a2dccebcb00372586499 Yield numeric validation at WebGL frame boundaries",
+        "db98bf05db438b2efec45936bda10b4170071896 Record dense WebGL memory failure and add stage diagnostics",
+        "8b33cc94b56b4a1363bd92809bff3ab11911ea2d Include standalone numeric directory test project",
+        "57f870f65245e087954c9d6d93e3a34fc7c527eb Add acknowledged numeric run directory and replay preservation",
+        "122444225da9fa48ff4e80f165727e8c29c30cf5 Verify retained-run integrity and missing-record failures",
+        "29a4761234e0d93dc169e2de0f7e0ca2fdca958c Add atomic IndexedDB run selection and immutable rule storage",
+        "a808a525fb4a64925bf718ee4397f150dc6b7f79 Record linked numeric WebGL fixture export identity",
+        "71642b58546999c3b5f5b7afc2e667f78d55f56a Verify exact numeric saves in the actual Unity Editor",
+        "ec39e3893a5bd8914d073c7f187554928b492f77 Record elapsed stages in numeric WebGL fixture checks",
+        "c38346bc76eb402d56e8e0dee5cc168782f77a72 Prepare dense runtime vectors and verify exact codec on bundled Mono",
+        "81a170bf2670db5b342bbb31e6ab5d10487af2c1 Record concrete numeric runtime activation handoff",
+        "f0e62e1c02215818184687dc8b3cd84cd5c3484b Preserve exact numeric save values with the tested JSON codec",
+        "7121389d0e3ec63d87ef2355144faf4468cc2432 Verify real Chrome storage transactions and prepare linked runtime checks"
+      ]
+    },
+    {
+      "ref": "codex/peter-release-20261025",
+      "sha": "c403a5e0beab151a161acc485e87a6473cffc0d0",
+      "nonEquivalentCommits": []
+    },
+    {
+      "ref": "codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "nonEquivalentCommits": [
+        "ae36a25bdee0298464a76e2625e09ef3cc3f9059 Close placement deadline handoff with explicit verification limits",
+        "d05ecdce590b7fdf120e6cfde1520f344f5e1e3f Record clean submission checkpoint and explicit unfinished acceptance",
+        "a08cac9cd06972090a97ca5f00cda6006b3ed3e4 Isolate unverified visual follow-up from deadline delivery branch",
+        "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99 Verify corrected dock spacing from actual release walkthrough capture",
+        "5609cbf0f4e3ba0d55fafd96c14a401f6d124060 Prepare terrain-aware opening composition without constraining free camera",
+        "6b0fb16a8a745016954e7bdeccb576d21c51bfc3 Define focused browser latency acceptance and stale-sample limits",
+        "2211542579becf2db827435458a7f0112f38a139 Diagnose opening camera edge exposure from current parcel geometry",
+        "ce5e15b3eae853bb2ab2be122f0f1b1c52d4c562 Track queued pin candidate separately from frozen release evidence",
+        "d9df02178a8e7c000d383cff70527bf463979ea9 Add catalog miniature and check to queued world markers",
+        "2c01cc54379840c3ef8c2d569991de38bf1817e9 Record final placement acceptance gaps and coordinated handoffs",
+        "d75b9c812875b76a6a0d492d942fdfa38fecd692 Verify actual evidence board and hash final combined export",
+        "d9c132d8eacd885927291e114fed250ed27d67c2 Add actual game evidence review and post-integration regression receipt",
+        "e61ab3ccda5a253f39c829aed87208b53f9b522e Update acceptance ledger with verified recovery and responsive coverage",
+        "907816ae49702705b0bc24da526a2011f8f4d577 Record placement recovery, field previews and responsive Chrome evidence",
+        "7215d6cf43d6c518c77cc1612ac9beb717889f8f Record actual combined placement walkthrough and remaining acceptance checks",
+        "9b5e14a0153a9a82ce9687ef1587810ab1765d1f Give placement guidance priority over transient action hints",
+        "56e1940dbe4760aedf71438ced711732736c2c41 Separate project cards from dock instructions and assert geometric clearance"
+      ]
+    },
+    {
+      "ref": "codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "nonEquivalentCommits": [
+        "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99 Verify corrected dock spacing from actual release walkthrough capture",
+        "5609cbf0f4e3ba0d55fafd96c14a401f6d124060 Prepare terrain-aware opening composition without constraining free camera",
+        "6b0fb16a8a745016954e7bdeccb576d21c51bfc3 Define focused browser latency acceptance and stale-sample limits",
+        "2211542579becf2db827435458a7f0112f38a139 Diagnose opening camera edge exposure from current parcel geometry",
+        "ce5e15b3eae853bb2ab2be122f0f1b1c52d4c562 Track queued pin candidate separately from frozen release evidence",
+        "d9df02178a8e7c000d383cff70527bf463979ea9 Add catalog miniature and check to queued world markers",
+        "2c01cc54379840c3ef8c2d569991de38bf1817e9 Record final placement acceptance gaps and coordinated handoffs",
+        "d75b9c812875b76a6a0d492d942fdfa38fecd692 Verify actual evidence board and hash final combined export",
+        "d9c132d8eacd885927291e114fed250ed27d67c2 Add actual game evidence review and post-integration regression receipt",
+        "e61ab3ccda5a253f39c829aed87208b53f9b522e Update acceptance ledger with verified recovery and responsive coverage",
+        "907816ae49702705b0bc24da526a2011f8f4d577 Record placement recovery, field previews and responsive Chrome evidence",
+        "7215d6cf43d6c518c77cc1612ac9beb717889f8f Record actual combined placement walkthrough and remaining acceptance checks",
+        "9b5e14a0153a9a82ce9687ef1587810ab1765d1f Give placement guidance priority over transient action hints",
+        "56e1940dbe4760aedf71438ced711732736c2c41 Separate project cards from dock instructions and assert geometric clearance"
+      ]
+    },
+    {
+      "ref": "codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "nonEquivalentCommits": [
+        "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d Keep shared phase ledger with its active owner",
+        "a3a0c226afeb7b1f6286b7b74f0e4bab9265d26e Surface distance comparison and next blade construction",
+        "22e374109d99be1c3f52cebdde62aa6c442c7e70 Record distance field failure, zoom evidence and next free construction",
+        "0e2150ab39983f55b4b06e75b3d0972387c34b5f Prepare distance-aware field geometry comparison",
+        "30ede25efde7ec82bfd03ddfd72ce8feeb6e5bf3 Surface actual canopy comparison and unresolved visual gate",
+        "df8adce55edd2c0c9997c4f224cc5d93c0f8599d Record rejected continuous canopy and native edge comparison",
+        "cbd91a95f6197b3c105e0eec539723366388040d Prepare continuous crop canopy and native edge comparison",
+        "8d3edbb01ff4b662ccf5d93b05101ddeaa9742ab Surface authored crop comparison and required change in field rendering",
+        "8eaebba557c881587b7b37a791b5d07a80b265d8 Compare authored crop family and record field-scale rendering gap",
+        "95d882e1f75f8d0ab2b2d3a823286595fe3bc4b9 Surface original crop geometry result and next asset comparison",
+        "91e8d1f613aa492cb81959eb954366cfe5ec0a77 Evaluate native crop geometry and acquire a different free artist crop family"
+      ]
+    },
+    {
+      "ref": "codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "nonEquivalentCommits": [
+        "eb457329496d4aeb9640c32d68c1d9111efd7e96 Close field study at deadline with verified cleanup and explicit unfinished visual gate",
+        "d7e6e7c09a68d025b7936c398b6767526752588f Build and verify credited blade study assets in isolated Unity import",
+        "225680bfa1c72d886b340c9002df74c69186c72e Tie field study decision to inspected Terra Nil vegetation and ground references",
+        "424f5a504c8ca33ff33c118f5f9f6a427aab4f85 Document current field study checks and bounded render procedure",
+        "124393c034bc5ba5c7f3930c19ad3b91c4ce8682 Add matched field capture receipts and full annual snapshot guard",
+        "3463f8c5bcc930aa0804104cf4386fd040de0aff Keep field study material changes and wind bounds aligned with rendering",
+        "fb28d8528682a2e21331be7419090beb7009bfb9 Prepare reversible field comparison on current Wisconsin parcels",
+        "cbdf2515a2f5248d00832cc6d90b7ce85eaa2afa Prepare credited GDQuest blade field study on current game foundation"
+      ]
+    },
+    {
+      "ref": "codex/wisconsin-start-nudge",
+      "sha": "2cd9e45b16731673cf8ae5ab479d1cf9d3c9f4cc",
+      "nonEquivalentCommits": [
+        "ce7fa80e1747f17e3e8ee22d9c866c8be40a13bf Document the requested Wisconsin opening nudge",
+        "237e1cfbd88454c593e2c4d271241d357906b1c6 Add a small Wisconsin scenario invitation to the globe"
+      ]
+    },
+    {
+      "ref": "origin/codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "nonEquivalentCommits": []
+    },
+    {
+      "ref": "origin/codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "nonEquivalentCommits": [
+        "3d86708e942b596ba2a31e552a5716fc99226fd6 Close numeric retry queue and record active replay release blocker",
+        "5bacb0ef8af04aa0088a1d517da19109f19c6226 Record submission checkpoint and unfinished acceptance gates",
+        "d021fdca315a329879f3c4fcd04e815d0019942e Suspend checkpoint regression inside candidate validation",
+        "e2c53afc967e61b01f81a172ed4fe12615f63a1e Document submission boundary and numeric integration blockers",
+        "22a68bd619ed5cf06a25a2dccebcb00372586499 Yield numeric validation at WebGL frame boundaries",
+        "db98bf05db438b2efec45936bda10b4170071896 Record dense WebGL memory failure and add stage diagnostics",
+        "a808a525fb4a64925bf718ee4397f150dc6b7f79 Record linked numeric WebGL fixture export identity",
+        "71642b58546999c3b5f5b7afc2e667f78d55f56a Verify exact numeric saves in the actual Unity Editor",
+        "ec39e3893a5bd8914d073c7f187554928b492f77 Record elapsed stages in numeric WebGL fixture checks",
+        "c38346bc76eb402d56e8e0dee5cc168782f77a72 Prepare dense runtime vectors and verify exact codec on bundled Mono",
+        "81a170bf2670db5b342bbb31e6ab5d10487af2c1 Record concrete numeric runtime activation handoff",
+        "f0e62e1c02215818184687dc8b3cd84cd5c3484b Preserve exact numeric save values with the tested JSON codec",
+        "7121389d0e3ec63d87ef2355144faf4468cc2432 Verify real Chrome storage transactions and prepare linked runtime checks"
+      ]
+    },
+    {
+      "ref": "origin/codex/annual-release-acceptance",
+      "sha": "7798fe43e1a018a055917c33059e9af1860f3160",
+      "nonEquivalentCommits": [
+        "7798fe43e1a018a055917c33059e9af1860f3160 Measure dense numeric replay allocation on dotnet and Unity Mono",
+        "05a8fd4714d547ca42689ac6b13ff456e66c9059 Record exact deployed runtime and remaining release gates",
+        "9bc8ae2e53f6e1cd26ede446dd866e714acb2a9a Clarify indexed target reads and stable selection retry identity",
+        "c61fb97f08363a5bc000e4254215975988c6c911 Record inactive numeric run-directory boundary and recovery test design",
+        "c3e7ecd4aeb130c39a69c1ee4f0db7e158ab04ae Prepare isolated recording copies with immutable runtime file checks"
+      ]
+    },
+    {
+      "ref": "origin/codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "nonEquivalentCommits": [
+        "8b33cc94b56b4a1363bd92809bff3ab11911ea2d Include standalone numeric directory test project",
+        "57f870f65245e087954c9d6d93e3a34fc7c527eb Add acknowledged numeric run directory and replay preservation"
+      ]
+    },
+    {
+      "ref": "origin/codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "nonEquivalentCommits": [
+        "2cf446ba79bed53ea553b07a7bd84fa3666a71ec Complete inactive numeric directory adapter and checkpoint handoff",
+        "22a68bd619ed5cf06a25a2dccebcb00372586499 Yield numeric validation at WebGL frame boundaries",
+        "db98bf05db438b2efec45936bda10b4170071896 Record dense WebGL memory failure and add stage diagnostics",
+        "8b33cc94b56b4a1363bd92809bff3ab11911ea2d Include standalone numeric directory test project",
+        "57f870f65245e087954c9d6d93e3a34fc7c527eb Add acknowledged numeric run directory and replay preservation",
+        "122444225da9fa48ff4e80f165727e8c29c30cf5 Verify retained-run integrity and missing-record failures",
+        "29a4761234e0d93dc169e2de0f7e0ca2fdca958c Add atomic IndexedDB run selection and immutable rule storage",
+        "a808a525fb4a64925bf718ee4397f150dc6b7f79 Record linked numeric WebGL fixture export identity",
+        "71642b58546999c3b5f5b7afc2e667f78d55f56a Verify exact numeric saves in the actual Unity Editor",
+        "ec39e3893a5bd8914d073c7f187554928b492f77 Record elapsed stages in numeric WebGL fixture checks",
+        "c38346bc76eb402d56e8e0dee5cc168782f77a72 Prepare dense runtime vectors and verify exact codec on bundled Mono",
+        "81a170bf2670db5b342bbb31e6ab5d10487af2c1 Record concrete numeric runtime activation handoff",
+        "f0e62e1c02215818184687dc8b3cd84cd5c3484b Preserve exact numeric save values with the tested JSON codec",
+        "7121389d0e3ec63d87ef2355144faf4468cc2432 Verify real Chrome storage transactions and prepare linked runtime checks"
+      ]
+    },
+    {
+      "ref": "origin/codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "nonEquivalentCommits": [
+        "ae36a25bdee0298464a76e2625e09ef3cc3f9059 Close placement deadline handoff with explicit verification limits",
+        "d05ecdce590b7fdf120e6cfde1520f344f5e1e3f Record clean submission checkpoint and explicit unfinished acceptance",
+        "a08cac9cd06972090a97ca5f00cda6006b3ed3e4 Isolate unverified visual follow-up from deadline delivery branch",
+        "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99 Verify corrected dock spacing from actual release walkthrough capture",
+        "5609cbf0f4e3ba0d55fafd96c14a401f6d124060 Prepare terrain-aware opening composition without constraining free camera",
+        "6b0fb16a8a745016954e7bdeccb576d21c51bfc3 Define focused browser latency acceptance and stale-sample limits",
+        "2211542579becf2db827435458a7f0112f38a139 Diagnose opening camera edge exposure from current parcel geometry",
+        "ce5e15b3eae853bb2ab2be122f0f1b1c52d4c562 Track queued pin candidate separately from frozen release evidence",
+        "d9df02178a8e7c000d383cff70527bf463979ea9 Add catalog miniature and check to queued world markers",
+        "2c01cc54379840c3ef8c2d569991de38bf1817e9 Record final placement acceptance gaps and coordinated handoffs",
+        "d75b9c812875b76a6a0d492d942fdfa38fecd692 Verify actual evidence board and hash final combined export",
+        "d9c132d8eacd885927291e114fed250ed27d67c2 Add actual game evidence review and post-integration regression receipt",
+        "e61ab3ccda5a253f39c829aed87208b53f9b522e Update acceptance ledger with verified recovery and responsive coverage",
+        "907816ae49702705b0bc24da526a2011f8f4d577 Record placement recovery, field previews and responsive Chrome evidence",
+        "7215d6cf43d6c518c77cc1612ac9beb717889f8f Record actual combined placement walkthrough and remaining acceptance checks",
+        "9b5e14a0153a9a82ce9687ef1587810ab1765d1f Give placement guidance priority over transient action hints",
+        "56e1940dbe4760aedf71438ced711732736c2c41 Separate project cards from dock instructions and assert geometric clearance"
+      ]
+    },
+    {
+      "ref": "origin/codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "nonEquivalentCommits": [
+        "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99 Verify corrected dock spacing from actual release walkthrough capture",
+        "5609cbf0f4e3ba0d55fafd96c14a401f6d124060 Prepare terrain-aware opening composition without constraining free camera",
+        "6b0fb16a8a745016954e7bdeccb576d21c51bfc3 Define focused browser latency acceptance and stale-sample limits",
+        "2211542579becf2db827435458a7f0112f38a139 Diagnose opening camera edge exposure from current parcel geometry",
+        "ce5e15b3eae853bb2ab2be122f0f1b1c52d4c562 Track queued pin candidate separately from frozen release evidence",
+        "d9df02178a8e7c000d383cff70527bf463979ea9 Add catalog miniature and check to queued world markers",
+        "2c01cc54379840c3ef8c2d569991de38bf1817e9 Record final placement acceptance gaps and coordinated handoffs",
+        "d75b9c812875b76a6a0d492d942fdfa38fecd692 Verify actual evidence board and hash final combined export",
+        "d9c132d8eacd885927291e114fed250ed27d67c2 Add actual game evidence review and post-integration regression receipt",
+        "e61ab3ccda5a253f39c829aed87208b53f9b522e Update acceptance ledger with verified recovery and responsive coverage",
+        "907816ae49702705b0bc24da526a2011f8f4d577 Record placement recovery, field previews and responsive Chrome evidence",
+        "7215d6cf43d6c518c77cc1612ac9beb717889f8f Record actual combined placement walkthrough and remaining acceptance checks",
+        "9b5e14a0153a9a82ce9687ef1587810ab1765d1f Give placement guidance priority over transient action hints",
+        "56e1940dbe4760aedf71438ced711732736c2c41 Separate project cards from dock instructions and assert geometric clearance"
+      ]
+    },
+    {
+      "ref": "origin/codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "nonEquivalentCommits": [
+        "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d Keep shared phase ledger with its active owner",
+        "a3a0c226afeb7b1f6286b7b74f0e4bab9265d26e Surface distance comparison and next blade construction",
+        "22e374109d99be1c3f52cebdde62aa6c442c7e70 Record distance field failure, zoom evidence and next free construction",
+        "0e2150ab39983f55b4b06e75b3d0972387c34b5f Prepare distance-aware field geometry comparison",
+        "30ede25efde7ec82bfd03ddfd72ce8feeb6e5bf3 Surface actual canopy comparison and unresolved visual gate",
+        "df8adce55edd2c0c9997c4f224cc5d93c0f8599d Record rejected continuous canopy and native edge comparison",
+        "cbd91a95f6197b3c105e0eec539723366388040d Prepare continuous crop canopy and native edge comparison",
+        "8d3edbb01ff4b662ccf5d93b05101ddeaa9742ab Surface authored crop comparison and required change in field rendering",
+        "8eaebba557c881587b7b37a791b5d07a80b265d8 Compare authored crop family and record field-scale rendering gap",
+        "95d882e1f75f8d0ab2b2d3a823286595fe3bc4b9 Surface original crop geometry result and next asset comparison",
+        "91e8d1f613aa492cb81959eb954366cfe5ec0a77 Evaluate native crop geometry and acquire a different free artist crop family"
+      ]
+    },
+    {
+      "ref": "origin/codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "nonEquivalentCommits": [
+        "eb457329496d4aeb9640c32d68c1d9111efd7e96 Close field study at deadline with verified cleanup and explicit unfinished visual gate",
+        "d7e6e7c09a68d025b7936c398b6767526752588f Build and verify credited blade study assets in isolated Unity import",
+        "225680bfa1c72d886b340c9002df74c69186c72e Tie field study decision to inspected Terra Nil vegetation and ground references",
+        "424f5a504c8ca33ff33c118f5f9f6a427aab4f85 Document current field study checks and bounded render procedure",
+        "124393c034bc5ba5c7f3930c19ad3b91c4ce8682 Add matched field capture receipts and full annual snapshot guard",
+        "3463f8c5bcc930aa0804104cf4386fd040de0aff Keep field study material changes and wind bounds aligned with rendering",
+        "fb28d8528682a2e21331be7419090beb7009bfb9 Prepare reversible field comparison on current Wisconsin parcels",
+        "cbdf2515a2f5248d00832cc6d90b7ce85eaa2afa Prepare credited GDQuest blade field study on current game foundation"
+      ]
+    },
+    {
+      "ref": "origin/codex/wisconsin-start-nudge",
+      "sha": "ce7fa80e1747f17e3e8ee22d9c866c8be40a13bf",
+      "nonEquivalentCommits": [
+        "ce7fa80e1747f17e3e8ee22d9c866c8be40a13bf Document the requested Wisconsin opening nudge",
+        "237e1cfbd88454c593e2c4d271241d357906b1c6 Add a small Wisconsin scenario invitation to the globe"
+      ]
+    }
+  ]
+}

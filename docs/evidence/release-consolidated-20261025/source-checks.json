@@ -1,0 +1,18 @@
+{
+  "testedSource": "b8f2b6c88440db3be1955034bd4784844cec9745",
+  "checksPassed": {
+    "annualFeedback": 472,
+    "playerRules": 81,
+    "fullGame": 1019,
+    "numericDirectory": 149,
+    "numericClient": 40,
+    "numericTransactions": 78,
+    "numericBridge": 33,
+    "narrationNodeTests": 9
+  },
+  "notes": [
+    "Pure source checks; native build and combined Chrome pending",
+    "Numeric schema 3 has no active TerraMain initialization call; dense WebGL OOM remains an activation blocker",
+    "Visual study76 remains outside production Resources/scenes, visual gate open"
+  ]
+}
