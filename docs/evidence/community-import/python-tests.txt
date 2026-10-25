@@ -5,6 +5,6 @@ test_refuses_overwrite_and_unsupported_region (test_import.CommunityImportChecks
 test_wrong_orientation_rejected (test_import.CommunityImportChecks.test_wrong_orientation_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 5 tests in 0.264s
+Ran 5 tests in 0.204s
 
 OK

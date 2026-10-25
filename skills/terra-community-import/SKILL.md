@@ -21,7 +21,7 @@ Verify download/reuse rights, imagery dates, source resolution and elevation cov
 2. Inspect the downloaded image. Reject clouds, missing strips, wrong place, poor season/contrast or insufficient detail for the requested scale. Record source acquisition separately from retrieval; exported pixels do not increase native resolution.
 3. Verify projected meters, equal terrain/image extent, grid orientation and at least three recognizable landmarks (for example an intersection, a field corner and a stream bend). Source rows run north-to-south; game heights run south-to-north. Avoid double flips, stretched textures, invented height exaggeration and estimated tree/building positions presented as surveys.
 4. Stage with `python3 scripts/prepare-communities.py`. The existing native atlas browser consumes its catalog; no hosted AI service, API key or network GIS lookup is required to view prepared packs. Build preprocessing stages the same files automatically.
-5. Run offline validation, importer failure tests and Unity `CommunityChecks.Run()`. In actual Chrome, open **Your community +**, load the location, compare **Source photo / Overhead / Terrain**, rotate/zoom, change location, close and reopen. Verify original annual destinations and saved runs remain independent. Preserve captures and actual test results in task evidence.
+5. Run offline validation, importer failure tests and Unity `CommunityChecks.Run()`. In actual Chrome, open **Gear → Your community**, load the location, compare **Source photo / Overhead / Terrain**, rotate/zoom, change location, close and reopen. Verify original annual destinations and saved runs remain independent. Preserve captures and actual test results in task evidence.
 
 ## Fidelity and handoff
 

@@ -12,12 +12,19 @@ namespace Terra.Gameplay
         bool communityWasOpen;
         CommunityCatalog communityCatalog;CommunityPlace currentCommunity;
         int communityPage;
+        RectTransform communityOptions;
 
         // Separate partial keeps the existing globe, journey and annual save path owned by the atlas.
         public void InstallCommunityBrowser(CommunityTerrain companion)
         {
             if(communityPanel!=null)return;community=companion;
-            Button(selection.transform,"Your community  +",new Vector2(1,1),new Vector2(-42,-140),new Vector2(220,44),OpenCommunityBrowser);
+            communityOptions=uiRoot.Find("Atlas options") as RectTransform;
+            if(communityOptions!=null)
+            {
+                communityOptions.sizeDelta=new Vector2(communityOptions.sizeDelta.x,280);
+                Button(communityOptions,"Your community",new Vector2(.5f,1),new Vector2(0,-207),new Vector2(208,48),OpenCommunityBrowser);
+            }
+            else Button(notes.transform,"Your community",new Vector2(1,1),new Vector2(-24,-22),new Vector2(180,40),OpenCommunityBrowser);
             var panel=Box(notes.transform,"Community browser",Vector2.one*.5f,Vector2.zero,new Vector2(1240,760));communityPanel=panel.gameObject;
             var background=communityPanel.AddComponent<UnityEngine.UI.Image>();background.sprite=rounded;background.type=UnityEngine.UI.Image.Type.Sliced;background.color=Navy;
             Text(panel,"YOUR PLACE, YOUR POSSIBILITIES",new Vector2(0,1),new Vector2(32,-24),new Vector2(700,25),13,Mint);
@@ -69,6 +76,7 @@ namespace Terra.Gameplay
         public void OpenCommunityBrowser()
         {
             if(Traveling||communityPanel==null)return;
+            if(communityOptions!=null)communityOptions.gameObject.SetActive(false);
             notes.SetActive(true);communityPanel.SetActive(true);communityWasOpen=true;
             if(currentCommunity!=null)LoadCommunity(currentCommunity);
             else if(communityCatalog!=null&&communityCatalog.places.Length>0)LoadCommunity(communityCatalog.places[0]);
@@ -78,9 +86,13 @@ namespace Terra.Gameplay
         {if(UnityEngine.EventSystems.EventSystem.current!=null&&button!=null)UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(button.gameObject);}
         public void CloseCommunityBrowser()
         {
-            community.Cancel();community.Clear();communityPanel.SetActive(false);notes.SetActive(false);communityWasOpen=false;
+            community.Cancel();community.Clear();communityPanel.SetActive(false);communityWasOpen=false;
+            // Keep the atlas input gate through this frame so Enter on Close cannot also start a journey.
+            StartCoroutine(CloseCommunityNotes());
             communityStatus.text="Choose a prepared community to explore its terrain.";
         }
+        System.Collections.IEnumerator CloseCommunityNotes()
+        {yield return null;if(!communityWasOpen)notes.SetActive(false);}
         public void LoadCommunity(CommunityPlace place)
         {
             currentCommunity=place;
