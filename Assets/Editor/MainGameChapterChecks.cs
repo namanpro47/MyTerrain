@@ -22,7 +22,7 @@ public static class MainGameChapterChecks
     {
         try
         {
-            count=0;CheckSessionAndHud();
+            count=0;CheckExactSaveRestore();CheckSessionAndHud();
             Directory.CreateDirectory("Logs/AnnualTown");
             int sessionChecks=AnnualChapterChecks.Run();
             File.WriteAllText("Logs/AnnualTown/main-game-chapter-checks.json","{\"assertions\":"+count+",\"existingChapterAssertions\":"+sessionChecks+",\"liveProviderTested\":false}");
@@ -31,6 +31,42 @@ public static class MainGameChapterChecks
             EditorApplication.Exit(0);
         }
         catch(Exception error){Debug.LogException(error);EditorApplication.Exit(1);}
+    }
+    static string ExactSaveHash(object value)=>(string)typeof(AnnualTown).Assembly.GetType("Terra.Core.TownCopies").GetMethod("Hash").Invoke(null,new[]{value});
+    static void CheckExactSaveRestore()
+    {
+        const string key="terra.checks.feedback.precision";
+        string Fixture(string name)
+        {
+            using(var stream=File.OpenRead("docs/evidence/annual-feedback/restore-fixture/"+name+".json.gz"))
+            using(var gzip=new System.IO.Compression.GZipStream(stream,System.IO.Compression.CompressionMode.Decompress))
+            using(var reader=new StreamReader(gzip))return reader.ReadToEnd();
+        }
+        var go=new GameObject("Exact annual restore checks");
+        var session=go.AddComponent<AnnualTownSession>();
+        try
+        {
+            var definition=AnnualNumericJson.ReadTownDefinition(Fixture("save-roundtrip-definition"));
+            string original=Fixture("save-roundtrip-original");
+            var saved=AnnualNumericJson.ReadTownSave(original);
+            var restored=AnnualTown.Restore(definition,saved);
+            Check(ExactSaveHash(restored.History)==ExactSaveHash(saved.history),"Fractional v5 report history changed after exact restore.");
+            Check(BitConverter.DoubleToInt64Bits(saved.history[0].outcomes.sites[1].vegetatedAreaM2)==4668317464170332160L,"Fractional save number lost a bit during JSON parsing.");
+            session.Initialize(definition,"precision");session.ImportSave(original);session.saveKey=key;session.Save();
+            string expected=ExactSaveHash(session.State);
+            session.Initialize(definition,"gzip-restore",true);
+            Check(ExactSaveHash(session.State)==expected,"Native compressed v5 restore changed accepted state.");
+            PlayerPrefs.SetString(key,original);session.Initialize(definition,"plain-restore",true);
+            Check(ExactSaveHash(session.State)==expected,"Native old plain v5 restore changed accepted state.");
+            foreach(bool money in new[]{true,false})
+            {
+                var tampered=AnnualNumericJson.ReadTownSave(original);
+                if(money)tampered.history[0].ledger.closingCashCents++;else tampered.history[0].outcomes.sites[1].vegetatedAreaM2+=0.01;
+                bool rejected=false;try{AnnualTown.Restore(definition,tampered);}catch(ArgumentException){rejected=true;}
+                Check(rejected,"Exact restore accepted a changed "+(money?"ledger":"outcome")+".");
+            }
+        }
+        finally {PlayerPrefs.DeleteKey(key);UnityEngine.Object.DestroyImmediate(go);}
     }
     static void CheckSessionAndHud()
     {

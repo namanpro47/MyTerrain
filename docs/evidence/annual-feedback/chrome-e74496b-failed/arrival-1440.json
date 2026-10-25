@@ -1,0 +1,302 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MEADOWBROOK VALLEY  /  YEAR 1",
+      "rect": {
+        "x": 392,
+        "y": 214.9100341796875,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 22
+    },
+    {
+      "text": "What will you leave behind?",
+      "rect": {
+        "x": 392,
+        "y": 254.9100341796875,
+        "width": 656,
+        "height": 44
+      },
+      "bodyCssPx": 30,
+      "minGlyphCssPx": 30,
+      "preferredHeight": 33.52000045776367,
+      "availableHeight": 44
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 952,
+        "y": 208.9100341796875,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 32
+    },
+    {
+      "text": "Voice: on",
+      "rect": {
+        "x": 788,
+        "y": 204.9100341796875,
+        "width": 114,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Loading voice…",
+      "rect": {
+        "x": 926,
+        "y": 204.9100341796875,
+        "width": 114,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Choose your run  →",
+      "rect": {
+        "x": 736,
+        "y": 641.0899658203125,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Your brief & goals",
+      "rect": {
+        "x": 402,
+        "y": 641.0899658203125,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "<b>10 years. One landscape. Your choices.</b>\nBalance homes and livelihoods with land and water.\n\n<color=#87D9B0><b>Choose a project  →  Find a place  →  End Year</b></color>\nEdit freely until End Year. Accepted projects take time and need upkeep.\n\n<color=#A8C4CC>Real terrain · fictional community and outcomes.</color>",
+      "rect": {
+        "x": 392,
+        "y": 442.9100036621094,
+        "width": 656,
+        "height": 156.17999267578125
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 156.17999267578125,
+      "availableHeight": 156.17999267578125
+    },
+    {
+      "text": "$10M",
+      "rect": {
+        "x": 408,
+        "y": 354.9100341796875,
+        "width": 180,
+        "height": 34
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 34
+    },
+    {
+      "text": "PUBLIC FUNDS",
+      "rect": {
+        "x": 408,
+        "y": 392.9100036621094,
+        "width": 184,
+        "height": 20
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 16",
+      "rect": {
+        "x": 630.6666870117188,
+        "y": 354.9100341796875,
+        "width": 180,
+        "height": 34
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 34
+    },
+    {
+      "text": "HOMES NOW / NEEDED",
+      "rect": {
+        "x": 630.6666870117188,
+        "y": 392.9100036621094,
+        "width": 184,
+        "height": 20
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 36",
+      "rect": {
+        "x": 853.3333740234375,
+        "y": 354.9100341796875,
+        "width": 180,
+        "height": 34
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 34
+    },
+    {
+      "text": "JOBS NOW / TARGET",
+      "rect": {
+        "x": 853.3333740234375,
+        "y": 392.9100036621094,
+        "width": 184,
+        "height": 20
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 20
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 948,
+        "y": 208.9100341796875,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button Voice: on",
+      "enabled": true,
+      "rect": {
+        "x": 780,
+        "y": 202.9100341796875,
+        "width": 130,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Replay voice",
+      "enabled": true,
+      "rect": {
+        "x": 918,
+        "y": 202.9100341796875,
+        "width": 130,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 726,
+        "y": 639.0899658203125,
+        "width": 322,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 392,
+        "y": 639.0899658203125,
+        "width": 322,
+        "height": 48
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 286,
+      "y": 628,
+      "width": 688,
+      "height": 198
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 220,
+      "y": 834,
+      "width": 1000,
+      "height": 56
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 1120,
+      "y": 114,
+      "width": 304,
+      "height": 348
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 360,
+      "y": 188.9100341796875,
+      "width": 720,
+      "height": 522.179931640625
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n"
+}

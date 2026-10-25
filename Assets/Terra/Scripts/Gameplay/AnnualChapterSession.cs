@@ -131,7 +131,7 @@ namespace Terra.Gameplay
                     guestToken = session.token; guestExpiresAt = Time.realtimeSinceStartupAsDouble + session.expiresIn - 30;
                     ReleaseRequest(); SendChapterOrSession(); return;
                 }
-                var receipt = JsonUtility.FromJson<AnnualChapterReceipt>(request.downloadHandler.text);
+                var receipt = AnnualNumericJson.ReadChapterReceipt(request.downloadHandler.text);
                 ReleaseRequest();
                 Accept(receipt);
                 ContinueFinishing();
@@ -237,7 +237,7 @@ namespace Terra.Gameplay
         public void ImportSave(string json)
         {
             if (Busy) throw new InvalidOperationException("Stop the current request before importing a save.");
-            var save = JsonUtility.FromJson<AnnualChapterSave>(json);
+            var save = AnnualNumericJson.ReadChapterSave(json);
             if (save == null || save.schemaVersion != 1 || save.town == null || save.chapters == null)
                 throw new ArgumentException("Expected an annual chapter save.");
             var definition = town.Definition;
@@ -277,7 +277,7 @@ namespace Terra.Gameplay
         }
         public void RestoreSaved() { if (PlayerPrefs.HasKey(saveKey)) ImportSave(AnnualTownSession.ReadStored(saveKey)); }
         void Persist() { if (autoSave) Save(); }
-        static T Clone<T>(T value) => value == null ? default : JsonUtility.FromJson<T>(JsonUtility.ToJson(value));
+        static T Clone<T>(T value) => TownCopies.Copy(value);
         void Publish()
         {
             if (StateChanged == null) return;
