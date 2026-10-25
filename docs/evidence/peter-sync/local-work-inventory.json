@@ -1,0 +1,38 @@
+{
+  "initialRemote": "48a3e41c7b9d31687ddd517a4722d6329fe5ca7a",
+  "includedBranches": [
+    "codex/unity-setup",
+    "codex/visual-study20",
+    "codex/full-implementation",
+    "codex/annual-gameplay-integration",
+    "codex/phase3-editing",
+    "codex/phase4-consequences",
+    "codex/parallel-package-integration"
+  ],
+  "excludedSupersededBranch": "codex/phase3-review-study: isolated study explicitly superseded by completed Phase 3 delivery",
+  "dirtyWorktrees": [
+    {
+      "worktree": "/Users/naman/Documents/GitHub/Terra",
+      "observedStatus": " M ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json\n"
+    },
+    {
+      "worktree": "/Users/naman/.codex/worktrees/full-implementation/Terra",
+      "observedStatus": " D Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta\n D Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta\n M \"Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset\"\n M README.md\n?? docs/evidence/full-game/framing-story-large-compact-audit.json\n?? docs/evidence/full-game/framing-story-large-compact.png\n?? docs/evidence/full-game/study31-completed-assets.json\n?? docs/evidence/full-game/study31-completed-village.png\n"
+    },
+    {
+      "worktree": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra",
+      "observedStatus": " D Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta\n D Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta\n M Assets/Settings/PC_RPAsset.asset\n?? Assets/Screenshots.meta\n?? Assets/Screenshots/\n"
+    }
+  ],
+  "intentionalUncommittedWorkCopied": [
+    "full-implementation/README.md",
+    "full-implementation/docs/evidence/full-game/framing-story-large-compact*",
+    "terra-visual-rebuild/Assets/Screenshots/*.png (unique images archived under editor-studies, existing duplicates retained in visual-rebuild evidence)"
+  ],
+  "leftLocal": [
+    "EditorPipelineConfig run-in-background original state",
+    "URP generated shader prefilter flags",
+    "dynamic TMP fallback glyph cache",
+    "orphan DOTween .mdb meta deletions"
+  ]
+}

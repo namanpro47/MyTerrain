@@ -1,0 +1,215 @@
+{
+  "source": "48a3e41",
+  "job": "e46184c317244573b281ea04ee992340",
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "userProvidedForegroundWindow": true,
+  "ownBuildRunningDuringSamples": false,
+  "rows": [
+    {
+      "path": "opening",
+      "performance": {
+        "seconds": 30.01300048828125,
+        "averageFps": 59.9740104675293,
+        "frameP50Ms": 17.0,
+        "frameP95Ms": 18.0,
+        "frameP99Ms": 18.0,
+        "maxFrameMs": 18.00000762939453,
+        "maxPreviewCpuMs": -1.0,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1800,
+        "framesOver33Ms": 0,
+        "framesOver200Ms": 0,
+        "previewEvents": 0,
+        "placementEvents": 0,
+        "cameraEvents": 1419,
+        "unfocusedFrames": 0
+      },
+      "latency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    },
+    {
+      "path": "editing",
+      "performance": {
+        "seconds": 30.013999938964844,
+        "averageFps": 59.93869400024414,
+        "frameP50Ms": 17.0,
+        "frameP95Ms": 18.0,
+        "frameP99Ms": 18.0,
+        "maxFrameMs": 40.0,
+        "maxPreviewCpuMs": 3.299999952316284,
+        "maxPlacementCpuMs": 23.299999237060547,
+        "frames": 1799,
+        "framesOver33Ms": 1,
+        "framesOver200Ms": 0,
+        "previewEvents": 23,
+        "placementEvents": 2,
+        "cameraEvents": 602,
+        "unfocusedFrames": 0
+      },
+      "latency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [
+          {
+            "kind": "placement",
+            "source": "keyboard",
+            "milliseconds": 39.900000005960464
+          },
+          {
+            "kind": "preview",
+            "source": "pointer",
+            "milliseconds": 12.5
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 17.5
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 23.599999994039536
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 24.200000017881393
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.5
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 23.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 21.099999994039536
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 23
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.399999976158142
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.599999994039536
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 20.900000005960464
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 18
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 17.899999976158142
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 20.30000001192093
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 23
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 19.5
+          },
+          {
+            "kind": "placement",
+            "source": "keyboard",
+            "milliseconds": 35.19999998807907
+          }
+        ],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    },
+    {
+      "path": "transformed",
+      "performance": {
+        "seconds": 30.014007568359375,
+        "averageFps": 59.93867874145508,
+        "frameP50Ms": 17.0,
+        "frameP95Ms": 18.0,
+        "frameP99Ms": 18.0,
+        "maxFrameMs": 35.0,
+        "maxPreviewCpuMs": 16.799999237060547,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1799,
+        "framesOver33Ms": 1,
+        "framesOver200Ms": 0,
+        "previewEvents": 1,
+        "placementEvents": 0,
+        "cameraEvents": 982,
+        "unfocusedFrames": 0
+      },
+      "latency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    }
+  ]
+}

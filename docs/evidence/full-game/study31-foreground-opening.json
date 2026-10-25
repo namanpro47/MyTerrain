@@ -1,0 +1,32 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 7813",
+    "timestamp": "2026-10-25T05:16:12.555Z",
+    "url": "blob:http://127.0.0.1:8856/13becc77-9cb2-4394-b63e-57481726c691"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T05:16:19.446Z",
+    "url": "blob:http://127.0.0.1:8856/13becc77-9cb2-4394-b63e-57481726c691"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T05:16:20.113Z",
+    "url": "blob:http://127.0.0.1:8856/13becc77-9cb2-4394-b63e-57481726c691"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.01300048828125,\"averageFps\":59.9740104675293,\"frameP50Ms\":17.0,\"frameP95Ms\":18.0,\"frameP99Ms\":18.0,\"maxFrameMs\":18.00000762939453,\"maxPreviewCpuMs\":-1.0,\"maxPlacementCpuMs\":-1.0,\"frames\":1800,\"framesOver33Ms\":0,\"framesOver200Ms\":0,\"previewEvents\":0,\"placementEvents\":0,\"cameraEvents\":1419,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T05:16:50.131Z",
+    "url": "blob:http://127.0.0.1:8856/13becc77-9cb2-4394-b63e-57481726c691"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T05:16:50.142Z",
+    "url": "blob:http://127.0.0.1:8856/13becc77-9cb2-4394-b63e-57481726c691"
+  }
+]
