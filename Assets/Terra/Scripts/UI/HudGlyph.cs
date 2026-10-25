@@ -4,6 +4,7 @@ using UnityEngine.UI;
 namespace Terra.UI
 {
     // Original vector marks: no font-symbol dependency, textures or external assets.
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class HudGlyph : MaskableGraphic
     {
         public string symbol;
