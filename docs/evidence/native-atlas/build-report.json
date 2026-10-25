@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var r=UnityEditor.Build.Reporting.BuildReport.GetLatestReport();return new{result=r.summary.result.ToString(),errors=r.summary.totalErrors,warnings=r.summary.totalWarnings,bytes=r.summary.totalSize,sceneDirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty,playing=UnityEditor.EditorApplication.isPlaying};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "result": "Succeeded",
+        "errors": 0,
+        "warnings": 7,
+        "bytes": 1501530,
+        "sceneDirty": false,
+        "playing": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
