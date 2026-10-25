@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-24",
+  "browser": "Chrome 155.0.0.0 (user-agent)",
+  "url": "http://127.0.0.1:8766/docs/evidence/package-c3/audition.html",
+  "surface": "isolated native Web Audio audition, not Unity",
+  "checks": {
+    "initial_page_silent_and_play_controls_disabled": true,
+    "five_wav_files_decode": true,
+    "all_decoded_channels_one": true,
+    "decoded_sample_rate_hz": 44100,
+    "durations_match_sources": true,
+    "user_triggered_seam_playback_enters_playing_state": true,
+    "seam_playback_returns_to_stopped_state": true,
+    "sequence_enters_playing_state": true,
+    "stop_cancels_sequence_and_disables_stop_button": true
+  },
+  "not_tested": [
+    "subjective listening or actual speaker output",
+    "complete 16-second sequence",
+    "Unity import and Web AAC export",
+    "in-game audio hooks, mute, pause and user-gesture unlock",
+    "two full ambient cycles",
+    "console capture"
+  ],
+  "screenshot": "chrome-audition.png"
+}

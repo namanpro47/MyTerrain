@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "compared_files": 6,
+  "before_equals_after": true,
+  "sha256": {
+    "Assets/Terra/Audio/ExternalKit/Clips/ambient-wind.wav": "ffa3b3e88ae259c6b93778024c722c8982bfe5cb11cbaa255cf968b4c36dbca4",
+    "Assets/Terra/Audio/ExternalKit/Clips/blocked.wav": "f4bf2d9be120eeb29f08a39df1a021e0bf4a6192b25cf42dd00e997fefca047d",
+    "Assets/Terra/Audio/ExternalKit/Clips/cancel.wav": "dd0b94f2848abb0ba8950f64ce1509db34165f57b30bcf87a85afd00f04089c0",
+    "Assets/Terra/Audio/ExternalKit/Clips/place.wav": "59bd5a32db9910b3a5ceee187240c843c9180a9c4317c6fd70c6d11d3cfafb8a",
+    "Assets/Terra/Audio/ExternalKit/Clips/undo.wav": "b87af561a24a7b0b72ce3c075b638409d416185113169975c395b0ef767f7ddf",
+    "Assets/Terra/Audio/ExternalKit/manifest.json": "70e112fa8a8e941dbd7d6215100e7c5e768e55c13de63f9cd8abf04d9a5eb157"
+  }
+}

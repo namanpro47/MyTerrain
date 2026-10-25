@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "package": "C3 audio-only",
+  "status": "prepared assets; Unity import, listening review and in-game mix pending",
+  "date": "2026-10-24",
+  "sample_rate_hz": 22050,
+  "channels": 1,
+  "encoding": "PCM16 WAV",
+  "reference_patterns": [
+    "TN-07",
+    "TN-08"
+  ],
+  "location": "Meadowbrook Valley",
+  "geographic_claim": "Decorative sound design only. Wind source is synthesized, not a local field recording or evidence of local species/weather.",
+  "sources": [
+    {
+      "id": "kenney-interface-1.0",
+      "creator": "Kenney",
+      "title": "Interface Sounds 1.0",
+      "page_url": "https://kenney.nl/assets/interface-sounds",
+      "download_url": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+      "archive_sha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "local_license": "Licenses/Kenney-Interface-Sounds.txt",
+      "acquisition": "Existing project subset, source archive identity from docs/toolkit-sources.json. Pack page rechecked 2026-10-24."
+    },
+    {
+      "id": "luke-rustltd-wind1",
+      "creator": "Luke.RUSTLTD",
+      "title": "wind1",
+      "page_url": "https://opengameart.org/content/wind1",
+      "download_url": "https://opengameart.org/sites/default/files/wind1.wav",
+      "download_sha256": "a2856f794fbf77e05f8241dc4adeade7f62fa21c3c9dc49f7725b6c6218060c3",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "local_license": "Licenses/CC0-1.0.txt",
+      "acquisition": "Downloaded and source page/license inspected 2026-10-24. Source describes wind synthesized in PureData; author credits Andy Farnell tutorial."
+    }
+  ],
+  "clips": [
+    {
+      "id": "place",
+      "file": "Clips/place.wav",
+      "sha256": "59bd5a32db9910b3a5ceee187240c843c9180a9c4317c6fd70c6d11d3cfafb8a",
+      "source_family": "kenney-interface-1.0",
+      "source_file": "Assets/ThirdParty/Kenney/InterfaceSounds/Audio/drop_001.ogg",
+      "source_sha256": "692ee3a6f1821402ca649ff735bee9591dc4846c8098fc7d6a90fd15fa57c1af",
+      "loop": false,
+      "frames": 2422,
+      "target_peak_dbfs": -14,
+      "processing": "Stereo mean where needed; smooth 4.5 kHz low-pass; 44.1 to 22.05 kHz decimation; DC removal; 2 ms attack/12 ms release; peak attenuation; PCM16 export."
+    },
+    {
+      "id": "undo",
+      "file": "Clips/undo.wav",
+      "sha256": "b87af561a24a7b0b72ce3c075b638409d416185113169975c395b0ef767f7ddf",
+      "source_family": "kenney-interface-1.0",
+      "source_file": "Assets/ThirdParty/Kenney/InterfaceSounds/Audio/back_001.ogg",
+      "source_sha256": "07db973f79f6ae0f2edc34561e7592e24d0577455919fb602cb8ecc0da991dcf",
+      "loop": false,
+      "frames": 1409,
+      "target_peak_dbfs": -18,
+      "processing": "Stereo mean where needed; smooth 4.5 kHz low-pass; 44.1 to 22.05 kHz decimation; DC removal; 2 ms attack/12 ms release; peak attenuation; PCM16 export."
+    },
+    {
+      "id": "cancel",
+      "file": "Clips/cancel.wav",
+      "sha256": "dd0b94f2848abb0ba8950f64ce1509db34165f57b30bcf87a85afd00f04089c0",
+      "source_family": "kenney-interface-1.0",
+      "source_file": "Assets/ThirdParty/Kenney/InterfaceSounds/Audio/close_001.ogg",
+      "source_sha256": "44af8249b933e0fd35ec957a638bb1a0b01f85b53fbe9674bf77bd3ca3168ef4",
+      "loop": false,
+      "frames": 3259,
+      "target_peak_dbfs": -20,
+      "processing": "Stereo mean where needed; smooth 4.5 kHz low-pass; 44.1 to 22.05 kHz decimation; DC removal; 2 ms attack/12 ms release; peak attenuation; PCM16 export."
+    },
+    {
+      "id": "blocked",
+      "file": "Clips/blocked.wav",
+      "sha256": "f4bf2d9be120eeb29f08a39df1a021e0bf4a6192b25cf42dd00e997fefca047d",
+      "source_family": "kenney-interface-1.0",
+      "source_file": "Assets/ThirdParty/Kenney/InterfaceSounds/Audio/error_001.ogg",
+      "source_sha256": "46e67425d16339772e8d328fb36a49426c9467418686e11beeb71ff84b0f6433",
+      "loop": false,
+      "frames": 3629,
+      "target_peak_dbfs": -21,
+      "processing": "Stereo mean where needed; smooth 4.5 kHz low-pass; 44.1 to 22.05 kHz decimation; DC removal; 2 ms attack/12 ms release; peak attenuation; PCM16 export."
+    },
+    {
+      "id": "ambient-wind",
+      "file": "Clips/ambient-wind.wav",
+      "sha256": "ffa3b3e88ae259c6b93778024c722c8982bfe5cb11cbaa255cf968b4c36dbca4",
+      "source_family": "luke-rustltd-wind1",
+      "source_file": "wind1.wav",
+      "source_sha256": "a2856f794fbf77e05f8241dc4adeade7f62fa21c3c9dc49f7725b6c6218060c3",
+      "loop": true,
+      "frames": 1279900,
+      "loop_start_frame": 1024,
+      "loop_end_frame_inclusive": 1279899,
+      "loop_seconds": 57.99891156462585,
+      "target_rms_dbfs": -36,
+      "peak_ceiling_dbfs": -18,
+      "processing": "Smooth 4.5 kHz low-pass; 44.1 to 22.05 kHz decimation; DC removal; two-second constant-power tail/head crossfade; RMS gain/peak ceiling; 1024 silent prefix frames + RIFF smpl loop; PCM16 export."
+    }
+  ]
+}
