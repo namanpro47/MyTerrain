@@ -193,7 +193,7 @@ namespace Terra.UI
             ShowModal(title,body);annualDetails.gameObject.SetActive(false);
             var primaryRect=annualPrimary.GetComponent<RectTransform>();primaryRect.anchorMin=primaryRect.anchorMax=primaryRect.pivot=new Vector2(.5f,0);primaryRect.anchoredPosition=new Vector2(0,86);
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);
-            annualPrimaryAction=callback;SetButtonText(annualPrimary,action);annualPrimary.gameObject.SetActive(true);annualPrimary.interactable=callback!=null;
+            annualPrimaryAction=callback;SetButtonText(annualPrimary,action);annualPrimary.gameObject.SetActive(true);annualPrimary.interactable=callback!=null;modalEyebrow.text="MYTERRAIN  /  YOUR VALLEY";LayoutFieldNotes();Focus(annualPrimary.interactable?annualPrimary:closeButton);
         }
         public void AnnualConfirmation(AnnualTown town,TownYearReport preview,Action accept,bool onlineChapter=false)
         {
@@ -223,7 +223,7 @@ namespace Terra.UI
         {
             annualDetails.gameObject.SetActive(true);SetButtonText(annualDetails,caption);
             annualDetails.onClick.RemoveAllListeners();annualDetails.onClick.AddListener(()=>callback());
-            var r=annualPrimary.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=r.pivot=new Vector2(1,0);r.anchoredPosition=new Vector2(-32,86);
+            var r=annualPrimary.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=r.pivot=new Vector2(1,0);r.anchoredPosition=new Vector2(-32,86);LayoutFieldNotes();
         }
         public void AnnualMetrics(TownYearOutcomes o,Action back)
         {

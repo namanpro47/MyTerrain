@@ -25,7 +25,7 @@ namespace Terra.UI
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
         TextMeshProUGUI placeSubtitle;
-        TextMeshProUGUI production,credits,runoffStatus,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
+        TextMeshProUGUI production,credits,runoffStatus,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText,modalEyebrow;
         GameObject tooltip,loading,loadingShade,modal,modalShade,toastPanel,guideSummary;
         UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton,retryButton;
         UnityEngine.UI.Button focus,returnFocus; int dataPage;string activeTool="";
@@ -78,10 +78,11 @@ namespace Terra.UI
             toastPanel=Panel(root,"Action feedback",new Vector2(.5f,1),new Vector2(0,-132),new Vector2(570,52),PanelColor).gameObject;toastPanel.SetActive(false);
             toast=Label(toastPanel.transform,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(538,46),16,Paper);toast.alignment=TextAlignmentOptions.Center;
             var shade=Rect(root,"Guide backdrop",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);shade.anchorMin=Vector2.zero;shade.anchorMax=Vector2.one;shade.offsetMin=shade.offsetMax=Vector2.zero;
-            shade.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.04f,.10f,.09f,.72f);modalShade=shade.gameObject;modalShade.SetActive(false);
-            modal=Panel(root,"Field guide",new Vector2(.5f,.5f),Vector2.zero,new Vector2(800,650),Paper).gameObject;
-            Label(modal.transform,"MyTerrain   /   FIELD NOTES",new Vector2(0,1),new Vector2(32,-22),new Vector2(730,24),14,new Color(.31f,.40f,.31f),FontStyles.Bold);
-            modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-61),new Vector2(736,440),20,Ink);
+            shade.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.025f,.055f,.07f,.38f);modalShade=shade.gameObject;modalShade.SetActive(false);
+            modal=Panel(root,"Field guide",new Vector2(.5f,.5f),Vector2.zero,new Vector2(720,540),PanelColor).gameObject;
+            modalEyebrow=Label(modal.transform,"MYTERRAIN  /  FIELD GUIDE",new Vector2(0,1),new Vector2(32,-26),new Vector2(470,22),12,Accent,FontStyles.Bold);
+            Panel(modal.transform,"Mint rule",new Vector2(0,1),new Vector2(32,-14),new Vector2(40,3),Accent);
+            modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-61),new Vector2(656,76),30,Paper,FontStyles.Bold);
             guideSummary=Rect(modal.transform,"Evidence distinctions",new Vector2(.5f,0),new Vector2(0,152),new Vector2(736,78)).gameObject;
             string[] categories={"OBSERVED","AUTHORED","NOT A FORECAST"},summaries={"Terrain & broad cover","Sites & productive units","No flood or yield claim"};
             for(int i=0;i<3;i++){var card=Panel(guideSummary.transform,categories[i],new Vector2(0,0),new Vector2(i*248,0),new Vector2(240,78),new Color(.86f,.89f,.79f));Label(card,categories[i],new Vector2(0,1),new Vector2(12,-12),new Vector2(216,24),14,Ink,FontStyles.Bold);Label(card,summaries[i],new Vector2(0,1),new Vector2(12,-38),new Vector2(216,32),16,Ink);}
@@ -106,11 +107,11 @@ namespace Terra.UI
 #if UNITY_WEBGL && !UNITY_EDITOR
             ratio=Mathf.Max(1,TerraPixelRatio());
 #endif
-            var screen=new Vector2(Screen.width,Screen.height);if(screen==lastScreen&&Mathf.Approximately(ratio,lastRatio))return;lastScreen=screen;lastRatio=ratio;scaler.scaleFactor=ratio;
+            var screen=new Vector2(Screen.width,Screen.height);if(screen==lastScreen&&Mathf.Approximately(ratio,lastRatio)){if(ModalOpen)LayoutFieldNotes();return;}lastScreen=screen;lastRatio=ratio;scaler.scaleFactor=ratio;
             float width=Screen.width/ratio,height=Screen.height/ratio;bool compact=width<1120;compactLayout=compact;tip.transform.parent.gameObject.SetActive(annualRules==null&&!compact&&!tooltip.activeSelf);
             void Utility(UnityEngine.UI.Button b,bool right,int row){var r=b.GetComponent<RectTransform>();if(compact){r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(24+row*(right?156:138),right?-194:-130);}else{r.anchorMin=r.anchorMax=r.pivot=new Vector2(right?1:0,0);r.anchoredPosition=new Vector2(right?-24:24,20+row*64);}}
             Utility(undoButton,false,0);Utility(viewButton,false,1);Utility(guideButton,true,0);Utility(controlsButton,true,1);
-            modal.transform.localScale=Vector3.one*Mathf.Min(1,(height-32)/650,(width-32)/800);
+            modal.transform.localScale=Vector3.one;
             actionDock.localScale=Vector3.one*Mathf.Min(1,(width-48)/760);
             if(annualRules!=null)LayoutAnnual(width,height,compact||height<680);
             LayoutFieldNotes();
@@ -178,6 +179,8 @@ namespace Terra.UI
                 return true; // A menu key never falls through to a world edit.
             }
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
+            if(ModalOpen&&(k.pageDownKey.wasPressedThisFrame||k.pageUpKey.wasPressedThisFrame))
+            {ScrollFieldNotes(k.pageDownKey.wasPressedThisFrame?5:-5);return true;}
             if(!ModalOpen)
             {
                 // Keyboard activation of a focused UI button must never fall through to a map edit.
@@ -204,9 +207,9 @@ namespace Terra.UI
         void Paint()
         {
             foreach(var b in buttons){bool selected=CatalogSelected(b)||b==selectedHighlight;
-                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):(b==endYearButton||b==overviewNext||b==confirmEditButton)?new Color(.20f,.39f,.32f):Raised;
-                var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
-                foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
+                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:b==annualPrimary?Accent:b==closeButton?new Color(0,0,0,0):selected?new Color(.20f,.38f,.38f):(b==endYearButton||b==overviewNext||b==confirmEditButton||b==annualPrimary)?new Color(.20f,.39f,.32f):Raised;
+                var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?Paper:Accent;
+                foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>()){label.alpha=b.IsInteractable()?1:.48f;if(b==annualPrimary)label.color=Ink;}
                 foreach(var glyph in b.GetComponentsInChildren<HudGlyph>())glyph.canvasRenderer.SetAlpha(b.IsInteractable()?1:.48f);
             }
         }
@@ -255,11 +258,26 @@ namespace Terra.UI
                 "<b>Nature & actions · CC0</b>\nPark ambiences — Thimras (recorded in Adelaide, Australia)\nWind1 — Luke.RUSTLTD (synthesized wind)\nImpact & Interface Sounds — Kenney · kenney.nl\nOriginal mallet cues composed for MyTerrain.\n\n"+
                 "These are decorative sounds, not recordings of the playable locations or evidence of local species or weather.\n\nSound settings: U · mute and independent music, ambience and effects levels are saved on this device.");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
-            guideSummary.SetActive(dataPage==0&&!LargeText);
+            guideSummary.SetActive(false);
             SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Landscape art →":dataPage==3?"Plants & sound →":dataPage==4?"Runoff & connections →":dataPage==5?"Sound credits →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
-        {ResetFieldNotes();if(moreMenu!=null)moreMenu.gameObject.SetActive(false);closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);SetButtonText(closeButton,"Return to landscape  Esc");if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
+        {
+            ResetFieldNotes();
+            if(moreMenu!=null)moreMenu.gameObject.SetActive(false);
+            closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);
+            SetButtonText(closeButton,"Close · Esc");
+            if(!ModalOpen)returnFocus=focus;
+            if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);
+            if(annualDetails!=null)annualDetails.gameObject.SetActive(false);
+            guideSummary.SetActive(false);tooltip.SetActive(false);
+            modalEyebrow.text="MYTERRAIN  /  FIELD GUIDE";
+            modalText.text=title;
+            modalShade.SetActive(true);modal.SetActive(true);
+            motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);
+            dataPageButton.gameObject.SetActive(false);
+            PrepareFieldNotes(body);Focus(closeButton);
+        }
         static void SetButtonText(UnityEngine.UI.Button b,string text)=>b.GetComponentInChildren<TextMeshProUGUI>().text=text;
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}
         Transform Panel(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect(parent,name,anchor,pos,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=color;return r;}
