@@ -1,0 +1,63 @@
+{
+  "status": "Verified local integrated checkpoint; Phase 2A and final release gates remain open",
+  "sourceCheckpoint": "e25c5d3ca75c09b5bdecb0f0d66991ba9d4add23",
+  "buildJob": "307ec5386a024e2bbd1c989614f72f3f",
+  "buildSeconds": 393.733,
+  "unity": "6000.6.6f1",
+  "chrome": "155.0.8059.85",
+  "localBackup": "Builds/Verified/e25c5d3",
+  "rules": "3.1.0 / schema 2",
+  "publicDeployment": null,
+  "files": [
+    {
+      "file": "Build/bcf148ec5b1590df0d8a38129372e43a.wasm.unityweb",
+      "bytes": 11132076,
+      "sha256": "9da49761ce2407f94d1353016e2c73a46e33ef112e7d4d35ca46b8b28aee94af"
+    },
+    {
+      "file": "Build/d8b103ada3f0f972d8bcb6d310e53875.loader.js",
+      "bytes": 48779,
+      "sha256": "94f17cc592b02091a9ff18b7dbbfbfd4f215db74f4d91315f412e16de7c2c5e2"
+    },
+    {
+      "file": "Build/e168a8cd25f9a0494b76feb32d8c330f.data.unityweb",
+      "bytes": 29195670,
+      "sha256": "460decad1ae796b29d7f985a18cf92b6d4163291757557284b9a0020944ab315"
+    },
+    {
+      "file": "Build/f56dab0555e4a81232e0a01761880dc1.framework.js.unityweb",
+      "bytes": 76563,
+      "sha256": "65df63c93a117a6675cc51248fba5c3c58556deed7106848906f96851290b805"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "file": "index.html",
+      "bytes": 6520,
+      "sha256": "9e0358f7129a922d9261e97ed1b51e60f2c21e45648c5e008b26368aeed4e7ff"
+    },
+    {
+      "file": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ]
+}

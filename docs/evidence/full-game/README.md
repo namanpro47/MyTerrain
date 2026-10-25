@@ -192,3 +192,6 @@ A bounded running-Editor trial cloned only the village grass/path mesh UVs and m
 
 
 Three sequential first arrivals at separate no-store local origins reached the actual interactive game in **8.393 / 6.546 / 9.086 s** on the `e25c5d3` export. Each rendered the onboarding/planning controls; the inspected logs contain no error-level entry for these origins. `e25-fresh-origin-loads.json` preserves the receipts and limitations. One tab/player was used, own Editor Play Mode was stopped, and teammate Editors were preserved. These are local-delivery observations; neither a controlled foreground load benchmark nor public network/low-end hardware evidence is claimed.
+
+
+The current export is frozen unchanged at `Builds/Verified/e25c5d3`: **10 files / 41,415,454 bytes**, each compared byte-for-byte to the tested build and recorded in `e25-checkpoint-identity.json`. The earlier `589b655` export and explicitly non-final recording remain intact. No new public deployment occurred. Final scenery review, the two release rehearsals, complete public run and matching final recorded fallback remain open.
