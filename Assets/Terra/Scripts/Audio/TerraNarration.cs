@@ -21,7 +21,7 @@ namespace Terra.Audio
         public string StatusLabel => !Enabled ? "Voice off" : Status==4 ? "Voice unavailable · retry" : Status==1 ? "Preparing voice…" : Status==2 ? "Reading aloud" : Status==3 ? "Voice paused" : "Read aloud";
         AudioSource voice; Coroutine routine; UnityWebRequest request;
         readonly Dictionary<string,AudioClip> cache = new Dictionary<string,AudioClip>();
-        int generation; bool paused;
+        int generation; bool paused; string lastRich;
         static readonly Regex Tags = new Regex("<[^>]*>");
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")] static extern void TerraNarrationSet(string text, int enabled, float volume);
@@ -42,6 +42,7 @@ namespace Terra.Audio
             .Replace("→",", then ").Replace("·", ". ").Replace("m³","cubic metres").Replace("m²","square metres").Replace("&", "and");
         public void Show(string rich)
         {
+            if(rich==lastRich)return;lastRich=rich;
             string value=PlainText(rich);if(value==Text)return;
             Stop();Text=value;
 #if !UNITY_WEBGL || UNITY_EDITOR
