@@ -55,3 +55,7 @@ The complete bank is `Assets/Terra/Resources/Audio`: 79 clips, about 7.5 MiB sou
 Sources (all CC0): [Kenney Impact Sounds](https://kenney.nl/assets/impact-sounds), [Indieteur Mystical Piano](https://opengameart.org/content/mystical-piano), [The Cynic Project Vaporware](https://opengameart.org/content/calm-piano-1-vaporware), [Thimras Park ambiences](https://opengameart.org/content/park-ambiences). Existing Kenney Interface Sounds and Luke.RUSTLTD wind provenance is retained in the original ExternalKit manifest. New mallet gestures are composed and synthesized by `scripts/prepare-audio.py`, with no paid or credentialed service.
 
 Rebuild using Python with `numpy scipy soundfile imageio-ffmpeg`: `python scripts/prepare-audio.py`. Downloads stay in ignored `Builds/audio-sources`; only mastered derivatives are checked in. The script uses FFmpeg for Ogg encoding because the host's libsndfile crashed on the longer music encode. Run `python tests/audio/verify_bank.py`, then Unity `TerraAudioChecks.Run()` and the actual Chrome checks in the evidence folder. F8 emits a read-only `TERRA_AUDIO_AUDIT` receipt for browser verification.
+
+## Verification status
+
+All17 project families and the full year/recovery/ending/replay flow were exercised through real Chrome input. Mute, independent controls, persistence, focus pause/resume and three responsive settings captures passed; the bank passes four signal/provenance suites and380 Unity checks. See [the exact source/export handoff](evidence/audio/HANDOFF.md) for receipts and combined-release status.
