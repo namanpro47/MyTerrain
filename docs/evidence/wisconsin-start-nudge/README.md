@@ -9,3 +9,11 @@ The native uGUI bubble is anchored above the existing Wisconsin miniature, with 
 Reference patterns: TN-03 (one compact UI group), TN-06 (short context), AX-01 (backed readable text and optional dismissal). The preceding minimal-selector Chrome captures remain the visual comparison; the globe shader is unchanged in this narrowly requested copy/UI change.
 
 Fresh base: origin/main06f51b2e4ee5e1ca55d0b8d8b90a5e6bf321aa82. Candidate237e1cf. Native atlas package checks33pass; actual rendered/native/Chrome verification pending. No deployment claim yet.
+
+## Native verification
+
+Fresh main initially failed compilation at AnnualChapterSession.cs150 because it referenced internal TownCopies. The already-published narrow correction2eedec9 was applied as2cd9e45; the owned Unity6000.6.6f1 Editor then compiled successfully. A private APFS copy of the previous task's cache was used, not a shared writable Library. The initial Editor exited1 on the main compile error; the corrected owned Editor started normally.
+
+Actual Play Mode advanced from frame214 to2330 and3960. Twelve native invitation checks pass: visible by default, exact single-sentence copy, three rendered text lines without overflow, hides for other selections/options/notes, actual dismiss callback, stays dismissed on return/cancel, direct Wisconsin flight callback and hidden during flight. Actual EventSystem raycasts distinguish the bubble body from its dismiss control. These receipts do not claim browser or screenshot acceptance.
+
+The subsequent full Wisconsin arrival exposed a separate incoming-main regression: guidance previews the new cancellation action on empty land and throws before LandscapeReady. Exact stack begins CancellationRefund → ProposedQueue → AnnualPlanningGuidance.Create24 → TerraHud.AnnualState118. Native-arrival.json retains the incomplete state. The annual/Peter integration owners were notified; the nudge does not change that path or suppress the exception. No new player was published with this failure.

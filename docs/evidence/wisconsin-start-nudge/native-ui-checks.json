@@ -1,0 +1,23 @@
+{
+  "source": "2cd9e45 (bubble237e1cf + upstream compile fix2eedec9)",
+  "unity": "6000.6.6f1",
+  "method": "Actual advancing Play Mode; native components and button callbacks; no browser or rendered-capture claim",
+  "checks": {
+    "default_visible": true,
+    "one_scenario_sentence": true,
+    "body_fits_three_lines": true,
+    "hidden_for_other_location": true,
+    "returns_with_wisconsin": true,
+    "hidden_behind_options": true,
+    "hidden_behind_notes": true,
+    "dismiss_click_hides": true,
+    "dismiss_stays_hidden_on_return": true,
+    "bubble_enters_wisconsin": true,
+    "hidden_during_flight": true,
+    "no_repeat_after_cancel": true
+  },
+  "passed": true,
+  "frame": 3960,
+  "copy": "Shape a Wisconsin valley over ten years, balancing people, nature and your budget.",
+  "lines": 3
+}

@@ -1,0 +1,12 @@
+ArgumentException: Choose an accepted project that has not already been cancelled.
+  at Terra.Core.AnnualTown.CancellationRefund (System.String siteId) [0x00083] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Core/AnnualTown.PlayerRules.cs:20 
+  at Terra.Core.AnnualTown.ProposedQueue (System.String siteId, System.String actionId) [0x00030] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Core/AnnualTown.cs:72 
+  at Terra.Core.AnnualTown.Preview (System.String siteId, System.String actionId) [0x00006] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Core/AnnualTown.cs:65 
+  at Terra.Core.AnnualPlanningGuidance+<>c__DisplayClass4_0.<Create>b__2 (Terra.Contracts.TownActionDefinition a) [0x00000] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs:24 
+  at System.Linq.Enumerable+WhereArrayIterator`1[TSource].ToArray () [0x00022] in <1b6d7e99e5414d05b29c34e3609a3284>:0 
+  at System.Linq.Enumerable.ToArray[TSource] (System.Collections.Generic.IEnumerable`1[T] source) [0x0001f] in <1b6d7e99e5414d05b29c34e3609a3284>:0 
+  at Terra.Core.AnnualPlanningGuidance.Create (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes current) [0x000ed] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs:24 
+  at Terra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) [0x0002b] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/UI/TerraHud.Annual.cs:118 
+  at Terra.Gameplay.TerraMain.Refresh (System.String feedbackCause) [0x00073] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:176 
+  at Terra.Gameplay.TerraMain+<ShapeLandscape>d__166.MoveNext () [0x00260] in /Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra/Assets/Terra/Scripts/Gameplay/TerraMain.cs:79 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (System.Collections.IEnumerator enumerator, System.IntPtr returnValueAddress) [0x0001d] in /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17 
