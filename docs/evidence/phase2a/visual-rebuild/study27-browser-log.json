@@ -406,5 +406,17 @@
     "message": "TERRA_UNDO: revision=2; production=6; credits=60; hover=; tool=\n",
     "timestamp": "2026-10-25T03:32:16.790Z",
     "url": "blob:http://127.0.0.1:49658/b3545d8b-b1fe-4768-9021-f4436e837609"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_COMMIT: revision=3; production=6; credits=32; hover=; tool=water-swale\n",
+    "timestamp": "2026-10-25T03:36:41.658Z",
+    "url": "blob:http://127.0.0.1:49658/b3545d8b-b1fe-4768-9021-f4436e837609"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UNDO: revision=4; production=6; credits=60; hover=; tool=water-swale\n",
+    "timestamp": "2026-10-25T03:36:47.342Z",
+    "url": "blob:http://127.0.0.1:49658/b3545d8b-b1fe-4768-9021-f4436e837609"
   }
 ]

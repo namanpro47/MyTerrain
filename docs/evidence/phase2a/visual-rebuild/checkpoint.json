@@ -444,7 +444,7 @@
   ],
   "checks": {
     "renderer": "9 state/structure observations pass; study27-surface-check.json",
-    "browser": "Preview/cancel; Restore5/42; replacement preview/cancel restores prior; undo6/60 revision2",
+    "browser": "Preview/cancel; Restore5/42; replacement preview/cancel restores prior; undo6/60 revision2; eligible swale6/32\u2192undo6/60 revision4. Blocked-site preview also verified.",
     "performance": {
       "status": "failed",
       "seconds": 30.037,
