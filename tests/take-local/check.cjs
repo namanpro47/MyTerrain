@@ -1,7 +1,7 @@
 const assert=require('node:assert/strict');const vm=require('node:vm');const fs=require('node:fs');
 const code=fs.readFileSync('Assets/WebGLTemplates/Terra/take-local/app.js','utf8');
 function boot(saved,denied=false){const elements={};const values={};const context={console,Date,URL,Blob,setTimeout,navigator:{},location:{href:'https://example.test/take-local/'},localStorage:{getItem:()=>saved,setItem:(k,v)=>{if(denied)throw Error();values[k]=v},removeItem:()=>{}},document:{getElementById:id=>elements[id]??={innerHTML:'',textContent:'',addEventListener(){},querySelector(){return {focus(){}}}},createElement:()=>({click(){}})},window:{scrollTo(){},open(){}}};vm.createContext(context);vm.runInContext(code,context);return {run:s=>vm.runInContext(s,context),elements,values};}
-let c=boot('{broken');assert.match(c.elements.app.innerHTML,/Your town was a test run/);
+let c=boot('{broken');assert.match(c.elements.app.innerHTML,/Take it local/);
 c.run("state.when='<img src=x onerror=alert(1)>';go(3)");assert(!c.elements.app.innerHTML.includes('<img'));assert.match(c.elements.app.innerHTML,/&lt;img/);
 c.run("state.step=2;state.level=2;state.draft='My own edited draft';render()");assert.match(c.elements.app.innerHTML,/My own edited draft/);
 c.run("state.reason=2;render()");assert.match(c.elements.app.innerHTML,/My own edited draft/);
