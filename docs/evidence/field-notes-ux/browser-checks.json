@@ -1,0 +1,10 @@
+{
+  "assertions": 29,
+  "visualCaptures": true,
+  "version": "155.0.8059.85",
+  "errors": [
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "accepted": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1069400000; queued=0; assets=3\n",
+  "saved": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=5; cash=1069400000; queued=0; assets=3\n"
+}

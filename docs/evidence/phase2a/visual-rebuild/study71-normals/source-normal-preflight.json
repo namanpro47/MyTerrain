@@ -1,0 +1,18 @@
+{
+  "source": "Assets/Terra/Art/QuaterniusCrops/FieldWheat.asset",
+  "sha256": "0a7031c669025aca20ac8ba3e491711a62602098ce29a6c08e5aebf6b07836c2",
+  "vertices": 552,
+  "strideBytes": 40,
+  "normalOffsetBytes": 12,
+  "normalFormat": "float32 x3 little-endian",
+  "minimumNormalLength": 0.9999999286426583,
+  "maximumNormalLength": 1.0000000947829202,
+  "upwardNormals": 261,
+  "downwardNormals": 243,
+  "nearHorizontalNormals": 48,
+  "yBounds": [
+    -4.8853228129530635e-09,
+    2.5595812797546387
+  ],
+  "scope": "CPU source-mesh preflight; not render evidence."
+}

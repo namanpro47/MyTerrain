@@ -1,0 +1,30 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play mode");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);
+var old=UnityEngine.GameObject.Find("Mapped grassland stands");if(old==null)throw new System.Exception("Missing baseline");
+if(UnityEngine.GameObject.Find("Study54 plant communities")!=null)throw new System.Exception("Already installed");
+var root=new UnityEngine.GameObject("Study54 plant communities");root.transform.SetParent(old.transform.parent,false);
+var source=UnityEngine.Resources.Load<UnityEngine.GameObject>("Nature/Grass_Common_Short");
+var near=land.GetType().GetMethod("NearLine",flags);var contains=land.GetType().GetMethod("Contains",flags|System.Reflection.BindingFlags.Static);
+var terrain=world.terrain;var rng=new System.Random(5401);float J(float a,float b)=>a+(b-a)*(float)rng.NextDouble();
+bool Valid(float x,float z){if(land.CoverAt(x,z)!="grass"||(bool)near.Invoke(land,new object[]{x,z,6f}))return false;return !world.sites.Any(s=>(bool)contains.Invoke(null,new object[]{s.polygon,x,z}));}
+int groups=0,count=0;
+for(float z=terrain.zMin+25;z<terrain.zMin+(terrain.rows-1)*terrain.cellSizeM-25;z+=36)
+for(float x=terrain.xMin+25;x<terrain.xMin+(terrain.columns-1)*terrain.cellSizeM-25;x+=36){
+ float cx=x+J(-14,14),cz=z+J(-14,14);if(!Valid(cx,cz))continue;
+ float radius=J(9,18),angle=J(0,6.283185f);var plants=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ for(float dz=-radius;dz<=radius;dz+=1.75f)for(float dx=-radius;dx<=radius;dx+=1.75f){
+  float px=cx+dx+J(-.7f,.7f),pz=cz+dz+J(-.7f,.7f);float ux=(px-cx)/radius,uz=(pz-cz)/radius;
+  float distance=UnityEngine.Mathf.Sqrt(ux*ux+uz*uz);float theta=UnityEngine.Mathf.Atan2(uz,ux);float edge=.82f+.14f*UnityEngine.Mathf.Sin(theta*3+angle)+.08f*UnityEngine.Mathf.Sin(theta*5-angle);
+  if(distance>edge||!Valid(px,pz))continue;
+  float growth=UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.Clamp01((edge-distance)/.45f));
+  float height=UnityEngine.Mathf.Lerp(.4f,2.7f,growth)*J(.8f,1.2f),width=UnityEngine.Mathf.Lerp(2.2f,4.8f,growth);
+  float y=land.Height(px,pz);plants.Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(px,y+.03f,pz),UnityEngine.Quaternion.Euler(0,J(0,360),0),new UnityEngine.Vector3(width,height,width)));
+ }
+ if(plants.Count==0)continue;
+ var patch=new UnityEngine.GameObject("Community "+groups);patch.transform.SetParent(root.transform,false);patch.AddComponent<Terra.Rendering.InstancedNature>().Add(source,plants,new UnityEngine.Color(.82f,.94f,.72f),true);count+=plants.Count;groups++;
+}
+old.SetActive(false);main.enabled=false;
+return new{groups,count,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

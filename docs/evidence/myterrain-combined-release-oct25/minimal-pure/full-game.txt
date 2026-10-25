@@ -1,0 +1,24 @@
+cultivate-standard: 10 fitting fields
+cover-crop: 10 fitting fields
+conservation-rotation: 10 fitting fields
+cultivate-margin: 10 fitting fields
+restore-grass: 10 fitting fields
+water-swale: 2 fitting fields
+low-density-housing: 9 fitting fields
+high-density-housing: 9 fitting fields
+public-park: 8 fitting fields
+agricultural-storage: 8 fitting fields
+data-center: 6 fitting fields
+village-center: 6 fitting fields
+non-renewable-power: 6 fitting fields
+solar: 6 fitting fields
+wind: 1 fitting fields
+stewardship-agreement: 10 fitting fields
+wastewater-upgrade: 6 fitting fields
+Annual feedback checks passed: 350
+Full-catalog checks passed: 939
+Full-game boundary checks passed; total assertions: 953
+community-and-services: 85.4 / 99.0 / 54.8; cash $5240000
+land-and-livelihoods: 94.2 / 91.0 / 66.6; cash $6163000
+Planning guidance checks passed: 61
+Full ten-year checks passed; total assertions: 1019

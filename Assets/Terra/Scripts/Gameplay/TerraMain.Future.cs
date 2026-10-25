@@ -41,7 +41,7 @@ namespace Terra.Gameplay
             var forecast=AnnualGameplay.Forecast(forecastTown);
             string start=reviewing?"Continue from accepted Year "+annual.State.year+", then advance the remaining years without new projects.":"Submit the current reviewed plan, then advance the remaining years without new projects.";
             hud.AnnualDialog("See my ten-year future?",start+" Existing projects still age, need upkeep and encounter the same saved conditions.\n\n"+
-                "Current plan: "+annual.State.queue.Length+" projects; expected Year "+forecast.year+" closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
+                "Current plan: "+annual.State.queue.Length+" projects; expected Year "+forecast.year+" closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled local summaries. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
         }
         IEnumerator FinishYears()
         {
@@ -60,12 +60,12 @@ namespace Terra.Gameplay
                 catch(Exception e){error=e.Message;}
                 if(error!=null)
                 {
-                    fastForwarding=false;
+                    fastForwarding=false;RefreshLandscape();Refresh();
                     hud.AnnualDialog("Year not completed",error+"\n\nThe frozen request and accepted history are retained. Retry continues the same conditions.","Retry future",()=>{hud.CloseModal();StartCoroutine(FinishYears());});
                     yield break;
                 }
             }
-            fastForwarding=false;hud.CloseModal();RefreshLandscape();Refresh();ShowFuture();Debug.Log("TERRA_ANNUAL_TIMING: fast-forward from year "+firstYear+" completed in "+timing.Elapsed.TotalMilliseconds.ToString("0.0")+" ms including yielding and final world refresh");
+            fastForwarding=false;hud.CloseModal();RefreshLandscape();Refresh();ShowAcceptedReport();Debug.Log("TERRA_ANNUAL_TIMING: fast-forward from year "+firstYear+" completed in "+timing.Elapsed.TotalMilliseconds.ToString("0.0")+" ms including yielding and final world refresh");
         }
         void ShowFuture()
         {

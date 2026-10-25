@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var folder=\"/Users/naman/.codex/worktrees/annual-simulation/Terra/Builds/AnnualSimulation/UnityVectors/baseline/\";var d=UnityEngine.JsonUtility.FromJson<Terra.Contracts.AnnualTownDefinition>(System.IO.File.ReadAllText(folder+\"definition.json\"));var save=UnityEngine.JsonUtility.FromJson<Terra.Contracts.AnnualTownSnapshot>(System.IO.File.ReadAllText(folder+\"snapshot.json\"));System.IO.File.WriteAllText(\"Builds/CombinedQA/numeric-unity-definition.json\",UnityEngine.JsonUtility.ToJson(d,true));return new {fixture=\"baseline\",actual=new Terra.Core.AnnualTown(d,\"diagnostic\").DefinitionHash,expected=save.definitionHash};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "fixture": "baseline",
+        "actual": "7fb05b1e92e991f9efed15702c02bd797974201df86051027945699abda17366",
+        "expected": "6e9235f19fc4d2cf321b24351fdefd3c3e34bfc34fd998931910f4c53a53b95a"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,183 @@
+{
+  "materials": [
+    {
+      "name": "Bricks",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Cocnrate 1  Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Cocnrate 2 Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Cocnrate Mat 3",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Cocnrate Mat 4",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Emit Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Geisha 1 Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Geisha 2 Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Gold",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Gong Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Grass Mat",
+      "shader": "Shader Graphs/Grass SG",
+      "supported": true
+    },
+    {
+      "name": "Ground Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "mat_leaf",
+      "shader": "Universal Render Pipeline/Particles/Lit",
+      "supported": true
+    },
+    {
+      "name": "Metal 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Metal 2",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Plants Mat 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "PropsMat Asia",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Random Bricks May",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Roof 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Roof 2",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Sakura Tree Mat 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Sakura Tree Mat",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Grass SG",
+      "shader": "Shader Graphs/Grass SG",
+      "supported": true
+    },
+    {
+      "name": "Stylized Water",
+      "shader": "Shader Graphs/Stylized Water",
+      "supported": true
+    },
+    {
+      "name": "Water IS",
+      "shader": "Shader Graphs/Stylized Water",
+      "supported": true
+    },
+    {
+      "name": "Wood 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood 2",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood 3",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood 4",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood 5",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood Green",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood Red 1",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Wood Red",
+      "shader": "Universal Render Pipeline/Lit",
+      "supported": true
+    },
+    {
+      "name": "Sky Material",
+      "shader": "Skybox/Cubemap",
+      "supported": true
+    }
+  ],
+  "grass": [
+    {
+      "name": "Grass Variant",
+      "vertices": 576,
+      "triangles": 432,
+      "bounds": "Center: (0.02, 0.14, 0.14), Extents: (0.54, 0.14, 0.55)"
+    }
+  ],
+  "shaderMessages": []
+}

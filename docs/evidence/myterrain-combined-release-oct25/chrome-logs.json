@@ -1,0 +1,55 @@
+{
+  "atlas": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+      "timestamp": "2026-10-25T19:35:24.289Z",
+      "url": "blob:http://127.0.0.1:49175/b47678ec-fad3-48d2-971b-54fa427115b6"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: point-reyes-v1\n",
+      "timestamp": "2026-10-25T19:36:00.479Z",
+      "url": "blob:http://127.0.0.1:49175/b47678ec-fad3-48d2-971b-54fa427115b6"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+      "timestamp": "2026-10-25T19:36:24.880Z",
+      "url": "blob:http://127.0.0.1:49175/b47678ec-fad3-48d2-971b-54fa427115b6"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: suusamyr-v1\n",
+      "timestamp": "2026-10-25T19:37:40.689Z",
+      "url": "blob:http://127.0.0.1:49175/b47678ec-fad3-48d2-971b-54fa427115b6"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+      "timestamp": "2026-10-25T19:38:07.756Z",
+      "url": "blob:http://127.0.0.1:49175/0b4111c0-49ee-4d9f-affa-d6649546b3e9"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+      "timestamp": "2026-10-25T19:38:15.888Z",
+      "url": "blob:http://127.0.0.1:49175/0b4111c0-49ee-4d9f-affa-d6649546b3e9"
+    }
+  ],
+  "annual": [
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=2; cash=1100000000; queued=0; assets=0\n",
+      "timestamp": "2026-10-25T19:37:01.540Z",
+      "url": "blob:http://127.0.0.1:49175/b47678ec-fad3-48d2-971b-54fa427115b6"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=2; cash=1100000000; queued=0; assets=0\n",
+      "timestamp": "2026-10-25T19:38:20.720Z",
+      "url": "blob:http://127.0.0.1:49175/0b4111c0-49ee-4d9f-affa-d6649546b3e9"
+    }
+  ],
+  "errors": []
+}

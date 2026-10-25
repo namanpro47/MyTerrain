@@ -1,0 +1,12 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Import in Edit mode");
+var rows=new System.Collections.Generic.List<object>();
+foreach(var name in new[]{"Corn_3","Corn_4"})
+{
+ var path="Assets/Terra/Art/QuaterniusCrops/"+name+".fbx";
+ UnityEditor.AssetDatabase.ImportAsset(path,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+ var importer=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(path);
+ importer.isReadable=true;importer.importAnimation=false;importer.importCameras=false;importer.importLights=false;importer.SaveAndReimport();
+ var model=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(path);
+ rows.Add(new{name,scale=importer.globalScale,fileScale=importer.fileScale,rootRotation=model.transform.localEulerAngles.ToString(),filters=model.GetComponentsInChildren<UnityEngine.MeshFilter>(true).Select(m=>new{name=m.name,vertices=m.sharedMesh.vertexCount,submeshes=m.sharedMesh.subMeshCount,triangles=m.sharedMesh.triangles.Length/3,bounds=m.sharedMesh.bounds.ToString(),local=m.transform.localPosition.ToString(),rotation=m.transform.localEulerAngles.ToString(),scale=m.transform.localScale.ToString(),materials=m.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials.Select(mat=>new{name=mat.name,shader=mat.shader.name,color=mat.color.ToString(),texture=mat.mainTexture!=null?mat.mainTexture.name:null}).ToArray()}).ToArray()});
+}
+return rows;

@@ -1,0 +1,13 @@
+var font=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Font>("Assets/Terra/Resources/Atlas/Fonts/LilitaOne-Regular.ttf");
+if(font==null)throw new System.Exception("Lilita source font import missing");
+var asset=TMPro.TMP_FontAsset.CreateFontAsset(font,90,9,UnityEngine.TextCore.LowLevel.GlyphRenderMode.SDFAA,1024,1024,TMPro.AtlasPopulationMode.Dynamic,false);
+asset.name="LilitaOne SDF";
+string chars="";for(int i=32;i<127;i++)chars+=(char)i;
+if(!asset.TryAddCharacters(chars,out string missing))throw new System.Exception("Missing display glyphs: "+missing);
+asset.atlasPopulationMode=TMPro.AtlasPopulationMode.Static;
+UnityEditor.AssetDatabase.CreateAsset(asset,"Assets/Terra/Resources/Atlas/Fonts/LilitaOne SDF.asset");
+asset.material.name="LilitaOne SDF Material";
+UnityEditor.AssetDatabase.AddObjectToAsset(asset.material,asset);
+foreach(var texture in asset.atlasTextures){texture.name="LilitaOne SDF Atlas";UnityEditor.AssetDatabase.AddObjectToAsset(texture,asset);}
+UnityEditor.EditorUtility.SetDirty(asset);UnityEditor.AssetDatabase.SaveAssets();
+return new{asset.name,glyphs=asset.characterTable.Count,asset.atlasWidth,asset.atlasHeight};

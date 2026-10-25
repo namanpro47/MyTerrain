@@ -1,0 +1,24 @@
+MYTERRAIN SOUND BANK — CC0 1.0
+
+Impact Sounds 1.0 — Kenney
+https://kenney.nl/assets/impact-sounds
+CC0-1.0
+
+Mystical Piano — Indieteur
+https://opengameart.org/content/mystical-piano
+CC0-1.0
+
+Vaporware — The Cynic Project / cynicmusic.com / pixelsphere.org
+https://opengameart.org/content/calm-piano-1-vaporware
+CC0-1.0
+
+Park ambiences: river — Thimras
+https://opengameart.org/content/park-ambiences
+CC0-1.0
+
+Park ambiences: birds — Thimras
+https://opengameart.org/content/park-ambiences
+CC0-1.0
+
+Kenney Interface Sounds; Luke.RUSTLTD wind1: see Assets/Terra/Audio/ExternalKit/manifest.json.
+Mallet cues composed and synthesized for MyTerrain, CC0. Nature recordings are illustrative, not local sound surveys.

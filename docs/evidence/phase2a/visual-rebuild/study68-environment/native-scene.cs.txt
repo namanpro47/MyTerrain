@@ -1,0 +1,8 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires stopped Editor");
+for(int i=0;i<UnityEngine.SceneManagement.SceneManager.sceneCount;i++)if(UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).isDirty)throw new System.Exception("Unsaved scene; preserve before opening study");
+var prior=UnityEditor.SceneManagement.EditorSceneManager.GetSceneManagerSetup();
+System.IO.File.WriteAllText("Builds/ArtResearch/Study68/previous-scenes.json",Newtonsoft.Json.JsonConvert.SerializeObject(prior,Newtonsoft.Json.Formatting.Indented));
+var scene=UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Terra/Art/RGPolyStudy/Scenes/Demo Stylized Asia.unity",UnityEditor.SceneManagement.OpenSceneMode.Single);
+var cameras=UnityEngine.Object.FindObjectsByType<UnityEngine.Camera>(UnityEngine.FindObjectsSortMode.None);
+var terrains=UnityEngine.Object.FindObjectsByType<UnityEngine.Terrain>(UnityEngine.FindObjectsSortMode.None);
+return new{scene=scene.path,cameras=cameras.Select(c=>new{c.name,position=c.transform.position.ToString(),rotation=c.transform.eulerAngles.ToString(),c.fieldOfView,c.orthographic}).ToArray(),terrains=terrains.Select(t=>new{t.name,position=t.transform.position.ToString(),size=t.terrainData.size.ToString(),detailCount=t.terrainData.detailPrototypes.Length,treeCount=t.terrainData.treeInstanceCount,layers=t.terrainData.terrainLayers.Select(l=>l==null?null:l.name).ToArray()}).ToArray(),lights=UnityEngine.Object.FindObjectsByType<UnityEngine.Light>(UnityEngine.FindObjectsSortMode.None).Select(l=>new{l.name,l.intensity,type=l.type.ToString(),l.color}).ToArray()};

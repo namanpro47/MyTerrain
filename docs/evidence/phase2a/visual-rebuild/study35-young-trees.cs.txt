@@ -1,0 +1,18 @@
+var old=UnityEngine.GameObject.Find("Study35 native understory");if(old!=null)old.SetActive(false);
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var footprints=(System.Collections.Generic.List<UnityEngine.Vector3>)land.GetType().GetField("forestFootprints",flags).GetValue(land);
+var source=UnityEngine.Resources.Load<UnityEngine.GameObject>("Forest/ForestSapling");
+var lod=source.GetComponent<UnityEngine.LODGroup>().GetLODs()[0];var bounds=lod.renderers[0].GetComponent<UnityEngine.MeshFilter>().sharedMesh.bounds;foreach(var r in lod.renderers)bounds.Encapsulate(r.GetComponent<UnityEngine.MeshFilter>().sharedMesh.bounds);
+var root=new UnityEngine.GameObject("Study35 young tree layer");var random=new System.Random(3502);float R(float a,float b)=>a+(float)random.NextDouble()*(b-a);var near=land.GetType().GetMethod("NearLine",flags);int count=0;
+for(float cz=0;cz<360;cz+=60)for(float cx=-150;cx<210;cx+=60){var list=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+for(float z=cz+3;z<cz+60;z+=6)for(float x=cx+3;x<cx+60;x+=6){float px=x+R(-2,2),pz=z+R(-2,2);
+if(land.CoverAt(px,pz)!="woodland"||(bool)near.Invoke(land,new object[]{px,pz,4f}))continue;
+float canopyDistance=float.MaxValue;foreach(var t in footprints){float d=UnityEngine.Vector2.Distance(new UnityEngine.Vector2(px,pz),new UnityEngine.Vector2(t.x,t.y))/t.z;canopyDistance=UnityEngine.Mathf.Min(canopyDistance,d);}
+if(canopyDistance<.65f||canopyDistance>1.65f)continue;
+float patch=UnityEngine.Mathf.PerlinNoise((px+1800)*.025f,(pz+900)*.025f);if(patch<.42f)continue;
+float height=R(3.5f,6.5f),scale=height/bounds.size.y;
+list.Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(px,land.Height(px,pz),pz),UnityEngine.Quaternion.Euler(0,R(0,360),0),UnityEngine.Vector3.one*scale));count++;
+}
+var batch=new UnityEngine.GameObject("Young tree cohort");batch.transform.SetParent(root.transform,false);batch.AddComponent<Terra.Rendering.InstancedNature>().Add(source,list,UnityEngine.Color.white);}
+return new{count,sourceHeight=bounds.size.y,heights="3.5–6.5m illustrative young woodland",frame=UnityEngine.Time.frameCount};

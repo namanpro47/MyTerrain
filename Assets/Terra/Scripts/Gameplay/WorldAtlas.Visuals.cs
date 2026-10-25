@@ -1,4 +1,5 @@
 using TMPro;
+using Terra.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
@@ -8,6 +9,9 @@ namespace Terra.Gameplay
     public sealed partial class WorldAtlas
     {
         Sprite rounded,circle;
+        TMP_FontAsset displayFont;
+        TextMeshProUGUI Display(Transform parent,string text,Vector2 anchor,Vector2 position,Vector2 size,float fontSize,Color color)
+        {var label=Text(parent,text,anchor,position,size,fontSize,color,TextAlignmentOptions.Center);label.font=displayFont;return label;}
         void BuildGlobe()
         {
             geometry=new GameObject("Orbital scene");geometry.transform.SetParent(transform,false);geometry.transform.localPosition=new Vector3(0,10000,0);
@@ -26,7 +30,7 @@ namespace Terra.Gameplay
         TextMeshProUGUI Text(Transform parent,string text,Vector2 anchor,Vector2 position,Vector2 size,float fontSize,Color color,TextAlignmentOptions align=TextAlignmentOptions.Left)
         {var r=Box(parent,text,anchor,position,size);var label=r.gameObject.AddComponent<TextMeshProUGUI>();label.font=TMP_Settings.defaultFontAsset;label.text=text;label.fontSize=fontSize;label.color=color;label.alignment=align;label.raycastTarget=false;label.textWrappingMode=TextWrappingModes.Normal;return label;}
         UnityEngine.UI.Button Button(Transform parent,string title,Vector2 anchor,Vector2 position,Vector2 size,System.Action action,bool primary=false)
-        {var r=Box(parent,title,anchor,position,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=primary?Mint:new Color(.085f,.16f,.19f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.onClick.AddListener(()=>action());var c=b.colors;c.highlightedColor=new Color(1.15f,1.15f,1.15f);c.pressedColor=new Color(.7f,.8f,.75f);b.colors=c;var t=Text(r,title,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),18,primary?Navy:Cream,TextAlignmentOptions.Center);return b;}
+        {var r=Box(parent,title,anchor,position,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=primary?Gold:new Color(.11f,.20f,.23f,.78f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.onClick.AddListener(()=>{Terra.Audio.TerraAudio.Ensure().Click();action();});var c=b.colors;c.highlightedColor=new Color(1.15f,1.15f,1.15f);c.pressedColor=new Color(.7f,.8f,.75f);b.colors=c;var t=Text(r,title,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),18,primary?Navy:Cream,TextAlignmentOptions.Center);return b;}
         Sprite Shape(bool disk)
         {int size=64;var texture=new Texture2D(size,size,TextureFormat.RGBA32,false);texture.filterMode=FilterMode.Bilinear;for(int y=0;y<size;y++)for(int x=0;x<size;x++){float dx=Mathf.Max(Mathf.Abs(x-31.5f)-(disk?0:23),0),dy=Mathf.Max(Mathf.Abs(y-31.5f)-(disk?0:23),0);float a=Mathf.Clamp01((disk?31:8)-Mathf.Sqrt(dx*dx+dy*dy));texture.SetPixel(x,y,new Color(1,1,1,a));}texture.Apply();var s=Sprite.Create(texture,new Rect(0,0,size,size),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,new Vector4(10,10,10,10));owned.Add(texture);owned.Add(s);return s;}
         void BuildUI()
@@ -41,38 +45,44 @@ namespace Terra.Gameplay
                 EventSystem.current.sendNavigationEvents=false;
             }
             var panel=Box(uiRoot,"Selection",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);panel.anchorMin=Vector2.zero;panel.anchorMax=Vector2.one;selection=panel.gameObject.AddComponent<CanvasGroup>();
-            Text(panel,"MyTerrain",new Vector2(0,1),new Vector2(42,-30),new Vector2(260,45),30,Cream);
-            Text(panel,"SELECT YOUR TERRAIN",new Vector2(0,1),new Vector2(44,-80),new Vector2(400,24),11,Muted);
-            Text(panel,"CHOOSE A LANDSCAPE",new Vector2(.5f,1),new Vector2(0,-42),new Vector2(420,28),15,Mint,TextAlignmentOptions.Center);
-            motion=Button(panel,"Motion: full",new Vector2(1,1),new Vector2(-42,-34),new Vector2(150,40),()=>SetMotion(!ReducedMotion));
-            motion.GetComponentInChildren<TextMeshProUGUI>().text=ReducedMotion?"Motion: reduced":"Motion: full";
-            region=Text(panel,"",new Vector2(0,.5f),new Vector2(44,66),new Vector2(330,25),14,Mint);
-            nameLabel=Text(panel,"",new Vector2(0,.5f),new Vector2(42,18),new Vector2(305,90),32,Cream);
-            description=Text(panel,"",new Vector2(0,.5f),new Vector2(44,-52),new Vector2(265,70),17,Muted);
-            coordinates=Text(panel,"",new Vector2(0,.5f),new Vector2(44,-135),new Vector2(310,25),14,Muted);
-            Text(panel,"N",new Vector2(.5f,1),new Vector2(0,-108),new Vector2(40,25),13,Mint,TextAlignmentOptions.Center);
+            BuildSky(panel);
+            displayFont=Resources.Load<TMP_FontAsset>("Atlas/Fonts/LilitaOne SDF")??TMP_Settings.defaultFontAsset;
+            Display(panel,"MyTerrain",new Vector2(.5f,1),new Vector2(0,-25),new Vector2(400,66),44,Cream);
+            var settings=Button(panel,"",new Vector2(1,1),new Vector2(-28,-28),new Vector2(46,46),()=>options.SetActive(!options.activeSelf));
+            settings.gameObject.name="Atlas settings";settings.image.color=Color.clear;
+            // A quiet native gear keeps options available without filling the selection scene.
+            for(int tooth=0;tooth<8;tooth++) {float angle=tooth*Mathf.PI/4;var part=Box(settings.transform,"Gear tooth",Vector2.one*.5f,new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*11,new Vector2(5,7));part.localRotation=Quaternion.Euler(0,0,angle*Mathf.Rad2Deg-90);var im=part.gameObject.AddComponent<Image>();im.color=Muted;im.raycastTarget=false;}
+            var gear=Box(settings.transform,"Gear ring",Vector2.one*.5f,Vector2.zero,new Vector2(24,24));var outer=gear.gameObject.AddComponent<Image>();outer.sprite=circle;outer.color=Muted;outer.raycastTarget=false;
+            var hole=Box(gear,"Gear centre",Vector2.one*.5f,Vector2.zero,new Vector2(11,11));var inner=hole.gameObject.AddComponent<Image>();inner.sprite=circle;inner.color=Navy;inner.raycastTarget=false;
             for(int i=0;i<3;i++)
             {
-                int index=i;var pin=Button(panel,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(42,42),()=>Select(index));pin.image.sprite=circle;pin.image.type=UnityEngine.UI.Image.Type.Simple;pin.image.color=new Color(Mint.r,Mint.g,Mint.b,.24f);pins[i]=(RectTransform)pin.transform;
-                var dot=Box(pin.transform,"Pin center",new Vector2(.5f,.5f),Vector2.zero,new Vector2(12,12));var im=dot.gameObject.AddComponent<UnityEngine.UI.Image>();im.sprite=circle;im.color=Mint;im.raycastTarget=false;
-                Text(pin.transform,Terra.Core.LocationProfile.At(i).Name,new Vector2(i==1?1:0,.5f),new Vector2(i==1?-52:52,0),new Vector2(210,32),15,Cream,i==1?TextAlignmentOptions.Right:TextAlignmentOptions.Left);
-                choices[i]=Button(panel,"",new Vector2(.5f,0),new Vector2(-412+i*278,105),new Vector2(264,77),()=>Select(index));
-                Text(choices[i].transform,$"0{i+1}  /  "+new[]{"RIVER & RIDGE","PACIFIC COAST","ALPINE VALLEY"}[i],new Vector2(0,1),new Vector2(18,-12),new Vector2(230,20),12,Mint);
-                Text(choices[i].transform,Terra.Core.LocationProfile.At(i).Name,new Vector2(0,1),new Vector2(18,-37),new Vector2(230,30),21,Cream);
+                int index=i;
+                var pin=Button(panel,"",Vector2.one*.5f,Vector2.zero,new Vector2(46,46),()=>TravelTo(index));pin.image.sprite=circle;pin.image.type=Image.Type.Simple;pins[i]=(RectTransform)pin.transform;
+                var dot=Box(pin.transform,"Destination",Vector2.one*.5f,Vector2.zero,new Vector2(26,26));var im=dot.gameObject.AddComponent<Image>();im.sprite=circle;im.color=Gold;im.raycastTarget=false;
+                Display(pin.transform,(i+1).ToString(),Vector2.one*.5f,Vector2.zero,new Vector2(30,30),17,Navy);
+                var pennant=Box(pin.transform,"Destination name",new Vector2(0,.5f),new Vector2(53,0),new Vector2(190,40));
+                var paper=pennant.gameObject.AddComponent<Image>();paper.sprite=rounded;paper.type=Image.Type.Sliced;paper.color=Cream;paper.raycastTarget=false;
+                pinLabels[i]=Display(pennant,new[]{"Meadowbrook","Point Reyes","Suusamyr"}[i],Vector2.one*.5f,Vector2.zero,new Vector2(180,36),20,Navy);
+                choices[i]=Button(panel,"",new Vector2(.5f,0),new Vector2(-285+i*285,22),new Vector2(250,180),()=>TravelTo(index));
+                choices[i].gameObject.name="Travel to "+LocationProfile.At(i).Name;choices[i].image.color=Color.clear;
+                AddLandscapeStamp(choices[i].transform,i);
+                choiceNames[i]=Display(choices[i].transform,new[]{"Meadowbrook","Point Reyes","Suusamyr"}[i],new Vector2(.5f,0),new Vector2(0,8),new Vector2(250,40),27,Cream);
+                choiceUnderline[i]=Box(choices[i].transform,"Focus diamond",new Vector2(.5f,0),new Vector2(0,0),new Vector2(6,6)).gameObject.AddComponent<Image>();choiceUnderline[i].transform.localRotation=Quaternion.Euler(0,0,45);choiceUnderline[i].color=Gold;choiceUnderline[i].raycastTarget=false;
             }
-            Button(panel,"Enter landscape  →",new Vector2(.5f,0),new Vector2(450,105),new Vector2(260,77),StartJourney,true);
-            Text(panel,"Drag to rotate    ·    Scroll to zoom    ·    1–3 choose    ·    Enter to descend    ·    M motion",new Vector2(.5f,0),new Vector2(0,58),new Vector2(1000,25),16,Muted,TextAlignmentOptions.Center);
-            Button(panel,"−",new Vector2(1,.5f),new Vector2(-44,-32),new Vector2(44,44),()=>Zoom(1));Button(panel,"+",new Vector2(1,.5f),new Vector2(-44,22),new Vector2(44,44),()=>Zoom(-1));Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-44,-86),new Vector2(70,36),()=>Select(Selected));
-            Text(panel,"NASA BLUE MARBLE  /  REAL PLACES · ILLUSTRATIVE FUTURES",new Vector2(.5f,0),new Vector2(0,16),new Vector2(1000,20),10,Muted,TextAlignmentOptions.Center);
-            Button(panel,"Field notes  I",new Vector2(1,1),new Vector2(-42,-86),new Vector2(150,36),()=>notes.SetActive(true));
+            var optionsRect=Box(uiRoot,"Atlas options",new Vector2(1,1),new Vector2(-28,-86),new Vector2(238,216));options=optionsRect.gameObject;
+            var optionsBackground=options.AddComponent<Image>();optionsBackground.sprite=rounded;optionsBackground.type=Image.Type.Sliced;optionsBackground.color=new Color(.07f,.14f,.17f,.98f);
+            motion=Button(optionsRect,"Motion: full",new Vector2(.5f,1),new Vector2(0,-15),new Vector2(208,48),()=>SetMotion(!ReducedMotion));
+            motion.GetComponentInChildren<TextMeshProUGUI>().text=ReducedMotion?"Motion: reduced":"Motion: full";
+            Button(optionsRect,"Sound",new Vector2(.5f,1),new Vector2(0,-79),new Vector2(208,48),()=>{options.SetActive(false);Terra.Audio.TerraAudioPanel.Show();});
+            Button(optionsRect,"Field notes & credits",new Vector2(.5f,1),new Vector2(0,-143),new Vector2(208,48),()=>{options.SetActive(false);notes.SetActive(true);});options.SetActive(false);
             var notesRect=Box(uiRoot,"Atlas field notes",Vector2.one*.5f,Vector2.zero,new Vector2(700,580));notes=notesRect.gameObject;
             var notesBackground=notes.AddComponent<UnityEngine.UI.Image>();notesBackground.sprite=rounded;notesBackground.type=UnityEngine.UI.Image.Type.Sliced;notesBackground.color=new Color(.09f,.16f,.19f);
             Text(notesRect,"MyTerrain  /  FIELD NOTES",new Vector2(0,1),new Vector2(36,-28),new Vector2(620,30),14,Mint);
             Text(notesRect,"Real places. Possible futures.",new Vector2(0,1),new Vector2(36,-80),new Vector2(620,50),30,Cream);
-            Text(notesRect,"Shape ten years of a rural landscape. Plan projects, balance a public budget and see the consequences. Each place keeps its own saved run.\n\nThe terrain is sourced. Projects, ownership, cover in the new regions, USD budgets and future outcomes are educational scenarios, not local forecasts or permission to build.\n\nEarth: NASA Blue Marble Next Generation, July 2004. Reto Stöckli / NASA Earth Observatory. Colour adapted for this globe; not live imagery. Landscape sources and asset credits are in the in-game field guide. Stream normal: MatrixRex, Uber Stylized Water (MIT). Providers do not endorse MyTerrain.",new Vector2(0,1),new Vector2(36,-145),new Vector2(628,340),18,Muted);
+            Text(notesRect,"Shape ten years of a rural landscape. Plan projects, balance a public budget and see the consequences. Each place keeps its own saved run.\n\nThe terrain is sourced. Projects, ownership, cover in the new regions, USD budgets and future outcomes are educational scenarios, not local forecasts or permission to build.\n\nEarth: NASA Blue Marble Next Generation, July 2004. Reto Stöckli / NASA Earth Observatory. Colour adapted for this globe; not live imagery. Landscape sources and asset credits are in the in-game field guide. Stream normal: MatrixRex, Uber Stylized Water (MIT). Display type: Lilita One by Juan Montoreano (SIL OFL 1.1). Providers do not endorse MyTerrain.",new Vector2(0,1),new Vector2(36,-145),new Vector2(628,340),18,Muted);
             Button(notesRect,"Back to globe",new Vector2(.5f,0),new Vector2(0,28),new Vector2(240,48),()=>notes.SetActive(false),true);notes.SetActive(false);
             var shade=Box(uiRoot,"Arrival veil",Vector2.one*.5f,Vector2.zero,Vector2.zero);shade.anchorMin=Vector2.zero;shade.anchorMax=Vector2.one;veil=shade.gameObject.AddComponent<UnityEngine.UI.Image>();veil.color=Color.clear;veil.raycastTarget=false;
-            journeyTitle=Text(uiRoot,"",Vector2.one*.5f,new Vector2(0,36),new Vector2(1100,80),48,Cream,TextAlignmentOptions.Center);
+            journeyTitle=Display(uiRoot,"",Vector2.one*.5f,new Vector2(0,36),new Vector2(1100,80),48,Cream);
             journeyStatus=Text(uiRoot,"",Vector2.one*.5f,new Vector2(0,-43),new Vector2(900,80),18,Muted,TextAlignmentOptions.Center);
             back=Button(uiRoot,"← Back to globe",new Vector2(.5f,0),new Vector2(0,70),new Vector2(220,48),Show);
             retry=Button(uiRoot,"Try again · Enter",new Vector2(.5f,.5f),new Vector2(0,-135),new Vector2(220,48),Retry,true);

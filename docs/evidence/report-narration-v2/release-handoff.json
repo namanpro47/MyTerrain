@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-25",
+  "ownerThread": "01a170c2-620f-75e2-834f-5ef8acf01ddc",
+  "branch": "codex/report-narration-v2",
+  "sourceCommit": "629d082cae4b74794eec68cc620dae65f2173f79",
+  "baseCommit": "67c01417906b74a8f024ae9975158cb1dda6979d",
+  "readyForMain": true,
+  "scope": "Additive report-only v2 DTO/helpers and local narration service; no authoritative numeric transition, existing-save or Unity client edits. Preserve legacy v1 endpoint.",
+  "checks": {
+    "reportAssertions": 95,
+    "legacyAssertions": 42,
+    "actualLoopbackHttpChecks": 14,
+    "sharedHelperTarget": "netstandard2.1 / C#9, 0 warnings/errors",
+    "serviceTarget": "net8.0",
+    "executedRuntime": "installed .NET10.0.13 with DOTNET_ROLL_FORWARD=Major",
+    "liveProviderCalls": 0,
+    "diffCheck": "pass"
+  },
+  "integration": [
+    "Acquire the shared integration reservation and fetch/reconcile current main.",
+    "Cherry-pick 629d082 or merge codex/report-narration-v2; all runtime changes in that commit are ready. Include the handoff documentation commits if desired.",
+    "Run report-narration and existing chapters console checks using the commands in README. The shared helper has portable compile evidence; actual Unity compilation belongs to the combined release.",
+    "Only the new versioned annual adapter may send /report-chapter after saving the numeric report. The existing client continues to use /chapter unchanged until the adapter lands.",
+    "No service deployment is included. Publishing static WebGL does not publish this loopback service."
+  ],
+  "unfinished": [
+    "Annual v4 numeric state, session and Unity client adapter are owned by Complete remaining implementation.",
+    "Client persistence of the first visible mode, late responses and automatic fallback when the service is unreachable require integration testing.",
+    "No live provider, Unity/IL2CPP consumer or Chrome v2 UI test is claimed.",
+    "Phase 2A visual quality and final combined performance, public run, rehearsal and recording gates remain open."
+  ],
+  "rejectedOrExcluded": [
+    "The model selects canonical fact blocks only; it does not generate factual prose.",
+    "No crop spatial runtime promotion; the rejected performance candidate remains on codex/relief-validation.",
+    "No credentials, provider responses or generated build inputs are committed."
+  ],
+  "resources": "No Editor, Chrome, HTTP server or job is active for this task. Reservation 46 was canceled for the combined release owner. File claims are released after handoff."
+}

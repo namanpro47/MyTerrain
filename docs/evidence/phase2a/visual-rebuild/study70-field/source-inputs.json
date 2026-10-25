@@ -1,0 +1,26 @@
+{
+  "Assets/Terra/Art/QuaterniusCrops/FieldWheat.asset": {
+    "bytes": 51386,
+    "sha256": "0a7031c669025aca20ac8ba3e491711a62602098ce29a6c08e5aebf6b07836c2"
+  },
+  "Assets/Terra/Art/QuaterniusCrops/FieldWheat.asset.meta": {
+    "bytes": 188,
+    "sha256": "5f912f29ae42c66a2dc5f5fdf587b1599db64a00fdbb34685558f91728c58ab9"
+  },
+  "Assets/Terra/Art/ArchivedNature45/GeometricWheat.prefab": {
+    "bytes": 2642,
+    "sha256": "ce80672465720f6f7b6f490247a1c77f9390790ca0722aa87d4e2edc36ad9880"
+  },
+  "Assets/Terra/Scripts/Rendering/LandscapeRenderer.CropBeds.cs": {
+    "bytes": 5048,
+    "sha256": "c3f60be6acdf25f9b655bfcda9bd79a1c599ee7a7f6b397a9a589a4e27402ac7"
+  },
+  "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs": {
+    "bytes": 8281,
+    "sha256": "ac09ae635e61f67b365108e6eb2cf71af34e6580a54094155aff6206cca59596"
+  },
+  "worlds/meadowbrook-v1/world.json": {
+    "bytes": 947918,
+    "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+  }
+}

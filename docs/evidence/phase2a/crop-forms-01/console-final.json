@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "command": "command console get",
+  "data": {
+    "command": "console get",
+    "parameters": {
+      "tail": "30",
+      "level": "error"
+    },
+    "result": {
+      "entries": [],
+      "cursor": 21,
+      "session": "17e2ffcae2c84723b22c946f254f759a",
+      "returned": 0,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 0,
+        "warn": 9,
+        "log": 12
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-10-25T14:11:44.020922Z",
+        "ageMs": 1,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 4,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

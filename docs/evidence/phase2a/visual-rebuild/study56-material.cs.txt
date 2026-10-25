@@ -1,0 +1,11 @@
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var type=typeof(Terra.Rendering.InstancedNature);int n=0;
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Editor/Study56/GrainStands.shader");
+foreach(var layer in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None).Where(x=>x.name=="Study56 broad grain stands"))
+{
+ type.GetMethod("MakeTintMaterialsPrivate",f).Invoke(layer,null);
+ foreach(var mat in (System.Collections.Generic.List<UnityEngine.Material>)type.GetField("ownedMaterials",f).GetValue(layer)){mat.shader=shader;mat.SetColor("_BaseColor",UnityEngine.Color.white);}
+ foreach(var b in (System.Collections.IList)type.GetField("batches",f).GetValue(layer))
+ {var bt=b.GetType();bt.GetField("medium").SetValue(b,null);bt.GetField("distant").SetValue(b,null);n++;}
+}
+return new{batches=n};

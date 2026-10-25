@@ -293,3 +293,8 @@ The plan prepares future bounded work; it starts no goal automatically. Preserve
 Protect the annual commitment boundary, honest public ledger, three explainable meters, spatial choices, full chart coverage, ten-year result, comparison/replay and visual quality. Simplify implementation through curated sites, explicit recipe bundles, authored events, small JSON definitions, deterministic templates and coherent free assets.
 
 Defer live AI, generated ending images, calibrated economic/ecological models, road/traffic/supply-chain simulation, cloud accounts and additional maps. If delivery time forces a smaller demo, declare the missing catalog or years as incomplete scope and preserve the full target in this plan. Do not turn a visually attractive but static placement demo into a claimed complete annual game.
+
+
+### October 25 integrated placement reference
+
+The approved [Terra Nil interaction plan](docs/TERRA_NIL_INTERACTION_PLAN.md) specifies TN-03/04/05, CS-02/03 and AX-01: fixed dock and inspector, neutral Browse, six labelled states, actual footprint versus reserved site, visible selected tool, explicit replacement, exact reservations and recoverable blocked placement. [Placement handoff](docs/evidence/placement-clarity/HANDOFF.md) and [native validation](docs/evidence/placement-clarity/native-validation.json) record the bounded checks. Combined Chrome evidence belongs to the release receipt; performance, novice comprehension and the separate Phase 2A scenery gate remain independently open.

@@ -1,0 +1,107 @@
+{
+  "source": "e5161417044700af3e00e6afbacd5aa7fedb28cf",
+  "originMain": "7f5b292e9ee881e9865ef91ed7003bda76d3335c",
+  "status": "Rejected runtime crop alternatives; production unchanged; next source assets acquired, not rendered",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-Corn_3.fbx",
+      "bytes": 21900,
+      "sha256": "3e59c3b6664499e3c5848f9a2e0f082c152e1d82a36ff3a647fd46e069dbff5f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-Corn_4.fbx",
+      "bytes": 37660,
+      "sha256": "efa76806e992dcf7fa8597d0b327e06319a81b4d1d6aef9b93251bd54479ef61"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-GrainStands.shader.txt",
+      "bytes": 6835,
+      "sha256": "81405890801013821e791b3faf9a53714c7c17a80848ce8875a8fd612655dc9e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-capture.cs.txt",
+      "bytes": 846,
+      "sha256": "3050017087c1874ddb4caf7dbfb832c97c0e5aecb67495dd21ee21582e6cf5d6"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-control-normal.png",
+      "bytes": 1708605,
+      "sha256": "3264b32a9e21e975ff1e2840389896721c1172ff187a037baa597ae75d0181b3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-crop-license.txt",
+      "bytes": 364,
+      "sha256": "83d8959f9fc56353ed571fbe2dc52e4bcd64508e2399501cd45ac2ce3df0bf8c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-crop-sources.json",
+      "bytes": 1652,
+      "sha256": "e0e309ef4ae6e050f00261bc0a780f390edeab7fc11bb7d78f569431051662dd"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-edge-bands-focus.png",
+      "bytes": 1530831,
+      "sha256": "cf74c35ba5d6d8a1993c15310df507ae8e7cc691dff5725531a2d6f3f4208ca2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-edge-bands-normal.png",
+      "bytes": 1593418,
+      "sha256": "c0765f85aa259cf3c6d795902db7919d7acd75915e496b8c9eeb4591b313e501"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-edge-bands.cs.txt",
+      "bytes": 1842,
+      "sha256": "4584719fbab85355b051eb1e936e5ec10c6c1ddd93c089c557b5bde8e59e244c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-fbx-inspection.json",
+      "bytes": 979,
+      "sha256": "60445008d6ef5be2a11220cf101d7f28397f040735f7150c1f6e278e3ad5b6b8"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-findings.md",
+      "bytes": 4939,
+      "sha256": "6b95f68100a8d1a29013f174e5259d64a00ca3e8c4dc4ea630842892067c62a5"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-initial-normal.png",
+      "bytes": 1787031,
+      "sha256": "fe773f7212d4c6c6f70133a1994bee3ab84a55fa74831cd080407991301be0a8"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-inspect-fbx.py.txt",
+      "bytes": 2057,
+      "sha256": "64f50a205994678928127208787b69d31cbe881d08dc445b4935cb71f14a165f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-material.cs.txt",
+      "bytes": 925,
+      "sha256": "b3edc32c83e1ce15abdf2b4a6e961a87ac9123adf1dc8886a3f0c2efefe6f376"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-overlap-focus.png",
+      "bytes": 1834402,
+      "sha256": "1a1ad7692f8c9b533662f978cab924fd44571bf31b3045652a48763e7c7440d1"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-overlap.cs.txt",
+      "bytes": 1184,
+      "sha256": "d9f9c48e197674232e8d9633fe8c756e793e0c36e39ce8a5f06a70a1f6a6a8bd"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-stands-focus.png",
+      "bytes": 1804077,
+      "sha256": "b8f7d75e4987395e02cb761b0ec442cf7cff39f2ff9c6a04782985697a6a12d6"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-stands-normal.png",
+      "bytes": 1712766,
+      "sha256": "f5f536fbb25758524fcd92577b359bc2f1da0f999f81e4df22150739144107a7"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study56-stands.cs.txt",
+      "bytes": 2780,
+      "sha256": "019f25f8542278046da55c4150bfeb2b4b5be08e7476579a90720983fbe5b5a8"
+    }
+  ]
+}

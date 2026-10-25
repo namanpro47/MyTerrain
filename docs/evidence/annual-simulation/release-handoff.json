@@ -1,0 +1,33 @@
+{
+  "branch": "codex/annual-simulation-resolution",
+  "mergeStatus": "Ready to consolidate inactive numeric foundation; not ready to activate numeric gameplay",
+  "supersedesPriorWholeBranchExclusion": "User explicitly requested all current work onto main via audio chat; retain feature inactive while remaining client gates finish.",
+  "activeLegacyBehavior": "Default FullAnnualGameplay remains schema2. Legacy null/empty simulation DTO hashing and published ten-year restores are verified.",
+  "dependenciesIncluded": [
+    "numeric foundation through9c0d156 and finalsourcecover/sparsestorage fixes",
+    "report source629d082 (cherry-picked6481b46)",
+    "projection388267d (cherry-picked0721363)"
+  ],
+  "separateDependencies": [
+    "pure numeric transactions f74d72a + fc31901",
+    "latest inactive AnnualTownSession/IndexedDB adapter from implementation owner"
+  ],
+  "validation": {
+    "numeric": 885,
+    "legacy": 2399,
+    "projection": 435,
+    "reportV2": 95,
+    "denseReadOnlySpike": 36,
+    "unityNumeric": false,
+    "chromeNumeric": false
+  },
+  "denseFactoryApi": "AnnualSimulationFactory.Create(legacy, weather, seed, sensitivity, baselineWorld: actualLoadedWorld). Dense schema2/version4.0.0 requires source cover.",
+  "remainingActivationGates": [
+    "bounded dense canonical report projection (current helper rejects >64facts)",
+    "durable save-first browser adapter, atomic expected-hash CAS and transaction-complete ack",
+    "numeric UI routes and explicit separate schema-qualified save keys; preserve all legacy saves",
+    "actual Unity JsonUtility/Mono and Chrome numeric full-run/reload/ending on all3maps",
+    "dense performance, balance and final whole-game/rehearsal/visual gates"
+  ],
+  "integration": "Merge latest origin/main into combined candidate, preserve hosted-client/body-cap changes in AnnualChapters/Program.cs. Do not replace current default schema2 factory/UI with numeric based on version string alone. Numeric definition schema3/version4 shares version text with dense legacy schema2/version4; discriminate schema+definition hash."
+}

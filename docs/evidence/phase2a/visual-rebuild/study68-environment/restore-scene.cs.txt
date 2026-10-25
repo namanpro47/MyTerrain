@@ -1,0 +1,4 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires stopped Editor");
+var scenes=Newtonsoft.Json.JsonConvert.DeserializeObject<UnityEditor.SceneManagement.SceneSetup[]>(System.IO.File.ReadAllText("Builds/ArtResearch/Study68/previous-scenes.json"));
+UnityEditor.SceneManagement.EditorSceneManager.RestoreSceneManagerSetup(scenes);
+return new{restored=UnityEditor.SceneManagement.EditorSceneManager.GetSceneManagerSetup().Select(s=>s.path).ToArray()};

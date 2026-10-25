@@ -9,3 +9,5 @@ Earth: NASA Blue Marble Next Generation, July 2004, topography and bathymetry. R
 The globe mesh, shaders, graticule and UI shapes are original runtime code. Typography uses the project's existing TextMeshPro Liberation Sans asset and its retained license. No generated artwork, paid assets or runtime CDN.
 
 The water texture remains MatrixRex / Uber Stylized Water, MIT. The original texture and notice remain in the landscape assets; an exported copy of the notice is retained in WebGLTemplates/Terra/licenses/WATER-LICENSE.txt.
+
+Display type: **Lilita One**, Juan Montoreano, copyright 2011. SIL Open Font License 1.1; unmodified source from https://github.com/google/fonts/tree/main/ofl/lilitaone. Full license retained in `Fonts/OFL.txt` and the exported `licenses/LILITA-OFL.txt`. The native SDF asset is generated from that font for game titles and destination labels.

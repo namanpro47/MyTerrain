@@ -1,0 +1,9 @@
+{
+  "instances": 20770,
+  "minHeight": 0.4619388,
+  "maxHeight": 0.9724996,
+  "sourceGeometry": "Grass",
+  "sourceMaterial": "Grass Mat",
+  "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "scope": "Play-only mapped grass replacement; original locations and footprint widths, uniform artist-mesh scale; native shader retained. River meadow, fields, woodland, annual state and source geography unchanged."
+}

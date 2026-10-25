@@ -1,0 +1,59 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "// Disposable runtime HUD test. Does not publish/save or mutate the live annual engine.\nvar main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();\nvar flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nvar hud=(Terra.UI.TerraHud)main.GetType().GetField(\"hud\",flags).GetValue(main);\nvar session=(Terra.Gameplay.AnnualTownSession)main.GetType().GetField(\"annual\",flags).GetValue(main);\nvar ui=typeof(Terra.UI.TerraHud);\nvar label=(TMPro.TextMeshProUGUI)ui.GetField(\"actionSummary\",flags).GetValue(hud);\nvar layout=ui.GetMethod(\"LayoutAnnual\",flags);\nvar selected=(string)ui.GetField(\"activeTool\",flags).GetValue(hud);\nbool originalLarge=hud.LargeText;\nstring saved=session.ExportSave();\nvar definition=session.Definition;\nvar baseline=Terra.Core.AnnualGameplay.Baseline(definition);\nvar provider=new Terra.Core.AuthoredAnnualConsequenceProvider();\nvar town=new Terra.Core.AnnualTown(definition,\"disposable-guidance-hud-check\");\nint checks=0;var failures=new System.Collections.Generic.List<string>();\nvar messages=new System.Collections.Generic.List<string>();\nvoid Check(bool ok,string why){checks++;if(!ok)failures.Add(why);}\nvoid Render(Terra.Core.AnnualTown test,string fragment)\n{\n    string before=UnityEngine.JsonUtility.ToJson(test.Snapshot());\n    hud.Selected(null);hud.BuildAvailability(null);\n    hud.AnnualState(test,baseline,baseline);\n    Check(label.text.Contains(fragment),\"HUD did not bind expected guidance: \"+fragment+\" / \"+label.text);\n    Check(UnityEngine.JsonUtility.ToJson(test.Snapshot())==before,\"HUD mutated test engine\");\n    messages.Add(label.text);\n}\ntry\n{\n    hud.CloseModal();\n    Render(town,\"inspect\");\n    var park=definition.actions.First(a=>a.actionId==\"public-park\");\n    town.QueueAction(park.siteId,park.actionId,town.Revision);Render(town,\"not paid\");\n    town.BeginResolution(\"guidance-hud-year1\",town.Revision);Render(town,\"pending\");\n    Terra.Core.AnnualTownDemo.Advance(town,\"guidance-hud-year1\",provider);Render(town,\"what changed\");\n    town.ContinuePlanning(town.Revision);Render(town,\"Housing need\");\n    hud.Selected(\"public-park\");\n    Check(label.text.Contains(\"upkeep\")&&!label.text.Contains(\"Housing need\"),\"Selected project lost its own upkeep summary\");\n    hud.Selected(null);Check(label.text.Contains(\"Housing need\"),\"Cancel did not restore contextual guidance\");\n    Terra.Core.AnnualTownDemo.Finish(town,provider);Render(town,\"complete\");\n    // Every authored fallback and every real catalog title must fit the same existing row.\n    var source=System.IO.File.ReadAllText(\"Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs\");\n    foreach(System.Text.RegularExpressions.Match match in System.Text.RegularExpressions.Regex.Matches(source,\"Say\\\\(\\\"([^\\\"]+)\\\"\\\\)\"))messages.Add(match.Groups[1].Value);\n    var rules=(Terra.Core.BuildActionRules)ui.GetField(\"actionRules\",flags).GetValue(hud);\n    var shortTitle=ui.GetMethod(\"ShortTitle\",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);\n    foreach(var action in rules.actions)messages.Add(\"Output below target: consider \"+shortTitle.Invoke(null,new object[]{action})+\". Inspect a field, or End Year to wait.\");\n    foreach(bool large in new[]{false,true})\n    {\n        if(hud.LargeText!=large)ui.GetMethod(\"ToggleText\",flags).Invoke(hud,null);\n        foreach(var size in new[]{new UnityEngine.Vector2(1024,576),new UnityEngine.Vector2(1280,720),new UnityEngine.Vector2(1440,900),new UnityEngine.Vector2(1920,1080)})\n        {\n            layout.Invoke(hud,new object[]{size.x,size.y,size.x<1120||size.y<680});\n            foreach(string message in messages.Distinct())\n            {\n                label.text=message;label.ForceMeshUpdate(true,true);\n                Check(label.preferredWidth<=label.rectTransform.rect.width+.1f&&label.preferredHeight<=label.rectTransform.rect.height+.1f,\n                    \"Hint overflow: \"+message+\" at \"+size+\" larger=\"+large+\" needs \"+label.preferredWidth+\"x\"+label.preferredHeight);\n            }\n        }\n    }\n    Check(session.ExportSave()==saved,\"Disposable HUD test changed live saved state\");\n}\nfinally\n{\n    if(hud.LargeText!=originalLarge)ui.GetMethod(\"ToggleText\",flags).Invoke(hud,null);\n    hud.Selected(selected);\n    hud.AnnualState(session.Engine,baseline,baseline);\n    layout.Invoke(hud,new object[]{(float)UnityEngine.Screen.width,(float)UnityEngine.Screen.height,UnityEngine.Screen.width<1120||UnityEngine.Screen.height<680});\n}\nreturn new{checks,failures,messages=messages.Distinct().ToArray(),liveStateUnchanged=session.ExportSave()==saved};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 255,
+        "failures": [],
+        "messages": [
+          "Choose a project, inspect a highlighted field, then queue it. Cash stays unchanged.",
+          "Plan reserved, not paid. Revise with Undo, or use End Year to review and commit.",
+          "This year is pending. Retry the same year or choose the labelled offline result.",
+          "Read what changed and why, then continue to next year's plan.",
+          "Housing need: consider Homes. Inspect a field, or End Year to wait.",
+          "Year 10 is complete. Compare your future, inspect history or start a new run.",
+          "All project sites are committed. End Year waits; existing projects still advance.",
+          "No new project fits the available funds. End Year waits; upkeep and debt remain.",
+          "Compare needs, timing and upkeep. Choose another project, or End Year to wait.",
+          "Drinking water is limited. Avoid extra demand; End Year can wait, but adds no supply.",
+          "Committed power is limited by timing or conditions. Inspect it, or End Year to wait.",
+          "No affordable power project can open by Year 10. End Year can wait; needs remain.",
+          "Compare remaining needs and project trade-offs, or End Year to wait with upkeep.",
+          "Output below target: consider Traditional farmland. Inspect a field, or End Year to wait.",
+          "Output below target: consider Cover crop. Inspect a field, or End Year to wait.",
+          "Output below target: consider Crop rotation. Inspect a field, or End Year to wait.",
+          "Output below target: consider Living margin. Inspect a field, or End Year to wait.",
+          "Output below target: consider Restore meadow. Inspect a field, or End Year to wait.",
+          "Output below target: consider Swale. Inspect a field, or End Year to wait.",
+          "Output below target: consider Homes. Inspect a field, or End Year to wait.",
+          "Output below target: consider Apartments. Inspect a field, or End Year to wait.",
+          "Output below target: consider Public park. Inspect a field, or End Year to wait.",
+          "Output below target: consider Farm storage. Inspect a field, or End Year to wait.",
+          "Output below target: consider Data center. Inspect a field, or End Year to wait.",
+          "Output below target: consider Village center. Inspect a field, or End Year to wait.",
+          "Output below target: consider Gas power. Inspect a field, or End Year to wait.",
+          "Output below target: consider Solar array. Inspect a field, or End Year to wait.",
+          "Output below target: consider Wind turbine. Inspect a field, or End Year to wait.",
+          "Output below target: consider Stewardship. Inspect a field, or End Year to wait.",
+          "Output below target: consider Sewage works. Inspect a field, or End Year to wait."
+        ],
+        "liveStateUnchanged": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/annual-guidance/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

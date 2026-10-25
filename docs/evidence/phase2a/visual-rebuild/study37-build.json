@@ -1,0 +1,92 @@
+{
+  "sourceCommit": "53bfacbf1b4cd728e5e921b51bb7295e9240b694",
+  "mainIncluded": "3ce7df9ee2c713a8a928295c7772086eddf67370",
+  "state": "completed",
+  "dirtyTrackedInputs": [
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "sha256": "fc735b492306d3f90c87573f0ce0bc30c8bf17aae19f1bf1275a7d89e72760e7"
+    },
+    {
+      "path": "Assets/Terra/Art/ExternalKit/BuildActions/Materials/flower.mat",
+      "sha256": "de7d7006082fb48fce4f9eeb86a44510b3e88e8670b69f3be6098f74241e71fd"
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+      "sha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52"
+    },
+    {
+      "path": "ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json",
+      "sha256": "06a1c9835f436c094ef005b36badac9d812743aeca512a75a0880061adf78dc2"
+    }
+  ],
+  "jobId": "eb9883f5189c4a7e9e67d0fe21eec130",
+  "result": "Export and Chrome diagnostic complete; visual and performance gates not accepted",
+  "buildMilliseconds": 376892,
+  "buildCompletedAt": "2026-10-25T07:26:05.894283Z",
+  "compressedBytes": 47808672,
+  "files": 9,
+  "viewport": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "height": 720,
+    "visibility": "visible",
+    "width": 1280
+  },
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T07:32:03.272Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.006011962890625,\"averageFps\":42.22487258911133,\"frameP50Ms\":21.0,\"frameP95Ms\":37.0,\"frameP99Ms\":44.0,\"maxFrameMs\":71.99999237060547,\"maxPreviewCpuMs\":7.0,\"maxPlacementCpuMs\":20.899999618530273,\"frames\":1267,\"framesOver33Ms\":131,\"framesOver200Ms\":0,\"previewEvents\":6,\"placementEvents\":1,\"cameraEvents\":377,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T07:32:33.288Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    }
+  ],
+  "errorLevelLogCount": 0,
+  "captures": [
+    {
+      "file": "study37-chrome-close.png",
+      "sha256": "ef8b87e842b280f85bb54287a423a0c2ae3b3803f16839bf94c456c4d0e51ac5"
+    },
+    {
+      "file": "study37-chrome-establishing.png",
+      "sha256": "8404f8e10bf43dbd279fa03a0dc9fade85401fd2e73dcbb518930e7c6a3fb7a7"
+    },
+    {
+      "file": "study37-chrome-opening.png",
+      "sha256": "40b312291c874204a796bcccee7a5bc574207dbf189b14f351d28c235e66a5de"
+    },
+    {
+      "file": "study37-chrome-overview.png",
+      "sha256": "adf62953e57a97b2f3b8534819fae52fb649244138ed16c2f7a1243604073390"
+    },
+    {
+      "file": "study37-chrome-proposed.png",
+      "sha256": "b67c185081c945c005786dd63e408b52895ae8edf13968fa65d8efc1c5385d32"
+    }
+  ],
+  "limitations": [
+    "One foreground diagnostic route, not the three-path acceptance suite",
+    "42.22 average FPS and 37ms p95; slower than study36, not ready for main integration",
+    "Year2 with one established restoration versus study36 Year1; not a controlled single-variable performance comparison",
+    "Proposed and establishing restoration viewed; mature lifecycle not checked on this export",
+    "Local offline chapter fallback used; no live chapter-service claim",
+    "Tracked source plus recorded local generated inputs; not a clean-worktree reproducibility claim",
+    "Visual quality remains below the reference; no dimensions accepted and no deployment"
+  ]
+}

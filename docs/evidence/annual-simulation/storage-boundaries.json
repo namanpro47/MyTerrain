@@ -1,0 +1,1058 @@
+[
+  {
+    "drain": 0,
+    "history": [
+      {
+        "year": 1,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 13000000,
+          "upfrontPaidCents": 10000000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 0,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 3000000,
+          "futureCommitmentsCents": 3000000
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 1,
+          "outstandingDamage": 0,
+          "recoveredLastYear": 0.05242584912473158,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 2,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 3000000,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 300000,
+          "repairDueCents": 129715099,
+          "repairPaidCents": 2700000,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 127015099,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 129715099
+        },
+        "storage": [
+          {
+            "eventId": "USW00014920:2016-05-31:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 8,
+            "openingStoredM3": 0,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1201.5203886478098,
+            "capturedM3": 8,
+            "closingStoredM3": 8
+          },
+          {
+            "eventId": "USW00014920:2016-06-14:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.945869038970171,
+            "openingStoredM3": 8,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.05413096102982884,
+            "inflowM3": 1607.0174933458106,
+            "capturedM3": 0,
+            "closingStoredM3": 7.945869038970171
+          },
+          {
+            "eventId": "USW00014920:2016-06-30:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.80870787368909,
+            "openingStoredM3": 7.945869038970171,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.13716116528108113,
+            "inflowM3": 952.2777415720203,
+            "capturedM3": 0,
+            "closingStoredM3": 7.80870787368909
+          },
+          {
+            "eventId": "USW00014920:2016-07-07:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.7921280563337545,
+            "openingStoredM3": 7.80870787368909,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.016579817355335535,
+            "inflowM3": 903.3437705882047,
+            "capturedM3": 0,
+            "closingStoredM3": 7.7921280563337545
+          },
+          {
+            "eventId": "USW00014920:2016-07-23:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.781475624352268,
+            "openingStoredM3": 7.7921280563337545,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.010652431981486465,
+            "inflowM3": 1139.8198406870129,
+            "capturedM3": 0,
+            "closingStoredM3": 7.781475624352268
+          },
+          {
+            "eventId": "USW00014920:2016-08-04:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.736644377292631,
+            "openingStoredM3": 7.781475624352268,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.044831247059637036,
+            "inflowM3": 1132.6710390204046,
+            "capturedM3": 0,
+            "closingStoredM3": 7.736644377292631
+          },
+          {
+            "eventId": "USW00014920:2016-08-16:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.6964359676468375,
+            "openingStoredM3": 7.736644377292631,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.04020840964579353,
+            "inflowM3": 874.7639780940189,
+            "capturedM3": 0,
+            "closingStoredM3": 7.6964359676468375
+          },
+          {
+            "eventId": "USW00014920:2016-08-19:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.690694322464621,
+            "openingStoredM3": 7.6964359676468375,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.005741645182216537,
+            "inflowM3": 1195.665474490459,
+            "capturedM3": 0,
+            "closingStoredM3": 7.690694322464621
+          },
+          {
+            "eventId": "USW00014920:2016-09-06:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.637798999589549,
+            "openingStoredM3": 7.690694322464621,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.052895322875071926,
+            "inflowM3": 1209.1880724614987,
+            "capturedM3": 0,
+            "closingStoredM3": 7.637798999589549
+          },
+          {
+            "eventId": "USW00014920:2016-09-09:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.587261536276382,
+            "openingStoredM3": 7.637798999589549,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.050537463313166775,
+            "inflowM3": 1501.3732004486342,
+            "capturedM3": 0,
+            "closingStoredM3": 7.587261536276382
+          },
+          {
+            "eventId": "USW00014920:2016-09-21:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.4876995548945615,
+            "openingStoredM3": 7.587261536276382,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.09956198138182071,
+            "inflowM3": 2718.3770058461323,
+            "capturedM3": 0,
+            "closingStoredM3": 7.4876995548945615
+          },
+          {
+            "eventId": "USW00014920:2016-09-22:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.071609706956313,
+            "openingStoredM3": 7.4876995548945615,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.4160898479382489,
+            "inflowM3": 1340.3357756255036,
+            "capturedM3": 0,
+            "closingStoredM3": 7.071609706956313
+          },
+          {
+            "eventId": "USW00014920:2016-10-26:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 6.997579400876032,
+            "openingStoredM3": 7.071609706956313,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0.07403030608028072,
+            "inflowM3": 1134.3872369295436,
+            "capturedM3": 0,
+            "closingStoredM3": 6.997579400876032
+          }
+        ],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.8729849065184159,
+          "outstandingDamage": 0.12701509348158413,
+          "recoveredLastYear": 0.002699999652334658,
+          "storedWaterM3": 6.96227925492865
+        }
+      },
+      {
+        "year": 3,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 120488405,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 127015099,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 247803504,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 250203504
+        },
+        "storage": [
+          {
+            "eventId": "USW00014920:2017-05-16:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [],
+            "capacityM3": 0,
+            "openingStoredM3": 6.96227925492865,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 6.96227925492865,
+            "inflowM3": 1126.3876399606306,
+            "capturedM3": 0,
+            "closingStoredM3": 0
+          }
+        ],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.6524965062702808,
+          "outstandingDamage": 0.3475034937297192,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 4,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 58287037,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 247803504,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 306390541,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 308490541
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.49420947224499207,
+          "outstandingDamage": 0.5057905277550079,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 5,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 45706864,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 306390541,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 352397405,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 354197405
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.3485026127433664,
+          "outstandingDamage": 0.6514973872566336,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 6,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 20106501,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 352397405,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 372803906,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 374303906
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.2283961141570359,
+          "outstandingDamage": 0.7716038858429641,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 7,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 46207774,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 372803906,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419311680,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420511680
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.08218834499781645,
+          "outstandingDamage": 0.9178116550021835,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 8,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419311680,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419611680,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420511680
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 9,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419611680,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419911680,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420511680
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 10,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419911680,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 420211680,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420511680
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      }
+    ]
+  },
+  {
+    "drain": 1,
+    "history": [
+      {
+        "year": 1,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 13000000,
+          "upfrontPaidCents": 10000000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 0,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 3000000,
+          "futureCommitmentsCents": 3000000
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 1,
+          "outstandingDamage": 0,
+          "recoveredLastYear": 0.05242584912473158,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 2,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 3000000,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 300000,
+          "repairDueCents": 129233914,
+          "repairPaidCents": 2700000,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 126533914,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 129233914
+        },
+        "storage": [
+          {
+            "eventId": "USW00014920:2016-05-31:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 8,
+            "openingStoredM3": 0,
+            "recoveredM3": 0,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1201.5203886478098,
+            "capturedM3": 8,
+            "closingStoredM3": 8
+          },
+          {
+            "eventId": "USW00014920:2016-06-14:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.945869038970171,
+            "openingStoredM3": 8,
+            "recoveredM3": 8,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1607.0174933458106,
+            "capturedM3": 7.945869038970171,
+            "closingStoredM3": 7.945869038970171
+          },
+          {
+            "eventId": "USW00014920:2016-06-30:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.80929648748898,
+            "openingStoredM3": 7.945869038970171,
+            "recoveredM3": 7.945869038970171,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 952.2459981310923,
+            "capturedM3": 7.80929648748898,
+            "closingStoredM3": 7.80929648748898
+          },
+          {
+            "eventId": "USW00014920:2016-07-07:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.792852782046367,
+            "openingStoredM3": 7.80929648748898,
+            "recoveredM3": 7.80929648748898,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 903.306865496814,
+            "capturedM3": 7.792852782046367,
+            "closingStoredM3": 7.792852782046367
+          },
+          {
+            "eventId": "USW00014920:2016-07-23:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.782292356601016,
+            "openingStoredM3": 7.792852782046367,
+            "recoveredM3": 7.792852782046367,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1139.7675040655326,
+            "capturedM3": 7.782292356601016,
+            "closingStoredM3": 7.782292356601016
+          },
+          {
+            "eventId": "USW00014920:2016-08-04:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.737767713357605,
+            "openingStoredM3": 7.782292356601016,
+            "recoveredM3": 7.782292356601016,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1132.6000921148207,
+            "capturedM3": 7.737767713357605,
+            "closingStoredM3": 7.737767713357605
+          },
+          {
+            "eventId": "USW00014920:2016-08-16:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.697834542348641,
+            "openingStoredM3": 7.737767713357605,
+            "recoveredM3": 7.737767713357605,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 874.6962280372095,
+            "capturedM3": 7.697834542348641,
+            "closingStoredM3": 7.697834542348641
+          },
+          {
+            "eventId": "USW00014920:2016-08-19:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.692143511161463,
+            "openingStoredM3": 7.697834542348641,
+            "recoveredM3": 7.697834542348641,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1195.5696238156766,
+            "capturedM3": 7.692143511161463,
+            "closingStoredM3": 7.692143511161463
+          },
+          {
+            "eventId": "USW00014920:2016-09-06:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.639589299695045,
+            "openingStoredM3": 7.692143511161463,
+            "recoveredM3": 7.692143511161463,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1209.0693071212013,
+            "capturedM3": 7.639589299695045,
+            "closingStoredM3": 7.639589299695045
+          },
+          {
+            "eventId": "USW00014920:2016-09-09:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.58937191956555,
+            "openingStoredM3": 7.639589299695045,
+            "recoveredM3": 7.639589299695045,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1501.2007147475965,
+            "capturedM3": 7.58937191956555,
+            "closingStoredM3": 7.58937191956555
+          },
+          {
+            "eventId": "USW00014920:2016-09-21:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.490314656540188,
+            "openingStoredM3": 7.58937191956555,
+            "recoveredM3": 7.58937191956555,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 2717.9954125647755,
+            "capturedM3": 7.490314656540188,
+            "closingStoredM3": 7.490314656540188
+          },
+          {
+            "eventId": "USW00014920:2016-09-22:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.074878246859814,
+            "openingStoredM3": 7.490314656540188,
+            "recoveredM3": 7.074878246859814,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1340.1099582629208,
+            "capturedM3": 6.659441837179441,
+            "closingStoredM3": 7.074878246859814
+          },
+          {
+            "eventId": "USW00014920:2016-10-26:PRCP",
+            "connectionGroupId": "southern-plots",
+            "ruleId": "linear-capacity-drain-per-day-v1",
+            "deviceSiteIds": [
+              "south-07"
+            ],
+            "capacityM3": 7.001212882763552,
+            "openingStoredM3": 7.074878246859814,
+            "recoveredM3": 7.074878246859814,
+            "capacityLossReleaseM3": 0,
+            "inflowM3": 1134.1771794328129,
+            "capturedM3": 7.001212882763552,
+            "closingStoredM3": 7.001212882763552
+          }
+        ],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.8734660922892004,
+          "outstandingDamage": 0.12653390771079964,
+          "recoveredLastYear": 0.00269999965233463,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 3,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 120526437,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 126533914,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 247360351,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 249760351
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.6529396603108886,
+          "outstandingDamage": 0.34706033968911143,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 4,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 58318663,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 247360351,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 305979014,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 308079014
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.4946210045210851,
+          "outstandingDamage": 0.505378995478915,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 5,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 45743380,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 305979014,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 352022394,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 353822394
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.34887763116114656,
+          "outstandingDamage": 0.6511223688388534,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 6,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 20132690,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 352022394,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 372455084,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 373955084
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.22874494400452933,
+          "outstandingDamage": 0.7712550559954707,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 7,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 46328024,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 372455084,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419083108,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420283108
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0.08241692611203337,
+          "outstandingDamage": 0.9175830738879667,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 8,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419083108,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419383108,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420283108
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 9,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419383108,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419683108,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420283108
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      },
+      {
+        "year": 10,
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 0,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 300000,
+          "operatingPaidCents": 0,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 419683108,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 419983108,
+          "appropriationCents": 0,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 0,
+          "futureCommitmentsCents": 420283108
+        },
+        "storage": [],
+        "closing": {
+          "siteId": "south-07",
+          "cropId": null,
+          "rotationPhase": 0,
+          "condition": 0,
+          "outstandingDamage": 1,
+          "recoveredLastYear": 0,
+          "storedWaterM3": 0
+        }
+      }
+    ]
+  }
+]

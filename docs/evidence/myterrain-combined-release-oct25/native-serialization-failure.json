@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "try {\nvar flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic;\ntypeof(MainGameChapterChecks).GetField(\"count\",flags).SetValue(null,0);\ntypeof(MainGameChapterChecks).GetMethod(\"CheckSessionAndHud\",flags).Invoke(null,null);\nint hud=(int)typeof(MainGameChapterChecks).GetField(\"count\",flags).GetValue(null);\nPlacementClarityChecks.RunBatch();\nreturn new {hud,chapters=AnnualChapterChecks.Run(),audio=TerraAudioChecks.Run(),atlas=AtlasLocationChecks.Run()};\n} catch(System.Exception e) {return new {failure=e.ToString()};}\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "failure": "System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.ArgumentException: Committed input hash/state does not match saved history.\n  at Terra.Core.AnnualTown.Restore (Terra.Contracts.AnnualTownDefinition rules, Terra.Contracts.AnnualTownSnapshot save) [0x004d5] in /Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Assets/Terra/Scripts/Core/AnnualTown.cs:418 \n  at Terra.Gameplay.AnnualChapterSession.ImportSave (System.String json) [0x0004c] in /Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:223 \n  at MainGameChapterChecks.CheckSessionAndHud () [0x00559] in /Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Assets/Editor/MainGameChapterChecks.cs:72 \n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <0e19fd8bd8e94908bba2ee4f803bc6a7>:0 \n   --- End of inner exception stack trace ---\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <0e19fd8bd8e94908bba2ee4f803bc6a7>:0 \n  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <0e19fd8bd8e94908bba2ee4f803bc6a7>:0 \n  at PipelineEvaluation.PipelineEval_52282aee.Execute () [0x0003c] in <12d382b918e64e7bb38603f870052464>:0 "
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

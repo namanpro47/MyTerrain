@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-25",
+  "reviewedCommit": "d908c01d28e8b4d11d98db8e728793917538202b",
+  "reviewBase": "67c01417906b74a8f024ae9975158cb1dda6979d",
+  "workspaceBase": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+  "kind": "source review and proposed disproving fixtures",
+  "runtimeTestsExecuted": false,
+  "unityOrChromeExecuted": false,
+  "sourceFiles": [
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs",
+      "sha256": "e21fc493efd58bb1053e1b618dfcbd99d8c65e4cc0e52967f2a318d4ff811c1c",
+      "bytes": 6522
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulation.cs",
+      "sha256": "dc862635544433ba2b721eab237c97ae15f1ec6136fe20222a7d56f5093703be",
+      "bytes": 8691
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulationFactory.cs",
+      "sha256": "305ebcd16d2052561fa7cdeafd043817b42b51b1dcf63a6819e8dce078470261",
+      "bytes": 6487
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulationWeather.cs",
+      "sha256": "d0ea65a97823130475a8f615009ac1d498d2a02eab90f439c440bf410a64fb02",
+      "bytes": 6715
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/TownCopies.cs",
+      "sha256": "db83b73073a43c67a579abfcb05825f1c91e6745f35238d78e4994abdf69d240",
+      "bytes": 8596
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTown.cs",
+      "sha256": "d956ffd36fde2e349af24b10b00ac1701cd1e51f8cf9020bcae1a8c9144380e5",
+      "bytes": 33830
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualEconomy.cs",
+      "sha256": "8245f47954dff3d9c9572be7c2482993faa6b5e680df844c6b0c0b7db2c7eb79",
+      "bytes": 10313
+    },
+    {
+      "path": "Assets/Terra/Scripts/Gameplay/AnnualTownSession.cs",
+      "sha256": "8fffc9067ab65c02a91586d8a09667a6d093f56833f8af6f8379f05b4832ffbb",
+      "bytes": 5766
+    },
+    {
+      "path": "tests/annual-simulation/Program.cs",
+      "sha256": "a30374d6066beedf9a2039d593712e6888df12388d2bc91e06b4bd76bfcc7732",
+      "bytes": 4732
+    }
+  ],
+  "proposedArithmetic": {
+    "status": "independent arithmetic only, not implemented simulation results",
+    "storageFreeM3After1Day": 9.999999999999998,
+    "storageFreeM3After30Days": 95.76088417247838,
+    "repairExampleCents": {
+      "openingArrears": 20000,
+      "oldRepairUnpaid": 12000,
+      "cash": 10000,
+      "nonRepairPaid": 8000,
+      "oldRepairPaid": 2000,
+      "currentOperationDue": 5000,
+      "currentNewRepairDue": 3000,
+      "closingArrears": 18000,
+      "closingRepairUnpaid": 13000
+    },
+    "repairIncrement1": 0.04,
+    "repairIncrement2": 0.08
+  }
+}

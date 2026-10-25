@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command job wait",
+  "data": {
+    "command": "job wait",
+    "parameters": {
+      "condition": "{\"member\":\"UnityEngine.Time.frameCount\",\"op\":\"changed\"}",
+      "timeout": "10"
+    },
+    "result": {
+      "state": "timedOut",
+      "met": false,
+      "timedOut": true,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 113518,
+      "initialValue": 113518,
+      "elapsedMs": 9003,
+      "framesObserved": 88
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

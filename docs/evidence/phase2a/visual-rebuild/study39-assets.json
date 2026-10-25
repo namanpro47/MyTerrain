@@ -1,0 +1,41 @@
+{
+  "tool": {
+    "package": "com.whinarn.unitymeshsimplifier",
+    "version": "3.1.1",
+    "commit": "53fdb3122645bcd3ad2c258235200dff3dfbaa9b",
+    "url": "https://github.com/Whinarn/UnityMeshSimplifier",
+    "license": "MIT"
+  },
+  "meshes": [
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Common_Short-lod1.asset",
+      "sha256": "2d705dc1d70b599f94031f0a7274a366abb8b5a55e5dd6bb7c6180f5332e39f9",
+      "bytes": 23046
+    },
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Common_Short-lod2.asset",
+      "sha256": "673e1f17bec3b212b9dbb9264e787d352d1336029cdb2115da71ddf1ec0ced7a",
+      "bytes": 18094
+    },
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Common_Tall-lod1.asset",
+      "sha256": "701589dc76993eee40edf025e445e4d401a423e696bb42db5cef30d477da2047",
+      "bytes": 31210
+    },
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Common_Tall-lod2.asset",
+      "sha256": "df8ae11ddac737a0bc584a567f35b51d3a1a985a999af2ac67e31d9009cbc9ea",
+      "bytes": 16577
+    },
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Wispy_Short-lod1.asset",
+      "sha256": "83b6e60abd19cc17b1c5defc59a3ef4110c9df092f2933d3717b3dc7c22596a4",
+      "bytes": 62332
+    },
+    {
+      "path": "Assets/Terra/Resources/NatureLods/Grass_Wispy_Short-lod2.asset",
+      "sha256": "52bb08d4d95f272254ef341599a5d4bf597a4b3d42be544ad8ace85b0b6b40b5",
+      "bytes": 61772
+    }
+  ]
+}

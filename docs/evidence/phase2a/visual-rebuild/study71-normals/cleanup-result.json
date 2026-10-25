@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study71/cleanup.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "renderTargetsRemoved": 0,
+        "playing": false,
+        "scene": "Assets/Terra/Scenes/TerraMain.unity",
+        "dirty": false,
+        "remainingStudyObjects": 0,
+        "materialsRemoved": 0,
+        "texturesRemoved": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

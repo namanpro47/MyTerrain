@@ -1,0 +1,22 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);var root=(UnityEngine.Transform)land.GetType().GetField("root",flags).GetValue(land);
+string before=UnityEngine.JsonUtility.ToJson(world);string annualBefore=main.Diagnostic;
+float Delta(float x,float z){float h=land.Height(x,z);float edge=UnityEngine.Mathf.Min((x+500)/80,(500-x)/80,(z+500)/80,(500-z)/80);float envelope=UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.Clamp01(edge));float t=h/6;float frac=t-UnityEngine.Mathf.Floor(t);float stepped=(UnityEngine.Mathf.Floor(t)+UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.InverseLerp(.38f,.62f,frac)))*6;return(stepped-h)*envelope;}
+int meshCount=0,vertices=0,instances=0;float maxShift=0;
+foreach(var filter in root.GetComponentsInChildren<UnityEngine.MeshFilter>())
+{
+ var copy=UnityEngine.Object.Instantiate(filter.sharedMesh);copy.name=filter.sharedMesh.name+" study48 relief";var vs=copy.vertices;var transform=filter.transform;
+ for(int i=0;i<vs.Length;i++){var p=transform.TransformPoint(vs[i]);float shift=Delta(p.x,p.z);maxShift=UnityEngine.Mathf.Max(maxShift,UnityEngine.Mathf.Abs(shift));p.y+=shift;vs[i]=transform.InverseTransformPoint(p);}
+ copy.vertices=vs;copy.RecalculateNormals();copy.RecalculateBounds();filter.sharedMesh=copy;meshCount++;vertices+=vs.Length;
+}
+foreach(var nature in root.GetComponents<Terra.Rendering.InstancedNature>().Concat(root.GetComponentsInChildren<Terra.Rendering.InstancedNature>()).Distinct())
+{
+ var batches=(System.Collections.IList)nature.GetType().GetField("batches",flags).GetValue(nature);
+ foreach(var batch in batches){var t=batch.GetType();var ms=(UnityEngine.Matrix4x4[])t.GetField("transforms",flags).GetValue(batch);for(int i=0;i<ms.Length;i++){ms[i].m13+=Delta(ms[i].m03,ms[i].m23);instances++;}var bounds=(UnityEngine.Bounds)t.GetField("bounds",flags).GetValue(batch);bounds.Expand(new UnityEngine.Vector3(0,6,0));t.GetField("bounds",flags).SetValue(batch,bounds);}
+}
+foreach(var line in root.GetComponentsInChildren<UnityEngine.LineRenderer>())
+{
+ var points=new UnityEngine.Vector3[line.positionCount];line.GetPositions(points);for(int i=0;i<points.Length;i++){var p=line.useWorldSpace?points[i]:line.transform.TransformPoint(points[i]);p.y+=Delta(p.x,p.z);points[i]=line.useWorldSpace?p:line.transform.InverseTransformPoint(p);}line.SetPositions(points);
+}
+if(before!=UnityEngine.JsonUtility.ToJson(world)||annualBefore!=main.Diagnostic)throw new System.Exception("Analytical world or annual state changed");
+return new{meshCount,vertices,instances,maxShift,sourceWorldByteIdentical=true,annualState=main.Diagnostic,temporaryDisplayAbstraction=true,frame=UnityEngine.Time.frameCount};

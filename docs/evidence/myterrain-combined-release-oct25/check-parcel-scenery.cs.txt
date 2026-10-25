@@ -1,0 +1,30 @@
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Terra/Scenes/TerraMain.unity");
+var main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();main.enabled=false;
+int checks=0;void Check(bool ok,string why){checks++;if(!ok)throw new System.Exception(why);}
+var rows=new System.Collections.Generic.List<object>();
+foreach(var location in Terra.Core.LocationProfile.All)
+{
+ string root="worlds/"+location.PackId+"/";
+ var world=UnityEngine.JsonUtility.FromJson<Terra.Contracts.WorldData>(System.IO.File.ReadAllText(root+"world.json"));
+ var scenario=UnityEngine.JsonUtility.FromJson<Terra.Contracts.Scenario>(System.IO.File.ReadAllText(root+"scenario.json"));
+ var hydro=UnityEngine.JsonUtility.FromJson<Terra.Core.RunoffConfiguration>(System.IO.File.ReadAllText(root+"hydrology.json"));
+ var pack=UnityEngine.JsonUtility.FromJson<Terra.Core.UniformParcelPack>(UnityEngine.Resources.Load<UnityEngine.TextAsset>("Parcels/"+location.PackId).text);
+ Terra.Core.UniformParcels.Apply(world,hydro,pack,location.PackId);
+ var rules=Terra.Gameplay.BuildActionRuntime.Expand(main.buildActionCatalog,ref world,ref scenario);
+ var scenery=new UnityEngine.GameObject("Combined parcel scenery check");
+ var renderer=new Terra.Rendering.LandscapeRenderer(world,main.terrainMaterial,scenery.transform,main.treePrefab,main.cropPrefab,main.grassPrefab,main.shrubPrefab,location.IsWisconsin);
+ renderer.ConfigureBuildActions(main.buildActionCatalog,rules);renderer.Build();renderer.BuildStartingSettlement(pack);
+ Check(scenery.transform.Find("Existing fictional community")==null,"Duplicate legacy houses on dense map");
+ foreach(var building in pack.initialBuildings)
+ {
+  var site=world.sites.Single(s=>s.id==building.siteId);
+  var inherited=scenery.transform.Find(building.title+" · inherited baseline");
+  Check(inherited!=null&&inherited.GetComponentsInChildren<UnityEngine.MeshRenderer>().Length>0,"Inherited model missing");
+  Check(rules.Layout(site,rules.Find(building.actionId)).Valid,"Inherited foundation does not fit");
+  renderer.Apply(site,null);Check(inherited.gameObject.activeSelf,"Baseline refresh lost inherited building");
+ }
+ rows.Add(new{location.PackId,parcels=world.sites.Length,inherited=pack.initialBuildings.Length});
+ UnityEngine.Object.DestroyImmediate(scenery);
+}
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Terra/Scenes/TerraMain.unity");
+return new{checks,rows,scope="Three actual merged renderers and prefab fits; no capture or frame-time claim"};

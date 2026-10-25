@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study63/check.cs",
+      "timeout": "30000"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 3630432,
+        "plants": 43553,
+        "corners": 348424,
+        "soilVertices": 1464388,
+        "unchangedOtherBatches": 2025,
+        "actions": [
+          "cultivate-standard",
+          "cultivate-margin",
+          "conservation-rotation"
+        ],
+        "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "shaderErrors": [],
+        "scope": "Editor geometry and renderer lifecycle. No financial transitions or Chrome performance claim. Includes context plant bounds and management-site exclusion."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

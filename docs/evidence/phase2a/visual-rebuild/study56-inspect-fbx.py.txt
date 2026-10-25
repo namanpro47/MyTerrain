@@ -1,0 +1,48 @@
+from pathlib import Path
+import struct,zlib,json
+
+def read(path):
+ data=path.read_bytes();version=struct.unpack_from('<I',data,23)[0]
+ assert data.startswith(b'Kaydara FBX Binary') and version<7500
+ def node(at):
+  end,nprops,plen,nlen=struct.unpack_from('<IIIB',data,at)
+  if end==0:return None,at+13
+  at+=13;name=data[at:at+nlen].decode();at+=nlen;props=[]
+  for _ in range(nprops):
+   kind=chr(data[at]);at+=1
+   fmts={'Y':'h','C':'?','I':'i','F':'f','D':'d','L':'q'}
+   if kind in fmts:
+    fmt='<'+fmts[kind];v=struct.unpack_from(fmt,data,at)[0];at+=struct.calcsize(fmt)
+   elif kind in 'SR':
+    size=struct.unpack_from('<I',data,at)[0];at+=4;v=data[at:at+size];at+=size
+    if kind=='S':v=v.decode(errors='replace')
+   else:
+    count,enc,size=struct.unpack_from('<III',data,at);at+=12;b=data[at:at+size];at+=size
+    if enc:b=zlib.decompress(b)
+    fmt={'f':'f','d':'d','l':'q','i':'i','b':'?','c':'b'}[kind]
+    v=list(struct.unpack('<'+str(count)+fmt,b))
+   props.append(v)
+  children=[]
+  while at<end-13:
+   c,at=node(at)
+   if c:children.append(c)
+   else:break
+  return {'name':name,'props':props,'children':children},end
+ nodes=[];at=27
+ while at<len(data):
+  n,at=node(at)
+  if n is None:break
+  nodes.append(n)
+ def descend(items):
+  for n in items:
+   yield n
+   yield from descend(n['children'])
+ out={'file':path.name,'version':version,'geometry':[],'materials':[]}
+ for n in descend(nodes):
+  if n['name']=='Geometry':
+   vs=next((c['props'][0] for c in n['children'] if c['name']=='Vertices'),[])
+   pi=next((c['props'][0] for c in n['children'] if c['name']=='PolygonVertexIndex'),[])
+   out['geometry'].append({'name':str(n['props'][1]).split('\x00')[0],'controlPoints':len(vs)//3,'polygons':sum(x<0 for x in pi),'boundsMin':[min(vs[k::3]) for k in range(3)],'boundsMax':[max(vs[k::3]) for k in range(3)]})
+  if n['name']=='Material' and len(n['props'])>1:out['materials'].append(str(n['props'][1]).split('\x00')[0])
+ return out
+print(json.dumps([read(Path(__file__).parent/name) for name in ['Corn_3.fbx','Corn_4.fbx']],indent=2))

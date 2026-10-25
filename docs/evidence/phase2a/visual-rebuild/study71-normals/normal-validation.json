@@ -1,0 +1,8 @@
+{
+  "alphaMismatch": 0,
+  "covered": 1299243,
+  "minimumLength": 0.993906856,
+  "maximumLength": 1.00645363,
+  "meanNormalY": -0.040542890057228331,
+  "scope": "Raw normal bake must cover the exact original color silhouette and retain unit vectors; catches gamma/postprocessing corruption."
+}

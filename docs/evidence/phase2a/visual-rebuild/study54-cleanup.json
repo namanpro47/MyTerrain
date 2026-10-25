@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "if(UnityEngine.Application.isPlaying)throw new System.Exception(\"Expected stopped\");bool removed=UnityEditor.AssetDatabase.DeleteAsset(\"Assets/Builds/ArtResearch/Study54\");return new{removed,controllerEnabled=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>().enabled};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "removed": true,
+        "controllerEnabled": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

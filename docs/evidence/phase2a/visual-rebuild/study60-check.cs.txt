@@ -1,0 +1,29 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);var method=land.GetType().GetMethod("RiverMeadowGround",f);var root=(UnityEngine.Transform)land.GetType().GetField("root",f).GetValue(land);var before=main.Diagnostic;
+int checks=0,vertices=0,placements=0,tiles=0;float maxError=0;
+foreach(var mf in root.GetComponentsInChildren<UnityEngine.MeshFilter>().Where(m=>m.name.StartsWith("Continuous ground ")))
+{
+ var collider=mf.gameObject.AddComponent<UnityEngine.MeshCollider>();collider.sharedMesh=mf.sharedMesh;
+ try
+ {
+  var bounds=mf.sharedMesh.bounds;foreach(float u in new[]{.001f,.25f,.5f,.99f})foreach(float v in new[]{.001f,.37f,.75f,.99f})
+  {
+   float x=UnityEngine.Mathf.Lerp(bounds.min.x,bounds.max.x,u),z=UnityEngine.Mathf.Lerp(bounds.min.z,bounds.max.z,v);var ray=new UnityEngine.Ray(new UnityEngine.Vector3(x,bounds.max.y+100,z),UnityEngine.Vector3.down);
+   if(!collider.Raycast(ray,out var hit,1000))throw new System.Exception("Ground ray missed "+mf.name);
+   float expected=(float)method.Invoke(land,new object[]{x,z});float error=UnityEngine.Mathf.Abs(expected-hit.point.y);maxError=UnityEngine.Mathf.Max(maxError,error);if(error>.003f)throw new System.Exception("Ground mismatch "+error);checks++;
+  }
+  vertices+=mf.sharedMesh.vertexCount;
+ }
+ finally{UnityEngine.Object.DestroyImmediate(collider);}
+}
+var field=typeof(Terra.Rendering.InstancedNature).GetField("batches",f);
+foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>().Where(n=>n.name.StartsWith("River meadow ")))
+{
+ tiles++;foreach(var batch in (System.Collections.IEnumerable)field.GetValue(n))
+ {
+  var transforms=(UnityEngine.Matrix4x4[])batch.GetType().GetField("transforms",f).GetValue(batch);
+  foreach(var matrix in transforms){for(int i=0;i<16;i++)if(float.IsNaN(matrix[i])||float.IsInfinity(matrix[i]))throw new System.Exception("Nonfinite planting");placements++;}
+ }
+}
+if(before!=main.Diagnostic)throw new System.Exception("Annual state changed");
+return new{groundTriangleChecks=checks,maxError,vertices,tiles,submittedPartInstances=placements,annualState=main.Diagnostic,shaderErrors=UnityEditor.ShaderUtil.GetShaderMessages(UnityEngine.Resources.Load<UnityEngine.Shader>("TerraGround")).Where(m=>m.severity.ToString()=="Error").Select(m=>m.message).ToArray()};
