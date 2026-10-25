@@ -39,6 +39,9 @@ namespace Terra.Gameplay
         public void InitializeFromWorldPack(WorldData world, Scenario scenario, string packId, string runId, bool restoreSaved = false)
             => Initialize(AnnualTownDemo.FromWorldPack(world, scenario, packId), runId, restoreSaved);
 
+        public void ConfigurePlanningYears(int years, int expectedRevision)
+        { RequireLegacyMutation(); RequireTown().ConfigurePlanningYears(years, expectedRevision); Publish(); }
+
         public void QueueAction(string siteId, string actionId, int expectedRevision)
         { RequireLegacyMutation(); RequireTown().QueueAction(siteId, actionId, expectedRevision); Publish(); }
         public void RemoveQueuedAction(string siteId, int expectedRevision)

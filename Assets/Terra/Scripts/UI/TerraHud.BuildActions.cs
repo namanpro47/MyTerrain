@@ -39,7 +39,7 @@ namespace Terra.UI
                 var button=Button(actionDock,category,new Vector2(0,1),new Vector2(10+i*148,-8),new Vector2(144,38),()=>ShowCategory(category),16);
                 categoryButtons[button]=category;
             }
-            actionSummary=Label(actionDock,"Preparing 17 build actions…",new Vector2(0,0),new Vector2(16,6),new Vector2(728,38),14,Soft);
+            actionSummary=Label(actionDock,"Preparing land-use choices…",new Vector2(0,0),new Vector2(16,6),new Vector2(728,38),14,Soft);
         }
 
         public void ConfigureBuildActions(BuildActionCatalog catalog,BuildActionRules rules,WorldData world,Action<string> choose)
@@ -48,7 +48,7 @@ namespace Terra.UI
             foreach(string category in BuildActionRules.Categories)
             {
                 var row=Rect(actionDock,category+" actions",new Vector2(0,1),new Vector2(10,-53),new Vector2(740,124));actionRows[category]=row.gameObject;
-                var actions=rules.actions.Where(a=>a.category==category).ToArray();
+                var actions=rules.actions.Where(a=>a.category==category&&a.id!="cultivate-margin").ToArray();
                 for(int i=0;i<actions.Length;i++)
                 {
                     var action=actions[i];availableSites[action.id]=world.sites.Count(s=>rules.Rejection(s,action.id)==null);

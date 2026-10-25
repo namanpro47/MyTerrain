@@ -101,7 +101,7 @@ namespace Terra.Gameplay
                 }
                 if(!uiHandled&&!hud.ModalOpen)
                 {
-                    if(k.digit1Key.wasPressedThisFrame)Choose("cultivate-standard");if(k.digit2Key.wasPressedThisFrame)Choose("restore-grass");if(k.digit3Key.wasPressedThisFrame)Choose("water-swale");if(k.mKey.wasPressedThisFrame)Choose("cultivate-margin");
+                    if(k.digit1Key.wasPressedThisFrame)Choose("cultivate-standard");if(k.digit2Key.wasPressedThisFrame)Choose("restore-grass");if(k.digit3Key.wasPressedThisFrame)Choose("water-swale");
                     if(k.zKey.wasPressedThisFrame){if(k.shiftKey.isPressed)Redo();else Undo();}if(k.yKey.wasPressedThisFrame)Redo();
                     if(k.xKey.wasPressedThisFrame)BeginReset();if(k.vKey.wasPressedThisFrame)BeginMove();if(k.deleteKey.wasPressedThisFrame||k.backspaceKey.wasPressedThisFrame)BeginRemove();if(k.rKey.wasPressedThisFrame)ResetView();
                     if(k.fKey.wasPressedThisFrame)FocusSite();
