@@ -409,6 +409,12 @@
       "study26-editor-first.png",
       "study26-junction-editor.png",
       "study26-edge-editor.png"
-    ]
+    ],
+    "export": {
+      "status": "succeeded",
+      "milliseconds": 98565,
+      "identityCheck": "study26-export-check.json",
+      "browser": "Pending; open tab still study25 until reload"
+    }
   }
 }

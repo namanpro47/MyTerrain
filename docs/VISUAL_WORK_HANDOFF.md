@@ -2,7 +2,7 @@
 
 **Current source26, saved at the user’s request:** plant-size correction, grouped meadow stands, smaller/closer crop rows, cached prefab floors, opening target(-100,10)/zoom90. Only Editor evidence and a clean C# compile so far. Chrome26 checks pending;25 remains the latest browser-reviewed candidate. Include TerraMain camera defaults/reset, LandscapeRenderer and LandscapeRenderer.Treatments together. No new art acceptance.
 
-Latest candidate25 is Chrome verified, not art/performance accepted. Prior recoverable checkpoints:22 `9cc9341`,21d `d6c9f05`,20 `4d4dff8`,19b `3684a40`. Local preview http://127.0.0.1:49658/ serves25 export `7cd5bae3a448464fb2571f3a619f2a09`. Separate from annual integration.
+Latest candidate25 is Chrome verified, not art/performance accepted. Prior recoverable checkpoints:22 `9cc9341`,21d `d6c9f05`,20 `4d4dff8`,19b `3684a40`. Local preview http://127.0.0.1:49658/ now serves26 export `fb09e29b41d44109a735336560c519eb`; exact-file verification passed, Chrome26 pending. Existing open25 tab needs reload. Separate from annual integration.
 
 Active visual work now lives at `/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra`, branch `codex/visual-study20`. The primary checkout received gameplay merges during the visual run; do not reset or overwrite those changes. Drive only this worktree's own Editor for subsequent visual experiments, using explicit `--project-path`.
 
