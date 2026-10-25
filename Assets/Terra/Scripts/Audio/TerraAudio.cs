@@ -226,13 +226,17 @@ namespace Terra.Audio
             atlas = atlas, region = region, levels = (float[])levels.Clone(), lastCue = LastCue,
             played = PlayedCount, dropped = DroppedCount, activeVoices = Array.FindAll(voices, s => s.isPlaying).Length,
             musicPlaying = music[musicIndex].isPlaying, musicSeconds = musicAge, track = music[musicIndex].clip?.name,
-            musicGain = music[musicIndex].volume, ambienceGain = beds[0].volume, recent = recent.ToArray(), settingsOpen = TerraAudioPanel.IsOpen
+            musicGain = music[musicIndex].volume, ambienceGain = beds[0].volume, recent = recent.ToArray(), settingsOpen = TerraAudioPanel.IsOpen,
+            narrationEnabled = TerraNarration.Instance?.Enabled ?? false,
+            narrationStatus = TerraNarration.Instance?.Status ?? 0,
+            narrationCharacters = TerraNarration.Instance?.Text.Length ?? 0
         });
         [Serializable] public sealed class AudioAudit
         {
             public bool unlocked, audible, muted, focused, atlas, musicPlaying, settingsOpen;
             public string region, lastCue, track; public float[] levels; public string[] recent;
             public int played, dropped, activeVoices; public float musicSeconds, musicGain, ambienceGain;
+            public bool narrationEnabled; public int narrationStatus, narrationCharacters;
         }
         void OnDestroy() { if (Instance == this) Instance = null; }
     }
