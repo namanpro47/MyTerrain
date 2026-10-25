@@ -34,7 +34,7 @@
     },
     "target": {
       "host": "127.0.0.1",
-      "port": 7800,
+      "port": 7803,
       "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
     }
   },

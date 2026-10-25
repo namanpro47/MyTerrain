@@ -58,3 +58,13 @@ The user subsequently explicitly requested all finished branch work on main, inc
 The merged pure-source checks pass 2,805 connected-layout annual/feedback/guidance/stress assertions, 885 numeric checks, 73 acknowledged-transaction checks, 435 canonical projection checks, 50 chapter checks, 32 stubbed adapter checks and 33 mocked IndexedDB fault checks. No mock receipt is represented as browser storage acceptance.
 
 Placement is reconciled with dense parcels and existing modal/audio guards. A press binds the target, tool and plan revision; scrolling, dragging and focus loss cancel it. Feedback uses the persistent TerraAudio bank at lower priority than category cues, never unlocks audio from model notifications, and preserves unread receipts across focus changes. Fast-forward exposes the accepted report before the optional comparison. Final combined Unity/Chrome verification follows these changes.
+
+### Final native integration checks
+
+After placement `6e188ee`, feedback `499d834`, dense report projection `3619069` and Peter compatibility evidence `ac77ffc`: native compilation has zero errors; HUD/session 881, placement 2,839 (including 788 existing HUD checks), chapter 16, hosted fallback 14, audio 380, atlas 678 and dense scenery 66 checks pass. These counts overlap where the fixtures intentionally reuse the HUD suite. Dense projection passes 432 pure assertions across 30 years; numeric regression now passes 889.
+
+Actual Unity serialization found a legacy save regression after adding inactive numeric DTOs: an absent simulation driver expands with declared solar/wind defaults of 1. `TownCopies` now recognizes exactly those defaults only when every other extension field is empty. A nondefault value remains fingerprinted and rejected. The actual native export/reload and atlas decade replay pass after the fix. The factory similarly normalizes an empty extension before checking whether a legacy definition is eligible for explicit upgrade.
+
+The separate numeric cross-runtime vector check still fails definition identity after JsonUtility decoding. `numeric-check.json` records the failure. Numeric mode remains inactive; this is an explicit activation blocker, not a passing numeric runtime check. The numeric owner is investigating independently. No public numeric-mode claim is made.
+
+The CLI's high-level recompile waiter remained attached after an Editor reload although the native status command reported successful compilation. Only that waiting CLI process was stopped; the owned Editor remained alive. Direct Pipeline recompile/status then confirmed the final scripts. No other Editor was operated.

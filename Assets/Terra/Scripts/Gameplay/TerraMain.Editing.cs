@@ -41,7 +41,7 @@ namespace Terra.Gameplay
         {
             if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||!SelectEditableProposal())return;
             Terra.Audio.TerraAudio.Ensure().Request("tool-select",3);moveSourceId=selectedId;editMode="move";treatmentId=QueuedAt(selectedId);hoverId=null;
-            hud.Selected("");UpdatePreview();Toast("Choose an empty destination for this year's proposal.");
+            hud.Selected(treatmentId);UpdatePreview();Toast("Choose an empty destination for this year's proposal.");
         }
         void BeginRemove()
         {if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||!SelectEditableProposal())return;Terra.Audio.TerraAudio.Ensure().Request("tool-select",3);editMode="remove";hoverId=selectedId;hud.Selected("");UpdatePreview();}

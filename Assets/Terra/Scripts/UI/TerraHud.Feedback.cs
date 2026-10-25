@@ -72,7 +72,8 @@ namespace Terra.UI
         public void TickChangeFeedback(float seconds)
         {
             if(activeChange==null||changeReceipt==null)return;
-            bool visible=!ModalOpen&&!Terra.Audio.TerraAudioPanel.IsOpen;
+            bool visible=!ModalOpen&&!Terra.Audio.TerraAudioPanel.IsOpen
+                &&(placementCapsule==null||!placementCapsule.gameObject.activeSelf);
             changeReceipt.gameObject.SetActive(visible&&changeRemaining>0);
             if(!visible)return; // Reading a dialog or changing tabs must not swallow the receipt.
             // Keep the receipt visible while unfocused, and never let a resumed or
