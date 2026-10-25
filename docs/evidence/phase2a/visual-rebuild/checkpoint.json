@@ -1,18 +1,18 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Study21d isolated source/export and Chrome evidence recorded; earlier failed shader trial preserved. No art/performance acceptance.",
+  "documentation": "Study22 source/export and actual Chrome canopy evidence recorded. Visual gate remains failed; one moving-placement performance route meets stable-30 fallback, full suite pending.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
-    "One repeated solid crown shape; insufficient vegetation layering",
+    "Leaf structure and hierarchy improved; thin upper-right conifer cohort and repeated broadleaf clusters still need composition judgment.",
     "Mechanical sparse crop rows and unconvincing field grouping",
     "Mechanical field surfaces and schematic treatment boundaries; terrain-road junction seams resolved in study20, bridge decks remain illustrative.",
     "Similar greens and broad smooth land; shadows more readable in study20",
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
-  "nextDecision": "Substantial canopy silhouette/size hierarchy and woodland\u2013meadow composition study; bank micro-adjustments did not resolve dominant whole-scene failures.",
+  "nextDecision": "Replace the broad grass/field surface treatment and mechanical row construction with coherent artist-ground and planting masses; avoid another canopy tint-only pass.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -28,7 +28,7 @@
     "console": "No errors returned; existing FSR warning"
   },
   "stateChecksNote": "139 real-pack checks passed at study12; not rerun for rendering-only edits. Study14 Chrome cultivation/restoration/undo verified; transformed batch bounds checked with zero corner failures.",
-  "resourceCandidate": "Free Symphonie sculpted oak remains unaccepted. Existing Elijah grass/earth normal maps integrated unchanged with attribution; Quaternius bank planting adapted. No purchases or image generation.",
+  "resourceCandidate": "Free erces tree family replaces repeated Symphonie crowns in candidate22. Source meshes/textures unchanged, normalized wrappers and volume-normal leaf shader. KayKit free family evaluated and rejected. No purchases or image generation.",
   "historicalStudy17BrowserChecks": {
     "scope": "Study17 normal, creek close, overview, settled cultivation/restoration/swale and undo",
     "cultivateCommit": {
@@ -87,10 +87,10 @@
     "visualAcceptance": false
   },
   "latestStudy": {
-    "study": "21d",
+    "study": "22",
     "build": "success",
-    "job": "b8d6811bc45a4235aeb5c43fc6c6dde6",
-    "executionTimeMs": 176107,
+    "job": "742e013349ee400799bb946038782792",
+    "executionTimeMs": 63510,
     "browser": "Chrome",
     "cssViewport": [
       3440,
@@ -100,11 +100,11 @@
       3440,
       1352
     ],
-    "normalCapture": "study21d-default.jpg",
-    "closeCapture": "study21d-creek-close.jpg",
-    "overviewCapture": "study21d-overview.jpg",
-    "transformationCapture": "study21d-restored.jpg",
-    "exportCheck": "study21d-export-check.json",
+    "normalCapture": "study22-default.jpg",
+    "closeCapture": "study22-creek-close.jpg",
+    "overviewCapture": "study22-overview.jpg",
+    "transformationCapture": "study22-restored.jpg",
+    "exportCheck": "study22-export-check.json",
     "visualAcceptance": false,
     "performanceAcceptance": false
   },
@@ -116,18 +116,18 @@
     "fullInteractionPerformanceAcceptance": false
   },
   "currentBrowserChecks": {
-    "scope": "21d normal/close/overview, Restore/undo and one moving-placement diagnostic",
-    "seconds": 30.034,
-    "averageFps": 36.325,
-    "p95Ms": 48,
-    "p99Ms": 50,
-    "maxMs": 108,
-    "framesOver33Ms": 378,
+    "scope": "22 opening/close/overview, Restore/undo and one moving-placement diagnostic",
+    "seconds": 30.012,
+    "averageFps": 59.943,
+    "p95Ms": 18,
+    "p99Ms": 18,
+    "maxMs": 26,
+    "framesOver33Ms": 0,
     "framesOver200Ms": 0,
     "unfocusedFrames": 0,
     "previewEvents": 2,
     "placementEvents": 1,
-    "cameraEvents": 324,
+    "cameraEvents": 573,
     "restore": [
       5,
       42
@@ -137,8 +137,14 @@
       60
     ],
     "finalRevision": 2,
-    "startup": "No error-level messages returned; historical early-input exception not specifically retested or fixed",
-    "comparisonLimitation": "3440x1352 CSS/buffer differs from21c; no causal performance improvement claim",
+    "previewCpuMaxMs": 0.1,
+    "placementCpuMaxMs": 4,
+    "presentationOpportunityPreviewMs": 17.5,
+    "presentationOpportunityPlacement": "No placement sample emitted; do not infer from CPU time",
+    "playerReadyMs": 1652,
+    "interactiveMs": 4441,
+    "startup": "No error-level messages returned; historical early-input issue not specifically retested or fixed",
+    "comparisonLimitation": "Same3440x1352 CSS/buffer as21d, but route/workload not controlled; no causal performance improvement claim",
     "fullInteractionPerformanceAcceptance": false
   },
   "study20": {
@@ -268,6 +274,54 @@
     ],
     "finalRevision": 4,
     "startup": "No error-level messages on two loads; prior early-input issue not specifically retested or fixed",
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "historicalStudy21d": {
+    "study": "21d",
+    "build": "success",
+    "job": "b8d6811bc45a4235aeb5c43fc6c6dde6",
+    "executionTimeMs": 176107,
+    "browser": "Chrome",
+    "cssViewport": [
+      3440,
+      1352
+    ],
+    "renderBuffer": [
+      3440,
+      1352
+    ],
+    "normalCapture": "study21d-default.jpg",
+    "closeCapture": "study21d-creek-close.jpg",
+    "overviewCapture": "study21d-overview.jpg",
+    "transformationCapture": "study21d-restored.jpg",
+    "exportCheck": "study21d-export-check.json",
+    "visualAcceptance": false,
+    "performanceAcceptance": false
+  },
+  "historicalStudy21dChecks": {
+    "scope": "21d normal/close/overview, Restore/undo and one moving-placement diagnostic",
+    "seconds": 30.034,
+    "averageFps": 36.325,
+    "p95Ms": 48,
+    "p99Ms": 50,
+    "maxMs": 108,
+    "framesOver33Ms": 378,
+    "framesOver200Ms": 0,
+    "unfocusedFrames": 0,
+    "previewEvents": 2,
+    "placementEvents": 1,
+    "cameraEvents": 324,
+    "restore": [
+      5,
+      42
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 2,
+    "startup": "No error-level messages returned; historical early-input exception not specifically retested or fixed",
+    "comparisonLimitation": "3440x1352 CSS/buffer differs from21c; no causal performance improvement claim",
     "fullInteractionPerformanceAcceptance": false
   }
 }

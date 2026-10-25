@@ -146,28 +146,46 @@ namespace Terra.Rendering
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
             meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            var trees=new[]{Resources.Load<GameObject>("Nature/SolidOak01"),Resources.Load<GameObject>("Nature/SolidOak02"),Resources.Load<GameObject>("Nature/SolidOak03"),Resources.Load<GameObject>("Nature/SolidOak04")};
-            var bush=trees[2];
+            var trees=new[]{Resources.Load<GameObject>("Nature/ErceTree01"),Resources.Load<GameObject>("Nature/ErceTree02"),Resources.Load<GameObject>("Nature/ErceTree05"),Resources.Load<GameObject>("Nature/ErceTree03")};
+            var bush=Resources.Load<GameObject>("Nature/ErceTree01");
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
             var stone=Resources.Load<GameObject>("Nature/Rock_Medium_1");
-            var tones=new[]{new Color(.43f,.63f,.25f),new Color(.60f,.73f,.29f),new Color(.36f,.59f,.30f)};
+            // Canopy cohorts and low edge growth are illustration, not surveyed species or stem locations.
             // Independent 150m clusters preserve culling and create groups instead of a regular canopy carpet.
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
                 var groups=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};
                 var shrubs=new List<Matrix4x4>();var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
-                for(float z=cz+8;z<Mathf.Min(cz+150,zmax-6);z+=17)for(float x=cx+8;x<Mathf.Min(cx+150,xmax-6);x+=17)
+                for(float z=cz+8;z<Mathf.Min(cz+150,zmax-6);z+=13)for(float x=cx+8;x<Mathf.Min(cx+150,xmax-6);x+=13)
                 {
-                    float px=x+Range(-7,7),pz=z+Range(-7,7);string cover=CoverAt(px,pz);
+                    float px=x+Range(-5,5),pz=z+Range(-5,5);string cover=CoverAt(px,pz);
                     if(NearLine(px,pz,4))continue;
                     float grouping=Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);
-                    if(cover=="woodland" && !(grouping<.36f&&random.NextDouble()<.82))
+                    if(cover=="woodland")
                     {
-                        int species=grouping>.6f?1:random.Next(4);float scale=grouping>.54f?Range(3.0f,4.0f):Range(1.8f,2.7f);
-                        groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360))*Matrix4x4.Scale(new Vector3(Range(.85f,1.1f),1.1f,Range(.85f,1.1f))));
-                        if(random.NextDouble()<.42)shrubs.Add(PlantMatrix(bush,px+Range(-7,7),pz+Range(-7,7),Range(.35f,.7f),Range(0,360)));
+                        // Smaller edge trees step up into overlapping mature crowns. Broad gaps stay legible.
+                        bool edge=CoverAt(px-18,pz)!="woodland"||CoverAt(px+18,pz)!="woodland"||CoverAt(px,pz-18)!="woodland"||CoverAt(px,pz+18)!="woodland";
+                        float cohort=Mathf.PerlinNoise((px+820)*.008f,(pz+430)*.008f);
+                        bool clearing=grouping<.34f;
+                        if(!clearing||random.NextDouble()<.12)
+                        {
+                            int species=cohort>.64f?3:cohort<.40f?0:random.NextDouble()<.75?2:1;
+                            float scale=edge?Range(1.15f,1.8f):Range(1.8f,2.7f);
+                            if(clearing)scale*=.65f;
+                            groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360)));
+                        }
+                        if(edge||clearing)
+                        {
+                            int count=edge?4:2;
+                            for(int n=0;n<count;n++)
+                            {
+                                float sx=px+Range(-9,9),sz=pz+Range(-9,9);
+                                if(CoverAt(sx,sz)!="woodland"||NearLine(sx,sz,4))continue;
+                                shrubs.Add(PlantMatrix(bush,sx,sz,Range(.25f,.55f),Range(0,360)));
+                            }
+                        }
                     }
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
                     {

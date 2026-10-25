@@ -1,6 +1,6 @@
 # Visual rebuild worktree handoff
 
-The committed study20 checkpoint is `4d4dff8`, based on study19b `3684a40`. Current candidate21d is Chrome verified, with source/evidence in this worktree; no art or performance acceptance. Local preview http://127.0.0.1:49658/ serves exact study21d export `b8d6811bc45a4235aeb5c43fc6c6dde6`. This remains separate from annual integration.
+Latest candidate22 is Chrome verified, with source/evidence in this worktree; no art acceptance. Prior recoverable commits: study19b `3684a40`, study20 `4d4dff8`, study21d `d6c9f05`. Local preview http://127.0.0.1:49658/ serves study22 export `742e013349ee400799bb946038782792`. This remains separate from annual integration.
 
 Active visual work now lives at `/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra`, branch `codex/visual-study20`. The primary checkout received gameplay merges during the visual run; do not reset or overwrite those changes. Drive only this worktree's own Editor for subsequent visual experiments, using explicit `--project-path`.
 
@@ -18,3 +18,8 @@ Study20 captures and runtime evidence are in the visual-rebuild ledger. Terrain-
 Study21d integration: `LandscapeRenderer.Channels.cs` adds illustrative low bank masses; `InstancedNature.cs` supports the dedicated groundcover material and distance submission cutoff. Include `Resources/TerraGroundcover.shader` and **`Resources/Nature/Groundcover.mat` with instancing enabled** plus their metas. Runtime shader swapping alone caused stripped instancing in21b; the serialized material corrected it in21c/21d. Keep the shared camera/display-ratio hooks above. Do not remove the serialized material as unused. Existing artist mesh/texture files are unchanged.
 
 Study21d: Restore/undo verified, p95=48ms fails at3440×1352 CSS/buffer; no error-level messages returned. Captures and failures retained in ledger. Next change canopy/woodland composition materially; bank-only refinements have not solved the dominant visual gap. Incidental PC_RPAsset prefilter changes and missing DOTween mdb metas are not visual source edits.
+
+
+Study22 integration: include `Art/ErceTrees/` and SOURCE.md, `Resources/Nature/ErceTree01/02/03/05.prefab`, corresponding serialized `ErceCrown*.mat`, `ErceT_Trunk.mat`, `Resources/TerraArtistLeaves.shader` and all metas with `LandscapeRenderer.cs`. Source models/textures are unchanged; wrappers normalize to8m and shader uses per-mesh crown bounds for volume normals. Do not drop serialized instancing-enabled materials. Distribution permission is creator project-use language, not a CC0 declaration. KayKit imports were rejected and removed; only research archive/evidence remains.
+
+Chrome22 opening/close/overview and Restore/undo verified. One30s foreground moving/placement route p95=18ms,p99=18ms,max26ms,zero frames>33ms; full suite pending. Source vegetation grid changes meadow scatter too, so the visual comparison is not isolated to tree assets. No error-level messages returned; historical early-input issue untriaged. Broad meadows, fields and treatment boundaries still fail art acceptance. Next change ground/field construction materially, not canopy tint. No image generation or purchases. Incidental PC_RPAsset prefilters and deleted DOTween mdb metas excluded.
