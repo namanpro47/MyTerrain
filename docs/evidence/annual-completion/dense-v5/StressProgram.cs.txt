@@ -1,0 +1,70 @@
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using Terra.Core;
+using Terra.Contracts;
+
+var options=new JsonSerializerOptions{IncludeFields=true,WriteIndented=true};
+int checks=0;
+void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
+T Read<T>(string path)=>JsonSerializer.Deserialize<T>(File.ReadAllText(path),options);
+var yaml=File.ReadAllText("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
+BuildActionRule[] Actions()=>Regex.Split(yaml,"  - actionId: ").Skip(1).Select(part=>{
+ string art=part.Split('\n')[0].Trim();string id=art switch {"cultivation"=>"cultivate-standard","living-margin"=>"cultivate-margin","ground-cover-restoration"=>"restore-grass","vegetated-swale"=>"water-swale",_=>art};
+ var dim=Regex.Match(part,@"siteSizeMetres: \{x: ([\d.]+), y: ([\d.]+)\}");
+ string category=new[]{"cultivate-standard","cultivate-margin","cover-crop","conservation-rotation"}.Contains(id)?"Farming":id.Contains("housing")?"Residential":id=="public-park"||id=="village-center"?"Community":id=="restore-grass"||id=="stewardship-agreement"?"Nature":"Utilities";
+ return new BuildActionRule{id=id,artId=art,title=Regex.Match(part,"title: (.+)").Groups[1].Value.Trim(),category=category,width=float.Parse(dim.Groups[1].Value,System.Globalization.CultureInfo.InvariantCulture),depth=float.Parse(dim.Groups[2].Value,System.Globalization.CultureInfo.InvariantCulture),landscape=part.Contains("landscapeSample: 1"),cost=30};
+}).ToArray();
+
+
+
+var routes=new List<object>();
+foreach(var location in LocationProfile.All)
+{
+ string pack=location.PackId, root="worlds/"+pack+"/";
+ var world=Read<WorldData>(root+"world.json");var scenario=Read<Scenario>(root+"scenario.json");var hydro=Read<RunoffConfiguration>(root+"hydrology.json");
+ UniformParcels.Apply(world,hydro,Read<UniformParcelPack>("Assets/Terra/Resources/Parcels/"+pack+".json"),pack);
+ var rules=new BuildActionRules(world,Actions());rules.ExpandOffers(world,scenario);
+ var d=AnnualPlayerRules.Create(FullAnnualGameplay.Create(world,scenario,pack,rules,new LandscapeRunoff(world,scenario,hydro)),pack,"phase5-dense-v5-20261025");
+ var pools=d.actions.Where(a=>a.actionId!=AnnualPlayerRules.CancelAction).GroupBy(a=>a.services.familyId)
+   .Select(g=>new{name=g.Key,ids=g.Select(a=>a.actionId).Distinct().OrderBy(x=>x).ToArray()}).ToList();
+ pools.Add(new{name="all-regenerative-variants",ids=new[]{"cultivate-margin","cover-crop","conservation-rotation"}});
+ foreach(var pool in pools)
+ {
+  var town=new AnnualTown(d,"dense-v5-family/"+pack+"/"+pool.name);var years=new List<object>();
+  var candidates=d.actions.Where(a=>pool.ids.Contains(a.actionId)).OrderBy(a=>a.siteId,StringComparer.Ordinal).ThenBy(a=>a.actionId,StringComparer.Ordinal).ToArray();
+  for(int year=1;year<=10;year++)
+  {
+   if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+   var occupied=town.Assets.Select(a=>a.siteId).ToHashSet();
+   if(town.CashCents<0)
+   {
+    var unoccupied=candidates.FirstOrDefault(a=>!occupied.Contains(a.siteId));
+    if(unoccupied!=null)
+    {
+     bool rejected=false;try{town.QueueAction(unoccupied.siteId,unoccupied.actionId,town.Revision);}catch(InvalidOperationException){rejected=true;}
+     Check(rejected&&town.Queue.Length==0,"Debt must block new construction without mutation");
+    }
+   }
+   else foreach(var offer in candidates)
+   {
+    if(occupied.Contains(offer.siteId))continue;
+    if(town.Preview(offer.siteId,offer.actionId)<0)continue;
+    town.QueueAction(offer.siteId,offer.actionId,town.Revision);occupied.Add(offer.siteId);
+   }
+   var commands=town.Queue.Select(q=>new{q.siteId,q.actionId}).ToArray();
+   var r=AnnualTownDemo.Advance(town,town.RunId+"/year"+year,new AuthoredAnnualConsequenceProvider());var l=r.ledger;
+   Check(l.openingCashCents+l.capitalRefundCents+l.appropriationCents+l.publicReceiptsCents-l.upfrontPaidCents-l.programPaidCents-l.operatingPaidCents-l.repairPaidCents-l.arrearsPaidCents==l.closingCashCents,"Exact ledger under repeated family");
+   Check(town.Assets.Select(a=>a.siteId).Distinct().Count()==town.Assets.Length,"No duplicated occupied site");
+   Check(town.ArrearsCents==0,"V5 debt must remain signed cash");
+   var e=r.outcomes;Check(e.economicScore>=0&&e.economicScore<=100&&e.socialScore>=0&&e.socialScore<=100&&e.environmentalScore>=-100&&e.environmentalScore<=100,"V5 score bounds");
+   years.Add(new{year,commands,town.CashCents,town.CommittedCents,scores=new[]{e.economicScore,e.socialScore,e.environmentalScore}});
+  }
+  var last=town.History.Last().outcomes;var scores=new[]{last.economicScore,last.socialScore,last.environmentalScore};
+  int targetsMet=(scores[0]>=75?1:0)+(scores[1]>=75?1:0)+(scores[2]>=60?1:0);
+  var restored=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(town.Snapshot(),options),options));
+  Check(TownCopies.Hash(restored.Snapshot())==TownCopies.Hash(town.Snapshot()),"Repeated-family full history restores exactly");
+  routes.Add(new{pack,family=pool.name,order="site-id then action-id",d.playerRules.scenarioSeed,town.DefinitionHash,projects=town.Assets.Length,scores,targetsMet,financiallyViable=town.CashCents>=0,years});
+  Console.WriteLine(pack+" "+pool.name+": "+targetsMet+" targets; "+town.Assets.Length+" projects");
+ }
+}
+File.WriteAllText("stress.json",JsonSerializer.Serialize(new{checks,source="e74496bf55ffa77427be69dcb221bb3bd70f3b41",scope="Normal-budget v5 repeated-family sweeps; bounded fixed ordering and seed, not global optimality",routes},options));

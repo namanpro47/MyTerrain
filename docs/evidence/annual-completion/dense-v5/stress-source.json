@@ -1,0 +1,346 @@
+{
+  "source": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "programSha256": "9115d8ac27fd4280caeb0ac4447f0de12f02966ee309bad15a2b60e5fc778fb4",
+  "files": [
+    {
+      "path": "Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset",
+      "bytes": 10402,
+      "sha256": "6080ff857914136ac9588eea100c6f775a84d9703818aab100302fabe3231a3a"
+    },
+    {
+      "path": "Assets/Terra/Resources/Parcels/meadowbrook-v1.json",
+      "bytes": 64763,
+      "sha256": "d848f6f30cefd4f12288da86925ba21c9cd6eee34963104919eef6d03270eb98"
+    },
+    {
+      "path": "Assets/Terra/Resources/Parcels/point-reyes-v1.json",
+      "bytes": 495008,
+      "sha256": "2debf528f598d1c1b3a693b822836c76717e873227695075d980fb03357ffb5e"
+    },
+    {
+      "path": "Assets/Terra/Resources/Parcels/suusamyr-v1.json",
+      "bytes": 536399,
+      "sha256": "eddfaa1860ae094666da6c4ad3ae922b81534b90e9a6d25824e82db3bc9845ab"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualChapterContracts.cs",
+      "bytes": 1567,
+      "sha256": "50b7b6febe737f2ebd67f75fde7754a88a6927f4d87baf3a76800e23761c86e9"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualNumericRunDirectoryContracts.cs",
+      "bytes": 1072,
+      "sha256": "eb19a3e56d08f22aade9ad5f239074e541b565641c9339821ada0f06c429cc92"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualNumericSaveContracts.cs",
+      "bytes": 700,
+      "sha256": "8b221ae068708cf942ca5a956484c835ae5bbd76e9161daa2f1f9ee9f75f4eb9"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualPlayerRuleContracts.cs",
+      "bytes": 719,
+      "sha256": "e6ef46a36bf38937398d17c203d7b48e633c373cf18a479858ef98931837aa12"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs",
+      "bytes": 7521,
+      "sha256": "18115f41992f767b3bf823b7c42cc67acdc021ac9e9622fcf4d55617de4feda0"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs",
+      "bytes": 8061,
+      "sha256": "8660a408df232b13a1b7574c1c8d1f94442bd70eb2277196c9eeb243c7e9c201"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/PackValidator.cs",
+      "bytes": 8084,
+      "sha256": "b0be4f0d6fcb7bbfe5511fc3785130fd28571cde1846c0de28332929288b2688"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/ReportNarrationContracts.cs",
+      "bytes": 1246,
+      "sha256": "1e44911e60fa24cda516cadb3d7153e09f18aab88eeec0de96799d49f5e6fb05"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/WorldContracts.cs",
+      "bytes": 4719,
+      "sha256": "880657aca4d0a444fac3fc8e143d86e52bac518016e80a748634d96610631aeb"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/ActionProfiles.cs",
+      "bytes": 2351,
+      "sha256": "51e614a2b41d0625841ea66678eee0f03acc5e7b511f197f844a8683f90ed14b"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualChapterNarrative.cs",
+      "bytes": 9902,
+      "sha256": "f69950d7a4bed8fe4f89b4f0c784e37591c110a5cfd56f800ca0ae5f892d9239"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualChapters.cs",
+      "bytes": 12276,
+      "sha256": "621ab125dd1982ad64e8aea643d4abe5810f2c23e5393627f2d59eedf3567d06"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualEconomy.cs",
+      "bytes": 12508,
+      "sha256": "07a48cc8fa49cddada6dc1d71c2524248848237083ad2bb461a19960744fde09"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualFeedback.cs",
+      "bytes": 5359,
+      "sha256": "40227942aabe7537d13811ee7e4a2ffa0c90420d42834078fa3f2c2e31456f55"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualGameplay.cs",
+      "bytes": 6754,
+      "sha256": "3eb5942d563fd9e02c77b5f8fe6a445157c581a46c6b906eab1c9ce617812d11"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualHighlights.cs",
+      "bytes": 2789,
+      "sha256": "ad563ce5aca937ca38d39906c20862ed253e54cfed3ecbc32830a3684fcc8a46"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualNumericRunDirectoryTransactions.cs",
+      "bytes": 14288,
+      "sha256": "50fef26e6e5738b16cd9822a452ec55d09118a7194f0abf8fe5c67abec1b1424"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualNumericTransactions.cs",
+      "bytes": 18198,
+      "sha256": "158aa7fa9b6d8ee88d7df0585317cf039bbfaa398e877f63eacde27eb2ad6c04"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs",
+      "bytes": 6831,
+      "sha256": "a5444a0c86d7f593e245abdf7515ee5456ff42fa63d89b291b346f7d9be033bd"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualPlayerRules.cs",
+      "bytes": 8796,
+      "sha256": "a47ffe7f5818978762187107fac17402a0dbf66a66a16e6e6df2eb35adad1bc4"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualReportProjection.cs",
+      "bytes": 26797,
+      "sha256": "8966a8c0800a9b09dd7d111c275b1f7037be5d8398cc5acf2063928db80b45dc"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulation.cs",
+      "bytes": 23830,
+      "sha256": "39f6504e302735d9183845683706a9ee9cc9ab5d71605d3de6c0bdf15ecf6820"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulationFactory.cs",
+      "bytes": 8519,
+      "sha256": "bca1646772eac59a0c36e8b068860d798fdada4c472f09d4b8f2e390a47e585f"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSimulationWeather.cs",
+      "bytes": 9622,
+      "sha256": "9ddf37af00b2b2d949c0592d80aadceed4c7c9450e6f05ced9792412382b5373"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSpatialOpportunities.cs",
+      "bytes": 3743,
+      "sha256": "63e535bc4699de26607a8bf964c5189fd427bc8f8495587acaf395c9195dcf6b"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTown.PlayerRules.cs",
+      "bytes": 2509,
+      "sha256": "f322c8af023661d8003371988e1722ee5835479101736d7ca67fea2a7bee721a"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs",
+      "bytes": 19778,
+      "sha256": "6e0019257d60eb7c64a9ab74077dc15023c03c940ca35b706325cffacdc5a159"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTown.cs",
+      "bytes": 43843,
+      "sha256": "058d26ce44515b7434b27b8b05e7c4e4bd074fe9e53fbb81e6c4863894818f4c"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTownDemo.cs",
+      "bytes": 6383,
+      "sha256": "8240029c8c0a32ebac8095550c38cc74c3f590ab0da62e1b9ff7662bd83e1f0d"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTownSummary.cs",
+      "bytes": 6102,
+      "sha256": "98306692538a132b30249dadb6e4c756a9c9b988b678c20d80cb75efb594301a"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/BuildActionRules.cs",
+      "bytes": 8777,
+      "sha256": "95096c19e1248793fbf4da503951fbbf1ae1bc57e2d884a8afd28dbba257cba8"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/FullAnnualGameplay.cs",
+      "bytes": 10915,
+      "sha256": "8eea8d41f2b3e9791e61633fa3a84c46fd588295067303b5d47b0b3dc3430b26"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/LandscapeRunoff.cs",
+      "bytes": 9308,
+      "sha256": "3a4ae18daeafc80931cd3a4791d0e7b751d5bc4be767139b589199008a2013ab"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/LocationProfile.cs",
+      "bytes": 1512,
+      "sha256": "776600bc6901f07cc4d362014fc4f2356a2df963ebeeebd0463993395e60c79c"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/ReportNarration.cs",
+      "bytes": 12478,
+      "sha256": "c905e4d07836d309b0a17496a9512ae4dcd9c8c596f7149f7d968597af798080"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/StartingSettlement.cs",
+      "bytes": 247,
+      "sha256": "fea24d386ea4746fe9d21b5d35182fa72d66ee8227040570ca7f66cf18a836a0"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/TownCopies.cs",
+      "bytes": 9867,
+      "sha256": "91dea6f741040385319608bac0d10b662c286778c336ffbc01283e0f2ff4c50e"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/UniformParcels.cs",
+      "bytes": 3609,
+      "sha256": "ed89407eccbc2c5f5f88f1a15dd89c192647bc2eba40b056099849f1d9e03743"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/WorldStateStore.cs",
+      "bytes": 7027,
+      "sha256": "2794281da2f75ff601200e280d5ec0f378000198582c9c32d5194b96dd723f3c"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Simulation/CurveNumberMixture.cs",
+      "bytes": 1907,
+      "sha256": "f1466fb4ce0f417495d50089c44f3d4bf3121de80260f57982b2cf813f46ef2e"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Simulation/RunoffEvaluator.cs",
+      "bytes": 7796,
+      "sha256": "cc2e277206e6adbbd97f1b112c39882cb1a14f76149c099689feb467f02963ac"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/checksums.json",
+      "bytes": 911,
+      "sha256": "c4354996aad9d3bcc9ef03909c8845c4bc1f7059990c126474f265d1a945f00c"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/control-points.json",
+      "bytes": 443,
+      "sha256": "b857bfdd0beebd92f3deb32df0ad542a00daf5917902d6f91daece416e2102b7"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/cover-classes.json",
+      "bytes": 34783,
+      "sha256": "16139b83f25c34ff89e24687a48ede3eea4d11d05d11ea0b41e5de730d75e2f2"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/provenance.json",
+      "bytes": 8151,
+      "sha256": "d81d8bf4dc2367a092815a55e4043fb0e5961b7de37aaee12461e8a732061b3e"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/scenario.seed.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/site-clearances.json",
+      "bytes": 2690,
+      "sha256": "733865a6b49ac750cd2d37975d743a70e910e08ca79a84c2fe31e93c889dd0c5"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/source-features.json",
+      "bytes": 20320,
+      "sha256": "5176cae348643513e23e06ae756a55dd20a5ea2a5ff8d9a6ab8118ed92152c0f"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "worlds/point-reyes-v1/checksums.json",
+      "bytes": 438,
+      "sha256": "6361e8fdba9b54871d101489e83c33ef0afc3570c2a5f7672a3e8758655a59ea"
+    },
+    {
+      "path": "worlds/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+    },
+    {
+      "path": "worlds/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+    },
+    {
+      "path": "worlds/point-reyes-v1/provenance.json",
+      "bytes": 1511,
+      "sha256": "e9ea470ac41eda4c015799e5eeb39ff4b73b47dcdcf137821d98d8b35b0c569c"
+    },
+    {
+      "path": "worlds/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+    },
+    {
+      "path": "worlds/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+    },
+    {
+      "path": "worlds/suusamyr-v1/checksums.json",
+      "bytes": 438,
+      "sha256": "a6e986961e4bfe93d454b30e60445e40b18df912354bd95f84dd40c38a052b1d"
+    },
+    {
+      "path": "worlds/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+    },
+    {
+      "path": "worlds/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+    },
+    {
+      "path": "worlds/suusamyr-v1/provenance.json",
+      "bytes": 1518,
+      "sha256": "edd123763fca0eef114924460a418fbf0d9d189398b2447a903c43d844665047"
+    },
+    {
+      "path": "worlds/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+    },
+    {
+      "path": "worlds/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+    }
+  ]
+}
