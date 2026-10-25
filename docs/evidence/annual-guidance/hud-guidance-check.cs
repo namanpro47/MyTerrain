@@ -57,6 +57,14 @@ try
                 Check(label.preferredWidth>0&&label.preferredHeight>0&&label.preferredWidth<=label.rectTransform.rect.width+.1f&&label.preferredHeight<=label.rectTransform.rect.height+.1f,
                     "Hint overflow: "+message+" at "+size+" larger="+large+" needs "+label.preferredWidth+"x"+label.preferredHeight);
             }
+            foreach(var action in rules.actions)
+            {
+                hud.Selected(action.id);hud.BuildAvailability(definition.actions.Count(a=>a.actionId==action.id));
+                label.ForceMeshUpdate(true,true);
+                Check(label.preferredWidth>0&&label.preferredHeight>0&&label.preferredWidth<=label.rectTransform.rect.width+.1f&&label.preferredHeight<=label.rectTransform.rect.height+.1f,
+                    "Selected project summary overflow: "+label.text+" at "+size+" larger="+large);
+            }
+            hud.Selected(null);hud.BuildAvailability(null);
         }
     }
     Check(session.ExportSave()==saved,"Disposable HUD test changed live saved state");
