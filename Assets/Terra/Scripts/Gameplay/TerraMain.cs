@@ -65,7 +65,7 @@ namespace Terra.Gameplay
                 buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);
             }
             catch(Exception e){Error(e.Message);yield break;}
-            world=w;scenario=s;ConfigureWaterRendering();
+            world=w;scenario=s;
             try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);}
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);

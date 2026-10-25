@@ -126,9 +126,8 @@ namespace Terra.Rendering
             }
             if(streamMaterial==null)
             {
-                // Authored optical surface over the existing illustrative channel bed.
-                // Its motion clock is driven by Tick so reduced motion also freezes refraction.
-                streamMaterial=new Material(Resources.Load<Material>("Water/TerraStream"));
+                streamMaterial=new Material(Resources.Load<Shader>("TerraWater"));streamMaterial.SetFloat("_NaturalBanks",1);
+                streamMaterial.SetTexture("_RiverMap",riverMask);streamMaterial.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
             }
             return streamMaterial;
         }

@@ -1,0 +1,46 @@
+{
+  "source": "68808695594cd1f0ad7a582a0b397ad88a471dcc",
+  "incomingMain": "18016cf5f67d30972a8f241087cab29a52c12611",
+  "editor": "6000.6.6f1",
+  "results": {
+    "AtlasLocationChecks": {
+      "assertions": 678,
+      "passed": true
+    },
+    "hud-reflow-check.cs": {
+      "assertions": 682,
+      "failures": [],
+      "viewports": [
+        [
+          1440,
+          900
+        ],
+        [
+          1024,
+          576
+        ],
+        [
+          1280,
+          720
+        ]
+      ],
+      "textModes": [
+        "standard",
+        "larger"
+      ]
+    },
+    "WaterRenderingChecks": {
+      "assertions": 13,
+      "passed": true
+    }
+  },
+  "playModeFrames": [
+    114,
+    1174
+  ],
+  "annualDiagnostic": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "limits": [
+    "Editor verification only; exact Chrome water export pending.",
+    "No Phase 2A or performance acceptance."
+  ]
+}
