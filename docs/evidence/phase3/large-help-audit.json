@@ -1,0 +1,205 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": true,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 272,
+        "y": 57,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Shape, compare, revise</b></size>\n\n<b>01   Choose → preview → place</b>\n1 / 2 / 3: treatments · M: living margin\nTab / Shift+Tab: inspect sites · Enter: confirm\n\n<b>02   Revise a proposal</b>\nV: move · Delete: remove · X: clear proposals\nZ: undo · Y / Shift+Z: redo · Esc / right-click: cancel\n\n<b>03   Explore the valley</b>\nDrag / arrows: pan · Scroll / + / −: zoom · F: focus\nR: valley view · G: field guide\n\nProduction units and credits are illustrative; runoff is not modeled.",
+      "rect": {
+        "x": 272,
+        "y": 96,
+        "width": 736,
+        "height": 440
+      },
+      "bodyCssPx": 22.399999618530273,
+      "minGlyphCssPx": 22.399999618530273,
+      "preferredHeight": 395.6499938964844,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 498,
+        "y": 609,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 19.040000915527344,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Motion: reduced",
+      "rect": {
+        "x": 280,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Sound: on",
+      "rect": {
+        "x": 531,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Text: larger",
+      "rect": {
+        "x": 782,
+        "y": 545,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 490,
+        "y": 607,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Motion: full",
+      "enabled": true,
+      "rect": {
+        "x": 272,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Sound: on",
+      "enabled": true,
+      "rect": {
+        "x": 523,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Text: standard",
+      "enabled": true,
+      "rect": {
+        "x": 774,
+        "y": 543,
+        "width": 234,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 856,
+      "y": 24,
+      "width": 400,
+      "height": 94
+    },
+    {
+      "x": 278,
+      "y": 588,
+      "width": 724,
+      "height": 112
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 644,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 644,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 580,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 516,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 452,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 240,
+      "y": 35,
+      "width": 800,
+      "height": 650
+    }
+  ]
+}

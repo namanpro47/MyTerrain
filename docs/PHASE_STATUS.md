@@ -2,9 +2,9 @@
 
 **Browser preference — October 24, 2026:** The user confirmed Chrome is sufficient throughout this project. Use Chrome for current and future phase acceptance; do not launch or retest Safari or request Private Browsing unlocks unless explicitly asked. Phase 2 Safari retesting was waived. Earlier Chrome/Safari records below remain historical evidence, not recurring requirements.
 
-**Last updated:** October 24, 2026, Phase 2 complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+**Last updated:** October 24, 2026, isolated Phase 3 editing implementation complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is now in progress under its separately activated goal; phases 3–8 remain planned.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is in progress under its separate goal. Phase 3 editing is implemented and verified in an isolated worktree by explicit user exception; integration and visual/performance acceptance remain pending. Phases 4–8 remain planned.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
@@ -12,7 +12,7 @@
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
 | 2 — One real rural landscape | Gate passed | Real pack/provenance, 34 geography + 139 Unity checks, 12 sites, Chrome state matrix and measured public performance; [audit](PHASE_2_AUDIT.md) |
 | **2A — Visual rebuild from first principles** | **Visual reset; current direction rejected** | [Rewritten goal](PHASE_2A_GOAL.md), [visual studies and resources](VISUAL_REBUILD.md), [persistent reference](DESIGN_REFERENCE.md); requires rebuilt scenery, matched browser comparisons, every visual category ≥4.5/5, and supporting delivery checks |
-| 3 — Editing | Planned | Full reversible edit path required |
+| 3 — Editing | Isolated implementation complete | 1,924 Unity checks and Chrome editing matrix pass; [audit](PHASE_3_AUDIT.md). Integrate with Phase 2A and recheck visuals/performance; human usability remains unverified. |
 | 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
 | 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
 | 6 — Ending | Planned | Comparison/learning/continue loop required |
@@ -23,7 +23,7 @@
 
 The user explicitly clarified this chat's goal to **Phase 3 editing alongside the other worker's Phase 2A rebuild**, in a separate worktree. Branch `codex/phase3-editing` starts at `08092a1`. This is an authorized ordering exception for the editing slice, not Phase 2A visual acceptance or permission to begin Phase 4. The original checkout, other worker's uncommitted changes, and production deployment remain outside this worktree's mutations.
 
-Transaction implementation is complete; browser verification is in progress. The new checks pass alongside the existing Phase 1/2 suites. [Integration handoff](PHASE_3_HANDOFF.md) records the narrow hooks to carry into the rebuilt presentation. Phase 2A visuals and external novice usability remain unverified by this work.
+Transaction implementation and final Chrome verification are complete. All 1,924 Unity checks and 34 geography checks pass; browser coverage includes move/replace/remove/clear, history, invalid actions, pointer capture, larger text and both target viewports. The 9.75 FPS sample is below target and is explicitly not performance acceptance; [full audit](PHASE_3_AUDIT.md). [Integration handoff](PHASE_3_HANDOFF.md) records the narrow hooks to carry into the rebuilt presentation. Phase 2A visuals and external novice usability remain unverified by this work.
 
 ## Hosting refresh — October 24, 2026
 
@@ -33,11 +33,11 @@ All 11 checked files returned HTTP 200 and matched the local export, including g
 
 ## Current handoff
 
-- **Next action:** rebuild Phase 2A visuals from first principles; compare new scene/camera/asset studies before refining the interface. Phase 3 is not authorized.
-- **Goal outcome:** Phases 0–2 complete. Phase 2A implementation is in progress; later phases have not started.
+- **Next action:** complete the separate Phase 2A visual rebuild, integrate the isolated Phase 3 editing hooks, and verify the combined browser result against the visual and performance gates.
+- **Goal outcome:** Phases 0–2 complete. Phase 2A is in progress. Phase 3 editing implementation is complete in `codex/phase3-editing`; combined presentation acceptance remains pending. Phases 4–8 have not started.
 - **Parallel packages:** package A geography work was completed locally by the primary engineer for Phase 2; none delegated.
 - **Phase 2 result:** real `meadowbrook-v1` pack ingested; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Final Chrome reviews at 1280×720 and 1440×900, transformations/rejections/undo, source panel, recovery and measured performance pass. [Geography](geography.md), [requirement-by-requirement audit](PHASE_2_AUDIT.md).
-- **Latest verified build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
+- **Historical Phase 2 public build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
