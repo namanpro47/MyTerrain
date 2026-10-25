@@ -2,6 +2,8 @@
 
 **Integration update:** Peter authorized coordination with the parcel chat. Both real source readers are now corrected in the combined parcel/HUD candidate: WorldAtlas from `4c54ece`, plus the applied `landscape.patch`. Unity's bundled Roslyn compiles the actual combined runtime sources using this worktree's current `2000b0aE` Editor response file, with no errors and one existing obsolete-object-lookup warning. The older `1900` response is not the combined verification input. `combined-compile.json` records the exact source hashes. The WebGL input branches are excluded from these changes; the existing browser preview remains applicable to the map feature. Physical trackpad feel and updating Peter's separate open checkout are not claimed.
 
+**Open-project handoff:** Peter separately authorized the trackpad chat to apply only the two input-reader corrections to `C:/Users/Peter/Terra-Unity` and said he will test the feel himself. That chat completed the narrow edits under editor reservation 25 and reported a pinned automatic recompile with zero errors/warnings, preserving pre-existing dirty files. A subsequent read of both source readers confirms the corrected expressions are present there. This does not claim a physical gesture test or a broader sync of the map feature into that checkout.
+
 Base: refreshed `origin/main` at `13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c`.
 User reports two-finger trackpad zoom barely changing the running game's view.
 The open Editor is Unity 6000.6.6f1, project `C:/Users/Peter/Terra-Unity`.
@@ -39,11 +41,11 @@ needed for this Editor report. Design reference: AX-01 (accessible input).
   resolve into this isolated worktree; TerraMain.cs resolves to a temporary
   copy under `Logs/TrackpadZoom` containing the prepared correction.
   One existing obsolete FindFirstObjectByType warning; no errors.
-- No Editor session, synthetic scroll event, physical trackpad test, WebGL
-  build, browser check or deployment was performed. The currently open
-  project is unchanged and still has its original slow zoom.
+- The original preparation stage did not use an Editor session, synthetic
+  scroll event, physical trackpad test, WebGL build, browser check or deployment.
+  The later open-project application is recorded in the handoff above.
 
-After ownership is resolved, apply the landscape patch, repeat compilation
-against the actual candidate, and integrate through the repository's queue.
+The landscape patch is applied and actual combined-source compilation passes.
+Main delivery follows the repository's integration queue.
 Physical two-finger scroll feel still needs Peter's test in the updated
 Editor project. Do not present the temporary compile as a live input test.
