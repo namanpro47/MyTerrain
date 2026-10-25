@@ -1,6 +1,6 @@
 # Study36 — broad grass stands across mapped grassland
 
-Patterns TN-02/09/10/12. [Reference](../../../DESIGN_REFERENCE.md), [visual goal](../../../PHASE_2A_GOAL.md). Candidate implementation; no Chrome or visual-gate acceptance yet.
+Patterns TN-02/09/10/12. [Reference](../../../DESIGN_REFERENCE.md), [visual goal](../../../PHASE_2A_GOAL.md). Candidate implementation; Chrome diagnostic completed below, visual and full performance gates unaccepted.
 
 ## Visible change
 
@@ -27,3 +27,15 @@ Own Play was stopped, AssetDatabase synchronously refreshed while stopped, and t
 [209 existing lifecycle assertions](study36-annual-check.json) passed across8 vegetated agreements and9 remaining-cover building variants, preserving original source material colors, alpha, idempotence, the annual ledger and analytical terrain. The [replay](study36-annual-check.cs.txt) only changes the original fixture's material filter from HasProperty to HasColor because the native bark shader also has a texture named `_BaseColor`. These are state/material checks, not pixel-color acceptance. The updated grass shader reports no shader messages. Current Editor console had zero errors/warnings after the fresh full candidate and checks. Own Play is stopped and its background override restored.
 
 The browser must verify this full source, at normal/close/overview and proposed/established states, before any claim of improvement or performance acceptance. Study34b remains the last verified browser export until that succeeds.
+
+## Actual Chrome checkpoint
+
+Source `a54d2fe` exported successfully in269,276ms. [Exact served bytes](study36-served-assets.json), [build inputs and capture hashes](study36-build.json), [browser logs](study36-browser-log.json). Nine local export files matched their served bytes. Chrome CSS/canvas1280×720, visible, zero unfocused frames.
+
+[Opening](study36-chrome-opening.png), [close forest](study36-chrome-close.png), [overview](study36-chrome-overview.png) and [proposed restoration](study36-chrome-queued.png). Larger baseline patches reduce the flat empty surface in the opening, but the fine grass reads as noise, patch borders remain conspicuous and the overview still flattens to a schematic surface. Repeated crowns and exposed forest floor remain. No dimension reaches the reference bar.
+
+One30.017s foreground route:46.34FPS average, p50=20ms, p95=32ms, p99=40ms, max52ms;1391frames,57over33ms, zero over200ms, zero unfocused. Five previews, one placement,392camera events; max previewCPU6.1ms and placementCPU19.6ms. This is materially slower than the prior34b route (59.94FPS), although the two interactive routes are diagnostics rather than a controlled GPU attribution benchmark. Own Unity Play/build were stopped; another project Editor could be active. No error-level browser logs. Full three-path performance acceptance is not claimed.
+
+Queue/undo changed Year1Planning revision5/queued1 to revision6/queued0; cash stayed1000000000cents and accepted assets0. Proposed grass is visible in the capture; established/mature pixel comparisons remain pending. No year submitted. Browser viewport restored and verification tab closed.
+
+Retain this as a recoverable working-branch checkpoint, not a main integration or art acceptance. Next address the broad grass layer's rendering cost and stronger coherent ground/forest forms; avoid further density/tint changes without a clear construction hypothesis.

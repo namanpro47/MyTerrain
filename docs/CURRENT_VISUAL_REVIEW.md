@@ -1,14 +1,20 @@
 # Current visual review — Phase 2A remains open
 
-**New source candidate:** [Study36 broad grass stands](evidence/phase2a/visual-rebuild/study36-findings.md) now adds a full-location lower vegetation layer and honors grass RGB/status tint. Editor compilation and209 lifecycle assertions pass; browser visual/performance verification is pending. The visible Chrome evidence below remains study34b.
+**Latest checkpoint: study36, not accepted.** [Broad grassland findings](evidence/phase2a/visual-rebuild/study36-findings.md) and [exact export/Chrome evidence](evidence/phase2a/visual-rebuild/study36-build.json) now cover source `a54d2fe`, including main through `a686a5b`. Opening, close and overview captures show larger grass patches, but coarse repetition, weak transitions and forest-floor gaps remain. One foreground 1280×720 route averaged **46.34 FPS**, p95 **32ms**, p99 **40ms**, with no error-level logs; queue/undo preserved cash. This is slower than study34b and is retained on the working branch for revision, not ready for main. Compilation and209 lifecycle assertions pass; established/mature grass shader colors and full performance acceptance remain pending. Phase 2A stays open. Free resources only; no image generation.
 
-**Visual checkpoint: study34b, still unaccepted.** Corrected forest export `f88b6f6` passed exact local byte verification at **47.8 MB**. One foreground Chrome route measured **19ms p95/p99**; queue/undo preserved cash, with no error-level browser logs. Distant foliage is recovered, but overview repetition, bare lower layers and the broad flat grass surface remain substantial gaps. [Actual Chrome evidence](evidence/phase2a/visual-rebuild/study34b-build.json) · [rejected understory/material/composition trials and next direction](evidence/phase2a/visual-rebuild/study35-findings.md). Phase 2A remains open. No dimension is certified at 4.5/5; no purchase or image generation.
+**Previous checkpoint: study34b, still unaccepted.** Corrected forest export `f88b6f6` passed exact local byte verification at **47.8 MB**. One foreground Chrome route measured **19ms p95/p99**; queue/undo preserved cash, with no error-level browser logs. Distant foliage is recovered, but overview repetition, bare lower layers and the broad flat grass surface remain substantial gaps. [Actual Chrome evidence](evidence/phase2a/visual-rebuild/study34b-build.json) · [rejected understory/material/composition trials and next direction](evidence/phase2a/visual-rebuild/study35-findings.md). Phase 2A remains open. No dimension is certified at 4.5/5; no purchase or image generation.
 
 **Current main update:** Peter’s synchronization through `de7f83b` includes the study32 perspective opening and calibrated full-project Focus. Its [actual Chrome opening](evidence/peter-sync/opening.png), [village focus](evidence/peter-sync/village-focus.png) and [verification](evidence/peter-sync/README.md) supersede study31b for the current opening camera. The study31b comparisons below remain historical material/vegetation evidence. Neither integration closes the six-dimension visual gate, and the old-camera performance receipts are not measurements of the new perspective view.
 
 **Historical material candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
 
-## Current candidate: study34b
+## Latest candidate: study36
+
+![Study36 actual Chrome opening](evidence/phase2a/visual-rebuild/study36-chrome-opening.png)
+
+Grass stands now form larger patches. The extra density adds cost and does not solve the whole-scene visual gap. This remains an unfinished checkpoint.
+
+## Previous candidate: study34b
 
 ![Study34 actual Chrome opening](evidence/phase2a/visual-rebuild/study34b-chrome-opening.png)
 

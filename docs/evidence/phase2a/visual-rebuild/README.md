@@ -1,5 +1,7 @@
 # Phase 2A visual rebuild evidence
 
+Latest: [Study36 Chrome checkpoint](study36-findings.md) — broader grass stands,46.34FPS diagnostic, visual/performance gate still open.
+
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 
 Read the [operative goal](../../../PHASE_2A_GOAL.md) and [visual research](../../../VISUAL_REBUILD.md). The prior [wide](../captures/1280-default.png) and [close](../captures/1280-close.png) captures are the rejected baseline.
