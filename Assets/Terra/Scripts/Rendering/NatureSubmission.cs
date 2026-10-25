@@ -11,7 +11,7 @@ namespace Terra.Rendering
     public sealed class NatureSubmission : MonoBehaviour
     {
         const int Capacity=500;
-        const float CellSize=96;
+        const float CellSize=192;
         static NatureSubmission instance;
         readonly Dictionary<Key,int> active=new Dictionary<Key,int>();
         readonly List<Draw> pool=new List<Draw>();
@@ -20,6 +20,7 @@ namespace Terra.Rendering
         public int LastDrawCalls{get;private set;}
 #if UNITY_EDITOR
         public static bool SeparateForComparison{get;set;}
+        public static float ComparisonCellSize{get;set;}=CellSize;
 #endif
         readonly struct Key : IEquatable<Key>
         {
@@ -28,7 +29,11 @@ namespace Terra.Rendering
             public Key(RenderParams p,Mesh mesh,int submesh)
             {
                 material=p.material;this.mesh=mesh;this.submesh=submesh;shadows=p.shadowCastingMode;
-                x=Mathf.FloorToInt(p.worldBounds.center.x/CellSize);z=Mathf.FloorToInt(p.worldBounds.center.z/CellSize);
+                float cellSize=CellSize;
+#if UNITY_EDITOR
+                cellSize=ComparisonCellSize;
+#endif
+                x=Mathf.FloorToInt(p.worldBounds.center.x/cellSize);z=Mathf.FloorToInt(p.worldBounds.center.z/cellSize);
             }
             public bool Equals(Key k)=>material==k.material&&mesh==k.mesh&&submesh==k.submesh&&x==k.x&&z==k.z&&shadows==k.shadows;
             public override bool Equals(object obj)=>obj is Key k&&Equals(k);

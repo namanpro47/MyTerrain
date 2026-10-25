@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/SubmissionCells/close-192.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/SubmissionCells/close-192.png",
+        "width": 1280,
+        "height": 720,
+        "frame": 30964,
+        "cellSize": 192,
+        "source": 495,
+        "draws": 215,
+        "submitted": 616,
+        "culled": 1966
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
