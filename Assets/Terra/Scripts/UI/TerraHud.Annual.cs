@@ -14,7 +14,8 @@ namespace Terra.UI
         AnnualTownDefinition annualRules;
         TownYearOutcomes acceptedOutcomes;
         Action reviewYearShortcut,reportShortcut,futureShortcut;
-        TextMeshProUGUI annualBudget,annualYear,annualWater;
+        TextMeshProUGUI annualBudget,annualYear,annualWater,annualAvailable;
+        Transform annualIndicators,commandBar;
         TextMeshProUGUI[] annualScores=new TextMeshProUGUI[3];
         Image[] annualBars=new Image[3];
         Button endYearButton,reportButton,restartButton,futureButton,annualPrimary,annualDetails,recipeDetails;
@@ -25,22 +26,25 @@ namespace Terra.UI
         TownActionDefinition inspectedRecipe;
         Action annualPrimaryAction;
         public static string Money(long cents)=>"$"+(cents/100m).ToString("N0",System.Globalization.CultureInfo.InvariantCulture);
+        static string CompactMoney(long cents)=>cents>=100000000?"$"+(cents/100000000m).ToString("0.#")+"M":"$"+(cents/100000m).ToString("0")+"K";
         static string Signed(double n)=>n.ToString("+0.0;-0.0;0.0");
         public void ConfigureAnnual(AnnualTownDefinition definition,Action endYear,Action report,Action newRun)
         {
             annualRules=definition;reviewYearShortcut=endYear;reportShortcut=report;ConfigureAnnualCatalog();production.transform.parent.gameObject.SetActive(false);
-            var panel=Panel(root,"Annual indicators",new Vector2(1,1),new Vector2(-24,-24),new Vector2(650,94),PanelColor);
+            var panel=annualIndicators=Panel(root,"Annual indicators",new Vector2(1,1),new Vector2(-24,-24),new Vector2(650,94),PanelColor);
             for(int i=0;i<3;i++)
             {
                 string title=new[]{"ECONOMIC","SOCIAL","ENVIRONMENTAL"}[i];
-                Label(panel,title,new Vector2(0,1),new Vector2(16+i*212,-10),new Vector2(202,18),13,Soft,FontStyles.Bold);
-                annualScores[i]=Label(panel,"—",new Vector2(0,1),new Vector2(16+i*212,-31),new Vector2(200,28),20,Paper);
-                var track=Panel(panel,title+" track",new Vector2(0,0),new Vector2(16+i*212,13),new Vector2(196,7),Raised);
-                annualBars[i]=Panel(track,title+" meter",new Vector2(0,0),Vector2.zero,new Vector2(0,7),Accent).GetComponent<Image>();
+                Label(panel,title,new Vector2(0,1),new Vector2(14+i*174,-10),new Vector2(166,18),13,Soft,FontStyles.Bold);
+                annualScores[i]=Label(panel,"—",new Vector2(0,1),new Vector2(14+i*174,-31),new Vector2(166,30),24,Paper,FontStyles.Bold);
+                var track=Panel(panel,title+" track",new Vector2(0,0),new Vector2(14+i*174,13),new Vector2(154,5),Raised);
+                annualBars[i]=Panel(track,title+" meter",new Vector2(0,0),Vector2.zero,new Vector2(0,5),Accent).GetComponent<Image>();
             }
             var budget=budgetPanel=Panel(root,"Annual budget",new Vector2(0,1),new Vector2(24,-126),new Vector2(310,196),PanelColor);
             annualYear=Label(budget,"",new Vector2(0,1),new Vector2(16,-12),new Vector2(278,22),17,Accent,FontStyles.Bold);
             annualWater=Label(budget,"",new Vector2(0,1),new Vector2(16,-146),new Vector2(278,42),13,Soft);
+            annualAvailable=Label(budget,"",new Vector2(0,1),new Vector2(14,-40),new Vector2(282,38),28,Paper,FontStyles.Bold);
+            commandBar=Panel(root,"Planning controls",new Vector2(.5f,0),new Vector2(0,10),new Vector2(1248,48),Ink);commandBar.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             annualBudget=Label(budget,"",new Vector2(0,1),new Vector2(16,-40),new Vector2(278,96),16,Paper);
             budget.SetSiblingIndex(modalShade.transform.GetSiblingIndex());panel.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             endYearButton=Button(root,"Review year →",new Vector2(1,0),new Vector2(-24,148),new Vector2(148,56),endYear,16);
@@ -57,8 +61,9 @@ namespace Terra.UI
             previewBody.rectTransform.anchoredPosition=new Vector2(18,-95);
             foreach(var pair in actionButtons)
             {
-                if(!annualRules.actions.Any(a=>a.actionId==pair.Value))
-                {var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>().Last();caption.text="Recipe pending";}
+                var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==pair.Value);
+                var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>().Last();
+                caption.text=recipe==null?"—":CompactMoney(recipe.upfrontPublicCostCents);
             }
             UpdateActionSummary();
         }
@@ -122,14 +127,15 @@ namespace Terra.UI
             double[] next={forecast.economicScore,forecast.socialScore,forecast.environmentalScore};
             for(int i=0;i<3;i++)
             {
-                annualScores[i].text=values[i].ToString("0.0")+" <size=65%>/100 · "+(planning?"year-end "+next[i].ToString("0.0"):"last yr "+Signed(values[i]-before[i]))+"</size>";
-                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.96f,7);
+                annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Last year  "+Signed(values[i]-before[i]))+"</size>";
+                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.54f,5);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());
-            annualBudget.text="Cash  "+Money(state.cashCents)+"\nExisting obligations  "+Money(town.CommittedCents)+"\nQueued reserve  "+Money(town.QueuedCommitmentCents)+"\n<b>Available  "+Money(town.AvailableCents)+"</b>";
+            annualAvailable.text=Money(town.AvailableCents)+" <size=45%>available</size>";
+            annualBudget.text="Cash  "+Money(state.cashCents)+"\nCommitted  "+Money(town.CommittedCents)+"   ·   Plan  "+Money(town.QueuedCommitmentCents);
             undoButton.interactable=town.CanUndo;redoButton.interactable=town.CanRedo;resetProposalsButton.interactable=planning&&state.queue.Length>0;
             reportButton.interactable=state.history.Length>0;
-            SetButtonText(endYearButton,planning?(state.queue.Length==0?"Wait one year →":"Review year →"):state.phase==TownPhase.Resolving?"Year pending →":"Year report →");
+            SetButtonText(endYearButton,planning?(state.queue.Length==0?"End Year  →":"End Year · "+state.queue.Length+"  →"):state.phase==TownPhase.Resolving?"Year pending →":"Year report →");
             foreach(var pair in actionButtons)pair.Key.interactable=planning&&annualRules.actions.Any(a=>a.actionId==pair.Value);
             Paint();
         }
@@ -150,7 +156,7 @@ namespace Terra.UI
             previewKind.color=rejection==null?Accent:Soft;
             if(mode=="remove"||mode=="reset")previewBody.text="Release this year's reservation and restore the previous cover. Accepted projects and completed years stay in place.";
             else if(recipe!=null&&asset==null)
-                previewBody.text="<b>"+recipe.title+"</b>\n"+Money(recipe.upfrontPublicCostCents)+" upfront\n"+Money(recipe.annualPublicOperatingCents)+" / yr × "+recipe.operatingYears+"\nReserve "+Money(recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears)+"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr\n"+(recipe.services==null?Bundle(recipe):(recipe.services.occupiedAreaM2/10000).ToString("0.00")+" ha · "+recipe.services.energyDemand.ToString("0.#")+" energy / "+recipe.services.waterDemand.ToString("0.#")+" water units");
+                previewBody.text="<b>"+recipe.title+"</b>\n"+Money(recipe.upfrontPublicCostCents)+" upfront\n"+Money(recipe.annualPublicOperatingCents)+" / yr × "+recipe.operatingYears+"\nReserve "+Money(recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears)+(annualCompact?"\n":"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr\n")+(recipe.services==null?Bundle(recipe):(recipe.services.occupiedAreaM2/10000).ToString("0.00")+" ha · "+recipe.services.energyDemand.ToString("0.#")+" energy / "+recipe.services.waterDemand.ToString("0.#")+" water units");
 
             else if(asset!=null)
                 previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\n"+(state.phase==TownPhase.Completed?"Final accepted project.":"Permanent this run. Use another field.");

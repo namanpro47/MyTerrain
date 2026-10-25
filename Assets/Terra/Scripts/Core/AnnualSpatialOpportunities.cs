@@ -8,6 +8,30 @@ namespace Terra.Core
     // This is neither a surveyed parcel nor legal/engineering permission to build a turbine.
     public static class AnnualSpatialOpportunities
     {
+        public static bool Connected(WorldData world)=>world.sites.Any(s=>s.sourceId=="scenario-connected-fields-v2");
+
+        // Versioned scenario override; observed terrain/cover and the old pack stay intact.
+        // Take each expanded area out of context exactly once, by its actual source cover.
+        public static void ConnectFields(WorldData world,RunoffConfiguration runoff,Site[] replacements)
+        {
+            if(Connected(world))throw new ArgumentException("Connected fields already applied.");
+            if(replacements==null||replacements.Length!=8||replacements.Select(s=>s.id).Distinct().Count()!=8)
+                throw new ArgumentException("Eight unique connected fields are required.");
+            var delta=new System.Collections.Generic.Dictionary<string,double>();
+            foreach(var next in replacements)
+            {
+                var old=world.sites.Single(s=>s.id==next.id);
+                if(old.protectedSite||!next.id.StartsWith("south-")||next.sourceId!="scenario-connected-fields-v2")
+                    throw new ArgumentException("Only the authored southern fields can connect.");
+                foreach(var c in old.baselineCover)delta[c.coverId]=(delta.TryGetValue(c.coverId,out var n)?n:0)-old.analysisAreaM2*c.fraction;
+                foreach(var c in next.baselineCover)delta[c.coverId]=(delta.TryGetValue(c.coverId,out var n)?n:0)+next.analysisAreaM2*c.fraction;
+            }
+            foreach(var pair in delta)
+                if(runoff.context.Where(c=>c.coverId==pair.Key).Sum(c=>c.areaM2)<pair.Value)
+                    throw new ArgumentException("Connected fields exceed source context cover.");
+            foreach(var pair in delta)runoff.context.First(c=>c.coverId==pair.Key).areaM2-=(float)pair.Value;
+            foreach(var next in replacements)world.sites[Array.FindIndex(world.sites,s=>s.id==next.id)]=next;
+        }
         public static void AddWind(WorldData world, RunoffConfiguration runoff)
         {
             const string id="annual-wind-13";

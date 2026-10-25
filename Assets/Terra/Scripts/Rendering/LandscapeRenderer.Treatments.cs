@@ -81,10 +81,10 @@ namespace Terra.Rendering
             const float spacing=1.35f;
             // A shared curved planting coordinate keeps neighbouring source patches continuous.
             // These rows and access lanes are an illustration, not surveyed farm infrastructure.
-            for(float z=Mathf.Ceil((b+1)/1.1f)*1.1f;z<t-1;z+=1.1f)
+            for(float z=Mathf.Ceil(b/1.1f)*1.1f;z<t;z+=1.1f)
             {
                 float offset=FieldOffset(z);
-                for(float u=Mathf.Ceil((l+1-offset)/spacing)*spacing;u<r-1-offset;u+=spacing)
+                for(float u=Mathf.Ceil((l-offset)/spacing)*spacing;u<r-offset;u+=spacing)
                 {
                     float x=u+offset;
                     if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x,z))continue;

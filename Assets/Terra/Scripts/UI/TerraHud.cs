@@ -19,7 +19,7 @@ namespace Terra.UI
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")] static extern float TerraPixelRatio();
 #endif
-        static readonly Color Ink=new Color(.075f,.15f,.14f),PanelColor=new Color(.10f,.20f,.18f),Raised=new Color(.17f,.29f,.25f),Paper=new Color(.96f,.95f,.87f),Soft=new Color(.71f,.79f,.69f),Accent=new Color(.88f,.78f,.43f);
+        static readonly Color Ink=new Color(.055f,.09f,.12f),PanelColor=new Color(.085f,.14f,.18f,.97f),Raised=new Color(.13f,.21f,.26f),Paper=new Color(.94f,.97f,.95f),Soft=new Color(.66f,.77f,.80f),Accent=new Color(.53f,.85f,.69f);
         readonly TMP_FontAsset font;readonly Sprite rounded;readonly Action resume,retryLoad;bool loadFailed,compactLayout;
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
@@ -172,7 +172,7 @@ namespace Terra.UI
         void Paint()
         {
             foreach(var b in buttons){bool selected=CatalogSelected(b);
-                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.24f,.34f,.24f):Raised;
+                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):b==endYearButton?new Color(.20f,.39f,.32f):Raised;
                 var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
                 foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
             }

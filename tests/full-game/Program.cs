@@ -7,6 +7,17 @@ var options = new JsonSerializerOptions {IncludeFields=true,WriteIndented=true};
 var world=JsonSerializer.Deserialize<WorldData>(File.ReadAllText("worlds/meadowbrook-v1/world.json"),options);
 var scenario=JsonSerializer.Deserialize<Scenario>(File.ReadAllText("worlds/meadowbrook-v1/scenario.json"),options);
 var hydro=JsonSerializer.Deserialize<RunoffConfiguration>(File.ReadAllText("worlds/meadowbrook-v1/hydrology.json"),options);
+bool connected=args.Contains("--connected");
+string evidence=connected?"docs/evidence/hud-connected":"docs/evidence/full-game";
+if(connected)
+{
+ var before=world.sites.Sum(s=>(double)s.analysisAreaM2)+hydro.context.Sum(c=>(double)c.areaM2);
+ AnnualSpatialOpportunities.ConnectFields(world,hydro,JsonSerializer.Deserialize<WorldData>(File.ReadAllText("Assets/Terra/Resources/ConnectedFields.json"),options).sites);
+ var after=world.sites.Sum(s=>(double)s.analysisAreaM2)+hydro.context.Sum(c=>(double)c.areaM2);
+ if(Math.Abs(after-before)>.1)throw new Exception("Connected partition area changed");
+ bool twice=false;try{AnnualSpatialOpportunities.ConnectFields(world,hydro,world.sites.Take(8).ToArray());}catch(ArgumentException){twice=true;}
+ if(!twice)throw new Exception("Duplicate application must reject");
+}
 AnnualSpatialOpportunities.AddWind(world,hydro);
 var yaml=File.ReadAllText("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
 var rules=new BuildActionRules(world,Regex.Split(yaml,"  - actionId: ").Skip(1).Select(part=>{
@@ -39,7 +50,7 @@ foreach(var id in FullAnnualGameplay.Supported)
  var restored=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(town.Snapshot(),options),options));
  Check(restored.CashCents==town.CashCents&&restored.Phase==TownPhase.Completed,"Saved history replay");
 }
-Directory.CreateDirectory("docs/evidence/full-game");File.WriteAllText("docs/evidence/full-game/definition.json",JsonSerializer.Serialize(d,options));
+Directory.CreateDirectory(evidence);File.WriteAllText(evidence+"/definition.json",JsonSerializer.Serialize(d,options));
 Console.WriteLine("Full-catalog checks passed: "+checks);
 void Reject(Action action,string why){bool rejected=false;try{action();}catch(ArgumentException){rejected=true;}catch(InvalidOperationException){rejected=true;}Check(rejected,why);}
 // Boundary cases are independent of scene rendering and exercise the real rules/ledger.
@@ -89,7 +100,7 @@ foreach(var town in new[]{community,landscape})
 {
  var end=town.History.Last();Check(end.ledger.closingArrearsCents==0&&town.AvailableCents>=0,"Financially viable strategy");
  Console.WriteLine(town.RunId+": "+end.outcomes.economicScore.ToString("0.0")+" / "+end.outcomes.socialScore.ToString("0.0")+" / "+end.outcomes.environmentalScore.ToString("0.0")+"; cash $"+(town.CashCents/100));
- File.WriteAllText("docs/evidence/full-game/"+town.RunId+".json",JsonSerializer.Serialize(town.Snapshot(),options));
+ File.WriteAllText(evidence+"/"+town.RunId+".json",JsonSerializer.Serialize(town.Snapshot(),options));
 }
 var manual=new AnnualTown(d,"manual-equivalence");var choice=d.actions.First(a=>a.actionId=="public-park");manual.QueueAction(choice.siteId,choice.actionId,0);
 var automatic=AnnualTown.Restore(d,manual.Snapshot());AnnualTownDemo.Finish(automatic,provider);
@@ -100,5 +111,5 @@ for(int year=1;year<=10;year++)
  manual=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(manual.Snapshot(),options),options));
 }
 Check(JsonSerializer.Serialize(manual.Snapshot(),options)==JsonSerializer.Serialize(automatic.Snapshot(),options),"Fast-forward and manual transitions identical, including reload each year");
-File.WriteAllText("docs/evidence/full-game/checks.json",JsonSerializer.Serialize(new {assertions=checks,variants=FullAnnualGameplay.Supported.Length,offers=d.actions.Length,legacyWorldUnchanged=true,manualFastForwardEquivalent=true},options));
+File.WriteAllText(evidence+"/checks.json",JsonSerializer.Serialize(new {assertions=checks,variants=FullAnnualGameplay.Supported.Length,offers=d.actions.Length,legacyWorldUnchanged=true,manualFastForwardEquivalent=true},options));
 Console.WriteLine("Full ten-year checks passed; total assertions: "+checks);
