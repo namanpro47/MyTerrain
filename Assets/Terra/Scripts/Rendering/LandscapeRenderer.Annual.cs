@@ -33,6 +33,9 @@ namespace Terra.Rendering
                 // Only agreement vegetation changes status. The source cover remaining around
                 // a building is not part of that investment and keeps its original appearance.
                 surfaceTreatments.TryGetValue(site.id,out var treatment);
+                // Establishing meadow is young green growth, not a simulated die-off.
+                if(clusteredWoodland&&stage=="ESTABLISHING"&&(treatment=="restore-grass"||treatment=="stewardship-agreement"))
+                    statusTint=new Color(.72f,.79f,.51f);
                 var vegetation=buildRules?.Find(treatment)?.landscape==true?holder:
                     treatment=="wind"?holder.Find("Wind agreement meadow"):null;
                 if(vegetation!=null)

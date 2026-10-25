@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Matched Editor captures and 42 lifecycle/render checks pass; Chrome and whole-scene acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
+
 ## Combined grass/material browser check — October 25, 2026
 
 [Clean candidate `16691f2`](evidence/full-game/material-browser/README.md) exports31 byte-verified files totaling46.41MB. Three actual focused Chrome paths still fail the frame-time gate at35/46/34ms p95; bounded preview/placement feedback passes. Two-restoration Year10, reload, comparison and replay pass without browser errors. Arrival observations do not pass the final load gate: legacy timing includes globe dwell and viewports differ. Material sharing `7b28274` reduces opening material objects1,566→14 on its original road candidate and preserves203,931 inspected values exactly, but remains isolated with the newer LOD renderer. Main contains this evidence and the independently verified [chapter teardown fix](evidence/full-game/chapter-teardown/README.md), not candidate art. Whole-scene quality, frame pacing, final arrival measurements, public release and rehearsals remain open.
@@ -20,7 +22,7 @@ Narrow fix `ed2055b` skips distant basin samples and avoids repeated route squar
 
 Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle,349display and394project checks. Sharing interior overlay vertices reduces observed Ghost construction from28–159ms to7–26ms in the Editor. An old/new reference comparison covers167,282triangles on both fine/source grids, with explicit floating-point-sliver tolerances. Code `a03d0d8` is retained on `codex/relief-validation` for the visual owner; **main contains evidence only**, not the unaccepted terrain candidate. [Exact source, fixtures, measurements and limitations](evidence/full-game/relief-validation/README.md). The owner is revising the terrain shape beyond this tested6m-band checkpoint; these results must not be relabelled as validation of that revision. Final combined Chrome, visual and release gates remain open.
 
-**Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace the fine mapped scatter, using the existing free source model.20,770 roots pass cover/road/site/ground checks; actual normal/close/wide Editor comparisons are preserved. Browser, treatment consistency and the whole-scene visual gate remain open. [Findings](evidence/phase2a/visual-rebuild/study54-findings.md).
+**Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace fine mapped scatter. Actual Chrome 1280×720 verifies pan/zoom and restoration queue/undo with unchanged cash and no browser errors; 31 files byte-match the 46.45 MB diagnostic export. One camera route measures 34 ms p95, failing the stable-30 limit. Restoration still uses weaker fine scatter; visual acceptance stays open. [Findings, provenance limits and captures](evidence/phase2a/visual-rebuild/study54-findings.md).
 
 **Latest visual checkpoint, study53:** Wisconsin paths gain subdued wear and grass shoulders from a free artist texture, with visible attribution. All1,048,576 outer-mask pixels match the prior renderer; credits fit both text sizes. [Candidate, controls and limitations](evidence/phase2a/visual-rebuild/study53-findings.md). The crop-canopy trial is rejected; meadow/field quality and browser gates remain open.
 
@@ -56,7 +58,7 @@ Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle
 
 ## Lightweight stream surface — October 25, 2026
 
-A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
+A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome 1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
 
 ## Reference-led HUD and continuous fields — October 25, 2026
 

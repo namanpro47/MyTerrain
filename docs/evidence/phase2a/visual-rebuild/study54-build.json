@@ -1,0 +1,41 @@
+{
+  "exportSource": "48154c4",
+  "runtimeIncludesLocalFiles": true,
+  "workingDiffSha256": "928eafbf8af8fbb78feb59bdbf42565e242442759560c7cd70f89ea0ab3a6278",
+  "provenanceLimits": [
+    "Pre-build tracked input manifest plus post-build packed-asset inventory recorded.",
+    "Untracked compiled imported TF_FW_WindController.cs and ignored Unity performance test resource JSON are included; not a clean-checkout release.",
+    "Local editor/cache/settings churn remains outside Git; see input manifest."
+  ],
+  "baseUrl": "http://127.0.0.1:49669",
+  "files": 31,
+  "servedBytes": 46446910,
+  "sourceExportDirectory": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/Web",
+  "cameraDiagnostic": {
+    "seconds": 30.010997772216797,
+    "averageFps": 54.28010177612305,
+    "frameP50Ms": 16.0,
+    "frameP95Ms": 34.0,
+    "frameP99Ms": 44.0,
+    "maxFrameMs": 64.00000762939453,
+    "maxPreviewCpuMs": -1.0,
+    "maxPlacementCpuMs": -1.0,
+    "frames": 1629,
+    "framesOver33Ms": 88,
+    "framesOver200Ms": 0,
+    "previewEvents": 0,
+    "placementEvents": 0,
+    "cameraEvents": 1140,
+    "unfocusedFrames": 0
+  },
+  "viewport": {
+    "canvasHeight": 720,
+    "canvasWidth": 1280,
+    "dpr": 1,
+    "height": 720,
+    "width": 1280
+  },
+  "browserErrors": 0,
+  "visualAccepted": false,
+  "publicDeployment": false
+}
