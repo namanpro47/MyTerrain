@@ -22,6 +22,15 @@ namespace Terra.Contracts
     {
         public string id, text;
     }
+    // Narration-only wire DTO. Unity owns/revalidates the simulation; Node never reruns it.
+    // This separate envelope leaves legacy requests, receipts and save hashes unchanged.
+    [Serializable] public sealed class AnnualNarrationRequest
+    {
+        public int schemaVersion = 1;
+        public string protocol = "terra-narration-v1", rulesVersion, clientFingerprint;
+        public TownYearConsequences consequences;
+        public AnnualChapterFact[] facts;
+    }
     [Serializable] public sealed class AnnualChapterReceipt
     {
         public int schemaVersion = 1;

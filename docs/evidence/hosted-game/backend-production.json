@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-25",
+  "sourceCommit": "448a75573d2d984bfd1614af41d35ff20df08aec",
+  "deployment": "https://terra-chapters-1glad16ck-peterpeng0618-3221.vercel.app",
+  "alias": "https://terra-chapters.vercel.app",
+  "target": "production",
+  "publicHealth": 200,
+  "previewProtectionStatus": 302,
+  "sessionStatus": 200,
+  "preflightStatus": 204,
+  "chapterStatus": 200,
+  "cachedRetryIdentical": true,
+  "providerAttempts": 1,
+  "retryProviderAttempts": 0,
+  "unauthorizedStatus": 401,
+  "forbiddenOriginStatus": 403,
+  "model": "gemini-3.5-flash-lite",
+  "cards": 3,
+  "receiptSha256": "af39d74aa6ce322e46e34d226202c6648e72e0f259be5bacc17e43726d8e0bc8",
+  "limitations": [
+    "Direct HTTP checks, not an interactive Unity browser run",
+    "Global 20 provider attempts/day shared by preview and production",
+    "Production Redis credentials mirror the existing preview integration store; no second paid store"
+  ]
+}

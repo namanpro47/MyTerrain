@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "43e69e084d9fb963aff47e42503832f22735f3aa",
+  "deployment": "https://terra-chapters-mz03pboh2-peterpeng0618-3221.vercel.app",
+  "alias": "https://terra-chapters.vercel.app",
+  "nodeTests": 30,
+  "results": [
+    {
+      "path": "/session",
+      "status": 204,
+      "allowedHeaders": "Content-Type, Authorization, X-Unity-Version"
+    },
+    {
+      "path": "/chapter",
+      "status": 204,
+      "allowedHeaders": "Content-Type, Authorization, X-Unity-Version"
+    }
+  ]
+}

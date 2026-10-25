@@ -1,0 +1,165 @@
+{
+  "url": "https://terra-browser.vercel.app",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 2103,
+      "sha256": "d44843b56b6c5ced5b60e72754d9757512611e1f33798a58d42a1d2048b3c1e6",
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "Build/48ce9d91da74de84341b084ab9fc62ca.loader.js",
+      "status": 200,
+      "bytes": 118806,
+      "sha256": "5b233d098061e1391eeec8beb387545a687834c101f12388744694da2ff988e6",
+      "contentType": "application/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "Build/4bbf71b7ae7a37508fc65168703d9753.wasm.unityweb",
+      "status": 200,
+      "bytes": 7919490,
+      "sha256": "bda92fabba8e8ddecae0a8275f7137e1358bf5355d66b8ddb4a493901c648406",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "compression": "br",
+      "decodedBytes": 40492031
+    },
+    {
+      "file": "Build/7cd99bbb89a52364a019484cb856a179.data.unityweb",
+      "status": 200,
+      "bytes": 30498356,
+      "sha256": "d30d0010bee448c2c68e90c8ba92bb70c5acce8cd8e07959be7478e65358d08d",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "compression": "br",
+      "decodedBytes": 44623154
+    },
+    {
+      "file": "Build/85c92d0c825f3e6a17bba1376a28a995.framework.js.unityweb",
+      "status": 200,
+      "bytes": 67747,
+      "sha256": "5010148ec732ab75b15e688f821664c630d255c21fce0ae15228bd74efcdea5d",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "compression": "br",
+      "decodedBytes": 331149
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "status": 200,
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "status": 200,
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "status": 200,
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "status": 200,
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "status": 200,
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "status": 200,
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "status": 200,
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+      "contentType": "application/json; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=0, must-revalidate"
+    }
+  ]
+}
