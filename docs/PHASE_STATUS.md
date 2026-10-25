@@ -2,6 +2,10 @@
 
 **Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Matched Editor captures and 42 lifecycle/render checks pass; Chrome and whole-scene acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
 
+## Combined grass/material browser check — October 25, 2026
+
+[Clean candidate `16691f2`](evidence/full-game/material-browser/README.md) exports31 byte-verified files totaling46.41MB. Three actual focused Chrome paths still fail the frame-time gate at35/46/34ms p95; bounded preview/placement feedback passes. Two-restoration Year10, reload, comparison and replay pass without browser errors. Arrival observations do not pass the final load gate: legacy timing includes globe dwell and viewports differ. Material sharing `7b28274` reduces opening material objects1,566→14 on its original road candidate and preserves203,931 inspected values exactly, but remains isolated with the newer LOD renderer. Main contains this evidence and the independently verified [chapter teardown fix](evidence/full-game/chapter-teardown/README.md), not candidate art. Whole-scene quality, frame pacing, final arrival measurements, public release and rehearsals remain open.
+
 ## Lossless browser download reduction — October 25, 2026
 
 The existing Web export now uses Brotli with local/static-server fallback. [Build and actual Chrome verification](evidence/full-game/web-compression/README.md) pin clean source `7db6a5d`, 31 anonymously byte-verified files totaling **39,988,802 bytes**, three fresh arrivals **12.631 / 10.373 / 11.700 seconds**, and a successful project → offline annual chapter → Year 10 → replay smoke test. This main-based export is frozen locally. Art and frame pacing are unchanged; the separate terrain candidate's visual/frame-time gate and final public/rehearsal work remain open.

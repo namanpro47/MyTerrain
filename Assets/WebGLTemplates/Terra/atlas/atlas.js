@@ -35,6 +35,7 @@ const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function enter(){if(busy)return;
   // A fresh runtime per world avoids sharing scene objects, input capture or a ledger between packs.
   if(hasPlayer()&&loadedPlace!==selected.id){const url=new URL(location.href);url.searchParams.set('place',selected.id);url.searchParams.set('enter','1');location.assign(url);return;}
+  const entryStartedAt=performance.now(),reusedPlayer=hasPlayer();
   window.terraAtlasVisible=false;busy=true;const token=++journeyToken;document.body.classList.add('departing');$('atlas').inert=true;$('journey').hidden=false;$('retry').hidden=true;
   $('journey-title').textContent=selected.name;$('journey-caption').textContent=selected.invitation;$('progress').textContent='Finding your place in the world…';$('progress-bar').style.width='3%';globe?.depart();document.body.style.overflow='hidden';
   $('game').hidden=false; // Keep the real canvas measurable while it initializes behind the atlas.
@@ -47,6 +48,9 @@ async function enter(){if(busy)return;
   if(outcome.error){$('progress').textContent=outcome.error.message;$('retry').hidden=false;$('retry').focus({preventScroll:true});return;}
   loadedPlace=selected.id;await delay(reduced?0:500);if(token!==journeyToken)return;
   $('game').style.visibility='visible';$('atlas').hidden=true;$('journey').hidden=true;$('journey').classList.remove('veiled');document.body.classList.remove('departing');document.body.style.overflow='hidden';busy=false;if(globe)globe.active=false;resumePlayer();
+  // Unlike navigation-to-ready, this excludes time choosing a place on the globe
+  // and includes the transition until the actual game is visible and focused.
+  console.info('TERRA_ENTRY_TIMING',JSON.stringify({location:selected.id,mode:reusedPlayer?'resume':'fresh-player',milliseconds:performance.now()-entryStartedAt,method:'entry handler to visible focused game, including transition'}));
 }
 function returnToAtlas(){window.terraAtlasVisible=true;journeyToken++;busy=false;pausePlayer();$('game').hidden=true;$('game').style.visibility='';$('journey').hidden=true;$('journey').classList.remove('veiled');$('atlas').hidden=false;$('atlas').inert=false;document.body.classList.remove('departing');document.body.style.overflow='';globe?.restore();select(selected.id);$('enter').focus({preventScroll:true});}
 $('enter').addEventListener('click',enter);$('return-atlas').addEventListener('click',returnToAtlas);$('cancel-journey').addEventListener('click',returnToAtlas);$('retry').addEventListener('click',()=>{const url=new URL(location.href);url.searchParams.set('enter','1');location.assign(url);});
