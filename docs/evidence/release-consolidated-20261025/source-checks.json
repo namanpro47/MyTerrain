@@ -17,5 +17,8 @@
     "Visual study76 remains outside production Resources/scenes, visual gate open"
   ],
   "communityStaging": "2 prepared communities checksum-verified",
-  "communityInterpreter": "/Users/naman/Documents/GitHub/Terra/.venv-worldgen/bin/python"
+  "communityInterpreter": "/Users/naman/Documents/GitHub/Terra/.venv-worldgen/bin/python",
+  "nativeSource": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "nativeAssertions": 1316,
+  "nativeExistingChapterAssertions": 16
 }
