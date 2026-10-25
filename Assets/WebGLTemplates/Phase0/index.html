@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terra · Browser smoke test</title>
+  <title>MyTerrain · Browser smoke test</title>
   <link rel="icon" href="data:,">
   <style>
     *{box-sizing:border-box}body{margin:0;background:#122029;color:#eff6f3;font:16px system-ui,sans-serif;height:100dvh;display:flex;flex-direction:column}
@@ -15,7 +15,7 @@
   </style>
 </head>
 <body>
-  <header><div><h1>Terra · Browser check</h1><p>Phase 0 technical fixture · no real location or gameplay</p></div><button id="reset" disabled>Reset view</button></header>
+  <header><div><h1>MyTerrain · Browser check</h1><p>Phase 0 technical fixture · no real location or gameplay</p></div><button id="reset" disabled>Reset view</button></header>
   <main><canvas id="unity-canvas" tabindex="0" aria-label="3D camera test. Drag to orbit, Shift drag to pan, scroll to zoom."></canvas><div id="loading" role="status">Loading Unity…</div></main>
   <footer><details><summary>Camera controls</summary><p>Drag to orbit · Shift + drag or middle drag to pan · scroll / two-finger scroll to zoom.<br>Click the scene, then use arrow keys to orbit, + / − to zoom, or R to reset. View movement is bounded.</p></details><span id="camera-status">Waiting for scene</span></footer>
   <script>

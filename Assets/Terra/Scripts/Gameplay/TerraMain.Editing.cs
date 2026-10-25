@@ -19,11 +19,11 @@ namespace Terra.Gameplay
         string QueuedAt(string siteId)=>annual?.State.queue.FirstOrDefault(q=>q.siteId==siteId)?.actionId;
         void Choose(string id)
         {
-            if(!ready)return;editMode="place";moveSourceId=null;treatmentId=id;hud.Selected(id);UpdatePreview();BrowserPerformance.Feedback(0);
+            if(!ready||hud.AnnualOverviewOpen)return;editMode="place";moveSourceId=null;treatmentId=id;hud.Selected(id);UpdatePreview();BrowserPerformance.Feedback(0);
         }
         void Cancel()
         {
-            if(hud.ModalOpen){hud.CloseModal();return;}if(!ready)return;
+            if(hud.ModalOpen){hud.CloseModal();return;}if(hud.AnnualOverviewOpen){hud.CloseAnnualOverview();return;}if(!ready)return;
             if(!string.IsNullOrEmpty(treatmentId)||editMode!="place")Cue(cancelSound);
             pressed=false;uiDown=null;editMode="place";moveSourceId=null;treatmentId="";hoverId=null;
             landscape.ClearGhost();hud.Selected("");UpdatePreview();
@@ -37,16 +37,17 @@ namespace Terra.Gameplay
         }
         void BeginMove()
         {
-            if(!ready||hud.ModalOpen||!SelectEditableProposal())return;
+            if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||!SelectEditableProposal())return;
             moveSourceId=selectedId;editMode="move";treatmentId=QueuedAt(selectedId);hoverId=null;
             hud.Selected("");UpdatePreview();Toast("Choose an empty destination for this year's proposal.");
         }
         void BeginRemove()
-        {if(!ready||hud.ModalOpen||!SelectEditableProposal())return;editMode="remove";hoverId=selectedId;hud.Selected("");UpdatePreview();}
+        {if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||!SelectEditableProposal())return;editMode="remove";hoverId=selectedId;hud.Selected("");UpdatePreview();}
         void BeginReset()
-        {if(!ready||hud.ModalOpen||annual.State.queue.Length==0)return;editMode="reset";hud.Selected("");UpdatePreview();}
+        {if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||annual.State.queue.Length==0)return;editMode="reset";hud.Selected("");UpdatePreview();}
         string Rejection(Site site)
         {
+            if(hud.AnnualOverviewOpen)return "Return to the plan before editing.";
             if(fastForwarding)return "Years are advancing; wait for the accepted future.";
             if(annual.State.phase==TownPhase.Completed)return "Year 10 is complete. Inspect your future or start a new run.";
             if(annual.State.phase!=TownPhase.Planning)return "Review the accepted year, then continue planning.";
@@ -71,7 +72,7 @@ namespace Terra.Gameplay
             var timer=System.Diagnostics.Stopwatch.StartNew();
             // Re-evaluate only when the plan/tool changes, not for every pointer or camera move.
             var state=annual.State;
-            bool showAvailable=!comparisonMap&&!fastForwarding&&state.phase==TownPhase.Planning
+            bool showAvailable=!hud.AnnualOverviewOpen&&!comparisonMap&&!fastForwarding&&state.phase==TownPhase.Planning
                 &&(editMode=="place"||editMode=="move")&&!string.IsNullOrEmpty(treatmentId);
             string nextKey=state.runId+"/"+state.revision+"/"+state.phase+"/"+editMode+"/"+moveSourceId+"/"+treatmentId+"/"+showAvailable;
             if(nextKey!=availabilityKey)
@@ -80,6 +81,7 @@ namespace Terra.Gameplay
                 availableFieldIds=showAvailable?world.sites.Where(s=>Rejection(s)==null).Select(s=>s.id).ToArray():Array.Empty<string>();
                 hud.BuildAvailability(showAvailable?(int?)availableFieldIds.Length:null);
             }
+            if(hud.AnnualOverviewOpen){landscape.ClearGhost();hud.HideAnnualPreview();return;}
             if(comparisonMap){landscape.ClearGhost();landscape.Highlight(null,null,true);hud.HideAnnualPreview();return;}
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);
             string reason=Rejection(site);var recipe=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==(string.IsNullOrEmpty(treatmentId)?QueuedAt(site?.id):treatmentId));
@@ -91,10 +93,10 @@ namespace Terra.Gameplay
             hud.AnnualPreview(site,recipe,annual.State,editMode,reason,ConfirmEdit,QueuedAt(site?.id)!=null);
             performance.Preview(timer.Elapsed.TotalMilliseconds);
         }
-        void Commit(){if(!ready||hud.ModalOpen)return;ConfirmEdit();}
+        void Commit(){if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen)return;ConfirmEdit();}
         void ConfirmEdit()
         {
-            if(!ready||hud.ModalOpen)return;
+            if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen)return;
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);string reason=Rejection(site);
             if(reason!=null){Toast(reason);BlockedCue();return;}
             var timer=System.Diagnostics.Stopwatch.StartNew();int revision=annual.State.revision;
@@ -115,7 +117,7 @@ namespace Terra.Gameplay
         void Redo()=>History(true);
         void History(bool redo)
         {
-            if(!ready||hud.ModalOpen||annual.State.phase!=TownPhase.Planning)return;
+            if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen||annual.State.phase!=TownPhase.Planning)return;
             int beforeRevision=annual.State.revision;
             if(redo)annual.RedoPlan(annual.State.revision);else annual.UndoPlan(annual.State.revision);
             if(annual.State.revision!=beforeRevision)Cue(undoSound);
@@ -182,14 +184,17 @@ namespace Terra.Gameplay
         {
             if(annual.State.history.Length==0)return;
             var chapter=chapters.ForYear(annual.State.history.Last().year);
-            if(chapter==null)ShowAnnualLedger();
-            else hud.AnnualChapterReport(annual.Engine,chapter,ContinueAfterChapter,ShowAnnualLedger);
+            comparisonMap=false;hud.MapView(null);RefreshLandscape();
+            landscape.ClearGhost();landscape.Highlight(null,null,true);landscape.ShowRunoffConnections(Array.Empty<string>());
+            hud.AnnualOverview(annual.Engine,ContinueAfterChapter,chapter==null?null:(Action)(()=>hud.AnnualChapterReport(annual.Engine,chapter,ContinueAfterChapter,ShowAnnualLedger)),ShowAnnualLedger,id=>{
+                selectedId=hoverId=id;landscape.Highlight(id,id,true);FocusSite();
+            });
         }
         void NewRun()
         {
             if(fastForwarding)return;
             hud.AnnualDialog("Start a new run?","This replaces this browser's current run. Accepted years cannot be undone. A copy of this run will be kept locally.","Start new run",()=>{
-                comparisonTown=null;comparisonMap=false;hud.MapView(null);introPending=true;
+                hud.CloseAnnualOverview();comparisonTown=null;comparisonMap=false;hud.MapView(null);introPending=true;
                 PlayerPrefs.SetString(annual.saveKey+".previous",annual.ExportSave());
                 PlayerPrefs.SetString(chapters.saveKey+".previous",chapters.ExportSave());
                 chapters.StateChanged-=ChapterChanged;chapters.StopRequest();annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));

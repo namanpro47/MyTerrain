@@ -1,0 +1,16 @@
+{
+  "source": "e8a9d124330fae46eb62c97ee406a89a1f514488",
+  "findings": [
+    "More keyboard Enter falls through when the first item is disabled",
+    "Valid replacement preview is incorrectly labelled QUEUED",
+    "Larger-text meter preferred height exceeds its allocated height by 5.26px"
+  ],
+  "checks": [
+    "Project inspector retains real costs and opening year",
+    "Three-card compact tray clears World atlas",
+    "Year highlights focus without changing state",
+    "Budget and optional offline chapter return to highlights",
+    "Immediate next year works",
+    "Historical overview blocks edits"
+  ]
+}

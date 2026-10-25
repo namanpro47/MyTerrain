@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Approved play-first HUD — October 25, 2026
+
+The approved mockups now have native Unity implementation: quieter status panels, icon-labelled commands, a compact project inspector with real costs/dates, and nonmodal year highlights with optional story/budget and immediate continuation. [Final combined source `b4693ac`, captures and receipt](evidence/play-first/README.md) preserves main's native MyTerrain atlas and records **2,399 unchanged-core assertions**, **809 main UI + 16 chapter checks**, and **36 actual Chrome assertions**. Larger text fits at 1440×900, 1280×720 and 1024×576; menu keys, replacement previews, read-only history, globe/location transitions and reload pass. The local WebGL export has 20 byte-verified files / 40,089,616 bytes. No live provider, performance, public deployment or Phase 2A scenery acceptance is claimed.
+
 ## Crop grouping browser comparison — October 25, 2026
 
 [Focused Chrome comparison](evidence/phase2a/crop-spatial-browser-01/README.md) freezes clean-source `d4ae4f2` at 31 byte-verified runtime files / 48.09 MB. Control opening p95 is 18 ms; candidate opening/editing/Year10 are **22 / 39 / 26 ms**, all visible/focused. Editing still fails the 33.3 ms fallback; no browser speedup is established. Actual queue/undo/redo and confirmed two-project Year10 preserve $19.605M and 51.0/58.0/47.5, with zero browser errors. Single fresh-entry observations (18.653 s control / 15.675 s candidate) also miss 15 s. Main receives evidence only. Candidate art/runtime and final visual/performance/public-run/rehearsal/recording gates remain unaccepted.

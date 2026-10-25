@@ -54,6 +54,7 @@ public static class MainGameChapterChecks
         hud.ConfigureBuildActions(catalog,rules,world,_=>{});hud.ConfigureAnnual(definition,()=>{},()=>{},()=>{});
         try
         {
+            count+=PlayFirstHudChecks.Run(hud,definition,world);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;

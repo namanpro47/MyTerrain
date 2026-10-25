@@ -1,0 +1,85 @@
+{
+  "candidate": "b4693acb6f139cb7446f411836a006ced6957425",
+  "changedAssetInputs": [
+    {
+      "sha256": "7ae4be5e28e3f48679295a4f0d1d80701580a73d055d9de0c143c0d83035d42a",
+      "path": "Assets/Editor/MainGameChapterChecks.cs"
+    },
+    {
+      "sha256": "c32858013f0c54ee7f2f119d935064a1b2e072623dc42c38ea593ef10c9fff97",
+      "path": "Assets/Editor/PlayFirstHudChecks.cs"
+    },
+    {
+      "sha256": "7481880fbcf3fb83f3930c98c5c462da3ff41bc15c7f4ecfb00c0bf2ef56c0f0",
+      "path": "Assets/Editor/PlayFirstHudChecks.cs.meta"
+    },
+    {
+      "sha256": "31c6c1e6253d82e3906422f55893fb72f88f2370ae44e3d1fbfec56893b8abe5",
+      "path": "Assets/Terra/Scripts/Core/AnnualHighlights.cs"
+    },
+    {
+      "sha256": "dbb1c59367993ab368c81faab04e5850c4e5bf4cce47f59537c75e264ac0175e",
+      "path": "Assets/Terra/Scripts/Core/AnnualHighlights.cs.meta"
+    },
+    {
+      "sha256": "3897e6923625073e3a9203dfa58610055dbf7c4e9f9cdfa89d0b11f0b852fee8",
+      "path": "Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs"
+    },
+    {
+      "sha256": "29f9326f8994c45b13262b33e9429ee040f5879f3d01adb9014ef3fa0b198c18",
+      "path": "Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs"
+    },
+    {
+      "sha256": "e21aac8478385822e2413069d1cf2d2fad6b0b027ab988f742d19dde760ca456",
+      "path": "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Annual.cs"
+    },
+    {
+      "sha256": "ab1ddd4f36ee073ff034222a57fff3be1d1feb0ef3af35b8119e027ab2d80ec8",
+      "path": "Assets/Terra/Scripts/UI/HudGlyph.cs"
+    },
+    {
+      "sha256": "7a742eccb9fdfa7bd36255ae74ab8b21bb7262b1b85e7499bc9b4c68a0972b6c",
+      "path": "Assets/Terra/Scripts/UI/HudGlyph.cs.meta"
+    },
+    {
+      "sha256": "58fbb884faf7710a3880819062574bd95285255f449761b9956763ff1b5b2da6",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.Annual.cs"
+    },
+    {
+      "sha256": "62627b735f5830c7a19fc651591fa2195a791e11425ab8a8fc561bb80e149193",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.AnnualLayout.cs"
+    },
+    {
+      "sha256": "ba32cfd31df2a42761e92d6e80669fcae016f7cf5ebb25f7355bcf16d5c30319",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.BuildActions.cs"
+    },
+    {
+      "sha256": "1469bccd720cf7f40a20537eb4c9b682965180efdd3034c0af88f5ec84f61ca4",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.PlayFirst.cs"
+    },
+    {
+      "sha256": "69bb7d991ab674121bd6348bf6f835c2c52231ee9e4cbc257fa6308972d6e6da",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.PlayFirst.cs.meta"
+    },
+    {
+      "sha256": "996825acc810281a6bdb36e594933483fb1637ed06d4dfc8a7d9ef4168b8034b",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.YearOverview.cs"
+    },
+    {
+      "sha256": "8923d7c1df67a02e4e3d6deac36fb002add748c2dcf35e589a0dec8975430606",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.YearOverview.cs.meta"
+    },
+    {
+      "sha256": "ed7479b4b49b2a12767e60282e8824cfb6f0be52500b02890d81d62aff3c0c1c",
+      "path": "Assets/Terra/Scripts/UI/TerraHud.cs"
+    }
+  ],
+  "precedingUiCandidate": "607e34ea91316af7946f41d1f7b26834cc2ed7d4",
+  "scope": "Combines approved play-first HUD with incoming native MyTerrain atlas. Browser acceptance of preceding export is preserved in parent directory.",
+  "recordedAt": "2026-10-25T09:53:39.2646473-07:00",
+  "unity": "6000.6.6f1",
+  "entrypoint": "MainGameChapterChecks.BuildVerifiedWeb",
+  "localUrl": "http://127.0.0.1:49832/",
+  "integratedMain": "aee5bb6409ac3f20b9243b83a246c7e5a9854dbe",
+  "target": "WebGL"
+}
