@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/CombinedCrops/close-192.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/close-192.png",
+        "width": 1280,
+        "height": 720,
+        "frame": 2763,
+        "cellSize": 192,
+        "source": 498,
+        "draws": 217,
+        "submitted": 576,
+        "culled": 1774
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
