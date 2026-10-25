@@ -1,5 +1,7 @@
 # Visual rebuild worktree handoff
 
+**Study45 full-scene review:** Continuous canopy and distance meshes now run across Wisconsin; a premature crop fade was corrected after a matched control. 209 rendering lifecycle assertions and atlas/save checks pass. Meadow/surface quality still fails the visual bar; Chrome review is next. [Captures, controls and scope limitations](evidence/phase2a/visual-rebuild/study45-findings.md).
+
 **Study45 unfinished integration checkpoint:** Wisconsin now uses the clustered woodland candidate with three distance levels per tree. Compilation and 96 asset checks passed; full-scene, annual and Chrome validation remain pending. [Saved work and evidence](evidence/phase2a/visual-rebuild/study45-checkpoint.md). Phase 2A remains open.
 
 **Study44 canopy construction:** Corrected free tree imports, continuous woodland and clustered leaf shading produce a stronger bounded forest study. Three metric prefabs and their shader are saved; production rendering and the Phase 2A gate remain unchanged. [Captures, comparisons, replay and next integration step](evidence/phase2a/visual-rebuild/study44-findings.md).

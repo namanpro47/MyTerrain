@@ -136,7 +136,7 @@ namespace Terra.Rendering
                     float depth=Mathf.Max(1,Vector3.Dot(b.bounds.center-cameraPosition,cameraForward)-b.bounds.extents.magnitude);
                     pixels=b.maxHeight*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
                     // The crop shader fades individual stalks before this conservative batch cutoff.
-                    if(b.crop&&pixels<=2.4f||b.groundcover&&pixels<=1.5f||b.medium!=null&&!b.bakedGrass&&pixels<2)continue;
+                    if(b.crop&&pixels<=.6f||b.groundcover&&pixels<=1.5f||b.medium!=null&&!b.bakedGrass&&pixels<2)continue;
                 }
                 bool far=pixels<b.mediumDetailPixels&&b.distant!=null,mid=!far&&pixels<b.highDetailPixels&&b.medium!=null;
                 if(far&&b.distantEmpty)continue;
