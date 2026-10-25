@@ -68,14 +68,20 @@ namespace Terra.Core
         TownPlannedAction[] ProposedQueue(string siteId, string actionId)
         {
             Action(siteId, actionId);
-            Require(!assets.Any(a => a.siteId == siteId), "This site is already committed. Redevelopment is outside this foundation.");
+            if(PlayerRulesActive && actionId==AnnualPlayerRules.CancelAction)
+                CancellationRefund(siteId);
+            else
+            {
+                Require(!BuildingBlockedByDebt,"Repay the negative public budget before starting another project. You can cancel projects or wait for funding.");
+                Require(!assets.Any(a => a.siteId == siteId && a.cancelledYear==0), "This site already has an accepted project. Cancel it before building here again.");
+            }
             return queue.Where(q => q.siteId != siteId).Concat(new[] { new TownPlannedAction { siteId = siteId, actionId = actionId } }).ToArray();
         }
         public void QueueAction(string siteId, string actionId, int expectedRevision)
         {
             Planning(); Current(expectedRevision);
             var next = ProposedQueue(siteId, actionId);
-            Require(checked(CashCents - CommittedCents - NewCommitments(next)) >= 0, "Insufficient uncommitted public money for the full commitment.");
+            Require(PlayerRulesActive&&actionId==AnnualPlayerRules.CancelAction || checked(CashCents - CommittedCents - NewCommitments(next)) >= 0, "Insufficient uncommitted public money for the full commitment.");
             if (queue.Any(q => q.siteId == siteId && q.actionId == actionId)) return;
             RememberQueue(); queue = next; Revision++;
         }
@@ -95,7 +101,8 @@ namespace Terra.Core
         {
             var proposal = queue.FirstOrDefault(q => q.siteId == source);
             Require(proposal != null, "Only this year's queued projects can move.");
-            Require(source != destination && !queue.Any(q => q.siteId == destination) && !assets.Any(a => a.siteId == destination), "Choose an unoccupied destination.");
+            Require(!BuildingBlockedByDebt&&proposal.actionId!=AnnualPlayerRules.CancelAction,"Cancellation cannot move, and debt blocks new construction.");
+            Require(source != destination && !queue.Any(q => q.siteId == destination) && !assets.Any(a => a.siteId == destination&&a.cancelledYear==0), "Choose an unoccupied destination.");
             Action(destination, proposal.actionId);
             return queue.Where(q => q.siteId != source).Concat(new[] { new TownPlannedAction { siteId = destination, actionId = proposal.actionId } }).ToArray();
         }
@@ -167,17 +174,18 @@ namespace Terra.Core
             ValidateConsequences(consequences);
 
             // Everything below is staged. Overflow, invalid effects, or computation failure cannot partially publish a year.
-            var nextAssets = TownCopies.Copy(assets).Concat(pending.actions.Select(q => new TownAsset {
+            var nextAssets = PlayerRulesActive ? PlayerNextAssets() : TownCopies.Copy(assets).Concat(pending.actions.Select(q => new TownAsset {
                 siteId = q.siteId, actionId = q.actionId, startedYear = Year, condition = 1
             })).ToArray();
             if(numericState!=null)
                 foreach(var asset in nextAssets)asset.condition=numericState.sites.Single(s=>s.siteId==asset.siteId).condition;
             var ledger = new TownYearLedger { currency = definition.currency, priceYear = definition.priceYear,
                 openingCashCents = CashCents, openingArrearsCents = ArrearsCents };
-            long cash = CashCents;
-            long Pay(long due) { long paid = Math.Min(cash, due); cash = checked(cash - paid); return paid; }
+            ledger.capitalRefundCents=PlayerRulesActive?Sum(pending.actions.Where(q=>q.actionId==AnnualPlayerRules.CancelAction).Select(q=>CancellationRefund(q.siteId))):0;
+            long cash = checked(CashCents+ledger.capitalRefundCents);
+            long Pay(long due) { long paid = PlayerRulesActive ? due : Math.Min(cash, due); cash = checked(cash - paid); return paid; }
             long upfront = Sum(pending.actions.Select(q => Action(q.siteId, q.actionId).upfrontPublicCostCents));
-            Require(upfront <= cash, "The committed plan is not affordable.");
+            Require(upfront==0 || upfront <= cash, "The committed plan is not affordable.");
             ledger.upfrontPaidCents = Pay(upfront);
             ledger.arrearsPaidCents = Pay(ArrearsCents);
             var funded = new Dictionary<string, bool>();
@@ -192,6 +200,7 @@ namespace Terra.Core
                 ledger.operatingPaidCents = checked(ledger.operatingPaidCents + paidOperating);
                 funded[asset.siteId] = paidProgram == program && paidOperating == operating;
                 if (!funded[asset.siteId]) asset.condition = Math.Max(0, asset.condition - .1);
+                if(PlayerRulesActive)asset.condition=Clamp01(asset.condition-RegionalDamage(asset));
                 var effect = consequences.effects.FirstOrDefault(e => e.siteId == asset.siteId);
                 if (effect != null)
                 {
@@ -202,7 +211,7 @@ namespace Terra.Core
                     ledger.publicReceiptsCents = checked(ledger.publicReceiptsCents + recipe.annualPublicReceiptsCents);
             }
             var numeric = definition.simulation == null ? null : PrepareNumeric(nextAssets,funded,consequences,ledger);
-            ledger.repairDueCents = numeric == null ? pending.driver.unexpectedPublicRepairCents : numeric.newRepairDue;
+            ledger.repairDueCents = numeric == null ? checked(pending.driver.unexpectedPublicRepairCents+(PlayerRulesActive?RegionalRepairs(nextAssets):0)) : numeric.newRepairDue;
             ledger.repairPaidCents = Pay(ledger.repairDueCents);
             ledger.closingArrearsCents = checked(ArrearsCents - ledger.arrearsPaidCents + ledger.programDueCents - ledger.programPaidCents
                 + ledger.operatingDueCents - ledger.operatingPaidCents + ledger.repairDueCents - ledger.repairPaidCents);
@@ -258,6 +267,13 @@ namespace Terra.Core
                     condition = asset?.condition ?? 1, maturity = 1, phase = TownAssetPhase.Operating,
                     productionUnits = site.baselineProductionUnits, serviceUnits = site.baselineServiceUnits,
                     vegetatedAreaM2 = site.areaM2 * site.baselineVegetatedFraction };
+                if (asset != null && asset.cancelledYear>0)
+                {
+                    row.actionId=null;row.phase=TownAssetPhase.Retired;row.productionUnits=0;row.serviceUnits=0;
+                    row.vegetatedAreaM2=site.areaM2*asset.clearedVegetatedFraction;row.retentionCapacityM3=0;
+                    row.explanation="Cancelled project; vacant disturbed land. Existing condition is not instantly restored.";
+                    rows.Add(row);continue;
+                }
                 if (asset != null)
                 {
                     var recipe = Action(asset.siteId, asset.actionId);
@@ -308,11 +324,13 @@ namespace Terra.Core
 
         long ProgramDue(TownAsset asset, int year)
         {
+            if(asset.cancelledYear>0)return 0;
             var a = Action(asset.siteId, asset.actionId);
             return year >= asset.startedYear && year < asset.startedYear + a.paymentYears ? a.annualPublicPaymentCents : 0;
         }
         bool IsOperating(TownAsset asset, int year)
         {
+            if(asset.cancelledYear>0)return false;
             var a = Action(asset.siteId, asset.actionId); int start = asset.startedYear + a.constructionYears;
             return year >= start && year < start + a.operatingYears;
         }
@@ -322,6 +340,7 @@ namespace Terra.Core
             long total = 0;
             foreach (var asset in values)
             {
+                if(asset.cancelledYear>0)continue;
                 var a = Action(asset.siteId, asset.actionId);
                 int payments = Math.Max(0, asset.startedYear + a.paymentYears - Math.Max(fromYear, asset.startedYear));
                 int start = asset.startedYear + a.constructionYears;
@@ -342,6 +361,7 @@ namespace Terra.Core
                 && result.year == Year && result.inputHash == pending.inputHash, "Consequences do not match the frozen year request.");
             Require(result.effects != null, "Effects must be an explicit array (empty is valid).");
             if(definition.simulation!=null)Require(result.effects.Length==0,"Numeric-v4 effects are engine-owned; external effects cannot alter a saved driver.");
+            if(PlayerRulesActive)Require(TownCopies.Hash(result.effects)==TownCopies.Hash(AnnualPlayerRules.Effects(pending)),"Regional effects are engine-owned; narration cannot change them.");
             var ids = new HashSet<string>(StringComparer.Ordinal);
             foreach (var effect in result.effects)
             {
@@ -392,7 +412,7 @@ namespace Terra.Core
                 var regenerated = town.BeginResolution(req.requestId, town.Revision);
                 Require(TownCopies.Hash(regenerated) == TownCopies.Hash(req), "Committed input hash/state does not match saved history.");
                 var replayed=town.CompleteResolution(record.acceptedConsequences);
-                if(rules.schemaVersion==3)Require(TownCopies.Hash(replayed)==TownCopies.Hash(record),"Saved numeric report differs from its committed replay.");
+                if(rules.schemaVersion==3||town.PlayerRulesActive)Require(TownCopies.Hash(replayed)==TownCopies.Hash(record),"Saved report differs from its committed replay.");
             }
             if (town.Phase == TownPhase.Reviewing && (save.phase == TownPhase.Planning || save.phase == TownPhase.Resolving)) town.ContinuePlanning(town.Revision);
             Require(save.year == town.Year && save.revision >= town.Revision && save.cashCents == town.CashCents
@@ -420,8 +440,12 @@ namespace Terra.Core
         void ValidateSavedQueue(TownPlannedAction[] plan)
         {
             var used = new HashSet<string>(StringComparer.Ordinal);
-            foreach (var q in plan) { Require(q != null && used.Add(q.siteId) && !assets.Any(a => a.siteId == q.siteId), "Invalid saved plan."); Action(q.siteId, q.actionId); }
-            Require(plan.Length == 0 || checked(CashCents - CommittedCents - NewCommitments(plan)) >= 0, "Saved plan is unaffordable.");
+            foreach (var q in plan)
+            {
+                Require(q != null && used.Add(q.siteId),"Invalid saved plan.");
+                ProposedQueue(q.siteId,q.actionId);
+            }
+            Require(plan.Length == 0 || PlayerRulesActive&&plan.All(q=>q.actionId==AnnualPlayerRules.CancelAction) || checked(CashCents - CommittedCents - NewCommitments(plan)) >= 0, "Saved plan is unaffordable.");
         }
 
         internal static void Require(bool valid, string message) { if (!valid) throw new ArgumentException(message); }
@@ -433,6 +457,13 @@ namespace Terra.Core
             Require(d != null && (d.schemaVersion == 1 || d.schemaVersion == 2 || d.schemaVersion == 3) && !string.IsNullOrWhiteSpace(d.id) && !string.IsNullOrWhiteSpace(d.version) && !string.IsNullOrWhiteSpace(d.worldPackId), "Versioned town definition is required.");
             Require(d.currency == "USD" && d.priceYear >= 2000 && d.priceYear <= 2200 && d.years >= 1 && d.years <= 100, "Invalid currency/year/horizon.");
             Money(d.startingCashCents);
+            if(d.playerRules!=null&&!TownCopies.EmptyExtension(d.playerRules))
+            {
+                Require(AnnualPlayerRules.Enabled(d)&&d.version=="5.0.0"&&d.schemaVersion==2&&d.simulation==null,"Unsupported player-rule version.");
+                Require(!string.IsNullOrWhiteSpace(d.playerRules.scenarioSeed)&&!string.IsNullOrWhiteSpace(d.playerRules.disclosure),"Player rules require a saved seed and disclosure.");
+                Require(d.playerRules.hazards!=null&&d.playerRules.hazards.Length>0,"Regional profiles are required.");
+                foreach(var h in d.playerRules.hazards){Require(h!=null&&!string.IsNullOrWhiteSpace(h.id)&&!string.IsNullOrWhiteSpace(h.evidence),"Missing inferred hazard evidence.");Range(h.annualChance,0,1,"hazard chance");Range(h.outputFactor,0,1,"hazard output");Range(h.affectedSiteChance,0,1,"hazard exposure");Range(h.conditionLoss,0,.25,"hazard condition");}
+            }
             if (d.schemaVersion >= 2) AnnualEconomy.Validate(d);
             if (d.schemaVersion == 3) AnnualSimulation.Validate(d);
             else Require(d.simulation==null,"Legacy rules cannot contain numeric-v4 simulation data.");
@@ -454,6 +485,7 @@ namespace Terra.Core
                 Range(a.productionUnits, 0, 1e12, "production"); Range(a.serviceUnits, 0, 1e12, "services"); Range(a.vegetatedFraction, 0, 1, "cover"); Range(a.retentionCapacityM3, 0, 1e12, "retention capacity");
             }
             for (int i = 0; i < d.drivers.Length; i++) { var e = d.drivers[i]; Require(e != null && e.year == i + 1 && !string.IsNullOrWhiteSpace(e.id) && !string.IsNullOrWhiteSpace(e.evidenceLevel), "Drivers must explicitly cover each year in order."); Range(e.productionFactor, 0, 2, "annual driver factor"); Money(e.unexpectedPublicRepairCents); }
+            if(AnnualPlayerRules.Enabled(d))AnnualPlayerRules.ValidateEvents(d);
             var r = d.rubric; Require(!string.IsNullOrWhiteSpace(r.version) && !string.IsNullOrWhiteSpace(r.explanation), "Scores need a versioned explanation.");
             Range(r.productionTargetUnits, .000001, 1e12, "production target"); Range(r.serviceTargetUnits, .000001, 1e12, "service target"); Range(r.retentionTargetM3, .000001, 1e12, "retention target");
             Range(r.economicProductionWeight, 0, 1, "economic weight"); Range(r.socialServiceWeight, 0, 1, "social weight"); Range(r.environmentalVegetationWeight, 0, 1, "environmental weight");

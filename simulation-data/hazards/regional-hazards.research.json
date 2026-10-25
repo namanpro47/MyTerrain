@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "catalogueVersion": "regional-hazards-research-v0.1",
+  "researchOnly": true,
+  "reviewedAt": "2026-10-25",
+  "sourceBase": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+  "economicReference": "Coon Valley / Vernon County, Wisconsin",
+  "regions": [
+    {
+      "regionId": "meadowbrook-v1",
+      "name": "Coon Valley / Vernon County, Wisconsin",
+      "referenceCentre": [
+        43.7015,
+        -91.037
+      ],
+      "hazards": [
+        {
+          "id": "storm-flood",
+          "name": "River/flash flooding and stormwater",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "vernon-plan",
+            "nws-coon-2018"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Likely",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "seasonal-drought",
+          "name": "Seasonal drought",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "vernon-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Possible",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "thunderstorm-hail-wind",
+          "name": "Thunderstorm with hail/wind",
+          "priority": "candidate",
+          "sourceIds": [
+            "vernon-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Thunderstorm Highly Likely; hail Likely",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "winter-snow-ice",
+          "name": "Heavy snow / ice storm",
+          "priority": "candidate",
+          "sourceIds": [
+            "vernon-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Likely",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "tornado",
+          "name": "Tornado",
+          "priority": "later-candidate",
+          "sourceIds": [
+            "vernon-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Possible",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "wildfire",
+          "name": "Wildland fire",
+          "priority": "later-candidate",
+          "sourceIds": [
+            "vernon-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Possible; low overall risk designation",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        }
+      ]
+    },
+    {
+      "regionId": "point-reyes-v1",
+      "name": "Point Reyes Station / western Marin, California",
+      "referenceCentre": [
+        38.066,
+        -122.81
+      ],
+      "hazards": [
+        {
+          "id": "wildfire",
+          "name": "Wildfire",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "marin-plan",
+            "nps-woodward-2020"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category-and-history",
+            "value": "Highly Likely in county plan; documented local 2020 fire",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "earthquake",
+          "name": "Earthquake",
+          "priority": "candidate",
+          "sourceIds": [
+            "usgs-bay-outlook-2016",
+            "marin-plan"
+          ],
+          "sourceMeasure": {
+            "type": "archival-regional-threshold-probability",
+            "probability": 0.72,
+            "threshold": "At least one M6.7+ earthquake somewhere in Bay region",
+            "windowStart": 2014,
+            "windowEnd": 2043,
+            "publicationYear": 2016,
+            "faultSpecificAlternative": {
+              "fault": "San Andreas",
+              "probability": 0.22,
+              "sameWindow": true
+            },
+            "annualizationApproved": false
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "seasonal-drought",
+          "name": "Drought",
+          "priority": "candidate",
+          "sourceIds": [
+            "marin-plan"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Highly Likely",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "storm-flood",
+          "name": "Storm flooding / severe wind",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "marin-plan",
+            "marin-hazard-maps"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Highly Likely at county scale",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "slope-debris",
+          "name": "Landslide / post-fire debris flow",
+          "priority": "candidate",
+          "sourceIds": [
+            "marin-plan",
+            "marin-hazard-maps"
+          ],
+          "sourceMeasure": {
+            "type": "planning-category",
+            "value": "Occasional; broad county rubric, not a site rate",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "coastal-tsunami",
+          "name": "Coastal flooding / tsunami",
+          "priority": "deferred-until-exposure",
+          "sourceIds": [
+            "marin-hazard-maps",
+            "marin-plan"
+          ],
+          "sourceMeasure": {
+            "type": "exposure-map-candidate",
+            "value": "AOI overlap and event threshold unresolved",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "coastal-exposure-not-established",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        }
+      ]
+    },
+    {
+      "regionId": "suusamyr-v1",
+      "name": "Suusamyr Valley, Kyrgyzstan",
+      "referenceCentre": [
+        42.18,
+        73.96
+      ],
+      "hazards": [
+        {
+          "id": "earthquake",
+          "name": "Earthquake shaking",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "gfz-suusamyr-study",
+            "gfdr-thinkhazard-chuy-eq"
+          ],
+          "sourceMeasure": {
+            "type": "regional-screening-lower-bound",
+            "category": "High",
+            "probabilityLowerBoundExclusive": 0.2,
+            "horizonYears": 50,
+            "phenomenon": "Potentially damaging shaking",
+            "annualizationApproved": false
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "slope-failure",
+          "name": "Landslide / rockfall",
+          "priority": "first-slice-candidate",
+          "sourceIds": [
+            "mchs-chuy-archival",
+            "gfdr-thinkhazard-chuy-ls"
+          ],
+          "sourceMeasure": {
+            "type": "regional-susceptibility",
+            "category": "High",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "flood-debris",
+          "name": "Flood / debris flow",
+          "priority": "candidate",
+          "sourceIds": [
+            "mchs-chuy-archival"
+          ],
+          "sourceMeasure": {
+            "type": "archival-regional-hazard-description",
+            "value": "Suusamyr-relevant rain/snowmelt and water hazards; exact site likelihood unverified",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "avalanche-snow",
+          "name": "Avalanche / winter snow disruption",
+          "priority": "exposure-gated-candidate",
+          "sourceIds": [
+            "mchs-chuy-archival"
+          ],
+          "sourceMeasure": {
+            "type": "archival-slope-and-route-exposure",
+            "value": "Documented Suusamyr basin route/slope hazard; not flat-valley probability",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "growing-season-frost",
+          "name": "Mountain growing-season frost",
+          "priority": "candidate",
+          "sourceIds": [
+            "mchs-chuy-archival"
+          ],
+          "sourceMeasure": {
+            "type": "archival-regional-weather-description",
+            "value": "Mountain frost possible during growing season; local complete frequency not obtained",
+            "exactAnnualProbability": null
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        },
+        {
+          "id": "wildfire-weather",
+          "name": "Weather supporting significant wildfire",
+          "priority": "screening-lead-only",
+          "sourceIds": [
+            "gfdr-thinkhazard-chuy-wf"
+          ],
+          "sourceMeasure": {
+            "type": "regional-weather-suitability-lower-bound",
+            "category": "High",
+            "probabilityLowerBoundExclusive": 0.5,
+            "horizonYears": 1,
+            "phenomenon": "Weather that could support significant wildfire; not ignition/burn/damage",
+            "annualizationApproved": false
+          },
+          "spatialSupport": "regional-only",
+          "engineAnnualProbability": null,
+          "runtimeEnabled": false,
+          "activationBlockers": [
+            "Define event severity and annual sampling unit",
+            "Validate playable-site exposure and geographic transfer",
+            "Approve source-to-game likelihood and bounded impact rules"
+          ]
+        }
+      ]
+    }
+  ]
+}
