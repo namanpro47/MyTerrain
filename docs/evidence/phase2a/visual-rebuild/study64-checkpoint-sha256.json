@@ -32,8 +32,8 @@
     "sha256": "7d6acff283e0b978d27b417dfac15e3eed2778c5acc873615e51b763f3025b9b"
   },
   "docs/evidence/phase2a/visual-rebuild/study64-findings.md": {
-    "bytes": 3995,
-    "sha256": "f64849d96830e64e83345abb7d2393188313c18686dec2098de51080d25a84ee"
+    "bytes": 4605,
+    "sha256": "583dd0aad5263ea7bec0ba167ac4e9b58ea524b83e0e550e9b78880942839196"
   },
   "docs/evidence/phase2a/visual-rebuild/study64-green-leaf-close.png": {
     "bytes": 1341454,
@@ -134,5 +134,17 @@
   "docs/evidence/phase2a/visual-rebuild/study64-woodland-close.png": {
     "bytes": 1716176,
     "sha256": "aa2d2d9b641d8746d8a4953b51bbe6001db24639969e8cc90d71b0a1151f98ae"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-combined-collector.json": {
+    "bytes": 1518,
+    "sha256": "13e9b9b5db262bfd4b75d9e723cea67234fe1169cd46cae3ef4ba1feedc81f59"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-combined-compile.json": {
+    "bytes": 269,
+    "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+  },
+  "Assets/Terra/Scripts/Rendering/NatureSubmission.cs": {
+    "bytes": 5233,
+    "sha256": "1f3a118f5c47e51da68d9f559dde97f4bb47f62a23d940662866f7576159e9a0"
   }
 }
