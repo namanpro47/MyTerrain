@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/docs/evidence/full-game/catalog-input/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 18,
+        "cases": [
+          "B enters catalog navigation",
+          "Hover does not cancel keyboard navigation",
+          "Catalog Tab stays inside catalog",
+          "Actual pointer-down routing exits catalog navigation",
+          "Undo is forwarded after pointer use",
+          "Reenter catalog before Z",
+          "Z exits catalog and reaches gameplay routing",
+          "Reenter catalog before Y",
+          "Y exits catalog and reaches gameplay routing",
+          "Shift-Z also reaches redo routing",
+          "Catalog arrows stay contained",
+          "Escape closes catalog navigation",
+          "Actual modal opened",
+          "Modal consumes Undo",
+          "Modal consumes Redo",
+          "Modal Escape closes without gameplay action",
+          "Undo routing recovers after closing modal",
+          "Annual state byte-identical after input checks"
+        ],
+        "frame": 108204,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

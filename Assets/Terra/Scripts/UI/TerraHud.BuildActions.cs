@@ -88,6 +88,9 @@ namespace Terra.UI
             if(keyboard.bKey.wasPressedThisFrame){catalogKeyboard=!catalogKeyboard;Focus(catalogKeyboard?categoryButtons.Keys.First():null);return true;}
             if(!catalogKeyboard)return false;
             if(keyboard.escapeKey.wasPressedThisFrame){catalogKeyboard=false;Focus(null);return true;}
+            // Undo/redo remain available while browsing the nonmodal catalog.
+            if(keyboard.zKey.wasPressedThisFrame||keyboard.yKey.wasPressedThisFrame)
+            {catalogKeyboard=false;Focus(null);return false;}
             var available=categoryButtons.Keys.Concat(actionButtons.Keys).Concat(catalogPageButtons).Where(b=>b.gameObject.activeInHierarchy).ToArray();
             if(keyboard.tabKey.wasPressedThisFrame||keyboard.rightArrowKey.wasPressedThisFrame||keyboard.leftArrowKey.wasPressedThisFrame)
             {int i=Array.IndexOf(available,focus),step=keyboard.leftArrowKey.wasPressedThisFrame||keyboard.shiftKey.isPressed?-1:1;Focus(available[(i+step+available.Length)%available.Length]);}

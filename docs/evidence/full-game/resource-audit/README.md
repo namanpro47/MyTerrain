@@ -1,0 +1,9 @@
+# Candidate resource inclusion audit
+
+Read-only review of the visual worktree at `5041113`, after its successful build `66ec523c53fbf41da8c167b36b844bf9` (277.234 s, 0 build errors). No assets were changed by this audit and no runtime optimization is claimed.
+
+The export includes **39,327,979 bytes** of compressed data plus **11,135,074 bytes** of compressed WebAssembly: **50,463,053 bytes before the atlas and map**. Thus even without the unused regional downloads it exceeds the initial-transfer target. The source build report lists75.1 MiB of Texture2D data and13.2 MiB of mesh data before archive compression. The four JulioGround normal textures account for5.3 MiB each and four color textures2.7 MiB each, but they are actively bound by ground/project materials and must not be removed as unused.
+
+[Exact candidate-root references](legacy-nature-roots.json) cover sixteen superseded assets still in `Resources/Nature`. The audit reads GUID references in Unity text assets/scenes/materials/prefabs and literal C# paths across Assets. The active Resources calls use explicit Nature paths (and a separate dynamic NatureLods path); none names these old roots. Candidate prefab roots have no serialized consumers. Erce materials are consumed only by the candidate Erce prefabs. ArtistWheat, GeometricWheat and FieldWheat have Editor-only literal paths in VisualRebuildAssets.cs that need updating if moved.
+
+The proposed action is to move the sixteen roots and existing metas to an archive outside Resources, retaining GUIDs and history. This is conditional on retaining the replacement all-region forest path: current main still uses ErceTree and must not receive this move independently. The visual owner received the inventory for the next candidate. A rebuilt export and actual regional Chrome checks must prove any saving and unchanged behavior; no compressed saving is inferred from source PNG/FBX sizes.
