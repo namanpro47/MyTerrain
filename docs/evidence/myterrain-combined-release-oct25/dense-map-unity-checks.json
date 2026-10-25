@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEditor.SceneManagement.EditorSceneManager.OpenScene(\"Assets/Terra/Scenes/TerraMain.unity\");\nvar main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();main.enabled=false;\nint checks=0;void Check(bool ok,string why){checks++;if(!ok)throw new System.Exception(why);}\nvar rows=new System.Collections.Generic.List<object>();\nforeach(var location in Terra.Core.LocationProfile.All)\n{\n string root=\"worlds/\"+location.PackId+\"/\";\n var world=UnityEngine.JsonUtility.FromJson<Terra.Contracts.WorldData>(System.IO.File.ReadAllText(root+\"world.json\"));\n var scenario=UnityEngine.JsonUtility.FromJson<Terra.Contracts.Scenario>(System.IO.File.ReadAllText(root+\"scenario.json\"));\n var hydro=UnityEngine.JsonUtility.FromJson<Terra.Core.RunoffConfiguration>(System.IO.File.ReadAllText(root+\"hydrology.json\"));\n var pack=UnityEngine.JsonUtility.FromJson<Terra.Core.UniformParcelPack>(UnityEngine.Resources.Load<UnityEngine.TextAsset>(\"Parcels/\"+location.PackId).text);\n Terra.Core.UniformParcels.Apply(world,hydro,pack,location.PackId);\n var rules=Terra.Gameplay.BuildActionRuntime.Expand(main.buildActionCatalog,ref world,ref scenario);\n var scenery=new UnityEngine.GameObject(\"Combined parcel scenery check\");\n var renderer=new Terra.Rendering.LandscapeRenderer(world,main.terrainMaterial,scenery.transform,main.treePrefab,main.cropPrefab,main.grassPrefab,main.shrubPrefab,location.IsWisconsin);\n renderer.ConfigureBuildActions(main.buildActionCatalog,rules);renderer.Build();renderer.BuildStartingSettlement(pack);\n Check(scenery.transform.Find(\"Existing fictional community\")==null,\"Duplicate legacy houses on dense map\");\n foreach(var building in pack.initialBuildings)\n {\n  var site=world.sites.Single(s=>s.id==building.siteId);\n  var inherited=scenery.transform.Find(building.title+\" · inherited baseline\");\n  Check(inherited!=null&&inherited.GetComponentsInChildren<UnityEngine.MeshRenderer>().Length>0,\"Inherited model missing\");\n  Check(rules.Layout(site,rules.Find(building.actionId)).Valid,\"Inherited foundation does not fit\");\n  renderer.Apply(site,null);Check(inherited.gameObject.activeSelf,\"Baseline refresh lost inherited building\");\n }\n rows.Add(new{location.PackId,parcels=world.sites.Length,inherited=pack.initialBuildings.Length});\n UnityEngine.Object.DestroyImmediate(scenery);\n}\nUnityEditor.SceneManagement.EditorSceneManager.OpenScene(\"Assets/Terra/Scenes/TerraMain.unity\");\nreturn new{checks,rows,scope=\"Three actual merged renderers and prefab fits; no capture or frame-time claim\"};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 66,
+        "rows": [
+          {
+            "PackId": "meadowbrook-v1",
+            "parcels": 41,
+            "inherited": 7
+          },
+          {
+            "PackId": "point-reyes-v1",
+            "parcels": 312,
+            "inherited": 7
+          },
+          {
+            "PackId": "suusamyr-v1",
+            "parcels": 340,
+            "inherited": 7
+          }
+        ],
+        "scope": "Three actual merged renderers and prefab fits; no capture or frame-time claim"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

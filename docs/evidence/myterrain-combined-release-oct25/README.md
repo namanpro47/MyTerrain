@@ -42,3 +42,11 @@ Final native captures: `editor-atlas.png`, `editor-point-reyes.png`, `editor-suu
 Combined Unity validation on the final audio hooks (`e8ac9eb`): 678 location/ten-year/save-replay assertions; 34 annual lifecycle/JSON checks; 380 audio checks; 809 HUD checks plus 16 chapter checks; 35 merged community/terrain/lifecycle checks. All pass. The native scene also completed a real Wisconsin arrival. This does not claim browser or frame-time acceptance, nor close the separate Phase 2A scenery gate.
 
 The first headless launcher imported successfully but exited with its process group. A detached persistent launcher fixed the lifecycle; the same owned project was used throughout. Play and Editor were stopped and the desktop reservation released after review. No other chat's Editor was operated.
+
+## Incoming main reconciliation
+
+Refreshed main advanced to `ea37af0` during release preparation. It adds the authorized dense parcels and seven inherited buildings per location, hosted chapters, normalized Editor scroll and modal dismissal protection. The candidate now preserves those additions alongside the new atlas, audio and Field Notes. The loopback service retains both its configurable test port and the larger 16 MiB limit.
+
+The older scenery pass's four decorative homes are skipped when `UniformParcels.Applied(world)` is true, avoiding a duplicate starting community. The exact merged renderer/prefab check passes 66 assertions across all three maps, including seven inherited buildings and no legacy duplicate group. Dense model checks pass 2,241 assertions, geometry exclusion/partition checks pass, and chapter checks now pass 50 assertions. Legacy save keys remain preserved; dense layouts deliberately use their separate v4.0 keys.
+
+Field Notes keeps the hosted `local summary` label and the `AI unavailable.` disclosure when regenerating readable local narrative. Its older test captions were updated to match those incoming labels; final combined HUD rerun is pending after the remaining branch consolidation. Earlier 809/859 HUD results do not certify this later merged source.

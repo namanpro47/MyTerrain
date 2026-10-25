@@ -13,6 +13,8 @@ namespace Terra.UI
         {
             var report=town.History.Last(r=>r.year==receipt.consequences.year);
             var chapter=receipt.mode=="offline"?AnnualChapterNarrative.Create(town.Definition,report):receipt.chapter;
+            if(receipt.mode=="offline"&&receipt.chapter?.introduction?.StartsWith("AI unavailable.")==true)
+                chapter.introduction="AI unavailable. "+chapter.introduction;
             int count=chapter.cards.Length;
             string nextYear=town.Phase==TownPhase.Completed?"See ten-year future":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan";
             if(page==0)
