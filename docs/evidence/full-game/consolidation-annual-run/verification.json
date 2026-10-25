@@ -1,0 +1,309 @@
+{
+  "source": "2f8543dd2734172942f92c1e3395b695174395e9",
+  "fixture": "docs/evidence/hud-connected/community-and-services.json",
+  "browser": "Chrome 155.0.8059.85",
+  "viewport": [
+    1280,
+    720
+  ],
+  "mode": "actual controls, ten manual End Year submissions, labelled offline chapters",
+  "checks": [
+    {
+      "name": "Ten sequential manually accepted years",
+      "pass": true
+    },
+    {
+      "name": "Year 1 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 1 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 1 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 2 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 2 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 2 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 3 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 3 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 3 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 4 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 4 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 4 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 5 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 5 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 5 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 6 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 6 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 6 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 7 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 7 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 7 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 8 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 8 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 8 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 9 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 9 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 9 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Year 10 cash",
+      "pass": true
+    },
+    {
+      "name": "Year 10 asset count",
+      "pass": true
+    },
+    {
+      "name": "Year 10 phase and empty queue",
+      "pass": true
+    },
+    {
+      "name": "Completed revision matches strategy",
+      "pass": true
+    },
+    {
+      "name": "Opening comparison preserves diagnostic state",
+      "pass": true
+    },
+    {
+      "name": "Restored future preserves diagnostic state",
+      "pass": true
+    },
+    {
+      "name": "Browser reload preserves diagnostic state",
+      "pass": true
+    },
+    {
+      "name": "All three persistence observations exist",
+      "pass": true
+    },
+    {
+      "name": "Confirmed replay resets seven-project run",
+      "pass": true
+    },
+    {
+      "name": "No captured error-level browser logs",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "timestamp": "2026-10-25T13:28:09.765Z",
+      "year": 1,
+      "phase": "Reviewing",
+      "revision": 6,
+      "cashCents": 270980000,
+      "queued": 0,
+      "assets": 5
+    },
+    {
+      "timestamp": "2026-10-25T13:28:54.634Z",
+      "year": 2,
+      "phase": "Reviewing",
+      "revision": 8,
+      "cashCents": 367760000,
+      "queued": 0,
+      "assets": 5
+    },
+    {
+      "timestamp": "2026-10-25T13:29:20.709Z",
+      "year": 3,
+      "phase": "Reviewing",
+      "revision": 10,
+      "cashCents": 473540000,
+      "queued": 0,
+      "assets": 5
+    },
+    {
+      "timestamp": "2026-10-25T13:30:04.183Z",
+      "year": 4,
+      "phase": "Reviewing",
+      "revision": 13,
+      "cashCents": 329320000,
+      "queued": 0,
+      "assets": 6
+    },
+    {
+      "timestamp": "2026-10-25T13:30:55.356Z",
+      "year": 5,
+      "phase": "Reviewing",
+      "revision": 15,
+      "cashCents": 435100000,
+      "queued": 0,
+      "assets": 6
+    },
+    {
+      "timestamp": "2026-10-25T13:31:17.944Z",
+      "year": 6,
+      "phase": "Reviewing",
+      "revision": 17,
+      "cashCents": 536880000,
+      "queued": 0,
+      "assets": 6
+    },
+    {
+      "timestamp": "2026-10-25T13:31:43.901Z",
+      "year": 7,
+      "phase": "Reviewing",
+      "revision": 19,
+      "cashCents": 623660000,
+      "queued": 0,
+      "assets": 6
+    },
+    {
+      "timestamp": "2026-10-25T13:32:21.286Z",
+      "year": 8,
+      "phase": "Reviewing",
+      "revision": 22,
+      "cashCents": 325440000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:32:46.939Z",
+      "year": 9,
+      "phase": "Reviewing",
+      "revision": 24,
+      "cashCents": 427220000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:33:11.879Z",
+      "year": 10,
+      "phase": "Completed",
+      "revision": 26,
+      "cashCents": 524000000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:33:49.704Z",
+      "year": 10,
+      "phase": "Completed",
+      "revision": 26,
+      "cashCents": 524000000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:34:00.166Z",
+      "year": 10,
+      "phase": "Completed",
+      "revision": 26,
+      "cashCents": 524000000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:35:02.234Z",
+      "year": 10,
+      "phase": "Completed",
+      "revision": 26,
+      "cashCents": 524000000,
+      "queued": 0,
+      "assets": 7
+    },
+    {
+      "timestamp": "2026-10-25T13:35:11.181Z",
+      "year": 1,
+      "phase": "Planning",
+      "revision": 0,
+      "cashCents": 1000000000,
+      "queued": 0,
+      "assets": 0
+    }
+  ],
+  "visualEndingObservation": {
+    "cashCents": 524000000,
+    "futureCommitmentsCents": 79700000,
+    "arrearsCents": 0,
+    "displayedScores": [
+      86.2,
+      99.0,
+      52.1
+    ],
+    "evidence": "year10-ending.jpg"
+  },
+  "limits": [
+    "Local frozen provisional candidate; not final public release",
+    "Diagnostic logs expose summary state, not a complete saved-state JSON comparison",
+    "No fast-forward, timing benchmark, novice session or timed rehearsal claimed",
+    "Visual acceptance remains open"
+  ]
+}
