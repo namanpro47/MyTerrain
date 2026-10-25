@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+**Current checkpoint: study32e camera candidate, followed by annual-source merge `1aec1e8`.** The latest Chrome export is [study32e](evidence/phase2a/visual-rebuild/study32e-build.json): perspective west-crossing opening, Restore/undo verified, no error-level browser logs. Its single moving route has p95 34 ms; visual and performance gates remain unaccepted. Local port 49658 serves this legacy-HUD export. Annual source from `48a3e41` is merged and recompiles with zero errors/warnings, but has not been exported or browser-verified here. The annual focus-framing diagnostic failed with a target-invocation exception; investigate before claiming camera integration acceptance. Remote `e25c5d3` is newer and not included in this checkpoint.
+
+The user approved accepting Unity's terms for the **free TriForge Fantasy Worlds: Forest FREE** pack. Acquisition and download are complete; the URP dependency subset is prepared locally but has not been imported or evaluated in the game. Its inventory-report script still needs a Python-compatible SHA-256 helper. No purchase or image generation. Rejected AO experiments are reverted. Read the [design reference](DESIGN_REFERENCE.md) and [art contract](art-direction.md) before continuing. Earlier entries below retain their historical verification scope.
+
 ## Main-game annual chapters — October 24, 2026
 
 Peter requested the annual chapters in the playable main UI and a local end-year test. **Review year → End year → chapter cards → Plan next year** now uses the same authoritative annual session, full catalog and ledger. Budget/meter details remain available on every story page. Pending requests offer retry, labelled offline completion and return to plan editing. Reload restores pending or accepted chapters; a new run archives the prior envelope locally.

@@ -1,5 +1,9 @@
 # Current visual review — Phase 2A remains open
 
+**Current checkpoint: study32e camera candidate, followed by annual-source merge `1aec1e8`.** The latest Chrome export is [study32e](evidence/phase2a/visual-rebuild/study32e-build.json): perspective west-crossing opening, Restore/undo verified, no error-level browser logs. Its single moving route has p95 34 ms; visual and performance gates remain unaccepted. Local port 49658 serves this legacy-HUD export. Annual source from `48a3e41` is merged and recompiles with zero errors/warnings, but has not been exported or browser-verified here. The annual focus-framing diagnostic failed with a target-invocation exception; investigate before claiming camera integration acceptance. Remote `e25c5d3` is newer and not included in this checkpoint.
+
+The user approved accepting Unity's terms for the **free TriForge Fantasy Worlds: Forest FREE** pack. Acquisition and download are complete; the URP dependency subset is prepared locally but has not been imported or evaluated in the game. Its inventory-report script still needs a Python-compatible SHA-256 helper. No purchase or image generation. Rejected AO experiments are reverted. Read the [design reference](DESIGN_REFERENCE.md) and [art contract](art-direction.md) before continuing. Earlier entries below retain their historical verification scope.
+
 **Latest Chrome candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
 
 ## Current game: normal play
