@@ -38,6 +38,8 @@ This is cooperative enforcement, not an OS sandbox. The wrapper rejects conflict
 
 Request all needed resources together, then acquire. Requests are FIFO among overlapping resources; unrelated work proceeds. A task cannot keep one reservation while queueing for another, avoiding circular waits. An idle open Editor does not need a perpetual reservation; nobody else should operate it without ownership transfer. Leaving Play Mode running counts as active use.
 
+Keep reservations scoped to one stage, not an entire feature pipeline. A background import/build normally needs editor + unity-heavy; release those after completion, then queue a short editor + desktop inspection (or desktop alone for Chrome). Do not hold desktop for a 20-minute build merely because a screenshot is needed afterward. If launching an editor requires foreground interaction, reserve that short stage separately. Performance measurements remain the exception: reserve desktop + unity-heavy together for the quiet timed window.
+
 ```sh
 # request prints an integer ID; substitute the returned value for 12 below.
 python3 scripts/terra-work.py request hud-20261025 \
