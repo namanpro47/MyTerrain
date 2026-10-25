@@ -1,0 +1,1 @@
+var c=UnityEngine.Object.FindFirstObjectByType<UnityEngine.Camera>();c.transform.position-=c.transform.forward*80f;return new{position=c.transform.position.ToString(),rotation=c.transform.eulerAngles.ToString(),distanceAdded=80};
