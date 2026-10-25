@@ -72,7 +72,7 @@ await Reject<IOException>(() => lost.ResolveYear("lost-ack/year-1", 0), "Lost ac
 Check(lost.State.history.Length == 0 && lostStore.Value!.town.history.Length == 1, "Ambiguous save outcome is not falsely announced");
 int ambiguousWrites = lostStore.Writes;
 await lost.ResolveYear("lost-ack/year-1", 0);
-Check(lost.State.history.Length == 1 && lostStore.Writes == ambiguousWrites && !lost.RecoveryRequired, "Reread discovers already committed year without a second write");
+Check(lost.State.history.Length == 1 && lostStore.Writes == ambiguousWrites + 1 && !lost.RecoveryRequired, "Reread discovers committed numeric year and saves only its pending projection");
 
 var planStore = new FakeStore();
 var planning = await AnnualNumericTransactions.Open(rules, "planning-failure", planStore);
@@ -165,6 +165,51 @@ var corrupt = new FakeStore { Value = Copy(failStore.Value) };
 corrupt.Value!.narration[0].receipt.cards[0].text = "Invented cause";
 corrupt.Value.saveHash = AnnualNumericTransactions.Hash(corrupt.Value);
 await Reject<ArgumentException>(() => AnnualNumericTransactions.Open(rules, "save-failure", corrupt), "Rehashed save still rejects unsupported visible prose");
+
+// Canonical projection/configuration is optional too, not just the remote provider.
+var projectionStore = new FakeStore();
+var projectionFailure = await AnnualNumericTransactions.Open(rules, "projection-failure", projectionStore);
+var projectionReport = await projectionFailure.ResolveYear("projection-failure/year-1", 0, modelVersion: "invalid model with spaces");
+Check(projectionReport.year == 1 && projectionFailure.State.history.Length == 1
+    && projectionFailure.ForYear(1).status == "unprojected" && projectionFailure.LastNarrationError != null,
+    "Projection failure cannot prevent acknowledged numeric acceptance");
+Check(projectionStore.Value!.town.history.Length == 1 && projectionStore.Value.narration[0].request == null,
+    "Accepted identity is saved without optional projection");
+var unprojected = await AnnualNumericTransactions.Open(rules, "projection-failure", projectionStore);
+Check(unprojected.State.history.Length == 1 && unprojected.ForYear(1).status == "unprojected", "Unprojected accepted year reopens");
+string acceptedHash = unprojected.State.history[0].simulation.transitionHash;
+await unprojected.Continue(unprojected.State.revision);
+Check(unprojected.State.year == 2, "Unprojected previous year does not block planning");
+await unprojected.PrepareNarration(1, "local-selected");
+Check(unprojected.State.year == 2 && unprojected.State.history[0].simulation.transitionHash == acceptedHash
+    && unprojected.ForYear(1).status == "visible", "Later presentation retry preserves current year and accepted numeric identity");
+var proseWriteStore = new FakeStore();
+var proseWrite = await AnnualNumericTransactions.Open(rules, "projection-write-failure", proseWriteStore);
+proseWriteStore.FailBeforeAt = proseWriteStore.Writes + 3;
+await proseWrite.ResolveYear("projection-write-failure/year-1", 0, "local-selected");
+Check(proseWrite.State.history.Length == 1 && proseWrite.ForYear(1).status == "unprojected" && proseWrite.RecoveryRequired,
+    "Optional projection save failure leaves durable numeric result visible");
+await proseWrite.PrepareNarration(1, "local-selected");
+Check(proseWrite.ForYear(1).status == "visible" && !proseWrite.RecoveryRequired, "Projection storage retry rereads before saving");
+var proseLostStore = new FakeStore();
+var proseLost = await AnnualNumericTransactions.Open(rules, "projection-lost-ack", proseLostStore);
+proseLostStore.FailAfterAt = proseLostStore.Writes + 3;
+await proseLost.ResolveYear("projection-lost-ack/year-1", 0, "local-selected");
+Check(proseLost.State.history.Length == 1 && proseLost.ForYear(1).status == "unprojected"
+    && proseLostStore.Value!.narration[0].status == "visible", "Lost prose ack does not hide accepted year or falsely publish prose");
+int proseWrites = proseLostStore.Writes;
+await proseLost.PrepareNarration(1, "network");
+Check(proseLost.ForYear(1).receipt.reasonCode == "local-selected" && proseLostStore.Writes == proseWrites,
+    "Lost prose ack recovers first saved mode without rewriting it");
+var expandedUnprojectedStore = new FakeStore { Value = Copy(projectionFailure.SaveState) };
+expandedUnprojectedStore.Value.narration[0].request = new ReportNarrationRequest();
+expandedUnprojectedStore.Value.narration[0].receipt = new ReportNarrationReceipt();
+var normalizedUnprojected = await AnnualNumericTransactions.Open(rules, "projection-failure", expandedUnprojectedStore);
+Check(normalizedUnprojected.ForYear(1).request == null && normalizedUnprojected.ForYear(1).receipt == null,
+    "Unity-expanded empty unprojected objects preserve envelope hash");
+expandedUnprojectedStore.Value.narration[0].request.title = "partial data";
+await Reject<ArgumentException>(() => AnnualNumericTransactions.Open(rules, "projection-failure", expandedUnprojectedStore),
+    "Partial unprojected data cannot be discarded as empty");
 
 // Complete all remaining numeric years with persisted local receipts, then reopen.
 while (session.State.phase != TownPhase.Completed)

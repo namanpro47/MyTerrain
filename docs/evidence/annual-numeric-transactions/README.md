@@ -37,3 +37,11 @@ DOTNET_ROLL_FORWARD=Major dotnet run --project tests/annual-numeric-transactions
 6. Test the concrete browser bridge with quota/abort/stale-key/lost-ack failure hooks, reload and separate runs. Then test actual numeric three-year adaptation, ten-year completion/reload/ending and the combined client. Pure store tests are not browser persistence acceptance.
 
 The next slice is the guarded annual session adapter and explicit browser acknowledgement, coordinated with the numeric owner. Shared HUD/TerraMain and default activation remain outside this owner's file claims. Full visual, final performance and release/rehearsal gates remain open.
+
+## Numeric acceptance precedes optional canonical projection
+
+Follow-up on model `632c159`: accepted numeric reports are now saved with a positional `unprojected` entry before canonical text is built. The history already binds the accepted request/transition hash. A projection/configuration failure or a failed projection save leaves the numeric year accepted and allows continuation; it does not pretend prose is visible. `LastNarrationError` records the optional failure in memory; `PrepareNarration(year, ...)` retries it explicitly. Reopening an unprojected entry requires no successful projection. Empty Unity-expanded inline request/receipt DTOs normalize only when wholly empty. Partial data is rejected.
+
+`ResolveYear` attempts optional preparation after acknowledgement but returns the accepted report even if that presentation step fails. A lost projection acknowledgement requires recovery and retains the first stored receipt. Duplicate accepted submissions never rerun numeric resolution; they may finish an unprojected presentation. Both accepted and prepared publications are separate acknowledged saves. The previous single-envelope local-prose wording describes the superseded checkpoint.
+
+The expanded suite passes **73 assertions**. New cases deliberately break the model identifier, fail projection persistence before/after acknowledgement, reopen/continue an unprojected year, retry an older year's presentation without moving current year, and normalize/reject empty/partial DTO expansions. This is still a fake-store pure-source check, not Unity or browser acceptance. Dense report aggregation remains separate.

@@ -20,7 +20,7 @@ The editor/non-WebGL implementation explicitly reports unsupported storage. Test
 
 ## Required before activation
 
-1. Numeric acceptance currently builds canonical narration before storing the accepted result. Projection failure (including the demonstrated dense-map 64-fact overflow) can block the numeric year. Persist accepted numeric identity with an unprojected narration state first; then derive/persist optional prose. Add a projection-failure test. Provider-failure tests do not cover this boundary.
+1. The persist-first follow-up now saves numeric acceptance with an unprojected narration entry before optional projection. The 73-assertion transaction suite covers projection/configuration/save failures and independent retry. Verify this new lifecycle through the actual Unity/browser adapter; pure-source checks alone do not establish runtime acceptance.
 2. Bound dense projections without losing material aggregate outcomes. Current sparse projection checks are not dense acceptance.
 3. Run actual Unity compilation/JsonUtility round-trip and actual Chrome IndexedDB transactions, two-window contention, reload and >20 MiB envelopes. The owner measured roughly 12.6 MB dense ten-year snapshot plus 6.44 MB definition before projection; no arbitrary 1 MB limit is introduced here, but real storage capacity and processing time remain unverified.
 4. Wire explicit async controls, numeric read/planning ranges, rendering, report transport and fallback through their owners. The main game's synchronous code must not be pointed at this mode.
