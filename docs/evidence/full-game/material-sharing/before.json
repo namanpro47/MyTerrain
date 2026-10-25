@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/MaterialSharing/snapshot.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 13797,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "groups": 666,
+        "uniqueMaterials": 1566,
+        "contentGroups": 14,
+        "batchAppearanceAndPlacementSha256": "EFA64FE9C9222E77EE7FBC3DF5B4EEA8005EAA586DB56E945D2354F5917D79F6",
+        "submitted": 753,
+        "culled": 1388
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
