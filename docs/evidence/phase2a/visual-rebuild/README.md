@@ -423,3 +423,30 @@ Study29c Web export job `17ced72c4ffb4d0c866ffcdfb58d7052` succeeded in 77.15 se
 One 30-second camera/placement diagnostic: p50=17ms, p95=31ms, p99=38ms, max=529ms, 51 frames>33ms and **two>200ms**, 1,695 frames, 1,054 camera events, three previews, one placement, zero unfocused frames. This is a **failed overall performance result**, despite the stable-30 p95. Two preview presentation-opportunity samples were25.1/19.6ms; one placement24.7ms. Input CPU measurements exclude deferred terrain flush and rendering. No causal diagnosis of the two long frames or full three-route/fresh-cache acceptance is claimed.
 
 Integration boundary: this isolated build verifies legacy Apply/Ghost/ViewScale treatment rendering. The newer annual `LandscapeRenderer.Annual.cs` / `Annual.Land.cs` path must deliberately reuse the ground surface and swale state, not merely copy files and assume annual visuals changed. No annual lifecycle capture is claimed. Full-game art remains unaccepted. Temporary Editor background override reverted; Chrome viewport reset; own superseded build tab closed.
+
+
+## Study31 — continuous meadow and shared grass lighting; Chrome verified, gate open
+
+Patterns TN-02/09/10/11/12. Study30's selected candidate was checkpointed at `b869f5b`; its native/adapted grass-card failures are recorded in [study30-checkpoint.md](study30-checkpoint.md). Study31 retains the unchanged free Quaternius grass meshes and Julio painted ground family. No generated images, purchases or new source assets.
+
+The former oval colonies and bright grass/ground mismatch were the concrete failures. Meadow growth now spans a connected irregular sward with height drifts, openings and sparse flowers. Grass uses mesh-relative root/tip shading in the ground's value range. Explicit cutout shadow/depth passes share its material buffer; `InstancedNature` supplies each mesh's vertical bounds. This improves continuity and removes the bright bank fringe, but does not solve overall scene quality.
+
+Study31a exposed an overview regression: broad crop-color bands made repetitive stripes across the valley. [Rejected overview](study31-overview.jpg). The bands were removed in31b; curved, wider existing wheat rows and illustrative access lanes remain. [Corrected overview](study31b-overview.jpg). Camera alternatives from30 remain unselected; no camera source changed.
+
+Actual final Chrome evidence at1280×720 CSS/buffer: [opening](study31b-default.jpg), [restored](study31b-restored.jpg), [close](study31b-close.jpg), [replacement canceled](study31b-replacement-cancel.jpg), [swale close](study31b-swale-close.jpg), [overview](study31b-overview.jpg). Swale6/32→undo6/60 and Restore5/42→undo6/60 pass; replacement preview cancellation restores the accepted meadow. Final revision4. No error-level logs returned. Earlier31a additionally exercised baseline preview/cancel. The [Editor surface fixture](study31-surface-check.json) verifies source cover unchanged and exact surface state recovery; it does not cover annual lifecycle integration.
+
+[Final source/export/browser record](study31b-build.json). Build job `5b801ab68e41440e823c05cd50798620` succeeded in11.207s; anonymous exact serving checks pass. One30s moving/placement route: p50=17ms,p95=19ms,p99=27ms,max30ms;1769frames,zero>33ms,zero>200ms,1053cameraevents,zero unfocused frames. Presentation opportunities: two previews23.6/18.7ms and one placement21.5ms, not physical display latency or a robust p95 sample. Final candidate has only one route; three fresh-cache loads, complete viewport suite and public delivery remain pending. Shader compilation reports no errors; the ground's existing GLES3x potentially-uninitialized warning remains. Study31a's separate route is retained as historical evidence, not substituted for another final-source run.
+
+**Visual gate still fails.** The meadow is more coherent but too low in relief at normal scale; crop repetition, sparse forest-edge context, flat opening composition, schematic overview and the coarse exposed swale bed remain substantial reference gaps. No4.5 score, accepted art direction or full-game quality claim. Next materially change composition and environment scale hierarchy rather than continue tint/density adjustments to this same framing. Preserve source terrain, mapped routes and accounting. Annual integration remains owned by the full-game task.
+
+
+## Study32 — camera and canopy experiments (checkpoint only)
+
+TN-01/02/09/10/11/12. Four camera-only Editor captures preserve the next composition investigation; these omit the HUD and are not Chrome acceptance evidence. Runtime source remains the Chrome-verified study31b at `0a770c5`. No study32 camera change was adopted or exported.
+
+- [32a: west crossing, orthographic](study32a-composition.png): target x/z (-90,-70), height +8m, zoom105, pitch34, yaw-32. Fields, bridge and woodland form a clearer composition, but canopy and grass remain weak.
+- [32b: west crossing, perspective](study32b-perspective.png): same target/angles/zoom, perspective FOV36. Promising depth candidate requiring actual HUD, movement and integrated annual-game review.
+- [32c: original leaf normals mixed into volume normals](study32c-authored-normals.png): same perspective camera; 65% original normals and35% radial normals. Rejected for jagged, dark leaf planes. Shader change reverted before this checkpoint.
+- [32d: east crossing](study32d-east-crossing.png): target x/z (270,-50), height +8m, zoom105, pitch34, yaw25, perspective. Weaker composition with visible map edge; not adopted.
+
+A free TriForge Fantasy Worlds Forest candidate was investigated through its official Unity listing; acquisition/import was not confirmed at this checkpoint. No purchase, generated image, new location or annual gameplay change. Visual gate remains unaccepted. These captures preserve investigation, not a new playable build.
