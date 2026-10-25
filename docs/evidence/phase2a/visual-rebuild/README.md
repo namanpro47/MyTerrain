@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Studies 49–50](study50-findings.md) — selective hillside relief, rejected cliff/rock trials, and a new free hand-painted ground candidate. **Visual and browser gates remain open.**
+Latest: [Study 53](study53-findings.md) — worn rural path candidate and visible artist attribution; [study 52](study52-findings.md) rejects the continuous crop canopy. **Visual and browser gates remain open.**
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

@@ -1,0 +1,7 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study51Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study51Ground.shader");
+var path="/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/AtapatacoGround/unpacked/Handpainted_Grass_and_Ground_Textures_Free/";
+UnityEngine.Texture2D Load(string name){var t=new UnityEngine.Texture2D(2,2,UnityEngine.TextureFormat.RGBA32,true,false);t.LoadImage(System.IO.File.ReadAllBytes(path+name));t.name=name;t.wrapMode=UnityEngine.TextureWrapMode.Repeat;return t;}
+var grass=Load("Grass/Grass.png");var edge=Load("Grass/Grass_desatured.png");int count=0;
+foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.shader.name=="Terra/Illustrated Ground"&&m.HasFloat("_SurfaceKind")&&m.GetFloat("_SurfaceKind")>2.5f)){m.shader=shader;m.SetTexture("_MeadowPaint",grass);m.SetTexture("_BaseMap",edge);m.SetFloat("_MeadowScale",32);count++;}
+return new{count,errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray(),frame=UnityEngine.Time.frameCount};

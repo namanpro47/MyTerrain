@@ -20,6 +20,8 @@ Shader "Terra/Illustrated Ground"
         _TreatmentMap("Reversible surface changes",2D)="black"{}
         _RiverMap("Illustrative bank distance",2D)="white"{}
         _PathMap("Mapped route union",2D)="white"{}
+        _PathPaint("Artist path earth",2D)="white"{}
+        _IllustratedPaths("Worn rural paths",Float)=0
         _LandBounds("World bounds",Vector)=(-590,-630,1180,1260)
     }
     SubShader
@@ -42,6 +44,7 @@ Shader "Terra/Illustrated Ground"
                 half _Cutoff;
                 half _SurfaceKind;
                 half _IllustrativeRelief;
+                half _IllustratedPaths;
                 float _MeadowScale;
                 float4 _LandBounds;
             CBUFFER_END
@@ -56,6 +59,7 @@ Shader "Terra/Illustrated Ground"
             TEXTURE2D(_EarthNormal); SAMPLER(sampler_EarthNormal);
             TEXTURE2D(_RiverMap); SAMPLER(sampler_RiverMap);
             TEXTURE2D(_PathMap); SAMPLER(sampler_PathMap);
+            TEXTURE2D(_PathPaint); SAMPLER(sampler_PathPaint);
             TEXTURE2D(_StonesPaint); SAMPLER(sampler_StonesPaint);
             TEXTURE2D(_StonesNormal); SAMPLER(sampler_StonesNormal);
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; };
@@ -173,9 +177,24 @@ Shader "Terra/Illustrated Ground"
                     half3 swaleBed=lerp(earthPaint*half3(.43,.49,.43),stonesPaint*half3(.47,.53,.49),.35);
                     albedo=lerp(albedo,swaleBed,swale);
                     surfaceNormal=lerp(surfaceNormal,earthN,swale);
-                    float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
+                    half3 pathData=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).rgb;
+                    float pathDistance=pathData.r;
                     float road=1-smoothstep(.28,.72,pathDistance+(Noise(p*.7)-.5)*.06);
                     half3 pathPaint=lerp(half3(.36,.32,.22),earthPaint*half3(.82,.84,.79),.25);
+                    // Broad wheel wear and planted shoulders belong to the same ground
+                    // surface, so junctions cannot stack translucent road strips.
+                    [branch] if(_IllustratedPaths>.5 && road>.001)
+                    {
+                        half3 pathEarth=PaintedSample(TEXTURE2D_ARGS(_PathPaint,sampler_PathPaint),p/7).rgb;
+                        half pathValue=dot(pathEarth,half3(.2126,.7152,.0722));
+                        pathEarth=lerp(pathValue.xxx,pathEarth,.30)*half3(1.02,.98,.90);
+                        float track=exp(-pow((pathData.g-.43)/.24,2));
+                        float centre=(1-smoothstep(.12,.36,pathData.g))*(1-pathData.b);
+                        float verge=smoothstep(.68,.98,pathData.g);
+                        float growth=smoothstep(.33,.70,Noise(p*.045)*.6+Noise(p*.19)*.4);
+                        pathPaint=pathEarth*lerp(.88,1.06,track);
+                        pathPaint=lerp(pathPaint,living*.82,centre*growth*.28+verge*.45);
+                    }
                     albedo=lerp(albedo,pathPaint,road);
                     surfaceNormal=lerp(surfaceNormal,earthN,road);
                     surfaceNormal=normalize(lerp(half3(0,0,1),surfaceNormal,.45*fade));
