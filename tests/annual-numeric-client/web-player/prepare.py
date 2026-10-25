@@ -19,7 +19,7 @@ HERE=Path(__file__).resolve().parent
 copy(HERE/'NumericWebCheck.cs',TARGET/'Assets/NumericWebCheck.cs')
 copy(HERE/'NumericWebBuild.cs',TARGET/'Assets/Editor/NumericWebBuild.cs')
 copy(HERE/'index.html',TARGET/'Assets/WebGLTemplates/NumericCheck/index.html')
-copy(ROOT/'Builds/AnnualNumericClientVectors/definition.json',TARGET/'Assets/Resources/definition.json')
+for name in ('definition.json','dense-definition.json','dense-save.json'):copy(ROOT/'Builds/AnnualNumericClientVectors'/name,TARGET/'Assets/Resources'/name)
 copy(ROOT/'ProjectSettings/ProjectVersion.txt',TARGET/'ProjectSettings/ProjectVersion.txt')
 (TARGET/'Packages').mkdir(exist_ok=True)
 if not (TARGET/'Packages/manifest.json').exists():(TARGET/'Packages/manifest.json').write_text(json.dumps({'dependencies':{'com.unity.modules.jsonserialize':'1.0.0'}}))

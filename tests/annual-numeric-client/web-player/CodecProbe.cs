@@ -15,20 +15,24 @@ class NumericCodecProbe {
  }
  static void Main(){
   const string folder="Builds/AnnualNumericClientVectors/";
-  var definition=AnnualNumericJson.ReadDefinition(File.ReadAllText(folder+"definition.json"));
-  var original=AnnualNumericJson.ReadSave(File.ReadAllText(folder+"save.json"));
-  var run=AnnualNumericTransactions.Open(definition,original.town.runId,new Store{Json=File.ReadAllText(folder+"save.json")}).GetAwaiter().GetResult();
+  foreach(string prefix in new[]{"", "dense-"}) {
+  var definition=AnnualNumericJson.ReadDefinition(File.ReadAllText(folder+prefix+"definition.json"));
+  var original=AnnualNumericJson.ReadSave(File.ReadAllText(folder+prefix+"save.json"));
+  var run=AnnualNumericTransactions.Open(definition,original.town.runId,new Store{Json=File.ReadAllText(folder+prefix+"save.json")}).GetAwaiter().GetResult();
   Check(run.State.history.Length==10&&run.State.phase==TownPhase.Completed,"Complete decade");
   Check(run.SaveState.saveHash==original.saveHash,"Exact .NET-to-Mono envelope hash");
   Check(new AnnualTown(definition,"probe").DefinitionHash==original.town.definitionHash,"Exact definition hash");
   for(int i=0;i<10;i++){
    Check(run.State.history[i].simulation.transitionHash==original.town.history[i].simulation.transitionHash,"Report identity year"+(i+1));
-   Check(run.ForYear(i+1).receipt.requestHash==original.narration[i].receipt.requestHash,"Narration identity year"+(i+1));
+   var actual=run.ForYear(i+1);var expected=original.narration[i];
+   Check(actual.status==expected.status && actual.receipt?.requestHash==expected.receipt?.requestHash
+    && ReportNarration.RequestHash(actual.request)==ReportNarration.RequestHash(expected.request),"Narration identity year"+(i+1));
   }
   var copy=AnnualNumericJson.ReadSave(AnnualNumericJson.WriteSave(run.SaveState));
   Check(AnnualNumericTransactions.Hash(copy)==original.saveHash,"Mono own complete envelope round trip");
   var rules=AnnualNumericJson.ReadDefinition(AnnualNumericJson.WriteDefinition(definition));
   Check(new AnnualTown(rules,"again").DefinitionHash==original.town.definitionHash,"Mono own definition round trip");
-  Console.WriteLine("PASS "+checks+" exact codec assertions on Unity bundled Mono; save "+original.saveHash+". No Editor or browser.");
+  Console.WriteLine((prefix==""?"Sparse":"Dense")+" PASS "+checks+" exact codec assertions on Unity bundled Mono; save "+original.saveHash+". No Editor or browser.");
+  }
  }
 }

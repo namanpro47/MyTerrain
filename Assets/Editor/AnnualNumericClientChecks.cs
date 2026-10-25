@@ -72,6 +72,13 @@ namespace Terra.EditorChecks
                 fresh.ReloadNumericAsync().GetAwaiter().GetResult();
                 Check(fresh.NumericNarrationForYear(1).receipt.mode == "local", "Saved local prose reloads through exact Unity adapter");
                 Check(fresh.State.history[0].simulation.transitionHash == result.simulation.transitionHash, "Presentation never rewrites numeric result");
+                var denseDefinition = AnnualNumericJson.ReadDefinition(File.ReadAllText(Path.Combine(vectors, "dense-definition.json")));
+                var denseStore = new JsonStore { json = File.ReadAllText(Path.Combine(vectors, "dense-save.json")) };
+                var denseOriginal = AnnualNumericJson.ReadSave(denseStore.json);
+                var dense = AnnualNumericTransactions.Open(denseDefinition, denseOriginal.town.runId, denseStore).GetAwaiter().GetResult();
+                Check(dense.State.history.Length == 10 && dense.State.phase == TownPhase.Completed, "Dense ten-year .NET envelope replays through Unity");
+                Check(dense.SaveState.saveHash == denseOriginal.saveHash, "Dense cross-runtime save hash");
+                for (int year = 0; year < 10; year++) Check(dense.State.history[year].simulation.transitionHash == denseOriginal.town.history[year].simulation.transitionHash, "Dense exact report year " + (year + 1));
                 evidence.passed = true;
                 string destination = Path.Combine(root, "docs/evidence/annual-numeric-client/unity-checks.json");
                 File.WriteAllText(destination, JsonUtility.ToJson(evidence, true) + "\n");

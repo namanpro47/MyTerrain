@@ -12,7 +12,7 @@ class Handler(SimpleHTTPRequestHandler):
   if self.path!='/evidence':self.send_error(404);return
   length=int(self.headers.get('Content-Length','0'))
   if not 0<length<65536:self.send_error(413);return
-  value=json.loads(self.rfile.read(length));name='webgl-reload.json' if value.get('reloaded') else 'webgl-first-run.json'
+  value=json.loads(self.rfile.read(length));name=('webgl-dense-' if value.get('dense') else 'webgl-')+('reload.json' if value.get('reloaded') else 'first-run.json')
   value['sourceManifestSha256']=hashlib.sha256((PROJECT/'source-manifest.json').read_bytes()).hexdigest()
   (ROOT/'docs/evidence/annual-numeric-client'/name).write_text(json.dumps(value,indent=2)+'\n')
   self.send_response(204);self.end_headers()

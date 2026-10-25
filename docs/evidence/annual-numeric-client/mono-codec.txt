@@ -1,1 +1,2 @@
-PASS 25 exact codec assertions on Unity bundled Mono; save d3e053d11f2158744046fd6b77fa0fff166f4b24df4074909d9674802e8a9c37. No Editor or browser.
+Sparse PASS 25 exact codec assertions on Unity bundled Mono; save d3e053d11f2158744046fd6b77fa0fff166f4b24df4074909d9674802e8a9c37. No Editor or browser.
+Dense PASS 50 exact codec assertions on Unity bundled Mono; save 3d9a2bf2c037b2ef857f7336722ee2d80e93928686ec4c3f255759e6428b7a5d. No Editor or browser.
