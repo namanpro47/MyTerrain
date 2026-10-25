@@ -1,6 +1,6 @@
 # Study63 — cultivated soil beds and broad-leaf crops
 
-Patterns TN-02/09/10/12. The [design library](../../../DESIGN_REFERENCE.md) and [visual rebuild goal](../../../PHASE_2A_GOAL.md) remain the quality bar. This is the first persistent integration of the [crop-form study](../crop-forms-01/README.md), combined with study62 conifers. **Editor candidate only; Phase2A remains open.**
+Patterns TN-02/09/10/12. The [design library](../../../DESIGN_REFERENCE.md) and [visual rebuild goal](../../../PHASE_2A_GOAL.md) remain the quality bar. This is the first persistent integration of the [crop-form study](../crop-forms-01/README.md), combined with study62 conifers. **Chrome opening now inspected; Phase2A remains open.**
 
 [Integrated normal](study63-integrated-normal.png), [close](study63-integrated-close.png), and [living-margin preview](study63-margin-preview.png) are actual1280×720 Editor camera captures without the overlay HUD. The normal view replaces the fine golden grain pattern across the Wisconsin baseline and surrounding fields with curved raised soil beds and broad leaf heads. The closer view shows actual plant volumes and soil ridges. Repetition, bright soil, woodland floor structure, wider composition and whole-scene cohesion still need work; these are not accepted4.5 scores or commercial-game parity.
 
@@ -21,3 +21,11 @@ Compilation reports zero errors/warnings. Live frames advance before captures. [
 Next: evaluate actual Chrome normal/close/alternate field and annual transformation, measure current-source load, preview and camera costs, and inspect field boundaries in motion. Study62 already failed its paired camera timing; its result is not waived by this new artwork. No public release or final acceptance is claimed.
 
 The scoped lookup cache reduces Editor construction27.307→15.109s. [Matched output check](study63-cache-check.json) confirms all381 mesh/placement group hashes are identical, including the same pending-destruction margin preview. The initial comparison failed because only one snapshot still contained that deferred preview; repeating the same lifecycle state resolves the discrepancy. The clean opening contains38,435 leaf plants and1,282,588 bed vertices. [Final compilation](study63-compile-final.json) is clean. The optimization changes no vertices, normals, UVs, triangle indices or plant transforms in the matched construction.
+
+## First Chrome inspection
+
+[Actual Chrome opening with HUD](study63-chrome-normal.jpg),1280×720, source4488af9; Unity-normalized soil material was subsequently checkpointed in7f258cc. The build job completed successfully. Frozen `Builds/Web63` serves [31 byte-verified files](study63-web-verification.json),48,122,484 bytes including all three location packs; that inventory is not initial transfer. Six unrelated tracked Unity changes and unused imported assets were present, so this is not a clean Git-only export claim.
+
+[Observed entry](study63-entry-observation.json):9.611s from entry handler to visible focused game,2.064s scenery construction. The13.476s legacy interactive marker includes time before the entry click and is not the same measure. This single entry does not establish three fresh-cache loads. Initial annual state is Year1/Planning/revision0/cash1,000,000,000 cents/queue0/assets0.
+
+The beds have more readable volume than the previous grain, but the dominant composition is still broad bright ground between separate field, woodland and water elements. Fine crop repetition remains. No visual dimension is accepted. Chrome was closed after this capture for the other chat's bounded performance comparison; crop timing, close/motion and transformation checks remain pending. Next study compares representative framing/projection before another asset or surface change (TN-01/02/12), without restricting exploration to conceal weaknesses.
