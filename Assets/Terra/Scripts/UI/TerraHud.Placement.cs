@@ -105,6 +105,8 @@ namespace Terra.UI
             placementInstruction.fontSize=LargeText?16.5f:15;
             placementAnchor.points=points;placementAnchor.view=camera;
             placementCapsule.gameObject.SetActive(true);
+            // Candidate guidance owns this space; an earlier camera/action toast must not cover it.
+            toastPanel.SetActive(false);
             previewKind.text=(status=="REPLACE PREVIEW"?"REPLACE":status=="MOVE PREVIEW"?"MOVE":status)+" · "+site;
             previewKind.color=blocked?blockedPlacement:Accent;
             // Even a failed replacement must identify the intended candidate and its first cause.
