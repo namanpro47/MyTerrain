@@ -1,0 +1,30 @@
+Shader "Study70/Spatial Crop Volume" {
+Properties { _Slices("Artist geometry slices",2DArray)=""{} _Mask("Parcel eligibility",2D)="white"{} _Bounds("Mask bounds",Vector)=(0,0,1,1) }
+SubShader {Tags {"RenderType"="TransparentCutout" "Queue"="AlphaTest" "RenderPipeline"="UniversalPipeline"} Pass {
+Tags {"LightMode"="UniversalForward"} Cull Off ZWrite On
+HLSLPROGRAM
+#pragma target 3.5
+#pragma vertex Vert
+#pragma fragment Frag
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile_fragment _ _SHADOWS_SOFT
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+TEXTURE2D_ARRAY(_Slices);SAMPLER(sampler_Slices);
+TEXTURE2D(_Mask);SAMPLER(sampler_Mask);
+CBUFFER_START(UnityPerMaterial)
+float4 _Bounds;
+CBUFFER_END
+struct A{float4 p:POSITION;float3 uv:TEXCOORD0;float2 data:TEXCOORD1;};struct V{float4 p:SV_POSITION;float3 w:TEXCOORD0;float3 uv:TEXCOORD1;float2 data:TEXCOORD2;};
+V Vert(A i){V o;o.w=TransformObjectToWorld(i.p.xyz);o.p=TransformWorldToHClip(o.w);o.uv=i.uv;o.data=i.data;return o;}
+half4 Frag(V i):SV_Target{
+float3 view=abs(UNITY_MATRIX_V[2].xyz);float axis=view.x>view.y&&view.x>view.z?0:(view.y>view.z?1:2);clip(.1-abs(axis-i.data.x));
+clip(SAMPLE_TEXTURE2D(_Mask,sampler_Mask,(i.w.xz-_Bounds.xy)/_Bounds.zw).r-.5);
+half4 c=SAMPLE_TEXTURE2D_ARRAY(_Slices,sampler_Slices,i.uv.xy,i.uv.z);clip(c.a-.4);
+// The geometry bake clears uncovered texels to transparent black.
+// Undo that coverage weighting after filtering so leaf edges keep their source color.
+c.rgb/=max(c.a,.001);
+Light sun=GetMainLight(TransformWorldToShadowCoord(i.w));half3 lighting=SampleSH(half3(0,1,0))+sun.color*saturate(sun.direction.y)*sun.shadowAttenuation;
+return half4(c.rgb*lighting*i.data.y,1);}
+ENDHLSL
+}}}
