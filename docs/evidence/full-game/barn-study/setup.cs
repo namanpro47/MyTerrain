@@ -1,0 +1,12 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();main.enabled=false;
+var world=(Terra.Contracts.WorldData)main.GetType().GetField("world",flags).GetValue(main);
+var rules=(Terra.Core.BuildActionRules)main.GetType().GetField("buildActionRules",flags).GetValue(main);
+var session=(Terra.Gameplay.AnnualTownSession)main.GetType().GetField("annual",flags).GetValue(main);
+var landscape=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var offer=session.Definition.actions.First(a=>a.actionId=="agricultural-storage");var site=world.sites.First(s=>s.id==offer.siteId);
+landscape.Apply(site,offer.actionId);
+var proposals=(System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)typeof(Terra.Rendering.LandscapeRenderer).GetField("proposals",flags).GetValue(landscape);
+var instance=proposals[site.id].Find(main.buildActionCatalog.Find(offer.actionId).title);
+UnityEditor.EditorApplication.isPaused=true;
+return new{frame=UnityEngine.Time.frameCount,site=site.id,position=instance.position.ToString(),parts=instance.GetComponentsInChildren<UnityEngine.MeshFilter>().Select(f=>new{name=f.name,verts=f.sharedMesh.vertexCount,bounds=f.sharedMesh.bounds.ToString()}).ToArray()};
