@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Matched Editor captures and 42 lifecycle/render checks pass; Chrome and whole-scene acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
+
 ## Lossless browser download reduction — October 25, 2026
 
 The existing Web export now uses Brotli with local/static-server fallback. [Build and actual Chrome verification](evidence/full-game/web-compression/README.md) pin clean source `7db6a5d`, 31 anonymously byte-verified files totaling **39,988,802 bytes**, three fresh arrivals **12.631 / 10.373 / 11.700 seconds**, and a successful project → offline annual chapter → Year 10 → replay smoke test. This main-based export is frozen locally. Art and frame pacing are unchanged; the separate terrain candidate's visual/frame-time gate and final public/rehearsal work remain open.

@@ -343,14 +343,14 @@ namespace Terra.Rendering
             ghostSiteId=site.id;ghostTreatment=treatment;surfaceDirty=true;baselines[site.id].gameObject.SetActive(false);if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
             BuildTreatment(site,treatment,ghost,true);
         }
-        public Transform Apply(Site site,string treatment)
+        public Transform Apply(Site site,string treatment,float vegetationMaturity=1)
         {
             if(treatment==null)surfaceTreatments.Remove(site.id);else surfaceTreatments[site.id]=treatment;
             surfaceDirty=true;
             if(proposals.TryGetValue(site.id,out var previous)){DestroyGroup(previous);proposals.Remove(site.id);}
             baselines[site.id].gameObject.SetActive(treatment==null);if(treatment==null)return null;
             var holder=new GameObject("Proposal "+site.id).transform;holder.SetParent(root,false);proposals[site.id]=holder;
-            BuildTreatment(site,treatment,holder,false);return holder;
+            BuildTreatment(site,treatment,holder,false,vegetationMaturity);return holder;
         }
         static Point[] Rectangle(float l,float b,float r,float t)=>new[]{new Point(l,b),new Point(r,b),new Point(r,t),new Point(l,t)};
         float Range(float a,float b)=>a+(float)random.NextDouble()*(b-a);

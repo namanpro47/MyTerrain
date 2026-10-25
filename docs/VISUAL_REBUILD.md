@@ -138,3 +138,7 @@ Free MIT [UnityMeshSimplifier](https://github.com/Whinarn/UnityMeshSimplifier), 
 ## Study54 — connected grassland candidate
 
 [Source-backed comparisons and verification](evidence/phase2a/visual-rebuild/study54-findings.md) retain overlapping swaths after rejecting isolated grass islands. Existing Quaternius geometry/materials are reused; no generated image or new resource. Wisconsin mapped context only: annual treatment consistency, Chrome performance and broader ground/field quality remain unresolved. This is not visual acceptance.
+
+### Study 55 — restoration establishment
+
+[Matched captures and lifecycle evidence](evidence/phase2a/visual-rebuild/study55-findings.md) retain larger planted swaths and flowering pockets over the prior fine scatter. The same planting matures through the accepted annual state. This is an Editor-verified candidate; Chrome, crop-mass quality and whole-scene acceptance remain open. TN-02/05/08.

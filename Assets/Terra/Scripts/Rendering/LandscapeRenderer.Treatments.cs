@@ -9,9 +9,9 @@ namespace Terra.Rendering
     public sealed partial class LandscapeRenderer
     {
         // Illustrated plant communities; their density and species are not field observations or model inputs.
-        void BuildTreatment(Site site,string treatment,Transform parent,bool preview)
+        void BuildTreatment(Site site,string treatment,Transform parent,bool preview,float vegetationMaturity=1)
         {
-            if(BuildCatalogAction(site,treatment,parent,preview))return;
+            if(BuildCatalogAction(site,treatment,parent,preview,vegetationMaturity))return;
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             bool cultivated=treatment.StartsWith("cultivate");
             // Surface changes live on the terrain material; plants and swale geometry remain independently reversible.

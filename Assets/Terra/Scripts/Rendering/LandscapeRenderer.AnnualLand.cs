@@ -9,7 +9,7 @@ namespace Terra.Rendering
     {
         // Peter's landscape icons illustrate practices, while the live agreement covers the
         // complete managed polygon. Reuse the environment's own planting and terrain surfaces.
-        void BuildAnnualLand(Site site,string id,Transform parent,bool preview)
+        void BuildAnnualLand(Site site,string id,Transform parent,bool preview,float vegetationMaturity=1)
         {
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             if(id=="cultivate-standard")PlantCultivation(p,parent,false);
@@ -26,6 +26,8 @@ namespace Terra.Rendering
                 }
             }
             else if(id=="water-swale")PlantSwale(site,parent);
+            else if(clusteredWoodland&&(id=="restore-grass"||id=="stewardship-agreement"))
+                PlantRestorationMeadow(p,parent,vegetationMaturity);
             else PlantMeadow(p,parent,id=="cover-crop"?2.8f:2.9f,id!="cover-crop");
         }
         void BuildWindMeadow(Site site,Terra.Core.BuildActionLayout layout,Transform parent)

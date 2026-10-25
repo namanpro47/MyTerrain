@@ -66,10 +66,10 @@ namespace Terra.Rendering
                 if(renderer.name=="grass"||renderer.name=="path")renderer.sharedMaterial=ProjectGround(renderer.name=="path");
         }
 
-        bool BuildCatalogAction(Site site,string id,Transform parent,bool preview)
+        bool BuildCatalogAction(Site site,string id,Transform parent,bool preview,float vegetationMaturity=1)
         {
             var action=buildRules?.Find(id);if(action==null)return false;
-            if(action.landscape){BuildAnnualLand(site,id,parent,preview);return true;}
+            if(action.landscape){BuildAnnualLand(site,id,parent,preview,vegetationMaturity);return true;}
             var entry=buildCatalog.Find(action.artId);var layout=VisualLayout(buildRules.Layout(site,action));
             if(entry?.prefab==null||!layout.Valid)return false;
             if(id=="wind")BuildWindMeadow(site,layout,parent);else BuildRemainingSite(site,layout,parent);
