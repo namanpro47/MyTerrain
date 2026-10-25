@@ -1,0 +1,127 @@
+{
+  "source": "b4693acb6f139cb7446f411836a006ced6957425",
+  "files": 20,
+  "totalBytes": 40089616,
+  "entries": [
+    {
+      "path": "Build/80a168821ea8eab9801a76b95fb652c4.data.unityweb",
+      "bytes": 30481386,
+      "sha256": "e26a4bd6993c7ac053bb058cc1aa2006564229fdb81f317e9ddd18533fcf7ee4",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/85c92d0c825f3e6a17bba1376a28a995.framework.js.unityweb",
+      "bytes": 67747,
+      "sha256": "5010148ec732ab75b15e688f821664c630d255c21fce0ae15228bd74efcdea5d",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/aa858ee59b0e9004c05e990b8c2078a6.loader.js",
+      "bytes": 118806,
+      "sha256": "26c7c1d046beb259f8598fbd46694e31f1a796d50119291343f038093065a147",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/bfefc13ae1095986a61e7859eb8e27a0.wasm.unityweb",
+      "bytes": 7919849,
+      "sha256": "a9b7e51ad7db792d90124e51e90096c05543b297199474e70ce3826c70fc4aa4",
+      "servedMatch": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 2111,
+      "sha256": "3e3596d315c492bc6a38acadd09705afdf10ceb80d4effacfcb223f98f58fd2d",
+      "servedMatch": true
+    },
+    {
+      "path": "licenses/WATER-LICENSE.txt",
+      "bytes": 1087,
+      "sha256": "6d1ede0e89ea768228510dd432ed94b430d907de4a602307c49821603aec79de",
+      "servedMatch": true
+    },
+    {
+      "path": "player.js",
+      "bytes": 2562,
+      "sha256": "d8818dc1318a62a2597470d20b655c97bc8ecb68e624c42066c777c8de6eded9",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+      "servedMatch": true
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 255,
+      "sha256": "3eb9a4b21bde2cd7789d8c99fae47e3560110967a22e739b532dd3b317dfab1b",
+      "servedMatch": true
+    }
+  ]
+}

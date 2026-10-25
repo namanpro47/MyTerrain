@@ -2,7 +2,7 @@
 
 ## Approved play-first HUD — October 25, 2026
 
-The approved mockups now have native Unity implementation: quieter status panels, icon-labelled commands, a compact project inspector with real costs/dates, and nonmodal year highlights with optional story/budget and immediate continuation. [Final source `607e34e`, captures and receipt](evidence/play-first/README.md) record **2,399 core assertions**, **809 main UI + 16 chapter checks**, and **32 actual Chrome assertions**. Larger text fits at 1440×900, 1280×720 and 1024×576; menu keys, replacement previews, read-only history and reload pass. The local WebGL export has 32 byte-verified files / 39,977,460 bytes. No live provider, performance, public deployment or Phase 2A scenery acceptance is claimed.
+The approved mockups now have native Unity implementation: quieter status panels, icon-labelled commands, a compact project inspector with real costs/dates, and nonmodal year highlights with optional story/budget and immediate continuation. [Final combined source `b4693ac`, captures and receipt](evidence/play-first/README.md) preserves main's native MyTerrain atlas and records **2,399 unchanged-core assertions**, **809 main UI + 16 chapter checks**, and **36 actual Chrome assertions**. Larger text fits at 1440×900, 1280×720 and 1024×576; menu keys, replacement previews, read-only history, globe/location transitions and reload pass. The local WebGL export has 20 byte-verified files / 40,089,616 bytes. No live provider, performance, public deployment or Phase 2A scenery acceptance is claimed.
 
 ## Crop grouping browser comparison — October 25, 2026
 

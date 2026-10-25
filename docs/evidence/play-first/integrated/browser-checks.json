@@ -1,0 +1,289 @@
+{
+  "source": "b4693acb6f139cb7446f411836a006ced6957425",
+  "integratedMain": "aee5bb6409ac3f20b9243b83a246c7e5a9854dbe",
+  "browser": "156.0.8078.48",
+  "headless": true,
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1024,
+      576
+    ]
+  ],
+  "checks": [
+    {
+      "name": "Native atlas owns selection; no HTML atlas controls",
+      "pass": true,
+      "detail": "MyTerrain"
+    },
+    {
+      "name": "Native 1440 planning visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1440 planning native atlas button available",
+      "pass": true,
+      "detail": {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 752,
+          "width": 116,
+          "height": 36
+        }
+      }
+    },
+    {
+      "name": "Native 1440 planning clears native atlas button",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Wisconsin opens its fresh annual state",
+      "pass": true,
+      "detail": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+    },
+    {
+      "name": "More remains modal and cannot queue after atlas integration",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "after": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    {
+      "name": "Native 1440 inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1440 inspector native atlas button available",
+      "pass": true,
+      "detail": {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 752,
+          "width": 116,
+          "height": 36
+        }
+      }
+    },
+    {
+      "name": "Native 1440 inspector clears native atlas button",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native inspector retains actual commitment and opening",
+      "pass": true,
+      "detail": [
+        "Opens Y2 · grows for 1 yr",
+        "$70,000 total reserved"
+      ]
+    },
+    {
+      "name": "Combined replacement stays prospective without changing queue",
+      "pass": true,
+      "detail": {
+        "state": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0"
+      }
+    },
+    {
+      "name": "Native 1280 larger inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1280 larger inspector native atlas button available",
+      "pass": true,
+      "detail": {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 572,
+          "width": 116,
+          "height": 36
+        }
+      }
+    },
+    {
+      "name": "Native 1280 larger inspector clears native atlas button",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1024 larger inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1024 larger inspector native atlas button available",
+      "pass": true,
+      "detail": {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 428,
+          "width": 116,
+          "height": 36
+        }
+      }
+    },
+    {
+      "name": "Native 1024 larger inspector clears native atlas button",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native compact inspector paginates three cards",
+      "pass": true,
+      "detail": [
+        "Build Low-density housing",
+        "Build High-density housing",
+        "Build Public park"
+      ]
+    },
+    {
+      "name": "Same-location globe round trip preserves queued plan",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0",
+        "after": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0"
+      }
+    },
+    {
+      "name": "Point Reyes has a separate fresh plan",
+      "pass": true,
+      "detail": {
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    {
+      "name": "Suusamyr has a separate fresh plan",
+      "pass": true,
+      "detail": {
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    {
+      "name": "Returning from other locations restores Wisconsin queue",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0",
+        "after": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0"
+      }
+    },
+    {
+      "name": "Combined provider recovery preserves pending finances",
+      "pass": true,
+      "detail": "year=1; phase=Resolving; revision=1; cash=1000000000; queued=1; assets=0"
+    },
+    {
+      "name": "Native 1024 larger year highlights visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Native 1024 larger year highlights native atlas button available",
+      "pass": true,
+      "detail": {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 428,
+          "width": 116,
+          "height": 36
+        }
+      }
+    },
+    {
+      "name": "Native 1024 larger year highlights clears native atlas button",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Combined year-end remains nonmodal with direct continuation",
+      "pass": true,
+      "detail": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Native highlight focus is read only",
+      "pass": true,
+      "detail": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Native optional story keeps MyTerrain brand and offline label",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Combined optional details do not mutate the accepted year",
+      "pass": true,
+      "detail": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Year overview survives native globe round trip",
+      "pass": true,
+      "detail": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Combined direct continuation advances once",
+      "pass": true,
+      "detail": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Combined historical overview prevents plan edits",
+      "pass": true,
+      "detail": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Native reload preserves accepted year, cash and assets",
+      "pass": true,
+      "detail": {
+        "before": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1",
+        "after": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "Combined build has no uncaught browser exception",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Only the deliberately aborted provider request failed",
+      "pass": true,
+      "detail": {
+        "errors": [
+          {
+            "type": "error",
+            "text": "Failed to load resource: net::ERR_FAILED"
+          }
+        ],
+        "abortedRequests": 1
+      }
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "intentionallyAbortedProviderRequests": 1,
+  "finalState": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1",
+  "scope": "Functional and rendered UI verification; no performance or live-provider claim."
+}
