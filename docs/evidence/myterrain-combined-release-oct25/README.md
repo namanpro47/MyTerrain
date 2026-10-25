@@ -68,3 +68,13 @@ Actual Unity serialization found a legacy save regression after adding inactive 
 The separate numeric cross-runtime vector check still fails definition identity after JsonUtility decoding. `numeric-check.json` records the failure. Numeric mode remains inactive; this is an explicit activation blocker, not a passing numeric runtime check. The numeric owner is investigating independently. No public numeric-mode claim is made.
 
 The CLI's high-level recompile waiter remained attached after an Editor reload although the native status command reported successful compilation. Only that waiting CLI process was stopped; the owned Editor remained alive. Direct Pipeline recompile/status then confirmed the final scripts. No other Editor was operated.
+
+## Minimal direct-entry revision
+
+The user’s 12:00 screenshot shows the older live release. The first combined export (`770d4c0`) was deliberately not deployed because the user rejected the remaining content load and select-then-confirm interaction. Native screenshots above are historical, not the final revised selector.
+
+The subsequent revision keeps the globe centered and removes all descriptive copy, coordinates, persistent control instructions, zoom/focus buttons and the separate travel action. Three floating native biome miniatures and globe pins directly start the existing cinematic descent with one click. Hover lifts the miniature and warms its label. Lilita One (Juan Montoreano, SIL OFL) replaces generic display type; source font and license are retained. Audio, motion preferences and credits remain behind a single gear. Keyboard focus and Enter remain supported without a permanent legend. Applied reference patterns TN-01/03/06/08 and AX-01, with the user’s minimalism taking precedence over earlier confirm-action comparisons. New rendered verification follows below.
+
+The minimal revision passes 65 native interaction/font assertions: direct entry for all three destinations, cancellation, blocked background entry while settings/credits are open, drag rotation, zoom, and the static display font’s required glyphs. Actual engine renders were reviewed at 1440×900 and 1024×576. The route arcs were removed after the rendered review showed one crossing the centered wordmark. `editor-minimal-atlas.png`, `editor-minimal-compact.png` and `editor-minimal-asia.png` are the resulting native composition evidence. Browser verification of the new export remains a separate step.
+
+The superseded770d4c0 export was 56,901,693bytes, including55,399,481bytes of compressed Unity build payload. It misses the plan’s <50MB target; no older40MB result is used to claim success. Final export size will be recorded separately.

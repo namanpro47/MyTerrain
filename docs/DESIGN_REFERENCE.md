@@ -286,3 +286,8 @@ Input, accessibility, performance and state checks:
 Remaining weakness / deliberate deviation:
 Human feedback: observed / pending (never inferred from agent review)
 ```
+
+
+### October 25 integrated placement reference
+
+The approved [Terra Nil interaction plan](TERRA_NIL_INTERACTION_PLAN.md) specifies TN-03/04/05, CS-02/03 and AX-01: fixed dock and inspector, neutral Browse, six labelled states, actual footprint versus reserved site, visible selected tool, explicit replacement, exact reservations and recoverable blocked placement. [Placement handoff](evidence/placement-clarity/HANDOFF.md) and [native validation](evidence/placement-clarity/native-validation.json) record the bounded checks. Combined Chrome evidence belongs to the release receipt; performance, novice comprehension and the separate Phase 2A scenery gate remain independently open.

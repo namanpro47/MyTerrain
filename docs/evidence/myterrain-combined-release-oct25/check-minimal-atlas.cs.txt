@@ -1,0 +1,22 @@
+var a=Terra.Gameplay.WorldAtlas.Instance;if(a==null)throw new System.Exception("No native atlas");
+var flags=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance;
+var type=a.GetType();int count=0;
+System.Action<bool,string> check=(ok,message)=>{count++;if(!ok)throw new System.Exception(message);};
+var choices=(UnityEngine.UI.Button[])type.GetField("choices",flags).GetValue(a);
+var options=(UnityEngine.GameObject)type.GetField("options",flags).GetValue(a);
+var notes=(UnityEngine.GameObject)type.GetField("notes",flags).GetValue(a);
+var font=(TMPro.TMP_FontAsset)type.GetField("displayFont",flags).GetValue(a);
+a.Show();check(!options.activeSelf&&!notes.activeSelf,"Options and credits must start hidden");
+check(font.name=="LilitaOne SDF"&&font.atlasPopulationMode==TMPro.AtlasPopulationMode.Static,"Baked licensed display font");
+foreach(var label in a.GetComponentsInChildren<TMPro.TextMeshProUGUI>()) {
+ check(!label.text.Contains("Begin journey")&&!label.text.Contains("Enter landscape")&&!label.text.Contains("Drag")&&!label.text.Contains("°"),"Default atlas contains control legend/duplicate entry/coordinates");
+ if(label.font==font)foreach(char c in label.text)check(font.HasCharacter(c),"Missing display glyph "+c);
+}
+for(int i=0;i<3;i++) {choices[i].onClick.Invoke();check(a.Selected==i&&a.Traveling,"Destination must enter directly "+i);a.Show();check(!a.Traveling&&a.Visible,"Cancel must restore selector");}
+options.SetActive(true);a.TravelTo(2);check(!a.Traveling,"Settings must block background travel");options.SetActive(false);
+notes.SetActive(true);a.TravelTo(2);check(!a.Traveling,"Credits must block background travel");notes.SetActive(false);
+var longitude=(float)type.GetField("longitude",flags).GetValue(a);
+a.Pointer(0,new UnityEngine.Vector2(20,UnityEngine.Screen.height/2));a.Pointer(1,new UnityEngine.Vector2(80,UnityEngine.Screen.height/2));a.Pointer(2,new UnityEngine.Vector2(80,UnityEngine.Screen.height/2));
+check((float)type.GetField("longitude",flags).GetValue(a)!=longitude,"Globe drag must rotate");
+float distance=(float)type.GetField("targetDistance",flags).GetValue(a);a.Zoom(-1);check((float)type.GetField("targetDistance",flags).GetValue(a)<distance,"Scroll must zoom");
+a.Select(0,true);a.Show();return new{checks=count,a.Diagnostic,font=font.name};

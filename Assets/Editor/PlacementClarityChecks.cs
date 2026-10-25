@@ -27,6 +27,12 @@ public static class PlacementClarityChecks
         return Rect.MinMaxRect(corners.Min(p=>p.x),corners.Min(p=>p.y),corners.Max(p=>p.x),corners.Max(p=>p.y));
     }
 
+    public static void BuildVerifiedWeb()
+    {
+        try {RunBatch();MainGameChapterChecks.BuildVerifiedWeb();}
+        catch(Exception error){Debug.LogException(error);EditorApplication.Exit(1);}
+    }
+
     public static void RunBatch()
     {
         checks=0;
