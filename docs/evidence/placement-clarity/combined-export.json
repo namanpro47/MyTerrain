@@ -1,0 +1,117 @@
+{
+  "source": {
+    "app": "MyTerrain",
+    "sourceCommit": "770d4c05b7f50f366275c036cd769a0c91414644",
+    "unityVersion": "6000.6.6f1",
+    "builtAt": "2026-10-25T19:01:42.418885+00:00"
+  },
+  "files": [
+    {
+      "path": "Build/08f52a1ccc7aeccf73bdb08d81aa9918.loader.js",
+      "bytes": 118806,
+      "sha256": "05b61a26961540b9663482b1aba0079f59738619186650fd1b0f43e6941b65a5"
+    },
+    {
+      "path": "Build/200fd07af8fe5a7451a6e0b932483579.framework.js.unityweb",
+      "bytes": 68455,
+      "sha256": "7e5d8aaec6e70fd4988d2819e6f86982991125a0eb29e01a8d97993c9e6a4a1e"
+    },
+    {
+      "path": "Build/59b1562c7d2c9a10953ead13a6f4ee90.wasm.unityweb",
+      "bytes": 8065408,
+      "sha256": "10d7e0b50501c426df56d9f3b156a09f4920993b031df5fa41039dd087bc54f2"
+    },
+    {
+      "path": "Build/e0ab7c550e58fc4bcd3290bfa8a4f947.data.unityweb",
+      "bytes": 47146812,
+      "sha256": "b7b2302ce02f0fb5711bbdc2a278b59bf8e17e4a9c5f5cb2170f01176fd199e4"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2103,
+      "sha256": "ab0793db1774a1ad6e0f4421e44beba4c44b18e0ec0d6ee03efe7f704ebf6bcb"
+    },
+    {
+      "path": "licenses/WATER-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87"
+    },
+    {
+      "path": "player.js",
+      "bytes": 2814,
+      "sha256": "5879d61c3f2902e9e3e0662fff141711f91ba51278a125c7b53961b44f443b64"
+    },
+    {
+      "path": "release.json",
+      "bytes": 168,
+      "sha256": "1cfbf8c1a25b7da0b674b0e4ead39e6ee99360f8c677655c55d9a7d1901fc3e8"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ],
+  "copiedBytesVerified": true,
+  "runtimeBuildPerformedHere": false
+}

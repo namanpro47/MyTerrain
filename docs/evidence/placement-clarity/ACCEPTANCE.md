@@ -4,12 +4,12 @@ Implementation checkpoint: `6e188ee`. Native fixture: base `13a15a4` plus Field 
 
 | Plan criterion | Current evidence | Remaining acceptance |
 |---|---|---|
-| 1. Neutral start and reopenable help | InitializeAnnual clears armed tool; native HUD creates help button and modal | Fresh actual Chrome arrival and dismiss/reopen |
+| 1. Neutral start and reopenable help | InitializeAnnual clears armed tool; native HUD creates help button and modal | Chrome770d4c0 neutral arrival/dismiss verified; reopen remains |
 | 2. All enabled recipes, names, icons, prices, eligibility | Native all17recipes ×4sizes ×2text sizes; selected card visible and labels fit | Actual catalog/keyboard navigation and unavailable-state explanation |
-| 3. Real footprint versus whole field/site slot | Native building/field/swale geometry matches current rules; shader imports | Actual valid building, field and connected swale screenshots on combined parcels |
+| 3. Real footprint versus whole field/site slot | Native building/field/swale geometry matches current rules; shader imports | Chrome770d4c0 park footprint/site reservation captured; field/swale remain |
 | 4. Blocked candidate and recovery | Native candidate title/reason/recovery assertion; inspection does not mutate ledger | Protected, occupied, physical-fit, disconnected and money rejection inputs |
 | 5. Press identity, drag/wheel/focus/keyboard | Frozen site/tool/mode/source/revision checks; focus-loss cancellation; merged input source inspected | Actual press-drag/up, scroll while pressed, blur, UI crossing and keyboard routes |
-| 6. Queue/edit/undo preserve command behavior | Existing full-game608checks; inspector nonmutation; existing HUD788checks | Combined queue→inspect→move→replace→remove→undo/redo snapshots |
+| 6. Queue/edit/undo preserve command behavior | Existing full-game608checks; inspector nonmutation; existing HUD788checks | Chrome770d4c0 queue, move cancel, undo/redo verified; successful move/replace/remove remain |
 | 7. Responsive and stable layout | Native1024/1280/1440/1920, standard/larger text, everyrecipe; dock unchanged on valid/blocked transitions | Actual1280×720/1440×900/1920×1080,125% browser zoom; capsule placement and overlap |
 | 8. Accessible state grammar | Labels, dashed/solid geometry, blockedcross, selectedbadge, visiblefocus,44px primary targets in source | Actual muted/reducedmotion/colour-independent inspection and keyboard operation |
 | 9. Preview/placement latency | Existing instrumentation retained; hover target changes only | Chrome≤100ms preview and≤200ms placement-stall measurements with recorded conditions |
@@ -24,3 +24,7 @@ P5 uncoached human comprehension remains open if participants are unavailable, a
 ## Combined-source review follow-through
 
 At combined tip `f819fac`, the release owner has addressed both placement findings: BeginMove retains `hud.Selected(treatmentId)` so the active project remains visible, and the receipt's visible condition excludes an active placement capsule so it cannot cover the fallback guidance. These were inspected in source; their real rendered behavior remains part of the Chrome walkthrough.
+
+## First combined Chrome pass
+
+[Actual walkthrough](COMBINED_CHROME.md) records Chrome770d4c0 at1728×940, reservation96. This is real game evidence, distinct from the P0 schematic board. Both the dock/card overlap and transient toast/capsule collision were reproduced; fixes56e1940 and9b5e14a are handed to the combined owner for native rerun and next export. Large empty map-edge framing remains a P4 observation, not an accepted scene. Preview left the ledger unchanged; protected Enter was rejected; queue/move-cancel/undo/redo retained the existing cash/commit semantics.
