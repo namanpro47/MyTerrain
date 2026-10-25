@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "docs/evidence/phase2a/visual-rebuild/study29-swale-check.cs",
+      "timeout": "20000"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        "initial ground",
+        "Editor preview construction plus surface/ground flush: 45.6409 ms (not browser latency)",
+        "valid preview: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "preview cancel restores positions and normals exactly",
+        "accepted swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "replacement preview removes depression",
+        "replacement cancel restores accepted depression: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "undo restores positions and normals exactly",
+        "analytical height and cover unchanged",
+        "ground shader has no errors",
+        "shader message: Warning use of potentially uninitialized variable (PaintedSample)"
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

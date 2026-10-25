@@ -65,7 +65,11 @@ Shader "Terra/Illustrated Ground"
                 float distant=smoothstep(.035,.09,max(length(dx),length(dy)));
                 half4 average=SAMPLE_TEXTURE2D_LOD(tex,smp,uv,10);
                 [branch] if(distant>.999)return average;
-                float2 cell=floor(uv),f=frac(uv),a=cell,b=cell+float2(1,0),c=cell+float2(0,1);
+                float2 cell=floor(uv);
+                float2 f=frac(uv);
+                float2 a=cell;
+                float2 b=cell+float2(1,0);
+                float2 c=cell+float2(0,1);
                 float3 weights=float3(1-f.x-f.y,f.x,f.y);
                 if(f.x+f.y>1){a=cell+1;weights=float3(f.x+f.y-1,1-f.y,1-f.x);}
                 weights=pow(max(weights,0),4);weights/=max(dot(weights,1),.0001);
@@ -127,10 +131,13 @@ Shader "Terra/Illustrated Ground"
                     half3 living=lerp(grassPaint,edgePaint,edgeWeight);
                     half paintLuma=dot(living,half3(.2126,.7152,.0722));
                     living=lerp(paintLuma.xxx,living,.65)*half3(.43,.64,.56);
+                    // Keep the source brushwork inside a controlled meadow value range.
+                    living=lerp(half3(.23,.38,.12),living,.35);
                     living*=lerp(1,.70,cover.r);
                     float row=pow(.5+.5*sin(p.x*4.654211),3);
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.6);
                     half3 fieldPaint=lerp(earthPaint,grassPaint*half3(1.08,.86,.4),.36)*(1-row*.12*rowFade);
+                    fieldPaint=lerp(half3(.42,.38,.16),fieldPaint,.5);
                     albedo=lerp(living,fieldPaint,cover.g);
                     surfaceNormal=lerp(lerp(grassN,edgeN,edgeWeight),earthN,cover.g);
                     float bankDistance=SAMPLE_TEXTURE2D(_RiverMap,sampler_RiverMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
@@ -146,7 +153,8 @@ Shader "Terra/Illustrated Ground"
                     surfaceNormal=lerp(surfaceNormal,earthN,swale);
                     float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
                     float road=1-smoothstep(.28,.72,pathDistance+(Noise(p*.7)-.5)*.06);
-                    albedo=lerp(albedo,earthPaint*half3(.82,.84,.79),road);
+                    half3 pathPaint=lerp(half3(.36,.32,.22),earthPaint*half3(.82,.84,.79),.25);
+                    albedo=lerp(albedo,pathPaint,road);
                     surfaceNormal=lerp(surfaceNormal,earthN,road);
                     surfaceNormal=normalize(lerp(half3(0,0,1),surfaceNormal,.45*fade));
 

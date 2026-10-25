@@ -44,28 +44,39 @@ namespace Terra.Rendering
             var small=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var flowers2=new List<Matrix4x4>();
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);
             var rng=new System.Random((int)(l*71+b*131)+418);float J(float min,float max)=>min+(float)rng.NextDouble()*(max-min);
-            for(float z=b+2.5f;z<t-2;z+=spacing)for(float x=l+2.5f;x<r-2;x+=spacing)
+            // Each colony has an elongated footprint, a low connected sward and a taller
+            // interior. Open grass between colonies is deliberate; this is not a grid of dots.
+            float colonySpacing=withFlowers?17:24;
+            for(float cz=b+8;cz<t-4;cz+=colonySpacing)for(float cx=l+8;cx<r-4;cx+=colonySpacing)
             {
-                float px=x+J(-spacing*.48f,spacing*.48f),pz=z+J(-spacing*.48f,spacing*.48f);
-                if(!Contains(polygon,px,pz)||(exclude?.Invoke(px,pz)??false))continue;
-                float cluster=Mathf.PerlinNoise((px+1000)*.035f,(pz+1000)*.035f);
-                int stems=cluster>.50f?3:1;
-                for(int n=0;n<stems;n++)
+                float centerX=cx+J(-6,6),centerZ=cz+J(-6,6),angle=J(0,Mathf.PI*2);
+                float radius=J(6.5f,11),aspect=J(.45f,.75f),cos=Mathf.Cos(angle),sin=Mathf.Sin(angle);
+                bool flowering=withFlowers&&rng.NextDouble()<.42;
+                float stemSpacing=Mathf.Clamp(spacing*.4f,1.05f,2.8f);
+                for(float v=-radius*aspect;v<=radius*aspect;v+=stemSpacing)for(float u=-radius;u<=radius;u+=stemSpacing)
                 {
-                    float sx=px+J(-.8f,.8f),sz=pz+J(-.8f,.8f);
-                    if(Contains(polygon,sx,sz)&&!(exclude?.Invoke(sx,sz)??false))
-                        small.Add(PlantMatrix(tuft,sx,sz,J(.38f,.70f),J(0,360)));
-                }
-                if(rng.NextDouble()<.30)fine.Add(PlantMatrix(tall,px,pz,J(.55f,.95f),J(0,360)));
-                if(withFlowers&&cluster>.55f&&rng.NextDouble()<.65)
-                {
-                    bool second=cluster>.62f;var model=second?bloom2:bloom;
-                    (second?flowers2:flowers).Add(PlantMatrix(model,px+.6f,pz+.4f,J(.27f,.45f),J(0,360)));
+                    float a=u+J(-.5f,.5f),c=v+J(-.5f,.5f);
+                    float radial=a*a/(radius*radius)+c*c/(radius*radius*aspect*aspect);
+                    if(radial>1||rng.NextDouble()<radial*.22f)continue;
+                    float px=centerX+cos*a-sin*c,pz=centerZ+sin*a+cos*c;
+                    if(!Contains(polygon,px,pz)||(exclude?.Invoke(px,pz)??false)||NearLine(px,pz,1))continue;
+                    float size=J(.65f,.95f)*Mathf.Lerp(1,.68f,radial);
+                    small.Add(PlantMatrix(tuft,px,pz,size,J(0,360))*Matrix4x4.Scale(new Vector3(2.1f,1,2.1f)));
+                    if(radial<.72f&&rng.NextDouble()<.35)
+                        fine.Add(PlantMatrix(tall,px,pz,J(.9f,1.4f),J(0,360))*Matrix4x4.Scale(new Vector3(1.3f,1,1.3f)));
+                    if(flowering&&radial<.65f&&rng.NextDouble()<.48)
+                    {
+                        bool second=angle>Mathf.PI;var model=second?bloom2:bloom;
+                        (second?flowers2:flowers).Add(PlantMatrix(model,px,pz,J(.58f,.88f),J(0,360)));
+                    }
                 }
             }
-            var nature=parent.gameObject.AddComponent<InstancedNature>();nature.Add(tuft,small,Color.white,true);nature.Add(tall,fine,Color.white,true);
+            var nature=parent.gameObject.AddComponent<InstancedNature>();
+            var grassTint=new Color(.74f,.88f,.66f);
+            nature.Add(tuft,small,grassTint,true);nature.Add(tall,fine,grassTint,true);
             nature.Add(bloom,flowers,Color.white);nature.Add(bloom2,flowers2,Color.white);
         }
+
         void PlantCultivation(Point[] polygon,Transform parent,bool baseline)
         {
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);

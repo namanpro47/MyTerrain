@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Study28e source/export and Chrome evidence; specific rendering improvements, visual gate remains failed.",
+  "documentation": "Study29c terrain swale, meadow colonies and quieter ground; source/export/Chrome checks recorded. Visual and performance gates remain failed.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
@@ -12,7 +12,7 @@
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Own Unity Play stopped, background override off; auto-tick prior setting retained. Browser viewport reset after captures; current local tab retained.",
-  "nextDecision": "Materially rebuild plant-community and swale/treatment construction. Retain ground-family and leaf fixes provisionally; stop tint/density trials. Improve framing that currently clips bridge.",
+  "nextDecision": "Crop rows remain mechanical and repeated grass colonies do not form rich connected meadow surfaces. Change field/groundcover construction materially; stop tuning only tint/density. Reconcile validated rendering into the separate annual lifecycle path before claiming full-game visual acceptance.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -87,13 +87,13 @@
     "visualAcceptance": false
   },
   "latestStudy": {
-    "study": 27,
-    "normalCapture": "study27-default.jpg",
-    "closeCapture": "study27-close.jpg",
-    "overviewCapture": "study27-overview.jpg",
-    "transformationCapture": "study27-restored.jpg",
-    "exportCheck": "study27-export-check.json",
-    "runtimeLog": "study27-browser-log.json",
+    "study": "29c",
+    "normalCapture": "study29-default.jpg",
+    "closeCapture": "study29-swale-close.jpg",
+    "overviewCapture": "study29-overview.jpg",
+    "transformationCapture": "study29-restored.jpg",
+    "exportCheck": "study29-export-check.json",
+    "runtimeLog": "study29-browser-log.json",
     "viewport": "1280x720 CSS and render buffer"
   },
   "historicalStudy19FirstChecks": {
@@ -104,52 +104,39 @@
     "fullInteractionPerformanceAcceptance": false
   },
   "currentBrowserChecks": {
-    "scope": "25 opening/close/overview, Restore/undo twice, two moving-placement diagnostics",
-    "firstDiagnosticWithDuplicateGameTab": {
-      "seconds": 30.040000915527344,
-      "averageFps": 19.27429962158203,
-      "frameP50Ms": 52.0,
-      "frameP95Ms": 75.00000762939453,
-      "frameP99Ms": 84.0,
-      "maxFrameMs": 328.0,
-      "maxPreviewCpuMs": 0.20000000298023224,
-      "maxPlacementCpuMs": 3.299999952316284,
-      "frames": 579,
-      "framesOver33Ms": 516,
-      "framesOver200Ms": 1,
-      "previewEvents": 2,
-      "placementEvents": 1,
-      "cameraEvents": 215,
-      "unfocusedFrames": 0
-    },
-    "repeatAfterClosingDuplicate": {
-      "seconds": 30.03899383544922,
-      "averageFps": 40.08123779296875,
-      "frameP50Ms": 21.0,
-      "frameP95Ms": 41.0,
-      "frameP99Ms": 45.0,
-      "maxFrameMs": 82.0,
-      "maxPreviewCpuMs": 0.10000000149011612,
-      "maxPlacementCpuMs": 1.899999976158142,
-      "frames": 1204,
-      "framesOver33Ms": 214,
-      "framesOver200Ms": 0,
-      "previewEvents": 2,
-      "placementEvents": 1,
-      "cameraEvents": 424,
-      "unfocusedFrames": 0
-    },
+    "study": "29c",
     "restore": [
       5,
       42
+    ],
+    "swale": [
+      6,
+      32
     ],
     "undo": [
       6,
       60
     ],
-    "fullInteractionPerformanceAcceptance": false,
+    "finalRevision": 6,
     "errorLevelMessages": 0,
-    "comparisonLimitation": "CSS1280x720 / buffer1600x900 differs from22; routes and concurrent workload not controlled. Both timing failures retained."
+    "performance": {
+      "seconds": 30.001998901367188,
+      "averageFps": 56.49623489379883,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 31.0,
+      "frameP99Ms": 38.00000762939453,
+      "maxFrameMs": 529.0,
+      "maxPreviewCpuMs": 3.299999952316284,
+      "maxPlacementCpuMs": 4.800000190734863,
+      "frames": 1695,
+      "framesOver33Ms": 51,
+      "framesOver200Ms": 2,
+      "previewEvents": 3,
+      "placementEvents": 1,
+      "cameraEvents": 1054,
+      "unfocusedFrames": 0
+    },
+    "fullInteractionPerformanceAcceptance": false
   },
   "study20": {
     "buildJob": "26ad6dcba3db4e80ab33aa302f289913",
@@ -471,5 +458,57 @@
     "visualPass": false,
     "performance": "28d first p95=123/max224; repeat after duplicate tab cleanup p95=33/p99=36/max40. No full acceptance suite.",
     "checks": "Compile zero errors/warnings, ground/leaves no shader messages;28/28d Restore/undo;28d credits;28e1280 CSS/render, Restore5/42\u2192undo6/60 rev2, no errors, scenery1076ms, ordinary navigation7157ms."
+  },
+  "study29": {
+    "study": "29c",
+    "buildJob": "17ced72c4ffb4d0c866ffcdfb58d7052",
+    "buildMs": 77150,
+    "browser": "Chrome",
+    "viewport": "1280x720 CSS and render buffer",
+    "rendererFixture": "study29-swale-check.json",
+    "exportCheck": "study29-export-check.json",
+    "browserLog": "study29-browser-log.json",
+    "restore": [
+      5,
+      42
+    ],
+    "swale": [
+      6,
+      32
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 6,
+    "performance": {
+      "seconds": 30.001998901367188,
+      "averageFps": 56.49623489379883,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 31.0,
+      "frameP99Ms": 38.00000762939453,
+      "maxFrameMs": 529.0,
+      "maxPreviewCpuMs": 3.299999952316284,
+      "maxPlacementCpuMs": 4.800000190734863,
+      "frames": 1695,
+      "framesOver33Ms": 51,
+      "framesOver200Ms": 2,
+      "previewEvents": 3,
+      "placementEvents": 1,
+      "cameraEvents": 1054,
+      "unfocusedFrames": 0
+    },
+    "visualAcceptance": false,
+    "fullPerformanceAcceptance": false,
+    "annualLifecycleValidated": false,
+    "publicDeployment": false,
+    "sourceBase": "972bb40",
+    "sourceSha256": {
+      "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Swales.cs": "373d8e7a5a99235170cb6e848ca3ecbf7dfbac175cd03c8c1e262c0fdd97b4f6",
+      "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Channels.cs": "adec8957a0c5b974f5af832e23fbfed2c1fd2f2cd00225136ce95ea2c60f129a",
+      "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Surface.cs": "8aeaf69e09a0e42b441dcd0a4f4150862f778a6145a3d32c6ef98205d522a333",
+      "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs": "cece80804653182349aba4c7d8f155103f2f755062edf3a260f8a9093a7474b8",
+      "Assets/Terra/Resources/TerraGround.shader": "dcb4651203642daaa0af412026752c52eac684e85c5e4c7395b7719557601850"
+    }
   }
 }
