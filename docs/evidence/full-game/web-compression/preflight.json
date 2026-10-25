@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var target = UnityEditor.Build.NamedBuildTarget.WebGL; return new { activeBuildTarget = UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString(), compression = UnityEditor.PlayerSettings.WebGL.compressionFormat.ToString(), fallback = UnityEditor.PlayerSettings.WebGL.decompressionFallback, stripEngineCode = UnityEditor.PlayerSettings.stripEngineCode, stripping = UnityEditor.PlayerSettings.GetManagedStrippingLevel(target).ToString(), il2cpp = UnityEditor.PlayerSettings.GetIl2CppCodeGeneration(target).ToString(), api = UnityEditor.PlayerSettings.GetApiCompatibilityLevel(target).ToString(), exceptions = UnityEditor.PlayerSettings.WebGL.exceptionSupport.ToString(), initialMemory = UnityEditor.PlayerSettings.WebGL.initialMemorySize, growth = UnityEditor.PlayerSettings.WebGL.memoryGrowthMode.ToString(), maximumMemory = UnityEditor.PlayerSettings.WebGL.maximumMemorySize, caching = UnityEditor.PlayerSettings.WebGL.dataCaching, debug = UnityEditor.PlayerSettings.WebGL.debugSymbolMode.ToString(), frameRate = UnityEngine.Application.targetFrameRate, vSync = UnityEngine.QualitySettings.vSyncCount, codeOptimization = UnityEditor.WebGL.UserBuildSettings.codeOptimization.ToString() };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "activeBuildTarget": "WebGL",
+        "compression": "Gzip",
+        "fallback": true,
+        "stripEngineCode": true,
+        "stripping": "Minimal",
+        "il2cpp": "OptimizeSpeed",
+        "api": "NET_Standard_2_0",
+        "exceptions": "ExplicitlyThrownExceptionsOnly",
+        "initialMemory": 256,
+        "growth": "Geometric",
+        "maximumMemory": 2048,
+        "caching": true,
+        "debug": "Off",
+        "frameRate": -1,
+        "vSync": 0,
+        "codeOptimization": "RuntimeSpeedLTO"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

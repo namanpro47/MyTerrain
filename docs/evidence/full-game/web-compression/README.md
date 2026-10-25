@@ -1,0 +1,24 @@
+# Lossless Web compression — October 25, 2026
+
+The integrated terrain candidate `987d440` exceeded the initial-response budget at 52,557,275 bytes. A lossless comparison of its actual gzip data/framework/WASM payloads against Brotli quality 11 saved **7,300,089 bytes**; every recompressed payload decompressed to exactly the original bytes. This projects about 45.26 MB before the changed Unity loader overhead. It is an estimate, not a rebuilt-candidate receipt. Exact sizes and timings are in `candidate-recompression.json`.
+
+This change switches the existing one-click `Terra/Build Web` export from Gzip to Brotli and retains decompression fallback for plain local/static HTTP servers. It does not lower art quality, change assets, strip more code, remove exception handling or change frame pacing. The actual runtime frame-time failure remains separate.
+
+Preflight on Unity 6000.6.6f1 / CLI 1.0.0-beta.14: WebGL, Gzip, fallback true, engine stripping true, managed stripping Minimal, IL2CPP OptimizeSpeed, API NET_Standard_2_0, explicitly thrown exceptions, 256 MiB initial / 2048 MiB max heap, geometric growth, caching on, debug off, targetFrameRate -1, vSync 0, RuntimeSpeedLTO. Only compression changes. Project settings were applied through the Editor API, saved, refreshed and read back as Brotli; disk field changed from 1 to 0. No new Unity package is installed (Pipeline remains 0.9.1-exp.1).
+
+`verify-web.py` still verifies exact anonymous response bytes and hashes, and decodes both old gzip and new Brotli `.unityweb` exports before checking WASM headers. Brotli verification uses Node's built-in zlib decoder, not export-supplied code. `python3 tests/deployment/verify_compression.py`: four checks pass, including malformed and truncated Brotli rejection. Unity recompile: zero errors/warnings (`compile.json`).
+
+The initial detached GUI launch exited before connecting. A detached batch launch reached ready then disappeared. Keeping `unity open --wait` attached provided a persistent Editor for API verification, which was closed gracefully afterwards. No other owner's Editor was driven or closed.
+
+Documentation reviewed for this decision: Unity 6000.6 [Deploy a Web application](https://docs.unity3d.com/6000.6/Documentation/Manual/webgl-deploying.html) (`webgl-deploying.html`) and [Distribution size and code stripping](https://docs.unity3d.com/6000.6/Documentation/Manual/webgl-distributionsize-codestripping.html) (`webgl-distributionsize-codestripping.html`). Fallback keeps the same serving contract: no Content-Encoding header on the already compressed `.unityweb` bodies. The rebuilt export and Chrome verification below complete this bounded compression check.
+
+
+## Verified export and Chrome result
+
+Clean source **`7db6a5d9425dcf7a6465f09c55c671c6441f9991`**, frozen at `Builds/Verified/7db6a5d`, built successfully with no reported Editor errors. This is main-based art, **not** the isolated relief candidate. `identity.json` and `web-assets.json` pin and anonymously verify all **31 runtime files / 39,988,802 bytes**. Even downloading every packaged runtime file stays below 50 MB. All three `.unityweb` files decode as Brotli, including valid WASM magic. The older frozen exports remain untouched.
+
+Three sequential fresh-origin Chrome arrivals at 1280×720 reached interactive in **12,631 / 10,373 / 11,700 ms**, all below 15 seconds, with no error-level console entries. Each prior game was closed. These are local unthrottled observations on this Mac, not internet or low-end-device results. The existing timer uses `performance.now()` from navigation, so it includes manual Explore selection time; it is not pure download duration. Sample 1 overlapped the anonymous byte/decoder verification. Screenshots and per-arrival logs are retained; `chrome-summary.json` gives the scope.
+
+Actual controls then queued Traditional farmland on West field, reviewed/submitted Year 1, recovered the unavailable optional chapter service through **Use offline chapter**, and displayed all three consequence cards. Accepted cash was $10,898,000 with $18,000 reserved obligations. Confirmed fast-forward reached Year 10 at **$19,730,000**, **55.0 / 58.0 / 38.4**, no remaining obligations, and the comparison ending. Confirmed replay restored Year 1, $10M, original meters and onboarding. `chrome-year10.png`, `chrome-replay.png` and `chrome-smoke.json` preserve the results; no error-level console entries were recorded. The handled chapter failure is not live-AI verification.
+
+No public deployment, final scenery acceptance, frame-time pass, full release rehearsal or final fallback recording is claimed. The candidate's frame-time regression remains open, and later integrated art must repeat the relevant final checks. All test player tabs and local HTTP servers were closed.
