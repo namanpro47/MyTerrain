@@ -1,0 +1,11 @@
+# Relief material candidate — October 25, 2026
+
+The visual owner’s temporary study48 terrain has stronger depth, but its Stones_02 face texture reads as repeated masonry. A bounded alternative is [Stylized Cliff Rock002](https://3dtextures.me/2020/04/10/stylized-cliff-rock-002/) by Katsukagi /3DTextures.me. The creator [declares these textures CC0](https://3dtextures.me/about/). The free resolution is1024px; paid4K/Substance files were not obtained.
+
+The creator preview was inspected in Chrome, then the unchanged color/normal/height maps were downloaded from the creator-linked public Drive folder and inspected locally. [Provenance and exact hashes](source.json). Their local research location is `Builds/ArtResearch/CliffRock002` in the full-implementation worktree, outside Unity Assets/Resources. No production import, material binding, download-budget change, in-scene quality claim or license obligation to attribute is implied. Retain creator credit if adopted.
+
+The long irregular vertical rock shapes are a plausible alternative to tile-like stones. The preview includes substantial displacement; using only the color map cannot reproduce its silhouette. Evaluate the supplied normal map orientation and height data on the actual terrain face, at normal and close views, without modifying source geography or analytical terrain. Do not declare the material selected from this preview alone. TN-02/09/12 remain the relevant form/material/consistency tests.
+
+## Integration audit for any retained relief
+
+`BuildActionRules.Layout` caches analytical `groundY` and relief for eligibility. `BuildCatalogAction` currently uses that elevation for rigid prefabs, wind pads, construction foundations and preview footprints. `GradeProjectEdges` compares it against renderer Height. `TerraMain.FocusSite` also uses analytical layout height to frame asset bounds. Changing only renderer Height leaves these paths inconsistent; mutating the cached layout contaminates the shared rules. Derive renderer-only visual placement from the accepted analytical layout and keep source terrain, foundation rejection and annual outcomes unchanged. Verify the actual pads, edge grading, camera framing and preview/hit contact across any terrace boundaries before accepting this direction.
