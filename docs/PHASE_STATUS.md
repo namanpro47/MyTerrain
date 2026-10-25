@@ -1,5 +1,10 @@
 # Terra — phase status and evidence
 
+## User-selected loading artwork — October 25, 2026
+
+The user's supplied MyTerrain / “Shape your world.” illustration replaces the temporary globe preview during browser startup. Optimized WebP retains the original artwork and baked title; small progress/retry controls remain readable, and narrow screens preserve the complete image. The existing readiness handoff into the native globe is unchanged. [Chrome evidence and scope](evidence/loading-artwork/README.md). TN-01/03, AX-01. Source/template update only; not publicly deployed.
+
+
 ## Globe-first browser opening — October 25, 2026
 
 Replaces the plain startup screen with a 42 KB preview of the actual native globe, matching Lilita One title, stars and small download/status line. No added wait or click; the live selector appears after native readiness, player binding and a rendered-frame opportunity. Retry and reduced-motion behavior remain available. Chrome verifies normal handoff, Point Reyes entry, compact/portrait layout and download-error retry; transport lifecycle checks pass. [Exact evidence and limits](evidence/globe-first-loading/README.md). TN-01/03/06, AX-01. Unity download size is unchanged; this is a template update, not a new engine export or public deployment.
