@@ -1,0 +1,63 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/Logs/render-inventory.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 1580,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "groups": 666,
+        "materials": 1566,
+        "contentGroups": 14,
+        "shaders": [
+          {
+            "shader": "Universal Render Pipeline/Lit",
+            "count": 421,
+            "contentGroups": 1
+          },
+          {
+            "shader": "Terra/Study44 Cluster Leaves",
+            "count": 421,
+            "contentGroups": 3
+          },
+          {
+            "shader": "Terra/Soft Groundcover",
+            "count": 525,
+            "contentGroups": 5
+          },
+          {
+            "shader": "Terra/Artist Grain Field",
+            "count": 48,
+            "contentGroups": 1
+          },
+          {
+            "shader": "Universal Render Pipeline/Simple Lit",
+            "count": 111,
+            "contentGroups": 3
+          },
+          {
+            "shader": "Terra/Painted Canopy",
+            "count": 40,
+            "contentGroups": 1
+          }
+        ],
+        "submitted": 753,
+        "culled": 1388
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
