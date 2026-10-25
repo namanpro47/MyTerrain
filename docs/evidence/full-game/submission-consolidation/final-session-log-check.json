@@ -1,0 +1,7 @@
+{
+  "method": "scan own Editor log from last ready event through graceful close; does not replace console ground-truth query",
+  "start": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "matchingErrors": [],
+  "editorClosed": true,
+  "priorCompileFailure": "obsolete GetInstanceID; replaced by stable Unity object GetHashCode and subsequent compilation/play succeeded"
+}

@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;var n=UnityEngine.Object.FindFirstObjectByType<Terra.Rendering.NatureSubmission>();var pool=(System.Collections.IList)n.GetType().GetField(\"pool\",f).GetValue(n);return new {n.LastSourceBatches,n.LastDrawCalls,pooledDraws=pool.Count,matrixBuffers=pool.Cast<object>().Count(d=>d.GetType().GetField(\"matrices\",f).GetValue(d)!=null),helperCount=UnityEngine.Object.FindObjectsByType<Terra.Rendering.NatureSubmission>(UnityEngine.FindObjectsSortMode.None).Length};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "LastSourceBatches": 594,
+        "LastDrawCalls": 451,
+        "pooledDraws": 451,
+        "matrixBuffers": 183,
+        "helperCount": 1
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

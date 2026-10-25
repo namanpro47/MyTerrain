@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/MaterialSharing/consolidation-checks.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "count": 15,
+        "checks": [
+          "Nearby compatible submissions share one draw",
+          "All submitted instances retained",
+          "Matrix ordering and translation retained across inputs",
+          "Nonuniform scale and homogeneous coordinate retained",
+          "Union bounds contain both source bounds",
+          "Render shadow properties retained",
+          "Neighbouring positive/negative grid cells remain separate",
+          "Submesh, material identity, mesh identity and shadow mode do not alias",
+          "Clear releases active draw count",
+          "Pool releases source mesh/material references",
+          "Capacity rollover never exceeds 500",
+          "Later compatible batches append to rollover draw",
+          "Frame pool reuses allocated matrix buffers",
+          "New frame discards stale unflushed submissions",
+          "Disable clears pending submissions"
+        ],
+        "frame": 1
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

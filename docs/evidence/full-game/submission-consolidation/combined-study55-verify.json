@@ -1,0 +1,121 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/MaterialSharing/combined-study55-verify.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 42,
+        "results": [
+          "restore-grass preview has planting",
+          "restore-grass undo removes planting",
+          "restore-grass redo exact planting",
+          "restore-grass year 1 stable planting positions",
+          "restore-grass year 1 taller growth",
+          "restore-grass year 1 roots inside managed polygon",
+          "restore-grass year 1 reload preserves geometry and cash",
+          "restore-grass year 2 stable planting positions",
+          "restore-grass year 2 taller growth",
+          "restore-grass year 2 roots inside managed polygon",
+          "restore-grass year 2 reload preserves geometry and cash",
+          "restore-grass year 3 stable planting positions",
+          "restore-grass year 3 taller growth",
+          "restore-grass year 3 roots inside managed polygon",
+          "restore-grass year 3 reload preserves geometry and cash",
+          "restore-grass mature planting matches intended preview geometry",
+          "restore-grass replacement preview hides accepted meadow",
+          "restore-grass cancel restores accepted meadow",
+          "stewardship-agreement preview has planting",
+          "stewardship-agreement undo removes planting",
+          "stewardship-agreement redo exact planting",
+          "stewardship-agreement year 1 stable planting positions",
+          "stewardship-agreement year 1 taller growth",
+          "stewardship-agreement year 1 roots inside managed polygon",
+          "stewardship-agreement year 1 reload preserves geometry and cash",
+          "stewardship-agreement year 2 stable planting positions",
+          "stewardship-agreement year 2 taller growth",
+          "stewardship-agreement year 2 roots inside managed polygon",
+          "stewardship-agreement year 2 reload preserves geometry and cash",
+          "stewardship-agreement year 3 stable planting positions",
+          "stewardship-agreement year 3 taller growth",
+          "stewardship-agreement year 3 roots inside managed polygon",
+          "stewardship-agreement year 3 reload preserves geometry and cash",
+          "stewardship-agreement year 4 stable planting positions",
+          "stewardship-agreement year 4 taller growth",
+          "stewardship-agreement year 4 roots inside managed polygon",
+          "stewardship-agreement year 4 reload preserves geometry and cash",
+          "stewardship-agreement mature planting matches intended preview geometry",
+          "stewardship-agreement replacement preview hides accepted meadow",
+          "stewardship-agreement cancel restores accepted meadow",
+          "live session/ledger/history unchanged",
+          "source world unchanged"
+        ],
+        "summaries": [
+          {
+            "action": "restore-grass",
+            "year": 1,
+            "maturity": 0.3333333333333333,
+            "grassCount": 3636,
+            "averageScale": 0.607758939
+          },
+          {
+            "action": "restore-grass",
+            "year": 2,
+            "maturity": 0.6666666666666666,
+            "grassCount": 3636,
+            "averageScale": 0.9116384
+          },
+          {
+            "action": "restore-grass",
+            "year": 3,
+            "maturity": 1,
+            "grassCount": 3636,
+            "averageScale": 1.21551788
+          },
+          {
+            "action": "stewardship-agreement",
+            "year": 1,
+            "maturity": 0.25,
+            "grassCount": 3636,
+            "averageScale": 0.531789064
+          },
+          {
+            "action": "stewardship-agreement",
+            "year": 2,
+            "maturity": 0.5,
+            "grassCount": 3636,
+            "averageScale": 0.7596987
+          },
+          {
+            "action": "stewardship-agreement",
+            "year": 3,
+            "maturity": 0.75,
+            "grassCount": 3636,
+            "averageScale": 0.987608254
+          },
+          {
+            "action": "stewardship-agreement",
+            "year": 4,
+            "maturity": 1,
+            "grassCount": 3636,
+            "averageScale": 1.21551788
+          }
+        ],
+        "frame": 607
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

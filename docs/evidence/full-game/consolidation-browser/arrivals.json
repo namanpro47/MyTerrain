@@ -1,0 +1,50 @@
+[
+  {
+    "origin": "http://127.0.0.1:61256",
+    "viewport": [
+      1280,
+      720
+    ],
+    "entries": [
+      {
+        "location": "meadowbrook-v1",
+        "mode": "fresh-player",
+        "milliseconds": 12306.299999952316,
+        "method": "entry handler to visible focused game, including transition"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "origin": "http://127.0.0.1:61257",
+    "viewport": [
+      1280,
+      720
+    ],
+    "entries": [
+      {
+        "location": "meadowbrook-v1",
+        "mode": "fresh-player",
+        "milliseconds": 12342.100000023842,
+        "method": "entry handler to visible focused game, including transition"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "origin": "http://127.0.0.1:61258",
+    "viewport": [
+      1280,
+      720
+    ],
+    "entries": [
+      {
+        "location": "meadowbrook-v1",
+        "mode": "fresh-player",
+        "milliseconds": 12013.100000023842,
+        "method": "entry handler to visible focused game, including transition"
+      }
+    ],
+    "errors": []
+  }
+]
