@@ -17,6 +17,7 @@ context = ssl.create_default_context(cafile="/etc/ssl/cert.pem" if sys.platform 
 results = []
 served = [root / "index.html", *sorted((root / "Build").iterdir())]
 served += sorted(path for path in (root / "StreamingAssets").rglob("*") if path.is_file())
+served += sorted(path for path in (root / "atlas").rglob("*") if path.is_file())
 for path in served:
     relative = path.relative_to(root).as_posix()
     expected = path.read_bytes()

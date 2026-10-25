@@ -13,13 +13,14 @@ namespace Terra.UI
     // TN-03/04/05/06, CS-01/04, AX-01. One visual language for the entire slice.
     public sealed partial class TerraHud
     {
+        readonly Terra.Core.LocationProfile location;
         readonly Transform root;readonly UnityEngine.UI.CanvasScaler scaler;
         UnityEngine.UI.Button viewButton,controlsButton;
         Vector2 lastScreen;float lastRatio;
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")] static extern float TerraPixelRatio();
 #endif
-        static readonly Color Ink=new Color(.075f,.15f,.14f),PanelColor=new Color(.10f,.20f,.18f),Raised=new Color(.17f,.29f,.25f),Paper=new Color(.96f,.95f,.87f),Soft=new Color(.71f,.79f,.69f),Accent=new Color(.88f,.78f,.43f);
+        static readonly Color Ink=new Color(.055f,.09f,.12f),PanelColor=new Color(.085f,.14f,.18f,.97f),Raised=new Color(.13f,.21f,.26f),Paper=new Color(.94f,.97f,.95f),Soft=new Color(.66f,.77f,.80f),Accent=new Color(.53f,.85f,.69f);
         readonly TMP_FontAsset font;readonly Sprite rounded;readonly Action resume,retryLoad;bool loadFailed,compactLayout;
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
@@ -30,9 +31,9 @@ namespace Terra.UI
         UnityEngine.UI.Button focus,returnFocus; int dataPage;string activeTool="";
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
-        public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume)
+        public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume,Terra.Core.LocationProfile location=null)
         {
-            this.resume=resume;retryLoad=retry;
+            this.location=location??Terra.Core.LocationProfile.All[0];this.resume=resume;retryLoad=retry;
             var canvas=new GameObject("Terra HUD",typeof(Canvas),typeof(UnityEngine.UI.CanvasScaler),typeof(UnityEngine.UI.GraphicRaycaster));root=canvas.transform;
             canvas.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;
             scaler=canvas.GetComponent<UnityEngine.UI.CanvasScaler>();scaler.uiScaleMode=UnityEngine.UI.CanvasScaler.ScaleMode.ConstantPixelSize;
@@ -45,8 +46,8 @@ namespace Terra.UI
             font=TMP_Settings.defaultFontAsset;rounded=RoundSprite();
             var identity=Panel(root,"Place",new Vector2(0,1),new Vector2(24,-24),new Vector2(310,94),PanelColor);
             Label(identity,"T E R R A",new Vector2(0,1),new Vector2(18,-12),new Vector2(270,24),16,Accent,FontStyles.Bold);
-            Label(identity,"Meadowbrook Valley",new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
-            placeSubtitle=Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
+            Label(identity,this.location.Name,new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
+            placeSubtitle=Label(identity,this.location.Subtitle,new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),this.location.IsWisconsin?16:12,Soft);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
             Label(stats,"ILLUSTRATIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(18,-35),new Vector2(230,32),25,Paper,FontStyles.Bold);
@@ -120,7 +121,7 @@ namespace Terra.UI
         [Serializable] public sealed class UiControl{public string name;public bool enabled;public UiRect rect;}
         [Serializable] public sealed class UiAudit{public float cssWidth,cssHeight,pixelRatio;public bool modal,largeText,reducedMotion,muted;public UiLabel[] labels;public UiControl[] controls;public UiRect[] panels;}
         public void Ready(){loading.SetActive(false);loadingShade.SetActive(false);}
-        public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
+        public void Progress(string message)=>loadText.text="<b>Preparing "+location.Name+"</b>\n\n<size=78%>"+message+"</size>";
         public void Error(string message){loadFailed=true;loadingShade.SetActive(true);loading.SetActive(true);retryButton.gameObject.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
         public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;RunoffResult(r);Paint();}
         public void Selected(string id){activeTool=id;SelectCatalog(id);tip.text=string.IsNullOrEmpty(id)?"Choose a category\nand an action":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
@@ -172,13 +173,23 @@ namespace Terra.UI
         void Paint()
         {
             foreach(var b in buttons){bool selected=CatalogSelected(b);
-                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.24f,.34f,.24f):Raised;
+                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):b==endYearButton?new Color(.20f,.39f,.32f):Raised;
                 var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
                 foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
             }
         }
+        public void SetReducedMotion(bool value){ReducedMotion=value;SetButtonText(motionButton,value?"Motion: reduced":"Motion: full");}
         void ShowData()
         {
+            if(!location.IsWisconsin && dataPage<3)
+            {
+                string body=dataPage==0 ? "<b>"+location.Name+"</b> · "+location.Region+"\n\nReal elevation anchors this regional landscape. All surface cover, management sites, individual plants, consent and service connections are authored game assumptions. No parcel or land-use survey is claimed.\n\nThe same fictional ten-year USD budget and educational rules are used across regions; they are not local finances, legal permissions, development recommendations or calibrated forecasts. No observed water or road layer is included."
+                    : dataPage==1 ? "<b>Elevation · Mapzen / AWS Terrain Tiles</b>\nUSGS 3DEP and global SRTM/GMTED2010 terrain data, retrieved October 25, 2026. Acquisition dates and effective resolution vary by source. Terrarium tiles at zoom 14 are sampled to a 10 m display grid; resampling does not add observed detail. No vertical exaggeration.\n\n<b>Cover · authored scenario</b>\nGrassland, cultivation and any woodland are illustrative polygons. Vegetation is decorative. Site boundaries are hypothetical opportunities, not real parcels."
+                    : "<b>Sources & attribution</b>\nMapzen / AWS Terrain Tiles; USGS 3DEP, GMTED2010 and SRTM. USGS data are public domain.\nregistry.opendata.aws/terrain-tiles\ngithub.com/tilezen/joerd/blob/master/docs/attribution.md\n\n<b>What is not included</b>\nNo observed water, roads, buildings, soil, ownership or consent data. Runoff connections are isolated, authored site groups. Budgets and service capacities are educational assumptions; USD figures do not represent local public finances.";
+                ShowModal(dataPage==0?"Real terrain. Possible futures.":dataPage==1?"Reading this landscape":"Sources & limits",body);
+                motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);guideSummary.SetActive(false);
+                SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Sources & limits →":"Landscape art →");return;
+            }
             if(dataPage==0)ShowModal("Real land. Hypothetical choices.",
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
@@ -202,7 +213,7 @@ namespace Terra.UI
                 "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
             else ShowModal("One storm. Connected choices.",
                 "<b>50 mm rain · assumed soil B</b>\nEducational TR-55 estimate. Cover CN: crops 78, grass 61, woods 55, high-runoff cover 98 (assumed, not measured imperviousness).\n\n"+
-                "<b>Each area counts once</b>\nSites + unchanged context: 1.49 km² with display margin. Volumes summed. "+runoffContextSummary+"\n\n"+
+                "<b>Each area counts once</b>\nSites + unchanged context: "+(location.IsWisconsin?"1.49":"1.44")+" km² with display margin. Volumes summed. "+runoffContextSummary+"\n\n"+
                 "<b>Swales have limits</b>\nEach holds ≤8 m³ beyond its grass-cover effect, only from its highlighted hypothetical group. No measured drainage, outside inflow, flood or water-quality forecast.\n"+
                 "<size=80%>Source: USDA TR-55 (1986), chapter 2. Tables reproduced by USACE: hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables</size>");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);

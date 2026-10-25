@@ -1,7 +1,11 @@
 mergeInto(LibraryManager.library, {
+  TerraLocationIndex: function() { return ['meadowbrook-v1','point-reyes-v1','suusamyr-v1'].indexOf(window.terraSelectedLocation || 'meadowbrook-v1'); },
+  TerraAtlasReducedMotion: function() { return window.terraReducedMotion ? 1 : 0; },
+  TerraLandscapeError: function(message) { window.dispatchEvent(new CustomEvent('terra-landscape-error',{detail:UTF8ToString(message)})); },
   TerraPixelRatio: function() { return window.devicePixelRatio || 1; },
   TerraLandscapeReady: function() {
     console.info('TERRA_INTERACTIVE_MS', Math.round(performance.now()));
+    window.dispatchEvent(new Event('terra-landscape-ready'));
   },
   TerraMetricsStart: function() {
     var previous = window.terraMetrics;

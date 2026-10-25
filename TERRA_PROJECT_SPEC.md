@@ -1,16 +1,18 @@
 # Terra: Shape Your World
 
 **Product & Implementation Specification**
-**Status:** Active north star — one rural location, annual land-use strategy
-**Revised:** October 24, 2026, by explicit user direction
+**Status:** Active north star — three rural locations, annual land-use strategy
+**Revised:** October 25, 2026, by explicit user direction
 **Target:** Hack for Social Impact — UNCCD youth land-use education challenge
 **Audience:** Ages 15–24
 **Platform:** Unity 6 + URP, desktop browser delivery
 **Business model:** Free, nonprofit/public-benefit; no ads, purchases, subscriptions or profit-driven features
 
+**Location-selection decision (October 25):** The user authorized a polished draggable Earth, cinematic entry, and three supported places: Meadowbrook Valley (the existing Wisconsin AOI), Point Reyes, California, and Suusamyr Valley, Kyrgyzstan. The fixed catalog and each place’s separate ten-year run replace the earlier blanket one-location/no-selector limit. New locations use sourced elevation with clearly authored cover, opportunities and shared educational USD rules. This does not authorize a live world generator or certify Phase 2A. See [atlas design and implementation](docs/ATLAS_SELECTION.md).
+
 **Annual-gameplay decision:** The user asked to make [Peter's annual proposal](docs/PRD_ANNUAL_GAMEPLAY.md) the core loop and incorporate the full supplied [Actions & Effects table](docs/ACTIONS_AND_EFFECTS.md). This replaces the former immediate-only placement puzzle, abstract-credit economy, optional time progression, three-tools-only completion gate, and Continue Building after an untimed win. Annual commitment, ongoing public finances, economic/social/environmental meters, and a ten-year result are now required product behavior. This is a vision change, not a claim of implementation.
 
-**What stays fixed:** one real rural location; Meadowbrook Valley as its fictional display name; the selected Wisconsin AOI, source provenance and stable `coon-valley-brye-v1` identifier; accessible youth education; scientific honesty; Terra Nil-led whole-scene quality; free licensed assets only; no further image generation in the current pass; Chrome verification. No second map, city level, live generator, real transactions or mandatory online AI service.
+**What stays fixed:** rural land-use strategy; Meadowbrook Valley as its fictional display name; the selected Wisconsin AOI, source provenance and stable `coon-valley-brye-v1` identifier; accessible youth education; scientific honesty; Terra Nil-led whole-scene quality; free licensed assets only; no further image generation in the current pass; Chrome verification. No extra locations beyond the authorized three, city level, live generator, real transactions or mandatory online AI service.
 
 **Document roles:** this spec governs vision; [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) governs sequence and acceptance; [PHASE_STATUS.md](docs/PHASE_STATUS.md) records observed implementation; [ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) preserves the chart and defines catalog/budget/meter requirements. Peter's PRD remains the source proposal, with an adoption notice identifying superseded draft restrictions and optional extensions.
 
@@ -40,7 +42,7 @@ Learning comes from benefits, costs, uncertainty and repeated decisions. Geograp
 
 ### Required in the first full game
 
-- One real rural landscape: **Meadowbrook Valley**, the selected Wisconsin AOI. Buildings are hypothetical local development within that map, not a city expansion.
+- Three selectable rural landscapes: **Meadowbrook Valley**, **Point Reyes**, and **Suusamyr Valley**. Each run stays in its selected location for all ten years; saves are separate. Wisconsin retains its source pack and identity. New locations distinguish real terrain from authored land cover and game opportunities. Buildings remain hypothetical rural development.
 - Ten annual turns with an editable current-year queue, explicit End Year, annual report, Wait, persistence, and fast-forward using the same transitions.
 - USD public budget: upfront contributions, recurring commitments, upkeep, configured public receipts, cash and arrears. Private output and community benefits stay separate from the treasury.
 - Three visible **Economic / Social / Environmental** meters derived from accepted state, with inspectable raw components and reasons.
@@ -54,7 +56,7 @@ Learning comes from benefits, costs, uncertainty and repeated decisions. Geograp
 
 No detailed crop seasons/harvesting, supply chains, traffic simulation, construction logistics, realistic land markets, ownership inference, municipal legal simulator, exact flood inundation or calibrated ten-year yield forecast. Ten years means ten concise decisions, not an elaborate management dashboard. Do not implement a city zoning/road network to support the chart.
 
-Future locations, geocoding and a live generator require a separate decision after this one-location quality gate. Optional LLM narration may explain accepted facts later; it must not be needed to play or become an unbounded author of scores, cash, weather or causality. Generated ending imagery is not part of this pass.
+Locations beyond the authorized three, geocoding and a live generator require another separate decision. The original Wisconsin scenery quality gate remains open. Optional LLM narration may explain accepted facts later; it must not be needed to play or become an unbounded author of scores, cash, weather or causality. Generated ending imagery is not part of this pass.
 
 ## 3. Core game loop and commitment boundary
 
@@ -71,9 +73,9 @@ State machine: `Planning → Resolving → Reviewing → Planning`, ending in `C
 
 Current-year undo is safe experimentation; post-submission consequences give choices weight. Any later conversion/removal of built assets needs a separately priced recipe. No instant full refund for demolishing last year's project.
 
-## 4. One rural scenario and a complete action catalog
+## 4. Rural scenarios and a complete action catalog
 
-The selected AOI is fixed in [location-selection.md](docs/location-selection.md); `worlds/meadowbrook-v1` remains the canonical geography. Its ten current management sites and two scenario no-edit zones are a starting structure, not a reason to exclude the new catalog. Refine or subdivide hypothetical opportunities within the same AOI if necessary, without double-counting area, changing source evidence or implying surveyed parcels/consent.
+The original Wisconsin AOI is fixed in [location-selection.md](docs/location-selection.md); `worlds/meadowbrook-v1` retains its canonical geography. The two additional bounded packs are documented in [ATLAS_SELECTION.md](docs/ATLAS_SELECTION.md). Its ten current management sites and two scenario no-edit zones are a starting structure, not a reason to exclude the new catalog. Refine or subdivide hypothetical opportunities within the same AOI if necessary, without double-counting area, changing source evidence or implying surveyed parcels/consent.
 
 > **Can you meet this community's needs over ten years while staying financially viable and caring for its land and water?**
 
@@ -81,7 +83,7 @@ The player is allocating a fictional public contribution to a defined project. E
 
 [ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) is the detailed action contract, including all costs, /5 source profiles, effect channels, funding rules, meter rubric, art mapping and required tests. The /5 profiles express design intent. The live meters depend on operating state and unmet needs; they do not award fixed points for each placement or compound benefits indefinitely.
 
-The chart's dense housing, service center and industrial projects are explicitly permitted hypothetical options on this rural map. Their scale, siting, resource use and displaced land are part of the lesson. They do not authorize a second urban setting or citywide simulation. No project may fit by shrinking its prefab or erasing protected geography.
+The chart's dense housing, service center and industrial projects are explicitly permitted hypothetical options on this rural map. Their scale, siting, resource use and displaced land are part of the lesson. They do not authorize an urban setting or citywide simulation. No project may fit by shrinking its prefab or erasing protected geography.
 
 Stewardship requires an explicit fictional agreement, consent and specified work; land back is not a purchasable ecological reset. Water processing initially means a clearly named wastewater upgrade; drinking-water supply is a separate service, not an automatic benefit. These interpretations preserve the table's intent while avoiding misleading claims.
 
@@ -128,11 +130,11 @@ Buildings retain metric scale, terrain contact and whole-footprint eligibility. 
 
 ## 8. Geography, assumptions and the expansion gate
 
-Use one real selected rural landscape throughout all ten years. Preserve topography, mapped water/path alignment, source resolution and source dates. Decorative trees, hypothetical building sites, authored demand and consent are disclosed. Empty-looking land is not automatically vacant, degraded or legally available.
+Use the selected rural landscape throughout all ten years of each run; changing locations switches to a separate saved run. Preserve topography, mapped water/path alignment, source resolution and source dates. Decorative trees, hypothetical building sites, authored demand and consent are disclosed. Empty-looking land is not automatically vacant, degraded or legally available.
 
 Four evidence classes: **observed/mapped**, **benchmark**, **scenario assumption**, **simulated**. A county benchmark is not a measurement for a site; a subsidy is not total construction cost; an illustrative pressure index is not a health or ecosystem forecast. Missing quantities remain unavailable, never silently zero.
 
-Before expansion, the full action catalog, annual loop, finances, meters, consequences, ending/replay, visual quality, accessibility and browser delivery must work here. Two or more different strategies must be playable. Additional locations still require the user's explicit separate decision.
+The October 25 decision authorizes the three-location selector and regional scenarios alongside the existing annual loop. Each must load correctly, preserve separate saves and identify evidence honestly. The full action catalog, finances, meters, consequences, ending/replay, visual quality and accessibility gates remain required; selector completion does not accept the broader scenery rebuild. Any fourth location still needs an explicit separate decision.
 
 ## 9. Geographic Data Sources & Licensing
 
@@ -245,9 +247,9 @@ Unity remains at the repository root with URP and uGUI/TextMeshPro. Keep `.meta`
 - Target modern **64-bit desktop browsers with WebGL 2 and WebAssembly**; verify the exact engine/browser compatibility and test the deployed build in Chrome. Chrome is sufficient for project acceptance; test Safari or Firefox only when the user explicitly requests it. Do not request Safari or Private Browsing unlocks for routine verification.
 - Use URP features and shaders that work in Unity Web builds; don't assume all desktop GPU effects will work.
 - Watch memory usage, static asset sizes, network transfer, shader variants, batching and GPU draw calls.
-- Package only the one rural world; measure and reduce its load size before adding loading infrastructure.
+- Package the three authorized rural worlds. Load only the selected pack into the scene; measure transfer and memory before adding more loading infrastructure.
 - Configure `Content-Type` and `Content-Encoding` correctly for `.wasm`, `.js`, and compressed Unity output. Use a fallback compression configuration if the host cannot serve the required headers.
-- Check the chosen static host's actual upload/asset constraints. Reduce the one-world bundle first; use separate asset storage only if needed. Offline GIS preprocessing is sufficient, and a live external worker is outside the current scope.
+- Check the chosen static host's actual upload/asset constraints. Reduce the bounded three-world bundle first; use separate asset storage only if needed. Offline GIS preprocessing is sufficient, and a live external worker is outside the current scope.
 - Never mark success based on Unity Editor alone; the **deployed browser build** is the actual product.
 
 Performance targets are goals, not claims: smooth camera/editing on a typical laptop, acceptable initial download and loading feedback, no frame-long freezes for simple placements, and graceful quality settings. Measure real browser performance after the first Web build.

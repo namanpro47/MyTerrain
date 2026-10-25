@@ -1,0 +1,2402 @@
+[
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:14:57.423Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:14:57.423Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 2.100000 ms\n",
+    "timestamp": "2026-10-25T08:14:57.564Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.270 seconds.",
+    "timestamp": "2026-10-25T08:14:57.579Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-25T08:14:57.741Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:14:59.753Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:14:59.753Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1197; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T08:15:01.150Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:15:01.225Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 20616",
+    "timestamp": "2026-10-25T08:15:01.225Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 1 accepted in 34.7 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.311Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 2 accepted in 45.1 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.390Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 3 accepted in 37.7 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.478Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 4 accepted in 48.7 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.587Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 5 accepted in 44.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.664Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Advancing your valley</b></size>\\n\\nResolving saved conditions and commitments for year 5…\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":77.27999877929688,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Please wait\",\"rect\":{\"x\":513.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":false,\"rect\":{\"x\":505.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:15:32.702Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Advancing your valley</b></size>\\n\\nResolving saved conditions and commitments for year 5…\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":77.27999877929688,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Please wait\",\"rect\":{\"x\":513.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":false,\"rect\":{\"x\":505.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:15:32.705Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=5; phase=Reviewing; revision=9; cash=1500000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:15:32.715Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 6 accepted in 43.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.755Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 7 accepted in 47.0 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.859Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 8 accepted in 58.3 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:32.992Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 9 accepted in 56.5 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:33.069Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 10 accepted in 65.1 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:15:33.203Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":120854221,\"reservedBytes\":196280320,\"managedBytes\":74715136,\"meshes\":441,\"materials\":865}\n",
+    "timestamp": "2026-10-25T08:15:33.271Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: fast-forward from year 1 completed in 992.7 ms including yielding and final world refresh\n",
+    "timestamp": "2026-10-25T08:15:33.271Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Ten years in Meadowbrook Valley</b></size>\\n\\n<size=88%>YOUR YEAR 10                 NO NEW ACTION\\nEconomic  <b>42.3</b>                       42.3\\nSocial  <b>58.0</b>                              58.0\\nEnvironmental  <b>42.0</b>               42.0\\nScenario targets: E 75 / S 75 / Env 60. Met 0 of 3; each is independent.\\n\\nYour indicators match the no-new-action path. Different choices can change needs met, costs and land use.\\n\\nPublic spending $150,000\\nClosing cash $19,850,000 · no-action cash $19,850,000\\nReceipts $0 · appropriations $10,000,000\\nOutstanding beyond Year 10: $0 (includes arrears $0)\\n\\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":17.600000381469727,\"preferredHeight\":379.3500061035156,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Compare the landscape\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"History & takeaway\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:15:40.036Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Ten years in Meadowbrook Valley</b></size>\\n\\n<size=88%>YOUR YEAR 10                 NO NEW ACTION\\nEconomic  <b>42.3</b>                       42.3\\nSocial  <b>58.0</b>                              58.0\\nEnvironmental  <b>42.0</b>               42.0\\nScenario targets: E 75 / S 75 / Env 60. Met 0 of 3; each is independent.\\n\\nYour indicators match the no-new-action path. Different choices can change needs met, costs and land use.\\n\\nPublic spending $150,000\\nClosing cash $19,850,000 · no-action cash $19,850,000\\nReceipts $0 · appropriations $10,000,000\\nOutstanding beyond Year 10: $0 (includes arrears $0)\\n\\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":17.600000381469727,\"preferredHeight\":379.3500061035156,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Compare the landscape\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"History & takeaway\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:15:40.037Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=19; cash=1985000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:15:40.041Z",
+    "url": "blob:http://127.0.0.1:65251/bbdaef73-43ca-4ad9-ad44-8afff6e6251b"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:15:51.899Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:15:52.124Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T08:15:52.205Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9576790e790b0c492f70d64ad354f353.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:15:52.660Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:15:54.519Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:15:54.521Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:15:54.522Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:15:54.534Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:15:54.827Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:15:54.827Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:15:54.827Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:15:54.827Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:15:54.828Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:15:54.828Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:15:55.017Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:15:55.034Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:15:55.034Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:15:55.035Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:15:55.035Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:15:55.035Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:15:55.035Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:15:55.064Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:15:55.077Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:15:55.077Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:15:55.078Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 0.300000 ms\n",
+    "timestamp": "2026-10-25T08:15:55.185Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.185 seconds.",
+    "timestamp": "2026-10-25T08:15:55.198Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:15:57.271Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:15:57.271Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=509; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T08:15:57.929Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: point-reyes-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:15:57.998Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 6970",
+    "timestamp": "2026-10-25T08:15:57.998Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 is still pending</b></size>\\n\\nChapter request failed. Retry this year or choose offline.\\n\\n<b>No year has advanced and no payment was taken.</b>\\n\\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":169.27000427246094,\"availableHeight\":440.0},{\"text\":\"Edit this year's plan\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Retry chapter\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Use offline chapter\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:16:46.918Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 is still pending</b></size>\\n\\nChapter request failed. Retry this year or choose offline.\\n\\n<b>No year has advanced and no payment was taken.</b>\\n\\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":169.27000427246094,\"availableHeight\":440.0},{\"text\":\"Edit this year's plan\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Retry chapter\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Use offline chapter\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:16:46.918Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Resolving; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T08:16:46.919Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 is still pending</b></size>\\n\\nChapter request failed. Retry this year or choose offline.\\n\\n<b>No year has advanced and no payment was taken.</b>\\n\\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":169.27000427246094,\"availableHeight\":440.0},{\"text\":\"Edit this year's plan\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Retry chapter\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Use offline chapter\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:17:08.026Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 is still pending</b></size>\\n\\nChapter request failed. Retry this year or choose offline.\\n\\n<b>No year has advanced and no payment was taken.</b>\\n\\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":169.27000427246094,\"availableHeight\":440.0},{\"text\":\"Edit this year's plan\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Retry chapter\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Use offline chapter\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:17:08.026Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Resolving; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T08:17:08.026Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 1 accepted in 62.9 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T08:17:11.801Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · offline chapter</b></size>\\n\\n<size=92%><b>Year 1 — the next chapter</b>\\n\\nOffline chapter. 1 new project committed.\\n\\n<b>Cash  $10,923,000</b>\\nFuture obligations  $18,000\\n\\nIllustrative game outcomes · not a forecast.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":18.399999618530273,\"preferredHeight\":223.97000122070313,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Read chapter →\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Budget & meters\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:17:21.060Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · offline chapter</b></size>\\n\\n<size=92%><b>Year 1 — the next chapter</b>\\n\\nOffline chapter. 1 new project committed.\\n\\n<b>Cash  $10,923,000</b>\\nFuture obligations  $18,000\\n\\nIllustrative game outcomes · not a forecast.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":18.399999618530273,\"preferredHeight\":223.97000122070313,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Read chapter →\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Budget & meters\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:17:21.060Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=2; cash=1092300000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T08:17:21.060Z",
+    "url": "blob:http://127.0.0.1:65251/411d773f-23f2-4b7c-954e-ceaba2363c1b"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:17:23.087Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:17:23.318Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T08:17:23.510Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9576790e790b0c492f70d64ad354f353.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:17:23.871Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:17:25.463Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:17:25.465Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:17:25.465Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:17:25.465Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:17:25.465Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:17:25.466Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:17:25.467Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:17:25.467Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:17:25.482Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:17:25.483Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:17:25.839Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:17:25.839Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:17:25.843Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:17:25.843Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:17:25.843Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:17:25.844Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:17:26.161Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:17:26.187Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:17:26.203Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 0.200000 ms\n",
+    "timestamp": "2026-10-25T08:17:26.313Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.173 seconds.",
+    "timestamp": "2026-10-25T08:17:26.321Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:17:28.413Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:17:28.413Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=404; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T08:17:28.971Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: suusamyr-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:17:29.033Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 6655",
+    "timestamp": "2026-10-25T08:17:29.033Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Suusamyr Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Kyrgyzstan · real terrain / authored cover\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":358.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":606.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":854.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. All 12 action families · use ‹ / › to browse variants.\",\"rect\":{\"x\":356.0,\"y\":836.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":826.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1142.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"High pasture 1\",\"rect\":{\"x\":1142.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\n$100,000 upfront\\n$2,000 / yr × 10\\nReserve $120,000\\nOpens Y1 · matures 1 yr\\n2.56 ha · 2 energy / 4 water units\",\"rect\":{\"x\":1142.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":109.87000274658203,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1142.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":698.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":634.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1150.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1284.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":390.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":390.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":558.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":558.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":726.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":726.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":894.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":894.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"‹\",\"rect\":{\"x\":358.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"›\",\"rect\":{\"x\":1068.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.3 <size=65%>/100 · year-end 65.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · year-end 58.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"65.0 <size=65%>/100 · year-end 63.9</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 2,457 m³\\nYear-end cover: 2,686 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1276.0,\"y\":698.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[",
+    "timestamp": "2026-10-25T08:17:59.399Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Suusamyr Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Kyrgyzstan · real terrain / authored cover\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":358.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":606.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":854.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. All 12 action families · use ‹ / › to browse variants.\",\"rect\":{\"x\":356.0,\"y\":836.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":826.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1142.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"High pasture 1\",\"rect\":{\"x\":1142.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\n$100,000 upfront\\n$2,000 / yr × 10\\nReserve $120,000\\nOpens Y1 · matures 1 yr\\n2.56 ha · 2 energy / 4 water units\",\"rect\":{\"x\":1142.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":109.87000274658203,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1142.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":698.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":634.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1150.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1284.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":390.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fiel\n",
+    "timestamp": "2026-10-25T08:17:59.399Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: ds\",\"rect\":{\"x\":390.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":558.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":558.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":726.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":726.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":894.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":894.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"‹\",\"rect\":{\"x\":358.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"›\",\"rect\":{\"x\":1068.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.3 <size=65%>/100 · year-end 65.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · year-end 58.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"65.0 <size=65%>/100 · year-end 63.9</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 2,457 m³\\nYear-end cover: 2,686 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1276.0,\"y\":698.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.\n",
+    "timestamp": "2026-10-25T08:17:59.399Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: 0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":350.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":598.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":846.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Move  V\",\"enabled\":true,\"rect\":{\"x\":1142.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Button Remove\",\"enabled\":true,\"rect\":{\"x\":1276.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":386.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":554.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":890.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":350.0,\"y\":711.0,\"width\":30.0,\"height\":124.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1060.0,\"y\":711.0,\"width\":30.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":false,\"rect\":{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0}},{\"name\":\"Button Ten-year future\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":1124.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0}]}\n",
+    "timestamp": "2026-10-25T08:17:59.399Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T08:17:59.399Z",
+    "url": "blob:http://127.0.0.1:65251/0247004d-f2c6-409a-9c44-d388829ae384"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:18:01.190Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:18:01.479Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T08:18:01.570Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "error",
+    "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at n (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js:1:2716)\n    at t.onload (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js:1:2804)",
+    "timestamp": "2026-10-25T08:18:02.005Z",
+    "url": "chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js"
+  },
+  {
+    "level": "error",
+    "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at t (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196203)\n    at e.onload (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196291)",
+    "timestamp": "2026-10-25T08:18:02.005Z",
+    "url": "chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9576790e790b0c492f70d64ad354f353.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:18:02.005Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:18:03.839Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:18:03.840Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:18:03.841Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:18:04.094Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:18:04.266Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:18:04.297Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:18:04.298Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:18:04.298Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:18:04.298Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:18:04.298Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:18:04.298Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:18:04.319Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:18:04.342Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:18:04.342Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:18:04.342Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:18:04.342Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:18:04.342Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:18:04.343Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:18:04.343Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:18:04.343Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 0.400000 ms\n",
+    "timestamp": "2026-10-25T08:18:04.464Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.204 seconds.",
+    "timestamp": "2026-10-25T08:18:04.474Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:18:06.586Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:18:06.586Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=889; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T08:18:07.642Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=10; phase=Completed; revision=19; cash=1985000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:18:07.761Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 7294",
+    "timestamp": "2026-10-25T08:18:07.763Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":114333310,\"reservedBytes\":146931712,\"managedBytes\":287559680,\"meshes\":440,\"materials\":863}\n",
+    "timestamp": "2026-10-25T08:18:07.816Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Ten years in Meadowbrook Valley</b></size>\\n\\n<size=88%>YOUR YEAR 10                 NO NEW ACTION\\nEconomic  <b>42.3</b>                       42.3\\nSocial  <b>58.0</b>                              58.0\\nEnvironmental  <b>42.0</b>               42.0\\nScenario targets: E 75 / S 75 / Env 60. Met 0 of 3; each is independent.\\n\\nYour indicators match the no-new-action path. Different choices can change needs met, costs and land use.\\n\\nPublic spending $150,000\\nClosing cash $19,850,000 · no-action cash $19,850,000\\nReceipts $0 · appropriations $10,000,000\\nOutstanding beyond Year 10: $0 (includes arrears $0)\\n\\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":17.600000381469727,\"preferredHeight\":379.3500061035156,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Compare the landscape\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"History & takeaway\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:19:15.991Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Ten years in Meadowbrook Valley</b></size>\\n\\n<size=88%>YOUR YEAR 10                 NO NEW ACTION\\nEconomic  <b>42.3</b>                       42.3\\nSocial  <b>58.0</b>                              58.0\\nEnvironmental  <b>42.0</b>               42.0\\nScenario targets: E 75 / S 75 / Env 60. Met 0 of 3; each is independent.\\n\\nYour indicators match the no-new-action path. Different choices can change needs met, costs and land use.\\n\\nPublic spending $150,000\\nClosing cash $19,850,000 · no-action cash $19,850,000\\nReceipts $0 · appropriations $10,000,000\\nOutstanding beyond Year 10: $0 (includes arrears $0)\\n\\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":17.600000381469727,\"preferredHeight\":379.3500061035156,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Compare the landscape\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"History & takeaway\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:19:15.991Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=19; cash=1985000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:19:15.992Z",
+    "url": "blob:http://127.0.0.1:65251/ae1ff7f3-cc50-40b5-8f38-2f15f94f356b"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:36.480Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:36.752Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T08:19:36.959Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "error",
+    "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at t (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196203)\n    at e.onload (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196291)",
+    "timestamp": "2026-10-25T08:19:36.999Z",
+    "url": "chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9576790e790b0c492f70d64ad354f353.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:37.566Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:19:39.087Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:19:39.088Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:19:39.089Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:19:39.107Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:19:39.107Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:19:39.107Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:19:39.107Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:19:39.111Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:19:39.111Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:19:39.111Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:19:39.112Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:19:39.479Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:19:39.604Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:19:39.624Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:19:39.651Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:19:39.682Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:19:39.683Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:19:39.683Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 0.300001 ms\n",
+    "timestamp": "2026-10-25T08:19:39.769Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.171 seconds.",
+    "timestamp": "2026-10-25T08:19:39.781Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:19:41.874Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:19:41.874Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=509; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T08:19:42.538Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: point-reyes-v1 1.0.0 year=1; phase=Reviewing; revision=2; cash=1092300000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T08:19:42.644Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 6874",
+    "timestamp": "2026-10-25T08:19:42.644Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · offline chapter</b></size>\\n\\n<size=92%><b>Year 1 — the next chapter</b>\\n\\nOffline chapter. 1 new project committed.\\n\\n<b>Cash  $10,923,000</b>\\nFuture obligations  $18,000\\n\\nIllustrative game outcomes · not a forecast.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":18.399999618530273,\"preferredHeight\":223.97000122070313,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Read chapter →\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Budget & meters\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:19:55.288Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":352.0,\"y\":147.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · offline chapter</b></size>\\n\\n<size=92%><b>Year 1 — the next chapter</b>\\n\\nOffline chapter. 1 new project committed.\\n\\n<b>Cash  $10,923,000</b>\\nFuture obligations  $18,000\\n\\nIllustrative game outcomes · not a forecast.</size>\",\"rect\":{\"x\":352.0,\"y\":186.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":18.399999618530273,\"preferredHeight\":223.97000122070313,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":578.0,\"y\":699.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Read chapter →\",\"rect\":{\"x\":666.0,\"y\":635.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Budget & meters\",\"rect\":{\"x\":360.0,\"y\":635.0,\"width\":214.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":570.0,\"y\":697.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":658.0,\"y\":633.0,\"width\":430.0,\"height\":56.0}},{\"name\":\"Button All proposals\",\"enabled\":true,\"rect\":{\"x\":352.0,\"y\":633.0,\"width\":230.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1440.0,\"height\":900.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0},{\"x\":320.0,\"y\":125.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T08:19:55.289Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=2; cash=1092300000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T08:19:55.291Z",
+    "url": "blob:http://127.0.0.1:65251/d5eb0217-488a-4b8e-970f-cb731a52b3b8"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:57.582Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:57.883Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65251/Build/9576790e790b0c492f70d64ad354f353.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T08:19:57.994Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "error",
+    "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at t (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196203)\n    at e.onload (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js:1:3196291)",
+    "timestamp": "2026-10-25T08:19:58.393Z",
+    "url": "chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/content.js"
+  },
+  {
+    "level": "error",
+    "message": "NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.\n    at n (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js:1:2716)\n    at t.onload (chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js:1:2804)",
+    "timestamp": "2026-10-25T08:19:58.393Z",
+    "url": "chrome-extension://eiimnmioipafcokbfikbljfdeojpcgbh/activeContent.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9576790e790b0c492f70d64ad354f353.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:19:58.490Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:20:00.281Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:20:00.281Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:20:00.281Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:20:00.281Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:20:00.282Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:20:00.283Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:20:00.303Z",
+    "url": "http://127.0.0.1:65251/Build/85589f5aa5901630d8c60d987fcb06ea.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:20:00.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:20:00.728Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:20:00.746Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:20:00.746Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:20:00.746Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:20:00.746Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:20:00.747Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:20:00.747Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:20:00.774Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:20:00.796Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:20:00.796Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:20:00.797Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 0.300001 ms\n",
+    "timestamp": "2026-10-25T08:20:00.916Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 0.191 seconds.",
+    "timestamp": "2026-10-25T08:20:00.923Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:20:03.053Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:20:03.053Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=427; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T08:20:03.641Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: suusamyr-v1 1.0.0 year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T08:20:03.744Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 6876",
+    "timestamp": "2026-10-25T08:20:03.744Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Suusamyr Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Kyrgyzstan · real terrain / authored cover\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":358.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":606.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":854.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Traditional farmland · $100,000 upfront + $2,000 annual upkeep\\n<color=#59FFE0>9 available fields outlined in teal</color> · Choose a highlighted field.\",\"rect\":{\"x\":356.0,\"y\":836.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":31.739999771118164,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":826.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":698.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":634.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":390.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":390.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":558.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":558.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":726.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":726.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":894.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":894.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"‹\",\"rect\":{\"x\":358.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"›\",\"rect\":{\"x\":1068.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.3 <size=65%>/100 · year-end 65.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · year-end 58.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"65.0 <size=65%>/100 · year-end 63.9</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 2,457 m³\\nYear-end cover: 2,686 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1276.0,\"y\":698.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":350.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":598.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":846.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":386.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":554.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":711",
+    "timestamp": "2026-10-25T08:20:43.585Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Suusamyr Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Kyrgyzstan · real terrain / authored cover\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":358.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":606.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":854.0,\"y\":668.0,\"width\":224.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Traditional farmland · $100,000 upfront + $2,000 annual upkeep\\n<color=#59FFE0>9 available fields outlined in teal</color> · Choose a highlighted field.\",\"rect\":{\"x\":356.0,\"y\":836.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":31.739999771118164,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":826.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":698.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":634.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":390.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":390.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":558.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":558.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":726.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":726.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":894.0,\"y\":775.0,\"width\":154.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":894.0,\"y\":814.0,\"width\":154.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\"\n",
+    "timestamp": "2026-10-25T08:20:43.585Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: :11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"‹\",\"rect\":{\"x\":358.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"›\",\"rect\":{\"x\":1068.0,\"y\":713.0,\"width\":14.0,\"height\":120.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":120.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.3 <size=65%>/100 · year-end 65.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · year-end 58.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"65.0 <size=65%>/100 · year-end 63.9</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 2,457 m³\\nYear-end cover: 2,686 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1276.0,\"y\":698.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":350.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":598.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":846.0,\"y\":666.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":386.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Cover \n",
+    "timestamp": "2026-10-25T08:20:43.585Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: crop\",\"enabled\":true,\"rect\":{\"x\":554.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":890.0,\"y\":711.0,\"width\":162.0,\"height\":124.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":350.0,\"y\":711.0,\"width\":30.0,\"height\":124.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1060.0,\"y\":711.0,\"width\":30.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":false,\"rect\":{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0}},{\"name\":\"Button Ten-year future\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":340.0,\"y\":658.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":696.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":632.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":696.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":824.0,\"width\":130.0,\"height\":56.0}]}\n",
+    "timestamp": "2026-10-25T08:20:43.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T08:20:43.586Z",
+    "url": "blob:http://127.0.0.1:65251/61999a0b-5530-4e08-8b0d-f0734c9f7841"
+  }
+]

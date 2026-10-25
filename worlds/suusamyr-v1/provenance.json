@@ -1,0 +1,41 @@
+{
+  "name": "Suusamyr Valley",
+  "command": "python3 worldgen/build-regions.py",
+  "elevationTiles": [
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/11557/6070.png",
+      "sha256": "d6dedbc576eac428a02911ced4db7e829f23b79b0c38b60b4ed04026b3fc9fd4"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/11557/6071.png",
+      "sha256": "ce78873787bd73f42d806546ba35ea54183f046fdeb9f70c98524eb2ffb8fa85"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/11558/6070.png",
+      "sha256": "dd2a8063633183296f8fa53cfa8690cc5a4fa5223c4a9e04e84947bf71a32b2e"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/11558/6071.png",
+      "sha256": "ac3136f43d9e22113f6a169f0af179c580667a7c72f9d0b4dd6a93dd545935be"
+    }
+  ],
+  "elevationRangeM": [
+    2066.239707424832,
+    2163.263624918707
+  ],
+  "siteReliefM": [
+    2.604,
+    3.294,
+    3.497,
+    3.761,
+    4.067,
+    4.325,
+    4.342,
+    4.831,
+    5.086,
+    5.977
+  ],
+  "evidence": "Real elevation only. All cover/sites/gameplay parameters authored. No observed water/road/parcel data, no local policy or suitability claim. USD 2026 values are shared game rules, including in Kyrgyzstan.",
+  "attribution": "Mapzen / AWS Terrain Tiles. United States 3DEP and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey.",
+  "attributionUrl": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md"
+}

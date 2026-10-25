@@ -25,69 +25,96 @@ namespace Terra.UI
                 Mathf.Max((feedback.yMin-padding-canvas.y)/canvas.height,.52f));
         }
         // At 125% zoom on a 1280×720 display, keep primary controls outside the map preview.
-        // Secondary actions share the catalog footer; prices remain in the selected-site panel.
+        // Secondary actions share the bottom bar; each catalog card keeps its price badge.
         void LayoutAnnual(float width,float height,bool compact)
         {
-            annualCompact=compact;actionDock.gameObject.SetActive(!annualCompleted);actionSummary.gameObject.SetActive(!compact);
-            // Feedback belongs between the side panels, not on top of a site title.
-            float feedbackWidth=Mathf.Clamp(width-700,260,570);
-            var feedback=(RectTransform)toastPanel.transform;
-            feedback.sizeDelta=new Vector2(feedbackWidth,compact?76:52);
-            feedback.anchoredPosition=new Vector2(9,-132);
-            toast.rectTransform.sizeDelta=new Vector2(feedbackWidth-24,compact?70:46);
-            toast.fontSize=(compact?14:16)*(LargeText?1.12f:1);
-            ((RectTransform)actionDock).sizeDelta=new Vector2(760,compact?160:222);
-            void Place(Button button,Transform parent,Vector2 anchor,Vector2 position,Vector2 size)
+            annualCompact=compact;actionDock.gameObject.SetActive(!annualCompleted);
+            void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
+            {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
+            void Place(Button button,Transform parent,Vector2 position,float w)
             {
                 if(button==null)return;button.transform.SetParent(parent,false);
-                var r=button.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;
-                foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>())label.rectTransform.sizeDelta=size-new Vector2(16,4);
+                Position(button.transform,Vector2.zero,position,new Vector2(w,36));
+                foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>(true))
+                {label.rectTransform.sizeDelta=new Vector2(w-10,32);label.fontSize=14*(LargeText?1.12f:1);}
             }
-            var utilities=new[]{undoButton,redoButton,resetProposalsButton,viewButton,guideButton,controlsButton};
+            var identity=root.Find("Place");
+            Position(identity,new Vector2(0,1),new Vector2(16,-16),new Vector2(310,54));
+            var identityLabels=identity.GetComponentsInChildren<TextMeshProUGUI>(true);
+            identityLabels[0].gameObject.SetActive(false);
+            identityLabels[1].rectTransform.anchoredPosition=new Vector2(14,-7);identityLabels[1].fontSize=20;
+            placeSubtitle.rectTransform.anchoredPosition=new Vector2(14,-30);placeSubtitle.fontSize=12;placeSubtitle.enableAutoSizing=true;placeSubtitle.fontSizeMin=10.5f;placeSubtitle.fontSizeMax=12;placeSubtitle.textWrappingMode=TextWrappingModes.NoWrap;
+            Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,124));
+            annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=13;
+            annualAvailable.rectTransform.anchoredPosition=new Vector2(14,-32);annualAvailable.fontSize=28*(LargeText?1.12f:1);
+            annualAvailable.enableAutoSizing=true;annualAvailable.fontSizeMin=24;annualAvailable.fontSizeMax=28*(LargeText?1.12f:1);annualAvailable.textWrappingMode=TextWrappingModes.NoWrap;
+            annualBudget.rectTransform.anchoredPosition=new Vector2(14,-77);annualBudget.rectTransform.sizeDelta=new Vector2(286,40);annualBudget.fontSize=12*(LargeText?1.12f:1);
+            annualWater.gameObject.SetActive(false); // Full storm facts remain in Meter details.
+            Position(annualIndicators,new Vector2(1,1),new Vector2(-16,-16),new Vector2(532,98));
+            for(int i=0;i<3;i++)
+            {
+                annualScores[i].rectTransform.anchoredPosition=new Vector2(14+i*174,-30);
+                annualScores[i].rectTransform.sizeDelta=new Vector2(166,56);annualScores[i].fontSize=22*(LargeText?1.12f:1);
+                ((RectTransform)annualBars[i].transform.parent).anchoredPosition=new Vector2(14+i*174,7);
+                annualBars[i].color=new[]{new Color(.94f,.76f,.43f),new Color(.50f,.76f,.93f),Accent}[i];
+            }
+            float barWidth=Mathf.Min(width-32,1248);
+            Position(commandBar,new Vector2(.5f,0),new Vector2(0,10),new Vector2(barWidth,48));
+            var utilities=new[]{undoButton,redoButton,resetProposalsButton,viewButton,guideButton,controlsButton,futureButton,reportButton,endYearButton};
+            float unit=(barWidth-26-154)/8;
             for(int i=0;i<utilities.Length;i++)
             {
-                var button=utilities[i];button.gameObject.SetActive(!annualCompleted||i>=3);
-                if(compact&&!annualCompleted)Place(button,actionDock,new Vector2(0,0),new Vector2(17+i*121,6),new Vector2(116,30));
-                else
-                {
-                    bool right=i>=4;int row=i==0?0:i==1?2:i==2?3:i==3?1:i-4;
-                    Place(button,root,new Vector2(right?1:0,0),new Vector2(right?-24:24,20+row*64),new Vector2(right?148:130,56));
-                    button.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
-                }
-                foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>())label.fontSize=(compact?14:16)*(LargeText?1.12f:1);
+                var button=utilities[i];if(button==null)continue;
+                button.gameObject.SetActive(!annualCompleted||i>=3&&i<8);
+                Place(button,commandBar,new Vector2(6+i*(unit+2),6),i==8?154:unit);
             }
-            endYearButton.gameObject.SetActive(!annualCompleted);
-            Place(endYearButton,compact?budgetPanel:root,new Vector2(compact?0:1,0),compact?new Vector2(16,8):new Vector2(-24,148),new Vector2(compact?134:148,compact?38:56));
-            Place(reportButton,compact?budgetPanel:root,new Vector2(compact?0:1,0),compact?new Vector2(160,8):new Vector2(-24,212),new Vector2(compact?134:148,compact?38:56));
-            foreach(var b in new[]{endYearButton,reportButton})if(!compact)b.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
-            annualWater.gameObject.SetActive(!compact);
-            Place(futureButton,root,compact?new Vector2(0,1):new Vector2(0,0),compact?new Vector2(24,-330):new Vector2(24,328),new Vector2(164,compact?38:44));
-            Place(restartButton,root,compact?new Vector2(0,1):new Vector2(0,0),compact?new Vector2(200,-330):new Vector2(24,276),new Vector2(130,compact?38:44));
+            SetButtonText(resetProposalsButton,"Clear plan");SetButtonText(viewButton,"View  R");SetButtonText(guideButton,"Guide  G");SetButtonText(controlsButton,"Settings  ?");SetButtonText(futureButton,"Future  T");SetButtonText(reportButton,"Report  L");
+            Place(restartButton,root,new Vector2(16,66),84);SetButtonText(restartButton,"New run");
+            restartButton.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
+            float dockWidth=688,cardHeight=compact?70:86;
+            actionDock.localScale=Vector3.one*Mathf.Min(1,(width-220)/dockWidth);
+            Position(actionDock,new Vector2(.5f,0),new Vector2(0,66),new Vector2(dockWidth,compact?140:158));
+            actionSummary.gameObject.SetActive(true);actionSummary.rectTransform.anchoredPosition=new Vector2(14,6);actionSummary.rectTransform.sizeDelta=new Vector2(660,20);actionSummary.fontSize=12;
+            int ci=0;
             foreach(var category in categoryButtons.Keys)
-            {var r=category.GetComponent<RectTransform>();r.sizeDelta=new Vector2(240,compact?30:38);r.anchoredPosition=new Vector2(r.anchoredPosition.x,compact?-4:-8);}
-            foreach(var row in actionRows.Values){var r=(RectTransform)row.transform;r.anchoredPosition=new Vector2(10,compact?-39:-53);r.sizeDelta=new Vector2(740,compact?82:124);}
-            foreach(var button in actionButtons.Keys)
+            {Position(category.transform,new Vector2(0,1),new Vector2(8+ci++*224,-6),new Vector2(220,30));foreach(var label in category.GetComponentsInChildren<TextMeshProUGUI>()){label.rectTransform.sizeDelta=new Vector2(210,28);label.fontSize=14;}}
+            foreach(var row in actionRows.Values)Position(row.transform,new Vector2(0,1),new Vector2(8,-42),new Vector2(672,cardHeight));
+            foreach(var group in actionRows.Keys)
             {
-                var r=button.GetComponent<RectTransform>();r.sizeDelta=new Vector2(162,compact?82:124);
-                var icon=button.transform.Find("Model icon") as RectTransform;if(icon!=null)icon.sizeDelta=new Vector2(150,compact?38:62);
-                foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>())
+                int i=0;
+                foreach(var pair in actionButtons.Where(p=>AnnualCategory(p.Value)==group))
                 {
-                    bool count=label.rectTransform.anchorMin.y==0;label.gameObject.SetActive(!compact||!count);
-                    if(!count&&label.rectTransform.anchorMin.y==1)label.rectTransform.anchoredPosition=new Vector2(0,compact?-40:-64);
+                    var button=pair.Key;Position(button.transform,new Vector2(0,1),new Vector2(28+(i++%4)*155,0),new Vector2(149,cardHeight));
+                    var icon=button.transform.Find("Model icon") as RectTransform;
+                    if(icon!=null)Position(icon,new Vector2(0,1),new Vector2(7,-3),new Vector2(84,compact?42:58));
+                    foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>(true))
+                    {
+                        bool price=label.name=="Action price";
+                        label.gameObject.SetActive(!string.IsNullOrEmpty(label.text));
+                        if(price){Position(label.transform,new Vector2(1,1),new Vector2(-6,-21),new Vector2(54,25));label.alignment=TextAlignmentOptions.Right;label.fontSize=12;}
+                        else if(label.name=="Action title"){Position(label.transform,new Vector2(.5f,1),new Vector2(0,compact?-45:-61),new Vector2(143,24));label.fontSize=13;}
+                    }
                 }
             }
-            foreach(var b in catalogPageButtons)b.GetComponent<RectTransform>().sizeDelta=new Vector2(30,compact?82:124);
+            foreach(var b in catalogPageButtons)
+            {b.GetComponent<RectTransform>().sizeDelta=new Vector2(24,cardHeight);b.GetComponentInChildren<TextMeshProUGUI>().rectTransform.sizeDelta=new Vector2(24,cardHeight-4);}
+            float feedbackWidth=Mathf.Clamp(width-680,250,520);
+            Position(toastPanel.transform,new Vector2(.5f,1),new Vector2(0,-118),new Vector2(feedbackWidth,52));
+            toast.rectTransform.sizeDelta=new Vector2(feedbackWidth-24,46);toast.fontSize=14;
             LayoutAnnualPreview();
         }
         void LayoutAnnualPreview()
         {
             if(recipeDetails==null)return;
-            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?264:320);r.anchoredPosition=new Vector2(-24,annualCompact?-126:-132);
+            // Reflow existing inspection text too: resizing need not move the pointer.
+            if(annualPreviewBody!=null)previewBody.text=annualCompact&&!string.IsNullOrEmpty(annualPreviewTimeline)?annualPreviewBody.Replace(annualPreviewTimeline,""):annualPreviewBody;
+            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?248:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-120);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);
-            previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?112:120);
-            previewBody.fontSize=(annualCompact?14:16)*(LargeText?1.12f:1);
+            previewTitle.enableAutoSizing=true;previewTitle.fontSizeMin=15;previewTitle.fontSizeMax=previewTitle.fontSize;previewTitle.textWrappingMode=TextWrappingModes.NoWrap;
+            previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?104:LargeText?152:120);
+            previewBody.fontSize=(annualCompact?13:16)*(LargeText?1.12f:1);
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,annualCompact?49:68);
             recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(256,annualCompact?28:34);
             previewAction.rectTransform.anchoredPosition=new Vector2(18,annualCompact?46:68);previewAction.fontSize=(annualCompact?13:14)*(LargeText?1.12f:1);

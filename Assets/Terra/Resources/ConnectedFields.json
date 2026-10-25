@@ -1,0 +1,509 @@
+{
+  "version": "connected-fields-v2",
+  "sourceWorldSha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+  "sites": [
+    {
+      "id": "south-01",
+      "name": "West field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-01",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -95,
+          "z": -212.5
+        },
+        {
+          "x": 15,
+          "z": -212.5
+        },
+        {
+          "x": 15,
+          "z": -105
+        },
+        {
+          "x": -95,
+          "z": -105
+        }
+      ],
+      "analysisAreaM2": 11825.0,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-02",
+      "name": "Central field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-02",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 15,
+          "z": -212.5
+        },
+        {
+          "x": 145,
+          "z": -212.5
+        },
+        {
+          "x": 145,
+          "z": -105
+        },
+        {
+          "x": 15,
+          "z": -105
+        }
+      ],
+      "analysisAreaM2": 13975.0,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-03",
+      "name": "East field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 145,
+          "z": -212.5
+        },
+        {
+          "x": 255,
+          "z": -212.5
+        },
+        {
+          "x": 255,
+          "z": -105
+        },
+        {
+          "x": 145,
+          "z": -105
+        }
+      ],
+      "analysisAreaM2": 11825.0,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-04",
+      "name": "Lower west field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -95,
+          "z": -332.5
+        },
+        {
+          "x": 15,
+          "z": -332.5
+        },
+        {
+          "x": 15,
+          "z": -212.5
+        },
+        {
+          "x": -95,
+          "z": -212.5
+        }
+      ],
+      "analysisAreaM2": 13200.0,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-05",
+      "name": "Lower central field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-05",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 15,
+          "z": -332.5
+        },
+        {
+          "x": 145,
+          "z": -332.5
+        },
+        {
+          "x": 145,
+          "z": -212.5
+        },
+        {
+          "x": 15,
+          "z": -212.5
+        }
+      ],
+      "analysisAreaM2": 15600.0,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.90362827
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.09637173
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-06",
+      "name": "Lower east field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-06",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 145,
+          "z": -300
+        },
+        {
+          "x": 250,
+          "z": -300
+        },
+        {
+          "x": 250,
+          "z": -212.5
+        },
+        {
+          "x": 145,
+          "z": -212.5
+        }
+      ],
+      "analysisAreaM2": 9187.5,
+      "baselineProduction": 1,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.92121838
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.07878162
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    },
+    {
+      "id": "south-07",
+      "name": "Meadow edge",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -65,
+          "z": -430
+        },
+        {
+          "x": 15,
+          "z": -430
+        },
+        {
+          "x": 15,
+          "z": -332.5
+        },
+        {
+          "x": -65,
+          "z": -332.5
+        }
+      ],
+      "analysisAreaM2": 7800.0,
+      "baselineProduction": 0,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.8896844
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.1103156
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 28,
+          "production": 0,
+          "retentionCapacityM3": 8
+        }
+      ]
+    },
+    {
+      "id": "south-08",
+      "name": "Southern field",
+      "sourceId": "scenario-connected-fields-v2",
+      "contributingAreaId": "site-only-south-08",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 15,
+          "z": -430
+        },
+        {
+          "x": 145,
+          "z": -430
+        },
+        {
+          "x": 145,
+          "z": -332.5
+        },
+        {
+          "x": 15,
+          "z": -332.5
+        }
+      ],
+      "analysisAreaM2": 12675.0,
+      "baselineProduction": 0,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.4607206
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.5392794
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 24,
+          "production": 12,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 30,
+          "production": 9,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 18,
+          "production": 0,
+          "retentionCapacityM3": 0
+        }
+      ]
+    }
+  ]
+}

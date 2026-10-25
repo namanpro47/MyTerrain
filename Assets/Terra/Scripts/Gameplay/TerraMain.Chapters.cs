@@ -15,7 +15,7 @@ namespace Terra.Gameplay
         void InitializeChapters(ref string recovery)
         {
             chapters=gameObject.AddComponent<AnnualChapterSession>();chapters.town=annual;
-            chapters.endpoint=annualChapterEndpoint;chapters.saveKey="terra.meadowbrook.annual-full.chapters.v3.1";
+            chapters.endpoint=annualChapterEndpoint;chapters.saveKey=location.IsWisconsin?"terra.meadowbrook.annual-full.chapters.v3.2":location.ChapterSaveKey;
             try{chapters.RestoreSaved();}
             catch(Exception e)
             {

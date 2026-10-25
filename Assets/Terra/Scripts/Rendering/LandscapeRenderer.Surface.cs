@@ -66,7 +66,7 @@ namespace Terra.Rendering
                 }
                 // Blend inside the footprint only; the selectable boundary remains exact and visible.
                 // Texture filtering adds a sub-texel visual transition, never analytical area.
-                float coverage=Mathf.SmoothStep(0,1,Mathf.Clamp01(edge/3f));
+                float coverage=site.sourceId=="scenario-connected-fields-v2"?1:Mathf.SmoothStep(0,1,Mathf.Clamp01(edge/3f));
                 float cropWeight=cultivated?1:0;
                 if(margin)cropWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(marginTop-1,marginTop+1,pz));
                 if(rotation)

@@ -32,44 +32,52 @@ namespace Terra.Gameplay
         public string Diagnostic=>annual==null?"loading":$"year={annual.State.year}; phase={annual.State.phase}; revision={Revision}; cash={annual.State.cashCents}; queued={annual.State.queue.Length}; assets={annual.State.assets.Length}";
         void Start()
         {
-            gameObject.name="TerraMain";Application.runInBackground=true;
+            gameObject.name="TerraMain";Application.runInBackground=true;ConfigureLocation();
             view=Camera.main;view.orthographic=false;view.fieldOfView=36;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
             RenderSettings.ambientSkyColor=new Color(.50f,.61f,.72f);RenderSettings.ambientEquatorColor=new Color(.38f,.46f,.40f);RenderSettings.ambientGroundColor=new Color(.22f,.28f,.22f);
             var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.10f;sun.shadowStrength=.72f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(52,-100,0);}
-            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
+            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview,location);
             hud.ConfigureEditing(BeginMove,BeginRemove,Redo,BeginReset);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;InitializeAudio();
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput=true;
 #endif
-            string root=Application.streamingAssetsPath+"/WorldPacks/meadowbrook-v1";
+            string root=Application.streamingAssetsPath+"/WorldPacks/"+location.PackId;
 #if !UNITY_WEBGL || UNITY_EDITOR
             root="file://"+root;
 #endif
             StartCoroutine(WorldPackLoader.Load(root,Loaded,Error,hud.Progress,c=>runoffConfiguration=c));
         }
-        void Error(string reason){hud.Error(reason);Debug.LogError("TERRA_PACK_ERROR: "+reason);}
+        void Error(string reason){ReportAtlasError(reason);hud.Error(reason);Debug.LogError("TERRA_PACK_ERROR: "+reason);}
         void Loaded(Manifest m,WorldData w,Scenario s)
         {StartCoroutine(ShapeLandscape(m,w,s));}
         IEnumerator ShapeLandscape(Manifest m,WorldData w,Scenario s)
         {
             hud.Progress("Shaping the terrain and woodland…");yield return null;
-            try{AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
+            try
+            {
+                if(location.IsWisconsin)
+                {
+                    AnnualSpatialOpportunities.ConnectFields(w,runoffConfiguration,JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("ConnectedFields").text).sites);
+                    AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);
+                }
+                buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);
+            }
             catch(Exception e){Error(e.Message);yield break;}
             world=w;scenario=s;
             try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);}
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
-            var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
+            var scenery=new GameObject(location.Name+" landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            InitializeAnnual(m.packId);ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();BeginAnnualArrival();
         }
         void Update()
         {
-            hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
+            if(atlasVisible)return;hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
             {
@@ -126,7 +134,7 @@ namespace Terra.Gameplay
         }
         void Pointer(int kind,Vector2 position,bool panning)
         {
-            if(kind==0)AudioGesture();
+            if(atlasVisible)return;if(kind==0)AudioGesture();
             hud.PointerHover(position);
             if(kind==0)
             {
@@ -160,7 +168,7 @@ namespace Terra.Gameplay
             if(kind==2)
             {bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place&&(editMode=="place"||editMode=="move")){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}else if(dragged)UpdatePreview();}
         }
-        public void Scroll(float amount){if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void Scroll(float amount){if(atlasVisible||!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
@@ -190,7 +198,7 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=34;zoom=105;target=new Vector3(-90,30,-70);ApplyView();}
+        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
         void FocusSite()
         {
             // Preserve the annual full-footprint framing geometry at its calibrated pitch.

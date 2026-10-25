@@ -53,8 +53,8 @@ namespace Terra.UI
                     float width=732f/Math.Max(4,actions.Length);
                     var button=Button(row,"",new Vector2(0,1),new Vector2(i*width,0),new Vector2(width-6,124),()=>choose(action.id),14);button.name="Build "+action.title;actionButtons[button]=action.id;
                     var icon=Rect(button.transform,"Model icon",new Vector2(.5f,1),new Vector2(0,-1),new Vector2(width-15,62)).gameObject.AddComponent<Image>();icon.sprite=catalog.Find(action.artId).icon;icon.preserveAspect=true;icon.raycastTarget=false;
-                    var title=Label(button.transform,ShortTitle(action),new Vector2(.5f,1),new Vector2(0,-64),new Vector2(width-12,36),14,Paper,FontStyles.Bold);title.alignment=TextAlignmentOptions.Center;
-                    var count=Label(button.transform,availableSites[action.id]==0?"No fitting parcel":availableSites[action.id]+" eligible fields",new Vector2(.5f,0),new Vector2(0,3),new Vector2(width-12,18),11,availableSites[action.id]==0?new Color(1,.69f,.55f):Soft);count.alignment=TextAlignmentOptions.Center;
+                    var title=Label(button.transform,ShortTitle(action),new Vector2(.5f,1),new Vector2(0,-64),new Vector2(width-12,36),14,Paper,FontStyles.Bold);title.name="Action title";title.alignment=TextAlignmentOptions.Center;
+                    var count=Label(button.transform,availableSites[action.id]==0?"No fitting parcel":availableSites[action.id]+" eligible fields",new Vector2(.5f,0),new Vector2(0,3),new Vector2(width-12,18),11,availableSites[action.id]==0?new Color(1,.69f,.55f):Soft);count.name="Action price";count.alignment=TextAlignmentOptions.Center;
                 }
             }
             ShowCategory(activeCategory);
@@ -74,14 +74,8 @@ namespace Terra.UI
             if(annualRules!=null)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
-                actionSummary.text=recipe==null?"Queue actions → review budget → End Year → adapt. All 12 action families · use ‹ / › to browse variants.":recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nFull term reserved now. Three indicators update when the year is accepted.";
-                var profile=ActionProfiles.ForAction(activeTool);
-                if(recipe!=null&&profile!=null)actionSummary.text=recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nDesign intent /5: Economic "+profile.economic+" · Social "+profile.social+" · Environment "+profile.environmental+" (not meter points)";
-                if(highlightedFieldCount.HasValue)
-                {
-                    string hint=highlightedFieldCount.Value==0?"No fields available for this action. Inspect a field for the reason.":"<color=#59FFE0>"+highlightedFieldCount.Value+" available field"+(highlightedFieldCount.Value==1?"":"s")+" outlined in teal</color> · Choose a highlighted field.";
-                    actionSummary.text=actionSummary.text.Split('\n')[0]+"\n"+hint;
-                }
+                actionSummary.text=recipe==null?"Choose a project, then a field.  ‹ / › More projects":recipe.title+" · "+Money(recipe.annualPublicOperatingCents)+" / year upkeep";
+                if(highlightedFieldCount.HasValue)actionSummary.text+=" · "+highlightedFieldCount.Value+" available fields";
                 return;
             }
 
