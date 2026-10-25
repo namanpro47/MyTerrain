@@ -121,7 +121,8 @@ namespace Terra.Gameplay
                 if(mouse.leftButton.wasPressedThisFrame||mouse.middleButton.wasPressedThisFrame)Pointer(0,p,mouse.middleButton.isPressed||(k?.shiftKey.isPressed??false));
                 if(p!=last)Pointer(1,p,false);
                 if(mouse.leftButton.wasReleasedThisFrame||mouse.middleButton.wasReleasedThisFrame)Pointer(2,p,false);
-                if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y/120);
+                // Input System 1.20 already normalizes scroll deltas across platforms.
+                if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y);
             }
 #endif
             RenderView();landscape.Tick(Time.unscaledTime,hud.ReducedMotion);

@@ -1,5 +1,7 @@
 # Game view scroll zoom correction — October 25, 2026
 
+**Integration update:** Peter authorized coordination with the parcel chat. Both real source readers are now corrected in the combined parcel/HUD candidate: WorldAtlas from `4c54ece`, plus the applied `landscape.patch`. Unity's bundled Roslyn compiles the actual combined runtime sources using this worktree's current `2000b0aE` Editor response file, with no errors and one existing obsolete-object-lookup warning. The older `1900` response is not the combined verification input. `combined-compile.json` records the exact source hashes. The WebGL input branches are excluded from these changes; the existing browser preview remains applicable to the map feature. Physical trackpad feel and updating Peter's separate open checkout are not claimed.
+
 Base: refreshed `origin/main` at `13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c`.
 User reports two-finger trackpad zoom barely changing the running game's view.
 The open Editor is Unity 6000.6.6f1, project `C:/Users/Peter/Terra-Unity`.
@@ -19,11 +21,9 @@ smoothing and modal guards. At landscape zoom 105, one normalized outward
 unit should change the target by 7.875, versus the old 0.065625. A fractional
 0.1-unit delta should change it by 0.7875, versus 0.0065625.
 
-The WorldAtlas reader is corrected in this candidate. The exact landscape
-change is prepared as `landscape.patch`: `git apply --check` passes, but it
-has not been applied to TerraMain.cs because the active
-`parcels-final-20261025` task claims that file. The board rejected the overlap.
-User permission to message its owning chat has been requested.
+The original preparation candidate corrected WorldAtlas and supplied the
+landscape change as `landscape.patch`. Its shared-file handoff is now complete
+as described in the integration update above.
 
 The browser has a separate wheel bridge in
 `Assets/WebGLTemplates/Terra/player.js`; the changed input readers are gated

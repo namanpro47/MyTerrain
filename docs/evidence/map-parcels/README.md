@@ -12,4 +12,10 @@ The pre-existing full-game suites pass **608** assertions for each of the legacy
 
 Local .NET narration service compiles with zero warnings/errors after raising the bounded loopback request cap to 16 MiB. No provider request, hosted backend write or production game deployment is claimed.
 
-Final integrated export/browser receipt follows separately after reconciliation with the concurrently completed HUD.
+## Integrated local browser preview
+
+The final functional export is source `dbd848a`, including current-main HUD/weather-preparation reconciliation and the modal pointer guard. `local-export.json` freezes **19 byte-verified served files / 44,717,714 bytes**, built in **188.387 seconds** with BuildTimes/Gzip. This is a functional local preview, not a release performance sample. An earlier RuntimeSpeedLTO attempt was stopped during its expensive linker step; no successful optimized release export or production deployment is claimed.
+
+Actual Chrome at 1707 × 876 CSS pixels verified the three native atlas entries, distinct opening briefs and the **32 / 305 / 333** available counts. Seven inherited properties render on every map. Point Reyes rejects replacement of an existing home and leaves $10M available. The first Wisconsin browser pass exposed a modal-dismissal click-through; `dbd848a` consumes the gesture. A fresh-origin Suusamyr pass confirms the Explore click leaves revision 0, $10M cash and zero queued/assets. A new home then reserves exactly $1.1M, leaving $8.9M available; reload and re-entry retain revision 1 and the one queued home, with the seven inherited properties unchanged. No error-level browser console logs were observed. Browser captures were inspected in the chat; the saved `*-editor.png` files remain separately labelled Edit Mode captures.
+
+The transferred native/Editor zoom correction is compiled separately in the combined source. It changes only code excluded from the WebGL player, so it does not replace the frozen browser input bridge or require another WebGL export. See `../trackpad-zoom/` for scope and physical-input limits. Ten-year progression is covered by model tests; this browser pass does not claim a new manual ten-year run, provider invocation, visual-quality acceptance or a production publication.
