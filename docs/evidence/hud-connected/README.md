@@ -34,3 +34,7 @@ This is definition **3.2.0**, with separate town and chapter save keys. Existing
 - The actual Editor HUD passes **631 checks**: all 17 project variants, repeated layout changes at 1440×900 / 1280×720 / 1024×576, standard/larger text, an existing preview after resize, long site names and three budget balances. `hud-reflow-check.cs` is the replayable fixture; `hud-reflow-check.json` contains the result. This caught repeated-layout identity/price errors and larger-text overflow before delivery.
 - Intermediate Chrome playtest: queue adjacent West/Central restoration, undo (one proposal), redo (two), review $154,000 payment / $36,000 future obligations, offline acceptance, three chapter pages, Year 2 planning and saved reload with $10,846,000 cash and two assets. Static localhost has no AI backend; its labelled offline fallback was used.
 - Final-export captures and hashes are recorded below.
+
+## Incoming atlas reconciliation
+
+Fetched and merged `45a87481f01bf5360de169ee502e92697b5b68e4`, preserving the separately authorized three-location atlas. Only Wisconsin receives connected geometry and runtime 3.2 town/chapter keys. Point Reyes and Suusamyr retain their 3.1 packs, definition versions and save keys. The original Wisconsin 3.1 keys remain intact. Atlas navigation sits above New run, outside the compact catalog. Regional identity labels fit the shared HUD. The combined Editor checks pass **678** location/ten-year/replay/isolation assertions and **679** HUD assertions; package verification passes **41** checks.

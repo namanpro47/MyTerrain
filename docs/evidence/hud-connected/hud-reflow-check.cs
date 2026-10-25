@@ -45,6 +45,14 @@ foreach(bool large in new[]{false,true})
             label.ForceMeshUpdate(true,true);
             Check(label.preferredHeight<=label.rectTransform.rect.height+.1f,"Visible text overflows: "+label.text+" at "+size+" larger="+large);
         }
+        var subtitle=(TMPro.TextMeshProUGUI)ui.GetField("placeSubtitle",flags).GetValue(hud);
+        foreach(var profile in Terra.Core.LocationProfile.All)
+        {
+            identity[1].text=profile.Name;subtitle.text=profile.Subtitle;
+            foreach(var label in new[]{identity[1],subtitle})
+            {label.ForceMeshUpdate(true,true);Check(label.preferredHeight<=label.rectTransform.rect.height+.1f&&label.GetRenderedValues(false).x<=label.rectTransform.rect.width+.1f,"Regional identity overflows: "+label.text);}
+        }
+        identity[1].text=Terra.Core.LocationProfile.All[0].Name;subtitle.text=Terra.Core.LocationProfile.All[0].Subtitle;
         cases.Add(new{width=size.x,height=size.y,large,compact});
     }
 }

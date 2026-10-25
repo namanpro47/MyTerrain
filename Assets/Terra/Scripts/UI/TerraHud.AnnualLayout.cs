@@ -43,7 +43,7 @@ namespace Terra.UI
             var identityLabels=identity.GetComponentsInChildren<TextMeshProUGUI>(true);
             identityLabels[0].gameObject.SetActive(false);
             identityLabels[1].rectTransform.anchoredPosition=new Vector2(14,-7);identityLabels[1].fontSize=20;
-            placeSubtitle.rectTransform.anchoredPosition=new Vector2(14,-30);placeSubtitle.fontSize=12;
+            placeSubtitle.rectTransform.anchoredPosition=new Vector2(14,-30);placeSubtitle.fontSize=12;placeSubtitle.enableAutoSizing=true;placeSubtitle.fontSizeMin=10.5f;placeSubtitle.fontSizeMax=12;placeSubtitle.textWrappingMode=TextWrappingModes.NoWrap;
             Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,124));
             annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=13;
             annualAvailable.rectTransform.anchoredPosition=new Vector2(14,-32);annualAvailable.fontSize=28*(LargeText?1.12f:1);
