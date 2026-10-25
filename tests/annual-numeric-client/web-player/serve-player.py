@@ -9,10 +9,14 @@ class Handler(SimpleHTTPRequestHandler):
  def end_headers(self):
   self.send_header('Cache-Control','no-store');super().end_headers()
  def do_POST(self):
-  if self.path!='/evidence':self.send_error(404);return
+  if self.path not in ('/evidence','/progress'):self.send_error(404);return
   length=int(self.headers.get('Content-Length','0'))
   if not 0<length<65536:self.send_error(413);return
-  value=json.loads(self.rfile.read(length));name=('webgl-dense-' if value.get('dense') else 'webgl-')+('reload.json' if value.get('reloaded') else 'first-run.json')
+  value=json.loads(self.rfile.read(length))
+  if self.path=='/progress':
+   with (ROOT/'docs/evidence/annual-numeric-client/webgl-progress.ndjson').open('a') as target:target.write(json.dumps(value)+'\n')
+   self.send_response(204);self.end_headers();return
+  name=('webgl-dense-' if value.get('dense') else 'webgl-')+('reload.json' if value.get('reloaded') else 'first-run.json')
   value['sourceManifestSha256']=hashlib.sha256((PROJECT/'source-manifest.json').read_bytes()).hexdigest()
   (ROOT/'docs/evidence/annual-numeric-client'/name).write_text(json.dumps(value,indent=2)+'\n')
   self.send_response(204);self.end_headers()
