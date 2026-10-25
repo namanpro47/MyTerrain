@@ -179,7 +179,7 @@ namespace Terra.Gameplay
         void InitializeAnnual(string packId)
         {
             treatmentId=""; // Arrival always starts in Browse, including restored plans.
-            PlacementArrivalView();
+            if(parcelPack==null)PlacementArrivalView();
             annualDefinition=FullAnnualGameplay.Create(world,scenario,packId,buildActionRules,runoff);
             annualBaseline=AnnualGameplay.Baseline(annualDefinition);
             annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey=UniformParcels.Applied(world)?location.ParcelAnnualSaveKey:location.IsWisconsin?"terra.meadowbrook.annual-full.v3.2":location.AnnualSaveKey;

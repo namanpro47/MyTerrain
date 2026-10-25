@@ -178,6 +178,14 @@ namespace Terra.UI
                 return true; // A menu key never falls through to a world edit.
             }
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
+            if(!ModalOpen)
+            {
+                // Keyboard activation of a focused UI button must never fall through to a map edit.
+                if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&focus.gameObject.activeInHierarchy&&focus.IsInteractable())
+                {focus.onClick.Invoke();return true;}
+                // Tab outside the catalog is field navigation; leave any stale pointer focus behind.
+                if(k.tabKey.wasPressedThisFrame)Focus(null);
+            }
             if(!ModalOpen){if(k.gKey.wasPressedThisFrame){dataPage=0;ShowData();return true;}if(k.slashKey.wasPressedThisFrame){ShowHelp();return true;}return false;}
             var available=buttons.Where(b=>b.gameObject.activeInHierarchy&&b.IsInteractable()&&b.transform.IsChildOf(modal.transform)).ToArray();
             if(k.tabKey.wasPressedThisFrame||k.rightArrowKey.wasPressedThisFrame||k.leftArrowKey.wasPressedThisFrame){int i=Array.IndexOf(available,focus),step=k.leftArrowKey.wasPressedThisFrame||k.shiftKey.isPressed?-1:1;Focus(available[(i+step+available.Length)%available.Length]);}

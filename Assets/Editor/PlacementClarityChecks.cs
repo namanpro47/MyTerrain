@@ -32,6 +32,9 @@ public static class PlacementClarityChecks
         var rules=BuildActionRuntime.Expand(catalog,ref world,ref scenario);
         var definition=FullAnnualGameplay.Create(world,scenario,"placement-checks",rules,new LandscapeRunoff(world,scenario,hydro));
         var town=new AnnualTown(definition,"placement-clarity");var baseline=AnnualGameplay.Baseline(definition);
+        var events=new GameObject("Placement check events").AddComponent<UnityEngine.EventSystems.EventSystem>();
+        // Edit-mode batch runners do not call EventSystem.OnEnable automatically.
+        typeof(UnityEngine.EventSystems.EventSystem).GetMethod("OnEnable",Private).Invoke(events,null);
         var hud=new TerraHud(_=>{},()=>{},()=>{},()=>{},()=>{},()=>{});
         hud.ConfigureEditing(()=>{},()=>{},()=>{},()=>{});hud.ConfigureBuildActions(catalog,rules,world,_=>{});
         hud.ConfigureAnnual(definition,()=>{},()=>{},()=>{});hud.ConfigureFuture(()=>{});hud.Ready();
@@ -92,6 +95,9 @@ public static class PlacementClarityChecks
         Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Set("treatmentId","cultivate-standard");
         Check(!Consume(),"An old pointer press switched tools");
         Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Check(Consume(),"An unchanged target was rejected");
+        Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Set("pressed",true);
+        main.LoseFocus("");
+        Check(!Field<bool>(main,"pressed")&&!Field<bool>(main,"placementIntentPending"),"Focus loss retained a pending placement press");
         UnityEngine.Object.DestroyImmediate(inputObject);
         Check(!Field<TextMeshProUGUI[]>(hud,"annualScores").Any(t=>t.text.Contains("Year-end")),"Persistent meters show prospective values as accepted");
         var shader=Resources.Load<Shader>("TerraProposalBoundary");Check(shader!=null&&!ShaderUtil.ShaderHasError(shader),"Proposal boundary shader unavailable or invalid");
@@ -105,6 +111,9 @@ public static class PlacementClarityChecks
             Check(points.Length==expected.Length&&points.Select((p,i)=>Math.Abs(p.x-expected[i].x)<.001f&&Math.Abs(p.z-expected[i].z)<.001f).All(x=>x),id+" preview does not match its actual spatial domain");
         }
         renderer.Dispose();UnityEngine.Object.DestroyImmediate(owner);UnityEngine.Object.DestroyImmediate(material);
+        hud.HideAnnualPreview();hud.HidePlacementFeedback();
+        if(hud.LargeText)Invoke(hud,"ToggleText");
+        checks+=PlayFirstHudChecks.Run(hud,definition,world);
         Directory.CreateDirectory("docs/evidence/placement-clarity");
         File.WriteAllText("docs/evidence/placement-clarity/structural-checks.json",JsonUtility.ToJson(new Receipt{checks=checks,passed=true,scope="HUD state/layout, ledger immutability, actual placement geometry and shader; not browser or novice acceptance"},true));
         Debug.Log("PLACEMENT_CLARITY_CHECKS_PASSED: "+checks);

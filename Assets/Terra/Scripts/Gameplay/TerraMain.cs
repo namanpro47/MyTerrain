@@ -83,7 +83,7 @@ namespace Terra.Gameplay
         {
             AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();return;}
             if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();hud.TickChangeFeedback(Time.unscaledDeltaTime);var k=Keyboard.current;
-            if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
+            if(k?.anyKey.wasPressedThisFrame??false){CancelPlacementPress();AudioGesture();}
             if(k!=null)
             {
                 bool uiHandled=hud.KeyboardInput(k);
@@ -146,6 +146,7 @@ namespace Terra.Gameplay
             hud.PointerHover(position,kind==0);
             if(kind==0)
             {
+                ClearPlacementIntent();
                 var hits=new List<RaycastResult>();
                 if(EventSystem.current!=null)EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 uiDown=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
@@ -156,15 +157,18 @@ namespace Terra.Gameplay
                 var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 var up=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
                 var button=uiDown;uiDown=null;pressed=false;
-                if(up==button&&button.IsInteractable()){SuppressMapPointer();Terra.Audio.TerraAudio.Ensure().Click();button.onClick.Invoke();}return;
+                if(up==button&&button.IsInteractable()){Terra.Audio.TerraAudio.Ensure().Click();button.onClick.Invoke();SuppressMapPointer();}ClearPlacementIntent();return;
             }
 #endif
-            if(kind==3){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();return;}
+            if(kind==3){CancelPlacementPress();return;}
             if(kind==0)
             {
-                ClearPlacementIntent();pressed=true;dragged=false;panGesture=panning;down=last=position;
-                overUi=UiAt(position)||hud.ModalOpen||Time.frameCount<=ignorePlacementThroughFrame;
-                if(!overUi&&!panning){SetHover(landscape.Hit(view.ScreenPointToRay(position)));CapturePlacementIntent(PreviewSiteId);}
+                pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen||Time.frameCount<=ignorePlacementThroughFrame;
+                if(ready&&!panning&&!hud.ModalOpen)
+                {
+                    if(!overUi){SetHover(landscape.Hit(view.ScreenPointToRay(position)));CapturePlacementIntent(PreviewSiteId);}
+                    else if(hud.IsPlacementCommand(uiDown))CapturePlacementIntent(PreviewSiteId);
+                }
                 return;
             }
             if(!ready)return;
@@ -174,16 +178,24 @@ namespace Terra.Gameplay
                 {
                     if(Vector2.Distance(position,down)>6){dragged=true;ClearPlacementIntent();}
                     if(dragged)
-                    {Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();}
+                    {ClearPlacementIntent();Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();hud.HidePlacementFeedback();}
                 }
                 else if(!hud.ModalOpen&&!UiAt(position))SetHover(landscape.Hit(view.ScreenPointToRay(position)));
                 last=position;return;
             }
             if(kind==2)
-            {bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place&&(editMode=="place"||editMode=="move")){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}else if(dragged)UpdatePreview();ClearPlacementIntent();}
+            {
+                bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;
+                if(place&&(editMode=="place"||editMode=="move"))
+                {SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}
+                else if(dragged)UpdatePreview();
+                // Native uGUI invokes its button callback independently; retain that captured intent
+                // until it consumes it (or the next input cancels it). Web clicks are handled above.
+                if(!overUi)ClearPlacementIntent();
+            }
         }
-        public void Scroll(float amount){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
-        public void LoseFocus(string _){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
+        public void Scroll(float amount){CancelPlacementPress();if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void LoseFocus(string _){CancelPlacementPress();if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
         void SuppressMapPointer(){ClearPlacementIntent();pressed=false;dragged=false;uiDown=null;overUi=true;ignorePlacementThroughFrame=Time.frameCount+2;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()

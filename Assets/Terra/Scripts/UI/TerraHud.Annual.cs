@@ -64,7 +64,7 @@ namespace Terra.UI
             foreach(var pair in actionButtons)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==pair.Value);
-                var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>().Last();
+                var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>(true).First(t=>t.name=="Action price");
                 caption.text=recipe==null?"—":CompactMoney(recipe.upfrontPublicCostCents);
             }
             ConfigurePlayFirst();UpdateActionSummary();
