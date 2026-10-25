@@ -25,8 +25,8 @@ namespace Terra.UI
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
         TextMeshProUGUI placeSubtitle;
         TextMeshProUGUI production,credits,runoffStatus,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
-        GameObject tooltip,loading,modal,modalShade,toastPanel,guideSummary;
-        UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton;
+        GameObject tooltip,loading,loadingShade,modal,modalShade,toastPanel,guideSummary;
+        UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton,retryButton;
         UnityEngine.UI.Button focus,returnFocus; int dataPage;string activeTool="";
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
@@ -82,9 +82,13 @@ namespace Terra.UI
             muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
             dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%5;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
+            var loadingBackdrop=Rect(root,"Loading backdrop",Vector2.zero,Vector2.zero,Vector2.zero);
+            loadingBackdrop.anchorMin=Vector2.zero;loadingBackdrop.anchorMax=Vector2.one;loadingBackdrop.offsetMin=loadingBackdrop.offsetMax=Vector2.zero;
+            loadingBackdrop.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.84f,.88f,.77f);loadingShade=loadingBackdrop.gameObject;
             loading=Panel(root,"Loading",new Vector2(.5f,.5f),Vector2.zero,new Vector2(540,250),PanelColor).gameObject;
             loadText=Label(loading.transform,"Preparing the landscape",new Vector2(0,1),new Vector2(28,-28),new Vector2(484,142),23,Paper);
-            Button(loading.transform,"Try again",new Vector2(.5f,0),new Vector2(0,24),new Vector2(180,56),retry,17).name="Retry loading";
+            retryButton=Button(loading.transform,"Try again",new Vector2(.5f,0),new Vector2(0,24),new Vector2(180,56),retry,17);
+            retryButton.name="Retry loading";retryButton.gameObject.SetActive(false);
             Layout();
         }
         public void Layout()
@@ -115,9 +119,9 @@ namespace Terra.UI
         [Serializable] public sealed class UiLabel{public string text;public UiRect rect;public float bodyCssPx,minGlyphCssPx,preferredHeight,availableHeight;}
         [Serializable] public sealed class UiControl{public string name;public bool enabled;public UiRect rect;}
         [Serializable] public sealed class UiAudit{public float cssWidth,cssHeight,pixelRatio;public bool modal,largeText,reducedMotion,muted;public UiLabel[] labels;public UiControl[] controls;public UiRect[] panels;}
-        public void Ready()=>loading.SetActive(false);
+        public void Ready(){loading.SetActive(false);loadingShade.SetActive(false);}
         public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
-        public void Error(string message){loadFailed=true;loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
+        public void Error(string message){loadFailed=true;loadingShade.SetActive(true);loading.SetActive(true);retryButton.gameObject.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
         public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;RunoffResult(r);Paint();}
         public void Selected(string id){activeTool=id;SelectCatalog(id);tip.text=string.IsNullOrEmpty(id)?"Choose a category\nand an action":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
         public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
