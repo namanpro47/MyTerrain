@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var n=UnityEngine.Object.FindFirstObjectByType<Terra.Rendering.NatureSubmission>();Terra.Rendering.NatureSubmission.SeparateForComparison=true;return new {n.LastSourceBatches,n.LastDrawCalls};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "LastSourceBatches": 340,
+        "LastDrawCalls": 267
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

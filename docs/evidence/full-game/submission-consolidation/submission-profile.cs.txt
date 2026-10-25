@@ -1,0 +1,27 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Play required");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var type=typeof(Terra.Rendering.InstancedNature);
+T Static<T>(string name)=>(T)type.GetField(name,flags).GetValue(null);
+var planes=Static<UnityEngine.Plane[]>("viewPlanes");
+var position=Static<UnityEngine.Vector3>("cameraPosition");var forward=Static<UnityEngine.Vector3>("cameraForward");
+bool valid=Static<bool>("cameraValid"),ortho=Static<bool>("orthographic");
+float factor=Static<float>("pixelFactor"),span=Static<float>("viewSpan");
+var all=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None).Where(n=>n.isActiveAndEnabled).ToArray();
+var rows=new System.Collections.Generic.List<(string mesh,string shader,string owner,int instances,long triangles,float pixels,string lod,bool shadow)>();
+int boundsCulled=0,sizeCulled=0,emptyCulled=0,total=0;
+foreach(var n in all)foreach(var b in (System.Collections.IEnumerable)type.GetField("batches",flags).GetValue(n)){
+ T Get<T>(string name)=>(T)b.GetType().GetField(name,flags).GetValue(b);
+ total++;var bounds=Get<UnityEngine.Bounds>("bounds");float height=Get<float>("maxHeight");
+ if(valid&&!n.ShadowsOnly&&!Terra.Rendering.InstancedNature.SubmitOffscreenForComparison){var shadowBounds=bounds;shadowBounds.Expand(height*8+bounds.size.y*2+16);if(!UnityEngine.GeometryUtility.TestPlanesAABB(planes,shadowBounds)){boundsCulled++;continue;}}
+ var medium=Get<UnityEngine.Mesh>("medium");var distant=Get<UnityEngine.Mesh>("distant");
+ bool crop=Get<bool>("crop"),cover=Get<bool>("groundcover"),grass=Get<bool>("bakedGrass");float pixels=float.MaxValue;
+ if(valid&&(crop||cover||medium!=null)){float depth=UnityEngine.Mathf.Max(1,UnityEngine.Vector3.Dot(bounds.center-position,forward)-bounds.extents.magnitude);pixels=height*factor/(ortho?span:depth*span);if(crop&&pixels<=.6f||cover&&pixels<=1.5f||medium!=null&&!grass&&pixels<2){sizeCulled++;continue;}}
+ bool far=pixels<Get<float>("mediumDetailPixels")&&distant!=null,mid=!far&&pixels<Get<float>("highDetailPixels")&&medium!=null;
+ if(far&&Get<bool>("distantEmpty")){emptyCulled++;continue;}
+ var mesh=far?distant:mid?medium:Get<UnityEngine.Mesh>("mesh");var material=Get<UnityEngine.Material>(far?"distantMaterial":mid?"mediumMaterial":"material");
+ int count=Get<UnityEngine.Matrix4x4[]>("transforms").Length,sub=Get<int>("submesh");long triangles=(long)mesh.GetIndexCount(sub)/3*count;
+ rows.Add((mesh.name,material.shader.name,n.name,count,triangles,pixels,far?"far":mid?"mid":"near",n.ShadowsOnly));
+}
+int submitted=all.Sum(n=>n.LastSubmittedBatches);if(submitted!=rows.Count)throw new System.Exception("Replay mismatch "+submitted+" != "+rows.Count);
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var cam=UnityEngine.Camera.main;
+return Newtonsoft.Json.JsonConvert.SerializeObject(new{source="read-only replay of actual last-frame culling and LOD; submitted geometry, not measured GPU work",frame=UnityEngine.Time.frameCount,cameraFrame=Static<int>("cameraFrame"),state=main.Diagnostic,camera=new{width=cam.pixelWidth,height=cam.pixelHeight,position=new[]{position.x,position.y,position.z},forward=new[]{forward.x,forward.y,forward.z},factor,span,ortho},components=all.Length,total,submitted,boundsCulled,sizeCulled,emptyCulled,instances=rows.Sum(r=>r.instances),triangles=rows.Sum(r=>r.triangles),smallBatches=new{one=rows.Count(r=>r.instances==1),under8=rows.Count(r=>r.instances<8),under32=rows.Count(r=>r.instances<32),under128=rows.Count(r=>r.instances<128)},meshes=rows.GroupBy(r=>new{r.mesh,r.shader,r.lod}).Select(g=>new{g.Key.mesh,g.Key.shader,g.Key.lod,batches=g.Count(),instances=g.Sum(r=>r.instances),triangles=g.Sum(r=>r.triangles),minPixels=g.Min(r=>r.pixels),maxPixels=g.Max(r=>r.pixels)}).OrderByDescending(r=>r.triangles).ToArray(),owners=rows.GroupBy(r=>r.owner).Select(g=>new{owner=g.Key,batches=g.Count(),instances=g.Sum(r=>r.instances),triangles=g.Sum(r=>r.triangles)}).OrderByDescending(r=>r.batches).ToArray()});
