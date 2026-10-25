@@ -39,17 +39,19 @@ Serve only `Builds/TreeAudit` on a separate localhost origin. Close the initial 
 
 ## Browser results and next target
 
-Chrome on Peter's Windows laptop, fixed opening camera, empty year-one plan, **1287 × 1304 drawing buffer**, DPR 1.5. Each trial used 2 seconds warmup and about 12 seconds sampling:
+After Peter woke the laptop, the comparison resumed on the **same diagnostic export**, in foreground Chrome, at the fixed opening camera and empty year-one plan. All seven samples match **1287 × 1304 drawing buffer**, DPR 1.5, camera transform/FOV and annual revision; all record zero unfocused frames. Each used 2 seconds warmup and about 12 seconds sampling. The sequence brackets the comparison with normal forest: normal → off → shadows → off → shadows → normal → normal.
 
-- **Trees on: 8.23 FPS**, median 120 ms, p95 132 ms.
-- **Trees off: 14.73 FPS**, median 67 ms, p95 76 ms.
-- **Tree shadows only: 8.77 FPS**, median 116 ms, p95 129 ms.
+- **Trees on, three trials: 4.59–5.70 FPS**; median frame times 163 / 239 / 172 ms; p95 263 / 253 / 252 ms.
+- **Trees off, two trials: 12.05–12.06 FPS**; median 82 / 80 ms; p95 95 / 101 ms.
+- **Tree shadows only, two trials: 6.99–8.12 FPS**; median 143 / 124 ms; p95 174 / 139 ms.
 
-The samples have matching camera, resolution, annual revision and zero recorded unfocused frames. Native Chrome output was visibly inspected: trees-off removed oak canopies and shadows, while shadows-only retained ground silhouettes without canopies. [Recorded results and limitations](browser-ablation.json).
+[Exact resumed samples and conditions](browser-ablation-resumed.json) · [export hashes](diagnostic-build-hashes.json). The complete measured ranges are retained: normal and shadow-only timing varied, while forest-off was stable. The second normal trial overlaps GPU counter collection; the final normal trial was repeated after counters stopped. Native Chrome output was visibly inspected in all three modes: trees-off removed oak canopies and shadows, while shadows-only retained ground silhouettes without canopies. No resize, camera movement or annual action was performed during the seven samples.
 
-The forest-off trial improves frame throughput by about **79%**. The shadows-only trial is close to the full-forest trial, making tree shadow rendering the strongest first optimization target in this scene. It does not prove a particular shader, atlas setting or CPU/GPU pass is responsible. The renderer submits its selected meshes as real-time shadow casters; the Web URP asset uses a 4096 main-light shadow map, 1600 m shadow distance and two cascades. A bounded next experiment should vary tree shadow distance/LOD and shadow-map resolution while preserving the foreground canopy and useful shadows, then compare repeated matched trials and inspect the appearance. Tighter batch bounds and shared materials remain secondary candidates.
+The repeated forest-off trials run at roughly **2.1–2.6 times** the frame throughput of the normal trials. Shadow-only remains materially slower than forest-off, and full forest remains slower than shadow-only. Both the visible forest and its shadows matter; this is not evidence that all cost is in the shadow pass. The renderer submits its selected meshes as real-time shadow casters; the Web URP asset uses a 4096 main-light shadow map, 1600 m shadow distance and two cascades. A bounded next rendering experiment should vary tree shadow distance/LOD and shadow-map resolution while preserving the foreground canopy and useful shadows, then compare repeated matched trials and inspect the appearance. Tighter batch bounds and shared materials remain secondary candidates.
 
-This is **one trial per mode**, not a repeatable benchmark yet. The desktop locked before the planned repeated trees-on trial. An exact 1 FPS hidden-tab trial and a startup-contaminated normal trial were discarded. The laptop has Intel UHD and an RTX 3080 Laptop GPU, but these samples do not establish which adapter rendered WebGL: older process-level GPU observations used a different Chrome GPU PID. The buffer is smaller than the original 5.2 FPS report, so this is not an improvement over that run. Removing canopy changes occlusion/ground shading; measured differences are net scene costs, not GPU pass self-times. The no-forest result still falls far short of smooth play.
+**Current GPU routing:** read-only Windows GPU-engine counters were matched to Chrome's current GPU process (PID 13440) and DXGI adapter LUIDs. Intel UHD 3D activity averaged **58.93%** over the 35-second capture, with **58.18%** over 11 counter samples overlapping the second normal trial. No NVIDIA engine rows were exposed for this Chrome process in the capture. This supports active Intel rendering/compositing in the browser; it does not isolate WebGL commands, prove Intel saturation, or measure zero total RTX utilization. [Counter samples and adapter mapping](gpu-resumed.json). Establish and verify an RTX-backed browser baseline before treating these numbers as a benchmark of the laptop's discrete GPU. No GPU preference change or browser restart was made.
+
+The earlier pre-sleep single trials (8.23 / 14.73 / 8.77 FPS) remain in [historical results](browser-ablation.json); they are not pooled with the resumed trials. Earlier exact 1 FPS hidden-tab and startup-contaminated trials remain excluded. The current buffer is smaller than the original 5.2 FPS report, so this is not an improvement over that run. Removing canopy changes occlusion/ground shading; differences measure net scene cost, not GPU pass self-time. Even forest-off remains far short of smooth play. These local debugging-extension measurements complete the bounded tree comparison, not release performance certification or a complete CPU/GPU profile.
 
 ## Verification and delivery boundary
 
@@ -57,6 +59,7 @@ This is **one trial per mode**, not a repeatable benchmark yet. The desktop lock
 - Separate diagnostic Web player built successfully in Unity 6000.6.6f1; `TREE_AUDIT_WEB_BUILD_PASSED` in the local build log.
 - Experimental controls were exercised through the visible browser UI. They exist only behind the build-specific define; no production renderer, scene, asset or quality setting is changed by this audit.
 - Teammate main `589b655` was inspected after the census base: it changes chapter/report and build settings, with no changes to the audited oak model, forest renderer or URP assets. Browser timings remain measurements of the stated `ba88fdf` diagnostic build, not a benchmark of the later release build.
+- The resumed evidence was recorded in a fresh worktree from refreshed main `1fb5ec3`. Incoming changes after the first audit modify HUD/loading/documentation, not the audited forest renderer, meshes or URP assets. The existing export was deliberately reused for a consistent comparison; its hashes identify the measured build.
 
 ## Visual boundary
 

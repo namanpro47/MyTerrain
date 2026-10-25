@@ -1,0 +1,22 @@
+[
+  {
+    "path": "index.html",
+    "sha256": "141c98110c1a9ffb1f4ae9f8a2bca0cc0335e4e6ee6553e482137e022d83ebcb"
+  },
+  {
+    "path": "Build/a36de9abcfb735d37ee8ad3eec238537.loader.js",
+    "sha256": "51ae64fe3cdf47a83d55e2341e46cd802fa296091977a381383951fe62e11b85"
+  },
+  {
+    "path": "Build/6453adaa0722023855c6113b3cfa4796.data.unityweb",
+    "sha256": "22453aa5a74850ed39b5191d5bcefa5188433aa8738f1eb139f5aa72fbd92b08"
+  },
+  {
+    "path": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+    "sha256": "4f92a28268a2073bd907d7f828cf82998cfb44b662abedb720953ee9c6c9c83e"
+  },
+  {
+    "path": "Build/50e1650743230ce72eb95e0da38ed8d4.wasm.unityweb",
+    "sha256": "60fbd4bfec2538743a584e853f3c9e37a30d054fecf036d3629bbf9a8a6d096a"
+  }
+]
