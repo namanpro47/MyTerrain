@@ -79,6 +79,7 @@ namespace Terra.Simulation
             Need(Finite(rainfallMm) && rainfallMm >= 0, "rainfallMm must be finite and nonnegative.");
             Need(Finite(curveNumber) && curveNumber > 0 && curveNumber <= 100, "curveNumber must be finite in (0, 100].");
             double storage = 25400d / curveNumber - 254d;
+            Need(Finite(storage), "curveNumber produces storage outside the finite double arithmetic range.");
             if (rainfallMm <= .2d * storage) return 0;
             double excess = rainfallMm - .2d * storage;
             // Algebraically Q=excess²/(excess+storage); avoid squaring large values.

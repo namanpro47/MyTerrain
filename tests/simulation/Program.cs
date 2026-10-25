@@ -148,6 +148,8 @@ static class Program
             Check("Scalar formula rejects invalid public arguments and handles CN100, tiny CN", () => {
                 foreach (double p in new[] { -1d, double.NaN, double.PositiveInfinity }) Reject(() => RunoffEvaluator.DirectRunoffDepthMm(p, 78), "rainfallMm");
                 foreach (double cn in new[] { -1d, 0, 101, double.NaN, double.PositiveInfinity }) Reject(() => RunoffEvaluator.DirectRunoffDepthMm(50, cn), "curveNumber");
+                Reject(() => RunoffEvaluator.DirectRunoffDepthMm(1e308, 1e-304), "storage outside the finite double arithmetic range");
+                Reject(() => RunoffEvaluator.DirectRunoffDepthMm(1, double.Epsilon), "storage outside the finite double arithmetic range");
                 Near(RunoffEvaluator.DirectRunoffDepthMm(1, float.Epsilon), 0, 0); Near(RunoffEvaluator.DirectRunoffDepthMm(50, 100), 50, 0);
             });
             var mapping = new Dictionary<string, float> { ["cultivated"] = 78, ["grass"] = 61, ["woodland"] = 55 };
