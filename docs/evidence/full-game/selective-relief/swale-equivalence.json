@@ -1,0 +1,83 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/docs/evidence/full-game/selective-relief/swale-equivalence.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "samples": 78000,
+        "maxCutError": 2.38418579e-7,
+        "maxGradientError": 2.23517418e-7,
+        "maxDistanceError": 0.00000762939453,
+        "results": [
+          {
+            "site": "south-01",
+            "positive": 548
+          },
+          {
+            "site": "south-02",
+            "positive": 529
+          },
+          {
+            "site": "south-03",
+            "positive": 473
+          },
+          {
+            "site": "south-04",
+            "positive": 494
+          },
+          {
+            "site": "south-05",
+            "positive": 472
+          },
+          {
+            "site": "south-06",
+            "positive": 591
+          },
+          {
+            "site": "south-07",
+            "positive": 695
+          },
+          {
+            "site": "south-08",
+            "positive": 568
+          },
+          {
+            "site": "east-09",
+            "positive": 747
+          },
+          {
+            "site": "west-10",
+            "positive": 908
+          },
+          {
+            "site": "reserve-11",
+            "positive": 450
+          },
+          {
+            "site": "reserve-12",
+            "positive": 972
+          },
+          {
+            "site": "annual-wind-13",
+            "positive": 455
+          }
+        ],
+        "frame": 3855
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
