@@ -1,5 +1,5 @@
 {
     "passed": true,
-    "checks": 2839,
+    "checks": 4115,
     "scope": "HUD state/layout, ledger immutability, actual placement geometry and shader; not browser or novice acceptance"
 }
