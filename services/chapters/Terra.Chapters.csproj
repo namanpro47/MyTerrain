@@ -6,11 +6,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualChapterContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Contracts/ReportNarrationContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/ReportNarration.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Contracts/WorldContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualSimulation.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualSimulationWeather.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualEconomy.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Simulation/*.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownDemo.cs" />
