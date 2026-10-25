@@ -1,0 +1,86 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=6; cash=270980000; queued=0; assets=5\n",
+    "timestamp": "2026-10-25T13:28:09.765Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=2; phase=Reviewing; revision=8; cash=367760000; queued=0; assets=5\n",
+    "timestamp": "2026-10-25T13:28:54.634Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=3; phase=Reviewing; revision=10; cash=473540000; queued=0; assets=5\n",
+    "timestamp": "2026-10-25T13:29:20.709Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=4; phase=Reviewing; revision=13; cash=329320000; queued=0; assets=6\n",
+    "timestamp": "2026-10-25T13:30:04.183Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=5; phase=Reviewing; revision=15; cash=435100000; queued=0; assets=6\n",
+    "timestamp": "2026-10-25T13:30:55.356Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=6; phase=Reviewing; revision=17; cash=536880000; queued=0; assets=6\n",
+    "timestamp": "2026-10-25T13:31:17.944Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=7; phase=Reviewing; revision=19; cash=623660000; queued=0; assets=6\n",
+    "timestamp": "2026-10-25T13:31:43.901Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=8; phase=Reviewing; revision=22; cash=325440000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:32:21.286Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=9; phase=Reviewing; revision=24; cash=427220000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:32:46.939Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=26; cash=524000000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:33:11.879Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=26; cash=524000000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:33:49.704Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=26; cash=524000000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:34:00.166Z",
+    "url": "blob:http://127.0.0.1:61260/37d9fc63-9843-4041-82e0-0f5b17ea411e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=26; cash=524000000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T13:35:02.234Z",
+    "url": "blob:http://127.0.0.1:61260/44593649-cc10-4295-a356-45aaa5ce2cbc"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T13:35:11.181Z",
+    "url": "blob:http://127.0.0.1:61260/44593649-cc10-4295-a356-45aaa5ce2cbc"
+  }
+]
