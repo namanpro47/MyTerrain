@@ -1,5 +1,5 @@
 {
-  "README.md": "c366f227082f4d1976983cb697f71941c699cbad881eee63f5a5da989f149211",
+  "README.md": "4c0f2e5a1b53785d6e04d5d4400656816753133c5bd5b40ac20dcc41638db5cc",
   "build-result.json": "66fa4ae4f650e557872527ec19dd64b72020aad2aae1e11848420f1af517f4d0",
   "build-source.json": "e971d8dd9b144ee6602c6e2c74058b6298ea38cf53d999732344aaa650164470",
   "candidate-close.jpg": "a9df12e29efc8f58614fd00ae9e0c9d9e3b57befb3f114e26039e00a0839d76e",
@@ -14,6 +14,11 @@
   "control-export-files.json": "b5da5512079a50633d34f88ab04c14071127f2f49a90566686cbe3e54a7a5723",
   "control-opening.jpg": "ae157e65cd1ef33a4e923b59e231ff3ebd4d94c1b7b049cac56b99c612e98e08",
   "control-opening.json": "4aa98cb2b727a141951b43a73042d9a44d33e7edcd159ab498b4cc4d4464c321",
+  "editing-candidate-logs.json": "a85d811922e87da535f38079d9b6140c0ec294aaedc826d7db36873cc6cf3820",
+  "editing-candidate.jpg": "4dc1229bdf6b1df06fa09ee8ad662311c96a9679ecbde5f221592125d7ca242e",
+  "editing-comparison.json": "9238925cbb48ceaba064ca6528c9aa81311e16dc03e71d7d6c0f14e386bc7a84",
+  "editing-control-logs.json": "57c9472ab3e0fa4941645d86b597483cdcaecd3fe985761d4b91c9ea0ccbd70a",
+  "editing-control.jpg": "6b4109d54fc0244261c3730e31cd1795262e69ea7553810f7191ce74ceb0cfb2",
   "environment.json": "b11627c78894ebb83ec12ee88aa03bc71cf023c9364341bc2d5832b58b946e36",
   "export-files.json": "c365ab56fe76a3480fa77b23938ebf64f4ef5c6ae49e4ae76d51bceaf3c0a476",
   "generated-font.json": "77908e149191e3bd1d1cc886fe9ab78beca38032e0177de77c041fe2635aa888",
