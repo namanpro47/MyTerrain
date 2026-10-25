@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Studies 47–48 checkpoint](study48-checkpoint.md) — rejected meadow trials and an integrated terrain-relief candidate; compile passes, fresh gameplay/browser validation pending. **Visual gate remains open.**
+Latest: [Studies 49–50](study50-findings.md) — selective hillside relief, rejected cliff/rock trials, and a new free hand-painted ground candidate. **Visual and browser gates remain open.**
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study50-invariants.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "sourceSamples": 20000,
+        "maxSourceError": 0,
+        "maxDelta": 6.59550476,
+        "validLayouts": 80,
+        "foundationSamples": 1324044,
+        "minClearance": 0.03999996,
+        "maxFill": 2.45358658,
+        "cachePoints": 662708,
+        "cacheBytes": 2650832,
+        "worldAndStateUnchanged": true,
+        "frame": 3725
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

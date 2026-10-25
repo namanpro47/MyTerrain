@@ -7,11 +7,14 @@ using UnityEngine.Rendering;
 using Object=UnityEngine.Object;
 namespace Terra.Rendering
 {
-    // Source geometry remains in metres. Only vegetation, row marks and line widths are decorative.
+    // Source geography stays analytical; display relief and environmental detail are illustrative.
     public sealed partial class LandscapeRenderer : IDisposable
     {
         readonly WorldData world; readonly Material template; readonly Transform root;
         readonly bool clusteredWoodland;
+        readonly int displayColumns,displayRows;
+        readonly float displayDx,displayDz;
+        readonly float[] displayHeights;
         readonly GameObject tree,crop,grass; readonly System.Random random=new System.Random(418);
         readonly Dictionary<string,Transform> proposals=new Dictionary<string,Transform>();
         readonly Dictionary<string,Transform> baselines=new Dictionary<string,Transform>();
@@ -34,6 +37,17 @@ namespace Terra.Rendering
         {
             world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;this.clusteredWoodland=clusteredWoodland;
             var t=w.terrain;cell=t.cellSizeM;xmin=t.xMin;zmin=t.zMin;xmax=xmin+(t.columns-1)*cell;zmax=zmin+(t.rows-1)*cell;
+            // Cache the presentation surface once. Terrain, plants, overlays and
+            // project foundations sample the same triangles without recomputing relief.
+            if(clusteredWoodland)
+            {
+                displayColumns=Mathf.CeilToInt((xmax-xmin)/1.5f)+1;
+                displayRows=Mathf.CeilToInt((zmax-zmin)/1.5f)+1;
+                displayDx=(xmax-xmin)/(displayColumns-1);displayDz=(zmax-zmin)/(displayRows-1);
+                displayHeights=new float[displayColumns*displayRows];
+                for(int z=0;z<displayRows;z++)for(int x=0;x<displayColumns;x++)
+                    displayHeights[z*displayColumns+x]=ReliefControl(xmin+x*displayDx,zmin+z*displayDz);
+            }
             coverIndex=new List<CoverPatch>[t.columns-1,t.rows-1];
             foreach(var c in w.covers)
             {
@@ -48,18 +62,23 @@ namespace Terra.Rendering
         public float Height(float x,float z)
         {
             if(!clusteredWoodland)return SourceHeight(x,z);
-            float dx=(xmax-xmin)/Mathf.Ceil((xmax-xmin)/1.5f),dz=(zmax-zmin)/Mathf.Ceil((zmax-zmin)/1.5f);
-            float gx=Mathf.Clamp((x-xmin)/dx,0,(xmax-xmin)/dx),gz=Mathf.Clamp((z-zmin)/dz,0,(zmax-zmin)/dz);
-            int ix=Mathf.Min(Mathf.FloorToInt(gx),Mathf.RoundToInt((xmax-xmin)/dx)-1),iz=Mathf.Min(Mathf.FloorToInt(gz),Mathf.RoundToInt((zmax-zmin)/dz)-1);
-            float px=xmin+ix*dx,pz=zmin+iz*dz,u=gx-ix,v=gz-iz;
-            float a=ReliefControl(px,pz),b=ReliefControl(px+dx,pz),c=ReliefControl(px,pz+dz),d=ReliefControl(px+dx,pz+dz);
+            float gx=Mathf.Clamp((x-xmin)/displayDx,0,displayColumns-1),gz=Mathf.Clamp((z-zmin)/displayDz,0,displayRows-1);
+            int ix=Mathf.Min(Mathf.FloorToInt(gx),displayColumns-2),iz=Mathf.Min(Mathf.FloorToInt(gz),displayRows-2);
+            int n=iz*displayColumns+ix;float u=gx-ix,v=gz-iz;
+            float a=displayHeights[n],b=displayHeights[n+1],c=displayHeights[n+displayColumns],d=displayHeights[n+displayColumns+1];
             return u+v<=1?a+(b-a)*u+(c-a)*v:d+(c-d)*(1-u)+(b-d)*(1-v);
         }
         float ReliefControl(float x,float z)
         {
-            float bands=SourceHeight(x,z)/6f,part=bands-Mathf.Floor(bands);
-            return (Mathf.Floor(bands)+Mathf.SmoothStep(0,1,Mathf.InverseLerp(.38f,.62f,part)))*6f;
+            float h=SourceHeight(x,z);
+            float sx=(SourceHeight(x+cell,z)-SourceHeight(x-cell,z))/(2*cell);
+            float sz=(SourceHeight(x,z+cell)-SourceHeight(x,z-cell))/(2*cell);
+            float steep=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.18f,.45f,Mathf.Sqrt(sx*sx+sz*sz)));
+            float bands=h/18f,part=bands-Mathf.Floor(bands);
+            float ledge=(Mathf.Floor(bands)+Mathf.SmoothStep(0,1,Mathf.InverseLerp(.36f,.64f,part)))*18f;
+            return Mathf.Lerp(h,ledge,steep);
         }
+
         public float SourceHeight(float x,float z)
         {
             var t=world.terrain;float fx=Mathf.Clamp((x-xmin)/cell,0,t.columns-1),fz=Mathf.Clamp((z-zmin)/cell,0,t.rows-1);
@@ -75,7 +94,7 @@ namespace Terra.Rendering
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
         Material GroundMat(Color color)
-        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_IllustrativeRelief",clusteredWoodland?1:0);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
@@ -342,8 +361,8 @@ namespace Terra.Rendering
         {
             // Overlays use the same grid as the displayed terrain. Coarse source
             // triangles would bridge across the illustrative slopes and float above them.
-            float dx=clusteredWoodland?(xmax-xmin)/Mathf.Ceil((xmax-xmin)/1.5f):cell;
-            float dz=clusteredWoodland?(zmax-zmin)/Mathf.Ceil((zmax-zmin)/1.5f):cell;
+            float dx=clusteredWoodland?displayDx:cell;
+            float dz=clusteredWoodland?displayDz:cell;
             int nx=Mathf.RoundToInt((xmax-xmin)/dx),nz=Mathf.RoundToInt((zmax-zmin)/dz);
             int x0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.x)-xmin)/dx),0,nx-1),x1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.x)-xmin)/dx),0,nx-1);
             int z0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.z)-zmin)/dz),0,nz-1),z1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.z)-zmin)/dz),0,nz-1);
