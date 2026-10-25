@@ -1,0 +1,38 @@
+[
+  {
+    "origin": "https://terra-browser.vercel.app",
+    "route": "session",
+    "status": 204,
+    "allowOrigin": "https://terra-browser.vercel.app"
+  },
+  {
+    "origin": "https://terra-browser.vercel.app",
+    "route": "chapter",
+    "status": 204,
+    "allowOrigin": "https://terra-browser.vercel.app"
+  },
+  {
+    "origin": "https://www.myterrain.io",
+    "route": "session",
+    "status": 204,
+    "allowOrigin": "https://www.myterrain.io"
+  },
+  {
+    "origin": "https://www.myterrain.io",
+    "route": "chapter",
+    "status": 204,
+    "allowOrigin": "https://www.myterrain.io"
+  },
+  {
+    "origin": "https://myterrain.io",
+    "route": "session",
+    "status": 204,
+    "allowOrigin": "https://myterrain.io"
+  },
+  {
+    "origin": "https://myterrain.io",
+    "route": "chapter",
+    "status": 204,
+    "allowOrigin": "https://myterrain.io"
+  }
+]
