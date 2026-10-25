@@ -24,6 +24,21 @@
     "annual": [
       "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
       "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+    ],
+    "inputAndVisibility": [
+      {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
     ]
   },
   "control": {
@@ -50,6 +65,21 @@
     "errors": [],
     "annual": [
       "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+    ],
+    "inputAndVisibility": [
+      {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
     ]
   },
   "method": "Chrome 1280x720, 30-second foreground R-reset route: pan right/back, zoom in/out, reset. Own Editor closed, other team workloads not controlled; candidate tab closed before control. Two previews, zero placements, 19 camera events, zero unfocused frames each. One trial per variant: comparative observation, not final three-path gate.",
