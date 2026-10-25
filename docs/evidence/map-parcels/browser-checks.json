@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-25",
+  "browser": "Chrome",
+  "viewportCss": [1707, 876],
+  "devicePixelRatio": 1.5,
+  "preview": "http://localhost:49651/",
+  "configuration": "functional BuildTimes/Gzip; no performance acceptance",
+  "entries": [
+    {"pack": "meadowbrook-v1", "source": "e6e5ff1", "availablePlots": 32, "distinctBriefVisible": true, "existingCommunityVisible": true},
+    {"pack": "point-reyes-v1", "source": "e6e5ff1", "availablePlots": 305, "distinctBriefVisible": true, "existingCommunityVisible": true},
+    {"pack": "suusamyr-v1", "source": "dbd848a", "availablePlots": 333, "distinctBriefVisible": true, "existingCommunityVisible": true}
+  ],
+  "inheritedObjectCounts": "seven per map verified separately by the 69 Unity checks",
+  "pointReyesExistingHome": {"redevelopmentBlocked": true, "availableCents": 1000000000},
+  "wisconsinPreFixModalClickThrough": {"observed": true, "undoRestoredOpeningAvailableMoney": true, "fixedBy": "dbd848a"},
+  "freshSuusamyrBriefDismissal": {"revision": 0, "queued": 0, "assets": 0, "cashCents": 1000000000},
+  "suusamyrNewHome": {"queued": 1, "reservedCents": 110000000, "availableCents": 890000000},
+  "suusamyrReload": {"revision": 1, "queued": 1, "cashCents": 1000000000, "availableCents": 890000000},
+  "suusamyrUndoAfterReload": {"availableCents": 1000000000, "proposedHomeRemoved": true},
+  "errorLevelConsoleEntries": 0,
+  "backgroundBuildDuringEarlierPointChecks": true,
+  "oneDelayedInputRecoveredByFreshObservation": true,
+  "manualTenYearBrowserRun": false,
+  "providerInvocation": false,
+  "productionDeployment": false,
+  "screenshots": "visually inspected in this chat; saved editor images are labelled separately"
+}

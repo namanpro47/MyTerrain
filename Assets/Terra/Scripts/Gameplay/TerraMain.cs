@@ -21,11 +21,13 @@ namespace Terra.Gameplay
         public Terra.Art.BuildActionCatalog buildActionCatalog;
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
+        UniformParcelPack parcelPack;
         Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=34,zoom=105;Vector3 target=new Vector3(-90,30,-70);
         bool perspective=true;float focusHeightOffset;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing,panGesture;Vector2 down,last;float toastUntil;
+        int ignorePlacementThroughFrame=-1;
         readonly BrowserPerformance performance=new BrowserPerformance();
         float shownYaw=-32,shownPitch=42,shownZoom=58;Vector3 shownTarget=new Vector3(-115,30,10);
         public int Revision=>annual?.State.revision??-1;
@@ -60,11 +62,10 @@ namespace Terra.Gameplay
             hud.Progress("Shaping the terrain and woodland…");yield return null;
             try
             {
-                if(location.IsWisconsin)
-                {
-                    AnnualSpatialOpportunities.ConnectFields(w,runoffConfiguration,JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("ConnectedFields").text).sites);
-                    AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);
-                }
+                var parcelResource=Resources.Load<TextAsset>("Parcels/"+location.PackId);
+                if(parcelResource==null)throw new InvalidOperationException("Missing open-land parcel layout for "+location.Name);
+                parcelPack=JsonUtility.FromJson<UniformParcelPack>(parcelResource.text);
+                UniformParcels.Apply(w,runoffConfiguration,parcelPack,location.PackId);
                 buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);
             }
             catch(Exception e){Error(e.Message);yield break;}
@@ -73,9 +74,9 @@ namespace Terra.Gameplay
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
             var scenery=new GameObject(location.Name+" landscape").transform;
-            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab,location.IsWisconsin);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
+            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab,location.IsWisconsin);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();landscape.BuildStartingSettlement(parcelPack);}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ResetView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();WorldAtlas.Instance.LandscapeReady();
         }
         void Update()
@@ -120,7 +121,8 @@ namespace Terra.Gameplay
                 if(mouse.leftButton.wasPressedThisFrame||mouse.middleButton.wasPressedThisFrame)Pointer(0,p,mouse.middleButton.isPressed||(k?.shiftKey.isPressed??false));
                 if(p!=last)Pointer(1,p,false);
                 if(mouse.leftButton.wasReleasedThisFrame||mouse.middleButton.wasReleasedThisFrame)Pointer(2,p,false);
-                if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y/120);
+                // Input System 1.20 already normalizes scroll deltas across platforms.
+                if(mouse.scroll.ReadValue().y!=0)Scroll(-mouse.scroll.ReadValue().y);
             }
 #endif
             RenderView();landscape.Tick(Time.unscaledTime,hud.ReducedMotion);
@@ -153,11 +155,11 @@ namespace Terra.Gameplay
                 var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 var up=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
                 var button=uiDown;uiDown=null;pressed=false;
-                if(up==button&&button.IsInteractable()){Terra.Audio.TerraAudio.Ensure().Click();button.onClick.Invoke();}return;
+                if(up==button&&button.IsInteractable()){SuppressMapPointer();Terra.Audio.TerraAudio.Ensure().Click();button.onClick.Invoke();}return;
             }
 #endif
             if(kind==3){pressed=false;return;}
-            if(kind==0){pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen;return;}
+            if(kind==0){pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen||Time.frameCount<=ignorePlacementThroughFrame;return;}
             if(!ready)return;
             if(kind==1)
             {
@@ -175,12 +177,19 @@ namespace Terra.Gameplay
         }
         public void Scroll(float amount){if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
+        void SuppressMapPointer(){pressed=false;dragged=false;uiDown=null;overUi=true;ignorePlacementThroughFrame=Time.frameCount+2;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
         {
             // Keep the selected composition while panning; the overview has its own steeper pitch.
             yaw=-32;pitch=Mathf.Clamp(pitch,30,58);zoom=Mathf.Clamp(zoom,32,1000);
-            target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
+            if(parcelPack!=null)
+            {
+                var terrain=world.terrain;
+                target.x=Mathf.Clamp(target.x,terrain.xMin,terrain.xMin+(terrain.columns-1)*terrain.cellSizeM);
+                target.z=Mathf.Clamp(target.z,terrain.zMin,terrain.zMin+(terrain.rows-1)*terrain.cellSizeM);
+            }
+            else{target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);}
             if(ready)
             {
                 target.y=landscape.Height(target.x,target.z)+8+focusHeightOffset;
@@ -203,7 +212,18 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){Terra.Audio.TerraAudio.Ensure().Request("camera",2);focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
+        void ResetView()
+        {
+            Terra.Audio.TerraAudio.Ensure().Request("camera",2);focusHeightOffset=0;perspective=true;yaw=-32;
+            if(parcelPack!=null)
+            {
+                var occupied=parcelPack.initialBuildings.Select(b=>world.sites.First(s=>s.id==b.siteId)).ToArray();
+                pitch=48;zoom=190;
+                target=new Vector3(occupied.Average(s=>s.polygon.Average(p=>p.x)),30,occupied.Average(s=>s.polygon.Average(p=>p.z)));
+            }
+            else{pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);}
+            ApplyView();
+        }
         void FocusSite()
         {
             Terra.Audio.TerraAudio.Ensure().Request("camera",2);

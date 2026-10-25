@@ -15,7 +15,8 @@ namespace Terra.Rendering
 
         void BuildExistingCommunity()
         {
-            if(!clusteredWoodland)return;
+            // Dense parcel layouts carry their own seven inherited buildings.
+            if(!clusteredWoodland||UniformParcels.Applied(world))return;
             var prefab=buildCatalog?.Find("low-density-housing")?.prefab;if(prefab==null)return;
             var community=new GameObject("Existing fictional community").transform;community.SetParent(root,false);
             foreach(var site in ExistingHomeSites)

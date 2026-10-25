@@ -155,7 +155,7 @@ namespace Terra.Gameplay
         {
             annualDefinition=FullAnnualGameplay.Create(world,scenario,packId,buildActionRules,runoff);
             annualBaseline=AnnualGameplay.Baseline(annualDefinition);
-            annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey=location.IsWisconsin?"terra.meadowbrook.annual-full.v3.2":location.AnnualSaveKey;
+            annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey=UniformParcels.Applied(world)?location.ParcelAnnualSaveKey:location.IsWisconsin?"terra.meadowbrook.annual-full.v3.2":location.AnnualSaveKey;
             string recovery=null;introPending=!PlayerPrefs.HasKey(annual.saveKey);
             try{annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"),true);}
             catch(Exception e)

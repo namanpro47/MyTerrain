@@ -68,6 +68,30 @@ namespace Terra.Core
             return expected;
         }
 
+        public static AnnualNarrationRequest NarrationRequest(AnnualChapterRequest input)
+        {
+            var expected = Preview(input);
+            return new AnnualNarrationRequest {
+                rulesVersion = RulesVersion, clientFingerprint = Fingerprint(input),
+                consequences = expected.History.Last().acceptedConsequences,
+                facts = NarrationFacts(Facts(expected), input.snapshot.pendingRequest)
+            };
+        }
+
+        public static AnnualChapterFact[] NarrationFacts(AnnualChapterFact[] facts, TownYearRequest pending)
+        {
+            if (facts.Length <= 64) return facts;
+            var byId = facts.ToDictionary(f => f.id, StringComparer.Ordinal);
+            var priority = pending.actions.Select(a => "site:" + a.siteId)
+                .Concat(pending.assets.OrderByDescending(a => a.startedYear).Select(a => "site:" + a.siteId));
+            var selected = facts.Take(7).Concat(priority.Where(byId.ContainsKey).Select(id => byId[id]))
+                .Concat(facts.Skip(7)).GroupBy(f => f.id, StringComparer.Ordinal).Select(g => g.First()).Take(64)
+                .Select(f => new AnnualChapterFact { id = f.id, text = f.text }).ToArray();
+            selected.First(f => f.id == "limits").text += " Narrative detail covers 57 of " + (facts.Length - 7)
+                + " sites, prioritizing this year's choices and prior projects. Aggregate totals include every site.";
+            return selected;
+        }
+
         public static AnnualChapterReceipt Offline(AnnualChapterRequest input)
         {
             var town = Preview(input);

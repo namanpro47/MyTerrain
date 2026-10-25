@@ -1,0 +1,15 @@
+{
+  "result": "passed",
+  "compiler": "Unity 6000.6.6f1 bundled SDK 8.0.318 Roslyn",
+  "response": "Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.rsp",
+  "inputs": "actual combined runtime source files; output redirected to Logs/CoordinatedZoom",
+  "warnings": [
+    "existing CS0618 FindFirstObjectByType"
+  ],
+  "webPlayerBranchesChanged": false,
+  "physicalTrackpadTest": false,
+  "sha256": {
+    "Assets/Terra/Scripts/Gameplay/TerraMain.cs": "1eac75b0edf72c7fadd750b9cb45a562d732002f41943152942f769285e13658",
+    "Assets/Terra/Scripts/Gameplay/WorldAtlas.cs": "2187c712e6e9135e659d1afe2ae103dad475871d87df54657bafe0f2764d2620"
+  }
+}
