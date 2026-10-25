@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-25",
+  "ownerThread": "01a170c2-620f-75e2-834f-5ef8acf01ddc",
+  "branch": "codex/report-narration-v2",
+  "sourceCommit": "629d082cae4b74794eec68cc620dae65f2173f79",
+  "baseCommit": "67c01417906b74a8f024ae9975158cb1dda6979d",
+  "readyForMain": true,
+  "scope": "Additive report-only v2 DTO/helpers and local narration service; no authoritative numeric transition, existing-save or Unity client edits. Preserve legacy v1 endpoint.",
+  "checks": {
+    "reportAssertions": 95,
+    "legacyAssertions": 42,
+    "actualLoopbackHttpChecks": 14,
+    "sharedHelperTarget": "netstandard2.1 / C#9, 0 warnings/errors",
+    "serviceTarget": "net8.0",
+    "executedRuntime": "installed .NET10.0.13 with DOTNET_ROLL_FORWARD=Major",
+    "liveProviderCalls": 0,
+    "diffCheck": "pass"
+  },
+  "integration": [
+    "Acquire shared integration reservation and fetch/reconcile currentmain.",
+    "Cherry-pick629d082 or mergecodex/report-narration-v2; all runtime changes in that commit are ready. Include this handoff documentation commit if desired.",
+    "Run report-narration and existingchapters console checks using commands inREADME. Sharedhelper has portablecompile evidence; actualUnitycompile belongs to combinedrelease.",
+    "Only the new versioned annual adapter may send /report-chapter after numeric report save. Existingclient continues/chapter unchanged untiladapter lands.",
+    "No service deployment is included. StaticWebGLpublication does not publish thisloopbackservice."
+  ],
+  "unfinished": [
+    "Annual v4 numeric state/session/Unityclient adapter owned byComplete remaining implementation.",
+    "Client first-visible-mode persistence/late-response and automaticunreachable-service fallback requireintegrationtesting.",
+    "No liveprovider, Unity/IL2CPPconsumer or Chromev2UItest claimed.",
+    "Phase2Avisualquality and finalcombinedperformance/publicrun/rehearsal/recording gates remainopen."
+  ],
+  "rejectedOrExcluded": [
+    "No free-generated factualprose; modelselects canonicalfactblocks only.",
+    "No crop spatial runtime promotion; rejectedperformance candidate remainscodex/relief-validation.",
+    "No credentials, provider responses or generatedbuildinputs committed."
+  ],
+  "resources": "NoEditor,Chrome,HTTPserverorjobactive; reservation46canceled forcombinedreleaseowner; fileclaimsreleased afterhandoff."
+}
