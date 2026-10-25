@@ -137,7 +137,7 @@ namespace Terra.UI
             annualBudget.text="Cash  "+Money(state.cashCents)+"\nCommitted  "+Money(town.CommittedCents)+"   ·   Plan  "+Money(town.QueuedCommitmentCents);
             undoButton.interactable=town.CanUndo;redoButton.interactable=town.CanRedo;resetProposalsButton.interactable=planning&&state.queue.Length>0;
             reportButton.interactable=state.history.Length>0;
-            SetButtonText(endYearButton,planning?(state.queue.Length==0?"End Year  →":"End Year · "+state.queue.Length+"  →"):state.phase==TownPhase.Resolving?"Year pending →":"Year report →");
+            SetButtonText(endYearButton,planning?"End Year":state.phase==TownPhase.Resolving?"Year pending →":"Year report →");
             foreach(var pair in actionButtons)pair.Key.interactable=planning&&annualRules.actions.Any(a=>a.actionId==pair.Value);
             Paint();
         }
@@ -193,17 +193,9 @@ namespace Terra.UI
         }
         public void AnnualConfirmation(AnnualTown town,TownYearReport preview,Action accept,bool onlineChapter=false)
         {
-            var s=town.Snapshot();var l=preview.ledger;
-            string projects=s.queue.Length==0?"Wait: no new projects. Existing projects still age and receive upkeep.":string.Join("\n",s.queue.Take(3).Select(q=>"• "+annualRules.sites.First(x=>x.id==q.siteId).name+": "+annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title));
-            if(s.queue.Length>3)projects+="\n+ "+(s.queue.Length-3)+" more proposals · all included in the total";
-            AnnualDialog("Submit year "+s.year+"?", "<size=88%>"+projects+"\n\n<b>Pay now</b>  "+Money(l.upfrontPaidCents+l.operatingPaidCents+l.programPaidCents+l.repairPaidCents+l.arrearsPaidCents)+"\nClosing appropriation  "+Money(l.appropriationCents)+"   ·   Receipts  "+Money(l.publicReceiptsCents)+"\nExpected closing cash  "+Money(l.closingCashCents)+"\nFuture obligations  "+Money(l.futureCommitmentsCents)+"\n\n"+preview.acceptedRequest.driver.description+"\n\n"+(onlineChapter?"AI chapter · outcomes follow the saved game rules.":"Offline chapter · authored game outcomes.")+"\nAccepted years cannot be undone.</size>","End year "+s.year,accept);
-            if(s.queue.Length>0)
-            {
-                annualDetails.gameObject.SetActive(true);SetButtonText(annualDetails,"All "+s.queue.Length+" proposals");
-                var primaryRect=annualPrimary.GetComponent<RectTransform>();primaryRect.anchorMin=primaryRect.anchorMax=primaryRect.pivot=new Vector2(1,0);primaryRect.anchoredPosition=new Vector2(-32,86);
-                annualDetails.onClick.RemoveAllListeners();annualDetails.onClick.AddListener(()=>AnnualDialog("Queued projects · year "+s.year,"<size=88%>"+string.Join("\n",s.queue.Select(q=>annualRules.sites.First(x=>x.id==q.siteId).name+" — "+annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title))+"\n\nTotal reserved "+Money(town.QueuedCommitmentCents)+". Cash is unchanged until End Year.</size>","Return to budget review",()=>AnnualConfirmation(town,preview,accept,onlineChapter)));
-            }
+            FieldNotesBudget(town.Snapshot(),preview.ledger,onlineChapter?"AI chapter":"Offline chapter",accept);
         }
+
         public void AnnualReport(AnnualTown town,TownYearOutcomes baseline,Action continuePlanning,Action backToChapter=null)
         {
             var h=town.History;var r=h.Last();var p=h.Length>1?h[h.Length-2].outcomes:baseline;var o=r.outcomes;var l=r.ledger;
