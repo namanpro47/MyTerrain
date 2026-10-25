@@ -81,6 +81,7 @@ namespace Terra.Gameplay
         }
         void Update()
         {
+            if(LocalFollowup.ConsumedInput){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();return;}
             AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();return;}
             if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();hud.TickChangeFeedback(Time.unscaledDeltaTime);var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false){CancelPlacementPress();AudioGesture();}
@@ -140,6 +141,7 @@ namespace Terra.Gameplay
         }
         void Pointer(int kind,Vector2 position,bool panning)
         {
+            if(LocalFollowup.ConsumedInput){LocalFollowup.Pointer(kind,position);return;}
             if(kind==0)AudioGesture();if(Terra.Audio.TerraAudioPanel.ConsumedInput){Terra.Audio.TerraAudioPanel.Pointer(kind,position);return;}
             if(atlasVisible){WorldAtlas.Instance.Pointer(kind,position);return;}
             if(!ready||hud==null)return;
@@ -194,8 +196,8 @@ namespace Terra.Gameplay
                 if(!overUi)ClearPlacementIntent();
             }
         }
-        public void Scroll(float amount){CancelPlacementPress();if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
-        public void LoseFocus(string _){CancelPlacementPress();if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
+        public void Scroll(float amount){CancelPlacementPress();if(LocalFollowup.ConsumedInput||Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void LoseFocus(string _){CancelPlacementPress();LocalFollowup.Pointer(3,Vector2.zero);if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
         void SuppressMapPointer(){ClearPlacementIntent();pressed=false;dragged=false;uiDown=null;overUi=true;ignorePlacementThroughFrame=Time.frameCount+2;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()

@@ -24,6 +24,9 @@ namespace Terra.UI
             void Box(float x,float y,float w,float h){Line(x,y,x+w,y);Line(x+w,y,x+w,y+h);Line(x+w,y+h,x,y+h);Line(x,y+h,x,y);}
             switch(symbol)
             {
+                case "circle":Circle(12,12,9);break;
+                case "back":Line(20,12,4,12);Line(4,12,11,5);Line(4,12,11,19);break;
+                case "external":Line(14,3,21,3);Line(21,3,21,10);Line(21,3,10,14);Line(10,5,4,5);Line(4,5,4,21);Line(4,21,20,21);Line(20,21,20,15);break;
                 case "coin":Circle(12,12,9);Line(12,6,12,18);Line(16,8,9,8);Line(9,8,8,12);Line(8,12,16,12);Line(16,12,15,16);Line(15,16,8,16);break;
                 case "calendar":Box(3,5,18,16);Line(3,10,21,10);Line(7,2,7,7);Line(17,2,17,7);Line(8,15,11,18);Line(11,18,17,13);break;
                 case "people":Circle(9,7,3);Circle(17,9,2);Line(3,21,3,17);Line(3,17,6,13);Line(6,13,12,13);Line(12,13,15,17);Line(15,17,15,21);Line(18,14,21,17);Line(21,17,21,21);break;
