@@ -85,6 +85,16 @@ public static class AnnualFeedbackWaveChecks
         hud.FullLandscapeOption(full);Check(Field<Button>("fullLandscapeFuture").gameObject.activeSelf,"Full landscape has no Year 10 option.");
         Field<Button>("fullLandscapeFuture").onClick.Invoke();Check(future,"Full landscape option has no action.");
         full.UndoPlan(full.Revision);hud.FullLandscapeOption(full);Check(!Field<Button>("fullLandscapeFuture").gameObject.activeSelf,"Undo leaves false full-landscape prompt.");
+        if(town.PlayerRulesActive)
+        {
+            hud.AnnualDialog("Environmental change","The score can fall below zero.","Close",hud.CloseModal);
+            Invoke("FieldNotesMeter","Environmental",-50d,-20d,Color.green);
+            var progress=GameObject.Find("Environmental progress").transform;
+            Check(Math.Abs(((RectTransform)progress.Find("Before track/Before score bar")).anchorMax.x-.25f)<.001,"Negative environment score is clipped to zero.");
+            Check(Math.Abs(((RectTransform)progress.Find("Now track/Now score bar")).anchorMax.x-.4f)<.001,"Signed environment progress uses the wrong range.");
+            Check(progress.Find("Now track/Zero")!=null,"Signed environmental bar has no zero marker.");
+            hud.CloseModal();
+        }
         hud.HideAnnualPreview();hud.AnnualState(new AnnualTown(definition,"feedback-reset"),baseline,baseline);
         Debug.Log("ANNUAL_FEEDBACK_WAVE_CHECKS_PASSED: "+checks);return checks;
     }
