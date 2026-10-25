@@ -115,13 +115,7 @@ namespace Terra.Rendering
             }
             riverMask=new Texture2D(columns,rows,TextureFormat.RGBA32,true,true){name="Illustrative channel distance",wrapMode=TextureWrapMode.Clamp,filterMode=FilterMode.Bilinear};
             riverMask.SetPixels32(colors);riverMask.Apply();material.SetTexture("_RiverMap",riverMask);
-            var indices=new int[(columns-1)*(rows-1)*6];int n=0;
-            for(int z=0;z<rows-1;z++)for(int x=0;x<columns-1;x++)
-            {int i=z*columns+x;indices[n++]=i;indices[n++]=i+columns;indices[n++]=i+1;indices[n++]=i+1;indices[n++]=i+columns;indices[n++]=i+columns+1;}
-            var mesh=new Mesh{name="Source-height landscape with illustrative channels",indexFormat=IndexFormat.UInt32};
-            mesh.vertices=vertices;mesh.triangles=indices;mesh.RecalculateNormals();mesh.RecalculateBounds();meshes.Add(mesh);
-            var ground=new GameObject("Continuous landscape and inset stream banks");ground.transform.SetParent(root,false);
-            ground.AddComponent<MeshFilter>().sharedMesh=mesh;ground.AddComponent<MeshRenderer>().sharedMaterial=material;
+            BuildGroundChunks(vertices,columns,rows,material);
         }
         Material StreamMaterial(bool natural=true)
         {

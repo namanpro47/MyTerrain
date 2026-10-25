@@ -139,6 +139,11 @@ Shader "Terra/Illustrated Ground"
                     half3 bankPaint=lerp(earthPaint*half3(.48,.53,.47),stonesPaint*half3(.52,.63,.62),gravel);
                     albedo=lerp(albedo,bankPaint,bank);
                     surfaceNormal=lerp(surfaceNormal,lerp(earthN,stonesN,gravel),bank);
+                    // The dry swale is rendered ground relief, with exposed earth/gravel between planted shoulders.
+                    float swale=smoothstep(.15,.80,treatment.b);
+                    half3 swaleBed=lerp(earthPaint*half3(.43,.49,.43),stonesPaint*half3(.47,.53,.49),.35);
+                    albedo=lerp(albedo,swaleBed,swale);
+                    surfaceNormal=lerp(surfaceNormal,earthN,swale);
                     float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
                     float road=1-smoothstep(.28,.72,pathDistance+(Noise(p*.7)-.5)*.06);
                     albedo=lerp(albedo,earthPaint*half3(.82,.84,.79),road);

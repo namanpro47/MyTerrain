@@ -36,7 +36,7 @@ namespace Terra.Rendering
                 else if(!surfaceTreatments.TryGetValue(site.id,out treatment))continue;
                 PaintTreatmentSurface(site,treatment);
             }
-            treatmentSurface.SetPixels32(surfacePixels);treatmentSurface.Apply();surfaceDirty=false;
+            treatmentSurface.SetPixels32(surfacePixels);treatmentSurface.Apply();FlushSwaleGround();surfaceDirty=false;
         }
 
         void PaintTreatmentSurface(Site site,string treatment)
@@ -48,6 +48,7 @@ namespace Terra.Rendering
             int z0=Mathf.Clamp(Mathf.FloorToInt((bottom-zmin)/dz),0,TreatmentResolution-1),z1=Mathf.Clamp(Mathf.CeilToInt((top-zmin)/dz),0,TreatmentResolution-1);
             bool cultivated=treatment.StartsWith("cultivate"),margin=treatment=="cultivate-margin";
             float marginTop=Mathf.Lerp(bottom,top,.25f);
+            var swale=treatment=="water-swale"?SwaleFor(site):null;
             for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
             {
                 float px=xmin+(x+.5f)*dx,pz=zmin+(z+.5f)*dz;
@@ -64,7 +65,7 @@ namespace Terra.Rendering
                 float coverage=Mathf.SmoothStep(0,1,Mathf.Clamp01(edge/3f));
                 float cropWeight=cultivated?1:0;
                 if(margin)cropWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(marginTop-1,marginTop+1,pz));
-                surfacePixels[z*TreatmentResolution+x]=new Color(cropWeight,1-cropWeight,0,coverage);
+                surfacePixels[z*TreatmentResolution+x]=new Color(cropWeight,1-cropWeight,swale==null?0:SwaleCut(swale,px,pz)/SwaleDepth,coverage);
             }
         }
     }

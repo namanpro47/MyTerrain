@@ -24,24 +24,7 @@ namespace Terra.Rendering
                 PlantCultivation(Rectangle(l,b,r,t),parent,false);
             }
             else if(treatment=="restore-grass")PlantMeadow(p,parent,2.9f,true);
-            else
-            {
-                float middle=(b+t)*.5f;
-                var route=new[]{new Point(l+9,middle-3),new Point(Mathf.Lerp(l,r,.35f),middle+2),new Point(Mathf.Lerp(l,r,.65f),middle+4),new Point(r-9,middle)};
-                Ribbon(route,13,new Color(.32f,.43f,.23f),.18f,parent,"Swale planted bank");
-                Ribbon(route,7,new Color(.47f,.45f,.30f),.22f,parent,"Swale earth bed");
-                Ribbon(route,4,new Color(.17f,.43f,.45f),.25f,parent,"Illustrative swale water");
-                PlantMeadow(p,parent,3.7f,true,(x,z)=>DistanceToRoute(route,x,z)<5);
-                var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");var stone=Resources.Load<GameObject>("Nature/Rock_Medium_2");
-                var grasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();
-                for(float x=l+11;x<r-9;x+=4)
-                {
-                    float z=middle+Mathf.Sin((x-l)/(r-l)*Mathf.PI)*4;
-                    foreach(float side in new[]{-1f,1f})grasses.Add(PlantMatrix(rush,x,z+side*6,2.7f,x*13));
-                    if(((int)x&7)<3)stones.Add(PlantMatrix(stone,x,z-4.5f,.55f,x*7));
-                }
-                var instances=parent.gameObject.AddComponent<InstancedNature>();instances.Add(rush,grasses,Color.white);instances.Add(stone,stones,Color.white);
-            }
+            else PlantSwale(site,parent);
         }
         static float DistanceToRoute(Point[] route,float x,float z)
         {

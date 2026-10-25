@@ -1,5 +1,7 @@
 # Visual rebuild worktree handoff
 
+> **Study29 source checkpoint — not yet validated:** The in-progress swale replaces raised ribbons with a shallow rendered terrain depression, chunked ground meshes, deterministic planting and matching ground material weights. This is an illustrative dry vegetated swale, not surveyed drainage or a change to the analytical elevation model. Saved at the user's request before runtime/browser validation. Initial compilation was reported successful during implementation; the final seed edit has no retained verification result. Preview/cancel/replacement/undo, chunk seams, mapped-feature overlap, plant grounding and performance still require verification. Do not treat this checkpoint as integration-ready. The latest browser-verified candidate remains study28e (`05e3bac`), served locally on port 49658; its visual gate still fails. No new build, deployment, annual integration or Phase 2A acceptance is claimed.
+
 Latest candidate28e: free coherent ground family, alpha-safe foliage, matched cutout passes and closer orthographic framing; checker repetition corrected in28d. Local http://127.0.0.1:49658/ serves28e job19bdef6a164742e4a4300f572e87fe81; exact-file verification passes at36.79MB checked transfer. Visual gate fails.28d moving repeatp95=33ms after closing superseded visual tabs; initial123ms retained. Full performance suite not passed. Separate from annual gameplay integration.
 
 
