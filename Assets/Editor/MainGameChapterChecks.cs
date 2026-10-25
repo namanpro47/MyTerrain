@@ -92,6 +92,14 @@ public static class MainGameChapterChecks
             Check(!hud.ModalOpen&&town.State.phase==TownPhase.Planning&&town.State.history.Length==1,"Editing a pending plan lost accepted history or left recovery open.");
             town.Initialize(definition,"new-main-ui-run");chapters.ResetForRun();
             Check(chapters.ForYear(1)==null&&chapters.Latest==null,"A new run retained a previous chapter.");
+            chapters.FinishOffline();
+            Check(town.State.phase==TownPhase.Completed&&chapters.ForYear(10)!=null,"Fast-forward lost its final offline chapter.");
+            var completed=chapters.ExportSave();chapters.ImportSave(completed);
+            Check(chapters.ExportSave()==completed,"Full completed chapter envelope did not restore.");
+            bool futureOpened=false;
+            hud.AnnualChapterReport(town.Engine,chapters.ForYear(10),()=>futureOpened=true,()=>{});
+            Click("Read chapter →");Click("Next card →");Click("Next card →");Click("See ten-year future");
+            Check(futureOpened&&town.State.year==10,"Final chapter did not hand off to the future without a Year 11.");
         }
         finally
         {

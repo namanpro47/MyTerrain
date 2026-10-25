@@ -18,6 +18,16 @@ namespace Terra.Rendering
             // Construction hides the finished model while retaining its accurately sized foundation.
             if(stage=="BUILDING")
                 foreach(Transform child in holder)if(child.name!="Level foundation")child.gameObject.SetActive(false);
+            if(stage=="PROPOSED"||stage=="SUSPENDED"||stage=="ESTABLISHING")
+            {
+                foreach(var renderer in holder.GetComponentsInChildren<Renderer>())
+                {
+                    var block=new MaterialPropertyBlock();
+                    Color original=renderer.sharedMaterial!=null&&renderer.sharedMaterial.HasProperty("_BaseColor")?renderer.sharedMaterial.GetColor("_BaseColor"):Color.white;
+                    Color tint=stage=="PROPOSED"?Color.Lerp(original,new Color(.66f,.85f,.86f),.65f):stage=="SUSPENDED"?Color.Lerp(original,Color.gray,.75f):Color.Lerp(new Color(.55f,.46f,.28f),original,(float)maturity);
+                    block.SetColor("_BaseColor",tint);renderer.SetPropertyBlock(block);
+                }
+            }
             float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);
             var go=new GameObject("Annual status");go.transform.SetParent(holder,false);
             go.transform.position=new Vector3(x,Height(x,z)+12,z);go.transform.rotation=Quaternion.Euler(37,-32,0);

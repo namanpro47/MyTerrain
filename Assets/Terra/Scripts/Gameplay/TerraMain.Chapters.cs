@@ -15,7 +15,7 @@ namespace Terra.Gameplay
         void InitializeChapters(ref string recovery)
         {
             chapters=gameObject.AddComponent<AnnualChapterSession>();chapters.town=annual;
-            chapters.endpoint=annualChapterEndpoint;chapters.saveKey="terra.meadowbrook.annual-full.chapters.v1";
+            chapters.endpoint=annualChapterEndpoint;chapters.saveKey="terra.meadowbrook.annual-full.chapters.v3.1";
             try{chapters.RestoreSaved();}
             catch(Exception e)
             {
@@ -32,7 +32,9 @@ namespace Terra.Gameplay
         void ChapterChanged()
         {
             if(!ready)return;
-            SaveAnnual();RefreshLandscape();Refresh();
+            SaveAnnual();
+            if(fastForwarding)return;
+            RefreshLandscape();Refresh();
             if(chapters.Busy)hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest());
             else if(annual.State.phase==TownPhase.Resolving)ShowPendingChapter();
             else if(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed)ShowAcceptedReport();
@@ -47,6 +49,7 @@ namespace Terra.Gameplay
         void ContinueAfterChapter()
         {
             hud.CloseModal();
+            if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             if(annual.State.phase==TownPhase.Reviewing)chapters.Continue();
             SaveAnnual();Refresh();
         }

@@ -60,5 +60,19 @@
     "errorsBeforeDeliberateFailure": 0,
     "knownConsoleWarning": "URP Edge Adaptive Spatial Upsampling shader stripped/unsupported",
     "limitations": "Single desktop viewport; no novice study or broad layout acceptance. Automation needed held clicks and frame-state observations."
+  },
+  "reconciliation": {
+    "incomingMain": "358312d",
+    "fullGameAssertions": 608,
+    "mainHudAssertions": 17,
+    "unityChapterAssertions": 16,
+    "standaloneChapterAssertions": 40,
+    "annualTownAssertions": 94,
+    "annualGameplayAssertions": 15,
+    "currentSchema31UnityRequestReplay": true,
+    "legacySchema30Replay": true,
+    "modernEndingTargetsStillRequired": true,
+    "tenYearChaptersAndEndingHandoff": true,
+    "note": "Retains responsive HUD, future comparison, timeline, audio and replay. Main fast-forward explicitly uses offline chapters. Added the missing standalone full-game project and CRLF-safe catalog title parsing."
   }
 }

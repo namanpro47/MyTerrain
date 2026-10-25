@@ -11,7 +11,7 @@ namespace Terra.UI
         public void AnnualChapterReport(AnnualTown town,AnnualChapterReceipt receipt,Action continuePlanning,Action ledger,int page=0)
         {
             var chapter=receipt.chapter;int count=chapter.cards.Length;
-            string nextYear=town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to the valley";
+            string nextYear=town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"See ten-year future";
             if(page==0)
             {
                 var report=town.History.Last(r=>r.year==receipt.consequences.year);

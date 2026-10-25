@@ -10,6 +10,8 @@ Each chapter is one year in the existing Meadowbrook Valley run: queue actions �
 
 The developer window **Terra → Annual Town → Playtest Year Loop** still offers offline chapters, optional Gemini chapters, retry, stop waiting, explicit offline fallback, next year, ten-year continuation, export/import and autosave restore.
 
+The main game's **See my ten-year future** explicitly completes remaining years with offline chapters, preserving its same-conditions comparison, timeline and replay. A normal Year 10 chapter links to the ending. The reconciled 3.1 rules use their own chapter save key, matching the main game's versioned annual save; prior 3.0 saves remain stored locally. The backend can still replay published 3.0 chapter requests, whose definition predates final assessment targets. Modern 3.1 definitions continue to require those targets.
+
 The existing annual ledger, lifecycle and saved drivers compute the outcome. The server replays that same C# code in a detached town, sends a compact set of computed facts to Gemini, validates the response, then returns the narrative and exact engine consequences. Unity validates the receipt before committing. Gemini cannot inject even an otherwise in-range numeric effect.
 
 This is deliberately **AI narration over an illustrative annual simulation**, not the complete PRD §7 causal consequence generator. The current repository has no approved causal reference pack, calibrated weather sampler or grounded effect ranges. Arbitrary model-selected numbers would not fill that gap. A future effect pack needs separate authorship and tests before enabling AI-proposed numeric consequences. The existing definition's “No LLM” assumption describes its numeric simulator; the chapter layer may use an LLM for prose.

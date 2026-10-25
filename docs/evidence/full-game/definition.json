@@ -3,7 +3,7 @@
   "priceYear": 2026,
   "years": 10,
   "id": "meadowbrook-full-annual",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "worldPackId": "meadowbrook-v1",
   "currency": "USD",
   "assumptions": "USD 2026 authored educational scenario. All capacities, occupancy, service connections, consent, jobs and costs are fictional. Public contributions are not total construction costs; private output is not cash. One project per named management site; no redevelopment refunds.",
@@ -6096,6 +6096,9 @@
     "emissionsLimit": 100,
     "coverTargetFraction": 0.65,
     "runoffReductionTarget": 0.2,
+    "finalEconomicTarget": 75,
+    "finalSocialTarget": 75,
+    "finalEnvironmentalTarget": 60,
     "referenceStorm": {
       "schemaVersion": 1,
       "revision": 0,
