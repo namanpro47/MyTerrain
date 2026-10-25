@@ -147,7 +147,7 @@ namespace Terra.Gameplay
             var current = town.State;
             var accepted=current.history.FirstOrDefault(r=>r.acceptedRequest.requestId==frozen.snapshot.pendingRequest.requestId);
             bool proseOnly=town.Engine.PlayerRulesActive&&accepted!=null
-                && TownCopies.Hash(accepted.acceptedConsequences)==TownCopies.Hash(receipt.consequences)
+                && JsonUtility.ToJson(accepted.acceptedConsequences)==JsonUtility.ToJson(receipt.consequences)
                 && current.runId==frozen.snapshot.runId;
             if (!proseOnly&&(current.phase != TownPhase.Resolving || current.pendingRequest.inputHash != frozen.snapshot.pendingRequest.inputHash
                 || current.pendingRequest.runId != frozen.snapshot.runId))
