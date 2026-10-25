@@ -13,6 +13,9 @@ namespace Terra.Gameplay
         Material ink;
         void BuildSky(Transform panel)
         {
+            var skyMaterial=new Material(Resources.Load<Shader>("Atlas/Sky"));owned.Add(skyMaterial);
+            var skyMesh=new Mesh{name="Orbital backdrop"};skyMesh.vertices=new[]{new Vector3(-40,-30,10),new Vector3(40,-30,10),new Vector3(40,30,10),new Vector3(-40,30,10)};skyMesh.triangles=new[]{0,2,1,0,3,2};skyMesh.RecalculateBounds();owned.Add(skyMesh);
+            var sky=new GameObject("Orbital glow",typeof(MeshFilter),typeof(MeshRenderer));sky.layer=30;sky.transform.SetParent(geometry.transform,false);sky.GetComponent<MeshFilter>().sharedMesh=skyMesh;sky.GetComponent<MeshRenderer>().sharedMaterial=skyMaterial;
             ink=new Material(Resources.Load<Shader>("Atlas/Ink"));owned.Add(ink);
             stars=new GameObject("Quiet star field").transform;stars.SetParent(geometry.transform,false);
             var random=new System.Random(9147);
