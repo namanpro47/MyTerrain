@@ -172,7 +172,7 @@ namespace Terra.Gameplay
                 var normal=(world-earth.position).normalized;
                 var screen=globeCamera.WorldToScreenPoint(world);
                 bool front=Vector3.Dot(normal,(globeCamera.transform.position-world).normalized)>.08f;
-                bool inView=screen.z>0&&screen.x>16&&screen.x<Screen.width-16&&screen.y>16&&screen.y<Screen.height-16;
+                bool inView=screen.z>0&&screen.x>16&&screen.x<globeCamera.pixelWidth-16&&screen.y>16&&screen.y<globeCamera.pixelHeight-16;
                 pins[i].gameObject.SetActive(front&&inView&&!Traveling);
                 pins[i].GetComponent<UnityEngine.UI.Image>().color=i==Selected?new Color(1,.79f,.38f,.32f):new Color(.25f,.85f,.85f,.25f);
                 var pennant=(RectTransform)pinLabels[i].transform.parent;
