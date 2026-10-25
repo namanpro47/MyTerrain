@@ -18,4 +18,5 @@ References: **TN-06/08** for short contextual reports, **CS-01** for a single cl
 
 - Pure full-game regression: **2,399 assertions**, all 17 variants and 51 strategy/order routes. [Receipt](core-checks.json).
 - New narrative: **102 assertions** over 20 accepted years across two strategies; schema-valid text, no score prose/lot names, developed paragraphs and unchanged saved reports. [Receipt](narrative-checks.json), [check source](narrative-checks.cs).
-- Unity/browser verification is pending. Do not treat this source checkpoint as a rendered acceptance result.
+- Unity **859 HUD + 16 chapter assertions** pass on runtime `6364b3c`; Web export succeeds and all served runtime files match. [Unity receipt](unity-checks.json), [export identity](build.json), [served bytes](served-files.json).
+- Background Chrome **155.0.8059.85** passes **30 behavioral assertions** across 1440×900, 1280×720 and 1024×576: three-project review, offline acceptance, all cards, compact scrolling, larger text, guide reset, next-year planning and saved reload. The sole console error is the deliberately aborted local narration request. The accepted $10,694,000 cash / three assets remain unchanged on reload. [Functional receipt](browser-functional.json). No screenshots were taken during this run; final visual capture is queued.
