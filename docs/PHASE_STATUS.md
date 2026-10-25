@@ -41,6 +41,8 @@ The incoming perspective camera now has its own [foreground performance evidence
 
 The [project-ground follow-up](evidence/full-game/README.md#project-edge-grading--implementation-candidate) now matches the landscape paint family and grades lot edges inside their existing metric footprints. All 394 Editor assertions pass, including unchanged terrain/ledger and cleanup. Chrome verifies completed village/apartment contact plus fresh preview, queue/undo/redo, construction and ten-year completion. Source `bb4d976` is pinned to its successful export; this is a bounded art integration, with the full scenery/performance/release gates still open.
 
+The instanced-vegetation follow-up now applies proposed/establishing/suspended tint to agreement plants while preserving source cover around buildings. **209 Editor assertions** and a fresh Chrome queue/undo/acceptance/ten-year run pass. [Exact build and evidence](evidence/full-game/README.md#instanced-vegetation-annual-status). Ground painting and broader scenery quality remain unchanged; Phase 2A and release gates remain open.
+
 ## Full-game quality checkpoint — October 24, 2026
 
 Reconciled Peter's `9da54a5` annual chapters through `ba88fdf`, preserving the shared ledger and saved receipts. Offline chapters now show exact accepted money and all three indicator results; the ending adds saved project stories and site inspection. Chrome verifies pending/retry/reload/offline recovery, unchanged committed cash, complete story pagination, no-project ending, compact 125% larger text, and repeated replays. Full source checks: **608 full-game, 42 chapters, 94 annual + 15 gameplay, 1,372 consequences**; Unity **34 lifecycle, 17 main HUD/session + 16 chapter** assertions.
