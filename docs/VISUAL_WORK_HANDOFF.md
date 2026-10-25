@@ -1,5 +1,7 @@
 # Visual rebuild worktree handoff
 
+**Latest checkpoint — study46:** [Saved resource/culling work and actual study45 Chrome failures](evidence/phase2a/visual-rebuild/study46-checkpoint.md). Study45 measured 47 ms p95 and a 55.14 MB export; scenery remains below reference. Study46 has limited Editor comparisons only, with browser validation pending. Phase 2A remains open.
+
 **Study45 full-scene review:** Continuous canopy and distance meshes now run across Wisconsin; a premature crop fade was corrected after a matched control. 209 rendering lifecycle assertions and atlas/save checks pass. Meadow/surface quality still fails the visual bar; Chrome review is next. [Captures, controls and scope limitations](evidence/phase2a/visual-rebuild/study45-findings.md).
 
 **Study45 unfinished integration checkpoint:** Wisconsin now uses the clustered woodland candidate with three distance levels per tree. Compilation and 96 asset checks passed; full-scene, annual and Chrome validation remain pending. [Saved work and evidence](evidence/phase2a/visual-rebuild/study45-checkpoint.md). Phase 2A remains open.

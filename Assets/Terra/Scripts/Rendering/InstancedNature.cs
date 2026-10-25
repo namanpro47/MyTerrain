@@ -15,6 +15,11 @@ namespace Terra.Rendering
         static readonly Plane[] viewPlanes=new Plane[6];
         public int LastSubmittedBatches{get;private set;}
         public int LastCulledGroundcoverBatches{get;private set;}
+        public int LastCulledBatches{get;private set;}
+#if UNITY_EDITOR
+        // Matched render comparison: same geometry and LODs, with off-screen submission restored.
+        public static bool SubmitOffscreenForComparison {get;set;}
+#endif
         public static float DisplayPixelRatio{get;set;}=1;
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
@@ -115,18 +120,23 @@ namespace Terra.Rendering
                     viewSpan=orthographic?camera.orthographicSize:Mathf.Tan(camera.fieldOfView*.5f*Mathf.Deg2Rad);
                 }
             }
-            LastSubmittedBatches=0;LastCulledGroundcoverBatches=0;
+            LastSubmittedBatches=0;LastCulledGroundcoverBatches=0;LastCulledBatches=0;
+            bool checkBounds=cameraValid&&!ShadowsOnly;
+#if UNITY_EDITOR
+            checkBounds&=!SubmitOffscreenForComparison;
+#endif
             foreach(var b in batches)
             {
-                if(cameraValid&&b.groundcover&&!ShadowsOnly)
+                if(checkBounds)
                 {
-                    // Low plants cannot cast into the view from across the map. Keep a
-                    // generous border for their shadows on the fixed 52-degree sun and
-                    // sloping terrain; tall canopy retains Unity's native shadow culling.
+                    // Skip submissions that cannot affect the view. The broad margin retains
+                    // off-screen tree shadows on slopes under the fixed 52-degree sun.
+                    // It includes eight plant heights plus terrain relief and 16 metres.
+                    // Geometry, material and distance-level selection remain unchanged.
                     var shadowBounds=b.bounds;
                     shadowBounds.Expand(b.maxHeight*8+b.bounds.size.y*2+16);
                     if(!GeometryUtility.TestPlanesAABB(viewPlanes,shadowBounds))
-                    {LastCulledGroundcoverBatches++;continue;}
+                    {LastCulledBatches++;if(b.groundcover)LastCulledGroundcoverBatches++;continue;}
                 }
                 float pixels=float.MaxValue;
                 if(cameraValid&&(b.crop||b.groundcover||b.medium!=null))
