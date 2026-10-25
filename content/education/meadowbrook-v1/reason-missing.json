@@ -1,0 +1,9 @@
+{
+  "id": "reason-missing",
+  "title": "No proposal to change",
+  "body": "Select a site with a proposal, or add a new proposal to an eligible site.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

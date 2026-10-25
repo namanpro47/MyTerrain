@@ -1,0 +1,157 @@
+{
+  "packageVersion": 1,
+  "contract": "ContentEntry v1",
+  "packId": "meadowbrook-v1",
+  "selectedLocationId": "coon-valley-brye-v1",
+  "entries": [
+    "meadowbrook-v1/meadowbrook-intro.json",
+    "meadowbrook-v1/meadowbrook-goals.json",
+    "meadowbrook-v1/meadowbrook-goals-unavailable.json",
+    "meadowbrook-v1/hint-inspect.json",
+    "meadowbrook-v1/hint-preview.json",
+    "meadowbrook-v1/hint-place.json",
+    "meadowbrook-v1/hint-compare.json",
+    "meadowbrook-v1/hint-revise.json",
+    "meadowbrook-v1/tool-cultivate-standard.json",
+    "meadowbrook-v1/tool-cultivate-margin.json",
+    "meadowbrook-v1/tool-restore-grass.json",
+    "meadowbrook-v1/tool-water-swale.json",
+    "meadowbrook-v1/tool-water-swale-unavailable.json",
+    "meadowbrook-v1/reason-stale.json",
+    "meadowbrook-v1/reason-unavailable.json",
+    "meadowbrook-v1/reason-site.json",
+    "meadowbrook-v1/reason-protected.json",
+    "meadowbrook-v1/reason-ineligible.json",
+    "meadowbrook-v1/reason-occupied.json",
+    "meadowbrook-v1/reason-missing.json",
+    "meadowbrook-v1/reason-unchanged.json",
+    "meadowbrook-v1/reason-budget.json",
+    "meadowbrook-v1/reason-unknown.json",
+    "meadowbrook-v1/disclosure-geography.json",
+    "meadowbrook-v1/disclosure-scenario.json",
+    "meadowbrook-v1/disclosure-model.json",
+    "meadowbrook-v1/disclosure-unavailable.json",
+    "meadowbrook-v1/disclosure-cover.json",
+    "meadowbrook-v1/entry-prediction-v1.json",
+    "meadowbrook-v1/runoff-transfer-v1.json",
+    "meadowbrook-v1/take-home-choice.json",
+    "meadowbrook-v1/take-home-production.json",
+    "meadowbrook-v1/take-home-vegetation.json",
+    "meadowbrook-v1/take-home-water.json",
+    "meadowbrook-v1/ending-invitation.json",
+    "meadowbrook-v1/ending-accounting.json",
+    "meadowbrook-v1/ending-accounting-unavailable.json",
+    "meadowbrook-v1/ending-water.json",
+    "meadowbrook-v1/ending-water-unavailable.json",
+    "meadowbrook-v1/ending-reflect.json",
+    "meadowbrook-v1/ending-continue.json",
+    "meadowbrook-v1/ending-retry.json",
+    "meadowbrook-v1/ending-return.json"
+  ],
+  "legacyEntries": [
+    "fixture-intro.json"
+  ],
+  "questionIds": [
+    "entry-prediction-v1",
+    "runoff-transfer-v1"
+  ],
+  "preferenceIds": [
+    "take-home-choice"
+  ],
+  "hintIds": [
+    "hint-inspect",
+    "hint-preview",
+    "hint-place",
+    "hint-compare",
+    "hint-revise"
+  ],
+  "placeholders": {
+    "productionTarget": {
+      "path": "Scenario.objectives.productionMin",
+      "format": "units",
+      "guard": "missionConfigured"
+    },
+    "budgetCredits": {
+      "path": "Scenario.budget",
+      "format": "integer",
+      "guard": "missionConfigured"
+    },
+    "production": {
+      "path": "WorldResult.production",
+      "format": "units",
+      "guard": "currentResultAvailable"
+    },
+    "netProduction": {
+      "path": "WorldResult.netProduction",
+      "format": "signedUnits",
+      "guard": "currentResultAvailable"
+    },
+    "spentCredits": {
+      "path": "WorldResult.spentCredits",
+      "format": "integer",
+      "guard": "currentResultAvailable"
+    },
+    "remainingCredits": {
+      "path": "WorldResult.remainingCredits",
+      "format": "integer",
+      "guard": "currentResultAvailable"
+    },
+    "baselineDischargedM3": {
+      "path": "WorldResult.dischargedM3",
+      "format": "volume",
+      "guard": "matchedRunoffAvailable",
+      "instance": "baseline"
+    },
+    "dischargedM3": {
+      "path": "WorldResult.dischargedM3",
+      "format": "volume",
+      "guard": "matchedRunoffAvailable",
+      "instance": "current"
+    }
+  },
+  "fallbacks": {
+    "meadowbrook-goals": "meadowbrook-goals-unavailable",
+    "ending-accounting": "ending-accounting-unavailable",
+    "ending-water": "ending-water-unavailable",
+    "tool-water-swale": "tool-water-swale-unavailable",
+    "disclosure-model": "disclosure-unavailable"
+  },
+  "capabilityGuards": {
+    "tool-water-swale": "runoffAvailable",
+    "disclosure-model": "runoffAvailable",
+    "ending-invitation": "objectivesMet",
+    "ending-continue": "continuePreservesProposal",
+    "ending-retry": "retryAvailable"
+  },
+  "disclosureIds": [
+    "disclosure-geography",
+    "disclosure-scenario",
+    "disclosure-model",
+    "disclosure-unavailable",
+    "disclosure-cover"
+  ],
+  "reasonBindings": {
+    "The landscape changed. Preview again.": "reason-stale",
+    "This operation arrives after the foundation phase.": "reason-unavailable",
+    "Choose a management site.": "reason-site",
+    "Scenario no-edit zone; not a legal designation.": "reason-protected",
+    "This treatment is not available at this site.": "reason-ineligible",
+    "This site already has a proposal.": "reason-occupied",
+    "There is no proposal to replace.": "reason-missing",
+    "This proposal is already placed.": "reason-unchanged",
+    "Not enough credits. Undo a proposal to try this one.": "reason-budget"
+  },
+  "unknownReasonId": "reason-unknown",
+  "choiceTargets": {
+    "home-production": "take-home-production",
+    "home-vegetation": "take-home-vegetation",
+    "home-water": "take-home-water"
+  },
+  "characterLimits": {
+    "title": 48,
+    "body": 300,
+    "choiceText": 130,
+    "choiceExplanation": 220,
+    "renderedBody": 380
+  }
+}

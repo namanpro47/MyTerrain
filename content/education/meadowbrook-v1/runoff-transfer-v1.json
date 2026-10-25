@@ -1,0 +1,34 @@
+{
+  "id": "runoff-transfer-v1",
+  "title": "A new planning question",
+  "body": "Imagine a community garden choosing between a larger growing area and a smaller one with vegetation and a storage feature. No drainage survey is available. What should the group check before choosing?",
+  "choices": [
+    {
+      "id": "transfer-largest",
+      "text": "Choose the largest growing area; meeting demand settles the decision.",
+      "explanation": "Growing space matters, but this skips vegetation, costs and water. Compare those needs before deciding which design fits.",
+      "correct": false
+    },
+    {
+      "id": "transfer-storage",
+      "text": "Choose the storage feature; it will handle runoff from every plot.",
+      "explanation": "Storage is finite. In this game it only retains runoff from its connected area. Without drainage information, its benefit to each plot is uncertain.",
+      "correct": false
+    },
+    {
+      "id": "transfer-compare",
+      "text": "Compare growing needs, cover, costs, drainage connections and storage capacity under the same storm.",
+      "explanation": "Yes. Compare the competing needs and find the missing drainage information. Neither larger growing space nor more storage is automatically best for every place.",
+      "correct": true
+    },
+    {
+      "id": "transfer-all-vegetation",
+      "text": "Replace all growing space with vegetation; productive needs can wait.",
+      "explanation": "Vegetation can be part of a plan, but this discards the stated growing need. Look for a workable balance and check the assumptions behind the water estimate.",
+      "correct": false
+    }
+  ],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

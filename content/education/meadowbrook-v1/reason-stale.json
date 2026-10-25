@@ -1,0 +1,9 @@
+{
+  "id": "reason-stale",
+  "title": "Preview again",
+  "body": "The landscape changed after this preview. Inspect the site again before placing.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

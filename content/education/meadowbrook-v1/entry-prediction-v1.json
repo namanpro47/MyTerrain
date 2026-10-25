@@ -1,0 +1,28 @@
+{
+  "id": "entry-prediction-v1",
+  "title": "Before you try a plan",
+  "body": "A field’s cover is changing. In this game’s runoff model, what would you need to compare the old and new uses fairly?",
+  "choices": [
+    {
+      "id": "prediction-cover-only",
+      "text": "The new cover alone.",
+      "explanation": "Cover matters, but area, storm and soil assumptions also shape the estimate. Keep shared conditions the same when comparing uses.",
+      "correct": false
+    },
+    {
+      "id": "prediction-shared-conditions",
+      "text": "Both covers and areas, with the same storm and soil assumptions.",
+      "explanation": "Yes. Hold shared conditions steady so the comparison can reveal the effect of the cover change. These assumptions still limit what it says about real land.",
+      "correct": true
+    },
+    {
+      "id": "prediction-credits",
+      "text": "The credits spent on each option.",
+      "explanation": "Credits show a game budget trade-off. They do not describe how rain interacts with the modeled ground.",
+      "correct": false
+    }
+  ],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

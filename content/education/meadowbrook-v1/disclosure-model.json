@@ -1,0 +1,9 @@
+{
+  "id": "disclosure-model",
+  "title": "Modeled estimates",
+  "body": "Runoff is an educational estimate for an assumed storm, soil and land cover. Connections and retention capacities are scenario assumptions. This is not a flood-depth, timing or water-quality forecast.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

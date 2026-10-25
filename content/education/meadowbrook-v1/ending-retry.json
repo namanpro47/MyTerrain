@@ -1,0 +1,9 @@
+{
+  "id": "ending-retry",
+  "title": "Try another strategy",
+  "body": "Start again in Meadowbrook Valley with the baseline landscape and a fresh budget. This replaces your current proposal; go back to keep building it.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

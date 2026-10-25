@@ -1,0 +1,9 @@
+{
+  "id": "reason-unknown",
+  "title": "Cannot apply this change",
+  "body": "The change could not be applied. Return to the landscape and preview again.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

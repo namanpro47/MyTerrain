@@ -1,0 +1,9 @@
+{
+  "id": "hint-place",
+  "title": "Try your proposal",
+  "body": "Place a valid preview to change the land. You can undo it.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

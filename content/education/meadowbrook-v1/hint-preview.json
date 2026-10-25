@@ -1,0 +1,9 @@
+{
+  "id": "hint-preview",
+  "title": "Look before you place",
+  "body": "Choose a treatment, then preview it on a site. Compare the change in productive capacity and credits.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "tool-water-swale",
+  "title": "Vegetated swale",
+  "body": "Reserve an eligible site for water management. In this model, retention is limited by capacity and runoff in its connected area.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

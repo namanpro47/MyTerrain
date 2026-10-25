@@ -1,0 +1,9 @@
+{
+  "id": "tool-cultivate-standard",
+  "title": "Open plot",
+  "body": "Use this site for illustrative productive capacity. Check the preview: existing productive land also counts, and changing cover can change the runoff estimate.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

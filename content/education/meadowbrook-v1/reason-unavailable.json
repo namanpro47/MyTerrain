@@ -1,0 +1,9 @@
+{
+  "id": "reason-unavailable",
+  "title": "Action unavailable",
+  "body": "This action is not available in this build. Return to the available tools.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

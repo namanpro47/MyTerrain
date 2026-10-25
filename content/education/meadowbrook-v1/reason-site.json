@@ -1,0 +1,9 @@
+{
+  "id": "reason-site",
+  "title": "Choose a site",
+  "body": "Choose a marked management site, then preview your treatment.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

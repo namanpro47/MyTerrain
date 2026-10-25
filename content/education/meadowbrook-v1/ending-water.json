@@ -1,0 +1,9 @@
+{
+  "id": "ending-water",
+  "title": "The same storm, two designs",
+  "body": "Estimated discharged runoff: baseline {baselineDischargedM3} m³; proposal {dischargedM3} m³. These estimates use the same storm and model assumptions; they are not flood predictions.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "reason-occupied",
+  "title": "A proposal is already here",
+  "body": "Select the existing proposal to review your options, or undo it before trying another.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

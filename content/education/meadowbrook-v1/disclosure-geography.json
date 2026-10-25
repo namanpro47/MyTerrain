@@ -1,0 +1,12 @@
+{
+  "id": "disclosure-geography",
+  "title": "Real geography",
+  "body": "Terrain, broad land cover, roads and water lines come from mapped sources. Individual plants and rendered feature widths are illustrative, not surveyed details.",
+  "choices": [],
+  "sourceIds": [
+    "usgs-3dep-wi-2020",
+    "usgs-nlcd-2021",
+    "usgs-nhd",
+    "usgs-transport"
+  ]
+}

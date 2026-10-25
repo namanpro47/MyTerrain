@@ -1,0 +1,9 @@
+{
+  "id": "tool-cultivate-margin",
+  "title": "Living margin",
+  "body": "Keep some ground vegetated alongside productive land. Compare capacity and credits with Open plot; a margin is a trade-off, not a free upgrade.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

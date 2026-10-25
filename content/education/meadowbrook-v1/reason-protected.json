@@ -1,0 +1,9 @@
+{
+  "id": "reason-protected",
+  "title": "Keep this zone unchanged",
+  "body": "This is a scenario no-edit zone, not a legal designation. Choose an editable site.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

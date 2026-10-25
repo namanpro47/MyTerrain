@@ -1,0 +1,9 @@
+{
+  "id": "ending-invitation",
+  "title": "Take in your design",
+  "body": "Your plan meets this game’s current goals. Look around Meadowbrook Valley, then compare your proposal with the starting landscape.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "entry-prediction-v1",
+  "title": "Before you try a plan",
+  "body": "A field’s cover is changing. In this game’s runoff model, what would you need to compare the old and new uses fairly?",
+  "choices": null,
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

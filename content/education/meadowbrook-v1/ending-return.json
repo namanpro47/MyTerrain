@@ -1,0 +1,9 @@
+{
+  "id": "ending-return",
+  "title": "Back to your plan",
+  "body": "Close the review and return to your current proposal.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

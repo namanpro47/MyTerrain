@@ -1,0 +1,9 @@
+{
+  "id": "reason-ineligible",
+  "title": "Try another site",
+  "body": "This treatment is not available here. Inspect another site or choose a different treatment.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}
