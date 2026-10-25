@@ -54,6 +54,10 @@ foreach(var location in LocationProfile.All)
     town=AnnualTown.Restore(d,Clone(town.Snapshot()));
     var request=town.BeginResolution("convert-year-2",town.Revision);
     town=AnnualTown.Restore(d,Clone(town.Snapshot()));
+    var earlyEffect=provider.Resolve(request);
+    earlyEffect.effects=new[]{new TownSiteEffect{siteId=farm.siteId,productionFactor=1,conditionDelta=-.1,reason="Authored transition test",sourceId=d.id}};
+    Reject(()=>town.CompleteResolution(earlyEffect),"Conversion work cannot receive an operating-condition effect before it opens");
+    Check(town.Phase==TownPhase.Resolving&&town.CashCents==cash,"Rejected transition effect leaves pending plan and cash intact");
     var converted=town.CompleteResolution(provider.Resolve(request));
     Check(converted.ledger.upfrontPaidCents==meadow.upfrontPublicCostCents+conversion,"Conversion price paid once, without historic refund");
     Check(town.Assets.Length==1&&town.Assets[0].actionId==meadow.actionId,"Conversion replaces rather than duplicates asset");

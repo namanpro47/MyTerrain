@@ -13,8 +13,8 @@ The user's nine requirements are the acceptance checklist: full-plot skip to Yea
 
 ## Current verification
 
-- New model/regression harness: 277 assertions, all three dense-parcel landscapes. Includes $5M apartments with $5.5M cash, one-cent-short rejection, conversion preview/undo/redo/pending reload/exactly-once payment, establishment, immutable history, all four decision horizons, full-land skip equivalence and Year 10 reload. Full-land stress uses an explicit $100M fixture to isolate the completion path from strategy financing.
+- New model/regression harness: 283 assertions, all three dense-parcel landscapes. Includes $5M apartments with $5.5M cash, one-cent-short rejection, conversion preview/undo/redo/pending reload/exactly-once payment, establishment, immutable history, rejection of operating effects during conversion, all four decision horizons, full-land skip equivalence and Year 10 reload. Full-land stress uses an explicit $100M fixture to isolate the completion path from strategy financing.
 - Full-game regression: 2,810 assertions including 51 strategy/order stress routes and interrupted/reloaded future progression. Assertions now check exact carried debt rather than the obsolete full-term-reserve/no-debt assumption.
 - Chapter service: 50 checks pass, including old Unity serialized pending requests and hashes; no real provider called.
 
-UI integration, Unity/browser tests and final main delivery remain pending. Do not treat model checks as visual acceptance. Patterns TN-05/06/08, CS-01/02/04 and AX-01 apply. This is bounded gameplay/UI work, not scenery/Phase 2A acceptance.
+UI integration is implemented on presentation handoff `cb78b65`: pre-play duration selection, conversion review, current-year budget with future obligations, full-landscape shortcut, persistent selected-tool facts and whole-decade introduction. The shared scrollable reader and footer layout are preserved. Unity/browser tests and final main delivery remain pending. Do not treat model checks as visual acceptance. Patterns TN-05/06/08, CS-01/02/04 and AX-01 apply. This is bounded gameplay/UI work, not scenery/Phase 2A acceptance.

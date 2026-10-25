@@ -352,13 +352,8 @@ namespace Terra.Core
                 Require(!string.IsNullOrWhiteSpace(effect.reason) && effect.reason.Length <= 1000 && !string.IsNullOrWhiteSpace(effect.sourceId), "Each effect needs a bounded reason and source/assumption ID.");
                 Require(effect.sourceId == pending.driver.id || effect.sourceId == definition.id || effect.sourceId == definition.rubric.version
                     || definition.actions.Any(a => a.sourceId == effect.sourceId), "Unknown effect source/assumption ID.");
-                var asset = assets.FirstOrDefault(a => a.siteId == effect.siteId);
-                var planned = pending.actions.FirstOrDefault(a => a.siteId == effect.siteId);
-                int operationYear = asset != null ? asset.startedYear + Action(asset.siteId, asset.actionId).constructionYears
-                    : planned != null ? Year + Action(planned.siteId, planned.actionId).constructionYears : int.MaxValue;
-                int operatingYears = asset != null ? Action(asset.siteId, asset.actionId).operatingYears
-                    : planned != null ? Action(planned.siteId, planned.actionId).operatingYears : 0;
-                Require(effect.conditionDelta == 0 || (Year >= operationYear && Year < (long)operationYear + operatingYears), "Condition changes require a currently operational intervention, not an invented, unfinished or retired asset.");
+                var asset = AssetsForPlan(pending.actions).FirstOrDefault(a => a.siteId == effect.siteId);
+                Require(effect.conditionDelta == 0 || (asset != null && IsOperating(asset,Year)), "Condition changes require a currently operational intervention, not an invented, unfinished or retired asset.");
             }
         }
 
