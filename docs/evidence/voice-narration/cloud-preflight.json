@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-25",
+  "deployment": "dpl_BfUeFd3hmBE7DfuAjnVXFYuuu8Wh",
+  "url": "https://terra-browser-8h63mnt8g-namanpro47s-projects.vercel.app",
+  "purpose": "Preview-only server preflight; not the game release",
+  "access": "Authenticated Vercel CLI through existing deployment protection",
+  "configuration": {"status": 200, "configured": true, "voice": "Matilda", "revision": "e0e10b37a3c0b965", "maxCharacters": 700},
+  "speech": {"status": 200, "contentType": "audio/mpeg", "bytes": 61901, "fileInspection": "MPEG layer III, 128 kbps, 44.1 kHz, mono"},
+  "credentialsInReceipt": false,
+  "productionChanged": false
+}
