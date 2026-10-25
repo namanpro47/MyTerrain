@@ -1,0 +1,78 @@
+{
+  "success": true,
+  "command": "command console get",
+  "data": {
+    "command": "console get",
+    "parameters": {
+      "tail": "10",
+      "level": "error"
+    },
+    "result": {
+      "entries": [
+        {
+          "seq": 23,
+          "timestampUtc": "2026-10-25T12:00:53.263496Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.RectTransform' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.RectTransform.set_sizeDelta (UnityEngine.Vector2 value) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nTerra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) (at Assets/Terra/Scripts/UI/TerraHud.Annual.cs:132)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:147)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        },
+        {
+          "seq": 28,
+          "timestampUtc": "2026-10-25T12:01:07.939656Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.RectTransform' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.RectTransform.set_sizeDelta (UnityEngine.Vector2 value) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nTerra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) (at Assets/Terra/Scripts/UI/TerraHud.Annual.cs:132)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:147)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        },
+        {
+          "seq": 36,
+          "timestampUtc": "2026-10-25T12:01:34.730137Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.LineRenderer' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.Renderer.SetMaterial (UnityEngine.Material m) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nUnityEngine.Renderer.set_sharedMaterial (UnityEngine.Material value) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:185)\nTerra.Rendering.LandscapeRenderer.Highlight (System.String hover, System.String selected, System.Boolean valid, System.Collections.Generic.IEnumerable`1[T] available) (at Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs:322)\nTerra.Gameplay.TerraMain.UpdatePreview () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:86)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:149)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        },
+        {
+          "seq": 45,
+          "timestampUtc": "2026-10-25T12:02:32.154604Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.RectTransform' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.RectTransform.set_sizeDelta (UnityEngine.Vector2 value) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nTerra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) (at Assets/Terra/Scripts/UI/TerraHud.Annual.cs:132)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:147)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        }
+      ],
+      "cursor": 61,
+      "session": "bd8851e76efd4b34a635fd55a6fc26e9",
+      "returned": 4,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 4,
+        "warn": 29,
+        "log": 28
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-10-25T12:04:04.063155Z",
+        "ageMs": 220,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 4,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

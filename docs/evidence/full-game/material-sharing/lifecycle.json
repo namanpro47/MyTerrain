@@ -1,0 +1,59 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/MaterialSharing/lifecycle.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 118,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "count": 28,
+        "checks": [
+          "Identical construction shares one material",
+          "Source resource remains separate",
+          "Shared material retains instancing",
+          "Repeated Add uses one component lease",
+          "Untinted operating site stays shared",
+          "Tint detaches only this site and remaps every batch",
+          "Detached color material releases its lease",
+          "Neighbor remains unchanged",
+          "Tint matches original blend and preserves alpha: actual=RGBA(0.72, 0.23999995, 0.0799999461, 0.7) expected=RGBA(0.72, 0.24, 0.0799999759, 0.7)",
+          "Repeated tint neither allocates nor compounds",
+          "Status changes blend from original color",
+          "Operating status restores original within 1e-6 RGB storage tolerance",
+          "Later sites receive pristine shared material",
+          "Distinct artist material identity does not alias",
+          "Exact color key distinguishes near-equal tint",
+          "Equivalent soft cover shares",
+          "Soft and artist materials stay separate",
+          "Soft cover plant bounds remain independent",
+          "Soft-cover lifecycle tint is isolated",
+          "Disabling a borrower preserves other users",
+          "Destroying one borrower preserves remaining lease",
+          "Add after tint detaches new batches on next status update",
+          "Artist LOD materials share by identity but remain distinct across levels",
+          "Tint detaches both near and medium LOD materials",
+          "Fallback distant slot follows copied near material",
+          "Source material unchanged after all tints",
+          "Live annual state unchanged",
+          "All fixture leases released without disturbing live scene cache"
+        ],
+        "cacheBefore": 14,
+        "cacheAfter": 14
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
