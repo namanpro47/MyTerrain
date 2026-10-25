@@ -1,0 +1,486 @@
+{
+  "before": {
+    "cssWidth": 1280,
+    "cssHeight": 720,
+    "pixelRatio": 1,
+    "modal": true,
+    "largeText": false,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "MyTerrain   /   FIELD NOTES",
+        "rect": {
+          "x": 272,
+          "y": 38,
+          "width": 730,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      },
+      {
+        "text": "<b>Data center</b>",
+        "rect": {
+          "x": 272,
+          "y": 77,
+          "width": 736,
+          "height": 42
+        },
+        "bodyCssPx": 26,
+        "minGlyphCssPx": 26,
+        "preferredHeight": 29.049999237060547,
+        "availableHeight": 42
+      },
+      {
+        "text": "Return to landscape  Esc",
+        "rect": {
+          "x": 498,
+          "y": 628,
+          "width": 284,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Services & trade-offs",
+        "rect": {
+          "x": 586,
+          "y": 564,
+          "width": 414,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Return to plan",
+        "rect": {
+          "x": 280,
+          "y": 564,
+          "width": 214,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "<size=86%>one 80 × 64 m hall and cooling plant; six ongoing jobs\n\nUpfront $3,000,000\nOperating cost $80,000 / yr for 10 operating years\nProgram payment $0 / yr for 0 years\nEligible receipt $0 / yr; housing needs occupied, supplied homes\nConstruction 2 years · establishment 1 years\n\nFictional public/private service partner. Fictional consent/access are scenario prerequisites. Total project cost is unknown; this is the public contribution. Cancellation returns the unfinished fraction of public capital; completed capital and spent upkeep return $0.\n\nPlain-language labels: Working at is the usable share of full operational capacity in the last completed year. Local jobs support Economic, not treasury income. Green land is the fraction of the field with vegetation, contributing to Environment. Raw productive output is an authored farm/business activity index that contributes to Economic; it is not revenue. Homes ready and local jobs show current capacity / full capacity; green land shows the percentage of this field covered by vegetation.\n\nOverlay bars: costs share catalog-wide scales (upfront / maximum upfront; upkeep / maximum upkeep). Time ticks are years. ESE bars show signed points with a common -25 to +25 visual scale; exact numbers remain visible beyond that scale. Potential compares the selected plan with and without this project, or against the queued project being replaced, in its full-effect year (capped at Year 10). All projects follow their actual age and current condition, with funded upkeep and normal conditions. It is not an earned score or a weather/budget forecast.</size>",
+        "rect": {
+          "x": 272,
+          "y": 126,
+          "width": 736,
+          "height": 529.7000122070312
+        },
+        "bodyCssPx": 20,
+        "minGlyphCssPx": 17.200000762939453,
+        "preferredHeight": 529.7000122070312,
+        "availableHeight": 529.7000122070312
+      },
+      {
+        "text": "↑",
+        "rect": {
+          "x": 796,
+          "y": 526,
+          "width": 24,
+          "height": 26
+        },
+        "bodyCssPx": 18,
+        "minGlyphCssPx": 18,
+        "preferredHeight": 20.110000610351562,
+        "availableHeight": 26
+      },
+      {
+        "text": "↓",
+        "rect": {
+          "x": 844,
+          "y": 526,
+          "width": 24,
+          "height": 26
+        },
+        "bodyCssPx": 18,
+        "minGlyphCssPx": 18,
+        "preferredHeight": 20.110000610351562,
+        "availableHeight": 26
+      },
+      {
+        "text": "Scroll to read",
+        "rect": {
+          "x": 888,
+          "y": 527,
+          "width": 120,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Return to landscape  Esc",
+        "enabled": true,
+        "rect": {
+          "x": 490,
+          "y": 626,
+          "width": 300,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ",
+        "enabled": true,
+        "rect": {
+          "x": 578,
+          "y": 562,
+          "width": 430,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button All proposals",
+        "enabled": true,
+        "rect": {
+          "x": 272,
+          "y": 562,
+          "width": 230,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ↑",
+        "enabled": true,
+        "rect": {
+          "x": 788,
+          "y": 524,
+          "width": 40,
+          "height": 30
+        }
+      },
+      {
+        "name": "Button ↓",
+        "enabled": true,
+        "rect": {
+          "x": 836,
+          "y": 524,
+          "width": 40,
+          "height": 30
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 16,
+        "y": 16,
+        "width": 310,
+        "height": 54
+      },
+      {
+        "x": 206,
+        "y": 448,
+        "width": 688,
+        "height": 198
+      },
+      {
+        "x": 16,
+        "y": 572,
+        "width": 116,
+        "height": 36
+      },
+      {
+        "x": 140,
+        "y": 654,
+        "width": 1000,
+        "height": 56
+      },
+      {
+        "x": 16,
+        "y": 78,
+        "width": 310,
+        "height": 100
+      },
+      {
+        "x": 776,
+        "y": 16,
+        "width": 488,
+        "height": 94
+      },
+      {
+        "x": 480,
+        "y": 118,
+        "width": 320,
+        "height": 98
+      },
+      {
+        "x": 378,
+        "y": 308,
+        "width": 344,
+        "height": 128
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "x": 240,
+        "y": 16,
+        "width": 800,
+        "height": 688
+      }
+    ]
+  },
+  "after": {
+    "cssWidth": 1280,
+    "cssHeight": 720,
+    "pixelRatio": 1,
+    "modal": true,
+    "largeText": false,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "MyTerrain   /   FIELD NOTES",
+        "rect": {
+          "x": 272,
+          "y": 38,
+          "width": 730,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      },
+      {
+        "text": "<b>Data center</b>",
+        "rect": {
+          "x": 272,
+          "y": 77,
+          "width": 736,
+          "height": 42
+        },
+        "bodyCssPx": 26,
+        "minGlyphCssPx": 26,
+        "preferredHeight": 29.049999237060547,
+        "availableHeight": 42
+      },
+      {
+        "text": "Return to landscape  Esc",
+        "rect": {
+          "x": 498,
+          "y": 628,
+          "width": 284,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Services & trade-offs",
+        "rect": {
+          "x": 586,
+          "y": 564,
+          "width": 414,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Return to plan",
+        "rect": {
+          "x": 280,
+          "y": 564,
+          "width": 214,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "<size=86%>one 80 × 64 m hall and cooling plant; six ongoing jobs\n\nUpfront $3,000,000\nOperating cost $80,000 / yr for 10 operating years\nProgram payment $0 / yr for 0 years\nEligible receipt $0 / yr; housing needs occupied, supplied homes\nConstruction 2 years · establishment 1 years\n\nFictional public/private service partner. Fictional consent/access are scenario prerequisites. Total project cost is unknown; this is the public contribution. Cancellation returns the unfinished fraction of public capital; completed capital and spent upkeep return $0.\n\nPlain-language labels: Working at is the usable share of full operational capacity in the last completed year. Local jobs support Economic, not treasury income. Green land is the fraction of the field with vegetation, contributing to Environment. Raw productive output is an authored farm/business activity index that contributes to Economic; it is not revenue. Homes ready and local jobs show current capacity / full capacity; green land shows the percentage of this field covered by vegetation.\n\nOverlay bars: costs share catalog-wide scales (upfront / maximum upfront; upkeep / maximum upkeep). Time ticks are years. ESE bars show signed points with a common -25 to +25 visual scale; exact numbers remain visible beyond that scale. Potential compares the selected plan with and without this project, or against the queued project being replaced, in its full-effect year (capped at Year 10). All projects follow their actual age and current condition, with funded upkeep and normal conditions. It is not an earned score or a weather/budget forecast.</size>",
+        "rect": {
+          "x": 272,
+          "y": -15.70001220703125,
+          "width": 736,
+          "height": 529.7000122070312
+        },
+        "bodyCssPx": 20,
+        "minGlyphCssPx": 17.200000762939453,
+        "preferredHeight": 529.7000122070312,
+        "availableHeight": 529.7000122070312
+      },
+      {
+        "text": "↑",
+        "rect": {
+          "x": 796,
+          "y": 526,
+          "width": 24,
+          "height": 26
+        },
+        "bodyCssPx": 18,
+        "minGlyphCssPx": 18,
+        "preferredHeight": 20.110000610351562,
+        "availableHeight": 26
+      },
+      {
+        "text": "↓",
+        "rect": {
+          "x": 844,
+          "y": 526,
+          "width": 24,
+          "height": 26
+        },
+        "bodyCssPx": 18,
+        "minGlyphCssPx": 18,
+        "preferredHeight": 20.110000610351562,
+        "availableHeight": 26
+      },
+      {
+        "text": "Scroll to read",
+        "rect": {
+          "x": 888,
+          "y": 527,
+          "width": 120,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Return to landscape  Esc",
+        "enabled": true,
+        "rect": {
+          "x": 490,
+          "y": 626,
+          "width": 300,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ",
+        "enabled": true,
+        "rect": {
+          "x": 578,
+          "y": 562,
+          "width": 430,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button All proposals",
+        "enabled": true,
+        "rect": {
+          "x": 272,
+          "y": 562,
+          "width": 230,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ↑",
+        "enabled": true,
+        "rect": {
+          "x": 788,
+          "y": 524,
+          "width": 40,
+          "height": 30
+        }
+      },
+      {
+        "name": "Button ↓",
+        "enabled": true,
+        "rect": {
+          "x": 836,
+          "y": 524,
+          "width": 40,
+          "height": 30
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 16,
+        "y": 16,
+        "width": 310,
+        "height": 54
+      },
+      {
+        "x": 206,
+        "y": 448,
+        "width": 688,
+        "height": 198
+      },
+      {
+        "x": 16,
+        "y": 572,
+        "width": 116,
+        "height": 36
+      },
+      {
+        "x": 140,
+        "y": 654,
+        "width": 1000,
+        "height": 56
+      },
+      {
+        "x": 16,
+        "y": 78,
+        "width": 310,
+        "height": 100
+      },
+      {
+        "x": 776,
+        "y": 16,
+        "width": 488,
+        "height": 94
+      },
+      {
+        "x": 480,
+        "y": 118,
+        "width": 320,
+        "height": 98
+      },
+      {
+        "x": 378,
+        "y": 308,
+        "width": 344,
+        "height": 128
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "x": 240,
+        "y": 16,
+        "width": 800,
+        "height": 688
+      }
+    ]
+  }
+}

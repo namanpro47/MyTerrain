@@ -22,3 +22,9 @@ Native layout harness: `ProjectStatsChecks.RunBatch` checks three viewport sizes
 Design references: TN-03/04/05 (calm hierarchy and visible outcomes), CS-01/02/04 (cost, service and timeline comparisons), AX-01 (labels and values supplement colour). This task makes no scenery-quality or public-deployment claim.
 
 Player-language feedback: Established, Output and Cover were rejected as unexplained labels. The main view now uses Working at, Local jobs and Green land, hides raw productive units, and links each project function to its score. Benefit colours match the three top meters. Longer explanations use the existing scrollable Field Notes reader.
+
+## Exported game verification
+
+Source commit `2e4d38c` passed `MainGameChapterChecks.BuildVerifiedWeb` and completed a successful WebGL export. Tested that export in installed Chrome 156.0.8078.48 (headless) at 1280x720 and 1024x576, served from the isolated worktree at `http://127.0.0.1:49871/`. No JavaScript page exceptions occurred. This is a local preview, not a public deployment.
+
+Inspected the actual atlas-to-Meadowbrook flow, the no-field data-center catalog, blocked-field guidance, an eligible field's signed score estimates, optional explanations with scrolling, and the queued compact overlay. The data-center preview shows $3M upfront, $80K yearly cost, two construction years, full benefit/opening in Year 3, six local jobs, and positive Economic / negative Social and Environment estimates. The compact screenshot retains right-aligned values and queue recovery controls above the toolbar. Screenshots and structured UI audits are saved as `chrome-*` files here. Accepted-year lifecycle behavior is covered by the native harness; this browser pass does not claim an end-to-end ten-year playthrough or FPS measurement.
