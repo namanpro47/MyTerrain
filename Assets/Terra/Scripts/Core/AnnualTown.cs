@@ -13,6 +13,7 @@ namespace Terra.Core
         readonly Dictionary<string, TownActionDefinition> actions;
         readonly List<TownYearReport> history = new List<TownYearReport>();
         readonly Stack<TownPlanSnapshot> undo = new Stack<TownPlanSnapshot>();
+        readonly Stack<TownPlanSnapshot> redo = new Stack<TownPlanSnapshot>();
         TownPlannedAction[] queue = Array.Empty<TownPlannedAction>();
         TownAsset[] assets = Array.Empty<TownAsset>();
         TownYearRequest pending;
@@ -23,6 +24,7 @@ namespace Terra.Core
         public int Revision { get; private set; }
         public long CashCents { get; private set; }
         public long ArrearsCents { get; private set; }
+        public bool CanRedo => Phase == TownPhase.Planning && redo.Count > 0;
         public bool CanUndo => Phase == TownPhase.Planning && undo.Count > 0;
         public long CommittedCents => checked(ArrearsCents + FutureCosts(assets, Phase == TownPhase.Reviewing || Phase == TownPhase.Completed ? Year + 1 : Year));
         public long QueuedCommitmentCents => NewCommitments(queue);
@@ -81,11 +83,38 @@ namespace Terra.Core
             Require(queue.Any(q => q.siteId == siteId), "Only an unsubmitted action can be removed/refunded.");
             RememberQueue(); queue = queue.Where(q => q.siteId != siteId).ToArray(); Revision++;
         }
-        void RememberQueue() => undo.Push(new TownPlanSnapshot { actions = TownCopies.Copy(queue) });
+        void RememberQueue() { undo.Push(new TownPlanSnapshot { actions = TownCopies.Copy(queue) }); redo.Clear(); }
+        public void ClearPlan(int expectedRevision)
+        {
+            Planning(); Current(expectedRevision); if (queue.Length == 0) return;
+            RememberQueue(); queue = Array.Empty<TownPlannedAction>(); Revision++;
+        }
+        TownPlannedAction[] MovedQueue(string source, string destination)
+        {
+            var proposal = queue.FirstOrDefault(q => q.siteId == source);
+            Require(proposal != null, "Only this year's queued projects can move.");
+            Require(source != destination && !queue.Any(q => q.siteId == destination) && !assets.Any(a => a.siteId == destination), "Choose an unoccupied destination.");
+            Action(destination, proposal.actionId);
+            return queue.Where(q => q.siteId != source).Concat(new[] { new TownPlannedAction { siteId = destination, actionId = proposal.actionId } }).ToArray();
+        }
+        public long PreviewMove(string source, string destination)
+        { Planning(); return checked(CashCents - CommittedCents - NewCommitments(MovedQueue(source, destination))); }
+        public void MoveQueuedAction(string source, string destination, int expectedRevision)
+        {
+            Planning(); Current(expectedRevision); var next = MovedQueue(source, destination);
+            ValidateSavedQueue(next); RememberQueue(); queue = next; Revision++;
+        }
+        public bool RedoPlan(int expectedRevision)
+        {
+            Planning(); Current(expectedRevision); if (redo.Count == 0) return false;
+            undo.Push(new TownPlanSnapshot { actions = TownCopies.Copy(queue) });
+            queue = redo.Pop().actions; Revision++; return true;
+        }
         public bool UndoPlan(int expectedRevision)
         {
             Planning(); Current(expectedRevision);
             if (undo.Count == 0) return false;
+            redo.Push(new TownPlanSnapshot { actions = TownCopies.Copy(queue) });
             queue = undo.Pop().actions; Revision++; return true;
         }
 
@@ -177,7 +206,7 @@ namespace Terra.Core
                 acceptedRequest = TownCopies.Copy(pending), acceptedConsequences = TownCopies.Copy(consequences) };
 
             assets = nextAssets; CashCents = ledger.closingCashCents; ArrearsCents = ledger.closingArrearsCents;
-            history.Add(report); queue = Array.Empty<TownPlannedAction>(); undo.Clear(); pending = null; Revision++;
+            history.Add(report); queue = Array.Empty<TownPlannedAction>(); undo.Clear(); redo.Clear(); pending = null; Revision++;
             Phase = Year == definition.years ? TownPhase.Completed : TownPhase.Reviewing;
             return TownCopies.Copy(report);
         }
@@ -214,7 +243,8 @@ namespace Terra.Core
                     row.retentionCapacityM3 = active ? recipe.retentionCapacityM3 * row.maturity * row.condition : 0;
                 }
                 row.productionUnits *= pending.driver.productionFactor * (effect?.productionFactor ?? 1);
-                row.serviceUnits *= pending.driver.productionFactor * (effect?.productionFactor ?? 1);
+                if (asset == null || Action(asset.siteId, asset.actionId).servicesFollowProduction)
+                    row.serviceUnits *= pending.driver.productionFactor * (effect?.productionFactor ?? 1);
                 row.disrupted = effect?.disrupted ?? false;
                 row.explanation = effect?.reason ?? (asset == null ? "Existing use under the saved annual scenario." : "Lifecycle and funding follow the configured action recipe.");
                 rows.Add(row);
@@ -293,7 +323,7 @@ namespace Terra.Core
         public AnnualTownSnapshot Snapshot() => new AnnualTownSnapshot {
             runId = RunId, definitionHash = DefinitionHash, phase = Phase, year = Year, revision = Revision,
             cashCents = CashCents, arrearsCents = ArrearsCents, queue = Queue, assets = Assets,
-            undo = TownCopies.Copy(undo.Reverse().ToArray()), history = History, pendingRequest = PendingRequest
+            undo = TownCopies.Copy(undo.Reverse().ToArray()), redo = TownCopies.Copy(redo.Reverse().ToArray()), history = History, pendingRequest = PendingRequest
         };
 
         // Replays accepted evidence, never calls the provider. Derived scores/ledgers in a save are not trusted.
@@ -330,6 +360,7 @@ namespace Terra.Core
                 town.ValidateSavedQueue(save.queue);
                 town.queue = TownCopies.Copy(save.queue); town.undo.Clear();
                 foreach (var frame in save.undo) { Require(frame != null && frame.actions != null, "Invalid undo frame."); town.ValidateSavedQueue(frame.actions); town.undo.Push(TownCopies.Copy(frame)); }
+                foreach (var frame in save.redo ?? Array.Empty<TownPlanSnapshot>()) { Require(frame != null && frame.actions != null, "Invalid redo frame."); town.ValidateSavedQueue(frame.actions); town.redo.Push(TownCopies.Copy(frame)); }
                 if (save.phase == TownPhase.Resolving)
                 {
                     Require(save.pendingRequest != null, "Missing frozen request.");
@@ -338,7 +369,7 @@ namespace Terra.Core
                 }
                 else Require(save.pendingRequest == null, "Planning cannot contain a resolving request.");
             }
-            else Require(save.phase == town.Phase && save.queue.Length == 0 && save.undo.Length == 0 && save.pendingRequest == null, "Review/completed saves cannot contain a new plan.");
+            else Require(save.phase == town.Phase && save.queue.Length == 0 && save.undo.Length == 0 && (save.redo == null || save.redo.Length == 0) && save.pendingRequest == null, "Review/completed saves cannot contain a new plan.");
             return town;
         }
         void ValidateSavedQueue(TownPlannedAction[] plan)

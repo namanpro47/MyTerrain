@@ -50,7 +50,7 @@ namespace Terra.Core
                 economic = Metric("Economic", outcome.economicScore, previous?.outcomes.economicScore,
                     Number(outcome.productionUnits) + " illustrative production units; operating payments " + Money(ledger.operatingPaidCents) + " / " + Money(ledger.operatingDueCents) + " due.", outcome.economicExplanation),
                 social = Metric("Social", outcome.socialScore, previous?.outcomes.socialScore,
-                    Number(outcome.serviceUnits) + " illustrative service units; " + outcome.disruptedSites + " disrupted sites. Services currently use production as a proxy.", outcome.socialExplanation),
+                    Number(outcome.serviceUnits) + " illustrative service units; " + outcome.disruptedSites + " disrupted sites. " + (definition.actions.All(a => a.servicesFollowProduction) ? "Services use the configured production proxy." : "Food, housing and recreation use separate authored capacities."), outcome.socialExplanation),
                 environmental = Metric("Environmental", outcome.environmentalScore, previous?.outcomes.environmentalScore,
                     Number(outcome.vegetatedAreaM2 / 10000) + " / " + Number(outcome.managedAreaM2 / 10000) + " managed hectares vegetated; "
                     + Number(outcome.retentionCapacityM3) + " m3 configured retention capacity. This is not a flood-risk estimate.", outcome.environmentalExplanation),

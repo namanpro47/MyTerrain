@@ -21,6 +21,8 @@ namespace Terra.Gameplay
         public long AvailableCents => RequireTown().AvailableCents;
         public long CommittedCents => RequireTown().CommittedCents;
         public long QueuedCommitmentCents => RequireTown().QueuedCommitmentCents;
+        public AnnualTown Engine => RequireTown();
+        public bool CanRedo => RequireTown().CanRedo;
         public bool CanUndo => RequireTown().CanUndo;
         public AnnualTownSummary LatestSummary => AnnualTownSummary.Latest(RequireTown());
         public long Preview(string siteId, string actionId) => RequireTown().Preview(siteId, actionId);
@@ -41,6 +43,9 @@ namespace Terra.Gameplay
         { RequireTown().RemoveQueuedAction(siteId, expectedRevision); Publish(); }
         public void UndoPlan(int expectedRevision)
         { RequireTown().UndoPlan(expectedRevision); Publish(); }
+        public void RedoPlan(int revision) { RequireTown().RedoPlan(revision); Publish(); }
+        public void ClearPlan(int revision) { RequireTown().ClearPlan(revision); Publish(); }
+        public void MovePlan(string source, string destination, int revision) { RequireTown().MoveQueuedAction(source, destination, revision); Publish(); }
         public TownYearRequest BeginYear(string requestId, int expectedRevision)
         { var request = RequireTown().BeginResolution(requestId, expectedRevision); Publish(); return request; }
         public TownYearReport CompleteYear(TownYearConsequences consequences)

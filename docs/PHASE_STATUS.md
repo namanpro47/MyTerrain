@@ -1,6 +1,16 @@
 # Terra — phase status and evidence
 
-## Branch integration — October 24, 2026
+## Annual gameplay integration — October 24, 2026 (current work)
+
+The user explicitly authorized integrating Peter's annual foundation/action assets alongside the visual and editing work. This is scoped implementation authorization while the Phase 2A visual gate remains open, not acceptance of the current scenery. The rewritten [implementation plan](../IMPLEMENTATION_PLAN.md) and [Actions & Effects contract](ACTIONS_AND_EFFECTS.md) supersede the older phase labels below; the older receipts remain historical evidence.
+
+The verified `codex/annual-gameplay-integration` handoff at `d9d6523` is merged into the primary checkout, including main through `2387393` and its chapter/narration modules. Annual state is the playable scene's sole financial authority. The 17 metric assets remain intact; seven starter recipes are playable; the UI states that additional assets await rules. Source data preserves all twelve table rows, including $3M renewables and tentative housing receipts.
+
+The scene now queues proposals, reserves full terms, supports queue-only move/remove/clear/undo/redo, submits a year once, shows accepted reports and three bounded meters, continues planning, and restores a browser-local run. Construction/establishment/operational states persist on the same map. Initial tuning is $10M cash and $1M closing appropriation. The starter rubric is explicitly limited: food output, food/home/recreation service units, managed-site vegetation and operational storage. Other employment/resource/pollution effects and the final paired ending remain subsequent work.
+
+The worker’s verification is recorded in [annual integration evidence](evidence/annual-gameplay/README.md); fresh checks of the combined source are in [annual merge evidence](evidence/annual-merge/README.md). Do not interpret historical test counts below as checks of this branch. The bounded three-year route, queue editing, save/reload, and standard-text layouts pass in Chrome at 1280×720 and 1440×900. The stable visual checkpoint `3684a40` is integrated; this is not Phase 2A visual or performance acceptance. The chapter module remains available as an additive playtest/service; its narration controls are not wired into the annual main-game HUD. Legacy v1 request/cache hashes and v2 annual save hashes are preserved.
+
+## Initial branch integration — October 24, 2026 (historical checkpoint)
 
 At the user's request, merged the annual foundation, 17-action catalog/art, published Phase 3 editing and completed Phase 4 runoff into the primary checkout. Current visual studies and the revised annual product direction were checkpointed first (`3684a40`). Integration merges are `d74c8d3` (prepared annual/editing/runoff branch plus latest visuals) and `6add1df` (original published Phase 3 history). Package B/D/C3 was already included. The abandoned `codex/phase3-review-study` experiment was excluded because the completed delivery supersedes it.
 
@@ -8,7 +18,7 @@ Resolved controller/HUD conflicts by retaining display-scale rendering, the late
 
 Verification: 3,073 Unity assertions (27 Phase 1, 139 Phase 2, 1,763 editing including callback regressions, 98 runoff, 94 annual, 952 catalog including runoff conservation), 1,372 standalone consequences assertions, 94 standalone annual assertions, and all B/D/C3 package suites pass. Final Web export: 240.39 s, zero errors/eight warnings; all 12 local assets match. Chrome verifies catalog, placement/history and connected runoff, and the preview overlap found during integration is fixed. See [integration evidence](evidence/branch-integration/README.md) for exact results and scope.
 
-This source merge does not complete the annual player loop, accept Phase 2A visuals, or publish a new website. Annual state and its Editor playtest are present; the playable scene still uses prototype proposal credits. New visual-study files created concurrently were left outside this merge's follow-up changes. TN-01/03/04/05, CS-02/04 and AX-01 remain the presentation reference. The historical module and planning entries below describe their original verification contexts.
+At this initial checkpoint, the annual player loop was not yet connected and the playable scene still used prototype proposal credits. The later annual merge above supersedes that state. Neither merge accepts Phase 2A visuals or publishes a new website. New visual-study files created concurrently were left outside this merge's follow-up changes. TN-01/03/04/05, CS-02/04 and AX-01 remain the presentation reference. The historical module and planning entries below describe their original verification contexts.
 
 
 **Supplemental published merge:** The pre-push fetch also brought `a82c74f` / `514d312` annual chapters and local narration/dotenv support. These additive modules are integrated with their bounded handoff; Web/Chrome evidence above remains pinned to `49f86e9`, before this supplement. Fresh chapter/annual/consequences checks are recorded in the integration evidence. No provider request or public deployment was performed.
@@ -124,7 +134,7 @@ At the user's request, republished the latest completed `Builds/Web` export (15:
 
 All 11 checked files returned HTTP 200 and matched the local export, including gzip decoding and WASM validation. An initial check during alias propagation saw the previous HTML; the subsequent complete check passed. Chrome rendered the landscape; Tab/Enter placed West field (6→17 illustrative units, 60→36 credits), and Z restored 6/60. No console errors were captured. The Unity-ready log reported 16,845 ms; this is a startup observation, not a performance acceptance pass. This hosting task did not rebuild Unity or certify ongoing visual-rebuild source changes or Phase 2A acceptance. Existing phase evidence below remains historical.
 
-## Historical Phase 2 handoff (superseded by current records above)
+## Current handoff
 
 - **Next action:** finish the separate Phase 2A visual rebuild, carry the integrated Phase 3/4 hooks from `codex/phase4-consequences` into it, and verify the combined browser result against the visual and performance gates. Phase 5 needs its own requested work.
 - **Goal outcome:** Phases 0–2 complete. Phase 2A remains in progress. Phase 3 editing and Phase 4 consequences are complete together in the isolated `codex/phase4-consequences` branch; combined presentation acceptance remains pending. Phases 5–8 have not started.
@@ -138,7 +148,7 @@ All 11 checked files returned HTTP 200 and matched the local export, including g
 
 ## Phase 2A visual reset — October 24, 2026
 
-**Historical pre-creek candidate: study16.** A free sculpted-oak sample replaces the noisy card canopy in the candidate renderer; artist maps remain intact in matte material copies. Chrome normal/close/overview and Cultivate/Restore/undo checks passed; art credits are visible. One 30-second route returned **9ms p95**, but it covered only one placement and does not certify the full performance suite. Exact export checks passed. The **visual gate still fails**: repeated crowns, mechanical fields, flat water, basic ground/road edges and dense shadows. [Captures, limitations and next comparison](evidence/phase2a/visual-rebuild/README.md#study-16--solid-sculpted-oak-family-playable-candidate-gate-still-failed). Public deployment remains the earlier build.
+**Latest verified local study: 14.** Rounded cover masks, a creek-centered opening, streamside willows and free artist wheat cards rendered in Chrome. Generated studies are archived outside the browser Resources bundle; export is 20,713,933 bytes. Cultivation/restoration/undo and exact-export checks passed, but the visual gate still fails and dense crop overlap regressed the 30-second foreground route to **83ms p95**. [Captures and measurements](evidence/phase2a/visual-rebuild/README.md#study-14--softened-cover-edges-creek-composition-artist-crop-cards-failed-gate). Study15 tests three-plant rows and alpha coverage; its Editor render is diagnostic, browser verification pending. Public deployment remains the earlier build.
 
 The user explicitly rejected the current visual quality as far below the references and asked for a first-principles rebuild, with permission to replace entire existing aspects. The [rewritten goal](PHASE_2A_GOAL.md) prioritizes direct rendered quality. [VISUAL_REBUILD.md](VISUAL_REBUILD.md) tracks the new direction and resource investigation. No visual acceptance, reference parity, or phase completion is claimed.
 

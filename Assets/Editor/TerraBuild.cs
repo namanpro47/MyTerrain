@@ -12,6 +12,8 @@ public static class TerraBuild
     [MenuItem("Terra/Build Web")]
     public static void BuildWeb()
     {
+        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.WebGL)
+            throw new BuildFailedException("Switch the active build target to WebGL before exporting; platform-specific assemblies must be imported first.");
         var scenes = EditorBuildSettings.scenes
             .Where(scene => scene.enabled)
             .Select(scene => scene.path)

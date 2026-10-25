@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using Terra.Contracts;
 
 namespace Terra.Core
 {
@@ -34,7 +35,7 @@ namespace Terra.Core
             using (var sha = System.Security.Cryptography.SHA256.Create())
                 return string.Concat(sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(text.ToString())).Select(b => b.ToString("x2")));
         }
-        static void Append(System.Text.StringBuilder text, object value)
+        static void Append(System.Text.StringBuilder text, object value, bool legacyActions = false)
         {
             if (value == null) { text.Append("null;"); return; }
             var type = value.GetType();
@@ -42,9 +43,20 @@ namespace Terra.Core
             if (value is double d) { text.Append(RoundTrip(d)).Append(';'); return; }
             if (value is float f) { text.Append(RoundTrip(f)).Append(';'); return; }
             if (type.IsValueType) { text.Append(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture)).Append(';'); return; }
-            if (value is Array a) { text.Append('[').Append(a.Length).Append(':'); foreach (var item in a) Append(text, item); text.Append(']'); return; }
+            if (value is Array a) { text.Append('[').Append(a.Length).Append(':'); foreach (var item in a) Append(text, item, legacyActions); text.Append(']'); return; }
+            if (value is AnnualTownDefinition rules) legacyActions = rules.version == "1.0.0";
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance).OrderBy(f => f.Name, StringComparer.Ordinal))
-            { Append(text, field.Name); Append(text, field.GetValue(value) ?? (field.FieldType == typeof(string) ? "" : null)); }
+            {
+                var fieldValue = field.GetValue(value);
+                // v1 actions always coupled services to production. Preserve their saved hashes
+                // only for that default; altered behavior must still change the rules hash.
+                if (legacyActions && value is TownActionDefinition && field.Name == "servicesFollowProduction" && (bool)fieldValue) continue;
+                // An absent and an empty redo stack have identical meaning. Older chapter
+                // cache fingerprints predate this field; nonempty redo is still fingerprinted.
+                if (value is AnnualTownSnapshot && field.Name == "redo" && (fieldValue == null || ((Array)fieldValue).Length == 0)) continue;
+                Append(text, field.Name);
+                Append(text, fieldValue ?? (field.FieldType == typeof(string) ? "" : null), legacyActions);
+            }
         }
 
         // Preserve Unity/Mono's existing v1 hashes on the .NET server. Modern .NET's

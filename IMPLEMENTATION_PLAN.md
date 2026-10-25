@@ -11,7 +11,7 @@
 
 ## 1. Reconcile the work already done
 
-**Merge update — October 24:** The primary checkout now contains `origin/main` through `514d312`, the published Phase 3 editing history, and the completed Phase 4 runoff delivery via `ee7e0ef`. The table below records the earlier planning inspection. [Current integration evidence](docs/evidence/branch-integration/README.md) supersedes its “remote/absent” status. Annual state remains an isolated module; connecting the annual player loop is still Phase 3A/3B work.
+**Merge update — October 24:** The primary checkout now contains `origin/main` through `514d312`, the published Phase 3 editing history, and the completed Phase 4 runoff delivery via `ee7e0ef`. The table below records the earlier planning inspection. [Current integration evidence](docs/evidence/branch-integration/README.md) supersedes its “remote/absent” status. The subsequent verified `d9d6523` handoff connects the annual player loop and is now integrated with chapters; see [combined evidence](docs/evidence/annual-merge/README.md). Seven starter recipes are playable; the complete Phase 3B catalog and remaining gates are not claimed.
 
 | Work inspected | Current evidence / integration consequence |
 |---|---|
@@ -167,6 +167,8 @@ Use the rewritten [goal brief](docs/PHASE_2A_GOAL.md), [visual rebuild direction
 ## 6. Revised gameplay phases
 
 ### Phase 3A — Integrate the annual authority and current-year planning
+
+**October 24 authorization:** the user asked to start this integration concurrently with the ongoing visual work. Use the isolated integration branch; Phase 2A remains an acceptance gate. Current evidence: [annual gameplay](docs/evidence/annual-gameplay/README.md).
 
 **Goal:** a single coherent annual model, building on Peter's code and the existing editing work. **Depends on:** inspect current owners/branches and retain the Phase 2A acceptance boundary.
 

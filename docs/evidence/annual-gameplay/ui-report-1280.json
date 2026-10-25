@@ -1,0 +1,177 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 272,
+        "y": 57,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Year 3 · accepted</b></size>\n\n<size=88%>Wet-year sensitivity: farm output and food services ×0.8; housing and recreation unchanged\n4 operating\n\nCash  $10,691,600 → <b>$11,693,400</b>\nProjects $0 · upkeep $18,200\nAppropriation $1,000,000 · receipts $20,000\nFuture obligations $145,400 · arrears $0\n\n<b>Economic 47.8 (+2.6)</b> · output 13.9 / 40 + upkeep funded\n<b>Social 78.0 (+1.9)</b> · food / home / recreation services 13.1 / 18\n<b>Environment 37.1 (+6.7)</b> · cover 44% + storage 8 m³\n\n<size=82%>Starter rubric v2: 80/20 weights, capped 0–100. Authored effects, not yield, wellbeing or flood forecasts. Adapt on uncommitted fields.</size></size>",
+      "rect": {
+        "x": 272,
+        "y": 96,
+        "width": 736,
+        "height": 440
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 16.399999618530273,
+      "preferredHeight": 336.0400085449219,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 498,
+        "y": 609,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Plan year 4",
+      "rect": {
+        "x": 433,
+        "y": 545,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 490,
+        "y": 607,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 425,
+        "y": 543,
+        "width": 430,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 260,
+      "y": 478,
+      "width": 760,
+      "height": 222
+    },
+    {
+      "x": 24,
+      "y": 644,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 644,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 580,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 516,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 452,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 606,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 1108,
+      "y": 516,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 452,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 400,
+      "width": 130,
+      "height": 44
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 240,
+      "y": 35,
+      "width": 800,
+      "height": 650
+    }
+  ]
+}

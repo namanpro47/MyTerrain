@@ -1,0 +1,200 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 272,
+        "y": 57,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Submit year 1?</b></size>\n\n<size=88%>• West field: Low-density housing\n• Central field: Public park\n• East field: Conservation rotation\n\n<b>Pay now</b>  $1,213,200\nClosing appropriation  $1,000,000   ·   Receipts  $0\nExpected closing cash  $9,786,800\nFuture obligations  $148,800\n\nReference growing year\n\nAccepted years cannot be undone. Authored rules; no forecast.</size>",
+      "rect": {
+        "x": 272,
+        "y": 96,
+        "width": 736,
+        "height": 440
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 17.600000381469727,
+      "preferredHeight": 298.0899963378906,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 498,
+        "y": 609,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "End year 1",
+      "rect": {
+        "x": 586,
+        "y": 545,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "All 3 proposals",
+      "rect": {
+        "x": 280,
+        "y": 545,
+        "width": 214,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 490,
+        "y": 607,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 578,
+        "y": 543,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 272,
+        "y": 543,
+        "width": 230,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 260,
+      "y": 478,
+      "width": 760,
+      "height": 222
+    },
+    {
+      "x": 24,
+      "y": 644,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 644,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 580,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 516,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 452,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 606,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 1108,
+      "y": 516,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1108,
+      "y": 452,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 400,
+      "width": 130,
+      "height": 44
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 240,
+      "y": 35,
+      "width": 800,
+      "height": 650
+    }
+  ]
+}
