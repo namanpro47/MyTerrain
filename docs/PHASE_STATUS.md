@@ -9,7 +9,7 @@ The existing Web export now uses Brotli with local/static-server fallback. [Buil
 The isolated `987d440` export now has [actual Chrome camera/editing and catalog undo/redo evidence](evidence/full-game/relief-browser/README.md). Previews ≤43.8 ms and placement feedback 43.4 ms pass the bounded input checks. Candidate p95 frame times 39/41 ms fail stable 30 FPS; sequential control `67f867e` measured 30 ms with matching viewport and focused telemetry. Actual initial Wisconsin responses total 52,557,275 bytes, above the 50 MB budget. Evidence is on main; candidate scenery remains isolated and unaccepted. Final quality/public release/rehearsal gates remain open.
 
 
-**Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace the fine mapped scatter, using the existing free source model.20,770 roots pass cover/road/site/ground checks; actual normal/close/wide Editor comparisons are preserved. Browser, treatment consistency and the whole-scene visual gate remain open. [Findings](evidence/phase2a/visual-rebuild/study54-findings.md).
+**Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace fine mapped scatter. Actual Chrome 1280×720 verifies pan/zoom and restoration queue/undo with unchanged cash and no browser errors; 31 files byte-match the 46.45 MB diagnostic export. One camera route measures 34 ms p95, failing the stable-30 limit. Restoration still uses weaker fine scatter; visual acceptance stays open. [Findings, provenance limits and captures](evidence/phase2a/visual-rebuild/study54-findings.md).
 
 **Latest visual checkpoint, study53:** Wisconsin paths gain subdued wear and grass shoulders from a free artist texture, with visible attribution. All1,048,576 outer-mask pixels match the prior renderer; credits fit both text sizes. [Candidate, controls and limitations](evidence/phase2a/visual-rebuild/study53-findings.md). The crop-canopy trial is rejected; meadow/field quality and browser gates remain open.
 
@@ -45,7 +45,7 @@ Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle
 
 ## Lightweight stream surface — October 25, 2026
 
-A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
+A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome 1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
 
 ## Reference-led HUD and continuous fields — October 25, 2026
 

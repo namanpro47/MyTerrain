@@ -489,4 +489,4 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 
 [Findings and render comparisons](study33-findings.md) supersede the pending trust-dialog state above. Native and adapted foliage ran in the annual scene; no candidate met the visual bar. Captures, prefab inspection and replay scripts are preserved. No production source change or new Chrome export. The imported asset library stays local pending selection.
 
-- [Study54 connected grassland](study54-findings.md): larger overlapping swaths replace fine scatter in the Wisconsin candidate; source-backed normal/close/wide captures and placement checks. Browser and visual acceptance remain open.
+- [Study54 connected grassland](study54-findings.md): larger overlapping swaths replace fine scatter in the Wisconsin candidate; source-backed normal/close/wide captures, placement checks and actual Chrome queue/undo. The 46.45 MB diagnostic export is verified; one 34 ms p95 camera run fails the stable-30 budget. Visual acceptance remains open.
