@@ -114,6 +114,10 @@ namespace Terra.UI
         {
             var state=town.Snapshot();var current=state.history.LastOrDefault()?.outcomes??baseline;
             acceptedOutcomes=current;
+            var guidance=AnnualPlanningGuidance.Create(town,current);
+            var suggested=actionRules?.Find(guidance.actionId);
+            annualPlanningHint=suggested==null?guidance.message:guidance.need+": consider "+ShortTitle(suggested)+". Inspect a field, or End Year to wait.";
+            UpdateActionSummary();
             bool completed=state.phase==TownPhase.Completed;
             if(annualCompleted!=completed)
             {
