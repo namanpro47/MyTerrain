@@ -15,7 +15,7 @@ namespace Terra.UI
         TextMeshProUGUI projectCost,projectUpkeep,projectBenefit,projectTradeoff,projectTiming,projectReserve;
         HudGlyph benefitGlyph,tradeoffGlyph;
         Button moreButton,budgetButton;
-        bool projectFactsVisible;
+        bool projectFactsVisible;float annualLayoutWidth;
 
         HudGlyph Glyph(Transform parent,string symbol,Vector2 anchor,Vector2 position,float size,Color color)
         {
@@ -103,12 +103,44 @@ namespace Terra.UI
         void ReflowPlanningDock()
         {
             if(annualRules==null)return;
-            float width=Screen.width/PixelRatio;
-            float available=tooltip.activeSelf?width-336:width-32;
-            float scale=Mathf.Min(1,available/688);
+            float width=annualLayoutWidth>0?annualLayoutWidth:Screen.width/PixelRatio;
+            // The HTML World atlas control owns the bottom-left 146px. Keep it clear too.
+            float left=156,right=tooltip.activeSelf?width-336:width-16;
+            int columns=right-left<688?3:4;
+            if(columns!=catalogColumns)
+            {
+                int first=catalogPage*catalogColumns;catalogColumns=columns;
+                var ids=actionButtons.Where(p=>AnnualCategory(p.Value)==activeCategory).Select(p=>p.Value).ToArray();
+                int selected=Array.IndexOf(ids,activeTool);catalogPage=(selected>=0?selected:first)/columns;
+                catalogPage=Mathf.Clamp(catalogPage,0,Mathf.Max(0,(ids.Length-1)/columns));ApplyCatalogPage();
+            }
+            float dockWidth=columns==3?520:688,cardHeight=annualCompact?70:86;
+            float scale=Mathf.Min(1,(right-left)/dockWidth);
             actionDock.localScale=Vector3.one*scale;
-            var rect=(RectTransform)actionDock;
-            rect.anchoredPosition=new Vector2(tooltip.activeSelf?-168:0,66);
+            void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
+            {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
+            float center=tooltip.activeSelf?(left+right)/2:width/2;
+            Position(actionDock,new Vector2(.5f,0),new Vector2(center-width/2,66),new Vector2(dockWidth,annualCompact?140:158));
+            actionSummary.rectTransform.sizeDelta=new Vector2(dockWidth-28,20);
+            int ci=0;float tabWidth=(dockWidth-24)/3;
+            foreach(var category in categoryButtons.Keys)
+            {
+                Position(category.transform,new Vector2(0,1),new Vector2(8+ci++*(tabWidth+4),-6),new Vector2(tabWidth,30));
+                category.GetComponentInChildren<TextMeshProUGUI>().rectTransform.sizeDelta=new Vector2(tabWidth-8,28);
+            }
+            foreach(var group in actionRows.Keys)
+            {
+                var row=actionRows[group];Position(row.transform,new Vector2(0,1),new Vector2(8,-42),new Vector2(dockWidth-16,cardHeight));
+                var cards=actionButtons.Where(p=>AnnualCategory(p.Value)==group).ToArray();
+                for(int i=0;i<cards.Length;i++)
+                {
+                    var button=cards[i].Key;float w=columns==3?145:149;
+                    Position(button.transform,new Vector2(0,1),new Vector2(28+i%columns*(columns==3?152:155),0),new Vector2(w,cardHeight));
+                    var art=button.transform.Find("Model icon");if(art!=null)Position(art,new Vector2(0,1),new Vector2(5,-3),new Vector2(columns==3?76:84,annualCompact?42:58));
+                    var title=button.GetComponentsInChildren<TextMeshProUGUI>(true).First(t=>t.name=="Action title");title.rectTransform.sizeDelta=new Vector2(w-6,24);
+                }
+                foreach(var pageButton in catalogPageButtons.Where(b=>b.transform.parent==row.transform))pageButton.gameObject.SetActive(cards.Length>columns);
+            }
         }
     }
 }

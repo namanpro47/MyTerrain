@@ -7,7 +7,7 @@ Peter approved the three-screen icon-led mockup on October 25, 2026: Cities: Sky
 - Keep year, available public funds and three named indicators visible. Cash, commitments and queued reservations move into the Budget button.
 - Keep illustrated project cards, upfront prices and three categories. Selecting a project highlights every currently eligible field through the existing authoritative rejection rules.
 - Keep Undo, Redo, View, Guide, Settings and End Year visible. More holds the last report, future, clear-plan and new-run actions; O opens it from the keyboard.
-- Move the project tray left when an inspector occupies the right side. Preserve operating dates and full-term reservations at compact sizes.
+- Move the project tray left when an inspector occupies the right side; show three cards per page when the inspector and World atlas control leave insufficient room for four. Preserve operating dates and full-term reservations at compact sizes.
 
 ## Inspect a choice
 

@@ -100,7 +100,7 @@ namespace Terra.UI
         }
         void SelectCatalog(string id)
         {
-            var action=actionRules?.Find(id);if(action!=null && annualRules!=null)catalogPage=Array.IndexOf(actionButtons.Where(p=>AnnualCategory(p.Value)==AnnualCategory(id)).Select(p=>p.Value).ToArray(),id)/4;
+            var action=actionRules?.Find(id);if(action!=null && annualRules!=null)catalogPage=Array.IndexOf(actionButtons.Where(p=>AnnualCategory(p.Value)==AnnualCategory(id)).Select(p=>p.Value).ToArray(),id)/catalogColumns;
             if(action!=null)ShowCategory(annualRules==null?action.category:AnnualCategory(id));else UpdateActionSummary();
         }
         public string LandRules(Site site)

@@ -73,6 +73,15 @@ namespace Terra.UI
             actionDock.gameObject.SetActive(false);commandBar.gameObject.SetActive(false);moreMenu.gameObject.SetActive(false);
             // Three cards, keyboard reachable, leave the camera free in the remaining map area.
             yearOverviewActions.localScale=Vector3.one*Mathf.Min(1,(width-32)/740);
+            int count=highlightButtons.Count(b=>b.gameObject.activeSelf);
+            float cardWidth=Mathf.Min(344,(width-172-12*(count-1))/count),cardHeight=LargeText?96:84;
+            float start=Mathf.Max(156,(width-(count*cardWidth+12*(count-1)))/2);
+            for(int i=0;i<count;i++)
+            {
+                var r=highlightButtons[i].GetComponent<RectTransform>();r.anchorMin=r.anchorMax=r.pivot=Vector2.zero;r.anchoredPosition=new Vector2(start+i*(cardWidth+12),66);r.sizeDelta=new Vector2(cardWidth,cardHeight);
+                highlightTitles[i].rectTransform.sizeDelta=new Vector2(cardWidth-62,LargeText?40:34);highlightTitles[i].fontSize=LargeText?16:15;
+                highlightDetails[i].rectTransform.anchoredPosition=new Vector2(48,LargeText?-51:-43);highlightDetails[i].rectTransform.sizeDelta=new Vector2(cardWidth-62,36);highlightDetails[i].fontSize=LargeText?13:12;
+            }
         }
         bool OverviewKeyboard(UnityEngine.InputSystem.Keyboard k)
         {

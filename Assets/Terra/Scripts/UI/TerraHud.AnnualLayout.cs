@@ -17,7 +17,7 @@ namespace Terra.UI
                 var corners=new Vector3[4];((RectTransform)panel).GetWorldCorners(corners);
                 return UnityEngine.Rect.MinMaxRect(corners[0].x,corners[0].y,corners[2].x,corners[2].y);
             }
-            if(AnnualOverviewOpen)return UnityEngine.Rect.MinMaxRect(376f*PixelRatio/canvas.width,.13f,.98f,.79f);
+            if(AnnualOverviewOpen)return UnityEngine.Rect.MinMaxRect(376f*PixelRatio/canvas.width,(LargeText?178f:166f)*PixelRatio/canvas.height,.98f,.79f);
             var left=ScreenRect(budgetPanel);var right=ScreenRect(tooltip.transform);
             var dock=ScreenRect(actionDock);var feedback=ScreenRect(toastPanel.transform);
             return UnityEngine.Rect.MinMaxRect(Mathf.Min((left.xMax+padding-canvas.x)/canvas.width,.45f),
@@ -29,7 +29,7 @@ namespace Terra.UI
         // Secondary actions share the bottom bar; each catalog card keeps its price badge.
         void LayoutAnnual(float width,float height,bool compact)
         {
-            annualCompact=compact;actionDock.gameObject.SetActive(!annualCompleted);commandBar.gameObject.SetActive(true);
+            annualCompact=compact;annualLayoutWidth=width;actionDock.gameObject.SetActive(!annualCompleted);commandBar.gameObject.SetActive(true);
             void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
             {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
             void Place(Button button,Transform parent,Vector2 position,float w)

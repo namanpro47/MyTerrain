@@ -68,7 +68,7 @@ namespace Terra.UI
             }
             ConfigurePlayFirst();UpdateActionSummary();
         }
-        int catalogPage;
+        int catalogPage,catalogColumns=4;
         readonly System.Collections.Generic.List<Button> catalogPageButtons=new System.Collections.Generic.List<Button>();
         static string AnnualCategory(string id) => new[]{"low-density-housing","high-density-housing","public-park","village-center"}.Contains(id)?"Homes & Community":new[]{"agricultural-storage","data-center","non-renewable-power","solar","wind","wastewater-upgrade"}.Contains(id)?"Work & Utilities":"Land & Nature";
         void ConfigureAnnualCatalog()
@@ -92,10 +92,10 @@ namespace Terra.UI
                     foreach(var text in button.GetComponentsInChildren<TextMeshProUGUI>())text.rectTransform.sizeDelta=new Vector2(154,text.rectTransform.sizeDelta.y);
                     var icon=button.transform.Find("Model icon")?.GetComponent<RectTransform>();if(icon!=null)icon.sizeDelta=new Vector2(150,62);
                 }
-                if(actions.Length>4)
+                if(actions.Length>3)
                 {
                     var prev=Button(row,"‹",new Vector2(0,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=Math.Max(0,catalogPage-1);ApplyCatalogPage();},22);
-                    var next=Button(row,"›",new Vector2(1,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=(catalogPage+1)%((actions.Length+3)/4);ApplyCatalogPage();},22);
+                    var next=Button(row,"›",new Vector2(1,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=(catalogPage+1)%((actions.Length+catalogColumns-1)/catalogColumns);ApplyCatalogPage();},22);
                     catalogPageButtons.Add(prev);catalogPageButtons.Add(next);
                 }
             }
@@ -107,7 +107,7 @@ namespace Terra.UI
             foreach(var group in actionRows.Keys)
             {
                 var buttons=actionButtons.Where(p=>AnnualCategory(p.Value)==group).Select(p=>p.Key).ToArray();
-                for(int i=0;i<buttons.Length;i++)buttons[i].gameObject.SetActive(i/4==catalogPage);
+                for(int i=0;i<buttons.Length;i++)buttons[i].gameObject.SetActive(i/catalogColumns==catalogPage);
             }
         }
         public void AnnualState(AnnualTown town,TownYearOutcomes baseline,TownYearOutcomes forecast)
