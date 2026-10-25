@@ -21,6 +21,7 @@ namespace Terra.Rendering
             public Point[] route;
             public Bounds bounds;
             public float halfWidth;
+            public Vector4 cutBounds;
         }
         readonly List<GroundChunk> groundChunks=new List<GroundChunk>();
         readonly Dictionary<string,SwaleShape> swaleShapes=new Dictionary<string,SwaleShape>();
@@ -40,14 +41,34 @@ namespace Terra.Rendering
                 route[i]=alongX?new Point(l+along,b+across):new Point(l+across,b+along);
             }
             var shape=new SwaleShape{site=site,route=route,halfWidth=Mathf.Min(7,width*.18f),bounds=new Bounds(new Vector3((l+r)*.5f,0,(b+t)*.5f),new Vector3(r-l,1000,t-b))};
+            shape.cutBounds=new Vector4(route.Min(p=>p.x)-shape.halfWidth,route.Min(p=>p.z)-shape.halfWidth,route.Max(p=>p.x)+shape.halfWidth,route.Max(p=>p.z)+shape.halfWidth);
             swaleShapes.Add(site.id,shape);return shape;
         }
         float SwaleCut(SwaleShape shape,float x,float z)
         {
-            if(x<shape.bounds.min.x||x>shape.bounds.max.x||z<shape.bounds.min.z||z>shape.bounds.max.z||!Contains(shape.site.polygon,x,z))return 0;
-            float d=DistanceToRoute(shape.route,x,z)/shape.halfWidth;
-            // A rounded, shallow vegetated basin with soft closed ends. Not a surveyed drainage line.
-            return SwaleDepth*Mathf.Pow(Mathf.Max(0,1-d*d),2);
+            // Most parcel/terrain samples lie outside the narrow basin. Reject those
+            // before polygon and route queries, preserving the original cut footprint.
+            var bounds=shape.cutBounds;
+            if(x<bounds.x||x>bounds.z||z<bounds.y||z>bounds.w||!Contains(shape.site.polygon,x,z))return 0;
+            float radiusSquared=shape.halfWidth*shape.halfWidth;
+            float distanceSquared=SwaleDistanceSquared(shape,x,z,radiusSquared);
+            // Squared distance gives the same rounded profile without a square root
+            // for each of the route's segments (and another square afterwards).
+            return SwaleDepth*Mathf.Pow(Mathf.Max(0,1-distanceSquared/radiusSquared),2);
+        }
+        static float SwaleDistanceSquared(SwaleShape shape,float x,float z,float limit=float.MaxValue)
+        {
+            var p=new Vector2(x,z);float nearest=limit;
+            for(int i=1;i<shape.route.Length;i++)
+            {
+                var a=new Vector2(shape.route[i-1].x,shape.route[i-1].z);var b=new Vector2(shape.route[i].x,shape.route[i].z);
+                float bx=Mathf.Max(Mathf.Max(Mathf.Min(a.x,b.x)-x,0),x-Mathf.Max(a.x,b.x));
+                float bz=Mathf.Max(Mathf.Max(Mathf.Min(a.y,b.y)-z,0),z-Mathf.Max(a.y,b.y));
+                if(bx*bx+bz*bz>=nearest)continue;
+                var d=b-a;float t=d.sqrMagnitude>0?Mathf.Clamp01(Vector2.Dot(p-a,d)/d.sqrMagnitude):0;
+                nearest=Mathf.Min(nearest,(p-(a+d*t)).sqrMagnitude);
+            }
+            return nearest;
         }
         void BuildGroundChunks(Vector3[] vertices,int columns,int rows,Material material)
         {
@@ -115,7 +136,7 @@ namespace Terra.Rendering
             var bounds=shape.bounds;
             for(float z=bounds.min.z+4;z<bounds.max.z-4;z+=1.5f)for(float x=bounds.min.x+4;x<bounds.max.x-4;x+=1.5f)
             {
-                float px=x+J(-.65f,.65f),pz=z+J(-.65f,.65f),distance=DistanceToRoute(shape.route,px,pz);
+                float px=x+J(-.65f,.65f),pz=z+J(-.65f,.65f),distance=Mathf.Sqrt(SwaleDistanceSquared(shape,px,pz));
                 if(distance>shape.halfWidth+3||!Contains(site.polygon,px,pz))continue;
                 float cut=SwaleCut(shape,px,pz);
                 float cohort=Mathf.PerlinNoise(px*.11f+200,pz*.11f+200);
