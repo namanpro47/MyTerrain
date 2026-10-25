@@ -1,5 +1,8 @@
 # Current visual review — Phase 2A remains open
 
+**Latest actual crop study: [study72](evidence/phase2a/visual-rebuild/study72-geometry/README.md), evidence `91e8d1f`.** Original narrow wheat geometry at uniform metric scale gives real stalk edges but remains granular in the actual normal/close/detail captures. Its24m patch already uses28,029 plants /2.86M triangles. Reject full-map expansion; no runtime adoption or performance/visual pass. This closes the original-geometry question left by study71. A different free, artist-authored crop family has been acquired and inspected, but has not rendered yet; preserve its native material distinctions in the next comparison. Do not return to density/tint/normal-only tuning. The combined-release runtime checkpoint is unchanged by this evidence.
+
+
 **Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). The subsequent focused Chrome opening/editing/Year10 paths fail the stable-30 limit at37/41/34ms p95. [Timing and annual checks](evidence/phase2a/combined-crops-browser-01/README.md).
 
 ![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
