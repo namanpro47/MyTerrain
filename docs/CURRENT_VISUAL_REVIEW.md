@@ -1,8 +1,10 @@
 # Current visual review — Phase 2A remains open
 
-**Latest Chrome candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
+**Current main update:** Peter’s synchronization through `de7f83b` includes the study32 perspective opening and calibrated full-project Focus. Its [actual Chrome opening](evidence/peter-sync/opening.png), [village focus](evidence/peter-sync/village-focus.png) and [verification](evidence/peter-sync/README.md) supersede study31b for the current opening camera. The study31b comparisons below remain historical material/vegetation evidence. Neither integration closes the six-dimension visual gate, and the old-camera performance receipts are not measurements of the new perspective view.
 
-## Current game: normal play
+**Historical material candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
+
+## Historical study31b: normal play
 
 ![Actual Chrome opening](evidence/phase2a/visual-rebuild/study31b-default.jpg)
 
