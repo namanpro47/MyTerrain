@@ -128,7 +128,8 @@ namespace Terra.Gameplay
                 }
             }
 #if !UNITY_WEBGL || UNITY_EDITOR
-            var m=Mouse.current;if(m!=null){var pos=m.position.ReadValue();if(m.leftButton.wasPressedThisFrame)Pointer(0,pos);if(pos!=last)Pointer(1,pos);if(m.leftButton.wasReleasedThisFrame)Pointer(2,pos);if(m.scroll.ReadValue().y!=0)Zoom(-m.scroll.ReadValue().y/120);}
+            // Input System 1.20 already normalizes scroll deltas across platforms.
+            var m=Mouse.current;if(m!=null){var pos=m.position.ReadValue();if(m.leftButton.wasPressedThisFrame)Pointer(0,pos);if(pos!=last)Pointer(1,pos);if(m.leftButton.wasReleasedThisFrame)Pointer(2,pos);if(m.scroll.ReadValue().y!=0)Zoom(-m.scroll.ReadValue().y);}
 #endif
             if(!Traveling)
             {
