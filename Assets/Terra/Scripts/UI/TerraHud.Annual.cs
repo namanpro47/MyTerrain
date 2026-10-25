@@ -17,6 +17,7 @@ namespace Terra.UI
         TextMeshProUGUI annualBudget,annualYear,annualWater,annualAvailable;
         Transform annualIndicators,commandBar;
         TextMeshProUGUI[] annualScores=new TextMeshProUGUI[3];
+        readonly string[] annualScoreReadout=new string[3];
         Image[] annualBars=new Image[3];
         Button endYearButton,reportButton,restartButton,futureButton,annualPrimary,annualDetails,recipeDetails;
         Transform budgetPanel;
@@ -128,7 +129,7 @@ namespace Terra.UI
             double[] next={forecast.economicScore,forecast.socialScore,forecast.environmentalScore};
             for(int i=0;i<3;i++)
             {
-                annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Change  "+Signed(values[i]-before[i]))+"</size>";
+                annualScoreReadout[i]=annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Change  "+Signed(values[i]-before[i]))+"</size>";
                 annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.40f,5);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());
@@ -208,7 +209,7 @@ namespace Terra.UI
                 AnnualSecondary("Meter details",()=>AnnualMetrics(o,()=>AnnualReport(town,baseline,continuePlanning,backToChapter)));
             }
             else AnnualDialog("Year "+r.year+" · accepted","Cash "+Money(l.closingCashCents)+"\n"+o.economicExplanation+"\n"+o.socialExplanation+"\n"+o.environmentalExplanation,"Continue",continuePlanning);
-            if(backToChapter!=null){SetButtonText(annualPrimary,"Back to chapter");annualPrimaryAction=backToChapter;}
+            if(backToChapter!=null){SetButtonText(annualPrimary,AnnualOverviewOpen?"Back to year highlights":"Back to chapter");annualPrimaryAction=backToChapter;}
         }
         void AnnualProjectDetails(TownActionDefinition a,bool effects)
         {

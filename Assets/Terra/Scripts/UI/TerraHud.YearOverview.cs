@@ -51,6 +51,10 @@ namespace Terra.UI
             overviewStory.gameObject.SetActive(story!=null);
             var history=town.History;var report=history.Last();
             var cards=AnnualHighlights.Create(annualRules,report,history.Length>1?history[history.Length-2]:null);
+            var before=history.Length>1?history[history.Length-2].outcomes:AnnualGameplay.Baseline(annualRules);
+            double[] scores={report.outcomes.economicScore,report.outcomes.socialScore,report.outcomes.environmentalScore};
+            double[] previous={before.economicScore,before.socialScore,before.environmentalScore};
+            for(int i=0;i<3;i++)annualScores[i].text=scores[i].ToString("0.0")+" <size=50%>/100</size>\n<size=50%>Change  "+Signed(scores[i]-previous[i])+"</size>";
             yearOverviewTitle.text="Year "+report.year+" complete";
             SetButtonText(overviewNext,town.Phase==TownPhase.Completed?"See ten-year future →":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan →");
             for(int i=0;i<highlightButtons.Length;i++)
@@ -65,6 +69,7 @@ namespace Terra.UI
         public void CloseAnnualOverview()
         {
             if(yearOverview==null)return;
+            for(int i=0;i<3;i++)if(annualScoreReadout[i]!=null)annualScores[i].text=annualScoreReadout[i];
             yearOverview.gameObject.SetActive(false);selectedHighlight=null;Focus(null);lastScreen=Vector2.zero;Layout();resume?.Invoke();
         }
         void LayoutYearOverview(float width,float height)
