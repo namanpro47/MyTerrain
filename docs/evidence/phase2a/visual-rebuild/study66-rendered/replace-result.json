@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study66/replace-broadleaf.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "replacedBroadleaf": 5149,
+        "nativeBounds": [
+          "Center: (-0.70, 16.09, 0.45), Extents: (19.14, 16.10, 19.55)",
+          "Center: (0.53, 15.00, -1.95), Extents: (14.01, 15.01, 9.46)",
+          "Center: (0.96, 12.60, 1.87), Extents: (10.08, 12.61, 8.31)"
+        ],
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "note": "Play-only native URP family swap. Original tree heights, positions and yaw preserved; wider crowns intentionally compared. Conifers retained."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

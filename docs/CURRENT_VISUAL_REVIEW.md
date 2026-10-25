@@ -8,7 +8,7 @@
 
 ![Latest Editor candidate — fictional starting community, not browser acceptance](evidence/phase2a/visual-rebuild/study65-integrated-normal.png)
 
-[Study66 acquisition checkpoint](evidence/phase2a/visual-rebuild/study66-findings.md): approved free BigRookGames painted nature family downloaded, with supplied URP materials inventoried. No rendered comparison or adoption yet.
+[Study66 rendered asset comparison](evidence/phase2a/visual-rebuild/study66-findings.md): the approved free BigRookGames family was inspected in its supplied URP demo and in Wisconsin. Native and adapted leaf materials yield fuller crowns, but dense repeated rounded layers and weak edge structure remain. The swap is not adopted; production scenery is unchanged.
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
