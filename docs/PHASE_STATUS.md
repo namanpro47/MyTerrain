@@ -1,6 +1,6 @@
 # Terra — phase status and evidence
 
-**Current Editor candidate, study63:** Curved soil beds and broad-leaf crop geometry replace Wisconsin’s fine grain surface across baseline/context and cultivation actions. Renderer bounds/lifecycle checks pass; current-source Chrome, load and motion checks remain pending. [Captures, provenance and limits](evidence/phase2a/visual-rebuild/study63-findings.md). **Study62 conifer Chrome timing fails:**40ms p95 versus34ms for a sequential previous-build control; visual gate remains open. [Paired evidence](evidence/phase2a/visual-rebuild/study62-findings.md).
+**Current Editor candidate, study64:** Quieter shared soil shading and clearer crop leaves improve the new cultivated beds. Three camera alternatives were compared and not promoted. Compilation/material/render checks pass; new Chrome export remains pending. [Actual captures and limits](evidence/phase2a/visual-rebuild/study64-findings.md). **Latest Chrome opening, study63:** first entry9.61s,31 exact served files; motion and transformation remain pending. [Evidence](evidence/phase2a/visual-rebuild/study63-findings.md). Phase2A stays open.
 
 **Earlier saved work, study62:** Mixed conifer groves are an unfinished checkpoint. Compilation and asset bake pass; integrated scene/LOD and Chrome verification remain pending. Study61 bank-profile tuning was rejected. [Checkpoint, trial captures and next checks](evidence/phase2a/visual-rebuild/study62-findings.md). Phase 2A remains open.
 

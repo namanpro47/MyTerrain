@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var shader=UnityEngine.Resources.Load<UnityEngine.Shader>(\"TerraGround\"); return new { frame=UnityEngine.Time.frameCount, annual=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>().Diagnostic, errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Where(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error).Select(m=>m.message).ToArray(), soilSurfaces=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).Count(r=>r.sharedMaterial!=null && r.sharedMaterial.HasProperty(\"_RaisedSoilBeds\") && r.sharedMaterial.GetFloat(\"_RaisedSoilBeds\")>.5f) };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 4279,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "errors": [],
+        "soilSurfaces": 48
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

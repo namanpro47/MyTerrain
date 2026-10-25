@@ -1,12 +1,14 @@
 # Current visual review — Phase 2A remains open
 
-**Latest playable browser evidence: study62.** Conifer groves add silhouette contrast, but the paired camera sample fails at40ms p95 (previous-build control34ms). [Chrome captures, queue/undo and limits](evidence/phase2a/visual-rebuild/study62-findings.md).
+**Latest playable browser evidence: study63.** Cultivated soil beds and broad-leaf crops now run in Chrome. The first entry reached the game in9.61s; camera performance and transformation checks are still pending. [Source-scoped findings](evidence/phase2a/visual-rebuild/study63-findings.md).
 
-![Current Chrome conifer candidate](evidence/phase2a/visual-rebuild/study62-chrome-normal.jpg)
+![Current Chrome cultivated landscape](evidence/phase2a/visual-rebuild/study63-chrome-normal.jpg)
 
-**Newer Editor candidate: study63.** The foreground now uses curved soil beds and broad-leaf plants across Wisconsin, including cultivation previews. This is not yet a Chrome result. [Implementation and verification](evidence/phase2a/visual-rebuild/study63-findings.md).
+The preceding conifer-only study62 failed its paired camera sample at40ms p95 (control34ms); the new crop build does not inherit a performance pass.
 
-![Current Editor crop candidate, without HUD](evidence/phase2a/visual-rebuild/study63-integrated-normal.png)
+**Newer Editor-only candidate, study64:** Shared quiet soil shading and brighter crop leaves separate the constructed forms more clearly. Camera alternatives did not solve the whole scene. [Comparison and limits](evidence/phase2a/visual-rebuild/study64-findings.md).
+
+![Editor crop material candidate](evidence/phase2a/visual-rebuild/study64-integrated-normal.png)
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 

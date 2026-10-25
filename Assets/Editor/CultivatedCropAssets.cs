@@ -30,11 +30,17 @@ public static class CultivatedCropAssets
             string path=folder+name+".mat";var material=AssetDatabase.LoadAssetAtPath<Material>(path);
             if(material==null){material=new Material(Shader.Find("Universal Render Pipeline/Simple Lit"));AssetDatabase.CreateAsset(material,path);}
             material.name=name;material.enableInstancing=true;material.SetColor("_BaseColor",color);
+            material.SetColor("_Color",color);
             material.SetColor("_SpecColor",Color.black);material.SetFloat("_Smoothness",0);
-            if(texture!=null)material.SetTexture("_BaseMap",texture);EditorUtility.SetDirty(material);return material;
+            if(texture!=null){material.SetTexture("_BaseMap",texture);material.SetTexture("_MainTex",texture);}EditorUtility.SetDirty(material);return material;
         }
-        for(int i=0;i<materials.Length;i++)materials[i]=SaveMaterial("Leaf-"+i,sourceMaterials[i].color);
-        SaveMaterial("Soil",new Color(.765f,.68f,.565f),Resources.Load<Texture2D>("JulioGround/EarthColor"));
+        // Adapt the artist's leaf geometry to the brighter cultivated palette.
+        for(int i=0;i<materials.Length;i++)materials[i]=SaveMaterial("Leaf-"+i,new Color(.38f,.62f,.25f));
+        var soil=SaveMaterial("Soil",Color.white);
+        soil.shader=Resources.Load<Shader>("TerraGround");
+        soil.SetFloat("_RaisedSoilBeds",1);soil.SetFloat("_SurfaceKind",0);
+        soil.SetTexture("_BankMap",Resources.Load<Texture2D>("JulioGround/EarthColor"));
+        EditorUtility.SetDirty(soil);
         var root=new GameObject("LeafCrop");var lods=new LOD[3];var rows=new List<string>();
         try
         {
