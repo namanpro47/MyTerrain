@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study53-credits-final.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "records": [
+          {
+            "large": false,
+            "needed": 376.26,
+            "available": 440,
+            "font": 20,
+            "lines": 16,
+            "fits": true
+          },
+          {
+            "large": true,
+            "needed": 421.41,
+            "available": 440,
+            "font": 22.4,
+            "lines": 16,
+            "fits": true
+          },
+          {
+            "large": false,
+            "needed": 376.26,
+            "available": 440,
+            "font": 20,
+            "lines": 16,
+            "fits": true
+          }
+        ],
+        "text": "<size=140%><b>Landscape art & acknowledgements</b></size>\n\n<b>JulioVII · Stylized Grass & Dirt</b>\nCC-BY (version unspecified by creator)\njuliovii.itch.io/ftpgrass-dirt\n\n<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use.\n\n<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\n\n<b>Atapataco · Handpainted Grass & Ground</b>\natapataco.itch.io/handpainted-grass-ground-textures\nScale, materials, tiling and instancing adapted for Terra.",
+        "screen": [
+          1394,
+          781
+        ],
+        "frame": 344
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

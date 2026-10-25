@@ -43,7 +43,9 @@ Shader "Terra/Artist Grain Field"
                 half4 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,i.uv);
                 // Feed coverage to MSAA, retaining clipping on targets without multisampling.
                 half coverage=saturate((painted.a-_Cutoff)/max(fwidth(painted.a),.001)+.5);
-                coverage*=smoothstep(2.4,4.2,i.plantPixels);
+                // Retain stalk coverage until it becomes subpixel. Earlier fading exposed
+                // the ground in broad bands while the rows were still clearly resolved.
+                coverage*=smoothstep(.6,1.4,i.plantPixels);
                 clip(coverage-.01);
                 Light sun=GetMainLight(TransformWorldToShadowCoord(i.positionWS));
                 half3 light=SampleSH(half3(0,1,0))+sun.color*.85*lerp(.5,1,sun.shadowAttenuation);

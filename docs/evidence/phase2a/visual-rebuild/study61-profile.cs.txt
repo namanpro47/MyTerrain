@@ -1,0 +1,35 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);var lt=land.GetType();
+var world=(Terra.Contracts.WorldData)lt.GetField("world",f).GetValue(land);var root=(UnityEngine.Transform)lt.GetField("root",f).GetValue(land);var mask=(UnityEngine.Texture2D)lt.GetField("riverMask",f).GetValue(land);
+float xmin=(float)lt.GetField("xmin",f).GetValue(land),xmax=(float)lt.GetField("xmax",f).GetValue(land),zmin=(float)lt.GetField("zmin",f).GetValue(land),zmax=(float)lt.GetField("zmax",f).GetValue(land);
+var water=world.features.Where(v=>v.kind=="water").ToArray();var routes=water.Select(v=>(Terra.Contracts.Point[])lt.GetMethod("RoundedWaterRoute",f).Invoke(null,new object[]{v.points})).ToArray();
+float Height(float x,float z)
+{
+ float baseY=land.Height(x,z);if(mask.GetPixelBilinear((x-xmin)/(xmax-xmin),(z-zmin)/(zmax-zmin)).r>.6f)return baseY;
+ float distance=float.MaxValue;var p=new UnityEngine.Vector2(x,z);
+ for(int route=0;route<routes.Length;route++)for(int i=1;i<routes[route].Length;i++)
+ {
+  var a=new UnityEngine.Vector2(routes[route][i-1].x,routes[route][i-1].z);var q=routes[route][i];var d=new UnityEngine.Vector2(q.x,q.z)-a;
+  float t=UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(p-a,d)/UnityEngine.Mathf.Max(.00001f,d.sqrMagnitude));distance=UnityEngine.Mathf.Min(distance,UnityEngine.Vector2.Distance(p,a+d*t)-water[route].widthM*.5f);
+ }
+ distance+=(UnityEngine.Mathf.PerlinNoise(x*.13f+81,z*.13f+93)-.5f)*1.1f;
+ float cut=1-UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.Clamp01((distance-2.3f)/1.3f));return baseY-2*cut;
+}
+int changed=0;float dx=(float)lt.GetField("displayDx",f).GetValue(land),dz=(float)lt.GetField("displayDz",f).GetValue(land);
+foreach(var chunk in (System.Collections.IEnumerable)lt.GetField("groundChunks",f).GetValue(land))
+{
+ var ct=chunk.GetType();var vertices=(UnityEngine.Vector3[])ct.GetField("original",f).GetValue(chunk);var normals=(UnityEngine.Vector3[])ct.GetField("normals",f).GetValue(chunk);var mesh=(UnityEngine.Mesh)ct.GetField("mesh",f).GetValue(chunk);
+ for(int i=0;i<vertices.Length;i++)
+ {
+  var p=vertices[i];if(mask.GetPixelBilinear((p.x-xmin)/(xmax-xmin),(p.z-zmin)/(zmax-zmin)).r>.6f)continue;
+  float y=Height(p.x,p.z);if(UnityEngine.Mathf.Abs(y-p.y)>.0001f)changed++;vertices[i].y=y;
+  float xl=UnityEngine.Mathf.Max(xmin,p.x-dx),xr=UnityEngine.Mathf.Min(xmax,p.x+dx),zb=UnityEngine.Mathf.Max(zmin,p.z-dz),zt=UnityEngine.Mathf.Min(zmax,p.z+dz);
+  normals[i]=new UnityEngine.Vector3((Height(xl,p.z)-Height(xr,p.z))/(xr-xl),1,(Height(p.x,zb)-Height(p.x,zt))/(zt-zb)).normalized;
+ }
+ mesh.vertices=vertices;mesh.normals=normals;mesh.RecalculateBounds();
+}
+foreach(var t in root.GetComponentsInChildren<UnityEngine.Transform>().Where(t=>t.name=="Mapped stream centreline"||t.name.StartsWith("River meadow ")).ToArray())t.gameObject.SetActive(false);
+for(int i=0;i<water.Length;i++)lt.GetMethod("Ribbon",f).Invoke(land,new object[]{routes[i],water[i].widthM+7.2f,new UnityEngine.Color(.13f,.48f,.49f),-.9f,root,"Mapped stream centreline"});
+lt.GetMethod("BuildLayeredRiverMeadow",f).Invoke(land,null);
+return new{changed,state=main.Diagnostic};

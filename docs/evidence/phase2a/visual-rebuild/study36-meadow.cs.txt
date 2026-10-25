@@ -1,0 +1,10 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var t=main.GetType();var land=(Terra.Rendering.LandscapeRenderer)t.GetField("landscape",f).GetValue(main);var world=(Terra.Contracts.WorldData)t.GetField("world",f).GetValue(main);
+t.GetField("target",f).SetValue(main,new UnityEngine.Vector3(-120,30,-20));t.GetField("zoom",f).SetValue(main,60f);t.GetField("pitch",f).SetValue(main,36f);t.GetMethod("ApplyView",f).Invoke(main,null);
+var root=new UnityEngine.GameObject("Study36 connected baseline meadow");var plant=land.GetType().GetMethod("PlantMeadow",f);
+System.Func<float,float,bool> exclude=(x,z)=>land.CoverAt(x,z)!="grass"||world.sites.Any(s=>Terra.Rendering.LandscapeRenderer.Contains(s.polygon,x,z));
+for(float z=-180;z<240;z+=60)for(float x=-360;x<120;x+=60){
+var patch=new UnityEngine.GameObject("Meadow surface patch");patch.transform.SetParent(root.transform,false);
+var polygon=new[]{new Terra.Contracts.Point(x,z),new Terra.Contracts.Point(x+60,z),new Terra.Contracts.Point(x+60,z+60),new Terra.Contracts.Point(x,z+60)};
+plant.Invoke(land,new object[]{polygon,patch.transform,2.2f,false,exclude});}
+int count=0;foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>())foreach(var batch in (System.Collections.IEnumerable)n.GetType().GetField("batches",f).GetValue(n))count+=((UnityEngine.Matrix4x4[])batch.GetType().GetField("transforms").GetValue(batch)).Length;
+return new{count,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

@@ -49,7 +49,7 @@ public static class VisualRebuildAssets
     }
     public static void PrepareFieldCluster()
     {
-        var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Resources/Nature/ArtistWheat.prefab"));
+        var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Art/ArchivedNature45/ArtistWheat.prefab"));
         var filter=source.GetComponentInChildren<MeshFilter>();
         var copies=new System.Collections.Generic.List<CombineInstance>();
         // A narrow planted row, not nine overlapping crosses covering every square metre.
@@ -85,12 +85,12 @@ public static class VisualRebuildAssets
         var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
         if(mesh==null){mesh=new Mesh();AssetDatabase.CreateAsset(mesh,meshPath);}else mesh.Clear();
         mesh.CombineMeshes(copies.ToArray(),true,true);EditorUtility.SetDirty(mesh);
-        const string materialPath="Assets/Terra/Resources/Nature/FieldWheat.mat";
+        const string materialPath="Assets/Terra/Art/ArchivedNature45/FieldWheat.mat";
         var material=AssetDatabase.LoadAssetAtPath<Material>(materialPath);
         if(material==null){material=new Material(Shader.Find("Universal Render Pipeline/Simple Lit"));AssetDatabase.CreateAsset(material,materialPath);}
         material.shader=Resources.Load<Shader>("TerraCrop");material.color=new Color(.74f,.65f,.38f);material.enableInstancing=true;EditorUtility.SetDirty(material);
         var wrapper=new GameObject("GeometricWheat");wrapper.AddComponent<MeshFilter>().sharedMesh=mesh;wrapper.AddComponent<MeshRenderer>().sharedMaterial=material;
-        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Resources/Nature/GeometricWheat.prefab");
+        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Art/ArchivedNature45/GeometricWheat.prefab");
         Object.DestroyImmediate(wrapper);Object.DestroyImmediate(source);AssetDatabase.SaveAssets();
     }
     public static void PrepareArtistTrees()
@@ -143,7 +143,7 @@ public static class VisualRebuildAssets
         plant.transform.localPosition=Vector3.zero;
         foreach(var renderer in plant.GetComponentsInChildren<MeshRenderer>())
             foreach(var material in renderer.sharedMaterials){material.enableInstancing=true;EditorUtility.SetDirty(material);}
-        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Resources/Nature/ArtistWheat.prefab");
+        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Art/ArchivedNature45/ArtistWheat.prefab");
         Object.DestroyImmediate(wrapper);AssetDatabase.SaveAssets();
     }
     public static void PreparePaintedTrees()

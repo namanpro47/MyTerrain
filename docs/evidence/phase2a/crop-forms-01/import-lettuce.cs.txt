@@ -1,0 +1,29 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires Edit mode");
+string folder="Assets/Editor/CropDiagnostic";
+if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Editor","CropDiagnostic");
+string path=folder+"/Lettuce_4.fbx";
+System.IO.File.Copy("Builds/CropDiagnostic/Lettuce_4.fbx",path,true);
+UnityEditor.AssetDatabase.ImportAsset(path,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var importer=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(path);
+importer.isReadable=true;importer.importAnimation=false;importer.importCameras=false;importer.importLights=false;importer.SaveAndReimport();
+var model=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(path);
+var root=new UnityEngine.GameObject("CropDiagnosticLettuce");
+try {
+ var copy=UnityEngine.Object.Instantiate(model,root.transform,false);
+ var rows=new System.Collections.Generic.List<object>();
+ foreach(var filter in copy.GetComponentsInChildren<UnityEngine.MeshFilter>(true)) {
+  var renderer=filter.GetComponent<UnityEngine.MeshRenderer>();
+  var materials=renderer.sharedMaterials;var verts=filter.sharedMesh.vertices;
+  var matrix=root.transform.worldToLocalMatrix*filter.transform.localToWorldMatrix;
+  for(int sub=0;sub<filter.sharedMesh.subMeshCount;sub++) {
+   var points=filter.sharedMesh.GetTriangles(sub).Distinct().Select(i=>matrix.MultiplyPoint3x4(verts[i])).ToArray();
+   rows.Add(new{sub,material=materials[sub].name,count=points.Length,min=new[]{points.Min(p=>p.x),points.Min(p=>p.y),points.Min(p=>p.z)},max=new[]{points.Max(p=>p.x),points.Max(p=>p.y),points.Max(p=>p.z)},color=materials[sub].color.ToString(),localMatrix=matrix.ToString()});
+   var mat=new UnityEngine.Material(UnityEngine.Shader.Find("Universal Render Pipeline/Simple Lit")){name="Diagnostic "+materials[sub].name,enableInstancing=true};
+   mat.SetColor("_BaseColor",materials[sub].color);mat.SetColor("_SpecColor",UnityEngine.Color.black);mat.SetFloat("_Smoothness",0);
+   UnityEditor.AssetDatabase.CreateAsset(mat,folder+"/Lettuce-"+sub+".mat");materials[sub]=mat;
+  }
+  renderer.sharedMaterials=materials;
+ }
+ UnityEditor.PrefabUtility.SaveAsPrefabAsset(root,folder+"/Lettuce.prefab");
+ UnityEditor.AssetDatabase.SaveAssets();return rows;
+}finally{UnityEngine.Object.DestroyImmediate(root);}

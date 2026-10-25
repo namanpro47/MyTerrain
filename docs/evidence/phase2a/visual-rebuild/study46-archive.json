@@ -1,0 +1,109 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study46-archive.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "activeResourceRoots": 232,
+        "activeDependencies": 469,
+        "moved": [
+          {
+            "from": "Assets/Terra/Resources/Nature/ArtistWheat.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/ArtistWheat.prefab",
+            "guid": "9b7925d6d0e2042c08034f55162fb7f1"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/Bush_Common.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/Bush_Common.prefab",
+            "guid": "d1fdbaae4db6d4a64a121111fc3f53ab"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/CommonTree_1.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/CommonTree_1.prefab",
+            "guid": "76bce37ae319646d998a0e0806527008"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/CommonTree_2.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/CommonTree_2.prefab",
+            "guid": "ad1c1344160ed4d9296573f2e376284a"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/CommonTree_3.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/CommonTree_3.prefab",
+            "guid": "192bff1d4102a490f874629fa36acc87"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceTree01.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceTree01.prefab",
+            "guid": "8eacc7a800a144ee0acfee418b844120"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceTree02.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceTree02.prefab",
+            "guid": "8cd64f097c9914e7da2c2fe4036e3dee"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceTree03.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceTree03.prefab",
+            "guid": "8553c65b011c147b0b8c920dd53c7006"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceTree05.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceTree05.prefab",
+            "guid": "51753d0417f07446d97ddd9fbb8d900e"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceCrown01.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceCrown01.mat",
+            "guid": "0d905927c30884b43815b86e627dbee1"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceCrown02.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceCrown02.mat",
+            "guid": "d9fccf9dc597d42e5b3bc4dc1db5284e"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceCrown03.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceCrown03.mat",
+            "guid": "2be71264be4cd4531a0e6d9bb3be882b"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceCrown05.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceCrown05.mat",
+            "guid": "eb2809936fa604c0c9614fb7b3818837"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/ErceT_Trunk.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/ErceT_Trunk.mat",
+            "guid": "a66220f12e2ca4e43b0cbb46bf62a34b"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/GeometricWheat.prefab",
+            "to": "Assets/Terra/Art/ArchivedNature45/GeometricWheat.prefab",
+            "guid": "0593cab6a6571412184d75c5a464fd8e"
+          },
+          {
+            "from": "Assets/Terra/Resources/Nature/FieldWheat.mat",
+            "to": "Assets/Terra/Art/ArchivedNature45/FieldWheat.mat",
+            "guid": "daaecae8f73fb48748c0517bd08ad7ac"
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

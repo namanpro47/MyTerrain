@@ -1,0 +1,440 @@
+[
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/f56dab0555e4a81232e0a01761880dc1.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T08:05:46.662Z",
+    "url": "http://127.0.0.1:59135/Build/8dc6bcdf26a3951c1da808de5582ed81.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/3940d43ec1f9b6e573beb817db934129.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T08:05:46.779Z",
+    "url": "http://127.0.0.1:59135/Build/8dc6bcdf26a3951c1da808de5582ed81.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/151033060e9bd41c7430478b4efa8535.data.unityweb\" file.",
+    "timestamp": "2026-10-25T08:05:47.028Z",
+    "url": "http://127.0.0.1:59135/Build/8dc6bcdf26a3951c1da808de5582ed81.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:59135/Build/151033060e9bd41c7430478b4efa8535.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-25T08:05:47.427Z",
+    "url": "http://127.0.0.1:59135/Build/8dc6bcdf26a3951c1da808de5582ed81.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T08:05:50.172Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:05:50.172Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:05:50.172Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:05:50.172Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T08:05:50.177Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T08:05:50.178Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T08:05:50.178Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T08:05:50.185Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T08:05:50.185Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T08:05:50.185Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T08:05:50.185Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T08:05:50.380Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T08:05:50.393Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T08:05:50.403Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T08:05:50.403Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T08:05:50.409Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T08:05:50.430Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T08:05:50.430Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T08:05:50.433Z",
+    "url": "http://127.0.0.1:59135/Build/8dc6bcdf26a3951c1da808de5582ed81.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T08:05:51.191Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T08:05:51.191Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T08:05:51.191Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T08:05:51.191Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T08:05:51.192Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T08:05:51.193Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T08:05:52.140Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T08:05:52.728Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T08:05:52.729Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T08:05:52.729Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T08:05:52.729Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T08:05:52.729Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T08:05:52.729Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T08:05:52.776Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T08:05:52.802Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 2.000000 ms\n",
+    "timestamp": "2026-10-25T08:05:52.979Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 6825ms",
+    "timestamp": "2026-10-25T08:05:53.009Z",
+    "url": "http://127.0.0.1:59135/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:05:55.202Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:05:55.202Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=2012; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T08:05:58.182Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T08:05:58.250Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 12065",
+    "timestamp": "2026-10-25T08:05:58.250Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T08:06:11.075Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 18.730 seconds.",
+    "timestamp": "2026-10-25T08:06:11.429Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T08:06:23.781Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.045000076293945,\"averageFps\":18.039608001708984,\"frameP50Ms\":54.0,\"frameP95Ms\":75.0,\"frameP99Ms\":86.0,\"maxFrameMs\":93.0,\"maxPreviewCpuMs\":9.199999809265137,\"maxPlacementCpuMs\":22.200000762939453,\"frames\":542,\"framesOver33Ms\":538,\"framesOver200Ms\":0,\"previewEvents\":6,\"placementEvents\":1,\"cameraEvents\":185,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T08:06:41.117Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":57.900000005960464},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":54.20000001788139},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":51.19999998807907},{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":66.7999999821186}],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T08:06:41.165Z",
+    "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study44-clusters.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "meshes": [
+          {
+            "name": "NormalTree_1",
+            "clusters": 10,
+            "leafVertices": 7456
+          },
+          {
+            "name": "NormalTree_3",
+            "clusters": 8,
+            "leafVertices": 4336
+          },
+          {
+            "name": "NormalTree_5",
+            "clusters": 5,
+            "leafVertices": 1644
+          }
+        ],
+        "frame": 51975
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

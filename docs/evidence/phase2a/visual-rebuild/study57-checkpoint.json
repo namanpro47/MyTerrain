@@ -1,0 +1,106 @@
+{
+  "source": "5b8ad52",
+  "status": "Rejected art trial; production scenery unchanged; study57 also integrates verified vegetation submission consolidation",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-capture.cs.txt",
+      "bytes": 846,
+      "sha256": "1ed3ba0b03912de98d19508ec05942018b4bb02dc6fdbb193ceea1751b700e07"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-close.cs.txt",
+      "bytes": 1073,
+      "sha256": "93fdd7032f39d13a4ae6f55d67804a64cb2d5474006a466023d56c800873ef99"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-compile.json",
+      "bytes": 269,
+      "sha256": "f45eb7071b9db8cad958a1d556f080dc5514d8826738d5a179831d1b097dd31f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-consolidation-checks.json",
+      "bytes": 1512,
+      "sha256": "099c87a7f5473592b11a8669a70a09cb5f534b5d2b49ae370c781bcb672863be"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-control-normal.png",
+      "bytes": 1708531,
+      "sha256": "5540c933ddc966e247f32a7770f57e5903afc9c67e59d17b8ba34aee968d1785"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-corn-close.png",
+      "bytes": 1782247,
+      "sha256": "0dfeea0bcc8a04ac0b655150882f31f3e4dc242bf0eb7776653e9367874415da"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-corn-normal.png",
+      "bytes": 1737883,
+      "sha256": "9174779e9539e02ff545ce16c652b7c6df8c48c57b8ddebda41338245ccab325"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-corn.cs.txt",
+      "bytes": 2727,
+      "sha256": "1eea94f8426c7400409bdb77804c2612cb63d0222a9d5bc4496f67a153a6d059"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-corn.json",
+      "bytes": 695,
+      "sha256": "08b41c751b5f8f586d8261514970e91b5725c0c122437374fe77e38784f4204f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-findings.md",
+      "bytes": 4914,
+      "sha256": "37129d6d12b12014a6b5775dc8e965bb21c478bc4bce34c1816cb52c31c50b29"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-import.cs.txt",
+      "bytes": 1416,
+      "sha256": "fcc7aa27a1d17e3f49ceb1a6a43c634665f8b5e942424e43cc38bf44a03eebbe"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-import.json",
+      "bytes": 2702,
+      "sha256": "172073eb5ea4c72150da1987380c5254d5ad25490fcc541957fbeb31d343bc84"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-normal.cs.txt",
+      "bytes": 1413,
+      "sha256": "4a2f417b05574f0584a6598a94d4dc7e9be354b94046cb906b2511efb4469eb1"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-prefabs.cs.txt",
+      "bytes": 2222,
+      "sha256": "dcfd85e496f8a2d49435b7e91b01ac57f532383cdf33f38d8de528187a63d42d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-prefabs.json",
+      "bytes": 1597,
+      "sha256": "eb26a098a2972ab4492c54ad8a1457d0e0b96e1bdf1fd7629800d6e1819655ad"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-restored.json",
+      "bytes": 1211,
+      "sha256": "7cf67930992de95c38bb0adcd854d7c0f806a49a12258e1e525e0dfab296512d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-rows-close.png",
+      "bytes": 1988183,
+      "sha256": "4bdbf39478fc1e97910323793c85a2182cb9094c1824b66e7883b009756af908"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-rows-normal.png",
+      "bytes": 1758310,
+      "sha256": "1b351fa876673b92de16426ca8876aff5647c3ec425c58b7119f5a227d91e497"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-rows.cs.txt",
+      "bytes": 3288,
+      "sha256": "c30712c226d22f6a0d219203acbd26683f346841124f9b40875d2c66423e885e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study57-rows.json",
+      "bytes": 695,
+      "sha256": "2fa793044d51b1fa5e7911d0ff1ddc7351b0b2585c90d2bc2a6f6a8a6fcbeb90"
+    }
+  ]
+}

@@ -139,7 +139,8 @@ namespace Terra.Gameplay
                 string visualKey=(queued?.actionId??asset?.actionId??"baseline")+"/"+(queued!=null?"PROPOSED":result?.phase.ToString())+"/"+(result?.maturity??0).ToString("R")+"/"+(result?.condition??1).ToString("R");
                 if(displayedAnnual.TryGetValue(site.id,out var previous)&&previous==visualKey)continue;
                 displayedAnnual[site.id]=visualKey;
-                landscape.Apply(site,queued?.actionId??asset?.actionId);
+                // Proposals show intended planting; accepted vegetation follows the saved annual outcome.
+                landscape.Apply(site,queued?.actionId??asset?.actionId,queued!=null?1:(float)(result?.maturity??1));
                 landscape.AnnualStage(site,queued!=null?"PROPOSED":asset==null?null:result?.phase.ToString().ToUpperInvariant(),result?.maturity??0);
             }
         }

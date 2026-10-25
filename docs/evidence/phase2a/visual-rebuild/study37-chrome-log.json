@@ -1,0 +1,58 @@
+{
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T07:32:03.272Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.006011962890625,\"averageFps\":42.22487258911133,\"frameP50Ms\":21.0,\"frameP95Ms\":37.0,\"frameP99Ms\":44.0,\"maxFrameMs\":71.99999237060547,\"maxPreviewCpuMs\":7.0,\"maxPlacementCpuMs\":20.899999618530273,\"frames\":1267,\"framesOver33Ms\":131,\"framesOver200Ms\":0,\"previewEvents\":6,\"placementEvents\":1,\"cameraEvents\":377,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T07:32:33.288Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    }
+  ],
+  "annual": [
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=7; cash=1000000000; queued=1; assets=0\n",
+      "timestamp": "2026-10-25T07:27:24.725Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=8; cash=1000000000; queued=0; assets=0\n",
+      "timestamp": "2026-10-25T07:27:49.370Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=10; cash=1092300000; queued=0; assets=1\n",
+      "timestamp": "2026-10-25T07:28:17.482Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=12; cash=1092300000; queued=1; assets=1\n",
+      "timestamp": "2026-10-25T07:32:16.750Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=13; cash=1092300000; queued=0; assets=1\n",
+      "timestamp": "2026-10-25T07:32:16.876Z",
+      "url": "blob:http://127.0.0.1:59134/b9132cef-c2d4-4c74-9afd-ab70ddf5be2e"
+    }
+  ],
+  "errorLevelLogs": [],
+  "viewport": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "height": 720,
+    "visibility": "visible",
+    "width": 1280
+  }
+}

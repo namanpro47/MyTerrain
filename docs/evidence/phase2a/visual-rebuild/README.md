@@ -1,5 +1,7 @@
 # Phase 2A visual rebuild evidence
 
+Latest: [Study65](study65-findings.md) — existing fictional community, terrain-following yards and35Editor checks; Chrome pending. [Study64](study64-findings.md) remains the latest completed Chrome material/interaction checkpoint. **Visual and browser gates remain open.**
+
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 
 Read the [operative goal](../../../PHASE_2A_GOAL.md) and [visual research](../../../VISUAL_REBUILD.md). The prior [wide](../captures/1280-default.png) and [close](../captures/1280-close.png) captures are the rejected baseline.
@@ -486,3 +488,21 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 ### Study33 result — import complete, foliage trials rejected
 
 [Findings and render comparisons](study33-findings.md) supersede the pending trust-dialog state above. Native and adapted foliage ran in the annual scene; no candidate met the visual bar. Captures, prefab inspection and replay scripts are preserved. No production source change or new Chrome export. The imported asset library stays local pending selection.
+
+- [Study54 connected grassland](study54-findings.md): larger overlapping swaths replace fine scatter in the Wisconsin candidate; source-backed normal/close/wide captures, placement checks and actual Chrome queue/undo. The 46.45 MB diagnostic export is verified; one 34 ms p95 camera run fails the stable-30 budget. Visual acceptance remains open.
+
+- [Study 55: layered restoration with annual establishment](study55-findings.md) — retained candidate with actual three-year Chrome/reload evidence; visual/performance gate open.
+
+- [Study56: rejected crop mass and sparse-band controls](study56-findings.md) — matched Editor captures, unchanged production rendering, and two free solid-leaf crop sources acquired for the next comparison.
+
+- [Study57: solid-leaf crop comparison](study57-findings.md) — corn import/scene trials rejected; verified submission collector integrated.
+- [Study58: grain-geometry surface bake](study58-findings.md) — offline artist-model bake and close/normal controls rejected for floor-like appearance; experimental shader removed.
+
+- [Study59: shaped soil beds and young crops](study59-findings.md) — unfinished Editor-only checkpoint; scripts, shader, receipts and captures preserved without adopting the experiment.
+
+- [Study60: layered river meadows](study60-findings.md) — retained candidate with actual Chrome views, queue/undo, terrain contact and one passing stable30 camera path; full visual gate remains open.
+
+- [Study61 bank profile](study61-findings.md) — rejected runtime-only comparison.
+- [Study62 conifer groves](study62-findings.md) — compiled, baked unfinished checkpoint; integrated/Chrome checks pending.
+
+- [Study63 cultivated beds and leaf crops](study63-findings.md) — integrated Wisconsin baseline/context and reversible cultivation; Editor verified, Chrome pending.

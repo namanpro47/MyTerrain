@@ -1,0 +1,20 @@
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",f).GetValue(land);var polygon=world.sites.First(s=>s.id=="south-01").polygon;
+var root=UnityEngine.GameObject.Find("CropDiagnostic cultivated beds");var nature=root.GetComponent<Terra.Rendering.InstancedNature>();
+var c=UnityEngine.Camera.main;float span=c.orthographic?c.orthographicSize:UnityEngine.Mathf.Tan(c.fieldOfView*.5f*UnityEngine.Mathf.Deg2Rad);float factor=c.pixelHeight/2f;
+var rows=new System.Collections.Generic.List<object>();int outside=0,nonfinite=0,checkedCorners=0;long fullTriangles=0,selectedTriangles=0;int[] levelCounts=new int[3];
+foreach(var batch in (System.Collections.IEnumerable)typeof(Terra.Rendering.InstancedNature).GetField("batches",f).GetValue(nature)) {
+ var t=batch.GetType();var bounds=(UnityEngine.Bounds)t.GetField("bounds",f).GetValue(batch);var transforms=(UnityEngine.Matrix4x4[])t.GetField("transforms",f).GetValue(batch);
+ var meshes=new[]{"mesh","medium","distant"}.Select(n=>(UnityEngine.Mesh)t.GetField(n,f).GetValue(batch)).ToArray();
+ float depth=UnityEngine.Mathf.Max(1,UnityEngine.Vector3.Dot(bounds.center-c.transform.position,c.transform.forward)-bounds.extents.magnitude);
+ float pixels=(float)t.GetField("maxHeight",f).GetValue(batch)*factor/(c.orthographic?span:depth*span);int level=pixels<8?2:pixels<20?1:0;
+ rows.Add(new{instances=transforms.Length,pixels,level});levelCounts[level]+=transforms.Length;fullTriangles+=transforms.Length*(meshes[0].triangles.Length/3);selectedTriangles+=transforms.Length*(meshes[level].triangles.Length/3);
+ var b=meshes[0].bounds;
+ foreach(var matrix in transforms)for(int i=0;i<8;i++) {
+  var q=matrix.MultiplyPoint3x4(b.center+UnityEngine.Vector3.Scale(b.extents,new UnityEngine.Vector3((i&1)==0?-1:1,(i&2)==0?-1:1,(i&4)==0?-1:1)));
+  checkedCorners++;if(float.IsNaN(q.x)||float.IsInfinity(q.x)||float.IsNaN(q.y)||float.IsInfinity(q.y)||float.IsNaN(q.z)||float.IsInfinity(q.z))nonfinite++;
+  if(!Terra.Rendering.LandscapeRenderer.Contains(polygon,q.x,q.z))outside++;
+ }
+}
+return new{state=main.Diagnostic,frame=UnityEngine.Time.frameCount,checkedCorners,outside,nonfinite,levelCounts,fullTriangles,selectedTriangles,rows,scope="Conservative mesh-bound corner containment and color-pass geometry candidate count; not GPU timing or shadow-pass counts."};

@@ -14,6 +14,8 @@ Peter approved the icon-led planning, project inspector and map-linked year-end 
 
 ## Current HUD and connected-field revision — October 25, 2026
 
+**Initial-community candidate:** [Study65](evidence/phase2a/visual-rebuild/study65-findings.md) depicts the four homes already in Wisconsin's fictional annual baseline. Metric catalog buildings sit on small foundations with terrain-following access; the continuous landscape supplies their yards. These are authored illustrations, not surveyed structures or newly funded projects. Editor checks pass; Chrome and whole-scene acceptance remain pending. TN-01/02/09/12 apply.
+
 The user requested a much closer Terra Nil / Cities: Skylines interface and continuous development. The annual HUD now uses compact slate/navy panels, a prominent USD available balance, three equally weighted colored indicators, pictorial project cards with upfront price badges, and one bottom command bar. Cream remains the field-note/report surface. The older green-panel layout below is historical. Patterns TN-03/04/05, CS-01/02 and AX-01; [implementation, reference images and Chrome evidence](evidence/hud-connected/README.md).
 
 The eight hypothetical southern management parcels share exact edges. Land treatments reach these boundaries and cultivation rows use a common world origin. Mapped water/woodland determine the stepped outside boundary; building prefab and lot dimensions stay metric. This bounded revision does not accept the broader Phase 2A scenery gate.

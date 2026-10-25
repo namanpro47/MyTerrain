@@ -1,0 +1,9 @@
+if(UnityEditor.EditorApplication.isPlaying)throw new System.Exception("Stop trial before import");
+var source="Builds/ArtResearch/QuaterniusUltimateNature";var destination="Assets/Terra/Art/QuaterniusUltimateNature";
+var wanted=new[]{"Grass_Small","Grass_Large","Grass_Large_Extruded","Bush_Small","Bush","Bush_Large","NormalTree_1","NormalTree_3","NormalTree_5"};
+System.IO.Directory.CreateDirectory(destination+"/Models");System.IO.Directory.CreateDirectory(destination+"/Textures");
+foreach(var name in wanted)System.IO.File.Copy(source+"/FBX/"+name+".fbx",destination+"/Models/"+name+".fbx",false);
+foreach(var name in new[]{"Grass","Bush_Leaves","NormalTree_Leaves","NormalTree_Bark","NormalTree_Bark_Normal"})System.IO.File.Copy(source+"/Textures/"+name+".png",destination+"/Textures/"+name+".png",false);
+System.IO.File.Copy(source+"/License.txt",destination+"/License.txt",false);UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var rows=new System.Collections.Generic.List<object>();foreach(var name in wanted){var go=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(destination+"/Models/"+name+".fbx");rows.Add(new{name,meshes=go.GetComponentsInChildren<UnityEngine.MeshFilter>().Select(f=>new{name=f.sharedMesh.name,bounds=f.sharedMesh.bounds.ToString(),vertices=f.sharedMesh.vertexCount,triangles=f.sharedMesh.triangles.Length/3,scale=f.transform.lossyScale.ToString(),materials=f.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials.Select(m=>m.name).ToArray()}).ToArray()});}
+return rows;

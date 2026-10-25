@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEngine.Object.DestroyImmediate(UnityEngine.GameObject.Find(\"Study49 native rock outcrops\"));return UnityEngine.Time.frameCount;"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": 33118
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

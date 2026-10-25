@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEngine.GameObject.Find(\"Study52 continuous grain\").SetActive(false);return UnityEngine.Time.frameCount;"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": 100721
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,3 @@
+var all=UnityEngine.Object.FindObjectsByType<UnityEngine.Transform>(UnityEngine.FindObjectsInactive.Include,UnityEngine.FindObjectsSortMode.None);
+all.First(t=>t.name=="Mapped grassland stands").gameObject.SetActive(true);all.First(t=>t.name=="Study54 terrain drifts").gameObject.SetActive(false);
+return new{frame=UnityEngine.Time.frameCount};

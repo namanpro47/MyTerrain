@@ -1,58 +1,65 @@
 # Current visual review — Phase 2A remains open
 
-**Visual worktree state:** Main through `5deb32d` is reconciled here. The free TriForge Forest import completed and its native/adapted foliage was evaluated in the same Wisconsin landscape. These are rejected Editor trials, not a new playable candidate. [Study33 findings, captures and replay scripts](evidence/phase2a/visual-rebuild/study33-findings.md) supersede the pending-import note. Runtime source is unchanged; Phase 2A remains open. The annual game initialized after staging all four WorldPack files and reopening the updated TerraMain scene. Local port 49658 still serves historical study32e; the separate Peter-sync and production evidence retain their own build identities. No purchase or generated image.
+**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Combined performance is still pending.
 
-**Current main update:** Peter’s synchronization through `de7f83b` includes the study32 perspective opening and calibrated full-project Focus. Its [actual Chrome opening](evidence/peter-sync/opening.png), [village focus](evidence/peter-sync/village-focus.png) and [verification](evidence/peter-sync/README.md) supersede study31b for the current opening camera. The study31b comparisons below remain historical material/vegetation evidence. Neither integration closes the six-dimension visual gate, and the old-camera performance receipts are not measurements of the new perspective view.
+![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
 
-**Historical material candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
+Camera comparisons did not solve the broad empty-ground problem and were not promoted. Next structural study: depict the annual scenario's four existing fictional homes outside project footprints, using metric art and preserving all baseline accounting. This is an unimplemented scene hypothesis, not observed buildings or additional gameplay.
 
-## Historical study31b: normal play
+The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
-![Actual Chrome opening](evidence/phase2a/visual-rebuild/study31b-default.jpg)
 
-1280×720 CSS and render buffer. The painted source detail is more legible and bank grass no longer glows against the ground. The unchanged opening still has too much empty central ground and a clipped bridge. This is a specific material improvement, not a successful whole-scene composition. No new assets, image generation or purchases.
+**Latest candidate: study60, source `d04f7d4`, October 25, 2026.** This page presents the current rendered game; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
 
-## Restoration and swale
+[Latest unfinished investigation: study59 cultivated soil beds](evidence/phase2a/visual-rebuild/study59-findings.md). Saved for continuity; it does not replace the retained candidate below.
 
-![Actual Chrome restoration](evidence/phase2a/visual-rebuild/study31b-restored.jpg)
+## The actual playable result
 
-Connected growth with height drifts replaces separate oval colonies. Grass roots and terrain share a value range; shaded tips give the existing source meshes some depth. Normal-scale relief remains weak, and surrounding crop rows still dominate.
+![Chrome river meadow with the full HUD](evidence/phase2a/visual-rebuild/study60-chrome-close.jpg)
 
-![Actual Chrome close meadow](evidence/phase2a/visual-rebuild/study31b-close.jpg)
+Study60 adds layered streamside grass, flowering pockets and flatter stones, grounded to the actual channel surface. This improves the water/land relationship. The six visual gates remain open: crop marks, broad weak ground, repeated crowns and bank silhouettes still need substantial work. One focused30s route measured23ms p95; placement/undo preserved cash. [Full source-scoped evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
 
-The existing Julio paint and Quaternius plants now read as one surface more readily. The flowers are sparse and the result lacks the reference's strong environmental forms. Do not improve the score simply because this is better than the prior attempt.
+![Chrome current complete composition](evidence/phase2a/visual-rebuild/study60-chrome-normal.jpg)
 
-![Actual Chrome close swale](evidence/phase2a/visual-rebuild/study31b-swale-close.jpg)
+## Retained restoration appearance, study55
 
-The29 terrain depression remains reversible and grounded. Its broad exposed earth bed still looks coarse. Shape, depth and planting are illustrative; source terrain/accounting are unchanged and permanent water is not implied.
+![Chrome operating restoration at parcel focus](evidence/phase2a/visual-rebuild/study55-chrome-year3-focus.jpg)
+
+Actual Chrome, 1280×720, full HUD. Restoration now forms connected low/tall plant swaths with flowering pockets. This corrects the prior fine scatter, but mechanical crop marks, broad empty ground and weak material/forest transitions remain substantial gaps.
+
+![Chrome Year 1 establishing meadow](evidence/phase2a/visual-rebuild/study55-chrome-year1-close.jpg)
+
+![Chrome Year 3 mature meadow](evidence/phase2a/visual-rebuild/study55-chrome-year3-close.jpg)
+
+The same planting grows through the saved annual outcome: 33% in Year 1, 67% in Year 2, 100% in Year 3. These are actual accepted browser states using labelled offline chapters, not mockups or manually changed saved outcomes. The live three-year cash values and reload are checked; decorative plant size/species remain illustrative. TN-02/05/08.
+
+![Chrome normal view at 1920×1080](evidence/phase2a/visual-rebuild/study55-chrome-year3-1920.jpg)
+
+The normal view exposes the whole-scene weaknesses. Woodland has more volume, yet repeated crowns and bare edges remain. Cultivation reads as thousands of tiny repeated marks. The catalogue overlaps the restored parcel at the default camera, especially at 720px height. A successful close meadow cannot certify the whole image.
 
 ## Primary comparison: Terra Nil
 
 ![Official Terra Nil restored-bank reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp)
 
-[Free Lives official image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp),1920×1080. Compare material richness, bank masses, surface contrast, contact and light at comparable displayed size. Different geography and camera; this is not a pixel-matched scientific comparison or a reason to invent stepped Wisconsin terrain. Reference authorship/assets remain with their creators.
+[Free Lives official reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp), 1920×1080; inspected again during study55. The reference concentrates flowers and plant silhouettes along boundaries while broad surfaces remain readable. Its painted ground, crisp bank transitions and contact shadows read as a deliberately composed world. Our repeating fine marks and uneven scale hierarchy still fall short. Different geography/camera prevents pixel matching; this is no reason to invent stepped Wisconsin terrain. Reference artwork belongs to its creators.
 
-![Official Terra Nil layered canopy reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp)
+![Official Terra Nil layered landscape](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp)
 
-[Free Lives official canopy image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp). Compare layered foliage mass, internal structure and grounded edges. Tropical species are not a Wisconsin prescription. TN-02/09/10/11/12 guide this review.
+[Free Lives layered-landscape reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp). Compare low plants, taller forms, crown masses and the structure between them. Tropical species are not a Wisconsin prescription. TN-01/02/09–12 guide appearance; Cities: Skylines remains secondary information-design guidance in the persistent library.
 
-## Whole-location consistency
+## What prevents acceptance
 
-![Actual Chrome overview](evidence/phase2a/visual-rebuild/study31b-overview.jpg)
-
-Broad crop-color bands from30/31a were rejected after producing repetitive valley-wide stripes. They are removed here; curved planting rows remain. Sparse woodland structure and the slab presentation still look schematic.
-
-| Dimension | Unresolved reference gap |
+| Dimension | Current unresolved issue |
 |---|---|
-| Composition, scale and depth | Empty opening, clipped landmark and schematic overview; no compelling foreground/middle/background composition. |
-| Vegetation and forms | Trees still repeat, thin stands lack mass and forest edges contain conspicuous small stubs. |
-| Ground, fields, water and transitions | Improved ground/grass continuity; mechanical crop rows, weak meadow relief and coarse exposed swale soil remain. |
-| Lighting, color and atmosphere | Better grass/ground value agreement, but insufficient separation and depth across the scene. |
-| Intervention and transformation | Connected meadow is clearer than colonies; still lacks rich, satisfying environmental forms. Annual lifecycles require separate integrated review. |
-| Whole-scene consistency | Close, normal and overview all remain below the visual bar; final layouts and motion evidence are incomplete. |
+| Composition, scale and depth | Broad sparse ground, weak middle-scale structure, and HUD overlap of the treated foreground. |
+| Vegetation and forms | Fuller grass/flowers; repeated blades/crowns and incomplete woodland understory still visible. |
+| Ground, fields, water and transitions | Crop construction is mechanical; bare steep faces and simplified banks remain. |
+| Lighting, color and atmosphere | Color is coherent enough to read, but depth, contact and surface separation remain weaker than the reference. |
+| Intervention and transformation | Actual annual growth is more legible; only one browser parcel/three years and two Editor action lifecycles have been reviewed in this revision. |
+| Whole-scene consistency | Larger layouts inspected; alternate sites, other interventions, motion, all three regions and full release acceptance remain incomplete. |
 
-**No dimension is certified at4.5/5.** No accepted art direction, current public release or reference-parity claim follows from these studies.
+**No dimension is certified at 4.5/5.** Current progress does not waive the user's visual rejection or establish commercial-game parity. The next substantial art change targets cultivated field mass. [Study56](evidence/phase2a/visual-rebuild/study56-findings.md) rejects grass-as-grain and empty interiors with narrow wheat bands; [study57](evidence/phase2a/visual-rebuild/study57-findings.md) rejects the mature corn swap, and [study58](evidence/phase2a/visual-rebuild/study58-findings.md) rejects a flat surface baked from grain geometry. The retained scenery is still study55, now using the verified submission collector. Do not repeat density/tint/tiling adjustments or the raised canopy sheet. The next construction needs cultivated soil and plant volumes that read together at parcel scale.
 
-Study31b is isolated on `codex/visual-study20`; [handoff](VISUAL_WORK_HANDOFF.md), [source/export/browser evidence](evidence/phase2a/visual-rebuild/study31b-build.json). Restore/swale/undo and cultivation-replacement cancellation pass; no error-level logs returned. One30s moving route: p95=19ms,p99=27ms,max30ms,zero frames>33ms and zero unfocused frames. Three presentation-opportunity samples were18.7–23.6ms, not physical display latency or a robust p95. Full performance/load/layout/public-delivery gates remain incomplete. Ground shader's existing GLES3x potentially-uninitialized warning remains; no shader errors reported.
+## Verification boundary
 
-**Next materially change composition and environmental scale hierarchy.** Another small tint/density adjustment in this same framing will not resolve the dominant gap. Keep the same source geography and validate the complete playable image, including the newer annual renderer when integrated by its owner.
+42 annual/render checks and 28 material ownership checks pass on the combined source. Chrome verifies proposal → Year 1 → Year 2 → Year 3 → reload, with unchanged accepted cash on reload and no browser error-level entries. The diagnostic export serves 31 exact files totaling 46.41 MB; its dirty/ignored-input provenance limits are explicit in [the evidence](evidence/phase2a/visual-rebuild/study55-findings.md). One first entry of 9.238 s and warm reload of 12.582 s do not establish the three-fresh-load gate. Subsequent [Chrome evidence on source `2f8543d`](evidence/full-game/consolidation-browser/README.md) meets the documented stable-30 fallback at 33/31/29 ms p95 and verifies three fresh entries at 12.306/12.342/12.013 seconds with a 46.43 MB export. The collector is integrated into this visual branch in `5b8ad52`; compilation and 15 collector checks pass here. These source-specific one-machine measurements supersede the preceding 35/46/34 ms failure for that candidate only. They do not certify the rejected art experiments, future scenery changes, strict 60 FPS, accessibility or a final clean public release.

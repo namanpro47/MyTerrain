@@ -73,7 +73,7 @@ namespace Terra.Gameplay
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
             var scenery=new GameObject(location.Name+" landscape").transform;
-            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
+            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab,location.IsWisconsin);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
             InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();WorldAtlas.Instance.LandscapeReady();
@@ -216,7 +216,7 @@ namespace Terra.Gameplay
             foreach(var p in site.polygon)points.Add(new Vector3(p.x,landscape.Height(p.x,p.z),p.z));
             if(rule!=null&&!rule.landscape&&art!=null)
             {
-                var layout=buildActionRules.Layout(site,rule);
+                var layout=landscape.VisualLayout(buildActionRules.Layout(site,rule));
                 if(layout.Valid)
                 {
                     var bounds=art.meshBoundsMetres;var rotation=Quaternion.Euler(0,layout.yaw,0);
