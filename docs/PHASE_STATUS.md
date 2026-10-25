@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Latest research checkpoint, study51:** Meadow distribution and crop/ground material experiments are preserved with final shader snapshots and Editor captures. They are not adopted in production or accepted visually; Chrome verification remains open. [Findings and replay evidence](evidence/phase2a/visual-rebuild/study51-findings.md).
+
 **Latest visual checkpoint, study50:** Selective hillside relief replaces uniform terracing; a new hand-painted ground candidate remains experimental. Source heights, foundation clearance and combined overlay equivalence checks pass on the visual branch. Meadow/field cohesion and Chrome acceptance remain open. [Current comparisons and source-scoped evidence](evidence/phase2a/visual-rebuild/study50-findings.md).
 
 **Study45 full-scene review:** Continuous canopy and distance meshes now run across Wisconsin; a premature crop fade was corrected after a matched control. 209 rendering lifecycle assertions and atlas/save checks pass. Meadow/surface quality still fails the visual bar; Chrome review is next. [Captures, controls and scope limitations](evidence/phase2a/visual-rebuild/study45-findings.md).

@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Studies 49–50](study50-findings.md) — selective hillside relief, rejected cliff/rock trials, and a new free hand-painted ground candidate. **Visual and browser gates remain open.**
+Latest: [Study 51](study51-findings.md) — saved meadow/crop material experiments, captures and replay sources. These remain experimental. [Studies 49–50](study50-findings.md) contain the selective hillside relief checkpoint. **Visual and browser gates remain open.**
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

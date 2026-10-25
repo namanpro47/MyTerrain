@@ -1,0 +1,4 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study51Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var color=UnityEngine.Resources.Load<UnityEngine.Material>("Nature/FieldCluster").GetColor("_BaseColor");
+foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.shader.name=="Terra/Studies/Meadow51"))m.SetColor("_GrainColor",color);
+return new{color=color.ToString(),linear=color.linear.ToString(),frame=UnityEngine.Time.frameCount};
