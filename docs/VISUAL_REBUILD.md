@@ -6,7 +6,7 @@
 
 ## The intended visual experience
 
-**Current comparison focus — after study20:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) keeps the reference beside the current landscape. Union roads and more readable shadows are retained candidate improvements. Next rebuild the bank/meadow as coherent planted surface masses with defined soil contact, then address forest edges and treatment boundaries. Sparse tufts, repeated crowns and mechanical fields remain substantial failures; no art or performance acceptance. [Isolated visual worktree](VISUAL_WORK_HANDOFF.md).
+**Current comparison focus — after study21d:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) keeps the reference beside the current landscape. Wider low bank planting and distance treatment are retained candidate improvements; serialized instancing material is required for WebGL. Next make a substantial change to canopy silhouette/size hierarchy and woodland–meadow composition, then fields/treatments. Another bank density/tint iteration will not close the gap. Visual gate and performance gate remain failed (latest moving/placement p95=48ms at3440×1352). [Isolated visual worktree](VISUAL_WORK_HANDOFF.md).
 
 An inviting, painterly rural landscape that is worth looking around before touching a tool. Woodland has soft, varied crowns and layered edges; fields read as cultivated land with convincing surface rhythms; water has a distinct bed, bank, surface, and relationship to surrounding vegetation. Warm sunlight and cool depth separate forms without washing everything into the same sage color. Interventions visibly belong to this world and improve or change its character.
 

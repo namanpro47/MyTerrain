@@ -27,41 +27,56 @@ namespace Terra.Rendering
         }
         void BuildStreamsidePlants()
         {
-            var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");var rock=Resources.Load<GameObject>("Nature/Rock_Medium_2");
-            var low=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
+            var low=Resources.Load<GameObject>("Nature/Grass_Common_Short");
+            var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");
+            var rock=Resources.Load<GameObject>("Nature/Rock_Medium_2");
+            // One coherent source family: a low connected sward, occasional taller stands, exposed bank.
+            // Plant positions and bank microrelief are illustrative, never surveyed vegetation.
+            var bankRandom=new System.Random(2181);
+            float Jitter(float min,float max)=>min+(max-min)*(float)bankRandom.NextDouble();
+            bool Clear(Vector2 p)=>Inside(p.x,p.y)&&!world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,p.x,p.y)<f.widthM*.5f+1.7f);
             foreach(var feature in world.features.Where(f=>f.kind=="water"))
             {
-                var grasses=new List<Matrix4x4>();var lowGrasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();var route=RoundedWaterRoute(feature.points);float next=2;
+                var sward=new List<Matrix4x4>();var stands=new List<Matrix4x4>();var stones=new List<Matrix4x4>();
+                var route=RoundedWaterRoute(feature.points);float next=1;
                 for(int i=1;i<route.Length;i++)
                 {
-                    var a=new Vector2(route[i-1].x,route[i-1].z);var d=new Vector2(route[i].x,route[i].z)-a;var n=new Vector2(-d.y,d.x).normalized;
-                    for(;next<d.magnitude;next+=2)
+                    var a=new Vector2(route[i-1].x,route[i-1].z);var d=new Vector2(route[i].x,route[i].z)-a;
+                    var tangent=d.normalized;var n=new Vector2(-tangent.y,tangent.x);
+                    for(;next<d.magnitude;next+=1.4f)
                     foreach(float side in new[]{-1f,1f})
                     {
-                        var center=a+d.normalized*next;var p=center+n*(feature.widthM*.5f+4+Range(0,1.5f))*side;
-                        if(!Inside(p.x,p.y)||world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,p.x,p.y)<f.widthM*.5f+2))continue;
-                        float cluster=Mathf.PerlinNoise(p.x*.07f+500,p.y*.07f+500);
-                        if(cluster>.43f)
+                        var center=a+tangent*next;
+                        float growth=Mathf.PerlinNoise(center.x*.043f+500,center.y*.043f+500+side*12);
+                        float width=12*Mathf.SmoothStep(0,1,Mathf.Clamp01((growth-.32f)/.32f));
+                        for(float across=0;across<width;across+=1.3f)
                         {
-                            // A broad, broken patch of bank vegetation, rather than a single evenly spaced line.
-                            for(int tuft=0;tuft<3;tuft++)
-                            {
-                                var edge=p+n*side*Range(-.1f,3.8f)+d.normalized*Range(-1.2f,1.2f);
-                                if(!Inside(edge.x,edge.y)||world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,edge.x,edge.y)<f.widthM*.5f+2))continue;
-                                grasses.Add(PlantMatrix(rush,edge.x,edge.y,Range(1.3f,2.1f),Range(0,360)));
-                                if(tuft==0)lowGrasses.Add(PlantMatrix(low,edge.x+n.x*side*2,edge.y+n.y*side*2,Range(1.5f,2.5f),Range(0,360)));
-                            }
+                            var p=center+n*(feature.widthM*.5f+4.7f+across+Jitter(-.65f,.65f))*side+tangent*Jitter(-.7f,.7f);
+                            if(!Clear(p))continue;
+                            // Broad low fans overlap into readable planted mass, not a row of isolated tall dots.
+                            float scale=Jitter(.85f,1.15f);
+                            sward.Add(PlantMatrix(low,p.x,p.y,scale,Jitter(0,360))*Matrix4x4.Scale(new Vector3(2.1f,1.05f,2.1f)));
+                            if(across>1.3f&&growth>.62f&&bankRandom.NextDouble()<.22)
+                                stands.Add(PlantMatrix(rush,p.x,p.y,Jitter(.8f,1.3f),Jitter(0,360)));
                         }
-                        if(cluster>.58f&&random.NextDouble()<.45)
+                        if(growth<.34f&&bankRandom.NextDouble()<.14)
                         {
-                            var shelf=center+n*(feature.widthM*.5f+2.4f)*side;
-                            var stone=PlantMatrix(rock,shelf.x,shelf.y,Range(.7f,1.3f),Range(0,360));
-                            stone.m13-=1.35f;stones.Add(stone);
+                            var shelf=center+n*(feature.widthM*.5f+2.8f)*side;
+                            if(!Clear(shelf))continue;
+                            for(int stoneIndex=0;stoneIndex<3;stoneIndex++)
+                            {
+                                var p=shelf+tangent*Jitter(-2,2)+n*Jitter(-.6f,.6f);
+                                var matrix=PlantMatrix(rock,p.x,p.y,Jitter(.65f,1.25f),Jitter(0,360));
+                                matrix.m13-=1.3f;stones.Add(matrix);
+                            }
                         }
                     }
                     next-=d.magnitude;
                 }
-                var instances=root.gameObject.AddComponent<InstancedNature>();instances.Add(rush,grasses,new Color(.62f,.84f,.65f));instances.Add(low,lowGrasses,new Color(.72f,.90f,.65f));instances.Add(rock,stones,Color.white);
+                var instances=root.gameObject.AddComponent<InstancedNature>();
+                instances.Add(low,sward,new Color(.80f,.92f,.68f),true);
+                instances.Add(rush,stands,new Color(.74f,.89f,.57f));
+                instances.Add(rock,stones,Color.white);
             }
         }
         // A visual channel profile, not elevation data or a hydrological model. Height() and analytical data remain unchanged.
@@ -91,7 +106,10 @@ namespace Terra.Rendering
             for(int z=0;z<rows;z++)for(int x=0;x<columns;x++)
             {
                 int i=z*columns+x;float px=xmin+x*dx,pz=zmin+z*dz;
-                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01((distance[i]-1.1f)/3.5f));
+                // Only the illustrated channel face gains small-scale variation; analytical Height() is unchanged.
+                float edgeVariation=(Mathf.PerlinNoise(px*.13f+81,pz*.13f+93)-.5f)*1.1f;
+                distance[i]+=edgeVariation;
+                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01((distance[i]-1.6f)/2.5f));
                 vertices[i]=new Vector3(px,Height(px,pz)-cut*2.0f,pz);
                 byte value=(byte)(Mathf.Clamp01((distance[i]+3)/20)*255);colors[i]=new Color32(value,value,value,255);
             }

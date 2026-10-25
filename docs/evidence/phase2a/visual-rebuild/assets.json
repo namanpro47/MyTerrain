@@ -124,7 +124,8 @@
           "bytes": 2586432,
           "sha256": "23248cebe28a24e78add32db3c2ee2f4d7b9219e9d2467279722f0197a7b6bd5"
         }
-      ]
+      ],
+      "study21": "Existing short/tall grass and Rock_Medium_2 reused unchanged for illustrative bank masses. Dedicated Terra/Soft Groundcover shader preserves source palette with upward-biased diffuse normals and displayed-pixel fade. Serialized instancing-enabled Resources/Nature/Groundcover.mat required: runtime-only shader swap lost instancing variants in21b;21c/21d visibility verified in Chrome. Wider patches improve contact but do not close visual gap. No new acquisition or paid shader used."
     },
     {
       "name": "Original painted meadow texture",

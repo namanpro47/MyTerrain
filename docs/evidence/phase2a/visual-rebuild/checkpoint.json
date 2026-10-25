@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Study20 isolated source/export and Chrome evidence recorded. Prior studies retained; no art/performance acceptance.",
+  "documentation": "Study21d isolated source/export and Chrome evidence recorded; earlier failed shader trial preserved. No art/performance acceptance.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
@@ -12,7 +12,7 @@
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
-  "nextDecision": "Build coherent planted bank/meadow masses and defined soil contact; revise forest edges and treatment boundaries. Road/lighting improvements alone are insufficient.",
+  "nextDecision": "Substantial canopy silhouette/size hierarchy and woodland\u2013meadow composition study; bank micro-adjustments did not resolve dominant whole-scene failures.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -87,25 +87,24 @@
     "visualAcceptance": false
   },
   "latestStudy": {
-    "study": "20",
+    "study": "21d",
     "build": "success",
-    "job": "26ad6dcba3db4e80ab33aa302f289913",
-    "executionTimeMs": 363625,
+    "job": "b8d6811bc45a4235aeb5c43fc6c6dde6",
+    "executionTimeMs": 176107,
     "browser": "Chrome",
     "cssViewport": [
-      1728,
-      996
+      3440,
+      1352
     ],
     "renderBuffer": [
-      3456,
-      1992
+      3440,
+      1352
     ],
-    "normalCapture": "study20-default.jpg",
-    "overviewCapture": "study20-overview.jpg",
-    "closeCapture": "study20-creek-close.jpg",
-    "cropCapture": "study20-cultivation.jpg",
-    "transformationCapture": "study20-restored.jpg",
-    "exportCheck": "study20-export-check.json",
+    "normalCapture": "study21d-default.jpg",
+    "closeCapture": "study21d-creek-close.jpg",
+    "overviewCapture": "study21d-overview.jpg",
+    "transformationCapture": "study21d-restored.jpg",
+    "exportCheck": "study21d-export-check.json",
     "visualAcceptance": false,
     "performanceAcceptance": false
   },
@@ -117,15 +116,18 @@
     "fullInteractionPerformanceAcceptance": false
   },
   "currentBrowserChecks": {
-    "scope": "20 normal/close/overview, cultivate/restore/undo, one contention-sensitive diagnostic",
-    "p95Ms": 92,
-    "p99Ms": 115,
-    "maxMs": 136,
+    "scope": "21d normal/close/overview, Restore/undo and one moving-placement diagnostic",
+    "seconds": 30.034,
+    "averageFps": 36.325,
+    "p95Ms": 48,
+    "p99Ms": 50,
+    "maxMs": 108,
+    "framesOver33Ms": 378,
+    "framesOver200Ms": 0,
     "unfocusedFrames": 0,
-    "cultivate": [
-      17,
-      36
-    ],
+    "previewEvents": 2,
+    "placementEvents": 1,
+    "cameraEvents": 324,
     "restore": [
       5,
       42
@@ -134,8 +136,9 @@
       6,
       60
     ],
-    "finalRevision": 4,
-    "startup": "No error-level messages on two loads; prior early-input issue not specifically retested or fixed",
+    "finalRevision": 2,
+    "startup": "No error-level messages returned; historical early-input exception not specifically retested or fixed",
+    "comparisonLimitation": "3440x1352 CSS/buffer differs from21c; no causal performance improvement claim",
     "fullInteractionPerformanceAcceptance": false
   },
   "study20": {
@@ -220,6 +223,51 @@
     ],
     "finalRevision": 4,
     "startup": "One null-reference exception with early canvas input; not reproduced on next reload without early input; unresolved",
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "historicalStudy20": {
+    "study": "20",
+    "build": "success",
+    "job": "26ad6dcba3db4e80ab33aa302f289913",
+    "executionTimeMs": 363625,
+    "browser": "Chrome",
+    "cssViewport": [
+      1728,
+      996
+    ],
+    "renderBuffer": [
+      3456,
+      1992
+    ],
+    "normalCapture": "study20-default.jpg",
+    "overviewCapture": "study20-overview.jpg",
+    "closeCapture": "study20-creek-close.jpg",
+    "cropCapture": "study20-cultivation.jpg",
+    "transformationCapture": "study20-restored.jpg",
+    "exportCheck": "study20-export-check.json",
+    "visualAcceptance": false,
+    "performanceAcceptance": false
+  },
+  "historicalStudy20Checks": {
+    "scope": "20 normal/close/overview, cultivate/restore/undo, one contention-sensitive diagnostic",
+    "p95Ms": 92,
+    "p99Ms": 115,
+    "maxMs": 136,
+    "unfocusedFrames": 0,
+    "cultivate": [
+      17,
+      36
+    ],
+    "restore": [
+      5,
+      42
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 4,
+    "startup": "No error-level messages on two loads; prior early-input issue not specifically retested or fixed",
     "fullInteractionPerformanceAcceptance": false
   }
 }
