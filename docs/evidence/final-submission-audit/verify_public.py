@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import ssl
 import subprocess
+import sys
 from urllib.parse import quote
 from urllib.request import urlopen
 
@@ -19,7 +20,7 @@ paths = [p for p in sorted(root.rglob("*")) if p.is_file()
          and not any(part.startswith(".") for part in p.relative_to(root).parts)
          and p.relative_to(root).parts[0] != "api"
          and p.name not in ("vercel.json", "package.json", "package-lock.json")]
-context = ssl.create_default_context()
+context = ssl.create_default_context(cafile="/etc/ssl/cert.pem" if sys.platform == "darwin" else None)
 
 def verify(url):
     rows = []

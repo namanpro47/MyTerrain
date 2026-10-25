@@ -1,0 +1,18 @@
+{
+  "mainAtVerification": "c6e918e6cc1f334cd910623e19f97c827a74b0be",
+  "runtimeSource": "eb8cf166d76ba3436099467d31d07f96314c0cf3",
+  "runtimeMatchesMain": true,
+  "deploymentId": "dpl_AuQvPLnSKxNAh9CGY9Z2ptGdDyuA",
+  "deferredRefs": [
+    "codex/accessibility-quick-pass 32c1ad70bc232778f63616170e6c70d041b4a8bd",
+    "codex/community-locations a404ff3a3eb9fd3dc0ac993bf58b6b39594e9f44",
+    "codex/web-texture-compression 4935468388112a881f00c571aca3a7534dca8bd3"
+  ],
+  "deferredReasons": {
+    "codex/community-locations": "Regional v2 reconstruction explicitly deferred, native final renders/restore and browser integration incomplete",
+    "codex/web-texture-compression": "Unapplied importer experiment; native importer/visual/export acceptance incomplete"
+  },
+  "originalLocalWork": "Editor configuration state and Devpost artwork preserved; no reset or overwrite",
+  "browserEvidence": "Release owner Chrome smoke passed 11 assertions: Begin, one apartment, End Year, unchanged reload state",
+  "normalPushOnly": true
+}
