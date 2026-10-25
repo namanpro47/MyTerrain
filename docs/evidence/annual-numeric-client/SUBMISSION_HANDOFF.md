@@ -16,18 +16,19 @@ No Main/HUD activation, public export replacement, force push or deployment is p
 - 149 pure directory assertions; 81 modeled IndexedDB checks; 33 per-run bridge fault checks.
 - Installed Unity 6000.6.6f1 API compilation passes with zero warnings/errors, including the WebGL checkpoint and directory adapter.
 - Prior actual Unity Editor: 23 checks pass. Prior sparse IL2CPP/Chrome: 8 fresh-run checks and 4 page-reload checks pass with exact saved/report hashes.
-- Prior dense 340-site, ten-year WebGL fixture exhausted memory. The new frame-checkpoint mitigation is source-tested; its rebuilt dense-player retry is pending at this checkpoint. See the latest README entry for the final queue/retry outcome.
+- Prior dense 340-site, ten-year WebGL fixture exhausted memory. The new frame-checkpoint mitigation is source-tested; its rebuilt dense-player retry was cancelled at 20:17 UTC to prioritize submission work. It remains unverified.
 
 ## Still incomplete
 
 1. Dense WebGL memory acceptance, then linked directory-v2 create/select/reload/fault acceptance.
 2. Numeric schema-3 gameplay wiring and reconciliation with schema-2/v5 debt, cancellation, regional events and pending annual-feedback planning/conversion work. Preserve the existing annual authority and prior saved runs; do not silently discard new rules.
 3. Phase 2A visual acceptance and combined foreground performance/load budgets. Correct state/accounting does not close the visual gate. Human novice observation remains unavailable, not passed.
-4. Final public release walkthrough/rehearsal evidence belongs to the separate acceptance owner; use its final committed report, not source-only assumptions.
+4. **Active release replay/storage blocker:** the acceptance owner reproduced `PlayerPrefsException: Could not store preference value` when confirming New Run after a completed two-project Meadowbrook decade on frozen19e7eae, first attempt on a fresh local-wrapper origin. The old Year10 remained visible. A previous-run backup quota issue is suspected, not proven. This is the active schema-2 path, unrelated to the inactive numeric store. The Main/session owner received the report for triage. No replay-success claim is made; use the acceptance owner’s final committed evidence and any separately verified fix.
+5. Final public rehearsal/recording evidence belongs to the separate acceptance owner; use its final committed report, not source-only assumptions.
 
 ## Submission runtime
 
-Release owner confirmed the frozen public runtime `19e7eae`, release evidence `ce27355`, at https://terra-browser.vercel.app. Newer source commits are not automatically that deployed export. Custom-domain AI chapter requests have a backend-origin limitation; the local summary remains available. The public-playtest owner reached Year 10 during wrap-up; final replay/rehearsal results must be read from that owner's evidence.
+Release owner confirmed the frozen public runtime `19e7eae`, release evidence `ce27355`, at https://terra-browser.vercel.app. Newer source commits are not automatically that deployed export. Custom-domain AI chapter requests have a backend-origin limitation; the local summary remains available. The public-playtest owner completed the ten-year run, ending, comparison, timeline, takeaway and reload checks during wrap-up; confirming a fresh replay subsequently failed as described above. Final rehearsal results must be read from that owner’s evidence.
 
 ## Resume safely
 

@@ -75,3 +75,7 @@ Diagnostic follow-up adds visible stage, managed-memory and Wasm-heap-capacity r
 The first bounded mitigation adds an optional cancellation-aware checkpoint between exact envelope validation, committed replay, and each accepted report projection. The Unity WebGL session supplies `Awaitable.NextFrameAsync`; pure and Editor callers remain synchronous by default. Initialization no longer repeats the full accepted replay just to publish observers. All replay, hash, narration, acknowledgement, and immutable-history checks remain in place.
 
 The transaction suite passes **78 assertions**, including unchanged ten-year results, cancellation without a write, and unchanged visible/saved state while a checkpoint is suspended. This is not a dense WebGL success: the previous actual dense player exhausted memory, and a rebuilt-player retry is pending. No PlayerSettings or production activation is part of this candidate.
+
+### Final deadline disposition
+
+At 20:17 UTC the queued rebuilt-player retry was cancelled so submission work and the newly found active schema-2 replay/storage failure could take priority. No new player was built or tested for the frame-checkpoint mitigation. The failing baseline export and evidence remain preserved, and **dense numeric WebGL acceptance is still blocked**. Both owned source worktrees were committed and pushed; no owned Unity process, browser tab or test server remained running at the cleanup check.
