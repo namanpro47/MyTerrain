@@ -3,6 +3,92 @@ using System;
 namespace Terra.Contracts
 {
     // Numeric v4 additions are optional on legacy DTOs; never reinterpret old accepted years.
+    [Serializable] public sealed class TownSimulationDefinition
+    {
+        public string version, disclosure, assumptions, sensitivity;
+        public double sensitivityFactor;
+        public TownWeatherSchedule weather;
+        public TownSimulationDriver[] drivers;
+        public TownCropDefinition[] crops;
+        public TownPracticeDefinition[] practices;
+        public TownExposureDefinition[] sites;
+        public TownPublicResponsibility[] publicResponsibilities;
+        public double dailyStorageRecoveryFraction, privateAnnualRecovery, drySpellGraceDays;
+        public double rainDamageThresholdMm, localRainDamagePerMm, upstreamRainThresholdMm, upstreamDamagePerMm;
+        public double antecedentAmplificationPerMm, maximumEventDamage, minimumWeatherFactor, maximumWeatherFactor;
+        public string eventRuleId, recoveryRuleId;
+    }
+    [Serializable] public sealed class TownPracticeDefinition
+    {
+        public string actionId, ruleId;
+        public string[] cropSequence;
+        public double croppedFraction, matureDroughtMitigation, matureRainVulnerability, establishmentCostFraction;
+    }
+    [Serializable] public sealed class TownExposureDefinition
+    {
+        public string siteId, connectionGroupId, baselineCropId, ruleId;
+        public double exposure, baselineCroppedFraction;
+    }
+    [Serializable] public sealed class TownPublicResponsibility
+    {
+        public string actionId, responsibility, ruleId;
+        public long repairCentsPerConditionUnit;
+    }
+    [Serializable] public sealed class TownSimulationState
+    {
+        public TownSimulationSiteState[] sites;
+        public TownRepairLiability[] repairs;
+    }
+    [Serializable] public sealed class TownSimulationSiteState
+    {
+        public string siteId, cropId;
+        public int rotationPhase;
+        public double condition = 1, outstandingDamage, recoveredLastYear, storedWaterM3;
+    }
+    [Serializable] public sealed class TownRepairLiability
+    {
+        public string id, siteId, actionId, eventId, responsibility, ruleId;
+        public int createdYear;
+        public long originalCents, unpaidCents;
+        public double originalConditionLoss, unrecoveredCondition;
+    }
+    [Serializable] public sealed class TownSimulationRequest
+    {
+        public string rulesVersion;
+        public TownSimulationDriver driver;
+        public TownSimulationState openingState;
+    }
+    [Serializable] public sealed class TownSimulationReport
+    {
+        public string version, transitionId, transitionHash;
+        public TownSimulationDriver driver;
+        public TownSimulationState closingState;
+        public TownCropResult[] crops;
+        public TownEventImpact[] impacts;
+        public TownPublicPayment[] payments;
+        public double economicDelta, socialDelta, environmentalDelta;
+        public double energyDeficit, waterDeficit, wastewaterDeficit, housingDeficit, jobsDeficit;
+    }
+    [Serializable] public sealed class TownCropResult
+    {
+        public string siteId, cropId, practiceId, units, ruleId;
+        public int harvestDay;
+        public double productiveAreaM2, benchmarkPerHa, weatherFactor, managementFactor, harvestCondition, outputUnits;
+        public double openingCondition, closingConditionBeforeRecovery, nextYearCondition;
+    }
+    [Serializable] public sealed class TownEventImpact
+    {
+        public string siteId, eventId, ruleId, connectionGroupId;
+        public int dayOfYear;
+        public bool beforeHarvest, publiclyResponsible;
+        public double localHazard, upstreamHazard, connectedStorageUsedM3, conditionLoss;
+    }
+    [Serializable] public sealed class TownPublicPayment
+    {
+        public string id, siteId, actionId, kind, liabilityId;
+        public long dueCents, paidCents;
+        public double nextYearRecovery;
+    }
     [Serializable] public sealed class TownWeatherSchedule
     {
         public string packId, packSha256, dailySha256, samplerVersion, sharedScenarioSeed;

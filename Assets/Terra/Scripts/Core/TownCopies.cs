@@ -23,8 +23,24 @@ namespace Terra.Core
             }
             var result = Activator.CreateInstance(type);
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance))
-                field.SetValue(result, CopyObject(field.GetValue(value)));
+            {
+                var fieldValue = field.GetValue(value);
+                field.SetValue(result, field.Name == "simulation" && EmptyExtension(fieldValue) ? null : CopyObject(fieldValue));
+            }
             return result;
+        }
+
+        // Unity's inline serializer can expand an absent optional DTO into zero/empty
+        // fields. Only a wholly empty extension is equivalent to absence; partial or
+        // nonzero content remains fingerprinted and must pass normal validation.
+        static bool EmptyExtension(object value)
+        {
+            if(value == null) return true;
+            if(value is string text) return string.IsNullOrEmpty(text);
+            if(value is Array array) return array.Length == 0;
+            var type=value.GetType();
+            if(type.IsValueType) return value.Equals(Activator.CreateInstance(type));
+            return type.GetFields(BindingFlags.Public | BindingFlags.Instance).All(f=>EmptyExtension(f.GetValue(value)));
         }
 
         // Stable across runtimes, independent of reflection ordering and JSON formatting.
@@ -48,6 +64,9 @@ namespace Terra.Core
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance).OrderBy(f => f.Name, StringComparer.Ordinal))
             {
                 var fieldValue = field.GetValue(value);
+                // Numeric-v4 additions are absent on all previously published definitions,
+                // requests/reports and snapshots. Preserve their exact legacy fingerprints.
+                if (field.Name == "simulation" && EmptyExtension(fieldValue)) continue;
                 // Optional schema-2 DTOs do not change any legacy definition/report fingerprints.
                 if (fieldValue == null && (field.Name == "economy" || field.Name == "services")) continue;
                 // Optional ending targets were added after schema-2 3.0 saves shipped.

@@ -51,13 +51,17 @@ namespace Terra.Core
         static string Sha(byte[] bytes)
         { using (var sha = SHA256.Create()) return string.Concat(sha.ComputeHash(bytes).Select(b => b.ToString("x2"))); }
 
-        public TownWeatherSchedule Select(string seed)
+        internal static int ExpectedStartYear(string seed)
         {
             AnnualTown.Require(!string.IsNullOrEmpty(seed) && Utf8.GetByteCount(seed) <= 256, "Scenario seed must contain 1–256 UTF-8 bytes.");
             byte[] digest;
             using (var sha = SHA256.Create()) digest = sha.ComputeHash(Utf8.GetBytes(Sampler + "\n" + PackHash + "\n" + seed));
             uint first = ((uint)digest[0] << 24) | ((uint)digest[1] << 16) | ((uint)digest[2] << 8) | digest[3];
-            var window = pack.eligibleWindows[first % (uint)pack.eligibleWindows.Length];
+            return 2001 + (int)(first % 15u);
+        }
+        public TownWeatherSchedule Select(string seed)
+        {
+            var window = pack.eligibleWindows[ExpectedStartYear(seed)-2001];
             return new TownWeatherSchedule { packId = PackId, packSha256 = PackHash, dailySha256 = DailyHash,
                 samplerVersion = Sampler, sharedScenarioSeed = seed, startYear = window.startYear, recordIds = window.recordIds.ToArray() };
         }

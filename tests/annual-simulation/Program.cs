@@ -53,3 +53,17 @@ for (int year=1;year<=10;year++)
     Check(JsonSerializer.Serialize(weather.Driver(saved,year,crops),options)==original, "Mutable driver escaped reference");
 }
 Console.WriteLine("Annual simulation weather checks passed: " + count);
+
+foreach (string folder in new[]{"hud-connected","full-game"})
+{
+    var legacy=Read<AnnualTownDefinition>(File.ReadAllText("docs/evidence/"+folder+"/definition.json"));
+    var history=Read<AnnualTownSnapshot>(File.ReadAllText("docs/evidence/"+folder+"/community-and-services.json"));
+    var restored=AnnualTown.Restore(legacy,history);
+    Check(restored.DefinitionHash==history.definitionHash,"Published legacy definition hash changed");
+    Check(restored.CashCents==history.cashCents&&restored.History.Length==10,"Published legacy history changed");
+    legacy.simulation=new TownSimulationDefinition();
+    history.simulation=new TownSimulationState();
+    foreach(var report in history.history) {report.simulation=new TownSimulationReport();report.acceptedRequest.simulation=new TownSimulationRequest();}
+    Check(AnnualTown.Restore(legacy,history).DefinitionHash==restored.DefinitionHash,"Expanded empty Unity DTO invalidated legacy save");
+}
+Console.WriteLine("Weather and legacy compatibility checks passed: "+count);
