@@ -1,0 +1,24 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);var t=world.terrain;float xmin=t.xMin,zmin=t.zMin,width=(t.columns-1)*t.cellSizeM,depth=(t.rows-1)*t.cellSizeM;
+var source=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).First(r=>r.name.StartsWith("Continuous ground ")).sharedMaterial;
+var original=(UnityEngine.Texture2D)source.GetTexture("_PathMap");var pixels=original.GetPixels32();int size=original.width;
+var distances=Enumerable.Repeat(float.MaxValue,pixels.Length).ToArray();var across=new float[pixels.Length];var junction=new float[pixels.Length];
+float dx=width/(size-1),dz=depth/(size-1);
+foreach(var route in world.features.Where(f=>f.kind=="path")){
+ var local=Enumerable.Repeat(float.MaxValue,pixels.Length).ToArray();var localAcross=new float[pixels.Length];
+ for(int s=1;s<route.points.Length;s++){
+ var a=new UnityEngine.Vector2(route.points[s-1].x,route.points[s-1].z);var b=new UnityEngine.Vector2(route.points[s].x,route.points[s].z);var seg=b-a;float half=route.widthM*.5f,radius=half+3;
+ int x0=UnityEngine.Mathf.Max(0,UnityEngine.Mathf.FloorToInt((UnityEngine.Mathf.Min(a.x,b.x)-radius-xmin)/dx)),x1=UnityEngine.Mathf.Min(size-1,UnityEngine.Mathf.CeilToInt((UnityEngine.Mathf.Max(a.x,b.x)+radius-xmin)/dx));
+ int z0=UnityEngine.Mathf.Max(0,UnityEngine.Mathf.FloorToInt((UnityEngine.Mathf.Min(a.y,b.y)-radius-zmin)/dz)),z1=UnityEngine.Mathf.Min(size-1,UnityEngine.Mathf.CeilToInt((UnityEngine.Mathf.Max(a.y,b.y)+radius-zmin)/dz));
+ for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++){
+ var p=new UnityEngine.Vector2(xmin+x*dx,zmin+z*dz);float u=seg.sqrMagnitude>0?UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(p-a,seg)/seg.sqrMagnitude):0;
+ float d=UnityEngine.Vector2.Distance(p,a+seg*u);int index=z*size+x;if(d-half<local[index]){local[index]=d-half;localAcross[index]=d/UnityEngine.Mathf.Max(.1f,half);}
+ }}
+ for(int i=0;i<pixels.Length;i++){if(local[i]<0)junction[i]++;if(local[i]<distances[i]){distances[i]=local[i];across[i]=localAcross[i];}}
+}
+for(int i=0;i<pixels.Length;i++){pixels[i].g=(byte)(UnityEngine.Mathf.Clamp01(across[i])*255);pixels[i].b=(byte)(junction[i]>1?255:0);}
+var mask=new UnityEngine.Texture2D(size,size,UnityEngine.TextureFormat.RGBA32,true,true){name="Study53 road coordinates",wrapMode=UnityEngine.TextureWrapMode.Clamp,filterMode=UnityEngine.FilterMode.Trilinear};mask.SetPixels32(pixels);mask.Apply();
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study53Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study53Ground.shader");source.shader=shader;source.SetTexture("_PathMap",mask);
+var dirt=new UnityEngine.Texture2D(2,2,UnityEngine.TextureFormat.RGBA32,true,false);dirt.LoadImage(System.IO.File.ReadAllBytes("/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/AtapatacoGround/unpacked/Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt.png"));dirt.wrapMode=UnityEngine.TextureWrapMode.Repeat;source.SetTexture("_PathPaint",dirt);
+return new{maskWidth=size,unchangedRed=original.GetPixels32().Select((p,i)=>p.r==pixels[i].r).All(v=>v),routes=world.features.Where(f=>f.kind=="path").Select(f=>new{f.widthM,points=f.points.Length}).ToArray(),errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray(),frame=UnityEngine.Time.frameCount};

@@ -1,0 +1,7 @@
+Handpainted Grass & Ground Textures by Atapataco
+https://atapataco.itch.io/handpainted-grass-ground-textures
+Downloaded 2026-10-25, original Dirt/dirt.png pixels unchanged.
+Creator permits commercial use with credit: https://itch.io/post/7434415 and https://itch.io/post/7438612
+No CC0 claim or standalone source redistribution permission. Keep this source in the private project; game credits link the artist.
+Original SHA256: f70e6205c36d994aca9c7b4b3537bc11aa39cf6ea2f31f822f5a2657c4e03eb5
+Terra adapts tiling, saturation and road wear in its shader.

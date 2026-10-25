@@ -129,3 +129,8 @@ For Terra, TN-09/10/11/12 remain the dominant failed targets: ground is a soft c
 ### Source-grass LOD tooling — study39
 
 Free MIT [UnityMeshSimplifier](https://github.com/Whinarn/UnityMeshSimplifier), pinned53fdb312, bakes reviewed reductions of existing CC0 Quaternius grass. This is asset-processing tooling, not an art-quality substitute. [Inventory, rejected controls, replay and checks](evidence/phase2a/visual-rebuild/study39-findings.md). Browser benefit remains unverified. No new artwork, purchase or generated image.
+
+
+### Free hand-painted ground research — studies50–53
+
+[Atapataco’s grass/ground pack](https://atapataco.itch.io/handpainted-grass-ground-textures) contains24 original PNGs; creator comments permit commercial use with credit. No CC0 or standalone source redistribution claim. Meadow/crop experiments remain unadopted; the Wisconsin road candidate uses original dirt paint with adapted shader tint and tiling, credited beside the imported asset and in the game. [Source hashes/license context](evidence/phase2a/visual-rebuild/study50-atapataco-source.json) · [retained road/control comparisons](evidence/phase2a/visual-rebuild/study53-findings.md). The [raised crop-canopy experiment](evidence/phase2a/visual-rebuild/study52-findings.md) was rejected for artificial sheet edges. Whole-scene quality remains below the gate; no new image generation or paid resources.
