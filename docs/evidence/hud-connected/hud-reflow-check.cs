@@ -17,6 +17,9 @@ foreach(bool large in new[]{false,true})
     {
         bool compact=size.x<1120||size.y<680;
         for(int repeat=0;repeat<3;repeat++)layout.Invoke(hud,new object[]{size.x,size.y,compact});
+        var existingBody=(TMPro.TextMeshProUGUI)ui.GetField("previewBody",flags).GetValue(hud);
+        if(!string.IsNullOrEmpty(existingBody.text))
+        {existingBody.ForceMeshUpdate(true,true);Check(existingBody.preferredHeight<=existingBody.rectTransform.rect.height+.1f,"Existing inspection overflows after resize: "+size+" larger="+large);}
         var identity=root.Find("Place").GetComponentsInChildren<TMPro.TextMeshProUGUI>(true);
         Check(identity.Any(t=>t.text.Contains("Meadowbrook")&&t.gameObject.activeSelf),"Location disappeared after reflow");
         foreach(var title in root.GetComponentsInChildren<TMPro.TextMeshProUGUI>(true).Where(t=>t.name=="Action title"))

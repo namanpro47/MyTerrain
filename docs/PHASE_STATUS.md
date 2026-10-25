@@ -1,5 +1,11 @@
 # Terra — phase status and evidence
 
+## Reference-led HUD and continuous fields — October 25, 2026
+
+The user's HUD/gap follow-up replaces the sprawling annual overlay with compact navy status panels, a strong USD balance, three equal indicators, pictorial priced project cards and a bottom command strip. Eight southern scenario parcels now share ten edges; surface treatments and planting meet across them. The source geography and metric building footprints stay intact. Definition 3.2 uses separate save keys so old committed histories are retained rather than recalculated.
+
+Connected and legacy full-game suites each pass **608 assertions**; annual core/gameplay **94 + 15** pass. The actual Editor HUD passes **287** repeated-reflow/preview checks at 1440×900, 1280×720 and 1024×576 with both text settings. [Reference decisions, geometry, Chrome evidence and export identity](evidence/hud-connected/README.md). This bounded change does not certify the broader Phase 2A scenery gate or deploy a public build.
+
 **Visual worktree state:** Main through `5deb32d` is reconciled here. The free TriForge Forest import completed and its native/adapted foliage was evaluated in the same Wisconsin landscape. These are rejected Editor trials, not a new playable candidate. [Study33 findings, captures and replay scripts](evidence/phase2a/visual-rebuild/study33-findings.md) supersede the pending-import note. Runtime source is unchanged; Phase 2A remains open. The annual game initialized after staging all four WorldPack files and reopening the updated TerraMain scene. Local port 49658 still serves historical study32e; the separate Peter-sync and production evidence retain their own build identities. No purchase or generated image.
 
 ## Annual-game production refresh — October 24, 2026, 22:44 local

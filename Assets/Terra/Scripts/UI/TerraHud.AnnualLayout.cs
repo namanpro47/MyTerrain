@@ -105,6 +105,8 @@ namespace Terra.UI
         void LayoutAnnualPreview()
         {
             if(recipeDetails==null)return;
+            // Reflow existing inspection text too: resizing need not move the pointer.
+            if(annualPreviewBody!=null)previewBody.text=annualCompact&&!string.IsNullOrEmpty(annualPreviewTimeline)?annualPreviewBody.Replace(annualPreviewTimeline,""):annualPreviewBody;
             var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?248:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-120);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
