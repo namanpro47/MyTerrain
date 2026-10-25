@@ -38,3 +38,18 @@ This is definition **3.2.0**, with separate town and chapter save keys. Existing
 ## Incoming atlas reconciliation
 
 Fetched and merged `45a87481f01bf5360de169ee502e92697b5b68e4`, preserving the separately authorized three-location atlas. Only Wisconsin receives connected geometry and runtime 3.2 town/chapter keys. Point Reyes and Suusamyr retain their 3.1 packs, definition versions and save keys. The original Wisconsin 3.1 keys remain intact. Atlas navigation sits above New run, outside the compact catalog. Regional identity labels fit the shared HUD. The combined Editor checks pass **678** location/ten-year/replay/isolation assertions and **682** HUD assertions; package verification passes **41** checks.
+
+## Final export and Chrome result
+
+Runtime source: **`dce921982fb8b2e069500fd33399407ab53fbf20`**. Later merges/commits add evidence and documentation only. The final Unity 6000.6.6f1 WebGL RuntimeSpeedLTO export succeeds in **378.243 seconds**. All **30 served files / 45,006,470 bytes** match the local export byte for byte; [build identity](build.json), [job receipt](build-job.json), [served-file hashes](web-assets.json).
+
+The final player restores Wisconsin at **Year 2 / Planning / revision 6 / $10,846,000 cash / two accepted projects**. Chrome verifies 1440×900, 1280×720 and 1024×576 with larger text, resizing while a preview remains open, then returning to standard text. All four recorded audits have zero text-height overflow. Costs and action buttons stay separate; the compact catalog clears the preview; the atlas return control clears both. No error-level console entries were recorded in the final run. [Final browser evidence](chrome-final.json).
+
+- [Continuous accepted fields + redesigned HUD](chrome-connected-fields.png)
+- [Larger text, 1440×900](chrome-larger-1440.png)
+- [Larger text, 1280×720](chrome-larger-1280.png)
+- [Larger text, 1024×576](chrome-larger-1024.png)
+
+The preceding integrated export `e01ae06` additionally verified Wisconsin → Point Reyes → Wisconsin: Point Reyes has its own fresh $10M run; Wisconsin returns with unchanged year, money and accepted projects. Its zero-error logs and larger-text audits are in [integration evidence](chrome-integration.json). The only subsequent runtime change shortens the arrival copy, including the retained-save notice; the actual Editor regression checks both text sizes, bringing the HUD total to **682 passing checks**.
+
+These are actual Chrome screenshots, cropped to the game viewport without compositing or scene retouching. The review viewport selector resizes the real Unity player; 1024×576 is a compact CSS viewport, not a claim of a separately tested browser zoom setting. No new performance benchmark, public deployment, additional location authoring or broader Phase 2A acceptance is claimed. The local review remains available at `http://127.0.0.1:49725/Review/` while its server runs.
