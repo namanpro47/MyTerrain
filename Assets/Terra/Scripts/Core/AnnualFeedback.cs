@@ -18,6 +18,10 @@ namespace Terra.Core
         public AnnualFeedbackTone tone;
         public static string Money(long cents) => (cents < 0 ? "-" : cents > 0 ? "+" : "") + "$" + (Math.Abs((decimal)cents) / 100m).ToString("N0", CultureInfo.InvariantCulture);
         public static double DisplayScore(double value) => Math.Round(value, 1, MidpointRounding.AwayFromZero);
+        public static string Score(double value) => DisplayScore(value).ToString("0.0", CultureInfo.InvariantCulture);
+        // A displayed 50.1 → 58.3 must read +8.2 on every surface, even when
+        // subtracting the hidden full-precision values would round to +8.1.
+        public static double DisplayDelta(double before, double after) => Math.Round(DisplayScore(after) - DisplayScore(before), 1);
         public static string Points(double value) => value.ToString("+0.0;-0.0;0.0", CultureInfo.InvariantCulture);
     }
 
@@ -51,7 +55,7 @@ namespace Terra.Core
                     };
                     var before = accepted ? acceptedScores : forecastScores;
                     var after = accepted ? current : predicted;
-                    for (int i = 0; i < 3; i++) { result.scores[i] = after[i]; result.scoreDeltas[i] = Math.Round(after[i] - before[i], 1); }
+                    for (int i = 0; i < 3; i++) { result.scores[i] = after[i]; result.scoreDeltas[i] = AnnualFeedback.DisplayDelta(before[i], after[i]); }
                     string money = "Available: " + AnnualFeedback.Money(available).TrimStart('+') + " → " + AnnualFeedback.Money(town.AvailableCents).TrimStart('+') + "\nCash change: " + AnnualFeedback.Money(result.cashDelta);
                     result.detail = money + (accepted ? "\nAccepted outcomes; compare with your previous accepted year." : nextYear ? "\nNew year's conditions and project ages update the forecast. No payment made." : "\nReservation changed; cash is unchanged until End Year. Scores are year-end forecasts, not earned points.");
                     if (accepted)
