@@ -1,0 +1,39 @@
+{
+  "publishedAt": "2026-10-24T22:44:25-07:00",
+  "productionUrl": "https://terra-browser.vercel.app/",
+  "deploymentId": "dpl_8q32u7n8v6PgGneUJhD1nFVzUYv7",
+  "deploymentUrl": "https://terra-browser-eh7awfhg6-namanpro47s-projects.vercel.app",
+  "previousDeploymentId": "dpl_BgtA89SrWRVm8WXkE5Cr7dMeQ4x9",
+  "projectId": "prj_PiYOquy8PBxGMztOM61NDOfN5aX0",
+  "sourceAtDeployment": "22e5a847001f649b40380c36b022cd9e61461be3",
+  "latestMainChecked": "13c19421a08640021a197852401e24d825278c33",
+  "verifiedRuntimeSource": "7e2117d",
+  "buildReceipt": "../peter-sync/final-build.json",
+  "exportFiles": 10,
+  "exportBytes": 41420708,
+  "runtimeInputsMatchLatestMain": true,
+  "publicByteChecks": {
+    "passed": true,
+    "files": 9,
+    "anonymous": true,
+    "receipt": "public-assets.json"
+  },
+  "browser": {
+    "name": "Chrome",
+    "viewport": [
+      3440,
+      1296
+    ],
+    "checks": [
+      "Perspective opening and three-category annual catalog render",
+      "No-new-project Year 1 confirmation forecasts $11,000,000",
+      "End Year accepts exactly $11,000,000 and labelled offline chapter",
+      "All three annual chapter cards readable",
+      "Plan year 2 enters planning",
+      "Reload restores Year 2 and $11,000,000 unchanged"
+    ],
+    "errorLevelLogs": 0,
+    "warnings": "Known optional URP upscaling shader and UnityCache Content-Length warnings; see chrome-console.json"
+  },
+  "scope": "User-authorized static production refresh. Gemini remains local; no hosted chapter backend or secrets uploaded. Phase 2A visual acceptance and complete public release rehearsals remain open."
+}

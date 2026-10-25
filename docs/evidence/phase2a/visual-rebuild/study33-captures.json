@@ -1,0 +1,80 @@
+{
+  "source": "Unity Editor camera-only captures, 1280x720; omit HUD; not browser acceptance",
+  "captures": [
+    {
+      "path": "study33-adapted-lod0-close.png",
+      "bytes": 1472364,
+      "sha256": "da664a185767fb315424522da92a2cf749e17efbe29f010985d1a6da1b107045"
+    },
+    {
+      "path": "study33-authored-close.png",
+      "bytes": 1466843,
+      "sha256": "7d7bac21e7115d3506ee02d5643b1b47ba105bcd6997ead61316fe3a5ada31af"
+    },
+    {
+      "path": "study33-baseline-canopy.png",
+      "bytes": 1593682,
+      "sha256": "bfaa4840e074d9afdc48b91fd3a83316b12175c6b97bc48a225922f2e385a138"
+    },
+    {
+      "path": "study33-close.png",
+      "bytes": 1445578,
+      "sha256": "1fb534f006452a1a2959705d6b3788d1b22908a9d7f12ce8100e6b895d562177"
+    },
+    {
+      "path": "study33-cluster-lit.png",
+      "bytes": 1575506,
+      "sha256": "051d23a0a013d98c6d276e123c4a50dc236a2b5662eaa1902e544d8bf2dd6dd5"
+    },
+    {
+      "path": "study33-controlled-grade.png",
+      "bytes": 1473351,
+      "sha256": "83b8d69f4b40aa614a190d72067c67ef7a1ef56bf04e703f03267d9ee5648196"
+    },
+    {
+      "path": "study33-creator-gallery.png",
+      "bytes": 262355,
+      "sha256": "ebe5e545b6c9f31f8fc502391855ed55f32e295880b8674f5cba81e152daee2c"
+    },
+    {
+      "path": "study33-creator-light.png",
+      "bytes": 903789,
+      "sha256": "024b4429ed097433666728363ed2fbf741c3997148062e6b129c1b36d0847eba"
+    },
+    {
+      "path": "study33-native-canopy.png",
+      "bytes": 1554949,
+      "sha256": "7290ca7e75ab0bc2a960dad839f7ed6917769c0b040165055b8d6ca6a5b59917"
+    },
+    {
+      "path": "study33-native-fixed-alpha.png",
+      "bytes": 1672951,
+      "sha256": "618b81f8fc9003fbe6c96b3d0b043dc55f6da4b21be5ec1c740e45209f85b017"
+    },
+    {
+      "path": "study33-native-lighting.png",
+      "bytes": 1572617,
+      "sha256": "9dc232bc12c449f5e8f4ddb51a8083520868890a87f8a1da70eb218f4504bb53"
+    },
+    {
+      "path": "study33-native-lod0.png",
+      "bytes": 1551474,
+      "sha256": "5e3b3d80f061a4f986b9888824d9fed1d50d753b81838f27e94f376f50c70442"
+    },
+    {
+      "path": "study33-native-occlusion-control.png",
+      "bytes": 1611296,
+      "sha256": "09369699d97c62d042d0133d678e9e424e1358dbcea0c1c5bda7ecf41ebb3ddd"
+    },
+    {
+      "path": "study33-standard-lit-control.png",
+      "bytes": 1670208,
+      "sha256": "2079cb2408a63cf6ed090c977ad9af8b6388081c02e1740669839b7a1b01f306"
+    },
+    {
+      "path": "study33-volume-lit.png",
+      "bytes": 1571241,
+      "sha256": "ae79b3be1c90a6a1262eb243b72dec116db31a610a73371a4db32a8b5bd710c6"
+    }
+  ]
+}

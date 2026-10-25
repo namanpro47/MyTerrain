@@ -481,3 +481,8 @@ Patterns TN-02/09/10/12. Dominant failure: thin repeated canopy forms, weak fore
 Merged remote `e25c5d3` (compact feedback and completed inspection fixes) after reviewing its bounded source changes. The earlier focus-framing exception was traced to LayoutAnnual on an incompletely initialized HUD: the actual console reports a missing WorldPack file. Running `scripts/prepare-world.py` verifies source checksums/hydrology partition and stages all four required files. A fresh runtime check is still required; this is not yet a focus-framing pass.
 
 Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrustWindow.ShouldProceedAfterTrustCheck` / `ContainerWindow.MakeModal`, confirmed by a process stack sample. The Editor is alive; no second import or Editor restart was attempted. A queued `editor focus` timed out without running because the import holds the command queue. The available native UI binding selects the primary checkout instead, so the user was asked to approve the pending trust prompt in this visual worktree. This is a tooling wait, not a shader incompatibility or evidence of visual improvement. No new asset has reached the playable export yet.
+
+
+### Study33 result — import complete, foliage trials rejected
+
+[Findings and render comparisons](study33-findings.md) supersede the pending trust-dialog state above. Native and adapted foliage ran in the annual scene; no candidate met the visual bar. Captures, prefab inspection and replay scripts are preserved. No production source change or new Chrome export. The imported asset library stays local pending selection.

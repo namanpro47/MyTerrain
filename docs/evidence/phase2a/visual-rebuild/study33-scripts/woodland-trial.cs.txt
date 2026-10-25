@@ -1,0 +1,35 @@
+try {
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var mt=main.GetType();
+if(!(bool)mt.GetField("ready",flags).GetValue(main))return "Game not ready; trial not applied";
+var landscape=(Terra.Rendering.LandscapeRenderer)mt.GetField("landscape",flags).GetValue(main);
+var lt=landscape.GetType();
+string Cover(float x,float z)=>(string)lt.GetMethod("CoverAt",flags).Invoke(landscape,new object[]{x,z});
+bool Near(float x,float z)=>(bool)lt.GetMethod("NearLine",flags).Invoke(landscape,new object[]{x,z,5f});
+var old=UnityEngine.GameObject.Find("Textured mesh forest study");
+var prior=UnityEngine.GameObject.Find("Study33 native forest");if(prior!=null)UnityEngine.Object.DestroyImmediate(prior);
+var root=new UnityEngine.GameObject("Study33 native forest");
+var dir="Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/";
+var tree=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(dir+"P_fwOF_Tree_M_2.prefab");
+var sapling=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(dir+"P_fwOF_TreeSapling_02B.prefab");
+var random=new System.Random(418);
+float Range(float a,float b)=>a+(float)random.NextDouble()*(b-a);
+int trees=0,young=0;
+void Place(UnityEngine.GameObject prefab,float x,float z,float scale){
+ var go=UnityEngine.Object.Instantiate(prefab,root.transform);go.transform.position=new UnityEngine.Vector3(x,landscape.Height(x,z),z);go.transform.rotation=UnityEngine.Quaternion.Euler(0,Range(0,360),0);go.transform.localScale=UnityEngine.Vector3.one*scale;
+ foreach(var collider in go.GetComponentsInChildren<UnityEngine.Collider>())UnityEngine.Object.Destroy(collider);
+}
+for(float z=-110;z<=150;z+=13)for(float x=40;x<=330;x+=13){
+ float px=x+Range(-5,5),pz=z+Range(-5,5);if(Cover(px,pz)!="woodland"||Near(px,pz))continue;
+ float group=UnityEngine.Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);if(group<.34f)continue;
+ bool edge=Cover(px-18,pz)!="woodland"||Cover(px+18,pz)!="woodland"||Cover(px,pz-18)!="woodland"||Cover(px,pz+18)!="woodland";
+ Place(tree,px,pz,edge?Range(.70f,.95f):Range(.95f,1.4f));trees++;
+ if(edge)for(int k=0;k<3;k++){float sx=px+Range(-8,8),sz=pz+Range(-8,8);if(Cover(sx,sz)!="woodland"||Near(sx,sz))continue;Place(sapling,sx,sz,Range(1.2f,2.1f));young++;}
+}
+var wind=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/TriForge Wind Controller.prefab");UnityEngine.Object.Instantiate(wind,root.transform);
+if(old!=null)old.SetActive(false);
+mt.GetField("target",flags).SetValue(main,new UnityEngine.Vector3(170,landscape.Height(170,0)+8,0));mt.GetField("zoom",flags).SetValue(main,60f);mt.GetField("pitch",flags).SetValue(main,34f);mt.GetField("yaw",flags).SetValue(main,-32f);mt.GetField("perspective",flags).SetValue(main,true);mt.GetMethod("ApplyView",flags).Invoke(main,null);
+return new{trees,young,mode="Native materials and creator LOD groups, bounded woodland patch only; stop Play to discard",main.Diagnostic};
+
+} catch(System.Exception e){return e.ToString();}

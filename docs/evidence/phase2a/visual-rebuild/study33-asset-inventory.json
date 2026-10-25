@@ -411,5 +411,11 @@
   ],
   "purpose": "Six creator prefabs, wind controller and asset gallery with referenced dependencies; original URP source bytes and GUIDs unchanged.",
   "license": "Standard Unity Asset Store EULA; explicit user acceptance for this free asset recorded in chat. No CC0 claim.",
-  "status": "Prepared for import; Unity is waiting in ActiveTrustWindow.ShouldProceedAfterTrustCheck. No rendered evaluation yet."
+  "status": "Import completed; native and adapted Editor render trials performed. No production adoption, Chrome export or visual acceptance.",
+  "import": {
+    "job": "db9dc473c1414203b0959444f53be2f8",
+    "completedUtc": "2026-10-25T05:40:03.720619Z",
+    "result": "Selected TriForge URP dependencies imported",
+    "executionTimeMs": 1298513
+  }
 }

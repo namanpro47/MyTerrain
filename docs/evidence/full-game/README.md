@@ -200,3 +200,20 @@ The current export is frozen unchanged at `Builds/Verified/e25c5d3`: **10 files 
 ### Concurrent Peter synchronization reconciled
 
 Before pushing the backup receipt, refreshed main advanced to `de7f83b` with Peter's synchronization, including the study32 perspective opening and calibrated 42-degree Focus angle. Merged it without conflicts and preserved all its source/evidence. `git diff origin/main HEAD -- Assets Packages ProjectSettings scripts` was empty after integration: executable source matches that incoming validated checkpoint exactly. Its [final export and Chrome verification](../peter-sync/README.md#concurrent-final-remote-update) cover the perspective/compact combination. Our earlier performance and frozen-export receipts retain their original source hashes; they are not relabelled as measurements of the new camera. No force-push, public deployment or visual-gate acceptance.
+
+
+### Reconciled perspective performance
+
+The exact Peter-sync `7e2117d` export was copied to `Builds/Verified/peter-7e2117d` after verifying all ten hashes against `docs/evidence/peter-sync/final-build.json`. `perspective-served-assets.json` verifies actual HTTP delivery. Runtime source under Assets/Packages/ProjectSettings/scripts is identical to main `22e5a84`; intervening changes are documentation/evidence only. The prior `e25c5d3` backup remains intact.
+
+Three actual 30-second Chrome paths at **1440×900 CSS/render pixels** now cover the new perspective camera. Each records visible/focused DOM at both ends, no visibility changes/blur events, and zero Unity unfocused frames. Own test tab only; other user/teammate tabs and Unity Editors were preserved. No own build or Play Mode was active. These are single-machine observations, not an isolated-machine causal comparison with earlier timings or low-end-hardware certification.
+
+| Path | Average fps | p95 / p99 | Maximum | Frames over 33.34 ms |
+|---|---:|---:|---:|---:|
+| Opening camera movement | 51.5 | 26 / 36 ms | 80 ms | 37 / 1,545 |
+| Close preview, queue, undo and redo | 50.8 | 23 / 26 ms | 36 ms | 1 / 1,524 |
+| Seven-project village → opening → overview | 46.6 | 32 / 36 ms | 66 ms | 27 / 1,397 |
+
+The documented stable-30 fallback passes; strict p95 16.7 ms remains unmet. Editing contains 14 preview CPU events (maximum **1.0 ms**) and one placement (**18.7 ms** CPU). Eleven preview presentation opportunities span **17.6–27.4 ms**; placement is **35.2 ms**. No frame or interaction exceeds 200 ms. Input-to-first-rAF measures a presentation opportunity, not physical display latency. [Summary and methods](perspective-performance-summary.json) link the three raw receipts.
+
+The existing seven-project ending restores **85.4 / 99.0 / 54.8**, **$5.240M cash**, **$797K commitments**, revision 26. Its completed village fits the cleared landscape space in `perspective-completed-village.png`; no browser error-level entry was returned. The temporary viewport override was reset and the test tab closed. Material, vegetation and whole-scene gaps remain visible; this performance result does not accept Phase 2A, final rehearsals or public release.

@@ -1,0 +1,17 @@
+var root=UnityEngine.GameObject.Find("Study33 native forest");
+var map=new System.Collections.Generic.Dictionary<UnityEngine.Material,UnityEngine.Material>();
+foreach(var r in root.GetComponentsInChildren<UnityEngine.Renderer>()){
+ var mats=r.sharedMaterials;for(int i=0;i<mats.Length;i++){var src=mats[i];if(!map.TryGetValue(src,out var m)){m=new UnityEngine.Material(src);map[src]=m;if(m.shader.name.Contains("FWTreeLeaf")){m.DisableKeyword("_DISTANCEBASEDMASKCLIP_ON");m.SetFloat("_DistanceBasedMaskClip",0);m.SetFloat("_MaskClip",.45f);}}mats[i]=m;}r.sharedMaterials=mats;
+}
+foreach(var lod in root.GetComponentsInChildren<UnityEngine.LODGroup>())lod.ForceLOD(0);
+UnityEngine.RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
+UnityEngine.RenderSettings.ambientSkyColor=new UnityEngine.Color(.54901963f,.7019608f,1);
+UnityEngine.RenderSettings.ambientEquatorColor=new UnityEngine.Color(1.4980394f,1.3380669f,1.1616871f);
+UnityEngine.RenderSettings.ambientGroundColor=new UnityEngine.Color(.078431375f,.16862746f,.03137255f);
+UnityEngine.DynamicGI.UpdateEnvironment();
+var cam=UnityEngine.Camera.main;
+var data=cam.GetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>()??cam.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
+data.renderPostProcessing=true;data.volumeLayerMask=1;
+var vol=new UnityEngine.GameObject("Study33 creator grade").AddComponent<UnityEngine.Rendering.Volume>();vol.isGlobal=true;vol.priority=100;vol.weight=1;
+vol.sharedProfile=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Rendering.VolumeProfile>("Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/Global Volume Profile.asset");
+return new{hdr=UnityEngine.Rendering.Universal.UniversalRenderPipeline.asset.supportsHDR,post=data.renderPostProcessing,layer=vol.gameObject.layer,mask=data.volumeLayerMask.value,vol.enabled,profile=vol.sharedProfile.name,effects=vol.sharedProfile.components.Select(c=>new{c.name,c.active}).ToArray()};
