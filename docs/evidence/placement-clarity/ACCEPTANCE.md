@@ -46,3 +46,7 @@ Final Chrome request123 follows short dialog/numeric checks and the community bu
 ### Queued pin candidate
 
 Commit `d9df021` completes the miniature/check pin in source, on top of merged origin/main19e7eae. It reuses the catalog sprite shown by the tool, inherits the existing status label's billboard/scale/lifetime, draws a check without a font-glyph dependency, and adds no raycaster or command behavior. Repeated marker refresh updates the existing miniature; missing art retains the named ground boundary. `git diff --check` passes. Unity compilation and actual Chrome rendering are pending; this is not in the frozen19e7eae export. The next presentation owner has been offered the one-file candidate for coordinated validation. Final frozen-export verification is now request125 under `placement-pin-final-20261025`.
+
+## Release walkthrough stills inspected
+
+The `chrome-19e7eae` public walkthrough supplied actual1728×940 opening and Year2 housing-preview captures, copied with hashes in `release-walkthrough-capture-provenance.json`. Visual inspection confirms that the dock instruction now clears the project cards, closing standard-desktop spacing confirmation for that state. The selected miniature, local capsule and inspector are visible together. These stills do not prove toast recovery,125% zoom, compact larger text, pointer guards or timing. They also reproduce the large opening map-edge wedge and redundant dock/local instructions. The review board now separates this latest capture from its nine older770d4c0 interaction states.
