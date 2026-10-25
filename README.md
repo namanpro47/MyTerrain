@@ -2,6 +2,8 @@
 
 **Updated product direction (October 24):** Terra is being built around **plan → budget → End Year → consequences → adapt**, through ten years in Meadowbrook Valley. The [revised implementation plan](IMPLEMENTATION_PLAN.md) stages a playable three-year loop, the full [12-action budget/effects catalog and three meters](docs/ACTIONS_AND_EFFECTS.md), ten-year balance, and comparison/replay. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is retained with its adoption decision. This is intended behavior; the current live placement UI has not yet been replaced by the annual loop. The visual rebuild remains an unmet gate.
 
+**Annual chapters:** [run the local Gemini service and chapter playtest](docs/annual-chapters.md). Free-tier adapter, persistent yearly chapters and explicit offline fallback; final main-game integration and a credentialed provider test remain separate.
+
 **Annual town foundation:** [runtime, API and engine handoff](docs/annual-town-runtime.md) · [Peter's updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). The state module is additive; the current scene has not yet been wired to annual controls.
 
 A browser-based rural land-use game in development. Phase 2 delivers the real Meadowbrook Valley landscape on the frozen v1 interaction foundation.

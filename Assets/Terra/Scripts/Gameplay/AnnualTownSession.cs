@@ -17,6 +17,7 @@ namespace Terra.Gameplay
         public event Action<AnnualTownSnapshot> Changed;
         public bool Initialized => town != null;
         public AnnualTownSnapshot State => RequireTown().Snapshot();
+        public AnnualTownDefinition Definition => RequireTown().Definition;
         public long AvailableCents => RequireTown().AvailableCents;
         public long CommittedCents => RequireTown().CommittedCents;
         public long QueuedCommitmentCents => RequireTown().QueuedCommitmentCents;
@@ -49,8 +50,8 @@ namespace Terra.Gameplay
         public void ContinueYear(int expectedRevision)
         { RequireTown().ContinuePlanning(expectedRevision); Publish(); }
 
-        // TODO(simulation service): call BeginYear once, pass its frozen input to an async provider,
-        // validate its bounded structured output through CompleteYear, then display LatestSummary.
+        // AnnualChapterSession supplies optional asynchronous chapters around this boundary.
+        // A future approved causal pack may add bounded effects; chapter v1 only narrates results.
         // Keep retries on the same request ID. Money, lifecycle and scores remain engine-owned.
         // Explicit offline placeholder: no LLM/network call or scientific prediction is made here.
         public TownYearReport EndYearOffline(string requestId)

@@ -15,11 +15,17 @@ using UnityEngine;
 public sealed class AnnualTownPlaytestWindow : EditorWindow
 {
     AnnualTownSession session;
+    AnnualChapterSession chapters;
     AnnualTownDefinition definition;
     int selectedSite;
     Vector2 scroll;
     string error;
     bool showRules;
+    bool useAi;
+    string chapterEndpoint = "http://127.0.0.1:8787/chapter";
+
+    void OnEnable() { EditorApplication.update += PollChapter; }
+    void PollChapter() { if (chapters != null && chapters.Busy) { chapters.Poll(); Repaint(); } }
 
     [MenuItem("Terra/Annual Town/Playtest Year Loop")]
     public static void Open()
@@ -42,12 +48,15 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
             nextSession.Initialize(nextDefinition, "playtest-" + Guid.NewGuid().ToString("N"));
             if (session != null) DestroyImmediate(session.gameObject);
             definition = nextDefinition; session = nextSession;
+            chapters = next.AddComponent<AnnualChapterSession>();
+            chapters.town = session; chapters.autoSave = true;
+            chapters.saveKey = "terra.annual-chapter-playtest.v1";
             selectedSite = 0; scroll = Vector2.zero;
         }
         catch { DestroyImmediate(next); throw; }
     }
 
-    void OnDisable() { if (session != null) DestroyImmediate(session.gameObject); }
+    void OnDisable() { EditorApplication.update -= PollChapter; if (session != null) DestroyImmediate(session.gameObject); }
     void Attempt(Action action)
     {
         try { action(); error = null; GUI.FocusControl(null); }
@@ -69,8 +78,10 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
     void DrawWindow()
     {
         GUILayout.Label("Meadowbrook Valley / annual loop test", EditorStyles.boldLabel);
-        EditorGUILayout.HelpBox("Developer playtest only. Uses the selected rural map's sites; leaves the main scene and HUD untouched. Closing this window discards the test run; export first to keep it.", MessageType.Info);
-        EditorGUILayout.HelpBox(AnnualTownSummary.PlaceholderNotice, MessageType.Warning);
+        EditorGUILayout.HelpBox("Developer playtest for the same rural map. Submitted years and chapters autosave locally; export JSON to keep a separate copy. Start a run, then Restore autosave to resume.", MessageType.Info);
+        EditorGUILayout.HelpBox(AnnualChapters.Notice, MessageType.Warning);
+        useAi = EditorGUILayout.Toggle("AI chapter (Gemini service)", useAi);
+        if (useAi) chapterEndpoint = EditorGUILayout.TextField("Chapter service URL", chapterEndpoint);
         using (new EditorGUILayout.HorizontalScope())
         {
             if (GUILayout.Button(session == null ? "Start test run" : "Reset test run")) Attempt(NewRun);
@@ -78,10 +89,18 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
             {
                 if (GUILayout.Button("Export save JSON")) Attempt(Export);
                 if (GUILayout.Button("Import save JSON")) Attempt(Import);
+                if (GUILayout.Button("Restore autosave")) Attempt(() => chapters.RestoreSaved());
             }
         }
         if (!string.IsNullOrEmpty(error)) EditorGUILayout.HelpBox(error, MessageType.Error);
         if (session == null) return;
+        if (!string.IsNullOrEmpty(chapters.Error)) EditorGUILayout.HelpBox(chapters.Error, MessageType.Error);
+        if (chapters.Busy)
+        {
+            EditorGUILayout.HelpBox("Writing this year's chapter… The submitted plan is saved. The year advances only after a valid chapter arrives.", MessageType.Info);
+            if (GUILayout.Button("Stop waiting (keep year pending)")) chapters.StopRequest();
+            return;
+        }
         var state = session.State;
         EditorGUILayout.LabelField("Year " + state.year + " / " + definition.years, state.phase.ToString(), EditorStyles.boldLabel);
         EditorGUILayout.LabelField("Public budget", definition.currency + " / " + definition.priceYear + " prices (authored demo)");
@@ -96,14 +115,20 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
         else if (state.phase == TownPhase.Resolving)
         {
             EditorGUILayout.HelpBox("The year's request is frozen. Retry keeps the same input; no budget is charged before acceptance.", MessageType.Info);
-            if (GUILayout.Button("Retry placeholder simulation")) Attempt(() => session.EndYearOffline(state.pendingRequest.requestId));
-            if (GUILayout.Button("Return to unsubmitted plan")) Attempt(() => session.CancelResolution(state.revision));
+            if (GUILayout.Button("Retry AI chapter")) Attempt(ResolveAi);
+            if (GUILayout.Button("Use labelled offline chapter")) Attempt(() => chapters.ResolveOffline());
+            if (GUILayout.Button("Return to unsubmitted plan")) Attempt(() => chapters.CancelResolution());
         }
         else Review(state);
         EditorGUILayout.EndScrollView();
         // Stable footer: the next-year control stays reachable even with many site details.
         if (state.phase == TownPhase.Reviewing && GUILayout.Button("Continue to Year " + (state.year + 1), GUILayout.Height(32)))
-            Attempt(() => { session.ContinueYear(state.revision); scroll = Vector2.zero; });
+            Attempt(() => { chapters.Continue(); scroll = Vector2.zero; });
+        if (state.phase != TownPhase.Completed && GUILayout.Button("See my ten-year future"))
+        {
+            if (EditorUtility.DisplayDialog("Finish this run?", "Keep your current plan, then advance remaining years without adding new interventions. Existing costs continue.", "Continue to Year 10", "Keep planning"))
+                Attempt(() => { if (useAi) { chapters.endpoint = chapterEndpoint; chapters.FinishOnline(); } else chapters.FinishOffline(); });
+        }
     }
 
     void Planning(AnnualTownSnapshot state)
@@ -141,11 +166,23 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
         using (new EditorGUI.DisabledScope(!session.CanUndo))
             if (GUILayout.Button("Undo last plan edit")) Attempt(() => session.UndoPlan(state.revision));
         if (GUILayout.Button(state.queue.Length == 0 ? "Conclude year / wait" : "Conclude year / commit plan", GUILayout.Height(32)))
-            Attempt(() => { session.EndYearOffline(state.runId + "/year-" + state.year); scroll = Vector2.zero; });
+            Attempt(() => { if (useAi) ResolveAi(); else chapters.ResolveOffline(); scroll = Vector2.zero; });
     }
 
     void Review(AnnualTownSnapshot state)
     {
+        var chapter = chapters.Latest;
+        if (chapter != null && chapter.consequences.year == state.year)
+        {
+            GUILayout.Label(chapter.chapter.title, EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox((chapter.mode == "offline" ? "OFFLINE CHAPTER\n" : "AI-WRITTEN CHAPTER\n") + chapter.chapter.introduction, MessageType.Info);
+            foreach (var card in chapter.chapter.cards)
+            {
+                GUILayout.Label(card.title, EditorStyles.boldLabel);
+                EditorGUILayout.LabelField(card.explanation, EditorStyles.wordWrappedLabel);
+                if (showRules) EditorGUILayout.LabelField("Evidence: " + string.Join(", ", card.factIds), EditorStyles.miniLabel);
+            }
+        }
         var summary = session.LatestSummary;
         GUILayout.Label(summary.finalYear ? "Year " + summary.year + " / final results" : "Year " + summary.year + " / end-year summary", EditorStyles.boldLabel);
         EditorGUILayout.HelpBox(summary.headline + " " + summary.continuingProjects + " existing projects carried forward.\n" + summary.scenario, MessageType.Info);
@@ -175,15 +212,16 @@ public sealed class AnnualTownPlaytestWindow : EditorWindow
     }
 
     string ActionTitle(string site, string action) => definition.actions.First(a => a.siteId == site && a.actionId == action).title;
+    void ResolveAi() { chapters.endpoint = chapterEndpoint; chapters.ResolveOnline(); }
     static string Money(long cents) => (cents / 100m).ToString("C2", CultureInfo.GetCultureInfo("en-US"));
     void Export()
     {
         string path = EditorUtility.SaveFilePanel("Export annual playtest", "", "terra-annual-save.json", "json");
-        if (!string.IsNullOrEmpty(path)) File.WriteAllText(path, session.ExportSave());
+        if (!string.IsNullOrEmpty(path)) File.WriteAllText(path, chapters.ExportSave());
     }
     void Import()
     {
         string path = EditorUtility.OpenFilePanel("Import annual playtest", "", "json");
-        if (!string.IsNullOrEmpty(path)) { session.ImportSave(File.ReadAllText(path)); scroll = Vector2.zero; }
+        if (!string.IsNullOrEmpty(path)) { chapters.ImportSave(File.ReadAllText(path)); scroll = Vector2.zero; }
     }
 }

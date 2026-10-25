@@ -4,7 +4,7 @@ User request: merge the delivered branches and resolve conflicts. This is integr
 
 ## Inputs and preservation
 
-- `origin/main` at `e247431`: annual state/public ledger, annual Editor playtest, 17 metric action assets and categorized placement UI. `origin/codex/annual-town-state` is an ancestor.
+- `origin/main` at `e247431` (initial delivery; supplemental merge through `514d312` below): annual state/public ledger, annual Editor playtest, 17 metric action assets and categorized placement UI. `origin/codex/annual-town-state` is an ancestor.
 - `codex/annual-gameplay-integration` at `ee7e0ef`: prepared main + Phase 3/4 integration.
 - `codex/phase4-consequences` at `5e9621b`: completed runoff delivery with Phase 3 carried as `2f74c40` / `d17925d`.
 - `origin/codex/phase3-editing` at `c49a3c2`: original delivered editing branch; its history was merged after verifying the carried patches with `git range-diff`.
@@ -41,3 +41,10 @@ The first build completed despite Pipeline HTTP-service errors during a timed-ou
 The annual session is present as a module and Editor playtest. The player-facing annual queue, USD budget/meters and End Year/report loop still need their separately scoped integration. The live scene continues prototype credit accounting. This merge does not claim Phase 3A/3B or full catalog economic effects are complete.
 
 TN-01/03/04/05, CS-02/04 and AX-01 govern retained scenery, catalog, previews and feedback. Study19b is the latest pre-merge visual evidence, a rejected baseline rather than an accepted Phase 2A benchmark. Browser smoke testing can establish merge compatibility; it cannot establish Terra Nil visual parity, performance acceptance or novice usability.
+
+
+## Published work arriving during verification
+
+The final pre-push fetch found `origin/main` advanced to `514d312` via `a82c74f`: annual chapter contracts/session, offline chapters, a local optional Gemini narration adapter and ignored dotenv loading. Merged these published commits as well. Only documentation conflicted; retained the current annual product direction and appended their bounded module handoff. No provider credentials were read and no real provider request was sent. This is distinct from the unverified annual UI branch mentioned above.
+
+The Web export/Chrome evidence above is pinned to `49f86e9`, before this supplemental chapter merge. The chapter additions do not modify TerraMain, TerraHud, scenery or the enabled scene. They receive fresh Unity compilation and chapter/annual/consequences tests; no second browser-build claim is made for them.

@@ -1,5 +1,7 @@
 # Annual town foundation — implementation and handoff
 
+**Latest extension, October 24:** [Annual chapters and Gemini connection](annual-chapters.md) now wraps this foundation with asynchronous narration, first-response caching, save/reload, retry/offline controls and ten-year continuation in the isolated playtest. The historical implementation notes below describe the original foundation checkpoint. Numeric outcomes still use authored rules; an LLM causal-effects engine is not claimed.
+
 **Scope authorized by Peter, October 24, 2026:** implement annual town state, a USD public ledger and three outcomes per year while the engine owner continues the basic game/presentation. Undo/refunds apply only before submitting the year. This is an additive foundation; it does not finish the live game's annual controls, action catalog, visual rebuild, LLM service or scientific modeling.
 
 ## Product input and project location

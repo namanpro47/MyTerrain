@@ -11,6 +11,24 @@ Verification: 3,073 Unity assertions (27 Phase 1, 139 Phase 2, 1,763 editing inc
 This source merge does not complete the annual player loop, accept Phase 2A visuals, or publish a new website. Annual state and its Editor playtest are present; the playable scene still uses prototype proposal credits. New visual-study files created concurrently were left outside this merge's follow-up changes. TN-01/03/04/05, CS-02/04 and AX-01 remain the presentation reference. The historical module and planning entries below describe their original verification contexts.
 
 
+**Supplemental published merge:** The pre-push fetch also brought `a82c74f` / `514d312` annual chapters and local narration/dotenv support. These additive modules are integrated with their bounded handoff; Web/Chrome evidence above remains pinned to `49f86e9`, before this supplement. Fresh chapter/annual/consequences checks are recorded in the integration evidence. No provider request or public deployment was performed.
+
+## Local chapter environment file — October 24, 2026
+
+Peter requested an editable `.env` and an explanation of secret protection. The chapter server now loads the repository-root `.env` on local startup; existing process variables take priority. The file is ignored by Git, excluded by `.vercelignore`, and kept outside the static Unity export. A committed `.env.example` documents the empty key slot. Vercel uses injected variables rather than local dotenv loading.
+
+**Verification:** 33 chapter/service checks (five new dotenv cases), a synthetic-key server startup check, `/.env` returning 404, no synthetic key in the startup log, and no dotenv files in the published server output. No real Gemini request, Vercel configuration change or deployment was performed. [Setup and security boundaries](annual-chapters.md#keeping-the-provider-key-private). Public hosting still needs request/session authorization, rate/usage limits and durable storage; CORS is not authentication.
+
+## Annual chapters and Gemini adapter — separately authorized October 24, 2026
+
+Peter requested next-chapter progression and a cheapest/free LLM connection. [Annual chapters](annual-chapters.md) adds a .NET 8 localhost service using Gemini 2.5 Flash-Lite, up to three factual cards per year, persistent first-response receipts, explicit offline fallback, chapter autosave/restore, next-year planning and confirmed ten-year continuation. The main scene/HUD/renderer remain with the engine owner.
+
+**Validated:** 94 existing annual model checks, 28 chapter/service checks and 16 Unity integration checks. A real Unity-serialized request is replayed by the server as a regression fixture. Interactive testing found and fixed .NET/Mono round-trip number formatting differences in v1 hashes; Unity's existing save format is preserved. HTTP checks confirmed missing-key 503, malformed-input 422, rejected-origin 403 and allowed-preflight 204.
+
+Actual Windows Editor controls verified queued spending, a missing-key request leaving Year 1/cash unchanged, restart/autosave restoration of that pending request, explicit offline acceptance, Year 2 planning and confirmed Year 10 completion. [Missing-key recovery](evidence/annual-town/chapter-missing-key.png), [Year 1 chapter](evidence/annual-town/chapter-year1-offline.png), [Year 2 planning](evidence/annual-town/chapter-year2-planning.png), [Year 10](evidence/annual-town/chapter-year10-offline.png). [Verification receipt](evidence/annual-town/chapter-verification.json).
+
+**Limits:** no Gemini credential was available, so no real model call, quota, latency or prose-quality pass is claimed. This version narrates deterministic illustrative outcomes; approved causal rules for AI-generated effects remain unimplemented. No hosted service, public deployment, main-game annual UI integration, same-weather no-action comparison, browser acceptance or Phase 2A certification. Unity reported missing render-pipeline package-cache UI files during import; these did not prevent compilation or the chapter checks. Unrelated Unity-generated settings/meta changes were excluded.
+
 ## Categorized action UI — separately authorized October 24, 2026
 
 Peter requested the 17 PRD actions in the playable UI, grouped by use, plus an explanation of land/water restrictions. The [catalog integration](build-action-ui.md) adds **Farming, Residential, Community, Utilities and Nature** tabs, matching model icons, full-scale previews/placement, eligibility counts and explicit restriction feedback. All 17 are selectable; 16 fit at least one existing field. The 150 × 150 m wind site fits none and is not rescaled. Swales retain their two authored eligible sites, and protected/background land stays unavailable.
