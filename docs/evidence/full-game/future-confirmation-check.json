@@ -1,0 +1,54 @@
+{
+  "output": null,
+  "diagnostics": [],
+  "success": true,
+  "result": {
+    "checks": 17,
+    "results": [
+      "Planning Year1: confirmation matches independently advanced next report",
+      "Planning Year1: introduction matches phase",
+      "Planning Year1: opening confirmation leaves live state byte-identical",
+      "Planning Year1: cancel leaves live state byte-identical",
+      "Resolving Year1: confirmation matches independently advanced next report",
+      "Resolving Year1: introduction matches phase",
+      "Resolving Year1: opening confirmation leaves live state byte-identical",
+      "Resolving Year1: cancel leaves live state byte-identical",
+      "Reviewing Year1: confirmation matches independently advanced next report",
+      "Reviewing Year1: introduction matches phase",
+      "Reviewing Year1: opening confirmation leaves live state byte-identical",
+      "Reviewing Year1: cancel leaves live state byte-identical",
+      "Reviewing Year9: confirmation matches independently advanced next report",
+      "Reviewing Year9: introduction matches phase",
+      "Reviewing Year9: opening confirmation leaves live state byte-identical",
+      "Reviewing Year9: cancel leaves live state byte-identical",
+      "original player run unchanged"
+    ],
+    "views": [
+      {
+        "label": "Planning Year1",
+        "nextYear": 1,
+        "cash": 1092300000,
+        "text": "<size=140%><b>See my ten-year future?</b></size>\n\nSubmit the current reviewed plan, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\nCurrent plan: 1 projects; expected Year 1 closing cash $10,923,000.\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried."
+      },
+      {
+        "label": "Resolving Year1",
+        "nextYear": 1,
+        "cash": 1092300000,
+        "text": "<size=140%><b>See my ten-year future?</b></size>\n\nSubmit the current reviewed plan, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\nCurrent plan: 1 projects; expected Year 1 closing cash $10,923,000.\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried."
+      },
+      {
+        "label": "Reviewing Year1",
+        "nextYear": 2,
+        "cash": 1192100000,
+        "text": "<size=140%><b>See my ten-year future?</b></size>\n\nContinue from accepted Year 1, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\nCurrent plan: 0 projects; expected Year 2 closing cash $11,921,000.\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried."
+      },
+      {
+        "label": "Reviewing Year9",
+        "nextYear": 10,
+        "cash": 1975500000,
+        "text": "<size=140%><b>See my ten-year future?</b></size>\n\nContinue from accepted Year 9, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\nCurrent plan: 0 projects; expected Year 10 closing cash $19,755,000.\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried."
+      }
+    ],
+    "frame": 2628
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "output": null,
+  "diagnostics": [],
+  "success": true,
+  "result": {
+    "checks": 15,
+    "results": [
+      "fixture exercises texture/color name collision",
+      "color material receives requested tint and preserves alpha",
+      "texture property remains intact",
+      "unsupported texture property never enters original-color cache",
+      "supported tint remains idempotent with mixed shader types",
+      "supported color and alpha restore exactly",
+      "source materials remain unchanged",
+      "PROPOSED leaves unsupported ordinary Renderer property block intact",
+      "PROPOSED preserves native texture assignment",
+      "SUSPENDED leaves unsupported ordinary Renderer property block intact",
+      "SUSPENDED preserves native texture assignment",
+      "ESTABLISHING leaves unsupported ordinary Renderer property block intact",
+      "ESTABLISHING preserves native texture assignment",
+      "live annual ledger byte-identical",
+      "analytical terrain byte-identical"
+    ],
+    "frame": 3367
+  }
+}
