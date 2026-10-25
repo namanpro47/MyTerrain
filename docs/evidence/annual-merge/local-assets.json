@@ -1,0 +1,96 @@
+{
+  "files": [
+    {
+      "path": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+      "bytes": 76877,
+      "status": 200,
+      "sha256": "26e79c1d7db67e69ef46b24a96764aceb22a8b2d9c40dd59c5f9bde4643537eb",
+      "matches": true
+    },
+    {
+      "path": "Build/7378e65aa85d859a8c9a1d442c4f6a9a.data.unityweb",
+      "bytes": 25970474,
+      "status": 200,
+      "sha256": "1ff23922d0fdd2823a7ee57504e80e2c1a1b02cac29a327703da0b73d3bdaf91",
+      "matches": true
+    },
+    {
+      "path": "Build/9022a018ecb5118b600e68c2b6b5c361.wasm.unityweb",
+      "bytes": 9648043,
+      "status": 200,
+      "sha256": "bc9eaa42aa361afa6f8b767a5dd87207477459752c44acc80a36df757f589204",
+      "matches": true
+    },
+    {
+      "path": "Build/f8901f30eccd19e55507a9b9095c5572.loader.js",
+      "bytes": 48779,
+      "status": 200,
+      "sha256": "04c4659d3827e8532a9968907449352f3bbbc929b96fd48519eb845d4a70ef05",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/fixture-v1/manifest.json",
+      "bytes": 1681,
+      "status": 200,
+      "sha256": "d6ef8e709ea60052d57ac52cfbb6a198eef2552541a845fd5131e06ede5e6573",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/fixture-v1/scenario.json",
+      "bytes": 2248,
+      "status": 200,
+      "sha256": "eebe27f84514c894ebcfd07281ae2740f5a610887008a7d41c0ec066d281cce6",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/fixture-v1/world.json",
+      "bytes": 7448,
+      "status": 200,
+      "sha256": "04115619580381ad6b3ea3e14d389a7ed4e55750f68f999c7b3e3d5987d8ae77",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "status": 200,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "status": 200,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "status": 200,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "matches": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "status": 200,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 6210,
+      "status": 200,
+      "sha256": "6c31fdfb812ae56b9d0074584839cb35bcc9b2b487a76a530e7fe1eb7f3f1c2e",
+      "matches": true
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 248,
+      "status": 200,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6",
+      "matches": true
+    }
+  ],
+  "totalBytes": 36717606
+}

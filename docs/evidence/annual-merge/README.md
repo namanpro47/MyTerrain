@@ -24,3 +24,11 @@ Patterns TN-03/04/05/06/08, CS-01/02/03 and AX-01 guide the retained annual pres
 ## Supplemental published chapter update
 
 The pre-push fetch found `724ad02` on main: a supported Gemini model default, clearer unavailable-model errors, prompt refinement and the owner’s live-provider evidence. Merged that published update as well, preserving both status entries. The combined standalone chapter suite now passes 38 checks. This merge did not repeat a provider call or read the credential. These service/docs/test changes do not alter the Unity build sources.
+
+## Combined browser export
+
+[Build result](build-result.json): success in 156.36 seconds, zero errors and five warnings. [Local asset verification](local-assets.json): 13 files, 36,717,606 bytes; every file returned HTTP 200 and matched the exported bytes. BuildReport’s smaller total-size value does not describe the full export. [Source hashes](source-hashes.json) remained unchanged through build and browser checks; supplemental service changes are outside the player sources.
+
+Chrome at 1728 × 940: queued Traditional farmland at West field, leaving cash at $10M and reserving $120K. Undo removed the reservation; redo restored it. The review showed $102K due, $1M appropriation, $10.898M closing cash and $18K future obligations. End Year accepted exactly one operating project, cleared the queue and produced the [Year 1 report](year1-report.png): Economic 54.0, Social 38.9, Environmental 27.4. Plan Year 2 then Undo preserved the accepted project and cash (revision stayed 5).
+
+Reload restored Year 2 Planning at revision 5, cash $10,898,000, zero queued actions and one accepted asset. [Browser logs](browser-logs.json) contain no error-level events. Existing optional shader and persistence warnings remain; no performance or broader viewport acceptance is inferred from this smoke test.

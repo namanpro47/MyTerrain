@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "job status",
+  "data": {
+    "jobId": "423f40b56efa407386e6a546de8252ef",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": {
+        "result": "Succeeded",
+        "errors": 0,
+        "warnings": 5,
+        "seconds": 156.358484,
+        "bytes": 973185
+      },
+      "executionTimeMs": 157259,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T01:49:07.42321Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}
