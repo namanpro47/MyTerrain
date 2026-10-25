@@ -1,3 +1,5 @@
+> **Submission checkpoint:** See [SUBMISSION_HANDOFF.md](SUBMISSION_HANDOFF.md) for the current delivered/deferred split. Historical entries below retain their original tested builds. Unverified pin/camera changes are excluded from the delivery runtime.
+
 # Placement acceptance ledger
 
 Implementation checkpoint: `6e188ee`. Native fixture: base `13a15a4` plus Field Notes. Combined integration inspected: `4257a7a` (read-only source review). The combined owner preserved parcel-centered ResetView, audio interception, Field Notes scroll and accepted financial history while incorporating the placement input guard. Source review is not browser verification.
