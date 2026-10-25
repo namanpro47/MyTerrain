@@ -15,6 +15,10 @@ namespace Terra.Gameplay
         public string endpoint = "http://127.0.0.1:8787/chapter";
         public string saveKey = "terra.annual-chapters.v1";
         public bool autoSave = true;
+        public bool useJavaScriptBackend = true;
+        public bool fallbackWhenUnavailable = true;
+        // Optional trusted-development credential; never serialize a shared token into a Web build.
+        [NonSerialized] public string bearerToken;
         public AnnualTownSession town;
         public event Action StateChanged;
         public bool Busy => operation != null;
@@ -27,6 +31,9 @@ namespace Terra.Gameplay
         UnityWebRequestAsyncOperation operation;
         AnnualChapterRequest frozen;
         System.Diagnostics.Stopwatch resolutionTiming;
+        string guestToken;
+        double guestExpiresAt;
+        bool requestingSession, refreshedSession;
 
         public void ResolveOnline()
         {
@@ -41,15 +48,31 @@ namespace Terra.Gameplay
                 frozen = Freeze();
                 if (frozen == null) return; // Already reviewing/completed: never reroll.
                 Persist(); // Save frozen request before the first network request.
-                request = new UnityWebRequest(endpoint, "POST") {
-                    uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonUtility.ToJson(frozen))),
-                    downloadHandler = new DownloadHandlerBuffer(), timeout = 35
-                };
-                request.SetRequestHeader("Content-Type", "application/json");
-                operation = request.SendWebRequest();
-                Publish();
+                refreshedSession = false;
+                SendChapterOrSession();
             }
             catch (Exception error) { Fail(error.Message); }
+        }
+
+        void SendChapterOrSession()
+        {
+            bool needsGuest = useJavaScriptBackend && new Uri(endpoint).Scheme == "https" && string.IsNullOrWhiteSpace(bearerToken);
+            requestingSession = needsGuest && (string.IsNullOrEmpty(guestToken) || Time.realtimeSinceStartupAsDouble >= guestExpiresAt);
+            string address = requestingSession ? new Uri(new Uri(endpoint), "/session").AbsoluteUri : endpoint;
+            string payload = requestingSession ? "{}" : useJavaScriptBackend
+                ? JsonUtility.ToJson(AnnualChapters.NarrationRequest(frozen)) : JsonUtility.ToJson(frozen);
+            request = new UnityWebRequest(address, "POST") {
+                uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(payload)),
+                downloadHandler = new DownloadHandlerBuffer(), timeout = 35
+            };
+            request.SetRequestHeader("Content-Type", "application/json");
+            if (!requestingSession)
+            {
+                string credential = needsGuest ? guestToken : bearerToken;
+                if (!string.IsNullOrWhiteSpace(credential)) request.SetRequestHeader("Authorization", "Bearer " + credential);
+            }
+            operation = request.SendWebRequest();
+            Publish();
         }
 
         AnnualChapterRequest Freeze()
@@ -69,6 +92,11 @@ namespace Terra.Gameplay
             if (!Busy || !operation.isDone) return;
             try
             {
+                if (!requestingSession && request.responseCode == 401 && !refreshedSession && !string.IsNullOrEmpty(guestToken))
+                {
+                    refreshedSession = true; guestToken = null;
+                    ReleaseRequest(); SendChapterOrSession(); return;
+                }
                 if (request.result != UnityWebRequest.Result.Success)
                 {
                     string message = "Chapter request failed. Retry this year or choose offline.";
@@ -78,13 +106,28 @@ namespace Terra.Gameplay
                     } catch { }
                     throw new InvalidOperationException(message);
                 }
+                if (requestingSession)
+                {
+                    var session = JsonUtility.FromJson<GuestSession>(request.downloadHandler.text);
+                    if (session == null || session.token == null || session.token.Length != 43
+                        || session.token.Any(c => !(char.IsLetterOrDigit(c) || c == '-' || c == '_'))
+                        || session.expiresIn < 60 || session.expiresIn > 7200)
+                        throw new InvalidOperationException("The chapter session is unavailable.");
+                    guestToken = session.token; guestExpiresAt = Time.realtimeSinceStartupAsDouble + session.expiresIn - 30;
+                    ReleaseRequest(); SendChapterOrSession(); return;
+                }
                 var receipt = JsonUtility.FromJson<AnnualChapterReceipt>(request.downloadHandler.text);
                 ReleaseRequest();
                 Accept(receipt);
-                if (Finishing && town.State.phase != TownPhase.Completed) { Continue(); ResolveOnline(); }
-                else Finishing = false;
+                ContinueFinishing();
             }
             catch (Exception error) { Fail(error.Message); }
+        }
+
+        void ContinueFinishing()
+        {
+            if (Finishing && town.State.phase != TownPhase.Completed) { Continue(); ResolveOnline(); }
+            else Finishing = false;
         }
 
         void Accept(AnnualChapterReceipt receipt)
@@ -146,7 +189,22 @@ namespace Terra.Gameplay
         public void StopRequest() { ClearRequest(); Publish(); }
         void ClearRequest() { Finishing = false; ReleaseRequest(); frozen = null; }
         void ReleaseRequest() { operation = null; if (request != null) { request.Abort(); request.Dispose(); request = null; } }
-        void Fail(string message) { Error = message; StopRequest(); }
+        void Fail(string message)
+        {
+            ReleaseRequest();
+            if (fallbackWhenUnavailable && frozen != null)
+            {
+                try
+                {
+                    var receipt = AnnualChapters.Offline(frozen);
+                    receipt.chapter.introduction = "AI unavailable. Local summary from your saved game results.\n\n" + receipt.chapter.introduction;
+                    // The same frozen request and normal receipt validator own the transition.
+                    Accept(receipt); Error = null; ContinueFinishing(); return;
+                }
+                catch (Exception fallbackError) { message = "The year is still pending. " + fallbackError.Message; }
+            }
+            Error = message; StopRequest();
+        }
         // Scene teardown may have already destroyed subscribers' HUD objects.
         // Cancel transport silently; the town's frozen request remains retryable.
         void OnDisable() { ClearRequest(); }
@@ -200,5 +258,6 @@ namespace Terra.Gameplay
                 try { listener(); } catch (Exception error) { Debug.LogException(error, this); }
         }
         [Serializable] sealed class ChapterError { public string error; }
+        [Serializable] sealed class GuestSession { public string token; public int expiresIn; }
     }
 }

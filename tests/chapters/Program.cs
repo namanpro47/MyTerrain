@@ -4,6 +4,21 @@ using Terra.Chapters;
 using Terra.Contracts;
 using Terra.Core;
 
+if (args.Length == 3 && args[0] == "--export-narration") {
+    var request = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
+    Directory.CreateDirectory(args[2]);
+    await File.WriteAllTextAsync(Path.Combine(args[2], "request.json"), ChapterJson.Write(AnnualChapters.NarrationRequest(request)));
+    await File.WriteAllTextAsync(Path.Combine(args[2], "chapter.json"), ChapterJson.Write(AnnualChapters.Offline(request).chapter));
+    Console.WriteLine("Exported engine-validated JavaScript narration fixture.");
+    return;
+}
+if (args.Length == 3 && args[0] == "--check-narration-receipt") {
+    var request = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
+    var receipt = ChapterJson.Read<AnnualChapterReceipt>(await File.ReadAllTextAsync(args[2]));
+    AnnualChapters.ValidateReceipt(request, receipt);
+    Console.WriteLine("JavaScript receipt matches the original Unity request and exact engine outcomes.");
+    return;
+}
 if (args.Length == 2 && args[0] == "--unity-fixture") {
     var unityInput = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
     AnnualChapters.Preview(unityInput);
@@ -60,6 +75,11 @@ var preview = AnnualChapters.Preview(input);
 Check(preview.CashCents == 902500 && preview.History.Length == 1, "Preview must use the real public ledger.");
 Check(ChapterJson.Write(input) == original && town.CashCents == 1000000 && town.Phase == TownPhase.Resolving, "Preview mutated live input.");
 var offline = AnnualChapters.Offline(input);
+var narration = AnnualChapters.NarrationRequest(input);
+Check(narration.protocol == "terra-narration-v1" && narration.clientFingerprint == AnnualChapters.Fingerprint(input), "JavaScript envelope must bind the frozen input without changing legacy hashes.");
+Check(ChapterJson.Write(narration.consequences) == ChapterJson.Write(offline.consequences), "JavaScript request cannot propose different numeric consequences.");
+Check(ChapterJson.Write(narration.facts) == ChapterJson.Write(AnnualChapters.Facts(preview)), "JavaScript facts must come from validated engine results.");
+Check(ChapterJson.Write(input) == original, "Narration transport must not mutate the live/frozen input.");
 AnnualChapters.ValidateReceipt(input, offline);
 Check(offline.mode == "offline" && offline.chapter.cards.Length == 3, "Offline path must be labelled.");
 Check(offline.chapter.cards[0].explanation.Contains("$9,025.00"), "Offline budget must show the accepted closing cash.");

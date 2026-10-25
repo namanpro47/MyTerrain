@@ -68,6 +68,15 @@ namespace Terra.Core
             return expected;
         }
 
+        public static AnnualNarrationRequest NarrationRequest(AnnualChapterRequest input)
+        {
+            var expected = Preview(input);
+            return new AnnualNarrationRequest {
+                rulesVersion = RulesVersion, clientFingerprint = Fingerprint(input),
+                consequences = expected.History.Last().acceptedConsequences, facts = Facts(expected)
+            };
+        }
+
         public static AnnualChapterReceipt Offline(AnnualChapterRequest input)
         {
             var town = Preview(input);
