@@ -149,8 +149,6 @@ Shader "Terra/Illustrated Ground"
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.6);
                     half3 fieldPaint=lerp(earthPaint,grassPaint*half3(1.08,.86,.4),.36)*(1-row*.12*rowFade);
                     fieldPaint=lerp(half3(.42,.38,.16),fieldPaint,.5);
-                    float band=.5+.5*sin(fieldU*.1636246);
-                    fieldPaint*=lerp(half3(.80,.92,.64),half3(1.04,1.01,.94),smoothstep(.18,.82,band));
                     albedo=lerp(living,fieldPaint,cover.g);
                     surfaceNormal=lerp(lerp(grassN,edgeN,edgeWeight),earthN,cover.g);
                     float bankDistance=SAMPLE_TEXTURE2D(_RiverMap,sampler_RiverMap,(p-_LandBounds.xy)/_LandBounds.zw).r;

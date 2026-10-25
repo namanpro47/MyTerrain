@@ -1,51 +1,54 @@
 # Current visual review — Phase 2A remains open
 
-**Latest Chrome candidate: study29c, October 24, 2026. Terrain swale, grouped meadow planting and quieter ground. Visual and performance gates remain unaccepted.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md#study29--terrain-swale-and-planted-meadow-colonies-chrome-verified-gate-failed) govern this comparison.
+**Latest Chrome candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
 
 ## Current game: normal play
 
-![Terra29c actual Chrome opening](evidence/phase2a/visual-rebuild/study29-default.jpg)
+![Actual Chrome opening](evidence/phase2a/visual-rebuild/study31b-default.jpg)
 
-1280×720 CSS/render buffer. The quieter JulioVII ground treatment reduces mottling and the paths' yellow prominence. It also exposes how empty the central ground still is. The bridge remains clipped at the left edge. No new assets, image generation or purchases.
+1280×720 CSS and render buffer. The painted source detail is more legible and bank grass no longer glows against the ground. The unchanged opening still has too much empty central ground and a clipped bridge. This is a specific material improvement, not a successful whole-scene composition. No new assets, image generation or purchases.
 
 ## Restoration and swale
 
-![Terra29c actual Chrome restoration](evidence/phase2a/visual-rebuild/study29-restored.jpg)
+![Actual Chrome restoration](evidence/phase2a/visual-rebuild/study31b-restored.jpg)
 
-Elongated colonies replace isolated random plant dots, with low growth, taller interiors and flower groups from the existing Quaternius family. The pattern is more legible, but groups remain too separate and the intervening ground too smooth. The surrounding crop rows remain mechanical.
+Connected growth with height drifts replaces separate oval colonies. Grass roots and terrain share a value range; shaded tips give the existing source meshes some depth. Normal-scale relief remains weak, and surrounding crop rows still dominate.
 
-![Terra29c actual Chrome close swale](evidence/phase2a/visual-rebuild/study29-swale-close.jpg)
+![Actual Chrome close meadow](evidence/phase2a/visual-rebuild/study31b-close.jpg)
 
-The swale is now a shallow depression in the rendered ground with low shoulders and partly buried stones. It replaces the raised planter-like ribbons. Its shape/depth are illustrative; source terrain and accounting are unchanged. No permanent standing water is implied. The brown bed is still visually coarse, and vegetation does not yet form a convincing continuous bank community.
+The existing Julio paint and Quaternius plants now read as one surface more readily. The flowers are sparse and the result lacks the reference's strong environmental forms. Do not improve the score simply because this is better than the prior attempt.
+
+![Actual Chrome close swale](evidence/phase2a/visual-rebuild/study31b-swale-close.jpg)
+
+The29 terrain depression remains reversible and grounded. Its broad exposed earth bed still looks coarse. Shape, depth and planting are illustrative; source terrain/accounting are unchanged and permanent water is not implied.
 
 ## Primary comparison: Terra Nil
 
 ![Official Terra Nil restored-bank reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp)
 
-[Free Lives official image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp), 1920×1080. Compare displayed-size material richness, planted-bank masses, ground contrast, contact and light. This is a different scene, camera and landform construction, not a pixel-matched scientific comparison or a requirement to invent stepped Wisconsin terrain. Its authorship and assets remain with the reference game.
+[Free Lives official image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-3.webp),1920×1080. Compare material richness, bank masses, surface contrast, contact and light at comparable displayed size. Different geography and camera; this is not a pixel-matched scientific comparison or a reason to invent stepped Wisconsin terrain. Reference authorship/assets remain with their creators.
 
 ![Official Terra Nil layered canopy reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp)
 
-[Free Lives official canopy image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp). Compare foliage mass, rich leaf silhouettes, edge layering and separation of materials. Tropical plants and the reference’s stylized terrain are not a Wisconsin species or geometry specification.
+[Free Lives official canopy image](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp). Compare layered foliage mass, internal structure and grounded edges. Tropical species are not a Wisconsin prescription. TN-02/09/10/11/12 guide this review.
 
 ## Whole-location consistency
 
-![Terra study29c: actual Chrome overview](evidence/phase2a/visual-rebuild/study29-overview.jpg)
+![Actual Chrome overview](evidence/phase2a/visual-rebuild/study31b-overview.jpg)
 
-The distant paint no longer repeats as a checker. Canopy spacing, broad woodland gaps and the slab presentation still look schematic. This is a defect correction, not a whole-scene quality pass.
+Broad crop-color bands from30/31a were rejected after producing repetitive valley-wide stripes. They are removed here; curved planting rows remain. Sparse woodland structure and the slab presentation still look schematic.
 
-## Gaps that keep the gate open
-
-| Dimension | Current assessment / next concrete test |
+| Dimension | Unresolved reference gap |
 |---|---|
-| Composition, scale and depth | Closer creek opening is more useful; empty ground, overly large repeated forms and overview slab still weaken the scene. |
-| Vegetation and environmental forms | Four branching forms and a low edge layer improve the canopy. Thin-tree stands remain sparse; broadleaf cohorts can still read as repeated clusters. |
-| Ground, fields, water and transitions | One artist ground family improves consistency and the checker defect is removed. Paths are quieter; crop rows remain mechanical, meadow colonies too separate, and the swale bed coarse. |
-| Lighting, color and atmosphere | Alpha-safe foliage removes black outlines and mismatched leaf-card shadows. Similar greens and coarse plant communities still weaken separation and richness. |
-| Intervention appearance and transformation | Treatments now share the terrain material and have softened contact. Swale relief is grounded and reversible; the plant communities still lack continuity and richness. The separate annual lifecycle renderer must adopt the improvements and be checked in its actual user flow. |
-| Whole-scene consistency | Close/wide representation is under evaluation. Required layouts, matched reviews, motion video and full delivery checks remain incomplete. |
+| Composition, scale and depth | Empty opening, clipped landmark and schematic overview; no compelling foreground/middle/background composition. |
+| Vegetation and forms | Trees still repeat, thin stands lack mass and forest edges contain conspicuous small stubs. |
+| Ground, fields, water and transitions | Improved ground/grass continuity; mechanical crop rows, weak meadow relief and coarse exposed swale soil remain. |
+| Lighting, color and atmosphere | Better grass/ground value agreement, but insufficient separation and depth across the scene. |
+| Intervention and transformation | Connected meadow is clearer than colonies; still lacks rich, satisfying environmental forms. Annual lifecycles require separate integrated review. |
+| Whole-scene consistency | Close, normal and overview all remain below the visual bar; final layouts and motion evidence are incomplete. |
 
-**No dimension is certified at the required 4.5/5.** No formal acceptance review, current public release or reference-parity claim follows from these studies. Use TN-02/09/10/11/12 when taking the next visual pass; use Cities: Skylines patterns for information design as the annual gameplay is built.
+**No dimension is certified at4.5/5.** No accepted art direction, current public release or reference-parity claim follows from these studies.
 
+Study31b is isolated on `codex/visual-study20`; [handoff](VISUAL_WORK_HANDOFF.md), [source/export/browser evidence](evidence/phase2a/visual-rebuild/study31b-build.json). Restore/swale/undo and cultivation-replacement cancellation pass; no error-level logs returned. One30s moving route: p95=19ms,p99=27ms,max30ms,zero frames>33ms and zero unfocused frames. Three presentation-opportunity samples were18.7–23.6ms, not physical display latency or a robust p95. Full performance/load/layout/public-delivery gates remain incomplete. Ground shader's existing GLES3x potentially-uninitialized warning remains; no shader errors reported.
 
-Study29c is isolated on `codex/visual-study20`; [integration handoff](VISUAL_WORK_HANDOFF.md). Exact serving checks pass at36.80MB of checked files. Restore/swale/undo pass; no error-level messages returned. The moving diagnostic's p95=31ms is outweighed by two frames>200ms (max529ms), so performance is not accepted. Full-game annual rendering, final layouts, video, fresh-cache suite, public delivery and two passing visual reviews remain incomplete. **Next change field and groundcover construction; another palette or density tweak will not close the dominant gap.**
+**Next materially change composition and environmental scale hierarchy.** Another small tint/density adjustment in this same framing will not resolve the dominant gap. Keep the same source geography and validate the complete playable image, including the newer annual renderer when integrated by its owner.

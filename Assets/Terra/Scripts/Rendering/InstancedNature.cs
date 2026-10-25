@@ -37,6 +37,8 @@ namespace Terra.Rendering
                         material.SetTexture("_BaseMap",sourceMaterial.mainTexture);
                         material.SetColor("_BaseColor",tint);
                         material.SetFloat("_Cutoff",.5f);
+                        var plantBounds=filter.sharedMesh.bounds;
+                        material.SetVector("_PlantBounds",new Vector4(plantBounds.min.y,plantBounds.max.y,0,0));
                     }
                     material.enableInstancing=true;
                     if(tint!=Color.white&&prefab.name.StartsWith("Grass"))material.color=tint;

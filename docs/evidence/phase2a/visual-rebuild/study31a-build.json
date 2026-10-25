@@ -1,0 +1,39 @@
+{
+  "candidate": "study31a",
+  "buildJob": "96f97d385d5c44aeb9b660475259b6f8",
+  "buildExecutionMs": 84371,
+  "sourceBase": "b869f5b",
+  "sourceSha256": {
+    "Assets/Terra/Resources/TerraGround.shader": "99cc4a13abe67ac903a0c54dbcebabe3f9fcc182db0fdf8ebcf7c59d82c7b052",
+    "Assets/Terra/Resources/TerraCropCards.shader": "d1d5400d2c28cd3ce0c00aa5831653f76ffc49506b16039ff6b903d3fe6e9c03",
+    "Assets/Terra/Resources/TerraGroundcover.shader": "7a7ff32ecce4a53b0d928b535156f985baa809aac56324bd631a1d53ebc0612e",
+    "Assets/Terra/Scripts/Rendering/InstancedNature.cs": "9bbc8d334f0495e4c8db733f64f57efbf4a9deb5f7ac1eeb01bc94e3535b0bae",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs": "aa459cac3c68f43cf65c0d615e342955b261c0cbccc211363787c7248861e24e"
+  },
+  "exportCheck": "study31-export-check.json",
+  "performance": [
+    {
+      "seconds": 30.001998901367188,
+      "averageFps": 59.92934036254883,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 18.0,
+      "frameP99Ms": 18.0,
+      "maxFrameMs": 34.0,
+      "maxPreviewCpuMs": 5.300000190734863,
+      "maxPlacementCpuMs": 6.300000190734863,
+      "frames": 1798,
+      "framesOver33Ms": 1,
+      "framesOver200Ms": 0,
+      "previewEvents": 3,
+      "placementEvents": 1,
+      "cameraEvents": 1079,
+      "unfocusedFrames": 0
+    }
+  ],
+  "visualAcceptance": false,
+  "selected": false,
+  "rejection": "Broad crop color bands produce repetitive valley-wide striping. Removed for study31b; grass construction retained.",
+  "browserScope": "1280x720 CSS and render buffer; preview/cancel, restoration/apply/undo, close and overview. One 30-second moving-placement route, not full performance gate.",
+  "freshCacheSuite": false,
+  "publicDeployment": false
+}

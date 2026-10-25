@@ -1,0 +1,85 @@
+{
+  "candidate": "study31b",
+  "buildJob": "5b801ab68e41440e823c05cd50798620",
+  "buildExecutionMs": 11207,
+  "sourceBase": "b869f5b",
+  "sourceSha256": {
+    "Assets/Terra/Resources/TerraGround.shader": "83271c38b6fde4f0d2615c11c8e851c7bc897410b5a7a91d8b5bdce97b2e1498",
+    "Assets/Terra/Resources/TerraCropCards.shader": "e9044210971c9ba8db54dd41c76e0b8c3e6223f75801496ed6e57582ea45ca12",
+    "Assets/Terra/Resources/TerraGroundcover.shader": "7a7ff32ecce4a53b0d928b535156f985baa809aac56324bd631a1d53ebc0612e",
+    "Assets/Terra/Scripts/Rendering/InstancedNature.cs": "9bbc8d334f0495e4c8db733f64f57efbf4a9deb5f7ac1eeb01bc94e3535b0bae",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs": "aa459cac3c68f43cf65c0d615e342955b261c0cbccc211363787c7248861e24e"
+  },
+  "exportCheck": "study31b-export-check.json",
+  "checkedFileBytes": 36802038,
+  "browserLog": "study31b-browser-log.json",
+  "viewportCss": [
+    1280,
+    720
+  ],
+  "renderBuffer": [
+    1280,
+    720
+  ],
+  "performance": [
+    {
+      "seconds": 30.009002685546875,
+      "averageFps": 58.948978424072266,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 19.0,
+      "frameP99Ms": 27.0,
+      "maxFrameMs": 30.0,
+      "maxPreviewCpuMs": 5.599999904632568,
+      "maxPlacementCpuMs": 6.400000095367432,
+      "frames": 1769,
+      "framesOver33Ms": 0,
+      "framesOver200Ms": 0,
+      "previewEvents": 3,
+      "placementEvents": 1,
+      "cameraEvents": 1053,
+      "unfocusedFrames": 0
+    }
+  ],
+  "presentationOpportunity": [
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 23.599999994039536
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 18.700000017881393
+        },
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 21.5
+        }
+      ],
+      "discardedStale": 0
+    }
+  ],
+  "browserChecks": [
+    "swale apply: production6 credits32",
+    "swale undo: production6 credits60",
+    "restoration apply: production5 credits42",
+    "cultivation replacement preview and cancel return accepted meadow",
+    "restoration undo: production6 credits60 revision4"
+  ],
+  "errorLevelLogs": 0,
+  "visualAcceptance": false,
+  "fullPerformanceAcceptance": false,
+  "annualLifecycleValidated": false,
+  "publicDeployment": false,
+  "freshCacheSuite": false,
+  "limits": [
+    "One 30-second route on final candidate; not the full three-route gate.",
+    "Load marker4328ms is not a fresh-cache certification.",
+    "Checked file bytes omit unenumerated assets/network overhead.",
+    "Ground shader GLES3x warning: potentially uninitialized PaintedFilteredSample at early return; no shader errors reported."
+  ]
+}

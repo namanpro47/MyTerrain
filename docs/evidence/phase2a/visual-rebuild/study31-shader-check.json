@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return new[]{\"TerraGroundcover\",\"TerraGround\",\"TerraCropCards\"}.SelectMany(n=>UnityEditor.ShaderUtil.GetShaderMessages(UnityEngine.Resources.Load<UnityEngine.Shader>(n)).Select(m=>n+\": \"+m.severity+\" \"+m.message)).ToArray();"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        "TerraGround: Warning use of potentially uninitialized variable (PaintedFilteredSample)"
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

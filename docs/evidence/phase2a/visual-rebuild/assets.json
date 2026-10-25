@@ -126,7 +126,11 @@
         }
       ],
       "study21": "Existing short/tall grass and Rock_Medium_2 reused unchanged for illustrative bank masses. Dedicated Terra/Soft Groundcover shader preserves source palette with upward-biased diffuse normals and displayed-pixel fade. Serialized instancing-enabled Resources/Nature/Groundcover.mat required: runtime-only shader swap lost instancing variants in21b;21c/21d visibility verified in Chrome. Wider patches improve contact but do not close visual gap. No new acquisition or paid shader used.",
-      "study24": "Grass.png source pixels unchanged. Disable mipmaps on this narrow color palette via TextureImporter; distant white unused-atlas bleed observed in23. Soft Groundcover also explicitly samples LOD0. Source files are not repainted."
+      "study24": "Grass.png source pixels unchanged. Disable mipmaps on this narrow color palette via TextureImporter; distant white unused-atlas bleed observed in23. Soft Groundcover also explicitly samples LOD0. Source files are not repainted.",
+      "grassStudy31": {
+        "adaptation": "Existing meshes/palette preserved. TerraGroundcover supplies ground-related root/tip shading and explicit cutout shadow/depth passes with a shared material layout. InstancedNature passes per-mesh vertical bounds. Meadow planting uses connected height drifts with irregular openings.",
+        "status": "Candidate, visual acceptance remains open."
+      }
     },
     {
       "name": "Original painted meadow texture",
@@ -247,6 +251,11 @@
         "plantsPerCluster": 9,
         "sourceTexturePixelsChanged": false,
         "status": "Study14 candidate, not accepted"
+      },
+      "grassPatchStudy30": {
+        "status": "Rejected in Editor: supplied graph, wind-disabled graph and adapted cutout all read as flat star-shaped stamps at the play angle. Temporary runtime wrappers/material/shader removed; original pack preserved.",
+        "evidence": "study30-checkpoint.md",
+        "sourcePixelsChanged": false
       }
     },
     {
@@ -499,7 +508,8 @@
           "bytes": 851838,
           "sha256": "ea510ef6122b232dad3c2b5351dcc04b84f15d27d6e4bb4d557c354b824c1dd0"
         }
-      ]
+      ],
+      "detailStudy30": "Unchanged source texture strokes separated from coarse color variation at 40m scale. Oversized 80m study rejected. Editor and study31a Chrome captures recorded; not final acceptance."
     }
   ],
   "researchExclusions": [
@@ -514,6 +524,12 @@
       "source": "https://emaceart.itch.io/poly-meadows",
       "checked": "2026-10-24",
       "status": "Current creator listing is paid ($33), despite historical free announcements. Excluded under free-only constraint."
+    },
+    {
+      "name": "Propagant Unity-GrassAndFur",
+      "source": "https://github.com/Propagant/Unity-GrassAndFur",
+      "checked": "2026-10-24",
+      "status": "Read creator repository. MIT shell-texturing candidate explicitly lists no WebGL support, no GPU instancing and no shadow/depth writing. Not downloaded or integrated for Terra browser delivery."
     }
   ],
   "researchPending": [

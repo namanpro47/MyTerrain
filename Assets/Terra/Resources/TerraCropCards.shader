@@ -48,9 +48,8 @@ Shader "Terra/Artist Grain Field"
                 Light sun=GetMainLight(TransformWorldToShadowCoord(i.positionWS));
                 half3 light=SampleSH(half3(0,1,0))+sun.color*.85*lerp(.5,1,sun.shadowAttenuation);
                 // The artist's grayscale paint gives the stalk depth without stretching its grain silhouette.
-                float fieldU=i.positionWS.x-12*sin(i.positionWS.z*.012)-5*sin(i.positionWS.z*.029);
-                float patch=smoothstep(.18,.82,.5+.5*sin(fieldU*.1636246));
-                half3 grain=lerp(_BaseColor.rgb*half3(.80,.92,.64),_BaseColor.rgb*half3(1.04,1.01,.94),patch);
+                float patch=.5+.5*sin(i.positionWS.x*.075+sin(i.positionWS.z*.043)*2.5);
+                half3 grain=lerp(_BaseColor.rgb*half3(.86,.85,.7),_BaseColor.rgb*half3(1.08,1.06,1.04),patch);
                 half height=lerp(.62,1,smoothstep(.22,.88,i.uv.y));
                 return half4(grain*light*height*lerp(.8,1,painted.r),coverage);
             }
