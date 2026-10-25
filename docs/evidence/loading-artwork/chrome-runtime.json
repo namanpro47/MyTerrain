@@ -1,4 +1,17 @@
 {
-  "ready": [],
+  "ready": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+      "timestamp": "2026-10-25T20:33:18.332Z",
+      "url": "blob:http://127.0.0.1:49176/e6a9389f-7bf0-4aea-9057-0e1fcfaadaac"
+    },
+    {
+      "level": "info",
+      "message": "MYTERRAIN_WORLD_VISIBLE 37118",
+      "timestamp": "2026-10-25T20:33:19.154Z",
+      "url": "http://127.0.0.1:49176/player.js"
+    }
+  ],
   "errors": []
 }
