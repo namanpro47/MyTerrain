@@ -10,6 +10,10 @@
 
 **Subsequent visual studies57–58:** mature corn geometry and a baked grain surface were both rejected at normal/close distances. The retained scenery remains study55; submission consolidation `2f8543d` is integrated on the visual branch as `5b8ad52`, with compilation and 15 collector checks passing locally. [Comparisons and integration boundary](evidence/phase2a/visual-rebuild/study57-findings.md). No art acceptance or new public release.
 
+## Combined crop browser regression — October 25, 2026
+
+[Frozen Web64, reported source `e3f4905`](evidence/phase2a/combined-crops-browser-01/README.md) has 31 byte-verified files /48,126,445 bytes. Actual focused Chrome 1280×720 opening, moving-editing and bounded Year 10 samples fail the stable-30 frame-time limit at 37/41/34ms p95. Preview/placement feedback passes; two-project fast-forward, read-only comparison, reload and replay preserve or reset state correctly. This does not replace a manual ten-year run or final performance/visual/public acceptance. Main/runtime promotion remains deferred while the combined rendering cost is investigated.
+
 ## Larger nature groups and crop integration — October 25, 2026
 
 [Candidate `d620ff2`](evidence/phase2a/submission-cells-01/README.md) changes nature aggregation from 96m to 192m after existing source culling/LOD selection. Exact matrix/bounds/capacity checks and paired camera captures pass. In one sequential focused Chrome comparison at 1280×720, conifer control p95 is 39ms and candidate p95 is 30ms; queue/undo preserve cash and accepted history. These bounded results do not replace three final combined paths. The frozen candidate has 31 byte-verified files /48,086,076 bytes. Source/import and benchmark limits are explicit in the receipt.
