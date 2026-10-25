@@ -21,15 +21,15 @@ namespace Terra.Gameplay
         public Terra.Art.BuildActionCatalog buildActionCatalog;
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
-        Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
+        Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
         bool perspective=true;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing,panGesture;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
         float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
-        public int Revision=>state?.Revision??-1;
-        public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}; discharged={state.Result.dischargedM3}; retained={state.Result.retainedM3}";
+        public int Revision=>annual?.State.revision??-1;
+        public string Diagnostic=>annual==null?"loading":$"year={annual.State.year}; phase={annual.State.phase}; revision={Revision}; cash={annual.State.cashCents}; queued={annual.State.queue.Length}; assets={annual.State.assets.Length}";
         void Start()
         {
             gameObject.name="TerraMain";Application.runInBackground=true;
@@ -57,12 +57,12 @@ namespace Terra.Gameplay
             hud.Progress("Shaping the terrain and woodland…");yield return null;
             try{buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
             catch(Exception e){Error(e.Message);yield break;}
-            world=w;scenario=s;runoff=new LandscapeRunoff(w,s,runoffConfiguration);state=new WorldStateStore(w,s,runoff,buildActionRules.Rejection);
+            world=w;scenario=s;runoff=new LandscapeRunoff(w,s,runoffConfiguration);
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            ready=true;ApplyView();hud.Ready();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            InitializeAnnual(m.packId);ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();
         }
         void Update()

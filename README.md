@@ -1,6 +1,6 @@
 # Terra
 
-**Annual town foundation:** [runtime, API and engine handoff](docs/annual-town-runtime.md) · [Peter's updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). The state module is additive; the current scene has not yet been wired to annual controls.
+**Updated product direction (October 24):** Terra is being built around **plan → budget → End Year → consequences → adapt**, through ten years in Meadowbrook Valley. The [revised implementation plan](IMPLEMENTATION_PLAN.md) stages a playable three-year loop, the full [12-action budget/effects catalog and three meters](docs/ACTIONS_AND_EFFECTS.md), ten-year balance, and comparison/replay. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is retained with its adoption decision. This is intended behavior; the current live placement UI has not yet been replaced by the annual loop. The visual rebuild remains an unmet gate.
 
 A browser-based rural land-use game in development. Phase 2 delivers the real Meadowbrook Valley landscape on the frozen v1 interaction foundation.
 
@@ -9,6 +9,8 @@ The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA
 ## Project vision — start here
 
 **Current priority: [Phase 2A — visual rebuild from first principles](docs/PHASE_2A_GOAL.md).** The current visual direction was rejected; existing renderer, assets, camera and UI are replaceable. **[Visual target and resource register](docs/VISUAL_REBUILD.md)** · **[Terra Nil + Cities: Skylines reference library](docs/DESIGN_REFERENCE.md)** · [Evidence/status](docs/PHASE_STATUS.md). Direct visual quality comes before further UX polish or gameplay expansion.
+
+**[Open the current visual comparison](docs/CURRENT_VISUAL_REVIEW.md)** — actual Chrome captures beside the primary Terra Nil reference, with the unresolved visual gaps.
 
 **Asset approach:** existing coherent game-asset families and their intended shaders/materials first. Image generation is stopped for this pass; generated-art studies remain unaccepted and replaceable. Judge the complete playable scene against Terra Nil.
 
@@ -27,9 +29,9 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 3. Run `python3 scripts/prepare-world.py` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
-The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. Runoff simulation is not implemented yet. [Source data, reproducible export and geographic limits](docs/geography.md).
+The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. The pure runoff package exists locally; its live-game adapter and presentation are not yet accepted. [Source data, reproducible export and geographic limits](docs/geography.md).
 
-The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A is being reset around a first-principles visual rebuild; no new visual acceptance is claimed. Later gameplay remains unstarted.
+The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A is being reset around a first-principles visual rebuild; no new visual acceptance is claimed. Later gameplay integration remains unaccepted; separately prepared editing work and Peter’s remote annual/art packages are tracked in the revised plan and status ledger.
 
 ## Build for the browser
 

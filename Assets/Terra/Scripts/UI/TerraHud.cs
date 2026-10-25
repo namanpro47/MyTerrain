@@ -93,7 +93,7 @@ namespace Terra.UI
             ratio=Mathf.Max(1,TerraPixelRatio());
 #endif
             var screen=new Vector2(Screen.width,Screen.height);if(screen==lastScreen&&Mathf.Approximately(ratio,lastRatio))return;lastScreen=screen;lastRatio=ratio;scaler.scaleFactor=ratio;
-            float width=Screen.width/ratio,height=Screen.height/ratio;bool compact=width<1120;compactLayout=compact;tip.transform.parent.gameObject.SetActive(!compact&&!tooltip.activeSelf);
+            float width=Screen.width/ratio,height=Screen.height/ratio;bool compact=width<1120;compactLayout=compact;tip.transform.parent.gameObject.SetActive(annualRules==null&&!compact&&!tooltip.activeSelf);
             void Utility(UnityEngine.UI.Button b,bool right,int row){var r=b.GetComponent<RectTransform>();if(compact){r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(24+row*(right?156:138),right?-194:-130);}else{r.anchorMin=r.anchorMax=r.pivot=new Vector2(right?1:0,0);r.anchoredPosition=new Vector2(right?-24:24,20+row*64);}}
             Utility(undoButton,false,0);Utility(viewButton,false,1);Utility(guideButton,true,0);Utility(controlsButton,true,1);
             modal.transform.localScale=Vector3.one*Mathf.Min(1,(height-32)/650,(width-32)/800);
@@ -133,9 +133,9 @@ namespace Terra.UI
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
-            "<b>01   Choose → inspect → place</b>\nBrowse five categories and 17 actions. Field counts show physical/scenario eligibility before budget. Inspect a field for its cost and restriction. New costs are prototype assumptions.\n\n"+
+            "<b>01   Plan → End Year → adapt</b>\nQueue a supported action on a field. Reserve construction and upkeep from the public budget. Review and submit the year to pay once and advance projects. Muted assets await annual recipes.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Experiment freely</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: select/place · Z: undo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nG: field guide · ?: controls");
+            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nG: field guide · ?: controls");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
         public bool KeyboardInput(Keyboard k)
         {
@@ -193,7 +193,7 @@ namespace Terra.UI
             SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":dataPage==3?"Runoff & connections →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
-        {guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
+        {if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
         static void SetButtonText(UnityEngine.UI.Button b,string text)=>b.GetComponentInChildren<TextMeshProUGUI>().text=text;
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}
         Transform Panel(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect(parent,name,anchor,pos,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=color;return r;}

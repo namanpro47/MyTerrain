@@ -1,5 +1,15 @@
 # Terra — phase status and evidence
 
+## Annual gameplay integration — October 24, 2026 (current work)
+
+The user explicitly authorized integrating Peter's annual foundation/action assets alongside the visual and editing work. This is scoped implementation authorization while the Phase 2A visual gate remains open, not acceptance of the current scenery. The rewritten [implementation plan](../IMPLEMENTATION_PLAN.md) and [Actions & Effects contract](ACTIONS_AND_EFFECTS.md) supersede the older phase labels below; the older receipts remain historical evidence.
+
+Integration branch `codex/annual-gameplay-integration` merges Peter's `main` through `e247431` and the editing/runoff handoff `5e9621b` in a separate managed worktree. Annual state is the playable scene's sole financial authority. The 17 metric assets remain intact; seven starter recipes are playable and the other catalog entries are visibly pending. Source data preserves all twelve table rows, including $3M renewables and tentative housing receipts.
+
+The scene now queues proposals, reserves full terms, supports queue-only move/remove/clear/undo/redo, submits a year once, shows accepted reports and three bounded meters, continues planning, and restores a browser-local run. Construction/establishment/operational states persist on the same map. Initial tuning is $10M cash and $1M closing appropriation. The starter rubric is explicitly limited: food output, food/home/recreation service units, managed-site vegetation and operational storage. Other employment/resource/pollution effects and the final paired ending remain subsequent work.
+
+Verification is being recorded in [annual integration evidence](evidence/annual-gameplay/README.md). Do not interpret historical test counts below as checks of this branch. Browser acceptance and visual handoff are pending until that receipt is completed.
+
 ## Categorized action UI — separately authorized October 24, 2026
 
 Peter requested the 17 PRD actions in the playable UI, grouped by use, plus an explanation of land/water restrictions. The [catalog integration](build-action-ui.md) adds **Farming, Residential, Community, Utilities and Nature** tabs, matching model icons, full-scale previews/placement, eligibility counts and explicit restriction feedback. All 17 are selectable; 16 fit at least one existing field. The 150 × 150 m wind site fits none and is not rescaled. Swales retain their two authored eligible sites, and protected/background land stays unavailable.

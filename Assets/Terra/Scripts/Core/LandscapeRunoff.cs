@@ -60,6 +60,33 @@ namespace Terra.Core
             }
             return RunoffEvaluator.Evaluate(new SimulationInput{schemaVersion=1,revision=revision,storm=storm,sites=input.ToArray()});
         }
+        // Fixed-storm comparison of accepted annual cover/storage, not annual rain or a flood forecast.
+        // Baseline cover remains outside the real building/park footprint. Establishment is gradual.
+        public SimulationOutput EvaluateAnnual(TownYearOutcomes outcomes, int revision)
+        {
+            var input = new List<SimulationSiteInput>(context);
+            foreach (var site in world.sites)
+            {
+                var row = outcomes.sites.First(r => r.siteId == site.id);
+                double cn = CurveNumberMixture.AreaWeighted(site.baselineCover,parameters);
+                if (row.actionId != null)
+                {
+                    double target;
+                    if (row.actionId == "low-density-housing" || row.actionId == "public-park")
+                    {
+                        bool home = row.actionId == "low-density-housing";
+                        double share = Math.Min(1,(home ? 832.0 : 1920.0)/site.analysisAreaM2);
+                        double green = home ? .35 : .85;
+                        target = cn*(1-share) + share*(green*parameters["grass"]+(1-green)*parameters["sealed"]);
+                    }
+                    else if (row.actionId == "conservation-rotation") target = .3*parameters["grass"]+.7*parameters["cultivated"];
+                    else target = CurveNumberMixture.AreaWeighted(scenario.treatments.First(t=>t.id==row.actionId).cover,parameters);
+                    cn += (target-cn)*row.maturity*row.condition;
+                }
+                input.Add(new SimulationSiteInput { siteId=site.id,areaM2=site.analysisAreaM2,contributingAreaId=groups[site.id],curveNumber=(float)cn,retentionCapacityM3=(float)row.retentionCapacityM3 });
+            }
+            return RunoffEvaluator.Evaluate(new SimulationInput { schemaVersion=1,revision=revision,storm=storm,sites=input.ToArray() });
+        }
         public void Apply(Intervention[] proposals,WorldResult accounting)
         {
             var result=Evaluate(proposals,accounting.revision);var byId=result.sites.ToDictionary(s=>s.siteId,StringComparer.Ordinal);

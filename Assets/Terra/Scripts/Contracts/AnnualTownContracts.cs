@@ -31,6 +31,7 @@ namespace Terra.Contracts
         public string sourceId, evidenceLevel, contributionType, ownerOperator, fundedUnit;
         public double fundedQuantity;
         public bool totalProjectCostKnown;
+        public bool servicesFollowProduction = true;
         public long totalProjectCostCents, upfrontPublicCostCents, annualPublicPaymentCents;
         public long annualPublicOperatingCents, annualPublicReceiptsCents;
         public int paymentYears, operatingYears, constructionYears, establishmentYears = 1;
@@ -128,6 +129,7 @@ namespace Terra.Contracts
         public long cashCents, arrearsCents;
         public TownPlannedAction[] queue;
         public TownPlanSnapshot[] undo;
+        public TownPlanSnapshot[] redo = Array.Empty<TownPlanSnapshot>();
         public TownAsset[] assets;
         public TownYearReport[] history;
         public TownYearRequest pendingRequest;

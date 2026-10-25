@@ -65,6 +65,15 @@ namespace Terra.UI
         void UpdateActionSummary()
         {
             if(actionRules==null)return;var action=actionRules.Find(activeTool);
+            if(annualRules!=null)
+            {
+                var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
+                actionSummary.text=recipe==null?"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.":recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nFull term reserved now. Three indicators update when the year is accepted.";
+                var profile=ActionProfiles.ForAction(activeTool);
+                if(recipe!=null&&profile!=null)actionSummary.text=recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nDesign intent /5: Economic "+profile.economic+" · Social "+profile.social+" · Environment "+profile.environmental+" (not meter points)";
+                return;
+            }
+
             actionSummary.text=action==null?"Choose an action, then a field. Costs are prototype credits.":ShortTitle(action)+$" · {action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+" · "+(availableSites[action.id]==0?"No parcel fits at real scale":availableSites[action.id]+" eligible fields")+"\nPrototype costs · effects beyond farmland are not modeled";
         }
         bool CatalogSelected(Button button) => actionButtons.TryGetValue(button,out var id)?id==activeTool:categoryButtons.TryGetValue(button,out var category)&&category==activeCategory;
@@ -82,7 +91,7 @@ namespace Terra.UI
         }
         void SelectCatalog(string id)
         {
-            var action=actionRules?.Find(id);if(action!=null)ShowCategory(action.category);else UpdateActionSummary();
+            var action=actionRules?.Find(id);if(action!=null)ShowCategory(annualRules==null?action.category:AnnualCategory(id));else UpdateActionSummary();
         }
         public string LandRules(Site site)
         {

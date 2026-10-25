@@ -46,6 +46,7 @@ namespace Terra.Core
                 if(current.Any(x=>x.siteId==destination.id)) return Invalid("The destination already has a proposal. Remove it or choose another site.");
                 treatment=existing.treatmentId;
             }
+            string rejection=placementRejection?.Invoke(destination,treatment);if(rejection!=null)return Invalid(rejection);
             if(!destination.allowedTreatments.Contains(treatment)) return Invalid("This treatment is not available at this site.");
             if(command.operation=="replace" && existing.treatmentId==treatment) return Invalid("This proposal is already placed.");
             var next=current.Where(x=>x.siteId!=site.id).Concat(new[]{new Intervention{siteId=destination.id,treatmentId=treatment}}).ToArray();

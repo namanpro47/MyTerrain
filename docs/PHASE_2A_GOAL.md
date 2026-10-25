@@ -1,5 +1,7 @@
 # Phase 2A — rebuild the visuals from first principles
 
+> **Annual-gameplay handoff update — October 24, 2026:** The user has revised the product around ten annual decisions and the full [Actions & Effects catalog](ACTIONS_AND_EFFECTS.md). Keep this phase focused on the existing visual rebuild; its gate is unchanged. Prepare the accepted visual language to support real-scale hypothetical buildings and distinct queued/construction/established states later. The next live gameplay gate is now Phase 3A/3B's annual integration and three-year loop, not an instant-placement-only mission. Do not expand 2A into those later implementations or treat this planning change as acceptance of current scenery.
+
 **Rewritten October 24, 2026, following the user's explicit rejection of the current visual quality.** This is the operative brief for the active Phase 2A goal. The previous presentation/UX brief is [superseded history](evidence/phase2a/superseded-ui-first-goal.md). Phase 2A has **not passed**.
 
 ## The goal

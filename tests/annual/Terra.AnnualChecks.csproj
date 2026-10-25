@@ -14,6 +14,9 @@
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownSummary.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/TownCopies.cs" />
     <Compile Include="../../Assets/Editor/AnnualTownChecks.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualGameplay.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/ActionProfiles.cs" />
+    <Compile Include="GameplayChecks.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
 </Project>

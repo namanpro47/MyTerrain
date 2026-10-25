@@ -1,5 +1,7 @@
 # Terra — play a place forward
 
+> **Adoption decision — October 24, 2026:** The user has now requested that annual decisions, budgets and economic/social/environmental meters become the core game, with the full supplied Actions & Effects catalog. The current [canonical spec](../TERRA_PROJECT_SPEC.md), [implementation plan](../IMPLEMENTATION_PLAN.md), and [action contract](ACTIONS_AND_EFFECTS.md) record that decision. This document is retained as Peter’s source proposal; its original “not approved,” four-family-only V0, optional wider catalog, required LLM consequence engine and optional generated-image passages are historical proposal language, superseded where they differ from those active documents. The core ships with deterministic annual rules and authored outcome text; an LLM is optional, and image generation remains stopped. No runtime completion is implied.
+
 **PRD draft · revised October 24, 2026 · government actions and evidence update · for team review**
 
 > Start with a real landscape. Spend a limited budget to change it. Advance a year, discover the consequences, and adapt. See what your choices leave behind after ten years.
