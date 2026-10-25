@@ -1,0 +1,89 @@
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using Terra.Core;
+using Terra.Contracts;
+
+var options=new JsonSerializerOptions{IncludeFields=true,WriteIndented=true};
+int checks=0;
+void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
+T Read<T>(string path)=>JsonSerializer.Deserialize<T>(File.ReadAllText(path),options);
+var yaml=File.ReadAllText("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
+BuildActionRule[] Actions()=>Regex.Split(yaml,"  - actionId: ").Skip(1).Select(part=>{
+ string art=part.Split('\n')[0].Trim();string id=art switch {"cultivation"=>"cultivate-standard","living-margin"=>"cultivate-margin","ground-cover-restoration"=>"restore-grass","vegetated-swale"=>"water-swale",_=>art};
+ var dim=Regex.Match(part,@"siteSizeMetres: \{x: ([\d.]+), y: ([\d.]+)\}");
+ string category=new[]{"cultivate-standard","cultivate-margin","cover-crop","conservation-rotation"}.Contains(id)?"Farming":id.Contains("housing")?"Residential":id=="public-park"||id=="village-center"?"Community":id=="restore-grass"||id=="stewardship-agreement"?"Nature":"Utilities";
+ return new BuildActionRule{id=id,artId=art,title=Regex.Match(part,"title: (.+)").Groups[1].Value.Trim(),category=category,width=float.Parse(dim.Groups[1].Value,System.Globalization.CultureInfo.InvariantCulture),depth=float.Parse(dim.Groups[2].Value,System.Globalization.CultureInfo.InvariantCulture),landscape=part.Contains("landscapeSample: 1"),cost=30};
+}).ToArray();
+
+
+var routes=new List<object>();var equivalence=new List<object>();
+foreach(var location in LocationProfile.All)
+{
+ string pack=location.PackId, root="worlds/"+pack+"/";
+ var world=Read<WorldData>(root+"world.json");var scenario=Read<Scenario>(root+"scenario.json");var hydro=Read<RunoffConfiguration>(root+"hydrology.json");
+ UniformParcels.Apply(world,hydro,Read<UniformParcelPack>("Assets/Terra/Resources/Parcels/"+pack+".json"),pack);
+ var rules=new BuildActionRules(world,Actions());rules.ExpandOffers(world,scenario);
+ var definition=AnnualPlayerRules.Create(FullAnnualGameplay.Create(world,scenario,pack,rules,new LandscapeRunoff(world,scenario,hydro)),pack,"phase5-dense-v5-20261025");
+ foreach(var strategy in new[]{
+  new{name="no-new-action",priorities=Array.Empty<string>()},
+  new{name="community-and-services",priorities=new[]{"high-density-housing","conservation-rotation","public-park","village-center","solar","wastewater-upgrade","restore-grass"}},
+  new{name="land-and-livelihoods",priorities=new[]{"wind","agricultural-storage","conservation-rotation","conservation-rotation","restore-grass","high-density-housing","wastewater-upgrade","public-park"}}
+ })
+ {
+  var town=new AnnualTown(definition,"dense-route/"+pack+"/"+strategy.name);var remaining=strategy.priorities.ToList();var years=new List<object>();
+  for(int year=1;year<=10;year++)
+  {
+   if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+   foreach(string id in remaining.ToArray())
+   {
+    var offer=definition.actions.Where(a=>a.actionId==id&&!town.Assets.Any(s=>s.siteId==a.siteId)&&!town.Queue.Any(s=>s.siteId==a.siteId)).OrderBy(a=>definition.actions.Count(b=>b.siteId==a.siteId)).FirstOrDefault(a=>town.Preview(a.siteId,id)>=0);
+    if(offer==null)continue;town.QueueAction(offer.siteId,id,town.Revision);remaining.Remove(id);
+   }
+   var commands=town.Queue.Select(q=>new{q.siteId,q.actionId,site=world.sites.Single(s=>s.id==q.siteId).name}).ToArray();
+   var report=AnnualTownDemo.Advance(town,town.RunId+"/year"+year,new AuthoredAnnualConsequenceProvider());
+   Check(town.ArrearsCents==0,"V5 uses signed cash, not legacy arrears");
+   var l=report.ledger; Check(l.openingCashCents+l.capitalRefundCents+l.appropriationCents+l.publicReceiptsCents-l.upfrontPaidCents-l.programPaidCents-l.operatingPaidCents-l.repairPaidCents-l.arrearsPaidCents==l.closingCashCents,"Exact public ledger");
+   Check(report.outcomes.economicScore>=0 && report.outcomes.economicScore<=100 && report.outcomes.socialScore>=0 && report.outcomes.socialScore<=100 && report.outcomes.environmentalScore>=-100 && report.outcomes.environmentalScore<=100,"Version5 meter bounds");
+   years.Add(new{year,commands,town.CashCents,town.CommittedCents,scores=new[]{report.outcomes.economicScore,report.outcomes.socialScore,report.outcomes.environmentalScore}});
+  }
+  Check(town.CashCents>=0,"Strategy ends in debt: "+pack+" "+strategy.name+" "+town.CashCents);
+  var restored=AnnualTown.Restore(definition,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(town.Snapshot(),options),options));Check(restored.CashCents==town.CashCents,"Replay differs");
+  Check(remaining.Count==0,"Projects remained unbuilt: "+pack+" "+strategy.name+" "+string.Join(",",remaining));
+  Check(restored.Phase==TownPhase.Completed && restored.History.Length==10,"Restored ending stays complete");
+  bool rejected=false;try{restored.ContinuePlanning(restored.Revision);}catch(InvalidOperationException){rejected=true;}Check(rejected,"No Year11");
+  routes.Add(new{pack,strategy.name,schema=definition.schemaVersion,version=definition.version,rulesVersion=definition.playerRules.version,definition.playerRules.scenarioSeed,town.DefinitionHash,years});
+  Console.WriteLine(pack+" "+strategy.name+" completed");
+ }
+ var manual=new AnnualTown(definition,"dense-v5-equivalence/"+pack);
+ var park=definition.actions.First(a=>a.actionId=="public-park");manual.QueueAction(park.siteId,park.actionId,manual.Revision);
+ var automatic=AnnualTown.Restore(definition,manual.Snapshot());
+ var interrupted=AnnualTown.Restore(definition,manual.Snapshot());
+ var provider=new AuthoredAnnualConsequenceProvider();
+ AnnualTownDemo.Finish(automatic,provider);
+ for(int year=1;year<=10;year++)
+ {
+  if(manual.Phase==TownPhase.Reviewing)manual.ContinuePlanning(manual.Revision);
+  AnnualTownDemo.Advance(manual,manual.RunId+"/finish-year-"+year,provider);
+  manual=AnnualTown.Restore(definition,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(manual.Snapshot(),options),options));
+ }
+ bool failed=false;try{AnnualTownDemo.Finish(interrupted,new FailYearSix());}catch(IOException){failed=true;}
+ Check(failed&&interrupted.Year==6&&interrupted.Phase==TownPhase.Resolving&&interrupted.History.Length==5,"Failure freezes Year6 after five accepted years");
+ string pending=TownCopies.Hash(interrupted.PendingRequest);
+ interrupted=AnnualTown.Restore(definition,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(interrupted.Snapshot(),options),options));
+ Check(TownCopies.Hash(interrupted.PendingRequest)==pending,"Reload preserves failed request exactly");
+ AnnualTownDemo.Finish(interrupted,provider);
+ string snapshotHash=TownCopies.Hash(manual.Snapshot());
+ Check(snapshotHash==TownCopies.Hash(automatic.Snapshot()),"V5 manual/reload and automatic endings agree");
+ Check(snapshotHash==TownCopies.Hash(interrupted.Snapshot()),"V5 interrupted/resumed ending agrees");
+ equivalence.Add(new{pack,snapshotHash,failedYear=6,acceptedYearsBeforeFailure=5,manualPerYearReload=true,automaticEqual=true,resumedEqual=true});
+}
+File.WriteAllText("routes.json",JsonSerializer.Serialize(new{checks,source="e74496bf55ffa77427be69dcb221bb3bd70f3b41",scope="Pinned v5 pure model on actual dense parcels; no browser or Unity JSON equivalence claim",routes,equivalence},options));
+
+sealed class FailYearSix : IAnnualConsequenceProvider
+{
+ public TownYearConsequences Resolve(TownYearRequest request)
+ {
+  if(request.year==6)throw new IOException("Deliberate provider interruption");
+  return new AuthoredAnnualConsequenceProvider().Resolve(request);
+ }
+}

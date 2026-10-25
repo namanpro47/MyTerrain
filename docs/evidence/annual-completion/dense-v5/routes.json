@@ -1,0 +1,1365 @@
+{
+  "checks": 327,
+  "source": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "scope": "Pinned v5 pure model on actual dense parcels; no browser or Unity JSON equivalence claim",
+  "routes": [
+    {
+      "pack": "meadowbrook-v1",
+      "name": "no-new-action",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "d7c9d4ab998514c5627faba787c2f7065d125d5fb76368c7a85a69e626f75fc1",
+      "years": [
+        {
+          "year": 1,
+          "commands": [],
+          "CashCents": 1100000000,
+          "CommittedCents": 0,
+          "scores": [
+            47.77385293662859,
+            47.26829268292683,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 1200000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 1300000000,
+          "CommittedCents": 0,
+          "scores": [
+            49.60550139591408,
+            54.585365853658544,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 1400000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 1500000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 1600000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 1700000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 1800000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 1900000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 2000000000,
+          "CommittedCents": 0,
+          "scores": [
+            50.10857080862237,
+            58.00000000000001,
+            38.8499629473315
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "name": "community-and-services",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "d7c9d4ab998514c5627faba787c2f7065d125d5fb76368c7a85a69e626f75fc1",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-05-04",
+              "actionId": "high-density-housing",
+              "site": "Open plot 6 \u00B7 5"
+            },
+            {
+              "siteId": "grid-08-03",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 9 \u00B7 4"
+            },
+            {
+              "siteId": "grid-11-00",
+              "actionId": "public-park",
+              "site": "Open plot 12 \u00B7 1"
+            },
+            {
+              "siteId": "grid-16-03",
+              "actionId": "village-center",
+              "site": "Open plot 17 \u00B7 4"
+            },
+            {
+              "siteId": "grid-11-03",
+              "actionId": "restore-grass",
+              "site": "Open plot 12 \u00B7 4"
+            }
+          ],
+          "CashCents": 170040000,
+          "CommittedCents": 116680000,
+          "scores": [
+            48.173570126367075,
+            47.26829268292683,
+            38.76855814524733
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 269320000,
+          "CommittedCents": 115960000,
+          "scores": [
+            52.48699052761972,
+            61.00000000000001,
+            38.90926259134162
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [
+            {
+              "siteId": "grid-10-04",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 11 \u00B7 5"
+            }
+          ],
+          "CashCents": 122600000,
+          "CommittedCents": 144240000,
+          "scores": [
+            75.65899272080571,
+            91.56956849563049,
+            30.505860260777002
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 225880000,
+          "CommittedCents": 132520000,
+          "scores": [
+            76.16206213351401,
+            94.98420264197196,
+            30.505860260777002
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 325160000,
+          "CommittedCents": 116800000,
+          "scores": [
+            79.49539546684734,
+            97.6722268557131,
+            33.100848514906986
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [
+            {
+              "siteId": "grid-07-05",
+              "actionId": "solar",
+              "site": "Open plot 8 \u00B7 6"
+            }
+          ],
+          "CashCents": 124440000,
+          "CommittedCents": 126080000,
+          "scores": [
+            79.18819546594311,
+            97.6722268557131,
+            33.100848514906986
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 221220000,
+          "CommittedCents": 107860000,
+          "scores": [
+            80.8548621326098,
+            99,
+            48.0845189573476
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 318000000,
+          "CommittedCents": 89640000,
+          "scores": [
+            80.8548621326098,
+            99,
+            48.0845189573476
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 414780000,
+          "CommittedCents": 71420000,
+          "scores": [
+            80.8548621326098,
+            99,
+            48.0845189573476
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 511560000,
+          "CommittedCents": 53200000,
+          "scores": [
+            80.8548621326098,
+            99,
+            48.0845189573476
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "name": "land-and-livelihoods",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "d7c9d4ab998514c5627faba787c2f7065d125d5fb76368c7a85a69e626f75fc1",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-07-05",
+              "actionId": "wind",
+              "site": "Open plot 8 \u00B7 6"
+            },
+            {
+              "siteId": "grid-11-00",
+              "actionId": "agricultural-storage",
+              "site": "Open plot 12 \u00B7 1"
+            },
+            {
+              "siteId": "grid-08-03",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 9 \u00B7 4"
+            },
+            {
+              "siteId": "grid-11-03",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 12 \u00B7 4"
+            },
+            {
+              "siteId": "grid-05-04",
+              "actionId": "restore-grass",
+              "site": "Open plot 6 \u00B7 5"
+            },
+            {
+              "siteId": "grid-16-03",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 17 \u00B7 4"
+            },
+            {
+              "siteId": "grid-12-00",
+              "actionId": "public-park",
+              "site": "Open plot 13 \u00B7 1"
+            }
+          ],
+          "CashCents": 303380000,
+          "CommittedCents": 119560000,
+          "scores": [
+            47.290048940534525,
+            47.26829268292683,
+            32.32539506344652
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 399340000,
+          "CommittedCents": 115520000,
+          "scores": [
+            70.43039735941403,
+            61.00000000000001,
+            30.247875261059278
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 472300000,
+          "CommittedCents": 103480000,
+          "scores": [
+            77.46387464562036,
+            57.585365853658544,
+            47.97344672949905
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 560260000,
+          "CommittedCents": 91440000,
+          "scores": [
+            77.74194405766639,
+            61.00000000000001,
+            47.97344672949905
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [
+            {
+              "siteId": "grid-13-00",
+              "actionId": "high-density-housing",
+              "site": "Open plot 14 \u00B7 1"
+            }
+          ],
+          "CashCents": 148220000,
+          "CommittedCents": 139400000,
+          "scores": [
+            77.57474405102245,
+            61.00000000000001,
+            47.97344672949905
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 236180000,
+          "CommittedCents": 127360000,
+          "scores": [
+            77.57474405102245,
+            61.00000000000001,
+            47.97344672949905
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 333140000,
+          "CommittedCents": 109320000,
+          "scores": [
+            77.57474405102245,
+            91.00000000000001,
+            47.77361528747263
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 430100000,
+          "CommittedCents": 91280000,
+          "scores": [
+            77.57474405102245,
+            91.00000000000001,
+            47.77361528747263
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 527060000,
+          "CommittedCents": 73240000,
+          "scores": [
+            77.57474405102245,
+            91.00000000000001,
+            47.77361528747263
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 624020000,
+          "CommittedCents": 55200000,
+          "scores": [
+            77.57474405102245,
+            91.00000000000001,
+            47.77361528747263
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "name": "no-new-action",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "f447585dbaf62891a26d46e4be588b0251d82c600e2aa3f243a855d0cb39edb5",
+      "years": [
+        {
+          "year": 1,
+          "commands": [],
+          "CashCents": 1100000000,
+          "CommittedCents": 0,
+          "scores": [
+            55.896534078319874,
+            54.53846153846153,
+            65
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 1200000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 1300000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 1400000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 1500000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 1600000000,
+          "CommittedCents": 0,
+          "scores": [
+            52.834133976002526,
+            43.256410256410255,
+            65
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 1700000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 1800000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 1900000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 2000000000,
+          "CommittedCents": 0,
+          "scores": [
+            57.04853411515553,
+            58.00000000000001,
+            65
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "name": "community-and-services",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "f447585dbaf62891a26d46e4be588b0251d82c600e2aa3f243a855d0cb39edb5",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-13-00",
+              "actionId": "high-density-housing",
+              "site": "Open plot 14 \u00B7 1"
+            },
+            {
+              "siteId": "grid-08-00",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 9 \u00B7 1"
+            },
+            {
+              "siteId": "grid-12-01",
+              "actionId": "public-park",
+              "site": "Open plot 13 \u00B7 2"
+            },
+            {
+              "siteId": "grid-05-13",
+              "actionId": "village-center",
+              "site": "Open plot 6 \u00B7 14"
+            },
+            {
+              "siteId": "grid-10-00",
+              "actionId": "restore-grass",
+              "site": "Open plot 11 \u00B7 1"
+            }
+          ],
+          "CashCents": 170980000,
+          "CommittedCents": 116680000,
+          "scores": [
+            56.176134059776864,
+            54.53846153846153,
+            65.37299469937604
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 270260000,
+          "CommittedCents": 115960000,
+          "scores": [
+            59.40880077973007,
+            61.00000000000001,
+            65.63827369847928
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [
+            {
+              "siteId": "grid-04-06",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 5 \u00B7 7"
+            }
+          ],
+          "CashCents": 123540000,
+          "CommittedCents": 144240000,
+          "scores": [
+            83.15640078956883,
+            94.97278911564626,
+            56.23082122920141
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 226820000,
+          "CommittedCents": 132520000,
+          "scores": [
+            83.15640078956883,
+            94.97278911564626,
+            56.23082122920141
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 326100000,
+          "CommittedCents": 116800000,
+          "scores": [
+            86.48973412290215,
+            97.66666666666669,
+            58.91666666666667
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [
+            {
+              "siteId": "grid-05-15",
+              "actionId": "solar",
+              "site": "Open plot 6 \u00B7 16"
+            }
+          ],
+          "CashCents": -1100000,
+          "CommittedCents": 126080000,
+          "scores": [
+            81.33932596793572,
+            76.77701550785665,
+            59.19492656875834
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 92380000,
+          "CommittedCents": 107860000,
+          "scores": [
+            87.34950744735201,
+            92.39999999999999,
+            73.45200000000001
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 185860000,
+          "CommittedCents": 89640000,
+          "scores": [
+            87.34950744735201,
+            92.39999999999999,
+            73.45200000000001
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 279340000,
+          "CommittedCents": 71420000,
+          "scores": [
+            87.34950744735201,
+            92.39999999999999,
+            73.45200000000001
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 372820000,
+          "CommittedCents": 53200000,
+          "scores": [
+            87.34950744735201,
+            92.39999999999999,
+            73.45200000000001
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "name": "land-and-livelihoods",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "f447585dbaf62891a26d46e4be588b0251d82c600e2aa3f243a855d0cb39edb5",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-05-15",
+              "actionId": "wind",
+              "site": "Open plot 6 \u00B7 16"
+            },
+            {
+              "siteId": "grid-00-00",
+              "actionId": "agricultural-storage",
+              "site": "Open plot 1 \u00B7 1"
+            },
+            {
+              "siteId": "grid-08-00",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 9 \u00B7 1"
+            },
+            {
+              "siteId": "grid-10-00",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 11 \u00B7 1"
+            },
+            {
+              "siteId": "grid-11-00",
+              "actionId": "restore-grass",
+              "site": "Open plot 12 \u00B7 1"
+            },
+            {
+              "siteId": "grid-05-13",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 6 \u00B7 14"
+            },
+            {
+              "siteId": "grid-12-01",
+              "actionId": "public-park",
+              "site": "Open plot 13 \u00B7 2"
+            }
+          ],
+          "CashCents": 304660000,
+          "CommittedCents": 119560000,
+          "scores": [
+            57.119200727343554,
+            54.53846153846153,
+            59.32445072454165
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 400620000,
+          "CommittedCents": 115520000,
+          "scores": [
+            79.59920079708101,
+            61.00000000000001,
+            56.824453337828615
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 488580000,
+          "CommittedCents": 103480000,
+          "scores": [
+            87.09386749664942,
+            61.00000000000001,
+            66.80000000000001
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 576540000,
+          "CommittedCents": 91440000,
+          "scores": [
+            87.09386749664942,
+            61.00000000000001,
+            66.80000000000001
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [
+            {
+              "siteId": "grid-13-00",
+              "actionId": "high-density-housing",
+              "site": "Open plot 14 \u00B7 1"
+            }
+          ],
+          "CashCents": 164500000,
+          "CommittedCents": 139400000,
+          "scores": [
+            87.03813416456182,
+            61.00000000000001,
+            66.80000000000001
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 236940000,
+          "CommittedCents": 127360000,
+          "scores": [
+            81.5329686634898,
+            46.256410256410255,
+            66.86800000000001
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 333900000,
+          "CommittedCents": 109320000,
+          "scores": [
+            86.14822748703759,
+            91.00000000000001,
+            66.86800000000001
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 430860000,
+          "CommittedCents": 91280000,
+          "scores": [
+            86.14822748703759,
+            91.00000000000001,
+            66.86800000000001
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 527820000,
+          "CommittedCents": 73240000,
+          "scores": [
+            86.14822748703759,
+            91.00000000000001,
+            66.86800000000001
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 624780000,
+          "CommittedCents": 55200000,
+          "scores": [
+            86.14822748703759,
+            91.00000000000001,
+            66.86800000000001
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "name": "no-new-action",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "18cf77fbab6704dd727daaba01af526760f5f6119a1485c2765873c7da66d10d",
+      "years": [
+        {
+          "year": 1,
+          "commands": [],
+          "CashCents": 1100000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 1200000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 1300000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            53.70588235294118,
+            65
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 1400000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 1500000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 1600000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 1700000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            53.470588235294116,
+            65
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 1800000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            53.588235294117645,
+            65
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 1900000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 2000000000,
+          "CommittedCents": 0,
+          "scores": [
+            33.33333333333333,
+            58.00000000000001,
+            65
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "name": "community-and-services",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "18cf77fbab6704dd727daaba01af526760f5f6119a1485c2765873c7da66d10d",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-18-01",
+              "actionId": "high-density-housing",
+              "site": "Open plot 19 \u00B7 2"
+            },
+            {
+              "siteId": "grid-00-00",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 1 \u00B7 1"
+            },
+            {
+              "siteId": "grid-09-01",
+              "actionId": "public-park",
+              "site": "Open plot 10 \u00B7 2"
+            },
+            {
+              "siteId": "grid-13-13",
+              "actionId": "village-center",
+              "site": "Open plot 14 \u00B7 14"
+            },
+            {
+              "siteId": "grid-15-01",
+              "actionId": "restore-grass",
+              "site": "Open plot 16 \u00B7 2"
+            }
+          ],
+          "CashCents": 170980000,
+          "CommittedCents": 116680000,
+          "scores": [
+            34.58066668311754,
+            58.00000000000001,
+            64.80327868852459
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 270260000,
+          "CommittedCents": 115960000,
+          "scores": [
+            36.66133336623509,
+            61.00000000000001,
+            64.16923076923077
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [
+            {
+              "siteId": "grid-12-10",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 13 \u00B7 11"
+            }
+          ],
+          "CashCents": 69940000,
+          "CommittedCents": 144240000,
+          "scores": [
+            59.8942400355339,
+            87.97918753708382,
+            56.632301196340606
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 171720000,
+          "CommittedCents": 132520000,
+          "scores": [
+            60.11780004441738,
+            92.27330518414263,
+            56.632301196340606
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [],
+          "CashCents": 269500000,
+          "CommittedCents": 116800000,
+          "scores": [
+            63.451133377750715,
+            94.56695278969957,
+            59.038626609442055
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 367280000,
+          "CommittedCents": 101080000,
+          "scores": [
+            63.451133377750715,
+            94.56695278969957,
+            59.038626609442055
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [
+            {
+              "siteId": "grid-08-11",
+              "actionId": "solar",
+              "site": "Open plot 9 \u00B7 12"
+            }
+          ],
+          "CashCents": 165060000,
+          "CommittedCents": 110360000,
+          "scores": [
+            63.451133377750715,
+            90.0375410249937,
+            59.038626609442055
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 234840000,
+          "CommittedCents": 92140000,
+          "scores": [
+            64.70113337775072,
+            90.98823529411764,
+            73.46000000000001
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 330120000,
+          "CommittedCents": 73920000,
+          "scores": [
+            64.70113337775072,
+            95.39999999999999,
+            73.46000000000001
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 425400000,
+          "CommittedCents": 55700000,
+          "scores": [
+            64.70113337775072,
+            95.39999999999999,
+            73.46000000000001
+          ]
+        }
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "name": "land-and-livelihoods",
+      "schema": 2,
+      "version": "5.0.0",
+      "rulesVersion": "annual-player-rules-v5.0.0",
+      "scenarioSeed": "phase5-dense-v5-20261025",
+      "DefinitionHash": "18cf77fbab6704dd727daaba01af526760f5f6119a1485c2765873c7da66d10d",
+      "years": [
+        {
+          "year": 1,
+          "commands": [
+            {
+              "siteId": "grid-08-11",
+              "actionId": "wind",
+              "site": "Open plot 9 \u00B7 12"
+            },
+            {
+              "siteId": "grid-01-00",
+              "actionId": "agricultural-storage",
+              "site": "Open plot 2 \u00B7 1"
+            },
+            {
+              "siteId": "grid-00-00",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 1 \u00B7 1"
+            },
+            {
+              "siteId": "grid-15-01",
+              "actionId": "conservation-rotation",
+              "site": "Open plot 16 \u00B7 2"
+            },
+            {
+              "siteId": "grid-11-02",
+              "actionId": "restore-grass",
+              "site": "Open plot 12 \u00B7 3"
+            },
+            {
+              "siteId": "grid-13-13",
+              "actionId": "wastewater-upgrade",
+              "site": "Open plot 14 \u00B7 14"
+            },
+            {
+              "siteId": "grid-09-01",
+              "actionId": "public-park",
+              "site": "Open plot 10 \u00B7 2"
+            }
+          ],
+          "CashCents": 304660000,
+          "CommittedCents": 119560000,
+          "scores": [
+            35.82800003290176,
+            58.00000000000001,
+            58.61290322580645
+          ]
+        },
+        {
+          "year": 2,
+          "commands": [],
+          "CashCents": 400620000,
+          "CommittedCents": 115520000,
+          "scores": [
+            57.156000065803525,
+            61.00000000000001,
+            56.18987341772152
+          ]
+        },
+        {
+          "year": 3,
+          "commands": [],
+          "CashCents": 455730000,
+          "CommittedCents": 103480000,
+          "scores": [
+            63.80290675155321,
+            56.405882352941184,
+            66.88
+          ]
+        },
+        {
+          "year": 4,
+          "commands": [],
+          "CashCents": 543690000,
+          "CommittedCents": 91440000,
+          "scores": [
+            64.02646676043669,
+            60.699999999999996,
+            66.88
+          ]
+        },
+        {
+          "year": 5,
+          "commands": [
+            {
+              "siteId": "grid-18-01",
+              "actionId": "high-density-housing",
+              "site": "Open plot 19 \u00B7 2"
+            }
+          ],
+          "CashCents": 131650000,
+          "CommittedCents": 139400000,
+          "scores": [
+            64.02646676043669,
+            60.699999999999996,
+            66.88
+          ]
+        },
+        {
+          "year": 6,
+          "commands": [],
+          "CashCents": 219610000,
+          "CommittedCents": 127360000,
+          "scores": [
+            64.02646676043669,
+            60.699999999999996,
+            66.88
+          ]
+        },
+        {
+          "year": 7,
+          "commands": [],
+          "CashCents": 296570000,
+          "CommittedCents": 109320000,
+          "scores": [
+            60.78646676043669,
+            86.17058823529413,
+            66.96000000000001
+          ]
+        },
+        {
+          "year": 8,
+          "commands": [],
+          "CashCents": 373030000,
+          "CommittedCents": 91280000,
+          "scores": [
+            59.06313342710337,
+            85.98823529411766,
+            67.04
+          ]
+        },
+        {
+          "year": 9,
+          "commands": [],
+          "CashCents": 469990000,
+          "CommittedCents": 73240000,
+          "scores": [
+            60.34313342710335,
+            90.40000000000002,
+            67.04
+          ]
+        },
+        {
+          "year": 10,
+          "commands": [],
+          "CashCents": 566950000,
+          "CommittedCents": 55200000,
+          "scores": [
+            60.34313342710335,
+            90.40000000000002,
+            67.04
+          ]
+        }
+      ]
+    }
+  ],
+  "equivalence": [
+    {
+      "pack": "meadowbrook-v1",
+      "snapshotHash": "57ba7ef87a536f4b19bec961195011a82874022873304d25bd80ba8865b1979b",
+      "failedYear": 6,
+      "acceptedYearsBeforeFailure": 5,
+      "manualPerYearReload": true,
+      "automaticEqual": true,
+      "resumedEqual": true
+    },
+    {
+      "pack": "point-reyes-v1",
+      "snapshotHash": "98d38eaadcf839f09e580d931e9c06e280db107b6c2006571cab52c1afb1ec00",
+      "failedYear": 6,
+      "acceptedYearsBeforeFailure": 5,
+      "manualPerYearReload": true,
+      "automaticEqual": true,
+      "resumedEqual": true
+    },
+    {
+      "pack": "suusamyr-v1",
+      "snapshotHash": "f0c366ed02b99d16176c4cde7eb888f1460eb4e6eafdd5b46da95a63e27c769b",
+      "failedYear": 6,
+      "acceptedYearsBeforeFailure": 5,
+      "manualPerYearReload": true,
+      "automaticEqual": true,
+      "resumedEqual": true
+    }
+  ]
+}
