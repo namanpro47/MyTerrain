@@ -57,6 +57,12 @@ public static class MainGameChapterChecks
             count+=PlayFirstHudChecks.Run(hud,definition,world);
             count+=FieldNotesChecks.Run(hud,definition);
             count+=ActionFeedbackChecks.Run(hud);
+            count+=AnnualFeedbackWaveChecks.Run(hud,definition,world);
+            var playerDefinition=AnnualPlayerRules.Create(definition,"meadowbrook-v1","native-feedback");
+            var rulesField=typeof(TerraHud).GetField("annualRules",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+            rulesField.SetValue(hud,playerDefinition);
+            count+=AnnualFeedbackWaveChecks.Run(hud,playerDefinition,world);
+            rulesField.SetValue(hud,definition);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;
@@ -99,6 +105,22 @@ public static class MainGameChapterChecks
             Check(town.State.phase==TownPhase.Completed&&chapters.ForYear(10)!=null,"Fast-forward lost its final offline chapter.");
             var completed=chapters.ExportSave();chapters.ImportSave(completed);
             Check(chapters.ExportSave()==completed,"Full completed chapter envelope did not restore.");
+            string priorTownKey=town.saveKey,priorChapterKey=chapters.saveKey;
+            town.saveKey="terra.checks.feedback.storage.town";chapters.saveKey="terra.checks.feedback.storage.chapter";
+            try
+            {
+                town.Save();chapters.Save();
+                Check(PlayerPrefs.GetString(town.saveKey).StartsWith("terra-gzip-v1:"),"Annual browser save is not compressed.");
+                Check(PlayerPrefs.GetString(chapters.saveKey).Length<completed.Length/2,"Chapter save did not reduce browser quota pressure.");
+                string exact=town.ExportSave();
+                town.Initialize(definition,"restore-compressed",true);chapters.RestoreSaved();
+                Check(town.ExportSave()==exact&&chapters.ExportSave()==completed,"Compressed native save lost accepted history or chapters.");
+                PlayerPrefs.SetString(town.saveKey,exact);
+                town.Initialize(definition,"restore-legacy",true);
+                Check(town.ExportSave()==exact,"Legacy plain JSON save is no longer readable.");
+            }
+            finally{PlayerPrefs.DeleteKey(town.saveKey);PlayerPrefs.DeleteKey(chapters.saveKey);town.saveKey=priorTownKey;chapters.saveKey=priorChapterKey;}
+
             bool futureOpened=false;
             hud.AnnualChapterReport(town.Engine,chapters.ForYear(10),()=>futureOpened=true,()=>{});
             Click("Read chapter →");Click("Next card →");Click("Next card →");Click("See ten-year future");

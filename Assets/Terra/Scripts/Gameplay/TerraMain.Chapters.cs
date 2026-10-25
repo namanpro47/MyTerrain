@@ -55,6 +55,8 @@ namespace Terra.Gameplay
         {
             hud.CloseAnnualOverview();hud.CloseModal();
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
+            if(annual.State.phase==TownPhase.Reviewing&&annual.Engine.DecisionsFinished)
+            { chapters.StopRequest();StartCoroutine(FinishYears());return; }
             if(annual.State.phase==TownPhase.Reviewing)chapters.Continue();
             SaveAnnual();Refresh();
         }

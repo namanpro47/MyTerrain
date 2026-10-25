@@ -1,0 +1,23 @@
+{
+  "source": "8b60b15df14a8932f710daaeafc60cb61f0f56d9",
+  "base": "f4bd323506a8c9a904c784703de5ab664591ff17",
+  "automated": {
+    "assertions": 889,
+    "existingChapterAssertions": 16,
+    "liveProviderTested": false
+  },
+  "unityGeneratedInputs": [
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+      "sha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52"
+    }
+  ]
+}

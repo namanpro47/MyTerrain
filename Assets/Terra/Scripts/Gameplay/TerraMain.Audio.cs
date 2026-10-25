@@ -23,6 +23,8 @@ namespace Terra.Gameplay
         void AudioTick()
         {
             var audio = TerraAudio.Ensure();
+            hud?.NarrationControls();
+            TerraNarration.Ensure().Show(atlasVisible ? WorldAtlas.Instance?.NarrationText : hud?.NarrationText);
             var k = Keyboard.current;
             if (k?.anyKey.wasPressedThisFrame ?? false) audio.Gesture();
             if ((k?.uKey.wasPressedThisFrame ?? false) && !TerraAudioPanel.ConsumedInput) TerraAudioPanel.Show();

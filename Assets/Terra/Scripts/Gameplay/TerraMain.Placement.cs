@@ -50,6 +50,25 @@ namespace Terra.Gameplay
                     hoverId=id;ConfirmEdit();
                 });
         }
+        void ReviewLandUseChange(Site site)
+        {
+            string id=site.id,action=treatmentId;
+            int revision=annual.State.revision;
+            var old=annual.State.assets.Single(a=>a.siteId==id);
+            var next=annualDefinition.actions.Single(a=>a.siteId==id&&a.actionId==action);
+            long preparation=annual.Engine.ConversionCost(id);
+            hud.AnnualDialog("Change this land use?",
+                buildActionRules.Find(old.actionId).title+" → "+next.title+
+                "\n\nNew project  "+TerraHudMoney(next.upfrontPublicCostCents)+
+                "\nRemoval, site preparation and remaining program payments  "+TerraHudMoney(preparation)+
+                "\n\nThe previous use stops when you End Year. The replacement needs "+Math.Max(1,next.constructionYears)+
+                " year(s) before it opens, then "+next.establishmentYears+" year(s) to establish. Its benefits and ongoing costs replace the old use. Past spending is not refunded."+
+                "\n\nThis queues a proposal. You can still undo it before End Year.","Queue land-use change",()=>{
+                    hud.CloseModal();
+                    if(annual.State.revision!=revision||treatmentId!=action){Toast("The plan changed. Review this conversion again.");return;}
+                    hoverId=id;ApplyEdit(true);
+                });
+        }
         static string TerraHudMoney(long cents)=>TerraHud.Money(cents);
         void PlacementArrivalView()
         {
@@ -74,7 +93,7 @@ namespace Terra.Gameplay
             }
             var rule=buildActionRules.Find(treatmentId);
             string title=rule?.title??recipe?.title??treatmentId;
-            string status=reason==null?(editMode=="move"?"MOVE PREVIEW":queued!=null?"REPLACE PREVIEW":"PREVIEW"):"BLOCKED";
+            string status=reason==null?(editMode=="move"?"MOVE PREVIEW":accepted!=null?"CHANGE PREVIEW":queued!=null?"REPLACE PREVIEW":"PREVIEW"):"BLOCKED";
             string instruction;
             long? delta=null,after=null;
             if(reason==null)
@@ -82,7 +101,7 @@ namespace Terra.Gameplay
                 after=editMode=="move"?annual.Engine.PreviewMove(moveSourceId,site.id):annual.Preview(site.id,treatmentId);
                 delta=annual.Engine.AvailableCents-after.Value;
                 string funds=delta>0?"Reserve "+TerraHudMoney(delta.Value):delta<0?"Release "+TerraHudMoney(-delta.Value):"Reservation unchanged";
-                instruction=funds+" · "+(editMode=="move"?"Click to move":queued!=null?"Click to review replacement":"Click to queue");
+                instruction=funds+" · "+(editMode=="move"?"Click to move":accepted!=null?"Click to review land-use change":queued!=null?"Click to review replacement":"Click to queue");
             }
             else instruction=PlacementReason(reason,site,accepted!=null,queued==treatmentId);
             string space=rule==null?"":rule.landscape?"Treats this whole field":
@@ -93,7 +112,7 @@ namespace Terra.Gameplay
 
         string PlacementReason(string reason,Site site,bool accepted,bool sameQueued)
         {
-            if(accepted)return "Accepted project · choose another field";
+            if(accepted&&reason.Contains("already has that use"))return "Already this use · choose a different land use";
             if(sameQueued)return "Already queued · inspect, move or remove";
             if(site.protectedSite)return "Protected area · choose a marked field";
             if(treatmentId=="water-swale"&&!site.allowedTreatments.Contains("water-swale"))

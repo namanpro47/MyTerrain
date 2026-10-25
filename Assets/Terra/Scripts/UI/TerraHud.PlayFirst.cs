@@ -55,28 +55,22 @@ namespace Terra.UI
         }
         void UpdateProjectFacts(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,bool queued)
         {
-            projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued)&&!state.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0);
+            projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued);
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
+            var previous=state.assets.FirstOrDefault(a=>a.siteId==site.id&&a.cancelledYear==0);
+            bool converting=previous!=null&&previous.actionId!=recipe.actionId;
+            long conversion=converting?(annualTown?.ConversionCost(site.id)??0):0;
+            int opening=state.year+Math.Max(converting?1:0,recipe.constructionYears);
             bool replacing=queued&&rejection==null&&state.queue.Any(q=>q.siteId==site.id&&q.actionId!=recipe.actionId);
-            previewTitle.text=recipe.title;previewKind.text=(replacing?"REPLACE Y"+state.year:queued?"QUEUED":"PLAN Y"+state.year)+" · "+site.name;
+            previewTitle.text=recipe.title;previewKind.text=(converting?"CHANGE Y"+state.year:replacing?"REPLACE Y"+state.year:queued?"QUEUED":"PLAN Y"+state.year)+" · "+site.name;
             var card=actionButtons.FirstOrDefault(p=>p.Value==recipe.actionId).Key;
             projectArt.sprite=card?.transform.Find("Model icon")?.GetComponent<Image>().sprite;projectArt.enabled=projectArt.sprite!=null;
-            projectCost.text=Money(recipe.upfrontPublicCostCents)+"\n<size=80%>Upfront · Opens Y"+(state.year+recipe.constructionYears)+"</size>";
+            projectCost.text=Money(recipe.upfrontPublicCostCents+conversion)+"\n<size=80%>Upfront · Opens Y"+opening+"</size>";
             projectUpkeep.text=Money(recipe.annualPublicOperatingCents)+"/yr upkeep · "+recipe.operatingYears+" yr";
             if(recipe.annualPublicPaymentCents>0)projectUpkeep.text+="\n"+Money(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
-            var s=recipe.services;string benefit,icon;
-            if(recipe.actionId=="stewardship-agreement"){benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
-            else if(s!=null&&(recipe.actionId=="data-center"||recipe.actionId=="agricultural-storage")){benefit=s.jobs.ToString("0.#")+" jobs at capacity";icon="work";}
-            else if(s!=null&&s.homes>0){benefit=s.homes.ToString("0.#")+" home capacity";icon="home";}
-            else if(s!=null&&s.cleanEnergySupply>0){benefit=s.cleanEnergySupply.ToString("0.#")+" clean energy units";icon="energy";}
-            else if(s!=null&&s.energySupply>0){benefit=s.energySupply.ToString("0.#")+" energy units";icon="energy";}
-            else if(s!=null&&s.wastewaterCapacity>0){benefit=s.wastewaterCapacity.ToString("0.#")+" treatment units";icon="water";}
-            else if(s!=null&&s.recreation>0){benefit=s.recreation.ToString("0.#")+" recreation units";icon="people";}
-            else if(s!=null&&s.localServices>0){benefit=s.localServices.ToString("0.#")+" local service units";icon="people";}
-            else if(recipe.retentionCapacityM3>0){benefit=recipe.retentionCapacityM3.ToString("0.#")+" m³ retention capacity";icon="water";}
-            else if(recipe.productionUnits>0){benefit=recipe.productionUnits.ToString("0.#")+" production capacity units";icon="work";}
-            else{benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
+            var s=recipe.services;
+            string icon=s?.homes>0?"home":s?.jobs>0?"work":s?.energySupply>0?"energy":recipe.retentionCapacityM3>0?"water":"leaf";
             projectBenefit.text=PlacementPurpose(recipe.actionId);benefitGlyph.symbol=icon;benefitGlyph.SetVerticesDirty();
             if(s!=null&&(s.energyDemand>0||s.waterDemand>0))
             {projectTradeoff.text=s.energyDemand>0&&s.waterDemand>0?"Needs energy and water; adds upkeep":s.energyDemand>0?"Needs energy; adds upkeep":"Needs water; adds upkeep";tradeoffGlyph.symbol="energy";}
@@ -84,12 +78,13 @@ namespace Terra.UI
             {
                 var baseline=annualRules.sites.First(a=>a.id==site.id);
                 double loss=baseline.baselineProductionUnits-recipe.productionUnits;
-                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Cancel later; completed capital returns $0";tradeoffGlyph.symbol="warning";
+                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Uses this field; changes cost time and money";tradeoffGlyph.symbol="warning";
             }
+            if(converting)projectTradeoff.text="Replaces "+annualRules.actions.First(a=>a.siteId==site.id&&a.actionId==previous.actionId).title+"; no refund";
             tradeoffGlyph.SetVerticesDirty();
-            projectTiming.text="Opens Y"+(state.year+recipe.constructionYears)+" · grows for "+recipe.establishmentYears+" yr";
+            projectTiming.text="Opens Y"+opening+" · grows for "+recipe.establishmentYears+" yr";
             long reserve=recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
-            projectReserve.text=Money(reserve)+" total reserved";
+            projectReserve.text=converting?Money(conversion)+" change costs included":Money(reserve)+" lifetime cost";
             recipeDetails.gameObject.SetActive(recipe.services!=null);SetButtonText(recipeDetails,"Details & assumptions");previewAction.gameObject.SetActive(false);
         }
         void LayoutPlayFirstInspector()

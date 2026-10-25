@@ -269,9 +269,9 @@ namespace Terra.Gameplay
         public void Save()
         {
             if (string.IsNullOrWhiteSpace(saveKey)) throw new InvalidOperationException("Set a chapter save key.");
-            PlayerPrefs.SetString(saveKey, ExportSave()); PlayerPrefs.Save();
+            AnnualTownSession.WriteStored(saveKey, ExportSave()); PlayerPrefs.Save();
         }
-        public void RestoreSaved() { if (PlayerPrefs.HasKey(saveKey)) ImportSave(PlayerPrefs.GetString(saveKey)); }
+        public void RestoreSaved() { if (PlayerPrefs.HasKey(saveKey)) ImportSave(AnnualTownSession.ReadStored(saveKey)); }
         void Persist() { if (autoSave) Save(); }
         static T Clone<T>(T value) => value == null ? default : JsonUtility.FromJson<T>(JsonUtility.ToJson(value));
         void Publish()

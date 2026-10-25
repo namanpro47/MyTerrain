@@ -1,0 +1,26 @@
+{
+  "browser": "155.0.8059.85",
+  "checks": [
+    {
+      "ok": true,
+      "message": "Opening is a modal"
+    },
+    {
+      "ok": true,
+      "message": "Starting funds visible"
+    },
+    {
+      "ok": true,
+      "message": "Compact help retains full-size body text"
+    },
+    {
+      "ok": true,
+      "message": "Reading preserves accepted cash"
+    }
+  ],
+  "notes": [
+    "Single-button footer overlaps content in 8b60b15; fixed in pending 8f44645",
+    "Make dialog background fully opaque after visual inspection"
+  ],
+  "errors": []
+}

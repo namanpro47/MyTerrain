@@ -42,9 +42,9 @@ static class PlanningGuidanceChecks
         AnnualTownDemo.Finish(town, provider);
         Check(Advice(town).message.Contains("complete"), "Completed guide invites another year");
 
-        var limited = Copy(); limited.startingCashCents = 6000000; // Can buy $50K park, cannot reserve its $70K full term.
+        var limited = Copy(); limited.startingCashCents = 6000000; // $50K park is affordable now; later upkeep is disclosed separately.
         var budget = new AnnualTown(limited, "guidance-full-reserve");
-        Check(Advice(budget).actionId == null && Advice(budget).message.Contains("upkeep and debt"), "Guide spent future money or omitted Wait obligations");
+        Check(Advice(budget).message.Contains("Choose a project"), "Guide incorrectly blocks an affordable current-year project");
 
         var apartments = new AnnualTown(definition, "guidance-already-building");
         var home = definition.actions.First(a => a.actionId == "high-density-housing");
@@ -74,7 +74,7 @@ static class PlanningGuidanceChecks
             allSites.QueueAction(offer.siteId, offer.actionId, allSites.Revision);
         }
         AnnualTownDemo.Advance(allSites, "full-year1", provider); allSites.ContinuePlanning(allSites.Revision);
-        Check(Advice(allSites).message.Contains("sites are committed"), "Guide invites redevelopment/refunds");
+        Check(Advice(allSites).message.Contains("skip to Year 10")&&Advice(allSites).message.Contains("change a use"), "Full map guide must offer conversion or Year 10");
 
         var late = new AnnualTown(definition, "guidance-late");
         while (late.Year < definition.years)

@@ -29,20 +29,6 @@ namespace Terra.Core
                 e.conditionLoss*(e.id.EndsWith("/flood",StringComparison.Ordinal)?1-Math.Min(.5,recipe.vegetatedFraction*.3+recipe.retentionCapacityM3/(sites[asset.siteId].areaM2*.1)*.2):1)));
         }
         long RegionalRepairs(TownAsset[] nextAssets) => Sum(nextAssets.Select(a=>(long)((decimal)Action(a.siteId,a.actionId).upfrontPublicCostCents*(decimal)RegionalDamage(a))));
-        TownAsset[] PlayerNextAssets()
-        {
-            var result=TownCopies.Copy(assets);
-            foreach(var q in pending.actions.Where(q=>q.actionId==AnnualPlayerRules.CancelAction))
-            {
-                var a=result.Single(x=>x.siteId==q.siteId&&x.cancelledYear==0);
-                var previous=history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==q.siteId);
-                a.cancelledYear=Year;
-                // Vacant disturbed land remains; cancellation is not instant restoration.
-                a.clearedVegetatedFraction=Math.Min(.25,previous==null?sites[q.siteId].baselineVegetatedFraction:previous.vegetatedAreaM2/sites[q.siteId].areaM2);
-            }
-            var building=pending.actions.Where(q=>q.actionId!=AnnualPlayerRules.CancelAction).ToArray();
-            return result.Where(a=>!building.Any(q=>q.siteId==a.siteId)).Concat(building.Select(q=>new TownAsset {siteId=q.siteId,actionId=q.actionId,startedYear=Year,condition=1})).ToArray();
-        }
         internal void NeutralPlanningDriver()
         {
             if(!PlayerRulesActive||Phase!=TownPhase.Planning)return;

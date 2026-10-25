@@ -105,7 +105,7 @@ namespace Terra.UI
         }
         void ShowPublicBudget()
         {
-            AnnualDialog("Public budget",annualBudget.text+"\n\nAvailable = cash minus accepted commitments and this year's reserved plan.\n\nQueueing reserves the full public term. End Year pays this year's bills.","Back to landscape",CloseModal);
+            AnnualDialog("Public budget",annualBudget.text+(annualTown==null?"":"\nFuture obligations  "+Money(AnnualGameplay.Forecast(annualTown).ledger.futureCommitmentsCents))+"\n\nAvailable = cash minus this year's projects, conversion work, upkeep and unpaid bills.\n\nFuture upkeep is an obligation, not cash held aside today. Later income helps pay it; a shortfall carries forward as unpaid bills. End Year pays this year's bills.","Back to landscape",CloseModal);
             AnnualSecondary("Recent changes",()=>ShowRecentChanges());
         }
     }

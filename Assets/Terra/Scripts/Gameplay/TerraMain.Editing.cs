@@ -58,14 +58,15 @@ namespace Terra.Gameplay
             if(editMode=="remove")return QueuedAt(site.id)==null?"Only queued projects can be removed.":null;
             if(string.IsNullOrEmpty(treatmentId))return "Choose an action to propose here.";
             if(annual.Engine.BuildingBlockedByDebt)return "Repay the negative public budget before new construction. Cancel projects or wait for funding.";
-            if(annual.State.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0))return "Accepted project. Browse this field to cancel it before rebuilding next year.";
+            if(annual.Engine.DecisionsFinished)return "The decision years are complete. Review the ten-year future.";
+            if(treatmentId=="cultivate-margin")return "This option is no longer offered. Choose another land use.";
             if(!FullAnnualGameplay.Supported.Contains(treatmentId))return "This asset's annual recipe is not ready for play yet.";
             string physical=buildActionRules.Rejection(site,treatmentId);if(physical!=null)return physical;
             if(editMode=="place"&&QueuedAt(site.id)==treatmentId)return "Queued for this year. Move, remove or replace before End Year.";
             try
             {
                 long available=editMode=="move"?annual.Engine.PreviewMove(moveSourceId,site.id):annual.Preview(site.id,treatmentId);
-                return available<0?"Need "+TerraHudMoney(-available)+" more available funds, including reserved upkeep. Choose a cheaper project or revise the plan.":null;
+                return available<0?"Need "+TerraHudMoney(-available)+" more for this year’s project, transition and upkeep costs. Choose a cheaper project or revise the plan.":null;
             }
             catch(ArgumentException e){return e.Message;}
         }
@@ -90,7 +91,7 @@ namespace Terra.Gameplay
             string reason=Rejection(site);var recipe=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==(string.IsNullOrEmpty(treatmentId)?QueuedAt(site?.id):treatmentId));
             landscape.ClearGhost();landscape.Highlight(site?.id,selectedId,state.phase==TownPhase.Completed||reason==null||string.IsNullOrEmpty(treatmentId),availableFieldIds);
             if(site!=null&&(editMode=="place"||editMode=="move")&&!string.IsNullOrEmpty(treatmentId)
-                &&state.phase==TownPhase.Planning&&!state.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0))
+                &&state.phase==TownPhase.Planning)
                 landscape.Ghost(site,reason==null,treatmentId);
             if(site!=null&&editMode=="remove"&&reason==null)landscape.PreviewBaseline(site);
             bool water=treatmentId=="water-swale"&&site!=null&&site.allowedTreatments.Contains("water-swale");
@@ -107,16 +108,19 @@ namespace Terra.Gameplay
             {selectedId=hoverId??selectedId;UpdatePreview();return;}
             // Replacing a proposal is deliberate; a land click opens the existing Replace control.
             string prior=QueuedAt(PreviewSiteId);
-            if(editMode=="place"&&prior!=null&&prior!=treatmentId)
+            if(editMode=="place"&&prior!=null&&prior!=treatmentId&&!annual.State.assets.Any(a=>a.siteId==PreviewSiteId&&a.cancelledYear==0))
             {ReviewPlacementReplacement();return;}
             ConfirmEdit();
         }
-        void ConfirmEdit()
+        void ConfirmEdit()=>ApplyEdit(false);
+        void ApplyEdit(bool conversionConfirmed)
         {
             if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen)return;
             if(!ConsumePlacementIntent()){Toast("The target or plan changed. Preview it again before queueing.");UpdatePreview();return;}
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);string reason=Rejection(site);
             if(reason!=null){Toast(reason);BlockedCue();return;}
+            if(!conversionConfirmed&&editMode=="place"&&annual.State.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0))
+            { ReviewLandUseChange(site); return; }
             var timer=System.Diagnostics.Stopwatch.StartNew();int revision=annual.State.revision;
             string actionTitle=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==treatmentId)?.title;
             string feedbackCause=editMode=="reset"?"Plan cleared":editMode=="remove"?"Removed · "+site.name:editMode=="move"?"Moved · "+site.name:(QueuedAt(site?.id)!=null?"Replaced · ":"Queued · ")+actionTitle;
@@ -174,6 +178,7 @@ namespace Terra.Gameplay
             if(feedbackRunId!=annual.State.runId){feedbackRunId=annual.State.runId;hud.ClearChangeFeedback();}
             var change=feedbackTracker.Observe(annual.Engine,annualBaseline,forecast,feedbackCause);
             hud.AnnualState(annual.Engine,annualBaseline,forecast);
+            hud.FullLandscapeOption(annual.Engine);
             hud.PlacementAcceptedState(annual.Engine,annualBaseline);
             hud.AnnualWater(AnnualEconomy.Water(annualDefinition,annual.State.history.LastOrDefault()?.outcomes??annualBaseline),AnnualEconomy.Water(annualDefinition,forecast));
             UpdatePreview();
@@ -231,11 +236,23 @@ namespace Terra.Gameplay
         {
             if(fastForwarding)return;
             hud.AnnualDialog("Start a new run?","This replaces this browser's current run. Accepted years cannot be undone. A copy of this run will be kept locally.","Start new run",()=>{
+                try
+                {
+                    // Compact the live keys first; archive the complete run before changing it.
+                    annual.Save();chapters.Save();
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous",annual.ExportSave());
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous.seed",annualDefinition.playerRules.scenarioSeed);
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous.definition",JsonUtility.ToJson(annualDefinition));
+                    AnnualTownSession.WriteStored(chapters.saveKey+".previous",chapters.ExportSave());
+                    PlayerPrefs.Save();
+                }
+                catch(Exception error)
+                {
+                    Debug.LogWarning("Run backup failed: "+error.Message);
+                    hud.AnnualDialog("Your current run is safe", "There is not enough browser storage to keep a backup and start another run. Your current landscape and accepted years are still available. Free storage outside this game's saves, then try again.", "Return to current run", hud.CloseModal);
+                    return;
+                }
                 hud.CloseAnnualOverview();comparisonTown=null;comparisonMap=false;hud.MapView(null);introPending=true;
-                PlayerPrefs.SetString(annual.saveKey+".previous",annual.ExportSave());
-                PlayerPrefs.SetString(annual.saveKey+".previous.seed",annualDefinition.playerRules.scenarioSeed);
-                PlayerPrefs.SetString(annual.saveKey+".previous.definition",JsonUtility.ToJson(annualDefinition));
-                PlayerPrefs.SetString(chapters.saveKey+".previous",chapters.ExportSave());
                 chapters.StateChanged-=ChapterChanged;chapters.StopRequest();RenewPlayerScenario();annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));
                 chapters.ResetForRun();chapters.StateChanged+=ChapterChanged;
                 hud.CloseModal();selectedId=hoverId=null;treatmentId="";editMode="place";hud.Selected("");SaveAnnual();RefreshLandscape();Refresh();BeginAnnualArrival();BrowserPerformance.Memory("new-run");

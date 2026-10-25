@@ -65,6 +65,10 @@ namespace Terra.Contracts
         public string siteId, actionId;
         public int startedYear;
         public double condition = 1;
+        // Optional conversion evidence; zero/empty preserves older save fingerprints.
+        public string previousActionId;
+        public int conversionDelayYears;
+        public double conversionOpeningVegetation;
         public int cancelledYear;
         public double clearedVegetatedFraction;
     }
@@ -135,6 +139,8 @@ namespace Terra.Contracts
     [Serializable] public sealed class AnnualTownSnapshot
     {
         public int schemaVersion = 1, year, revision;
+        // Zero means the original full decision horizon.
+        public int planningYears;
         public string runId, definitionHash;
         public TownPhase phase;
         public long cashCents, arrearsCents;

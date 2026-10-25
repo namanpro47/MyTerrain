@@ -45,7 +45,7 @@ namespace Terra.Audio
 #if UNITY_WEBGL && !UNITY_EDITOR
             ratio = Mathf.Max(1, TerraPixelRatio());
 #endif
-            scaler.scaleFactor = ratio * Mathf.Min(1, (Screen.width / ratio - 24) / 560, (Screen.height / ratio - 24) / 550);
+            scaler.scaleFactor = ratio * Mathf.Min(1, (Screen.width / ratio - 24) / 560, (Screen.height / ratio - 24) / 660);
             var k = Keyboard.current;
             if (k != null && openedFrame != Time.frameCount)
             {
@@ -79,6 +79,9 @@ namespace Terra.Audio
         void Refresh()
         {
             for (int i = 0; i < values.Length; i++) values[i].text = Mathf.RoundToInt(TerraAudio.Instance.Level(i) * 100) + "%";
+            var n=TerraNarration.Ensure();
+            var toggle=buttons.Find(b=>b.name=="Toggle dialogue voice");
+            if(toggle!=null)toggle.GetComponentInChildren<TextMeshProUGUI>().text="Dialogue voice: "+(n.Enabled?"on":"off");
             muteText.text = TerraAudio.Instance.Muted ? "Unmute all sound" : "Mute all sound";
         }
         void Adjust(int index, float amount)
@@ -95,24 +98,25 @@ namespace Terra.Audio
             var shade = Box(panel.transform, "Sound backdrop", Vector2.zero, Vector2.zero);
             shade.anchorMin = Vector2.zero; shade.anchorMax = Vector2.one; shade.offsetMin = shade.offsetMax = Vector2.zero;
             shade.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f,.04f,.06f,.8f);
-            var card = Box(panel.transform, "Sound card", Vector2.zero, new Vector2(560,550));
+            var card = Box(panel.transform, "Sound card", Vector2.zero, new Vector2(560,660));
             card.gameObject.AddComponent<UnityEngine.UI.Image>().color = Slate;
-            Text(card, "Sound & music", new Vector2(-244,218), new Vector2(488,38), 28, Paper);
-            Text(card, "A quiet landscape, mixed your way.", new Vector2(-244,179), new Vector2(488,30), 18, Mint);
-            values = new TextMeshProUGUI[4];
-            string[] labels = { "Overall volume", "Music", "Nature ambience", "Actions & interface" };
-            for (int i = 0; i < 4; i++)
+            Text(card, "Sound & music", new Vector2(-244,273), new Vector2(488,38), 28, Paper);
+            Text(card, "Dialogue voice by ElevenLabs.", new Vector2(-244,234), new Vector2(488,30), 18, Mint);
+            values = new TextMeshProUGUI[5];
+            string[] labels = { "Overall volume", "Music", "Nature ambience", "Actions & interface", "Dialogue narration" };
+            for (int i = 0; i < 5; i++)
             {
-                int bus = i; float y = 120 - i * 58;
+                int bus = i; float y = 175 - i * 58;
                 Text(card, labels[i], new Vector2(-244,y), new Vector2(236,44), 20, Paper);
                 Button(card, "−", new Vector2(42,y), new Vector2(48,44), () => Adjust(bus,-.1f));
                 values[i] = Text(card, "", new Vector2(82,y), new Vector2(80,44), 20, Mint); values[i].alignment = TextAlignmentOptions.Center;
                 Button(card, "+", new Vector2(202,y), new Vector2(48,44), () => Adjust(bus,.1f));
             }
-            var mute = Button(card, "", new Vector2(0,-136), new Vector2(488,46), () => { TerraAudio.Instance.SetMuted(!TerraAudio.Instance.Muted); Refresh(); });
+            Button(card, "Toggle dialogue voice", new Vector2(0,-132), new Vector2(488,42), () => { var n=TerraNarration.Ensure();n.SetEnabled(!n.Enabled);Refresh(); });
+            var mute = Button(card, "", new Vector2(0,-190), new Vector2(488,46), () => { TerraAudio.Instance.SetMuted(!TerraAudio.Instance.Muted); Refresh(); });
             muteText = mute.GetComponentInChildren<TextMeshProUGUI>();
-            Text(card, "Saved on this device · Audio pauses when you leave the tab.\nU: sound settings · Tab / arrows: choose · Enter: adjust", new Vector2(-244,-184), new Vector2(488,48), 16, Paper);
-            Button(card, "Done  ·  Esc", new Vector2(0,-239), new Vector2(220,44), Close);
+            Text(card, "Saved on this device · Audio pauses when you leave the tab.\nU: sound settings · Tab / arrows: choose · Enter: adjust", new Vector2(-244,-239), new Vector2(488,48), 16, Paper);
+            Button(card, "Done  ·  Esc", new Vector2(0,-294), new Vector2(220,44), Close);
         }
         RectTransform Box(Transform parent, string name, Vector2 position, Vector2 size)
         {

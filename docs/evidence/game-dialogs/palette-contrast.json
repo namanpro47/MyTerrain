@@ -1,0 +1,30 @@
+{
+  "method": "WCAG relative luminance for opaque source colors; bounded palette check, not full accessibility certification",
+  "ratios": [
+    {
+      "text": "Paper",
+      "surface": "Panel",
+      "ratio": 14.63
+    },
+    {
+      "text": "Soft",
+      "surface": "Panel",
+      "ratio": 8.68
+    },
+    {
+      "text": "Paper",
+      "surface": "Card",
+      "ratio": 11.62
+    },
+    {
+      "text": "Soft",
+      "surface": "Card",
+      "ratio": 6.89
+    },
+    {
+      "text": "Ink",
+      "surface": "Mint",
+      "ratio": 10.82
+    }
+  ]
+}

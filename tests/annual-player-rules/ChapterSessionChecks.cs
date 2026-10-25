@@ -46,7 +46,7 @@ AnnualTownSession Town(string key,bool restore=false){var t=new AnnualTownSessio
 AnnualChapterSession Chapter(AnnualTownSession t,string key)=>new AnnualChapterSession{town=t,saveKey=key,endpoint="http://127.0.0.1:8787/chapter",useJavaScriptBackend=false};
 var town=Town("rules-town");var chapters=Chapter(town,"rules-chapters");
 UnityWebRequest.OnSend=()=>{
- var saved=JsonUtility.FromJson<AnnualTownSnapshot>(PlayerPrefs.GetString(town.saveKey));
+ var saved=JsonUtility.FromJson<AnnualTownSnapshot>(AnnualTownSession.ReadStored(town.saveKey));
  Check(saved.history.Length==1&&saved.phase==TownPhase.Reviewing,"numerical year saved before transport starts");
  Check(PlayerPrefs.HasKey(chapters.saveKey),"local chapter saved before transport starts");
 };
@@ -83,4 +83,16 @@ Check(endingRequest.snapshot.pendingRequest.year==10&&endingRequest.snapshot.his
 var endingReceipt=stale.ForYear(10);endingReceipt.mode="gemini";endingReceipt.model="ending-test";
 transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.Success;transport.responseCode=200;transport.downloadHandler.text=JsonUtility.ToJson(endingReceipt);transport.operation.isDone=true;stale.Poll();
 Check(stale.ForYear(10).mode=="gemini"&&TownCopies.Hash(newest.State)==endingHash,"AI ending replaces prose only");
+// Storage remains exact, while compressed backups fit alongside current saves.
+newest.Save();stale.Save();
+string fullSave=newest.ExportSave(), fullChapter=stale.ExportSave();
+AnnualTownSession.WriteStored(newest.saveKey+".previous",fullSave);
+AnnualTownSession.WriteStored(stale.saveKey+".previous",fullChapter);
+AnnualTownSession.WriteStored(newest.saveKey+".previous.definition",JsonUtility.ToJson(definition));
+Check(AnnualTownSession.ReadStored(newest.saveKey+".previous")==fullSave,"compressed complete history is lossless");
+Check(AnnualTownSession.ReadStored(stale.saveKey+".previous")==fullChapter,"compressed chapters are lossless");
+Check(PlayerPrefs.Values.Sum(kv=>System.Text.Encoding.UTF8.GetByteCount(kv.Key+kv.Value))<1024*1024,"current and archived ten-year runs fit WebGL quota");
+PlayerPrefs.SetString("legacy-json",fullSave);
+var legacy=Town("legacy-json",true);Check(TownCopies.Hash(legacy.State)==endingHash,"legacy plain JSON still restores exactly");
+var compressed=Town(newest.saveKey,true);Check(TownCopies.Hash(compressed.State)==endingHash,"compressed current save restores exactly");
 Console.WriteLine("Save-first chapter session checks passed: "+checks+" (transport/Unity stubs, no live provider)");
