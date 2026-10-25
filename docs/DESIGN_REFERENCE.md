@@ -1,5 +1,7 @@
 # Terra design reference — Terra Nil and Cities: Skylines
 
+**Annual adaptation — October 24, 2026:** The user's requested annual loop and [Actions & Effects catalog](ACTIONS_AND_EFFECTS.md) replace the immediate-only/time-controls-excluded interaction guidance. TN/CS visual observations remain references; the Terra application notes below now distinguish planning from annual commitment. This is design guidance, not newly verified browser output.
+
 > **Active visual reset — October 24, 2026:** The user rejected the prototype's visual quality and the UX-heavy incremental approach. Read [the rewritten Phase 2A goal](PHASE_2A_GOAL.md) and [VISUAL_REBUILD.md](VISUAL_REBUILD.md) first. This library remains the source reference; earlier Terra screenshots are rejected/historical comparisons. Prioritize the rendered landscape, materials, foliage, lighting and transformations. No current implementation is protected merely because it exists.
 
 
@@ -10,6 +12,8 @@
 **Use Terra Nil as the primary reference for how Terra looks and feels. Use Cities: Skylines selectively for how a spatial decision is explained.** The target is a beautifully composed, responsive rural landscape game whose interface makes choices understandable without dominating the landscape.
 
 This is the reusable reference for all player-facing work, not a record of implemented quality. [The project spec](../TERRA_PROJECT_SPEC.md) remains the product authority. [The art contract](art-direction.md) records the implemented system. [Phase 2A](PHASE_2A_GOAL.md) establishes the new standard before Phase 3; later phases must retain it. [The evidence ledger](PHASE_STATUS.md) records actual verification.
+
+**[Current game versus reference — visual review](CURRENT_VISUAL_REVIEW.md)** shows the latest playable candidate, official comparison imagery and the gaps keeping Phase 2A open.
 
 ## Find the relevant reference quickly
 
@@ -100,15 +104,15 @@ Use subtle material variation within each cover class. Presentation may soften t
 
 **Terra application:** use a compact location identity, one measures group, one bottom tool group, and one contextual preview. Prototype a deep forest/ink HUD against the valley, retaining warm paper for explanations. This is a proposed Terra direction, not an assertion that Terra Nil uses our palette. Do not merely recolor today's large panels.
 
-Keep budget and current illustrative production visible. Until Phase 4, show runoff as unavailable in neutral language without an invented zero or an ecological success color. Phase 5 may add goal targets; a circular global restoration percentage would falsely collapse Terra's competing objectives into one ecological score.
+For the annual game, keep Year, USD cash/commitments and three compact Economic/Social/Environmental meters visible. Inspectable components include illustrative production and supported water/resource facts. Until an adapter supplies runoff, show it as unavailable, never zero. Do not collapse the three outcomes into one restoration or morality score. The starter and full-catalog rubric versions must be distinguished.
 
-**Review:** the eye should find the selected tool, available credits, and the affected site without reading several competing banners. At rest, a large uninterrupted region of land must remain visible.
+**Review:** the eye should find the selected tool, spendable public funds, and the affected site without reading several competing banners. At rest, a large uninterrupted region of land must remain visible.
 
 ### TN-04 — Tool illustrations connect the menu to the world
 
 **Observed:** V1 pairs recognizable miniature tool images with prices.
 
-**Terra application:** give Cultivate, Restore, and Manage Water original, consistent miniature illustrations based on their actual in-world treatments. Retain visible text labels and shortcut hints. The two cultivation variants share a family and appear only with Cultivate. Show exact contextual cost in preview; a dock price must be clearly a base price or range if replacement/refund/site state affects it.
+**Terra application:** use matching miniature illustrations for the actual project assets across Land & Nature, Homes & Community, and Work & Utilities. Retain visible text labels and shortcut hints. Farming and wind/solar variants stay within their families; preserve the full twelve-family catalog without twelve permanent panels. Show exact contextual cost in preview; a dock price must be clearly a base price or range if replacement/refund/site state affects it.
 
 **Avoid:** emoji, stock icons with mixed perspective, icon-only novice controls, or a large multi-row catalogue. Three choices are enough. A locked-looking control must say why it is unavailable; an unimplemented later feature should not look actionable.
 
@@ -116,9 +120,9 @@ Keep budget and current illustrative production visible. Until Phase 4, show run
 
 **Terra application, informed by V1/V2:** make the proposal boundary and expected appearance visible before click. Keep the site's identity, treatment, credit change, production change, and availability reason beside that preview in a stable card. A ghost must read as proposed; the committed landscape must read as settled.
 
-Use separate states for hover, keyboard focus, selected tool, valid preview, blocked preview, and committed proposal. Do not let a red rejection and a successful but mixed trade-off share a visual treatment. Put the cause of rejection first: protected learning zone, incompatible treatment, or insufficient credits. Offer an immediate recovery action using existing controls.
+Use separate states for hover, keyboard focus, selected tool, valid preview, blocked preview, and committed proposal. Do not let a red rejection and a successful but mixed trade-off share a visual treatment. Put the cause of rejection first: protected learning zone, incompatible treatment, or insufficient uncommitted funds. Offer an immediate recovery action using existing controls.
 
-The current transaction path remains authoritative. Preview, commit, displayed deltas, interrupted animation, and undo must agree. A flourish is never allowed to spend credits twice or delay control recovery. This reliability requirement belongs to Terra; it is not an untested claim about Terra Nil's history system.
+The annual store is authoritative after integration. Queue previews, reservation deltas and current-year undo must agree; End Year commits accepted history once. Distinguish expected conditional effects from exact prices. A flourish never spends twice, resolves a year, rewrites history or delays control recovery. This reliability requirement belongs to Terra; it is not an untested claim about Terra Nil's history system.
 
 ### TN-06 — A field guide, not a wall of disclosure text
 
@@ -134,13 +138,13 @@ Do not build a full encyclopedia, search engine, collectible journal, or elabora
 
 **Terra application:** one subtle hover/focus response, a short placement cue, a restrained establishment reveal, and a quiet ambient bed should make actions feel intentional. Silence and reduced motion must preserve every piece of meaning. No sound on every hovered site, celebratory reward for every numeric increase, forced camera travel, or blocking grow animation.
 
-Tune timing in the real browser. Initial Terra targets are 150–220 ms UI transitions and 350–650 ms placement reveals; these are design starting points, not measured Terra Nil timings. Inputs and state commit immediately, with visual feedback inside the latency budget.
+Tune timing in the real browser. Initial Terra targets are 150–220 ms UI transitions and 350–650 ms placement reveals; these are design starting points, not measured Terra Nil timings. Queue inputs respond immediately within the latency budget; only End Year accepts the annual transition. Animation follows the accepted snapshot.
 
 ### TN-08 — Let the player value the result
 
 **Documented:** Terra Nil's described progression moves toward a finished environment rather than unlimited expansion; its Appreciate mode allows viewing the result. Lead designer Sam Alfred's GDC session abstract also emphasizes balance. [Official store](https://store.steampowered.com/app/1593030/Terra_Nil/), [GDC 2023 session abstract](https://www.gdcvault.com/play/1029027/Developing-Terra-Nil-A-Strategy).
 
-**Terra application:** later comparison/ending screens should preserve the same recognizable valley and make its changes legible before presenting educational copy. Continue Building returns smoothly to the player's design. Do not import recycling/departure mechanics: Terra includes livelihoods and productive land, so removing all human activity is not the win condition. Do not depict the real valley as a lifeless wasteland to imitate the reference's dramatic opening.
+**Terra application:** later comparison/ending screens should preserve the same recognizable valley and make its changes legible before presenting educational copy. The Year 10 comparison preserves the accepted final map; Replay starts a separate run. Annual report Continue resumes the next planning year, not a retroactive edit. Do not import recycling/departure mechanics: Terra includes livelihoods and productive land, so removing all human activity is not the win condition. Do not depict the real valley as a lifeless wasteland to imitate the reference's dramatic opening.
 
 ## Cities: Skylines pattern library
 
@@ -148,9 +152,9 @@ Tune timing in the real browser. Initial Terra targets are 150–220 ms UI trans
 
 **Documented/observed:** the original manual places city services in a fixed toolbar, with detail available through panels. [Original manual, pp.8–10](https://cdn.akamai.steamstatic.com/steam/apps/255710/manuals/CitiesSkylines-UserManual_EN.pdf#page=9).
 
-**Terra application:** keep the three intervention families in stable positions. Reveal variant choices within the selected family; reveal site details only for the selected/hovered site. A new gameplay feature must fit the established hierarchy rather than creating another permanent floating window.
+**Terra application:** keep Land & Nature, Homes & Community, and Work & Utilities in stable positions. Reveal project families and variants inside the selected category; reveal site details only for the selected/hovered site. A new gameplay feature must fit the established hierarchy rather than creating another permanent floating window.
 
-**Avoid:** copying the original game's service count, bottom economic ticker, time controls, demand bars, zoning categories, or broad city-management scope.
+**Annual adaptation:** explicit End Year, Wait and confirmed fast-forward are now core Terra controls. Borrow information hierarchy, not a real-time speed toolbar, exhaustive service count, ticker, road/zoning simulator or broad city-management scope. Projects use the same rural map.
 
 ### CS-02 — Put relevant information onto the land
 
@@ -162,7 +166,7 @@ Tune timing in the real browser. Initial Terra targets are 150–220 ms UI trans
 
 ### CS-03 — Separate a world object from the tool acting on it
 
-**Terra application:** keep “selected site” distinct from “active treatment.” A selected proposal can stay identifiable when a player closes its details, cancels placement, or moves the camera. Phase 3 adds move/remove/replace/history through this same selection language. Phase 2A styles the existing selection and undo, without implementing the entire editor early.
+**Terra application:** keep “selected site” distinct from “active treatment.” A selected proposal can stay identifiable when a player closes its details, cancels placement, or moves the camera. Phase 3 applies move/remove/replace/history to the unsubmitted current-year queue; selection of an accepted asset offers inspection, not a historical refund. Phase 2A styles the existing selection and undo, without implementing the entire editor early.
 
 The original manual's tool and panel organization is a structural precedent, not proof that its editing semantics match Terra's. Define Terra's interactions explicitly and verify them.
 
@@ -239,10 +243,10 @@ Before changing player-facing code or assets, read the relevant patterns and ins
 | Phase | Additional design responsibilities |
 |---|---|
 | 2A | Rebuild direct visual quality from first principles: composition, foliage, ground, water, light and transformations; replace existing implementation as needed; fit UI afterward |
-| 3 | Extend those components to move, replace, remove, redo and reset without clutter or input ambiguity |
-| 4 | Add truthful runoff/connection information, comparable deltas, legends and causal explanations |
-| 5 | Add mission/goal status and progressive onboarding; test comprehension without coaching |
-| 6 | Add comparison, learning and Continue Building using the same visual language and preserved camera |
+| 3 | Annual queue/commit boundary, USD commitments, three starter meters, End Year/report/Wait and a three-year browser loop |
+| 4 | Full catalog and meter components, real-scale project lifecycles, spatial runoff and annual causal explanations |
+| 5 | Ten-year goals, adaptation, fast-forward and annual onboarding; test comprehension without coaching |
+| 6 | Same-conditions ten-year comparison, optional learning and replay with preserved final camera |
 | 7 | Audit the whole experience against the Phase 2A benchmark; it is no longer the first design pass |
 | 8 | Verify that the shipped build matches the accepted presentation and truthful product claims |
 

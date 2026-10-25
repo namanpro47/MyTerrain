@@ -167,7 +167,9 @@ namespace Terra.Gameplay
             var position=shownTarget-view.transform.forward*distance;
             // Also protect the interpolated camera while crossing a wooded hillside.
             if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
-            view.transform.position=position;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));
+            view.transform.position=position;float displayRatio=hud?.PixelRatio??1;
+            InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
+            landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);
         }
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}

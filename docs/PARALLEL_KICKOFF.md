@@ -1,5 +1,7 @@
 # Parallel implementation assignments — October 24, 2026
 
+> **Updated target — October 24, 2026:** Preserve the ownership/delivery record below; do not dispatch these completed packages again. The [annual plan](../IMPLEMENTATION_PLAN.md) replaces future instant-placement mission work with annual state/queue integration (3A), a three-year playable loop (3B), full action/meter and consequence integration (4A/4B), ten-year balance (5), and paired future comparison/replay (6). Coordinate the already assigned editing work with Peter's remote annual foundation before shared Core/HUD changes. [ACTIONS_AND_EFFECTS.md](ACTIONS_AND_EFFECTS.md) defines the catalog and new contract gaps. Phase 2A remains an unmet visual gate; independent work does not certify it. No chats were messaged or newly assigned by this revision.
+
 The user requested that every implementation-ready task in the plan be started in parallel. The Phase 1 contracts and completed Phase 2 geography permit packages B, D, and the independent audio portion of C to start now. These are implementation assignments, not completion claims or authorization to bypass the visual acceptance gate.
 
 ## Active owners

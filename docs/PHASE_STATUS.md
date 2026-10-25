@@ -2,9 +2,9 @@
 
 **Browser preference — October 24, 2026:** The user confirmed Chrome is sufficient throughout this project. Use Chrome for current and future phase acceptance; do not launch or retest Safari or request Private Browsing unlocks unless explicitly asked. Phase 2 Safari retesting was waived. Earlier Chrome/Safari records below remain historical evidence, not recurring requirements.
 
-**Last updated:** October 24, 2026, Phase 2 complete. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
+**Last updated:** October 24, 2026, annual gameplay planning adopted; Phase 2A still unaccepted. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
 
-**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is now in progress under its separately activated goal; phases 3–8 remain planned.
+**Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is now in progress under its separately activated goal; later live-game gates remain unaccepted. Separately prepared editing/packages and remote annual/art work are recorded below; no new runtime work is certified by the planning revision.
 
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
@@ -12,20 +12,43 @@
 | 1 — Rural selection/foundation/contracts | Gate passed | Selected AOI, styled synthetic fixture, public browser checks, 27 contract checks, frozen v1 contracts and runnable bundle |
 | 2 — One real rural landscape | Gate passed | Real pack/provenance, 34 geography + 139 Unity checks, 12 sites, Chrome state matrix and measured public performance; [audit](PHASE_2_AUDIT.md) |
 | **2A — Visual rebuild from first principles** | **Visual reset; current direction rejected** | [Rewritten goal](PHASE_2A_GOAL.md), [visual studies and resources](VISUAL_REBUILD.md), [persistent reference](DESIGN_REFERENCE.md); requires rebuilt scenery, matched browser comparisons, every visual category ≥4.5/5, and supporting delivery checks |
-| 3 — Editing | Planned | Full reversible edit path required |
-| 4 — Consequences | Planned | Runoff/retention integration and correctness evidence required |
-| 5 — Rural mission | Planned | Balanced alternate designs on the same map and novice review required |
-| 6 — Ending | Planned | Comparison/learning/continue loop required |
+| 3A/3B — Annual integration / three-year browser loop | Revised target; not accepted | Reconcile existing editing and Peter’s remote annual module; one ledger, current-year queue, meters, End Year, report, Wait and reload in the live scene |
+| 4A/4B — Full catalog/meters and consequences | Planned | All twelve chart families, operational building/service effects, complete rubric, spatial runoff and annual drivers required |
+| 5 — Ten-year balance | Planned | Distinct viable strategies, stress cases, fast-forward equivalence and novice observations required |
+| 6 — Future comparison and replay | Planned | Same-driver no-new-action future, final world/history, optional learning and new-run replay required |
 | 7 — Polish | Planned | Visual/interaction review and measured performance required |
 | 8 — Release/refinement | Planned | Full single-location build, rehearsed demo, and focused refinement backlog |
 
-## Hosting refresh — October 24, 2026
+## Annual direction and action-table adoption — October 24, 2026
+
+- **Status:** planning/context revision complete; no annual HUD, new recipes, runtime schema change, Unity build, browser test or deployment performed in this task. Phase 2A remains failed/unaccepted. Historical evidence below stays intact.
+- **User direction:** make Peter's annual loop core, including public action budgets, effects and three meters. Updated the canonical spec, rewrote future phases, and added [ACTIONS_AND_EFFECTS.md](ACTIONS_AND_EFFECTS.md) with all 12 rows, original prices/ratings, $3M renewables correction, tentative tax assumptions, timing/commitments, conditional effects and versioned meter design.
+- **Remote inspection:** fetched `origin/main` at `1bcc254`. Read annual contracts/runtime handoff, source PRD and action-art handoff/catalog. `a4ba01e` provides annual state/ledger, `080f692` accepted summaries/Editor playtest, `1bcc254` metric action art. These remain remote modules, absent from this local branch; only the PRD text was restored locally with an adoption notice. Reported remote tests were not rerun here.
+- **Existing local packages/owners:** [PARALLEL_INTEGRATION.md](PARALLEL_INTEGRATION.md) records B/D/C3 delivered; [PARALLEL_KICKOFF.md](PARALLEL_KICKOFF.md) records separately authorized Phase 3 editing. They require reconciliation with the annual model, not a second dispatch. No message was sent to another worker.
+- **Material decisions:** one annual authority; queue-only undo/refunds; all chart families required in the same AOI; no fixed /5 meter rewards; deterministic offline core; optional narration, no generated ending artwork. Existing prices/effects remain labelled game assumptions rather than local science/cost forecasts.
+- **Next handoff:** finish the current visual gate; review/integrate annual and editing work for Phase 3A, then prove three years in Chrome (3B). Phase 4 completes the catalog/rubric and spatial consequences before ten-year balance (5) and comparison/replay (6). Existing independently authorized work may proceed without claiming live-phase acceptance.
+- **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
+- **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
+
+## Current Phase 2A checkpoint — study19b
+
+[Current visual review](CURRENT_VISUAL_REVIEW.md) shows actual Chrome output beside the primary reference. Study17's creek and study18's visible artist ground treatment remain partial improvements. Study19b corrects the first distance-detail regression: overview p95=19ms; moving placement p95=41ms still fails. Cultivate/Restore/undo work. One startup exception with early input remains untriaged; the next reload did not reproduce it. The visual gate **still fails** on crown variety, field appearance, lighting, roads and whole-scene richness. No current public deployment. [Exact builds, captures and diagnostics](evidence/phase2a/visual-rebuild/checkpoint.json).
+
+## Fresh-build publication — October 24, 2026, 18:12 local
+
+The user requested the latest source build because production still showed the older export. A primary-checkout Web build was already running when this task began; its latest Unity BuildReport confirmed success in 87.95 seconds, zero errors and eight warnings, ending at 18:12 America/Los_Angeles. Published a frozen copy at `Builds/Publish/2026-10-24-1812` to the existing project, deployment `dpl_BgtA89SrWRVm8WXkE5Cr7dMeQ4x9`, at [terra-browser.vercel.app](https://terra-browser.vercel.app/).
+
+All 11 anonymous game-file checks passed exact byte equality (35,019,037 bytes), gzip decoding and WASM validation. Chrome displayed the newer sculpted trees, layered creek, ground detail and close camera, consistent with the local study19 capture. Tab/Enter changed production/credits from 6/60 to 17/36; Z restored 6/60. No console errors were captured. Existing FSR shader and Content-Length warnings remain; the fresh reload reported 11,980 ms to interaction. This is a publication smoke test under TN-01/02/05 and AX-01, not visual acceptance or an annual-gameplay integration claim.
+
+[Build report](evidence/deployment-fresh-2026-10-24/build.json) · [Deployment identity](evidence/deployment-fresh-2026-10-24/identity.json) · [Exact public asset checks](evidence/deployment-fresh-2026-10-24/public-assets.json) · [Chrome capture](evidence/deployment-fresh-2026-10-24/chrome-live.png) · [Browser log](evidence/deployment-fresh-2026-10-24/browser-log.json). Earlier statements below about an unpublished candidate are historical; this publication supersedes the earlier hosting refresh.
+
+## Hosting refresh — October 24, 2026 (historical)
 
 At the user's request, republished the latest completed `Builds/Web` export (15:41 local) to the existing `terra-browser` Vercel project. Production: [terra-browser.vercel.app](https://terra-browser.vercel.app/), deployment `dpl_FQ2Yv3sQyZ7M6VPDEfPaUDpYWVxW`. [Identity](evidence/deployment-2026-10-24/identity.json) · [anonymous asset verification](evidence/deployment-2026-10-24/public-assets.json) · [Chrome capture](evidence/deployment-2026-10-24/chrome-live.png).
 
 All 11 checked files returned HTTP 200 and matched the local export, including gzip decoding and WASM validation. An initial check during alias propagation saw the previous HTML; the subsequent complete check passed. Chrome rendered the landscape; Tab/Enter placed West field (6→17 illustrative units, 60→36 credits), and Z restored 6/60. No console errors were captured. The Unity-ready log reported 16,845 ms; this is a startup observation, not a performance acceptance pass. This hosting task did not rebuild Unity or certify ongoing visual-rebuild source changes or Phase 2A acceptance. Existing phase evidence below remains historical.
 
-## Current handoff
+## Historical Phase 2 handoff (superseded by current records above)
 
 - **Next action:** rebuild Phase 2A visuals from first principles; compare new scene/camera/asset studies before refining the interface. Phase 3 is not authorized.
 - **Goal outcome:** Phases 0–2 complete. Phase 2A implementation is in progress; later phases have not started.
@@ -39,7 +62,7 @@ All 11 checked files returned HTTP 200 and matched the local export, including g
 
 ## Phase 2A visual reset — October 24, 2026
 
-**Latest verified local study: 14.** Rounded cover masks, a creek-centered opening, streamside willows and free artist wheat cards rendered in Chrome. Generated studies are archived outside the browser Resources bundle; export is 20,713,933 bytes. Cultivation/restoration/undo and exact-export checks passed, but the visual gate still fails and dense crop overlap regressed the 30-second foreground route to **83ms p95**. [Captures and measurements](evidence/phase2a/visual-rebuild/README.md#study-14--softened-cover-edges-creek-composition-artist-crop-cards-failed-gate). Study15 tests three-plant rows and alpha coverage; its Editor render is diagnostic, browser verification pending. Public deployment remains the earlier build.
+**Historical pre-creek candidate: study16.** A free sculpted-oak sample replaces the noisy card canopy in the candidate renderer; artist maps remain intact in matte material copies. Chrome normal/close/overview and Cultivate/Restore/undo checks passed; art credits are visible. One 30-second route returned **9ms p95**, but it covered only one placement and does not certify the full performance suite. Exact export checks passed. The **visual gate still fails**: repeated crowns, mechanical fields, flat water, basic ground/road edges and dense shadows. [Captures, limitations and next comparison](evidence/phase2a/visual-rebuild/README.md#study-16--solid-sculpted-oak-family-playable-candidate-gate-still-failed). Public deployment remains the earlier build.
 
 The user explicitly rejected the current visual quality as far below the references and asked for a first-principles rebuild, with permission to replace entire existing aspects. The [rewritten goal](PHASE_2A_GOAL.md) prioritizes direct rendered quality. [VISUAL_REBUILD.md](VISUAL_REBUILD.md) tracks the new direction and resource investigation. No visual acceptance, reference parity, or phase completion is claimed.
 

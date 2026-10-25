@@ -1,36 +1,18 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Local links and code fences checked; git diff --check passed",
-  "latestStudy": {
-    "study": 14,
-    "job": "38514f19e996465f89505f751bae7e21",
-    "build": "success",
-    "executionTimeMs": 109828,
-    "browser": "Chrome",
-    "nativeCaptureDimensions": [
-      1728,
-      940
-    ],
-    "normalCapture": "study14-default.jpg",
-    "closeCapture": "study14-canopy-close.jpg",
-    "cropCapture": "study14-cultivation.jpg",
-    "transformationCapture": "study14-restored.jpg",
-    "overviewCapture": "study14-overview.jpg",
-    "exportCheck": "study14-export-check.json",
-    "visualAcceptance": false
-  },
+  "documentation": "Historical checks retained; current source/export correction in progress. No global diff hygiene claim for concurrent user work.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
-    "Dense crop cards look like a uniform carpet and regress rendering cost",
-    "Canopy repetition and dark noisy interiors; willow strip too continuous",
-    "Simple roads, flat water and unconvincing bank/ground transitions",
-    "83ms p95 controlled route exceeds stable-30 fallback",
-    "Final matched reviews, browser sizes, video, fresh loads and public delivery"
+    "One repeated solid crown shape; insufficient vegetation layering",
+    "Mechanical sparse crop rows and unconvincing field grouping",
+    "Surface texture now visible; road junction seams and schematic treatment boundaries remain. Stream layering improved but still illustrative/simple.",
+    "Dense dark shadows and weak colour separation",
+    "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
-  "nextDecision": "Reject dense nine-plant field cards. Test a sparse row construction and reduce overlap before further detail. Whole scene remains below the reference bar.",
+  "nextDecision": "Keep corrected displayed-pixel detail as candidate; overview regression resolved, moving route still fails. Next representative-scene work must address forest edge layering, harsh shadows and road seams together, using existing/free artist resources. No parity claim.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -46,8 +28,9 @@
     "console": "No errors returned; existing FSR warning"
   },
   "stateChecksNote": "139 real-pack checks passed at study12; not rerun for rendering-only edits. Study14 Chrome cultivation/restoration/undo verified; transformed batch bounds checked with zero corner failures.",
-  "currentBrowserChecks": {
-    "scope": "Study14 clean reload after user confirmed idle; normal, canopy close, overview, cultivation/restoration/undo",
+  "resourceCandidate": "Free Symphonie sculpted oak remains unaccepted. Existing Elijah grass/earth normal maps integrated unchanged with attribution; Quaternius bank planting adapted. No purchases or image generation.",
+  "historicalStudy17BrowserChecks": {
+    "scope": "Study17 normal, creek close, overview, settled cultivation/restoration/swale and undo",
     "cultivateCommit": {
       "revision": 1,
       "production": 17,
@@ -58,24 +41,105 @@
       "production": 5,
       "credits": 42
     },
+    "swaleCommit": {
+      "revision": 5,
+      "production": 6,
+      "credits": 32
+    },
     "finalUndo": {
-      "revision": 4,
+      "revision": 6,
       "production": 6,
       "credits": 60
     },
-    "warmLocalLoadMs": 4451,
     "interactionDiagnostic": {
-      "seconds": 30.004,
-      "p95Ms": 83,
-      "p99Ms": 109,
-      "maxFrameMs": 131,
-      "averageFps": 32.329,
-      "cameraEvents": 4,
-      "previewEvents": 10,
+      "seconds": 30.001,
+      "p95Ms": 14,
+      "p99Ms": 20,
+      "maxFrameMs": 63,
+      "averageFps": 101.997,
+      "framesOver33Ms": 6,
+      "framesOver200Ms": 0,
+      "cameraEvents": 596,
+      "previewEvents": 6,
       "placementEvents": 2,
-      "unfocusedFrames": 0
+      "unfocusedFrames": 0,
+      "note": "One foreground route; swale and overview checked afterward. Not the complete three-route acceptance suite."
     },
     "fullInteractionPerformanceAcceptance": false
   },
-  "resourceCandidate": "Free artist wheat cards with custom field shader are unaccepted. Generated studies archived outside Resources; compressed export reduced to 20,713,933 bytes. No purchases or image generation."
+  "historicalStudy17": {
+    "study": 17,
+    "job": "1b536919a4164f448b231c5e4e2e8289",
+    "build": "success",
+    "executionTimeMs": 146482,
+    "browser": "Chrome",
+    "nativeCaptureDimensions": [
+      1728,
+      940
+    ],
+    "normalCapture": "study17-default.jpg",
+    "closeCapture": "study17-creek-close.jpg",
+    "cropCapture": "study17-cultivation.jpg",
+    "transformationCapture": "study17-restored.jpg",
+    "swaleCapture": "study17-swale.jpg",
+    "overviewCapture": "study17-overview.jpg",
+    "exportCheck": "study17-export-check.json",
+    "visualAcceptance": false
+  },
+  "latestStudy": {
+    "study": "19b",
+    "build": "success",
+    "firstJob": "6a9436709343401b8055aad58a21c682",
+    "correctiveJob": "0b79cf2f3c8b4f4ebf7aac73a1e2bc15",
+    "browser": "Chrome",
+    "cssViewport": [
+      1728,
+      940
+    ],
+    "renderBuffer": [
+      3456,
+      1880
+    ],
+    "normalCapture": "study19b-default.jpg",
+    "overviewCapture": "study19b-overview.jpg",
+    "exportCheck": "study19b-export-check.json",
+    "visualAcceptance": false,
+    "performanceAcceptance": false,
+    "job": "0b79cf2f3c8b4f4ebf7aac73a1e2bc15",
+    "executionTimeMs": 89210,
+    "closeCapture": "study19b-creek-close.jpg",
+    "cropCapture": "study19b-cultivation.jpg",
+    "transformationCapture": "study19b-restored.jpg"
+  },
+  "historicalStudy19FirstChecks": {
+    "scope": "Study19 first export normal/overview only; current source correction not verified",
+    "overviewP95Ms": 253,
+    "normalP95Ms": 31,
+    "overviewFramesOver200Ms": 60,
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "currentBrowserChecks": {
+    "scope": "19b normal/close/overview, cultivate/restore/undo, three diagnostics (not formal acceptance routes)",
+    "openingP95Ms": 28,
+    "overviewP95Ms": 19,
+    "movingPlacementP95Ms": 41,
+    "movingPlacementP99Ms": 55,
+    "movingPlacementMaxMs": 75,
+    "unfocusedFrames": 0,
+    "cultivate": [
+      17,
+      36
+    ],
+    "restore": [
+      5,
+      42
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 4,
+    "startup": "One null-reference exception with early canvas input; not reproduced on next reload without early input; unresolved",
+    "fullInteractionPerformanceAcceptance": false
+  }
 }

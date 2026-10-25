@@ -1,0 +1,74 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 4393ms",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "https://terra-browser.vercel.app/"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "blob:https://terra-browser.vercel.app/a1eb0684-1e86-46f4-aadc-c03245e77e57"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "https://terra-browser.vercel.app/Build/85e75244a279cbb76d968faa907a48f5.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "https://terra-browser.vercel.app/Build/85e75244a279cbb76d968faa907a48f5.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "https://terra-browser.vercel.app/Build/85e75244a279cbb76d968faa907a48f5.loader.js"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 7365",
+    "timestamp": "2026-10-25T01:12:44.279Z",
+    "url": "blob:https://terra-browser.vercel.app/a1eb0684-1e86-46f4-aadc-c03245e77e57"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 8508ms",
+    "timestamp": "2026-10-25T01:13:10.658Z",
+    "url": "https://terra-browser.vercel.app/"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:13:12.912Z",
+    "url": "blob:https://terra-browser.vercel.app/56867d0e-c0bb-4cc3-a7c3-4836aef981f7"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:13:13.094Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:13:13.228Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T01:13:13.265Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 11980",
+    "timestamp": "2026-10-25T01:13:14.131Z",
+    "url": "blob:https://terra-browser.vercel.app/56867d0e-c0bb-4cc3-a7c3-4836aef981f7"
+  }
+]

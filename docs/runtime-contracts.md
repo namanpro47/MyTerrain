@@ -1,5 +1,7 @@
 # Runtime seams v1
 
+> **Annual integration decision — October 24, 2026:** The v1 placement/credits/refund semantics below remain historical compatibility contracts, not the target public economy. [The action contract](ACTIONS_AND_EFFECTS.md) and revised Phase 3 require Peter's annual store/session to own cash, time, commitments and accepted history. Move/replace/remove/undo/redo operate on the unsubmitted current-year queue; accepted assets cannot receive legacy full refunds. Keep WorldPack and fixed-storm Simulation DTO v1 separate from the annual schema. Extend the annual schema explicitly for full-catalog measures, updating validation/copies/save replay together. No runtime migration is implemented by this note.
+
 Plain DTOs: `Terra.Contracts` (no Unity references). Accounting/history: `Terra.Core` (no Unity references). Scene/HUD/loading/rendering remain primary-owned. Package B creates its own pure `Terra.Simulation` assembly referencing only Contracts; no scene searches, UI writes, randomness, wall clock, transforms or Unity physics in simulation.
 
 ## Commands and state

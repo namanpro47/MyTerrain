@@ -196,7 +196,8 @@
         "GrassWheat material GPU instancing enabled",
         "ArtistWheat wrapper preserves source root scale 100 and resets child local position to zero",
         "Wheat texture coverage-preserving mipmaps, alpha reference .5 and trilinear filtering",
-        "Study13: unchanged authored grass/earth textures copied into Resources, repeating mipmaps, luminance mapped into the terrain palette"
+        "Study13: unchanged authored grass/earth textures copied into Resources, repeating mipmaps, luminance mapped into the terrain palette",
+        "Study17: supplied grass/dirt normal maps copied unchanged into Resources, imported as repeating trilinear normal maps; world-space relief with distance fade."
       ],
       "selectedImports": [
         "Assets/Terra/Resources/Nature/ArtistWheat.prefab"
@@ -211,6 +212,20 @@
           "path": "Assets/Terra/Resources/ArtistDirtGround.png",
           "sha256": "d6c3344b41adf12305197c7179eaa0aaf2d8ba42b8ea9ca2475852be3d71d131",
           "bytes": 491889
+        },
+        {
+          "path": "Assets/Terra/Resources/ArtistGrassNormal.png",
+          "sha256": "025c8b57bda66961c51ddcb4d6e8928fc6d6bb358e10b3e845a13abbf89a1822",
+          "bytes": 1796669,
+          "study": 17,
+          "pixelsChanged": false
+        },
+        {
+          "path": "Assets/Terra/Resources/ArtistDirtNormal.png",
+          "sha256": "ff85ed6efbed63665344f97a365151af9f4304ff9c4ef2278c2b07047575e579",
+          "bytes": 754361,
+          "study": 17,
+          "pixelsChanged": false
         }
       ],
       "fieldClusterStudy": {
@@ -219,7 +234,7 @@
         "source": "Elijah Cobden WheatPatch, unchanged GrassWheat.png source pixels",
         "construction": "Three source plants in a narrow row, 36 vertices; 2.4m row spacing, 1.6m longitudinal spacing, illustrative access lanes",
         "shader": "TerraCropCards; alpha-to-coverage candidate",
-        "status": "Editor inspected; Chrome pending; not visually accepted"
+        "status": "Study15 Chrome verified; visual and frame-time gates failed. Study16 corrects access lane indexing."
       },
       "fieldClusterStudy14": {
         "prefab": "Assets/Terra/Resources/Nature/FieldCluster.prefab",
@@ -306,7 +321,27 @@
       "researchDirectory": "/tmp/terra-free-foliage/SymphonieOak",
       "contents": "116 entries; one FBX, 12 prefabs across Built-in/URP/HDRP, 12 materials, 12 PNGs, 2 Shader Graphs and 5 subgraphs; no C# scripts",
       "permissionEvidence": "Creator offers free Oak download and describes it as usable for any production; archive contains no separate license file. Do not label CC0 or assume source redistribution rights.",
-      "status": "Downloaded through creator file endpoint after browser download yielded no file; archive and diffuse texture inspected. Engine/visual evaluation pending; not in active renderer."
+      "status": "Study16 built and verified in Chrome; clearer forms and promising single-route performance, but visual gate failed. Not a final accepted art direction.",
+      "projectPath": "Assets/Terra/Art/SymphonieOak",
+      "wrappers": "Assets/Terra/Resources/Nature/SolidOak01..04.prefab",
+      "modifications": "Normalized height/pivot, matte URP Lit using original diffuse/normal/AO textures, tinted palette, instancing. Study19 retains all three supplied LOD meshes for instanced screen-size selection; verification in study ledger."
+    },
+    {
+      "name": "austinni Handpainted Forest",
+      "source": "https://austinni.itch.io/handpainted-forest-asset-pack",
+      "creator": "austinni",
+      "archive": "Builds/ArtResearch/AustinniForest/AustinniForest.unitypackage",
+      "archiveBytes": 3507066,
+      "sha256": "8a31224a099bb928973f3c715e965647fdd37cf66d84b896f76502c2246079c3",
+      "license": "Creator page permits import/use; no separate license file. Not CC0.",
+      "status": "Downloaded and inventoried only; not imported or selected",
+      "contents": {
+        "fbx": 5,
+        "prefabs": 5,
+        "scripts": 0,
+        "demoScenes": 0
+      },
+      "inventory": "Builds/ArtResearch/AustinniForest/inventory.json"
     }
   ]
 }

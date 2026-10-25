@@ -28,29 +28,40 @@ namespace Terra.Rendering
         void BuildStreamsidePlants()
         {
             var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");var rock=Resources.Load<GameObject>("Nature/Rock_Medium_2");
+            var low=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             foreach(var feature in world.features.Where(f=>f.kind=="water"))
             {
-                var grasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();var route=RoundedWaterRoute(feature.points);float next=3;
+                var grasses=new List<Matrix4x4>();var lowGrasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();var route=RoundedWaterRoute(feature.points);float next=2;
                 for(int i=1;i<route.Length;i++)
                 {
                     var a=new Vector2(route[i-1].x,route[i-1].z);var d=new Vector2(route[i].x,route[i].z)-a;var n=new Vector2(-d.y,d.x).normalized;
-                    for(;next<d.magnitude;next+=3)
+                    for(;next<d.magnitude;next+=2)
                     foreach(float side in new[]{-1f,1f})
                     {
                         var center=a+d.normalized*next;var p=center+n*(feature.widthM*.5f+4+Range(0,1.5f))*side;
                         if(!Inside(p.x,p.y)||world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,p.x,p.y)<f.widthM*.5f+2))continue;
                         float cluster=Mathf.PerlinNoise(p.x*.07f+500,p.y*.07f+500);
-                        if(cluster>.42f)grasses.Add(PlantMatrix(rush,p.x,p.y,Range(.9f,1.6f),Range(0,360)));
+                        if(cluster>.43f)
+                        {
+                            // A broad, broken patch of bank vegetation, rather than a single evenly spaced line.
+                            for(int tuft=0;tuft<3;tuft++)
+                            {
+                                var edge=p+n*side*Range(-.1f,3.8f)+d.normalized*Range(-1.2f,1.2f);
+                                if(!Inside(edge.x,edge.y)||world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,edge.x,edge.y)<f.widthM*.5f+2))continue;
+                                grasses.Add(PlantMatrix(rush,edge.x,edge.y,Range(1.3f,2.1f),Range(0,360)));
+                                if(tuft==0)lowGrasses.Add(PlantMatrix(low,edge.x+n.x*side*2,edge.y+n.y*side*2,Range(1.5f,2.5f),Range(0,360)));
+                            }
+                        }
                         if(cluster>.58f&&random.NextDouble()<.45)
                         {
                             var shelf=center+n*(feature.widthM*.5f+2.4f)*side;
                             var stone=PlantMatrix(rock,shelf.x,shelf.y,Range(.7f,1.3f),Range(0,360));
-                            stone.m13-=2.65f;stones.Add(stone);
+                            stone.m13-=1.35f;stones.Add(stone);
                         }
                     }
                     next-=d.magnitude;
                 }
-                var instances=root.gameObject.AddComponent<InstancedNature>();instances.Add(rush,grasses,Color.white);instances.Add(rock,stones,Color.white);
+                var instances=root.gameObject.AddComponent<InstancedNature>();instances.Add(rush,grasses,new Color(.62f,.84f,.65f));instances.Add(low,lowGrasses,new Color(.72f,.90f,.65f));instances.Add(rock,stones,Color.white);
             }
         }
         // A visual channel profile, not elevation data or a hydrological model. Height() and analytical data remain unchanged.
@@ -80,8 +91,8 @@ namespace Terra.Rendering
             for(int z=0;z<rows;z++)for(int x=0;x<columns;x++)
             {
                 int i=z*columns+x;float px=xmin+x*dx,pz=zmin+z*dz;
-                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01((distance[i]-2.0f)/2.4f));
-                vertices[i]=new Vector3(px,Height(px,pz)-cut*3.8f,pz);
+                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01((distance[i]-1.1f)/3.5f));
+                vertices[i]=new Vector3(px,Height(px,pz)-cut*2.0f,pz);
                 byte value=(byte)(Mathf.Clamp01((distance[i]+3)/20)*255);colors[i]=new Color32(value,value,value,255);
             }
             riverMask=new Texture2D(columns,rows,TextureFormat.RGBA32,true,true){name="Illustrative channel distance",wrapMode=TextureWrapMode.Clamp,filterMode=FilterMode.Bilinear};
