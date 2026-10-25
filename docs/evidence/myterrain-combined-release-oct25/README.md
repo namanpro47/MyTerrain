@@ -80,3 +80,36 @@ The minimal revision passes 65 native interaction/font assertions: direct entry 
 The superseded770d4c0 export was 56,901,693bytes, including55,399,481bytes of compressed Unity build payload. It misses the plan’s <50MB target; no older40MB result is used to claim success. Final export size will be recorded separately.
 
 The first minimal-export attempt passed 4,115 placement assertions, then stopped before export because the placement fixture left its HUD alive for the following chapter fixture. The build-only test sequence now destroys that fixture’s own HUD and EventSystem before running the next suite. This was a test isolation failure; it did not produce or publish a player.
+
+## Final minimal export and Chrome verification
+
+Frozen runtime source: `19e7eae835ed4c06a21d42887a9a53ed28cc4fc2`, pushed normally to main and `codex/native-unity-atlas`. Unity6000.6.6f1 export succeeded with zero reported Editor errors, after HUD/session891 and placement4,115 assertions. The two suites share788 earlier HUD checks, so their counts are not independent. Final export:22files,57,113,602bytes including the local Vercel config and release receipt. The <50MB transfer target remains missed.
+
+Actual Chrome verification used the frozen export on127.0.0.1:49175, at the normal1728×940viewport and a temporary1024×576override. The override was reset and the test tab closed. Observed:
+
+- Default selector matches the native composition: title, globe, three illustrated destinations and gear only. No description panel, coordinates, control legend, cards or separate enter button.
+- Drag visibly rotates the globe; scrolling visibly zooms it.
+- Clicking Point Reyes’s miniature directly starts the animated flight and arrives in point-reyes-v1. Shift+Escape returns to the globe.
+- Clicking Wisconsin’s globe marker directly starts flight and arrives in meadowbrook-v1.
+- The gear opens motion/audio/credits. Motion toggles to reduced, the credits fit at1024×576, and the shared audio panel opens and closes correctly.
+- Clicking Suusamyr’s miniature with reduced motion arrives in suusamyr-v1, with its own Year1/$10M state.
+- In the isolated local Wisconsin run, a no-project Year1 was accepted, producing Year2Planning/revision2/$11M. After reloading the browser player and re-entering Wisconsin, the actual HUD audit reports exactly `year=2; phase=Planning; revision=2; cash=1100000000; queued=0; assets=0`.
+- The compact dock instructions sit below the project cards. Browser error log is empty; audio-loading informational messages are not counted as errors.
+
+Captures: `chrome-selector.png`, `chrome-selector-compact.png`, three arrival captures, `chrome-year2-compact.png` and `chrome-reloaded-year2.png`. `chrome-logs.json` retains native arrival/state diagnostics. Local HTTP comparison matches all21public files byte-for-byte. These are functional/render checks, not quiet performance measurements or acceptance of the separate Phase2A whole-scene scenery gate. A separate numeric build ran in the background during part of browser verification.
+
+## Production verification
+
+Published the exact frozen export to existing Vercel project `terra-browser`. Deployment `dpl_8oY5izzcxAmi7nGXD86LXFiuLuNc` is READY/production, immutable URL https://terra-browser-nq2qoz9qd-namanpro47s-projects.vercel.app . Canonical alias https://www.myterrain.io and existing https://terra-browser.vercel.app both return all21public files byte-identical to the frozen export (`public-files.json`, `public-files-vercel.json`). Vercel’s generated local `.vercel/` and `.gitignore` metadata are excluded from the public artifact set; `vercel.json` is configuration, not a public endpoint.
+
+Actual production Chrome shows the new minimal native selector. One click on Point Reyes starts flight and loads the selected landscape, and Shift+Escape returns to the globe. No browser errors were recorded. `public-selector.png`, `public-arrival.png` and `public-chrome.json` are direct production evidence. The production tab was left open on the globe; no annual plan was submitted on production.
+
+The first public hash helper encountered the system Python’s missing CA bundle; it was switched to system curl with normal certificate verification. An initial scan also included Vercel’s locally generated `.gitignore`, which is not deployed. The corrected final scan explicitly checks the21served assets and succeeds; no TLS validation was disabled.
+
+New post-freeze work in the community importer, dialog redesign and additional annual gameplay requests remains separate, with owners explicitly preserving this release. The previously coordinated15finished checkpoints are in main ancestry; this release does not claim those newer in-flight requests are finished.
+
+## Custom-domain chapter service boundary
+
+The final anonymous OPTIONS check found a separate backend-origin configuration issue: `/session` and `/chapter` both return204 for `https://terra-browser.vercel.app`, and403 for `https://www.myterrain.io` and `https://myterrain.io`. Exact headers/statuses are in `chapter-origins.json`. No provider request or annual plan was submitted during these checks. The public frontend on both aliases is byte-verified; hosted chapter availability on the custom domain is not claimed. Use the existing Vercel alias for hosted chapters until both exact custom origins are added to the backend allowlist. The game already has its disclosed local-summary fallback.
+
+The separate private backend is `lakys-openclaw/terra-backend` under Peter's Vercel team; this machine's CLI only exposes Naman's frontend team, and the coordinating integration owner verified that its GitHub account cannot access the backend repo. The exact-origin correction was handed back through that owner. No wildcard CORS change, proxy workaround, credentials transfer or unrelated deployment was attempted.
