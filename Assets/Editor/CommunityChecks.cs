@@ -15,10 +15,10 @@ public static class CommunityChecks
             var pack=JsonUtility.FromJson<CommunityPack>(File.ReadAllText(Path.Combine(dir,"community.json")));
             CommunityTerrain.Validate(pack);var mesh=CommunityTerrain.CreateMesh(pack);
             var vertices=mesh.vertices;var uv=mesh.uv;var triangles=mesh.triangles;var t=pack.terrain;
-            Need(vertices.Length==14641,"121 × 121 source nodes");Need(triangles.Length==86400,"complete source triangulation");
+            Need(vertices.Length==t.rows*t.columns,"all source nodes");Need(triangles.Length==(t.rows-1)*(t.columns-1)*6,"complete source triangulation");
             Need(uv[0]==Vector2.zero&&uv[uv.Length-1]==Vector2.one,"SW and NE UV anchors");
-            Need(vertices[0].x==-600&&vertices[0].z==-600,"southwest metric origin");
-            Need(vertices[vertices.Length-1].x==600&&vertices[vertices.Length-1].z==600,"northeast metric extent");
+            Need(vertices[0].x==-pack.extentM/2&&vertices[0].z==-pack.extentM/2,"southwest metric origin");
+            Need(vertices[vertices.Length-1].x==pack.extentM/2&&vertices[vertices.Length-1].z==pack.extentM/2,"northeast metric extent");
             for(int i=0;i<vertices.Length;i++)Need(Math.Abs(vertices[i].y-t.heights[i])<.0001f,"no height distortion");
             for(int i=0;i<triangles.Length;i+=3)
                 Need(Vector3.Cross(vertices[triangles[i+1]]-vertices[triangles[i]],vertices[triangles[i+2]]-vertices[triangles[i]]).y>0,"upward triangle winding");
