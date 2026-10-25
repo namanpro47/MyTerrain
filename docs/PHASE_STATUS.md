@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Peter / local-work synchronization — October 24, 2026
+
+Reconciled refreshed main `48a3e41` plus concurrent follow-up `e25c5d3`, visual branch `1aec1e8` and primary-checkout handoffs in an isolated worktree. Preserved annual chapters/ledger/catalog/lifecycle, field highlights and completed-year controls while adopting the perspective opening and its calibrated Focus pitch. Included the local controls correction and recoverable visual evidence; generated editor/cache changes stay local. **2,131 standalone assertions + 38 Unity HUD/chapter assertions pass**, and a fresh Web export succeeds. Chrome verifies queue/undo/redo, full project focus, ten-year completion, unchanged saved reload and replay with no error-level logs. [Exact source, build identity, captures and limits](evidence/peter-sync/README.md). The final merged export also verifies compact 1024×576 feedback and neutral completed-site inspection. No deployment, Phase 2A acceptance or new performance claim.
+
 ## Main-game annual chapters — October 24, 2026
 
 Peter requested the annual chapters in the playable main UI and a local end-year test. **Review year → End year → chapter cards → Plan next year** now uses the same authoritative annual session, full catalog and ledger. Budget/meter details remain available on every story page. Pending requests offer retry, labelled offline completion and return to plan editing. Reload restores pending or accepted chapters; a new run archives the prior envelope locally.

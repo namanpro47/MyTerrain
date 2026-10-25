@@ -22,8 +22,8 @@ namespace Terra.Gameplay
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
         Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=42,zoom=58;Vector3 target=new Vector3(-115,30,10);
-        bool perspective=false;float focusHeightOffset;
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=34,zoom=105;Vector3 target=new Vector3(-90,30,-70);
+        bool perspective=true;float focusHeightOffset;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing,panGesture;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
@@ -165,8 +165,8 @@ namespace Terra.Gameplay
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
         {
-            // Deliberate illustrated camera: pan and zoom keep painted forms and light coherent.
-            yaw=-32;pitch=42;zoom=Mathf.Clamp(zoom,32,1000);
+            // Keep the selected composition while panning; the overview has its own steeper pitch.
+            yaw=-32;pitch=Mathf.Clamp(pitch,30,58);zoom=Mathf.Clamp(zoom,32,1000);
             target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
             if(ready)
             {
@@ -190,9 +190,11 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){focusHeightOffset=0;perspective=false;yaw=-32;pitch=42;zoom=58;target=new Vector3(-115,30,10);ApplyView();}
+        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=34;zoom=105;target=new Vector3(-90,30,-70);ApplyView();}
         void FocusSite()
         {
+            // Preserve the annual full-footprint framing geometry at its calibrated pitch.
+            yaw=-32;pitch=42;
             var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];
             string action=QueuedAt(site.id)??annual.State.assets.FirstOrDefault(a=>a.siteId==site.id)?.actionId??treatmentId;
             var rule=buildActionRules.Find(action);var art=buildActionCatalog.Find(action);

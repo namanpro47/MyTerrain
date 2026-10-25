@@ -1,0 +1,91 @@
+{
+  "study": "32e",
+  "buildJob": "f269a564130743b7b3361baca56fa204",
+  "buildSucceeded": true,
+  "executionTimeMs": 77282,
+  "source": {
+    "Assets/Terra/Scripts/Gameplay/TerraMain.cs": "162a181106744aedde92bcbd5c033e341e50c3f6bd5ab5fa2055556db36aeb48"
+  },
+  "export": {
+    "url": "http://127.0.0.1:49658/",
+    "anonymous": true,
+    "files": [
+      {
+        "file": "index.html",
+        "status": 200,
+        "bytes": 5589,
+        "sha256": "1c4ff423b9f34fbf8f4ffd2b7d2f5293ddd95dcb53eb7d73175240434494b11c",
+        "contentType": "text/html",
+        "contentEncoding": null,
+        "cacheControl": null
+      },
+      {
+        "file": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+        "status": 200,
+        "bytes": 76877,
+        "sha256": "d6996ecc4e9d73ee8dc9ff888bdf7fbae0ca7109856da5bd2acf49fc78993440",
+        "contentType": "application/vnd.unity",
+        "contentEncoding": null,
+        "cacheControl": null,
+        "decodedBytes": 339104
+      },
+      {
+        "file": "Build/1f27219044129ee9563f8ac885752cf9.data.unityweb",
+        "status": 200,
+        "bytes": 26122825,
+        "sha256": "20bfeb7f5b0faa0c0440da8266501095bc36d0eb023960934d789d7627b54b55",
+        "contentType": "application/vnd.unity",
+        "contentEncoding": null,
+        "cacheControl": null,
+        "decodedBytes": 35596155
+      },
+      {
+        "file": "Build/285dca9e470dd9f64c8e893b6a4f7dde.wasm.unityweb",
+        "status": 200,
+        "bytes": 9594604,
+        "sha256": "5ff5514ff3b67477714b7602521bc66427895803b040efa65fa521d02f3488d6",
+        "contentType": "application/vnd.unity",
+        "contentEncoding": null,
+        "cacheControl": null,
+        "decodedBytes": 35842799
+      },
+      {
+        "file": "Build/fdd75a2ffc915bf17aab8d8748429d46.loader.js",
+        "status": 200,
+        "bytes": 48779,
+        "sha256": "bb8d936b8c6fc45646e73284b293c6df597a367a45e553792a672ac81f793f42",
+        "contentType": "text/javascript",
+        "contentEncoding": null,
+        "cacheControl": null
+      },
+      {
+        "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+        "status": 200,
+        "bytes": 3215,
+        "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+        "contentType": "application/json",
+        "contentEncoding": null,
+        "cacheControl": null
+      },
+      {
+        "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+        "status": 200,
+        "bytes": 2260,
+        "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+        "contentType": "application/json",
+        "contentEncoding": null,
+        "cacheControl": null
+      },
+      {
+        "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+        "status": 200,
+        "bytes": 947918,
+        "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+        "contentType": "application/json",
+        "contentEncoding": null,
+        "cacheControl": null
+      }
+    ]
+  },
+  "scope": "Legacy HUD camera candidate only; no visual or performance acceptance"
+}
