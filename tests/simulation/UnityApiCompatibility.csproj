@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework><LangVersion>9.0</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings><Nullable>disable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors><EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/WorldContracts.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Simulation/*.cs" />
+  </ItemGroup>
+</Project>

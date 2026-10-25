@@ -1,0 +1,36 @@
+{
+  "reviewDate": "2026-10-24",
+  "url": "https://infosys.ars.usda.gov/svn/code/third_party/climate/dat2par/tr55t.pdf",
+  "title": "USDA SCS TR-55, Urban Hydrology for Small Watersheds, Second Edition June 1986",
+  "downloadBytes": 2712115,
+  "sha256": "c9256fb9d9600ad262bc0d5e20c2d30c8386e71e995d840388ca94b29b25006e",
+  "method": "Web search located official USDA document; curl downloaded with normal certificate verification; pypdf extracted PDF pages 13\u201320. No source PDF committed.",
+  "references": [
+    {
+      "printedPage": "2-1",
+      "pdfPage": 13,
+      "content": "Equations 2-1 through 2-4: initial abstraction 0.2S, CN storage relation and direct runoff."
+    },
+    {
+      "printedPage": "2-3",
+      "pdfPage": 15,
+      "content": "Table 2-1: 2.0 inches rainfall and CN80 gives 0.56 inches runoff, rounded."
+    },
+    {
+      "printedPage": "2-5",
+      "pdfPage": 17,
+      "content": "Table 2-2a: good-condition open space HSG B CN61; impervious surfaces CN98."
+    },
+    {
+      "printedPage": "2-6",
+      "pdfPage": 18,
+      "content": "Table 2-2b: straight-row crops, good condition, HSG B CN78."
+    },
+    {
+      "printedPage": "2-7",
+      "pdfPage": 19,
+      "content": "Table 2-2c: good woods HSG B CN55, pasture/grass good CN61, separate meadow category CN58."
+    }
+  ],
+  "integrationRequest": "sealed=98 is sourced but not frozen by the runtime contract; owner must explicitly adopt/record mapping before whole-domain integration."
+}

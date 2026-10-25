@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "suiteCount": 19,
+  "modelVersion": "terra-direct-runoff-v1",
+  "cases": [
+    "Frozen fixture: all aggregate and per-site hydrology fields",
+    "Independent unit case: 10 mm \u00D7 1000 m2 at CN100 = 10 m3, retain 3, discharge 7",
+    "Independent USDA published table 2-1, 2 inches/CN80 = 0.56 inches (rounded)",
+    "Independent fractional hand case: CN50, P127 mm, S254, Q=17.5846153846154 mm",
+    "Initial abstraction below/equal/above boundary: CN80 S63.5 Ia12.7",
+    "Zero storm and zero baseline admit finite absolute difference",
+    "Zero-area storage-only unit connects explicitly, with no generation of its own",
+    "Disconnected capacity cannot capture another group\u0027s runoff",
+    "Multiple devices share generation once; proportional source allocation",
+    "Saturated storage caps at group generation, with proportional used/unused device facts",
+    "Cover and retention compose once: grass CN61 at 50 mm minus 1 m3 capacity",
+    "Repeatability, permutation invariance, input immutability, no output aliasing, restoration",
+    "Monotonic rainfall/CN/area/capacity, nonnegative conservation across 1000 combinations",
+    "Malformed inputs reject with useful diagnostics",
+    "Finite inputs that overflow float outputs fail without a partial result",
+    "Scalar formula rejects invalid public arguments and handles CN100, tiny CN",
+    "Frozen area-weighted CN mixture is 73.75, distinctly not component runoff aggregation",
+    "Cover validation: null, missing, duplicate, invalid fractions/mappings and non-unit sum",
+    "Current Meadowbrook recipes use frozen mixtures; unmapped sealed cover fails explicitly"
+  ],
+  "numericalToleranceM3": 0.001,
+  "engine": ".NET standalone; no Unity Editor or browser used"
+}
