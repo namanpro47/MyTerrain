@@ -13,3 +13,11 @@ Both receipts report Year 1 / Planning / revision 0 / cash 1000000000 in stored 
 The archived setup, camera, capture and soil-mask scripts plus the experimental shader preserve the work outside Unity's compiled Assets tree. Replay requires the existing Play-mode scene and restoring the shader to its temporary `Assets/Editor/Study59/CultivatedSoil.shader` path. This is diagnostic source, not a standalone automated test. [File hashes](study59-checkpoint.json).
 
 Still required before adoption: corrected whole-scene views, plant-extent/parcel checks, post-render shader diagnostics, lifecycle checks, actual Chrome/HUD/movement review, and source-matched performance verification. No new tests or build were run for this documentation-only checkpoint. Previously recorded validation remains bounded to its original source.
+
+## Follow-up: full view and broader crop control
+
+[Corrected normal view](study59-corrected-normal.png) confirms that the soil beds provide a clearer cultivated structure. Regular agricultural rows are intentional; their repetition alone is not a defect. The remaining gap is the fine plant marks dominating those larger forms. Preserve the bed construction as a candidate, without claiming it is accepted.
+
+The broader Quaternius Beet_4 source was tested with its native material colors adapted to URP Simple Lit: [normal](study59-beets-normal.png), [close](study59-beets-close.png). This replacement is rejected: it reads as dark stalks with exposed red roots, not the fuller leafy crop mass sought. No further density/tint tuning is planned for this model. The native source has 880 imported vertices / 480 triangles / two material slots. No planted species or exact agricultural practice is claimed.
+
+Source: [Quaternius Ultimate Crops](https://quaternius.com/packs/ultimatecrops.html), CC0, retrieved from creator-linked public FBX folder, file ID `1D3mxltkhfYDNhR_wRbLKtgJ9QkkjAnW-`. The original 25,740-byte FBX and import/prefab/setup receipts are archived with hashes; [creator license](study56-crop-license.txt) applies to the same pack. No purchase or generated image. All Study59 Unity shader/prefab/material/model experiments were removed through AssetDatabase after preserving the replay files; Stop Play discarded runtime changes.

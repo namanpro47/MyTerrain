@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Latest visual candidate, study60:** Layered Wisconsin river meadows improve shoreline contact and plant hierarchy. Compilation and2,912 actual terrain-ray checks pass; Chrome shows the full HUD at720p/900p/1080p and preserves cash through queue/undo. One focused30s camera route:23ms p95, no>200ms frames. This is bounded candidate evidence, not the full visual/performance/public gate. [Captures, provenance and remaining gaps](evidence/phase2a/visual-rebuild/study60-findings.md).
+
 **Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Actual Chrome proposal→Year3→reload and 42 lifecycle/render checks pass; full-scene visual and performance acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
 
 **Subsequent visual studies57–58:** mature corn geometry and a baked grain surface were both rejected at normal/close distances. The retained scenery remains study55; submission consolidation `2f8543d` is integrated on the visual branch as `5b8ad52`, with compilation and 15 collector checks passing locally. [Comparisons and integration boundary](evidence/phase2a/visual-rebuild/study57-findings.md). No art acceptance or new public release.

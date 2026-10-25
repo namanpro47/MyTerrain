@@ -499,3 +499,5 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 - [Study58: grain-geometry surface bake](study58-findings.md) — offline artist-model bake and close/normal controls rejected for floor-like appearance; experimental shader removed.
 
 - [Study59: shaped soil beds and young crops](study59-findings.md) — unfinished Editor-only checkpoint; scripts, shader, receipts and captures preserved without adopting the experiment.
+
+- [Study60: layered river meadows](study60-findings.md) — retained candidate with actual Chrome views, queue/undo, terrain contact and one passing stable30 camera path; full visual gate remains open.
