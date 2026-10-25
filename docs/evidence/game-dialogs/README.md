@@ -20,3 +20,15 @@ No prices, simulation, ledger authority, save keys, geography, renderer, provide
 The initial check exposed the old fixed-height assumption that every chapter must overflow. The new content-sized surface permits short pages to fit; verification now checks top alignment when content actually overflows. Scroll origins are explicitly reset after inserting meter rows.
 
 Actual Chrome verification and final source/export identity are recorded below after the build completes.
+
+## Coordination
+
+The live coordination board was discovered after the initial batch began; it is allowed to finish, and subsequent heavy/desktop/integration work is queued. Task `game-dialogs-20261025` owns its evidence/art-direction notes. The annual-feedback owner explicitly deferred shared HUD/Main.Future presentation edits and authorized this isolated slice to finish and freeze; its exact final SHA will be handed back before duration, affordability and decade-narrative integration. Those gameplay changes remain with that owner. The current frozen atlas release is untouched.
+
+## First actual Chrome pass
+
+The first frozen export is `Builds/Verified/8b60b15`, served separately on port 49841; [byte verification](trial-served-files.json) confirms the local files. Chrome 155.0.8059.85 rendered arrival, optional brief/targets, 1024×576 larger-text help/sources with Page Down, and 1280×720 larger-text accepted stories. A no-project year reached $11M once, and reading preserved Year 1 / Reviewing / revision 1 / $11M. The deliberately blocked local provider fell back to its visibly labelled saved-result summary.
+
+[Opening](trial-opening.png) shows the new hierarchy (720×498 at 1440×900, approximately 28% of the screen); the approved play-first HUD is the surrounding reference. [Compact guide](trial-guide-1024-larger.png) and [story](trial-story-1280-larger.png) retain body size instead of scaling down.
+
+The [trial budget](trial-budget.png) exposed the old single-button anchor overriding the new footer; `8f44645` removes that override and adds a placement assertion. The final source also makes the dialog opaque so underlying HUD lines cannot compete with prose, adds the short fiction disclosure to arrival, and scales its resource labels with larger text. Trial captures are **not** evidence of those final corrections. The annual-feedback owner requested the source freeze before wiring its separately authorized controls and will run combined checks; final browser verification must use that exact combined export.

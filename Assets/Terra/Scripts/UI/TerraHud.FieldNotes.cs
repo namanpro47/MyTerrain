@@ -170,9 +170,10 @@ namespace Terra.UI
                 card.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().flexibleWidth=1;
                 var icon=Rect(card,"Resource icon",new Vector2(0,1),new Vector2(16,-16),new Vector2(22,22)).gameObject.AddComponent<HudGlyph>();
                 icon.symbol=symbols[i];icon.color=Accent;icon.raycastTarget=false;
-                Label(card,values[i],new Vector2(0,1),new Vector2(16,-44),new Vector2(180,32),26,Paper,FontStyles.Bold);
+                Label(card,values[i],new Vector2(0,1),new Vector2(16,-40),new Vector2(180,34),26,Paper,FontStyles.Bold);
                 Label(card,captions[i],new Vector2(0,0),new Vector2(16,12),new Vector2(184,20),12,Soft,FontStyles.Bold);
             }
+            foreach(var label in row.GetComponentsInChildren<TextMeshProUGUI>())label.fontSize=sizes[label]*(LargeText?1.12f:1);
             fieldNotesLayoutDirty=true;
             AnnualSecondary("Your brief & goals",()=>
             {

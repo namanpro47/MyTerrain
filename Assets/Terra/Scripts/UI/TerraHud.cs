@@ -79,7 +79,7 @@ namespace Terra.UI
             toast=Label(toastPanel.transform,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(538,46),16,Paper);toast.alignment=TextAlignmentOptions.Center;
             var shade=Rect(root,"Guide backdrop",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);shade.anchorMin=Vector2.zero;shade.anchorMax=Vector2.one;shade.offsetMin=shade.offsetMax=Vector2.zero;
             shade.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.025f,.055f,.07f,.38f);modalShade=shade.gameObject;modalShade.SetActive(false);
-            modal=Panel(root,"Field guide",new Vector2(.5f,.5f),Vector2.zero,new Vector2(720,540),PanelColor).gameObject;
+            modal=Panel(root,"Field guide",new Vector2(.5f,.5f),Vector2.zero,new Vector2(720,540),new Color(PanelColor.r,PanelColor.g,PanelColor.b,1)).gameObject;
             modalEyebrow=Label(modal.transform,"MYTERRAIN  /  FIELD GUIDE",new Vector2(0,1),new Vector2(32,-26),new Vector2(470,22),12,Accent,FontStyles.Bold);
             Panel(modal.transform,"Mint rule",new Vector2(0,1),new Vector2(32,-14),new Vector2(40,3),Accent);
             modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-61),new Vector2(656,76),30,Paper,FontStyles.Bold);

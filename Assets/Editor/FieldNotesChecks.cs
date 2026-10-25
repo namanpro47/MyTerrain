@@ -62,7 +62,7 @@ public static class FieldNotesChecks
         Check(Visible().Contains("$10M")&&Visible().Contains("4 / 16")&&Visible().Contains("4 / 36"),"Opening resources differ from the definition.");
         Check(!Visible().Contains("Return to landscape"),"Opening repeats its exit action.");
         var modal=GameObject.Find("Field guide");
-        Check(modal.GetComponent<UnityEngine.UI.Image>().color.r<.2f,"Dialog reverted to the bright document surface.");
+        Check(modal.GetComponent<UnityEngine.UI.Image>().color.r<.2f&&modal.GetComponent<UnityEngine.UI.Image>().color.a==1,"Dialog reverted to the bright document surface.");
         var primary=modal.GetComponentsInChildren<UnityEngine.UI.Button>().Single(b=>b.GetComponentInChildren<TextMeshProUGUI>().text=="Explore the landscape  →");
         primary.onClick.Invoke();Check(explored,"Opening primary action is disconnected.");
         hud.AnnualDialog("A long report",string.Join("\n\n",Enumerable.Repeat("A saved result that must remain readable.",35)),"Continue",()=>{});
