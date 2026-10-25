@@ -166,7 +166,25 @@ namespace Terra.Gameplay
         static Vector3 Geo(Vector2 p){float a=p.x*Mathf.Deg2Rad,b=p.y*Mathf.Deg2Rad;return new Vector3(-Mathf.Cos(a)*Mathf.Sin(b),Mathf.Sin(a),Mathf.Cos(a)*Mathf.Cos(b));}
         void PositionPins()
         {
-            for(int i=0;i<3;i++){var world=earth.TransformPoint(Geo(places[i])*1.012f);var normal=(world-earth.position).normalized;bool front=Vector3.Dot(normal,(globeCamera.transform.position-world).normalized)>.08f;pins[i].gameObject.SetActive(front&&!Traveling);pins[i].GetComponent<UnityEngine.UI.Image>().color=i==Selected?new Color(1,.79f,.38f,.32f):new Color(.25f,.85f,.85f,.25f);pinLabels[i].transform.parent.gameObject.SetActive(i==Selected);if(front){Vector2 screen=globeCamera.WorldToScreenPoint(world);RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRoot,screen,null,out var point);pins[i].anchoredPosition=point;pins[i].localScale=Vector3.one*(i==Selected&&!ReducedMotion?1+.06f*Mathf.Sin(Time.unscaledTime*2.5f):1);}}
+            for(int i=0;i<3;i++)
+            {
+                var world=earth.TransformPoint(Geo(places[i])*1.012f);
+                var normal=(world-earth.position).normalized;
+                var screen=globeCamera.WorldToScreenPoint(world);
+                bool front=Vector3.Dot(normal,(globeCamera.transform.position-world).normalized)>.08f;
+                bool inView=screen.z>0&&screen.x>16&&screen.x<Screen.width-16&&screen.y>16&&screen.y<Screen.height-16;
+                pins[i].gameObject.SetActive(front&&inView&&!Traveling);
+                pins[i].GetComponent<UnityEngine.UI.Image>().color=i==Selected?new Color(1,.79f,.38f,.32f):new Color(.25f,.85f,.85f,.25f);
+                var pennant=(RectTransform)pinLabels[i].transform.parent;
+                pennant.gameObject.SetActive(i==Selected);
+                if(!front||!inView)continue;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRoot,screen,null,out var point);
+                pins[i].anchoredPosition=point;
+                bool left=point.x>uiRoot.rect.width*.5f-230;
+                pennant.anchorMin=pennant.anchorMax=pennant.pivot=new Vector2(left?1:0,.5f);
+                pennant.anchoredPosition=new Vector2(left?-53:53,0);
+                pins[i].localScale=Vector3.one*(i==Selected&&!ReducedMotion?1+.06f*Mathf.Sin(Time.unscaledTime*2.5f):1);
+            }
         }
         void OnDestroy(){if(Instance==this)Instance=null;foreach(var item in owned)if(item!=null)Destroy(item);AudioListener.pause=false;}
     }
