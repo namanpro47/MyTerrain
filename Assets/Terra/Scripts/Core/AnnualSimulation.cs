@@ -6,6 +6,27 @@ namespace Terra.Core
 {
     public static class AnnualSimulation
     {
+        // Hash preimage: complete accepted report with only this hash field cleared.
+        // The report version plus accepted definition/rule identity provide the domain.
+        public static string ReportHash(TownYearReport report)
+        {
+            AnnualTown.Require(report?.simulation!=null&&report.simulation.version=="annual-numeric-report-v1"&&report.acceptedRequest?.simulation!=null
+                &&report.ledger!=null&&report.outcomes!=null&&report.simulation.closingState?.sites!=null&&report.simulation.closingState.repairs!=null
+                &&report.simulation.crops!=null&&report.simulation.impacts!=null&&report.simulation.storage!=null&&report.simulation.payments!=null,"Incomplete accepted numeric report.");
+            var copy=TownCopies.Copy(report);copy.simulation.transitionHash=null;return TownCopies.Hash(copy);
+        }
+        public static void ValidateReportHash(TownYearReport report)
+            =>AnnualTown.Require(!string.IsNullOrWhiteSpace(report?.simulation?.transitionHash)&&report.simulation.transitionHash==ReportHash(report),"Accepted numeric report hash changed.");
+        public static TownYearOutcomes OpeningOutcomes(AnnualTownDefinition definition)
+        {
+            AnnualTown.Require(definition?.simulation!=null,"Numeric opening baseline requires its pinned definition.");
+            var rows=definition.sites.Select(s=>new TownSiteYearResult {siteId=s.id,phase=TownAssetPhase.Operating,maturity=1,condition=1,
+                productionUnits=s.baselineProductionUnits,serviceUnits=s.baselineServiceUnits,vegetatedAreaM2=s.areaM2*s.baselineVegetatedFraction,
+                explanation="Opening illustrative capacity before realized weather; not a promised harvest."}).ToArray();
+            var o=new TownYearOutcomes {rubricVersion=definition.rubric.version,sites=rows,productionUnits=rows.Sum(r=>r.productionUnits),serviceUnits=rows.Sum(r=>r.serviceUnits),
+                vegetatedAreaM2=rows.Sum(r=>r.vegetatedAreaM2),managedAreaM2=definition.sites.Sum(s=>s.areaM2)};
+            AnnualEconomy.Evaluate(definition,o,new TownYearLedger(),new TownYearDriver {productionFactor=1});return o;
+        }
         internal static double Cap(double value) => Math.Max(0,Math.Min(1,value));
         static void Range(double value,double min,double max,string name)
             => AnnualTown.Require(!double.IsNaN(value)&&!double.IsInfinity(value)&&value>=min&&value<=max,"Invalid simulation "+name);
@@ -19,7 +40,7 @@ namespace Terra.Core
             AnnualTown.Require(w!=null&&w.packId==AnnualSimulationWeather.PackId&&w.packSha256==AnnualSimulationWeather.PackHash&&w.dailySha256==AnnualSimulationWeather.DailyHash
                 &&w.samplerVersion==AnnualSimulationWeather.Sampler&&!string.IsNullOrEmpty(w.sharedScenarioSeed)&&w.recordIds?.Length==10,"Unpinned simulation weather.");
             AnnualTown.Require(w.startYear==AnnualSimulationWeather.ExpectedStartYear(w.sharedScenarioSeed)&&w.recordIds.SequenceEqual(Enumerable.Range(w.startYear,10).Select(y=>"USW00014920:"+y)),"Noncontiguous saved weather.");
-            AnnualTown.Require(d.crops!=null&&d.crops.Length>0&&d.crops.Select(c=>c.id).Distinct().Count()==d.crops.Length,"Missing/duplicate crop definitions.");
+            AnnualTown.Require(d.crops!=null&&d.crops.Length>0&&d.crops.All(c=>c!=null)&&d.crops.Select(c=>c.id).Distinct().Count()==d.crops.Length,"Missing/duplicate crop definitions.");
             foreach(var crop in d.crops)
             {
                 AnnualTown.Require(!string.IsNullOrWhiteSpace(crop.id)&&crop.units=="illustrative production units"&&crop.evidenceLevel=="authored-scenario"&&!string.IsNullOrWhiteSpace(crop.ruleId),"Unlabelled crop curve.");
@@ -28,17 +49,18 @@ namespace Terra.Core
                 Range(crop.outputPerHa,.001,100,"crop benchmark");Range(crop.referenceRainMm,1,2000,"crop rain reference");
                 Range(crop.droughtLossPerDay,0,.1,"dry-spell response");Range(crop.heatLossPerDay,0,.1,"heat response");Range(crop.excessRainLossPerMm,0,.01,"excess-rain response");
             }
-            AnnualTown.Require(d.practices?.Length==4&&d.practices.Select(p=>p.actionId).Distinct().Count()==4,"Incomplete crop practices.");
+            AnnualTown.Require(d.practices?.Length==4&&d.practices.All(p=>p!=null)&&d.practices.Select(p=>p.actionId).OrderBy(x=>x,StringComparer.Ordinal).SequenceEqual(new[]{"conservation-rotation","cover-crop","cultivate-margin","cultivate-standard"}),"Incomplete crop practices.");
             foreach(var practice in d.practices)
             {
                 AnnualTown.Require(practice.cropSequence?.Length>0&&practice.cropSequence.All(id=>d.crops.Any(c=>c.id==id))&&!string.IsNullOrWhiteSpace(practice.ruleId),"Unknown crop in rotation.");
                 Range(practice.croppedFraction,.01,1,"cropped fraction");Range(practice.matureDroughtMitigation,0,1,"drought mitigation");
                 Range(practice.matureRainVulnerability,0,1,"rain vulnerability");Range(practice.establishmentCostFraction,0,.5,"practice transition cost");
             }
-            AnnualTown.Require(d.sites!=null&&d.sites.Length==definition.sites.Length&&d.sites.Select(s=>s.siteId).Distinct().Count()==d.sites.Length,"Every site requires explicit exposure.");
+            AnnualTown.Require(d.sites!=null&&d.sites.Length==definition.sites.Length&&d.sites.All(s=>s!=null)&&d.sites.Select(s=>s.siteId).Distinct().Count()==d.sites.Length,"Every site requires explicit exposure.");
             foreach(var site in d.sites)
             {
                 AnnualTown.Require(definition.sites.Any(s=>s.id==site.siteId)&&!string.IsNullOrWhiteSpace(site.connectionGroupId)&&!string.IsNullOrWhiteSpace(site.ruleId),"Unknown exposure site/group.");
+                AnnualTown.Require(site.connectionGroupId==definition.economy.referenceStorm.sites.Single(x=>x.siteId==site.siteId).contributingAreaId,"Exposure group differs from the declared connection map.");
                 Range(site.exposure,.001,1,"exposure; missing is not zero risk");Range(site.baselineCroppedFraction,0,1,"baseline cropped fraction");
                 AnnualTown.Require(site.baselineCroppedFraction==0?string.IsNullOrEmpty(site.baselineCropId):d.crops.Any(c=>c.id==site.baselineCropId),"Missing baseline crop.");
             }
@@ -48,6 +70,7 @@ namespace Terra.Core
                 var driver=d.drivers[i];
                 AnnualTown.Require(driver!=null&&driver.year==i+1&&driver.historicalYear==w.startYear+i&&driver.recordId==w.recordIds[i]&&driver.packSha256==w.packSha256
                     &&driver.derivationVersion=="terra-crop-calendar-weather-v1"&&driver.crops?.Length==d.crops.Length&&driver.events!=null,"Mismatched annual weather driver.");
+                AnnualSimulationWeather.ValidateDriver(driver);
                 AnnualTown.Require(driver.solarFactor==1&&driver.windFactor==1&&driver.generationRuleId=="authored-constant-generation-v1-no-irradiance-or-wind-data","Unsupported generation assumption.");
                 foreach(var crop in d.crops)
                 {
@@ -67,7 +90,7 @@ namespace Terra.Core
                 }
                 AnnualTown.Require(definition.drivers[i].id==driver.recordId&&definition.drivers[i].productionFactor==1&&definition.drivers[i].unexpectedPublicRepairCents==0,"Legacy weather/repair penalty leaked into numeric rules.");
             }
-            AnnualTown.Require(d.publicResponsibilities!=null&&d.publicResponsibilities.Select(r=>r.actionId).Distinct().Count()==d.publicResponsibilities.Length,"Duplicate public repair responsibility.");
+            AnnualTown.Require(d.publicResponsibilities?.Length==3&&d.publicResponsibilities.All(r=>r!=null)&&d.publicResponsibilities.Select(r=>r.actionId).OrderBy(x=>x,StringComparer.Ordinal).SequenceEqual(new[]{"public-park","wastewater-upgrade","water-swale"}),"Duplicate public repair responsibility.");
             foreach(var responsibility in d.publicResponsibilities)
                 AnnualTown.Require(definition.actions.Any(a=>a.actionId==responsibility.actionId)&&responsibility.repairCentsPerConditionUnit>0&&responsibility.repairCentsPerConditionUnit<=1000000000
                     &&!string.IsNullOrWhiteSpace(responsibility.responsibility)&&!string.IsNullOrWhiteSpace(responsibility.ruleId),"Missing/bounded public repair responsibility.");

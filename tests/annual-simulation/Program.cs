@@ -67,3 +67,69 @@ foreach (string folder in new[]{"hud-connected","full-game"})
     Check(AnnualTown.Restore(legacy,history).DefinitionHash==restored.DefinitionHash,"Expanded empty Unity DTO invalidated legacy save");
 }
 Console.WriteLine("Weather and legacy compatibility checks passed: "+count);
+
+var legacyRules=Read<AnnualTownDefinition>(File.ReadAllText("docs/evidence/hud-connected/definition.json"));
+var numericRules=AnnualSimulationFactory.Create(legacyRules,weather,"coon-valley-demo-1");
+var provider=new AuthoredAnnualConsequenceProvider();
+var numeric=new AnnualTown(numericRules,"numeric-smoke");
+Check(numeric.Snapshot().simulation.sites.Length==numericRules.sites.Length,"Baseline site state missing");
+for(int y=1;y<=10;y++)
+{
+    if(numeric.Phase==TownPhase.Reviewing)numeric.ContinuePlanning(numeric.Revision);
+    var report=AnnualTownDemo.Advance(numeric,"numeric-smoke/"+y,provider);
+    AnnualSimulation.ValidateReportHash(report);
+    Check(report.simulation.driver.recordId==saved.recordIds[y-1],"Numeric driver changed");
+    Check(report.simulation.crops.All(c=>c.outputUnits>=0&&c.harvestCondition<=1),"Invalid realized crop output");
+    Check(report.ledger.repairDueCents==0,"Private crop losses created public bills");
+    var restored=AnnualTown.Restore(numericRules,Read<AnnualTownSnapshot>(JsonSerializer.Serialize(numeric.Snapshot(),options)));
+    Check(JsonSerializer.Serialize(restored.Snapshot(),options)==JsonSerializer.Serialize(numeric.Snapshot(),options),"Numeric saved replay differs");
+}
+Check(numeric.History.Length==10&&numeric.Phase==TownPhase.Completed,"Numeric ending missing");
+var changedReport=numeric.History[0];changedReport.simulation.economicDelta+=1;
+Reject(()=>AnnualSimulation.ValidateReportHash(changedReport),"Altered accepted delta hash accepted");
+var changedSave=numeric.Snapshot();changedSave.history[0].simulation.economicDelta+=1;
+Reject(()=>AnnualTown.Restore(numericRules,changedSave),"Altered accepted report replay accepted");
+Console.WriteLine("Numeric transition smoke checks passed: "+count);
+if(args.Contains("--emit-driver-hashes"))
+{
+    var hashes=new SortedDictionary<int,string>();
+    for(int i=0;i<1000&&hashes.Count<24;i++)
+    {
+        var schedule=weather.Select("driver-digest-fixture-"+i);
+        for(int y=1;y<=10;y++)
+        {
+            var driver=weather.Driver(schedule,y,numericRules.simulation.crops);driver.year=0;
+            hashes[driver.historicalYear]=TownCopies.Hash(driver);
+        }
+    }
+    Check(hashes.Count==24,"Incomplete trusted driver digest generation");
+    Directory.CreateDirectory("Builds/AnnualSimulation");
+    File.WriteAllText("Builds/AnnualSimulation/driver-hashes.json",JsonSerializer.Serialize(hashes,options));
+}
+
+AnnualTownDefinition CopyRules()=>Read<AnnualTownDefinition>(JsonSerializer.Serialize(numericRules,options));
+var tampered=CopyRules();tampered.simulation.drivers[0].crops[0].precipTenthsMm++;
+Reject(()=>new AnnualTown(tampered,"bad-driver"),"In-range weather tampering accepted");
+tampered=CopyRules();tampered.simulation.drivers[0].events=tampered.simulation.drivers[0].events.Skip(1).ToArray();
+Reject(()=>new AnnualTown(tampered,"missing-event"),"Removed observed event accepted");
+tampered=CopyRules();tampered.simulation.practices[0].actionId="invented";
+Reject(()=>new AnnualTown(tampered,"unknown-practice"),"Unknown practice accepted");
+tampered=CopyRules();tampered.simulation.sites[0].connectionGroupId="invented";
+Reject(()=>new AnnualTown(tampered,"unknown-group"),"Unknown connection accepted");
+tampered=CopyRules();tampered.simulation.publicResponsibilities=Array.Empty<TownPublicResponsibility>();
+Reject(()=>new AnnualTown(tampered,"missing-duty"),"Missing public responsibility accepted");
+var parkRules=CopyRules();var parkOffer=parkRules.actions.First(a=>a.actionId=="public-park");
+var publicRun=new AnnualTown(parkRules,"public-repair-smoke");publicRun.QueueAction(parkOffer.siteId,parkOffer.actionId,0);
+AnnualTownDemo.Finish(publicRun,provider);
+Check(publicRun.History.Sum(r=>r.ledger.repairDueCents)>0,"Built public park never incurred declared repair");
+foreach(var report in publicRun.History)
+{
+    var sim=report.simulation;var ledger=report.ledger;AnnualSimulation.ValidateReportHash(report);
+    Check(sim.payments.Sum(p=>p.paidCents)==ledger.upfrontPaidCents+ledger.arrearsPaidCents+ledger.programPaidCents+ledger.operatingPaidCents+ledger.repairPaidCents,"Itemized payments differ");
+    Check(sim.closingState.repairs.Sum(r=>r.unpaidCents)<=ledger.closingArrearsCents,"Repair liability exceeds total arrears");
+    Check(sim.storage.All(s=>Math.Abs(s.openingStoredM3-s.recoveredM3-s.capacityLossReleaseM3+s.capturedM3-s.closingStoredM3)<.00001&&s.capturedM3<=s.inflowM3+.00001&&s.closingStoredM3<=s.capacityM3+.00001),"Storage conservation/capacity failed");
+    Check(sim.crops.All(c=>c.outputUnits==c.productiveAreaM2/10000*c.benchmarkPerHa*c.weatherFactor*c.managementFactor*c.harvestCondition),"Harvest factor counted twice");
+}
+var publicRestored=AnnualTown.Restore(parkRules,publicRun.Snapshot());
+Check(JsonSerializer.Serialize(publicRestored.Snapshot(),options)==JsonSerializer.Serialize(publicRun.Snapshot(),options),"Public repair full replay differs");
+Console.WriteLine("Numeric weather/repair boundary checks passed: "+count);

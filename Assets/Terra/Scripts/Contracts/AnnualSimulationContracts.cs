@@ -65,6 +65,7 @@ namespace Terra.Contracts
         public TownSimulationState closingState;
         public TownCropResult[] crops;
         public TownEventImpact[] impacts;
+        public TownEventStorage[] storage;
         public TownPublicPayment[] payments;
         public double economicDelta, socialDelta, environmentalDelta;
         public double energyDeficit, waterDeficit, wastewaterDeficit, housingDeficit, jobsDeficit;
@@ -81,7 +82,14 @@ namespace Terra.Contracts
         public string siteId, eventId, ruleId, connectionGroupId;
         public int dayOfYear;
         public bool beforeHarvest, publiclyResponsible;
-        public double localHazard, upstreamHazard, connectedStorageUsedM3, conditionLoss;
+        public double localHazard, upstreamHazard, connectedStorageReductionFraction, conditionLoss;
+    }
+    [Serializable] public sealed class TownEventStorage
+    {
+        public string eventId, connectionGroupId;
+        public string[] deviceSiteIds;
+        public double capacityM3, openingStoredM3, recoveredM3, capacityLossReleaseM3;
+        public double inflowM3, capturedM3, closingStoredM3;
     }
     [Serializable] public sealed class TownPublicPayment
     {
