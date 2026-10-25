@@ -28,4 +28,25 @@ From the repository root, run `python3 docs/evidence/annual-completion/dense-v5/
 
 ## Limits
 
-This is deterministic model evidence for one saved seed per map. It is not exhaustive balance optimality, current-v5 repeated-family stress coverage, human observation, Unity JsonUtility round-trip proof, WebGL storage recovery, visual acceptance or performance acceptance. Human novice playtesting remains unavailable by the user's explicit instruction. The e74496b browser startup crash remains a separate release blocker, and its pending fix must be verified in actual Chrome. These checks do not promote that frozen build or the inactive numeric schema3 adapter.
+This is deterministic model evidence for one saved seed per map. It is not exhaustive balance optimality, human observation, Unity JsonUtility round-trip proof, WebGL storage recovery, visual acceptance or performance acceptance. Human novice playtesting remains unavailable by the user's explicit instruction. The e74496b browser startup crash remains a separate release blocker, and its pending fix must be verified in actual Chrome. These checks do not promote that frozen build or the inactive numeric schema3 adapter.
+
+## Repeated-family stress under v5
+
+An additional **2,091 assertions pass across 51 complete decades**: sixteen recipe-family pools plus an all-regenerative-variants pool, each on all three dense maps. Supporting restoration/swale treatments and separately labelled regenerative recipes account for the difference from the twelve source-table families; solar/wind share a family. Every route uses normal starting money, actual offers, unchanged prices, the same saved seed as the mixed strategies, and stable site-ID/action-ID ordering. Each year queues all affordable unoccupied candidates in its pool, then resolves through the real model. [Full commands/results](stress.json), [program](StressProgram.cs.txt), [pinned inputs](stress-source.json).
+
+No tested repeated-family route meets all three final targets. All finish with positive cash; none enters debt during this particular sweep. The assertions cover exact annual public ledgers, unique occupied sites, correct v5 debt representation, meter ranges and exact full-history restore. The debt-rejection branch in the program is present but was not exercised by these 51 routes; the mixed Point Reyes route above is the observed negative-cash/recovery case. No global dominance or all-ordering proof is claimed.
+
+Selected Meadowbrook endings:
+
+| Repeated family | Projects | Economic / social / environmental | Final cash |
+|---|---:|---|---:|
+| Regenerative rotation | 32 | 100.0 / 56.2 / 43.3 | $13,659,200 |
+| Low-density housing | 19 | 48.8 / 80.3 / 28.0 | $1,637,999.62 |
+| Public parks | 29 | 69.0 / 62.6 / 49.5 | $18,010,500 |
+| Data centers | 3 | 88.1 / 44.4 / −31.7 | $8,930,000 |
+| Non-renewable power | 3 | 68.7 / 55.8 / −63.4 | $2,710,000 |
+| Stewardship | 32 | 62.5 / 64.0 / 81.2 | $13,415,500 |
+
+These are authored v5 game indicators, including the explicitly approved signed environmental pressure rule, not measured local impacts or predictions. No prices, thresholds, financing or hazard chances were altered to produce the results.
+
+Reproduce with `python3 docs/evidence/annual-completion/dense-v5/prepare.py --stress`, then build/run the staged project in `Builds/DenseV5Stress` using the .NET8 procedure above. The final build reports zero warnings/errors and writes `stress.json`. Source comparison confirms the 68 pinned model/data inputs are unchanged through the subsequent `cd6a193` loading/storage reconciliation; this does not verify its browser bridge.
