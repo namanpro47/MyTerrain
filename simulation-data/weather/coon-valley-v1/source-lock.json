@@ -1,0 +1,94 @@
+{
+  "candidateStationIds": [
+    "USC00473038",
+    "USC00474373",
+    "USC00478827",
+    "USW00014920"
+  ],
+  "documentationSha256": "0e4e6f0e6947cf1add884c328a01760f31c56ef5fb86b85ed57dd5dc4c4aeaa6",
+  "documentationUrl": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt",
+  "firstYear": 2001,
+  "lastYear": 2024,
+  "license": {
+    "attribution": "NOAA National Centers for Environmental Information, GHCN-Daily Version 3; DOI 10.7289/V5D21VHZ. Terra-derived summaries; no NOAA endorsement.",
+    "name": "CC0-1.0 / NOAA public data",
+    "url": "https://catalog.data.gov/dataset/global-historical-climatology-network-daily-ghcn-daily-version-3"
+  },
+  "packId": "coon-valley-weather-v1",
+  "reference": {
+    "coordinateSource": "worlds/meadowbrook-v1/provenance.json contextWgs84Envelope center",
+    "latitude": 43.7015,
+    "longitude": -91.037,
+    "name": "Coon Valley / Vernon County, Wisconsin",
+    "terrainElevationRangeM": [
+      213.19700622558594,
+      360.593017578125
+    ]
+  },
+  "retrievedUtc": "2026-10-25",
+  "schemaVersion": 1,
+  "selectedStationId": "USW00014920",
+  "sources": [
+    {
+      "bytes": 242190,
+      "path": "source/USC00473038.2000-2024.dly",
+      "selection": "Exact source lines with years 2000\u20132024 and elements PRCP/TMAX/TMIN; line order and flags preserved; LF endings.",
+      "sha256": "722b7de5b0605f99be783781e67bafd844dad324d9969a0602559fe787e95b9d",
+      "stationId": "USC00473038",
+      "upstreamBytes": 1810350,
+      "upstreamSha256": "5e341d1fe0144d3b9d0b19bcecae2c48cc167ea38c1212883d7795ce9209b6d2",
+      "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00473038.dly"
+    },
+    {
+      "bytes": 240570,
+      "path": "source/USC00474373.2000-2024.dly",
+      "selection": "Exact source lines with years 2000\u20132024 and elements PRCP/TMAX/TMIN; line order and flags preserved; LF endings.",
+      "sha256": "9bfa5f409c9d0df55ff172e0877a6548b32b41bf5f86807735c025ec30a6c56a",
+      "stationId": "USC00474373",
+      "upstreamBytes": 716310,
+      "upstreamSha256": "5f2bb20077edb0be2af9105356f7ca28d6b987ace3d65b1504835435892086aa",
+      "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00474373.dly"
+    },
+    {
+      "bytes": 238410,
+      "path": "source/USC00478827.2000-2024.dly",
+      "selection": "Exact source lines with years 2000\u20132024 and elements PRCP/TMAX/TMIN; line order and flags preserved; LF endings.",
+      "sha256": "2f18c00d3c3b6dd27e19057648143163a572994da14c1ea14952f4a763ac616e",
+      "stationId": "USC00478827",
+      "upstreamBytes": 2767230,
+      "upstreamSha256": "1c0ce1da588729f66b89d3111b0602e6c7718e206a07485eedae73654ed1962e",
+      "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USC00478827.dly"
+    },
+    {
+      "bytes": 243000,
+      "path": "source/USW00014920.2000-2024.dly",
+      "selection": "Exact source lines with years 2000\u20132024 and elements PRCP/TMAX/TMIN; line order and flags preserved; LF endings.",
+      "sha256": "4d3fadb65fce5d26413d9dead240e2f4e7edd32b073a22916b80ff9359c17fa1",
+      "stationId": "USW00014920",
+      "upstreamBytes": 4072950,
+      "upstreamSha256": "6754235dd1fbe6d3fb0ea61f5529a788fe97aa60aeb9405203721a94c31d635a",
+      "url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/all/USW00014920.dly"
+    },
+    {
+      "bytes": 6536,
+      "path": "source/nearby-stations.txt",
+      "selection": "All rows for stations within 40 km great-circle distance of 43.7015,-91.037 (existing Wisconsin AOI envelope center). Rows unchanged.",
+      "sha256": "03e6ef1bfc47abe632936cb3c477e7ae7b9b6cf61d4d0e3c4410a009ef187ebe",
+      "upstreamBytes": 11441354,
+      "upstreamSha256": "428eabc955883187935bce283766d5646e3ed7484b92eb0803874c0e8dd9b342",
+      "url": "https://noaa-ghcn-pds.s3.amazonaws.com/ghcnd-stations.txt"
+    },
+    {
+      "bytes": 31050,
+      "path": "source/nearby-inventory.txt",
+      "selection": "All rows for stations within 40 km great-circle distance of 43.7015,-91.037 (existing Wisconsin AOI envelope center). Rows unchanged.",
+      "sha256": "ee33cc0360e62facce48bdda53b27d5ea72e7ea8cf83562fb59e77ef2ba44f26",
+      "upstreamBytes": 36396304,
+      "upstreamSha256": "c33ec006c4f35d0371e6f9ccfe3f656ae9de0b6f0f122794da07df7c971c48b5",
+      "url": "https://noaa-ghcn-pds.s3.amazonaws.com/ghcnd-inventory.txt"
+    }
+  ],
+  "upstreamVersionNote": "Version endpoint and live station files are separate downloads, not an atomic NOAA archive snapshot. Exact file hashes below are authoritative. S3 station metadata last modified 2026-10-15; observed version file is context only.",
+  "upstreamVersionObserved": "The current version of GHCN Daily is 3.35-upd-2026102317 (i.e, an update that started at 2026102317 [yyyymmddhh] UTC; yyyy=year; mm=month; dd=day; hh=hour),\ncreated by appending recently available data updates to the last fully reprocessed version: 3.35-por-2026101623.",
+  "warmupYear": 2000
+}
