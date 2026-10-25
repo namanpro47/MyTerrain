@@ -3,6 +3,7 @@ using Terra.Chapters;
 using Terra.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
+LocalEnvironment.LoadForProject(builder.Environment.ContentRootPath);
 // Local prototype only. Public hosting needs authentication, per-user quotas and shared storage.
 builder.WebHost.UseUrls("http://127.0.0.1:8787");
 builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 256 * 1024);

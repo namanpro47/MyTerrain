@@ -16,7 +16,7 @@ This is deliberately **AI narration over an illustrative annual simulation**, no
 
 Requires .NET 8 SDK; no additional NuGet packages. On this Windows workstation Unity bundles a compatible SDK at `C:\Program Files\Unity\Hub\Editor\6000.6.6f1\Editor\Data\DotNetSdk\dotnet.exe`. On another machine use `dotnet` from the installed SDK.
 
-1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey). For zero API spend, use a project on the free tier without enabling paid billing. Set `GEMINI_API_KEY` in the **server process environment** using your local secret manager or secure environment setup. Never paste it into a scene, Unity field, source file, browser or committed config.
+1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey). For zero API spend, use a project on the free tier without enabling paid billing. Copy the repository-root `.env.example` to `.env`, then paste the key after `GEMINI_API_KEY=`. The local chapter server automatically reads this file on startup. It is ignored by Git and excluded by `.vercelignore`. Never put the key in a scene, Unity field, browser code, public export or committed config. Restart the service after editing the file.
 2. From the repository root run:
 
    ```powershell
@@ -27,7 +27,15 @@ Requires .NET 8 SDK; no additional NuGet packages. On this Windows workstation U
 4. Open **Terra → Annual Town → Playtest Year Loop**, start a run and enable **AI chapter (Gemini service)**. The default endpoint is `http://127.0.0.1:8787/chapter`.
 5. Queue actions, conclude a year, inspect the chapter and ledger, and continue. If no key/quota is available, the year stays pending; retry or choose **Use labelled offline chapter**.
 
-Optional server variables: `GEMINI_MODEL` (default `gemini-2.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). `.env.example` is a reference only: the server does not automatically load dotenv files.
+Optional server variables: `GEMINI_MODEL` (default `gemini-2.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). Existing process variables take priority over `.env`. The reader supports plain or quoted values, comments and an optional `export` prefix, without executing shell commands or expanding variables. It reads only the four supported chapter settings. On Vercel it skips local-file loading entirely.
+
+### Keeping the provider key private
+
+The intended public flow is browser → our backend → Gemini. Only the backend reads `GEMINI_API_KEY`; responses contain the chapter or a sanitized error. The local ASP.NET service has no static-file middleware and does not serve `.env`. Keep the root `.env` outside `Assets`, `StreamingAssets`, `Builds/Web` and any public directory. The file is plaintext on this computer; Git/deploy exclusions do not protect it from someone with local filesystem access.
+
+For a hosted backend, add `GEMINI_API_KEY` as a project **Secret** in the relevant Vercel environment, then deploy a new backend version. Vercel encrypts environment values at rest and makes Secret values write-only in its dashboard after saving. Those settings do not prevent application code from leaking a value into a response, log or browser bundle. Never use `NEXT_PUBLIC_`/`VITE_` prefixes or embed the key in the Unity Web build. [Vercel environment variables](https://vercel.com/docs/environment-variables), [Secret variables](https://vercel.com/docs/environment-variables/sensitive-environment-variables).
+
+The current Vercel export contains static Unity files only; adding a Vercel variable alone does not deploy or connect the chapter backend. Public hosting also needs request authorization/session controls, server-side rate and token limits, durable storage and provider quota/spending controls. CORS is a browser policy, not authentication: someone can call a public API directly even when their website origin is rejected. A server compromise or accidental log/response leak can still expose a secret; rotate the key if that happens. This follow-up adds local dotenv loading and exclusions, not public hosting or a complete abuse-prevention system.
 
 ## Provider choice and cost
 

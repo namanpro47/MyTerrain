@@ -1,5 +1,11 @@
 # Terra — phase status and evidence
 
+## Local chapter environment file — October 24, 2026
+
+Peter requested an editable `.env` and an explanation of secret protection. The chapter server now loads the repository-root `.env` on local startup; existing process variables take priority. The file is ignored by Git, excluded by `.vercelignore`, and kept outside the static Unity export. A committed `.env.example` documents the empty key slot. Vercel uses injected variables rather than local dotenv loading.
+
+**Verification:** 33 chapter/service checks (five new dotenv cases), a synthetic-key server startup check, `/.env` returning 404, no synthetic key in the startup log, and no dotenv files in the published server output. No real Gemini request, Vercel configuration change or deployment was performed. [Setup and security boundaries](annual-chapters.md#keeping-the-provider-key-private). Public hosting still needs request/session authorization, rate/usage limits and durable storage; CORS is not authentication.
+
 ## Annual chapters and Gemini adapter — separately authorized October 24, 2026
 
 Peter requested next-chapter progression and a cheapest/free LLM connection. [Annual chapters](annual-chapters.md) adds a .NET 8 localhost service using Gemini 2.5 Flash-Lite, up to three factual cards per year, persistent first-response receipts, explicit offline fallback, chapter autosave/restore, next-year planning and confirmed ten-year continuation. The main scene/HUD/renderer remain with the engine owner.

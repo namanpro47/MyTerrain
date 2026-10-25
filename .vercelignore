@@ -1,0 +1,8 @@
+# Local secrets must never be uploaded as project files.
+.env
+.env.*
+**/.env
+**/.env.*
+services/chapters/data/**
+**/bin/**
+**/obj/**

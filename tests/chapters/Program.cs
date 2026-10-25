@@ -20,6 +20,22 @@ async Task Reject(Func<Task> action, string message) {
 }
 void RejectSync(Action action, string message) => Reject(() => { action(); return Task.CompletedTask; }, message).GetAwaiter().GetResult();
 T Copy<T>(T value) => ChapterJson.Read<T>(ChapterJson.Write(value));
+var envFixture = Path.Combine(Path.GetTempPath(), "terra-dotenv-" + Guid.NewGuid().ToString("N") + ".env");
+var envValues = new Dictionary<string, string> { ["GEMINI_MODEL"] = "existing-process-model" };
+try {
+    await File.WriteAllTextAsync(envFixture, "# Synthetic test data only\nexport GEMINI_API_KEY=\"test-placeholder=a#b\" # comment\nGEMINI_MODEL=file-model\nTERRA_ALLOWED_ORIGINS='http://localhost:8080'\nASPNETCORE_URLS=http://0.0.0.0:80\n");
+    LocalEnvironment.Load(envFixture, name => envValues.GetValueOrDefault(name), (name, value) => envValues[name] = value);
+    Check(envValues["GEMINI_API_KEY"] == "test-placeholder=a#b", "Dotenv quotes, comment, export or equals parsing failed.");
+    Check(envValues["GEMINI_MODEL"] == "existing-process-model", "Dotenv overwrote platform/shell environment.");
+    Check(envValues["TERRA_ALLOWED_ORIGINS"] == "http://localhost:8080" && !envValues.ContainsKey("ASPNETCORE_URLS"), "Dotenv allowed unsupported server configuration.");
+    envValues.Clear();
+    await File.WriteAllTextAsync(envFixture, "GEMINI_API_KEY=synthetic-first-line\nGEMINI_MODEL=\"synthetic-unclosed\n");
+    string diagnostic = "";
+    try { LocalEnvironment.Load(envFixture, _ => null, (name, value) => envValues[name] = value); } catch (FormatException error) { diagnostic = error.Message; }
+    Check(diagnostic.Contains("line 2") && !diagnostic.Contains("synthetic-unclosed") && envValues.Count == 0, "Malformed dotenv leaked content or partially applied secrets.");
+    LocalEnvironment.Load(envFixture + "-missing", _ => null, (_, _) => throw new Exception("Missing file must be a no-op."));
+    Check(envValues.Count == 0, "Missing dotenv changed environment.");
+} finally { File.Delete(envFixture); }
 var unityFixture = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "fixtures/unity-pending-year.json")));
 Check(AnnualChapters.Preview(unityFixture).History.Length == 1, "Actual Unity JSON/hash could not replay on the server.");
 var definition = AnnualTownChecks.Fixture();
