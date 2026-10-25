@@ -9,9 +9,11 @@ half3 StudyMeadowColor(float2 worldXZ)
 {
     float2 uv=worldXZ/max(1,_MeadowScale);
     half3 paint=SAMPLE_TEXTURE2D(_MeadowPaint,sampler_MeadowPaint,uv).rgb;
-    half luminance=dot(paint,half3(.2126,.7152,.0722));
-    // One common palette transform; no separate dark root palette or per-patch tint.
-    return lerp(luminance.xxx,paint,.75)*half3(.52,.92,.55)+half3(.025,.035,.018);
+    half3 broad=SAMPLE_TEXTURE2D_LOD(_MeadowPaint,sampler_MeadowPaint,uv,6).rgb;
+    // Remove the source image's broad cloud-shaped exposure shifts while retaining
+    // painted blade structure. Ground and foliage use the identical calculation.
+    half3 strokes=clamp(paint/max(broad,.025),.55,1.55);
+    return half3(.23,.38,.12)*lerp(half3(1,1,1),strokes,.65);
 }
 '''
 (output/'MeadowSurface.hlsl').write_text(shared)

@@ -14,7 +14,11 @@
 
 ![Rejected study68 — native grass shader and geometry in the actual retained landscape](evidence/phase2a/visual-rebuild/study68-environment/terra-native-grass-normal.png)
 
-**Next investigation: shared ground and vegetation construction.** The persistent failure is the whole field–meadow surface, not the lack of another plant model. Test coordinated artist paint on terrain and plant roots plus a lower continuous vegetation layer. It must improve the full image at ordinary play distance and close up; another tint/density-only patch or a successful close-detail demo is insufficient. Production scenery remains the study65 candidate above until an actual stronger result is demonstrated.
+**Latest material investigation: [study69](evidence/phase2a/visual-rebuild/study69-surface/README.md).** Shared world-space artist paint reduces detached grass contrast and improves close ground detail with the original planting layout. The initial cloudy texture treatment and an additional 15,874 low plants are rejected. The corrected material remains a limited candidate, with a shader compiler warning to resolve before promotion. Actual normal/close/wide Editor captures are recorded; no Chrome or visual-gate acceptance. Production scenery remains the study65 candidate above.
+
+![Study69 shared ground and vegetation — limited candidate, not accepted scenery](evidence/phase2a/visual-rebuild/study69-surface/connected-normal.png)
+
+The persistent failure is the whole field–meadow surface, not the lack of another plant model. Crop rows, weak forest/field structure and the broad overview remain substantial gaps. Carry forward the useful shared-surface relationship; do not pursue more density or texture-only polish as a substitute for better field construction.
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
