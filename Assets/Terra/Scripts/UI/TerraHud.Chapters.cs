@@ -11,6 +11,7 @@ namespace Terra.UI
         // TN-06/08, CS-01: short story pages; the full accepted ledger stays one click away.
         public void AnnualChapterReport(AnnualTown town,AnnualChapterReceipt receipt,Action continuePlanning,Action ledger,int page=0)
         {
+            HideChapterLoading();
             var report=town.History.Last(r=>r.year==receipt.consequences.year);
             var chapter=receipt.mode=="offline"?AnnualChapterNarrative.Create(town.Definition,report):receipt.chapter;
             if(receipt.mode=="offline"&&receipt.chapter?.introduction?.StartsWith("AI unavailable.")==true)
@@ -37,12 +38,16 @@ namespace Terra.UI
             modalEyebrow.text="YEAR "+report.year+"  /  "+(page==0&&report.year==town.Definition.years?"decade · local summary":receipt.mode=="gemini"?"AI chapter":"local summary")+(page==0?"":"  ·  "+page+" / "+count);
             AnnualSecondary("Budget & meters",ledger);
         }
-        public void AnnualChapterWaiting(int year,Action stop)
+        public void AnnualChapterWaiting(int year,Action stop,bool resultsSaved=false)
         {
-            AnnualDialog("Closing year "+year+"…","Your plan is submitted. Writing this year's chapter…\n\nIf AI is unavailable or its limit is reached, a labelled local summary will use the same saved game results.\n\nYou can stop waiting and retry the same plan. Your submitted choices are saved.","Stop waiting",stop);
+            AnnualDialog("Year "+year+" · writing AI explanation…",
+                (resultsSaved?"Your year-end results are saved.":"Your submitted plan is saved.")+"\n\nAI is explaining this year's choices and outcomes. This usually takes a few seconds, but can take longer.\n\nIf AI is unavailable, a labelled local summary will use the same results.",
+                resultsSaved?"Use local summary":"Stop waiting",stop);
+            ShowChapterLoading();
         }
         public void AnnualChapterRecovery(int year,string error,Action retry,Action offline,Action edit)
         {
+            HideChapterLoading();
             AnnualDialog("Year "+year+" is still pending",(string.IsNullOrWhiteSpace(error)?"Your submitted plan is saved and ready to resume.":error)+"\n\n<b>No year has advanced and no payment was taken.</b>\n\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.","Retry chapter",retry);
             AnnualSecondary("Use local summary",offline);
             closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(()=>edit());

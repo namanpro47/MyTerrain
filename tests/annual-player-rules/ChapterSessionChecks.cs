@@ -50,7 +50,11 @@ UnityWebRequest.OnSend=()=>{
  Check(saved.history.Length==1&&saved.phase==TownPhase.Reviewing,"numerical year saved before transport starts");
  Check(PlayerPrefs.HasKey(chapters.saveKey),"local chapter saved before transport starts");
 };
-chapters.ResolveOnline();Check(chapters.Busy&&town.State.history.Length==1,"AI prose pending while year accepted");
+bool stayedWaitingDuringSave=false;
+chapters.StateChanged+=()=>{if(chapters.Latest?.mode=="offline"&&town.State.history.Length==1)stayedWaitingDuringSave=chapters.Busy;};
+chapters.ResolveOnline();Check(stayedWaitingDuringSave,"saved local receipt keeps online waiting state visible");
+Check(Debug.Logs.Any(line=>line.StartsWith("TERRA_ANNUAL_SAVED:"))&&!Debug.Logs.Any(line=>line.Contains("offline year 1 accepted")),"initial save is logged as pending AI, not terminal offline completion");
+Check(chapters.Busy&&town.State.history.Length==1,"AI prose pending while year accepted");
 string accepted=TownCopies.Hash(town.State);long acceptedCash=town.State.cashCents;
 var transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.ProtocolError;transport.responseCode=429;transport.downloadHandler.text="{}";transport.operation.isDone=true;
 chapters.Poll();Check(!chapters.Busy&&chapters.Latest.mode=="offline","quota failure retains local chapter");
@@ -63,7 +67,7 @@ restoredChapters.Continue();UnityWebRequest.OnSend=null;restoredChapters.Resolve
 var receipt=restoredChapters.ForYear(2);receipt.mode="gemini";receipt.model="test-narrator";receipt.chapter.title="Saved year explained";
 string accepted2=TownCopies.Hash(restored.State);
 transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.Success;transport.responseCode=200;transport.downloadHandler.text=JsonUtility.ToJson(receipt);transport.operation.isDone=true;restoredChapters.Poll();
-Check(restoredChapters.ForYear(2).mode=="gemini","AI replaces prose only");Check(TownCopies.Hash(restored.State)==accepted2,"AI cannot reapply money/events");
+Check(restoredChapters.ForYear(2).mode=="gemini","AI replaces prose only");Check(Debug.Logs.Any(line=>line.Contains("gemini year 2 accepted")),"final AI completion is logged");Check(TownCopies.Hash(restored.State)==accepted2,"AI cannot reapply money/events");
 // Simulate a crash after saving the new annual key but before saving the chapter key.
 PlayerPrefs.SetString("rules-chapters",oldChapterSave);
 var newest=Town("rules-town",true);var stale=Chapter(newest,"rules-chapters");stale.RestoreSaved();
@@ -76,7 +80,7 @@ Check(!AnnualChapterSession.UsesHostedProtocol("http://127.0.0.1:8787/chapter")&
 Check(AnnualChapterSession.UsesHostedProtocol("https://terra-chapters.vercel.app/chapter"),"hosted uses facts protocol");
 // Finish locally, then request only the ending prose without replaying live cash/events.
 stale.StopRequest();stale.FinishOffline();Check(newest.State.phase==TownPhase.Completed,"offline fast-forward reaches accepted ending");
-var endingHash=TownCopies.Hash(newest.State);stale.ResolveOnline();
+var endingHash=TownCopies.Hash(newest.State);bool endingStayedWaiting=false;stale.StateChanged+=()=>{if(stale.Latest?.consequences.year==10&&stale.Latest.mode=="offline")endingStayedWaiting=stale.Busy;};stale.ResolveOnline();Check(endingStayedWaiting,"Year 10 keeps the waiting state through local save");
 Check(stale.Busy&&TownCopies.Hash(newest.State)==endingHash,"accepted Year 10 can request AI without changing state");
 var endingRequest=JsonUtility.FromJson<AnnualChapterRequest>(System.Text.Encoding.UTF8.GetString(UnityWebRequest.Last.uploadHandler.data));
 Check(endingRequest.snapshot.pendingRequest.year==10&&endingRequest.snapshot.history.Length==9,"ending request retains nine earlier years and original frozen Year 10");
@@ -95,4 +99,8 @@ Check(PlayerPrefs.Values.Sum(kv=>System.Text.Encoding.UTF8.GetByteCount(kv.Key+k
 PlayerPrefs.SetString("legacy-json",fullSave);
 var legacy=Town("legacy-json",true);Check(TownCopies.Hash(legacy.State)==endingHash,"legacy plain JSON still restores exactly");
 var compressed=Town(newest.saveKey,true);Check(TownCopies.Hash(compressed.State)==endingHash,"compressed current save restores exactly");
+var failedTown=Town("failed-send-town");var failedChapter=Chapter(failedTown,"failed-send-chapter");
+UnityWebRequest.OnSend=()=>throw new InvalidOperationException("Transport failed before dispatch");failedChapter.ResolveOnline();UnityWebRequest.OnSend=null;
+Check(!failedChapter.Busy&&failedChapter.Latest.mode=="offline","immediate transport failure clears preparing/waiting and shows fallback");
+Check(failedTown.State.history.Length==1&&failedTown.State.phase==TownPhase.Reviewing,"failed transport preserves accepted numeric year");
 Console.WriteLine("Save-first chapter session checks passed: "+checks+" (transport/Unity stubs, no live provider)");

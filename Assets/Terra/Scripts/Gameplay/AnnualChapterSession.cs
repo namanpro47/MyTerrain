@@ -21,7 +21,7 @@ namespace Terra.Gameplay
         [NonSerialized] public string bearerToken;
         public AnnualTownSession town;
         public event Action StateChanged;
-        public bool Busy => operation != null;
+        public bool Busy => preparing || operation != null;
         public string Error { get; private set; }
         public AnnualChapterReceipt Latest => receipts.Count == 0 ? null : Clone(receipts[receipts.Count - 1]);
         public AnnualChapterReceipt ForYear(int year) => Clone(receipts.FirstOrDefault(r => r.consequences.year == year));
@@ -34,7 +34,7 @@ namespace Terra.Gameplay
         string guestToken;
         double guestExpiresAt;
         bool requestingSession, refreshedSession;
-        bool readyForFallback;
+        bool readyForFallback,preparing;
         public static bool UsesHostedProtocol(string address)
             => Uri.TryCreate(address,UriKind.Absolute,out var uri)&&!uri.IsLoopback;
 
@@ -49,6 +49,7 @@ namespace Terra.Gameplay
                     || (uri.Scheme != "https" && !(uri.Scheme == "http" && uri.IsLoopback)))
                     throw new InvalidOperationException("Use HTTPS, or HTTP on localhost for the developer service.");
                 resolutionTiming = System.Diagnostics.Stopwatch.StartNew();
+                preparing=true;
                 frozen = Freeze();
                 if (frozen == null) return; // Already reviewing/completed: never reroll.
                 if(town.Engine.PlayerRulesActive)
@@ -63,7 +64,8 @@ namespace Terra.Gameplay
                 refreshedSession = false;
                 SendChapterOrSession();
             }
-            catch (Exception error) { Fail(error.Message); }
+            catch (Exception error) { preparing=false;Fail(error.Message); }
+            finally { preparing=false; }
         }
 
         void SendChapterOrSession()
@@ -102,7 +104,7 @@ namespace Terra.Gameplay
         // Editor playtest calls this from EditorApplication.update; no Editor coroutine package needed.
         public void Poll()
         {
-            if (!Busy || !operation.isDone) return;
+            if (operation==null || !operation.isDone) return;
             try
             {
                 if (!requestingSession && request.responseCode == 401 && !refreshedSession && !string.IsNullOrEmpty(guestToken))
@@ -162,11 +164,13 @@ namespace Terra.Gameplay
             frozen = null;
             Persist();
             Publish();
-            if (resolutionTiming != null)
+            if(preparing&&receipt.mode=="offline")
+                Debug.Log("TERRA_ANNUAL_SAVED: year "+receipt.consequences.year+" numerical results saved; awaiting AI explanation.");
+            else if (resolutionTiming != null)
                 Debug.Log("TERRA_ANNUAL_TIMING: " + receipt.mode + " year " + receipt.consequences.year + " accepted in "
                     + resolutionTiming.Elapsed.TotalMilliseconds.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)
                     + " ms including persistence and report refresh; online includes request wait");
-            resolutionTiming = null;
+            if(!preparing)resolutionTiming = null;
         }
 
         public void ResolveOffline()
@@ -207,7 +211,7 @@ namespace Terra.Gameplay
             }
         }
         public void StopRequest() { ClearRequest(); Publish(); }
-        void ClearRequest() { Finishing = false; ReleaseRequest(); frozen = null; readyForFallback = false; }
+        void ClearRequest() { preparing=false;Finishing = false; ReleaseRequest(); frozen = null; readyForFallback = false; }
         void ReleaseRequest() { operation = null; if (request != null) { request.Abort(); request.Dispose(); request = null; } }
         void Fail(string message)
         {

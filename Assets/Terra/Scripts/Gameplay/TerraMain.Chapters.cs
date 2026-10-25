@@ -39,14 +39,26 @@ namespace Terra.Gameplay
             SaveAnnual();
             if(fastForwarding)return;
             RefreshLandscape();Refresh();
-            if(chapters.Busy&&annual.Engine.PlayerRulesActive&&annual.State.history.Length>0)ShowAcceptedReport();
-            else if(chapters.Busy)hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest());
+            if(chapters.Busy)ShowChapterWaiting();
             else if(annual.State.phase==TownPhase.Resolving)ShowPendingChapter();
-            else if(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed)ShowAcceptedReport();
+            else if(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed)ShowChapterResult();
+        }
+        void ShowChapterWaiting()
+        {
+            hud.CloseAnnualOverview();
+            bool saved=annual.Engine.PlayerRulesActive&&annual.State.history.Length>0
+                &&(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed);
+            hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest(),saved);
+        }
+        void ShowChapterResult()
+        {
+            ShowAcceptedReport();
+            var chapter=chapters.ForYear(annual.State.year);
+            if(chapter!=null)hud.AnnualChapterReport(annual.Engine,chapter,ContinueAfterChapter,ShowAnnualLedger);
         }
         void ShowPendingChapter()
         {
-            if(chapters.Busy){hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest());return;}
+            if(chapters.Busy){ShowChapterWaiting();return;}
             hud.AnnualChapterRecovery(annual.State.year,chapters.Error,()=>chapters.ResolveOnline(),()=>chapters.ResolveOffline(),()=>{
                 hud.CloseModal();chapters.CancelResolution();
             });
