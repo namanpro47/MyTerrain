@@ -24,7 +24,7 @@ void ChangeCue(Terra.Core.AnnualFeedbackTone tone)
     {
         case Terra.Core.AnnualFeedbackTone.Decline:
         case Terra.Core.AnnualFeedbackTone.Mixed: audio.Request("year-attention", 8); break;
-        case Terra.Core.AnnualFeedbackTone.Outcome: audio.Request("year-report", 8); break;
+        case Terra.Core.AnnualFeedbackTone.Outcome: audio.Request("year-report", 7); break;
         case Terra.Core.AnnualFeedbackTone.Release: audio.Request("undo", 4); break;
         default: audio.Request("ui-confirm", 4); break;
     }
