@@ -1,0 +1,21 @@
+{
+  "timeUtc": "2026-10-25T15:59:45.712540+00:00",
+  "reservation": 4,
+  "resources": [
+    "desktop",
+    "unity-heavy"
+  ],
+  "ownedEditor": "closed",
+  "backgroundUnity": [
+    "29573     1   5.9 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "30000 29573   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "30803 29573   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "33132 33129   9.3 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "33784 33132   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "34044 33132   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "74462     1   1.7 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "75293 74462   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity",
+    "75829 74462   0.0 /Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/MacOS/Unity"
+  ],
+  "note": "Other owners were asked to stop Play Mode. Idle Editor processes remain; not a fully isolated OS benchmark."
+}

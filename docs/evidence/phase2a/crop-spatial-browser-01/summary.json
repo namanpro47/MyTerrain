@@ -1,0 +1,155 @@
+{
+  "control-opening": {
+    "performance": {
+      "seconds": 30.013999938964844,
+      "averageFps": 59.97201156616211,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 18.0,
+      "frameP99Ms": 18.0,
+      "maxFrameMs": 27.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1800,
+      "framesOver33Ms": 0,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1734,
+      "unfocusedFrames": 0
+    },
+    "inputLatency": {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    "errorCount": 0
+  },
+  "candidate-opening": {
+    "performance": {
+      "seconds": 30.013999938964844,
+      "averageFps": 59.2723388671875,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 21.99999237060547,
+      "frameP99Ms": 29.9999942779541,
+      "maxFrameMs": 35.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1779,
+      "framesOver33Ms": 1,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1718,
+      "unfocusedFrames": 0
+    },
+    "inputLatency": {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    "errorCount": 0
+  },
+  "candidate-editing": {
+    "performance": {
+      "seconds": 30.031997680664062,
+      "averageFps": 33.53090286254883,
+      "frameP50Ms": 35.0,
+      "frameP95Ms": 39.0,
+      "frameP99Ms": 40.0,
+      "maxFrameMs": 45.0,
+      "maxPreviewCpuMs": 6.300000190734863,
+      "maxPlacementCpuMs": 17.200000762939453,
+      "frames": 1007,
+      "framesOver33Ms": 586,
+      "framesOver200Ms": 0,
+      "previewEvents": 5,
+      "placementEvents": 1,
+      "cameraEvents": 972,
+      "unfocusedFrames": 0
+    },
+    "inputLatency": {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 22.900000035762787
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 17.599999964237213
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 37
+        },
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 35.19999998807907
+        }
+      ],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    "errorCount": 0
+  },
+  "candidate-year10": {
+    "performance": {
+      "seconds": 30.004005432128906,
+      "averageFps": 58.125572204589844,
+      "frameP50Ms": 17.0,
+      "frameP95Ms": 26.0,
+      "frameP99Ms": 32.0,
+      "maxFrameMs": 36.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1744,
+      "framesOver33Ms": 13,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1684,
+      "unfocusedFrames": 0
+    },
+    "inputLatency": {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    "errorCount": 0
+  }
+}
