@@ -1,0 +1,19 @@
+{
+  "source": "2f8543dd2734172942f92c1e3395b695174395e9",
+  "recorded_date": "2026-10-25",
+  "status": "provisional recorder preflight; not final release fallback",
+  "file": "Builds/Recordings/terra-recorded-2026-10-25-2f8543d-provisional.webm",
+  "bytes": 10122957,
+  "sha256": "c34bb0e632754f6a7f0e56c7fcdb92a253674b7d74184f23e81bbf1a445df96a",
+  "decoder": "7.1",
+  "decode_exit": 0,
+  "samples_seconds": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    59
+  ]
+}
