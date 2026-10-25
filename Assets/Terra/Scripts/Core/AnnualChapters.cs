@@ -12,6 +12,23 @@ namespace Terra.Core
         public const string RulesVersion = "annual-chapter-v1";
         public const string Notice = "Illustrative annual scenario, not a forecast. AI explains the saved results; authored rules determine outcomes.";
 
+        // Rebuild the original frozen request from accepted evidence, for an optional
+        // explanation after fast-forward/reload. This never reopens the live year.
+        public static AnnualChapterRequest AcceptedRequest(AnnualTown town)
+        {
+            Require(town.PlayerRulesActive&&town.History.Length>0,"An accepted player-rules year is required.");
+            var report=town.History.Last();
+            var snapshot=town.Snapshot();
+            snapshot.history=snapshot.history.Take(snapshot.history.Length-1).ToArray();
+            snapshot.year=report.year;snapshot.revision=report.acceptedRequest.revision;snapshot.phase=TownPhase.Resolving;
+            snapshot.cashCents=report.ledger.openingCashCents;snapshot.arrearsCents=report.ledger.openingArrearsCents;
+            snapshot.assets=TownCopies.Copy(report.acceptedRequest.assets);snapshot.queue=TownCopies.Copy(report.acceptedRequest.actions);
+            snapshot.undo=Array.Empty<TownPlanSnapshot>();snapshot.redo=Array.Empty<TownPlanSnapshot>();
+            snapshot.pendingRequest=TownCopies.Copy(report.acceptedRequest);
+            AnnualTown.Restore(town.Definition,snapshot);
+            return new AnnualChapterRequest {definition=town.Definition,snapshot=snapshot};
+        }
+
         public static AnnualTown Preview(AnnualChapterRequest input)
         {
             Require(input != null && input.schemaVersion == 1 && input.definition != null && input.snapshot != null,
