@@ -17,6 +17,7 @@ namespace Terra.Contracts
         public TownYearDriver[] drivers;
         public TownScoreRubric rubric;
         public TownEconomyDefinition economy;
+        public TownSimulationDefinition simulation;
     }
 
     [Serializable] public sealed class TownSiteDefinition
@@ -71,6 +72,7 @@ namespace Terra.Contracts
         public TownPlannedAction[] actions;
         public TownAsset[] assets;
         public TownYearDriver driver;
+        public TownSimulationRequest simulation;
     }
 
     // Provider output contains bounded contextual effects, never cash, time or invented sites.
@@ -122,6 +124,7 @@ namespace Terra.Contracts
         public TownYearOutcomes outcomes;
         public TownYearRequest acceptedRequest;
         public TownYearConsequences acceptedConsequences;
+        public TownSimulationReport simulation;
     }
 
     [Serializable] public sealed class AnnualTownSnapshot
@@ -136,6 +139,7 @@ namespace Terra.Contracts
         public TownAsset[] assets;
         public TownYearReport[] history;
         public TownYearRequest pendingRequest;
+        public TownSimulationState simulation;
     }
     // Schema 2: explicit scenario quantities. Null means unsupported, never zero.
     [Serializable] public sealed class TownProjectServices

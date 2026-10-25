@@ -43,6 +43,10 @@ namespace Terra.Gameplay
             float seconds=Time.realtimeSinceStartup-start;
             var report=new Report{seconds=seconds,frames=frames.Count,averageFps=frames.Count/seconds,frameP50Ms=Percentile(frames,.5f),frameP95Ms=Percentile(frames,.95f),frameP99Ms=Percentile(frames,.99f),maxFrameMs=frames.Max(),framesOver33Ms=frames.Count(f=>f>33.34f),framesOver200Ms=frames.Count(f=>f>200),previewEvents=preview.Count,maxPreviewCpuMs=preview.Count>0?preview.Max():-1,placementEvents=placement.Count,maxPlacementCpuMs=placement.Count>0?placement.Max():-1,cameraEvents=cameraEvents,unfocusedFrames=unfocusedFrames};
             Debug.Log("TERRA_PERFORMANCE: "+JsonUtility.ToJson(report));
+            var nature=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(FindObjectsSortMode.None);
+            Debug.Log($"TERRA_RENDER_SUBMISSIONS: submitted={nature.Sum(n=>n.LastSubmittedBatches)}; culled={nature.Sum(n=>n.LastCulledBatches)}; groundcoverCulled={nature.Sum(n=>n.LastCulledGroundcoverBatches)}; groups={nature.Length}");
+            var combined=UnityEngine.Object.FindFirstObjectByType<Terra.Rendering.NatureSubmission>();
+            if(combined!=null)Debug.Log($"TERRA_RENDER_CONSOLIDATION: sourceBatches={combined.LastSourceBatches}; drawCalls={combined.LastDrawCalls}; savedDrawCalls={combined.LastSourceBatches-combined.LastDrawCalls}");
 #if UNITY_WEBGL && !UNITY_EDITOR
             TerraMetricsEnd();
 #endif

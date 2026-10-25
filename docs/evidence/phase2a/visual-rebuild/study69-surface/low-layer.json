@@ -1,0 +1,10 @@
+{
+  "count": 15874,
+  "tiles": 261,
+  "sourceMesh": "Grass",
+  "sourceTriangles": 432,
+  "sourceBounds": "Center: (0.02, 0.14, 0.14), Extents: (0.54, 0.14, 0.55)",
+  "widthRange": "4.2–5.3m, uniform scaling",
+  "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "scope": "Additional low layer; no new LOD reduction yet. Source cover, roads and sites excluded. Full geometry prototype, not performance accepted."
+}

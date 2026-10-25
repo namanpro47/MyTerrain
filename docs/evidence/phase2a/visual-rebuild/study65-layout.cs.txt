@@ -1,0 +1,16 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Play required");
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var t=main.GetType();
+var land=(Terra.Rendering.LandscapeRenderer)t.GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)t.GetField("world",flags).GetValue(main);var lt=land.GetType();
+var catalog=main.buildActionCatalog;var entry=catalog.Find("low-density-housing");if(entry==null||entry.prefab==null)throw new System.Exception("Missing home art");
+var candidates=new[]{new UnityEngine.Vector3(-285,180,4),new UnityEngine.Vector3(-321,180,18),new UnityEngine.Vector3(-355,180,35),new UnityEngine.Vector3(-140,180,-20)};
+var existing=UnityEngine.GameObject.Find("Study65 existing fictional community");if(existing!=null)throw new System.Exception("Study already present; use fresh Play");
+var report=new System.Collections.Generic.List<object>();
+foreach(var p in candidates){
+ float x=p.x,z=p.z;float l=x-13,r=x+13,b=z-16,top=z+16;
+ var covers=new System.Collections.Generic.HashSet<string>();float high=float.MinValue,low=float.MaxValue,minWater=float.MaxValue;
+ for(float pz=b;pz<=top;pz+=1)for(float px=l;px<=r;px+=1){covers.Add(land.CoverAt(px,pz));float h=land.Height(px,pz);high=UnityEngine.Mathf.Max(high,h);low=UnityEngine.Mathf.Min(low,h);
+ foreach(var f in world.features.Where(f=>f.kind=="water"))for(int i=1;i<f.points.Length;i++){var a=new UnityEngine.Vector2(f.points[i-1].x,f.points[i-1].z);var d=new UnityEngine.Vector2(f.points[i].x,f.points[i].z)-a;var q=new UnityEngine.Vector2(px,pz);float u=UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(q-a,d)/UnityEngine.Mathf.Max(d.sqrMagnitude,.0001f));minWater=UnityEngine.Mathf.Min(minWater,UnityEngine.Vector2.Distance(q,a+d*u)-f.widthM*.5f);}}
+ var sites=world.sites.Where(s=>s.polygon.Min(v=>v.x)<r&&s.polygon.Max(v=>v.x)>l&&s.polygon.Min(v=>v.z)<top&&s.polygon.Max(v=>v.z)>b).Select(s=>s.id).ToArray();
+ report.Add(new{x,z,yaw=p.y,covers=covers.ToArray(),heightLow=low,heightHigh=high,relief=high-low,minWater,overlappingSiteBounds=sites});
+}
+return new{frame=UnityEngine.Time.frameCount,annual=main.Diagnostic,dimensions=entry.dimensionNotes,candidates=report};

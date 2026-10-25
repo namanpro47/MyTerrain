@@ -1,0 +1,6 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);var site=world.sites.First(s=>s.id=="south-01");
+land.Apply(site,"restore-grass");land.ViewScale(.25f);return new{site=site.id,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

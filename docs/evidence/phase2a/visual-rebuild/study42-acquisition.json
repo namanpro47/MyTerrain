@@ -1,0 +1,17 @@
+[
+  {
+    "file": "FBX-20261025T083605Z-1-001.zip",
+    "bytes": 5150307,
+    "sha256": "feafa68b2c4a18d0e828200d00c8fb12b41276247f1fb2ca692f21b9e17faa4c"
+  },
+  {
+    "file": "Textures-20261025T083641Z-1-001.zip",
+    "bytes": 202290654,
+    "sha256": "bd9ee63f6af45890635cf763209428aa68e5a4b594710626f84cfdbddcfbead1"
+  },
+  {
+    "file": "License.txt",
+    "bytes": 374,
+    "sha256": "de990ef6fc68cffd7fd1ae342c4d0c823b541b8848d8f76bca5d3339f4de6f6e"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study63/import.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "0: 1392 triangles; (1.04, 0.47, 1.04)\n1: 390 triangles; (1.04, 0.46, 1.04)\n2: 84 triangles; (0.98, 0.43, 1.00)"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

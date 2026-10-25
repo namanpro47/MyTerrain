@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var n=UnityEngine.Object.FindFirstObjectByType<Terra.Rendering.NatureSubmission>();return new{state=main.Diagnostic,sourceBatches=n.LastSourceBatches,drawCalls=n.LastDrawCalls,helpers=UnityEngine.Object.FindObjectsByType<Terra.Rendering.NatureSubmission>(UnityEngine.FindObjectsSortMode.None).Length,studyObjects=UnityEngine.Object.FindObjectsByType<UnityEngine.GameObject>(UnityEngine.FindObjectsSortMode.None).Count(g=>g.name.StartsWith(\"Study57\")||g.name.StartsWith(\"Study58\"))};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "sourceBatches": 594,
+        "drawCalls": 451,
+        "helpers": 1,
+        "studyObjects": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

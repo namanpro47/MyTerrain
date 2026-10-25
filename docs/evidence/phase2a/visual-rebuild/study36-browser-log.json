@@ -1,0 +1,40 @@
+{
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T07:07:28.377Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.016998291015625,\"averageFps\":46.34040832519531,\"frameP50Ms\":20.0,\"frameP95Ms\":32.0,\"frameP99Ms\":40.0,\"maxFrameMs\":52.0,\"maxPreviewCpuMs\":6.099999904632568,\"maxPlacementCpuMs\":19.600000381469727,\"frames\":1391,\"framesOver33Ms\":57,\"framesOver200Ms\":0,\"previewEvents\":5,\"placementEvents\":1,\"cameraEvents\":392,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T07:07:58.397Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    }
+  ],
+  "errors": [],
+  "annual": [
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=5; cash=1000000000; queued=1; assets=0\n",
+      "timestamp": "2026-10-25T07:07:41.611Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=6; cash=1000000000; queued=0; assets=0\n",
+      "timestamp": "2026-10-25T07:07:41.977Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    }
+  ],
+  "viewport": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "height": 720,
+    "visibility": "visible",
+    "width": 1280
+  }
+}

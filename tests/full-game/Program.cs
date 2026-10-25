@@ -36,7 +36,7 @@ rules.ExpandOffers(world,scenario);
 var runoff=new LandscapeRunoff(world,scenario,hydro);
 Console.WriteLine(string.Join("\n",rules.actions.Select(a=>a.id+": "+world.sites.Count(s=>rules.Rejection(s,a.id)==null)+" fitting fields")));
 var d=FullAnnualGameplay.Create(world,scenario,"meadowbrook-v1",rules,runoff);
-int checks=0;
+int checks=AnnualFeedbackChecks.Run(d);
 void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
 var provider=new AuthoredAnnualConsequenceProvider();
 foreach(var id in FullAnnualGameplay.Supported)
@@ -117,6 +117,7 @@ for(int year=1;year<=10;year++)
  manual=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(manual.Snapshot(),options),options));
 }
 Check(JsonSerializer.Serialize(manual.Snapshot(),options)==JsonSerializer.Serialize(automatic.Snapshot(),options),"Fast-forward and manual transitions identical, including reload each year");
+checks+=PlanningGuidanceChecks.Run(d);
 if(args.Contains("--stress"))checks+=AnnualStressChecks.Run(d,evidence);
 File.WriteAllText(evidence+"/checks.json",JsonSerializer.Serialize(new {assertions=checks,variants=FullAnnualGameplay.Supported.Length,offers=d.actions.Length,legacyWorldUnchanged=true,manualFastForwardEquivalent=true},options));
 Console.WriteLine("Full ten-year checks passed; total assertions: "+checks);

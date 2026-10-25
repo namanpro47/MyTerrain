@@ -1,0 +1,617 @@
+{
+  "checks": 291,
+  "catalogRuns": [
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cultivate-standard",
+      "siteId": "grid-07-05",
+      "elapsedMs": 536,
+      "scores": [
+        63.68873943826158,
+        50.42668832745116,
+        36.25382106164091
+      ],
+      "CashCents": 1988000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "conservation-rotation",
+      "siteId": "grid-07-05",
+      "elapsedMs": 476,
+      "scores": [
+        65.4956087441025,
+        50.50682867836242,
+        39.06349424425609
+      ],
+      "CashCents": 1980800000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cultivate-margin",
+      "siteId": "grid-07-05",
+      "elapsedMs": 559,
+      "scores": [
+        65.10081703329791,
+        50.561293375662345,
+        38.868335619623814
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cover-crop",
+      "siteId": "grid-07-05",
+      "elapsedMs": 324,
+      "scores": [
+        67.01154193786772,
+        50.536637380441405,
+        39.84945717667973
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "restore-grass",
+      "siteId": "grid-07-05",
+      "elapsedMs": 256,
+      "scores": [
+        57.08859987951405,
+        50.56721933704586,
+        47.714675038555455
+      ],
+      "CashCents": 1990500000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "water-swale",
+      "siteId": "grid-07-05",
+      "elapsedMs": 257,
+      "scores": [
+        57.08859987951405,
+        50.62562494951518,
+        48.923417654596044
+      ],
+      "CashCents": 1985207876
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "public-park",
+      "siteId": "grid-07-05",
+      "elapsedMs": 257,
+      "scores": [
+        66.31700423367823,
+        53.38648038835353,
+        36.412507064021085
+      ],
+      "CashCents": 1989526912
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "low-density-housing",
+      "siteId": "grid-07-05",
+      "elapsedMs": 252,
+      "scores": [
+        62.438721428194846,
+        51.84416659439848,
+        35.71498681579747
+      ],
+      "CashCents": 1902853970
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "high-density-housing",
+      "siteId": "grid-07-05",
+      "elapsedMs": 249,
+      "scores": [
+        62.29620029463685,
+        66.17971826466335,
+        32.47067810011196
+      ],
+      "CashCents": 1527132978
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "agricultural-storage",
+      "siteId": "grid-07-05",
+      "elapsedMs": 277,
+      "scores": [
+        72.476223828856,
+        50.42005390694345,
+        35.01386827420977
+      ],
+      "CashCents": 1773000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "data-center",
+      "siteId": "grid-07-05",
+      "elapsedMs": 250,
+      "scores": [
+        76.18504334367404,
+        50.20174661936105,
+        30.916124136089373
+      ],
+      "CashCents": 1636000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "village-center",
+      "siteId": "grid-07-05",
+      "elapsedMs": 258,
+      "scores": [
+        74.99986471322632,
+        54.996211673200634,
+        34.33626048892077
+      ],
+      "CashCents": 1560000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "non-renewable-power",
+      "siteId": "grid-07-05",
+      "elapsedMs": 269,
+      "scores": [
+        65.65143395647706,
+        50.42049794671426,
+        32.57074385405966
+      ],
+      "CashCents": 1404000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "solar",
+      "siteId": "grid-07-05",
+      "elapsedMs": 243,
+      "scores": [
+        63.1061314841909,
+        50.42455818328316,
+        46.3114950767631
+      ],
+      "CashCents": 1677500000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "wind",
+      "siteId": "grid-07-05",
+      "elapsedMs": 246,
+      "scores": [
+        60.318503673574185,
+        50.479503529997174,
+        51.654206271797
+      ],
+      "CashCents": 1668000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "stewardship-agreement",
+      "siteId": "grid-07-05",
+      "elapsedMs": 238,
+      "scores": [
+        58.442261871222975,
+        51.35085625323133,
+        46.41070879227128
+      ],
+      "CashCents": 1980000000
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "wastewater-upgrade",
+      "siteId": "grid-07-05",
+      "elapsedMs": 245,
+      "scores": [
+        68.2317199887219,
+        50.59573073672474,
+        34.092428813804496
+      ],
+      "CashCents": 1657285795
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cultivate-standard",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1632,
+      "scores": [
+        74.30442866162998,
+        54.68776738067931,
+        64.33930711034158
+      ],
+      "CashCents": 1988000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "conservation-rotation",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1666,
+      "scores": [
+        75.23775987750062,
+        54.69924901021065,
+        64.55970771566928
+      ],
+      "CashCents": 1980800000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cultivate-margin",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1687,
+      "scores": [
+        74.7643292430182,
+        54.70545586457886,
+        64.50604682183916
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cover-crop",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1667,
+      "scores": [
+        74.68008792601334,
+        54.702215813924816,
+        64.53399613211369
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "restore-grass",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1662,
+      "scores": [
+        73.33333333333334,
+        54.70861330443015,
+        65
+      ],
+      "CashCents": 1990500000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "water-swale",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1673,
+      "scores": [
+        73.33333333333334,
+        54.71390969319413,
+        66.44712340129317
+      ],
+      "CashCents": 1985207876
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "public-park",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1638,
+      "scores": [
+        74.13921112627015,
+        57.61356821438941,
+        64.53877479333362
+      ],
+      "CashCents": 1991246635
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "low-density-housing",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1649,
+      "scores": [
+        73.33333333333334,
+        56.950728836160216,
+        64.17673542871357
+      ],
+      "CashCents": 1907052577
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "high-density-housing",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1625,
+      "scores": [
+        73.33333333333334,
+        78.93249722033806,
+        59.307745202443854
+      ],
+      "CashCents": 1557383207
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "agricultural-storage",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1666,
+      "scores": [
+        82.06414098045146,
+        54.70638427604686,
+        63.216103337197026
+      ],
+      "CashCents": 1773000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "data-center",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1684,
+      "scores": [
+        76.10014876421222,
+        48.618956678200334,
+        56.699345009644034
+      ],
+      "CashCents": 1636000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "village-center",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1639,
+      "scores": [
+        87.81472497603076,
+        61.5217485157699,
+        62.10045039091473
+      ],
+      "CashCents": 1560000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "non-renewable-power",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1835,
+      "scores": [
+        78.9924850402944,
+        54.70483248061944,
+        59.482327085712974
+      ],
+      "CashCents": 1404000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "solar",
+      "siteId": "grid-05-15",
+      "elapsedMs": 2631,
+      "scores": [
+        74.80654436318304,
+        54.70707952304673,
+        74.64642935283608
+      ],
+      "CashCents": 1677500000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "wind",
+      "siteId": "grid-05-15",
+      "elapsedMs": 2371,
+      "scores": [
+        74.78757023508999,
+        54.7063497488893,
+        74.47647471536762
+      ],
+      "CashCents": 1668000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "stewardship-agreement",
+      "siteId": "grid-05-15",
+      "elapsedMs": 1891,
+      "scores": [
+        74.80087668534485,
+        55.587387546644486,
+        65
+      ],
+      "CashCents": 1980000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "wastewater-upgrade",
+      "siteId": "grid-05-15",
+      "elapsedMs": 2101,
+      "scores": [
+        76.5473764335336,
+        54.7122260815179,
+        62.60678831819726
+      ],
+      "CashCents": 1682624012
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cultivate-standard",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1636,
+      "scores": [
+        39.93347289208086,
+        56.09583177461832,
+        64.33930711034158
+      ],
+      "CashCents": 1988000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "conservation-rotation",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1654,
+      "scores": [
+        41.9083494673304,
+        56.106367858188264,
+        64.55970771566928
+      ],
+      "CashCents": 1980800000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cultivate-margin",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1675,
+      "scores": [
+        41.34555048711719,
+        56.1120635598438,
+        64.50604682183916
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cover-crop",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1890,
+      "scores": [
+        43.256275391687,
+        56.109090336890674,
+        64.53399613211369
+      ],
+      "CashCents": 1985000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "restore-grass",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1631,
+      "scores": [
+        33.33333333333333,
+        56.11496097523675,
+        65
+      ],
+      "CashCents": 1990500000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "water-swale",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1647,
+      "scores": [
+        33.33333333333333,
+        56.119821190808395,
+        67.68508925468186
+      ],
+      "CashCents": 1985207876
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "public-park",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1685,
+      "scores": [
+        34.13921112627014,
+        59.01960336769356,
+        64.53877479333362
+      ],
+      "CashCents": 1991246635
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "low-density-housing",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1657,
+      "scores": [
+        33.33333333333333,
+        58.357133162675346,
+        64.17673542871357
+      ],
+      "CashCents": 1907052577
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "high-density-housing",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1658,
+      "scores": [
+        33.33333333333333,
+        80.33895788237655,
+        59.307745202443854
+      ],
+      "CashCents": 1557383207
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "agricultural-storage",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1689,
+      "scores": [
+        49.04878709814595,
+        56.11291551389679,
+        63.216103337197026
+      ],
+      "CashCents": 1773000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "data-center",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1688,
+      "scores": [
+        56.23524171493146,
+        50.02566802910382,
+        56.699345009644034
+      ],
+      "CashCents": 1636000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "village-center",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1943,
+      "scores": [
+        53.02802596740182,
+        62.928301911133445,
+        62.10045039091473
+      ],
+      "CashCents": 1560000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "non-renewable-power",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1918,
+      "scores": [
+        38.99248504029438,
+        56.11149151338692,
+        59.482327085712974
+      ],
+      "CashCents": 1404000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "solar",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1852,
+      "scores": [
+        34.806544363183036,
+        56.11355350526137,
+        74.64642935283608
+      ],
+      "CashCents": 1677500000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "wind",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1982,
+      "scores": [
+        34.78757023508998,
+        56.11288383015221,
+        74.47647471536762
+      ],
+      "CashCents": 1668000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "stewardship-agreement",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1968,
+      "scores": [
+        34.80087668534485,
+        56.99387948077989,
+        65
+      ],
+      "CashCents": 1980000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "wastewater-upgrade",
+      "siteId": "grid-08-11",
+      "elapsedMs": 1936,
+      "scores": [
+        36.54737643353359,
+        56.118276229505504,
+        62.60678831819726
+      ],
+      "CashCents": 1682624012
+    }
+  ]
+}

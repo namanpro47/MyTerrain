@@ -1,0 +1,33 @@
+# Study44 — continuous woodland and clustered leaf shading
+
+**Promising bounded construction, not Phase 2A acceptance.** The source tree family now has a useful branch/crown alternative, and clustered shading provides substantially stronger internal form than the native-material control. The whole scene still fails the visual bar. [Reference](../../../DESIGN_REFERENCE.md), [visual goal](../../../PHASE_2A_GOAL.md); patterns TN-02/09/10/12.
+
+## Correct import before art judgment
+
+Uses the existing free CC0 [Quaternius acquisition](study42-preflight.md), with no new download or generated artwork. Native tree previews initially rendered transparent leaf cards as opaque, producing [white borders](study44-native-close.png). This is an invalid import control, not evidence that the source trees are poor. The texture contains 667,763 fully transparent pixels out of 1,048,576. Alpha clipping at 0.5 and coverage-preserving mipmaps correct the setup. [Import correction](study44-import-fix.cs.txt), [corrected close](study44-cutout-close.png), [coverage-corrected normal view](study44-coverage-normal.png). Bush materials had the same omitted cutout setting; study42's bush appearance must not be treated as a fair native-material verdict. Its grass result remains separate.
+
+Three corrected native forms replace the previous mature/young tree placements as a control: 2,272 mature and 4,981 young, split 2,542/2,996/1,715 across NormalTree 1/3/5. The FBX axis/100x correction is retained. Heights are illustrative, normalized to the previous mature/young scale; these are not observed species or trees. The initial native family is too bright and its thin crowns lose cohesion at play distance. A [whole-crown shading control](study44-volume-close.png) improves color but still lacks internal forms.
+
+## Construction changes and rejected lower layer
+
+Two shrub-scatter trials fail to establish a coherent lower layer. The first used 4,437 small plants; the second used 2,062 larger plants and shared volume shading. The [larger trial](study44-understory-mass-close.png) still looks like separate little hedges. Both are discarded; do not adopt these placements or keep increasing density.
+
+A separate representative woodland region, x(-80,240), z(20,300), replaces the old decorative tree groups with overlapping crowns, source-cover-related edge heights and larger clearings. It adds 992 trees, including 68 lower edge trees, while removing 2,106 prior submesh transforms. Eight-metre placement spacing is jittered, and a broad field selects three tree forms. Heights grade from approximately 5.5 to 18 metres before modest variation. Source woodland and mapped route exclusions remain authoritative; source heights, cover and annual accounting are unchanged. This is an illustrative layout, not a surveyed forest. [Replay](study44-continuous.cs.txt) and [execution](study44-continuous.json).
+
+[Close](study44-continuous-close.png) and [normal](study44-continuous-normal.png) show the stronger continuous mass, but the old canopy-floor mask incorrectly leaves a brown clearing. Rebuilding the bounded decorative floor mask from the new crown positions [removes that mismatch](study44-floor-normal.png). The original source-cover query is unchanged. The experiment is bounded; its boundary and unmodified areas are not full-location acceptance.
+
+## Cluster shading and recoverable assets
+
+Reinspection of the [official Terra Nil canopy reference](https://freelives.net/uploads/2024/04/Terra-Nil-Screen-2.webp) in Chrome emphasizes broad light/dark foliage groups. It is tropical art, not a Wisconsin species or terrain prescription. Our native and whole-crown controls remain finer and flatter by comparison.
+
+The [cluster-normal replay](study44-clusters.cs.txt) groups leaf vertices into 10/8/5 spatial groups, preserving source geometry, topology and UVs. Derived normals and a separate shader emphasize those groups, with restrained saturation and stronger light/shadow separation. This is an adaptation, not the pack's native material. [Close result](study44-clusters-close.png) · [normal result](study44-clusters-normal.png). It is a meaningful improvement in internal canopy form. Fine silhouette noise, repeated rounded clusters and lack of a convincing lower edge remain. Meadows, fields, banks and transformation are still unresolved; no score is certified.
+
+The three `ClusterStudy` prefabs are saved outside Resources under `Assets/Terra/Art/QuaterniusUltimateNature/`. They bake corrected FBX transforms into metric Y-up meshes with identity roots and ground-level pivots. [Bake receipt](study44-bake.json), [dependency hashes](study44-dependencies.json) and [verification](study44-verify.json). Unit normals, material/submesh correspondence, supported instanced shaders, ground pivots and identity transforms pass. Triangle counts remain 8520/7096/2182; no LOD optimization is claimed. The [baked recreation](study44-baked-close.png) differs from the live cluster trial by mean absolute RGB values 0.000320/0.000291/0.000280 on a 0–255 scale, confirming practical visual equivalence in this frame.
+
+## Verification limits and next step
+
+All study captures are 1280x720 Editor camera renders with the game controller disabled for controlled framing. They are not Chrome gameplay, HUD, motion or performance acceptance. Annual state remained Year1 Planning, revision0, cash1000000000 cents, queued0 and assets0. The first Play attempt after pending asset/source imports had an uninitialized annual binding and repeated TerraMain.Update null errors; after stopping and completing synchronous import, a fresh Play run advanced frame31→41 and the final console contained zero errors/warnings. No causal fix or browser startup guarantee is claimed. [Final console](study44-console.json). Merged atlas/save and annual checks are recorded in [study43](study43-merged-checks.json).
+
+Play is stopped. Runtime layout/material replacements are discarded, but the three baked prefabs, their shader, source subset, replay scripts and evidence are preserved. The production renderer remains unchanged. Latest fetched main is eb43f9d; this branch still contains main through18016cf. Main's rejected native-water adapter is not adopted here.
+
+Next prove the saved clustered trees with distance geometry that preserves crown mass, then integrate a coherent full Wisconsin woodland layout and floor treatment in the feature branch. Compare actual Chrome normal/close/wide and motion before selection. Do not restart another asset hunt or another bush-scatter density cycle; develop the demonstrated canopy construction while keeping the whole-scene gate intact.

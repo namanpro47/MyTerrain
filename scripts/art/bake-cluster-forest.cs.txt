@@ -1,0 +1,74 @@
+// Run through Unity Pipeline script eval_file while Play is stopped.
+// Requires the licensed free TriForge URP import. Original assets are never modified.
+if(UnityEditor.EditorApplication.isPlaying)throw new System.InvalidOperationException("Stop Play before baking assets");
+UnityEditor.AssetDatabase.Refresh();
+string destination="Assets/Terra/Resources/Forest";
+System.IO.Directory.CreateDirectory(destination);UnityEditor.AssetDatabase.Refresh();
+T Save<T>(T value,string name) where T:UnityEngine.Object {
+ string path=destination+"/"+name;var prior=UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
+ if(prior!=null){UnityEditor.EditorUtility.CopySerialized(value,prior);UnityEditor.EditorUtility.SetDirty(prior);UnityEngine.Object.DestroyImmediate(value);return prior;}
+ UnityEditor.AssetDatabase.CreateAsset(value,path);return value;
+}
+UnityEngine.Mesh Part(UnityEngine.Mesh source,int submesh,bool leaves,string name){
+ var originalIndices=source.GetIndices(submesh);var used=originalIndices.Distinct().ToArray();var map=new System.Collections.Generic.Dictionary<int,int>();
+ for(int i=0;i<used.Length;i++)map[used[i]]=i;
+ var oldV=source.vertices;var oldN=source.normals;var oldUv=source.uv;var oldT=source.tangents;var oldC=source.colors;
+ if(used.Length==0){var empty=new UnityEngine.Mesh{name=name};empty.vertices=new UnityEngine.Vector3[0];empty.SetTriangles(new int[0],0);return Save(empty,name+".asset");}
+ var vertices=used.Select(i=>oldV[i]).ToArray();var normals=used.Select(i=>oldN[i]).ToArray();
+ if(leaves){
+  int count=14;var centers=new UnityEngine.Vector3[count];centers[0]=vertices[0];
+  for(int c=1;c<count;c++){float far=-1;foreach(var v in vertices){float d=float.MaxValue;for(int j=0;j<c;j++)d=UnityEngine.Mathf.Min(d,(v-centers[j]).sqrMagnitude);if(d>far){far=d;centers[c]=v;}}}
+  for(int pass=0;pass<12;pass++){
+   var sums=new UnityEngine.Vector3[count];var counts=new int[count];
+   foreach(var v in vertices){int nearest=0;float distance=float.MaxValue;for(int j=0;j<count;j++){float d=(v-centers[j]).sqrMagnitude;if(d<distance){nearest=j;distance=d;}}sums[nearest]+=v;counts[nearest]++;}
+   for(int j=0;j<count;j++)if(counts[j]>0)centers[j]=sums[j]/counts[j];
+  }
+  var bounds=new UnityEngine.Bounds(vertices[0],UnityEngine.Vector3.zero);foreach(var v in vertices)bounds.Encapsulate(v);
+  for(int i=0;i<vertices.Length;i++){int nearest=0;float distance=float.MaxValue;for(int j=0;j<count;j++){float d=(vertices[i]-centers[j]).sqrMagnitude;if(d<distance){nearest=j;distance=d;}}
+   normals[i]=((vertices[i]-centers[nearest]).normalized*.8f+(vertices[i]-bounds.center).normalized*.2f+UnityEngine.Vector3.up*.15f).normalized;
+  }
+ }
+ var mesh=new UnityEngine.Mesh{name=name};mesh.indexFormat=vertices.Length>65535?UnityEngine.Rendering.IndexFormat.UInt32:UnityEngine.Rendering.IndexFormat.UInt16;
+ mesh.vertices=vertices;mesh.normals=normals;mesh.uv=used.Select(i=>oldUv[i]).ToArray();
+ if(oldT.Length==oldV.Length)mesh.tangents=used.Select(i=>oldT[i]).ToArray();if(oldC.Length==oldV.Length)mesh.colors=used.Select(i=>oldC[i]).ToArray();
+ mesh.SetTriangles(originalIndices.Select(i=>map[i]).ToArray(),0);mesh.RecalculateBounds();return Save(mesh,name+".asset");
+}
+object Bake(string sourceName,string resultName){
+ string path="Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/"+sourceName+".prefab";
+ var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(path);var sourceLods=source.GetComponentInChildren<UnityEngine.LODGroup>().GetLODs();
+ var baseRenderer=sourceLods[0].renderers[0];var baseMaterials=baseRenderer.sharedMaterials;
+ var output=new UnityEngine.GameObject(resultName);var group=output.AddComponent<UnityEngine.LODGroup>();var lods=new UnityEngine.LOD[3];
+ var materials=new UnityEngine.Material[baseMaterials.Length];
+ for(int s=0;s<materials.Length;s++){
+  var src=baseMaterials[s];bool leaves=src.shader.name.Contains("FWTreeLeaf");var mat=leaves?new UnityEngine.Material(UnityEngine.Shader.Find("Terra/Cluster Leaves")):new UnityEngine.Material(src);
+  mat.name=resultName+" part "+s;mat.enableInstancing=true;
+  if(leaves){mat.SetTexture("_BaseMap",src.GetTexture("_BaseColor"));mat.SetColor("_BaseColor",new UnityEngine.Color(.78f,1.08f,.70f));mat.SetFloat("_Cutoff",.4f);}
+  materials[s]=Save(mat,resultName+"-part"+s+".mat");
+ }
+ for(int level=0;level<3;level++){
+  var renderers=new UnityEngine.Renderer[baseMaterials.Length];
+  for(int s=0;s<baseMaterials.Length;s++){
+   bool leaves=baseMaterials[s].shader.name.Contains("FWTreeLeaf");var sourceRenderer=sourceLods[UnityEngine.Mathf.Min(level,sourceLods.Length-1)].renderers[0];
+   int slot=System.Array.FindIndex(sourceRenderer.sharedMaterials,m=>m==baseMaterials[s]);
+   var selectedMaterial=materials[s];bool emptyPart=false;
+   if(slot<0&&level==2&&!leaves){
+    int firstBark=System.Array.FindIndex(baseMaterials,m=>!m.shader.name.Contains("FWTreeLeaf"));
+    slot=System.Array.FindIndex(sourceRenderer.sharedMaterials,m=>!m.shader.name.Contains("FWTreeLeaf"));
+    emptyPart=s!=firstBark;
+    if(!emptyPart){var farMaterial=new UnityEngine.Material(sourceRenderer.sharedMaterials[slot]){name=resultName+" far bark",enableInstancing=true};selectedMaterial=Save(farMaterial,resultName+"-far-bark.mat");}
+   }
+   if(slot<0)throw new System.InvalidOperationException("No matching material for "+baseMaterials[s].name);
+   var child=new UnityEngine.GameObject("Part"+s+"LOD"+level);child.transform.SetParent(output.transform,false);
+   var local=source.transform.worldToLocalMatrix*sourceRenderer.transform.localToWorldMatrix;child.transform.localPosition=local.GetColumn(3);child.transform.localRotation=local.rotation;child.transform.localScale=local.lossyScale;
+   var meshName=resultName+"-part"+s+"-lod"+level;
+   if(emptyPart){var empty=new UnityEngine.Mesh{name=meshName};empty.vertices=new UnityEngine.Vector3[0];empty.SetTriangles(new int[0],0);child.AddComponent<UnityEngine.MeshFilter>().sharedMesh=Save(empty,meshName+".asset");}
+   else child.AddComponent<UnityEngine.MeshFilter>().sharedMesh=Part(sourceRenderer.GetComponent<UnityEngine.MeshFilter>().sharedMesh,slot,leaves,meshName);
+   var r=child.AddComponent<UnityEngine.MeshRenderer>();r.sharedMaterial=selectedMaterial;renderers[s]=r;
+  }
+  lods[level]=new UnityEngine.LOD(level==0?.2f:level==1?.06f:.005f,renderers);
+ }
+ group.SetLODs(lods);group.RecalculateBounds();UnityEditor.PrefabUtility.SaveAsPrefabAsset(output,destination+"/"+resultName+".prefab");UnityEngine.Object.DestroyImmediate(output);
+ return new{sourceName,resultName,lods=3,parts=materials.Length};
+}
+var results=new[]{Bake("P_fwOF_Tree_M_2","ForestOak"),Bake("P_fwOF_TreeSapling_02B","ForestSapling")};
+UnityEditor.AssetDatabase.SaveAssets();return results;

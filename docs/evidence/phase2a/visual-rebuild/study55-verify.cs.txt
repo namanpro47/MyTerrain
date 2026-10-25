@@ -1,0 +1,36 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var type=main.GetType();var land=(Terra.Rendering.LandscapeRenderer)type.GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)type.GetField("world",flags).GetValue(main);
+var session=(Terra.Gameplay.AnnualTownSession)type.GetField("annual",flags).GetValue(main);var before=UnityEngine.JsonUtility.ToJson(session.State);var sourceBefore=UnityEngine.JsonUtility.ToJson(world);
+var display=type.GetMethod("DisplayAnnual",flags);var rendered=(System.Collections.Generic.Dictionary<string,string>)type.GetField("displayedAnnual",flags).GetValue(main);
+var holders=(System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)land.GetType().GetField("proposals",flags).GetValue(land);
+var site=world.sites.First(s=>s.id=="south-01");var checks=new System.Collections.Generic.List<string>();
+void Assert(bool ok,string label){if(!ok)throw new System.Exception(label);checks.Add(label);}
+void Display(Terra.Core.AnnualTown town){rendered.Clear();display.Invoke(main,new object[]{town.Snapshot()});land.ViewScale(.25f);}
+object[] Batches()=>holders[site.id].GetComponentsInChildren<Terra.Rendering.InstancedNature>().SelectMany(n=>((System.Collections.IEnumerable)n.GetType().GetField("batches",flags).GetValue(n)).Cast<object>()).ToArray();
+UnityEngine.Matrix4x4[] Grass()=>Batches().Where(b=>(bool)b.GetType().GetField("groundcover").GetValue(b)).SelectMany(b=>(UnityEngine.Matrix4x4[])b.GetType().GetField("transforms").GetValue(b)).ToArray();
+string Geometry()=>string.Join("|",Batches().Select(b=>b.GetType().GetField("mesh").GetValue(b).ToString()+string.Join(";",((UnityEngine.Matrix4x4[])b.GetType().GetField("transforms").GetValue(b)).Select(m=>UnityEngine.JsonUtility.ToJson(m)))));
+var summaries=new System.Collections.Generic.List<object>();
+try{
+ foreach(var action in new[]{"restore-grass","stewardship-agreement"}){
+ var town=new Terra.Core.AnnualTown(session.Definition,"study55-verify-"+action);town.QueueAction(site.id,action,town.Revision);Display(town);var intended=Geometry();var roots=Grass();Assert(roots.Length>0,action+" preview has planting");
+ town.UndoPlan(town.Revision);Display(town);Assert(!holders.ContainsKey(site.id),action+" undo removes planting");town.RedoPlan(town.Revision);Display(town);Assert(Geometry()==intended,action+" redo exact planting");
+ float previousHeight=0;int establishedYears=action=="restore-grass"?3:4;
+ for(int year=1;year<=establishedYears;year++){
+ if(town.Phase==Terra.Contracts.TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+ Terra.Core.AnnualTownDemo.Advance(town,action+year,new Terra.Core.AuthoredAnnualConsequenceProvider());Display(town);
+ var plants=Grass();float height=plants.Average(p=>p.lossyScale.y);
+ Assert(plants.Length==roots.Length&&plants.Select(m=>new UnityEngine.Vector2(m.m03,m.m23)).SequenceEqual(roots.Select(m=>new UnityEngine.Vector2(m.m03,m.m23))),action+" year "+year+" stable planting positions");
+ Assert(height>previousHeight,action+" year "+year+" taller growth");previousHeight=height;
+ Assert(plants.All(m=>Terra.Rendering.LandscapeRenderer.Contains(site.polygon,m.m03,m.m23)),action+" year "+year+" roots inside managed polygon");
+ var geometry=Geometry();var cash=town.CashCents;var saved=UnityEngine.JsonUtility.ToJson(town.Snapshot());town=Terra.Core.AnnualTown.Restore(session.Definition,UnityEngine.JsonUtility.FromJson<Terra.Contracts.AnnualTownSnapshot>(saved));Display(town);
+ Assert(Geometry()==geometry&&town.CashCents==cash,action+" year "+year+" reload preserves geometry and cash");
+ summaries.Add(new{action,year,maturity=town.Snapshot().history.Last().outcomes.sites.First(s=>s.siteId==site.id).maturity,grassCount=plants.Length,averageScale=height});
+ }
+ Assert(Geometry()==intended,action+" mature planting matches intended preview geometry");
+ var matureGeometry=Geometry();land.Ghost(site,true,"cultivate-standard");Assert(!holders[site.id].gameObject.activeSelf,action+" replacement preview hides accepted meadow");land.ClearGhost();Assert(holders[site.id].gameObject.activeSelf&&Geometry()==matureGeometry,action+" cancel restores accepted meadow");
+ }
+ Assert(UnityEngine.JsonUtility.ToJson(session.State)==before,"live session/ledger/history unchanged");Assert(UnityEngine.JsonUtility.ToJson(world)==sourceBefore,"source world unchanged");
+ return new{checks=checks.Count,results=checks,summaries,frame=UnityEngine.Time.frameCount};
+}finally{land.ClearGhost();foreach(var s in world.sites)land.Apply(s,null);rendered.Clear();display.Invoke(main,new object[]{session.State});land.ViewScale(.25f);}

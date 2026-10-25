@@ -7,10 +7,14 @@ using UnityEngine.Rendering;
 using Object=UnityEngine.Object;
 namespace Terra.Rendering
 {
-    // Source geometry remains in metres. Only vegetation, row marks and line widths are decorative.
+    // Source geography stays analytical; display relief and environmental detail are illustrative.
     public sealed partial class LandscapeRenderer : IDisposable
     {
         readonly WorldData world; readonly Material template; readonly Transform root;
+        readonly bool clusteredWoodland;
+        readonly int displayColumns,displayRows;
+        readonly float displayDx,displayDz;
+        readonly float[] displayHeights;
         readonly GameObject tree,crop,grass; readonly System.Random random=new System.Random(418);
         readonly Dictionary<string,Transform> proposals=new Dictionary<string,Transform>();
         readonly Dictionary<string,Transform> baselines=new Dictionary<string,Transform>();
@@ -29,10 +33,21 @@ namespace Terra.Rendering
         static readonly Color Wood=new Color(.20f,.35f,.24f),Field=new Color(.64f,.60f,.34f),Meadow=new Color(.46f,.59f,.34f),Water=new Color(.22f,.48f,.51f);
         sealed class Geometry
         {public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector3> normals=new List<Vector3>();public readonly List<int> triangles=new List<int>();public readonly List<Vector2> uv=new List<Vector2>();}
-        public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub)
+        public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub,bool clusteredWoodland=false)
         {
-            world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;
+            world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;this.clusteredWoodland=clusteredWoodland;
             var t=w.terrain;cell=t.cellSizeM;xmin=t.xMin;zmin=t.zMin;xmax=xmin+(t.columns-1)*cell;zmax=zmin+(t.rows-1)*cell;
+            // Cache the presentation surface once. Terrain, plants, overlays and
+            // project foundations sample the same triangles without recomputing relief.
+            if(clusteredWoodland)
+            {
+                displayColumns=Mathf.CeilToInt((xmax-xmin)/1.5f)+1;
+                displayRows=Mathf.CeilToInt((zmax-zmin)/1.5f)+1;
+                displayDx=(xmax-xmin)/(displayColumns-1);displayDz=(zmax-zmin)/(displayRows-1);
+                displayHeights=new float[displayColumns*displayRows];
+                for(int z=0;z<displayRows;z++)for(int x=0;x<displayColumns;x++)
+                    displayHeights[z*displayColumns+x]=ReliefControl(xmin+x*displayDx,zmin+z*displayDz);
+            }
             coverIndex=new List<CoverPatch>[t.columns-1,t.rows-1];
             foreach(var c in w.covers)
             {
@@ -42,7 +57,29 @@ namespace Terra.Rendering
         }
         int IndexX(float x)=>Mathf.Clamp((int)((x-xmin)/cell),0,world.terrain.columns-2);
         int IndexZ(float z)=>Mathf.Clamp((int)((z-zmin)/cell),0,world.terrain.rows-2);
+        // Rendering and picking share this display surface. Analytical rules read
+        // WorldData through the core terrain sampler, never this visual abstraction.
         public float Height(float x,float z)
+        {
+            if(!clusteredWoodland)return SourceHeight(x,z);
+            float gx=Mathf.Clamp((x-xmin)/displayDx,0,displayColumns-1),gz=Mathf.Clamp((z-zmin)/displayDz,0,displayRows-1);
+            int ix=Mathf.Min(Mathf.FloorToInt(gx),displayColumns-2),iz=Mathf.Min(Mathf.FloorToInt(gz),displayRows-2);
+            int n=iz*displayColumns+ix;float u=gx-ix,v=gz-iz;
+            float a=displayHeights[n],b=displayHeights[n+1],c=displayHeights[n+displayColumns],d=displayHeights[n+displayColumns+1];
+            return u+v<=1?a+(b-a)*u+(c-a)*v:d+(c-d)*(1-u)+(b-d)*(1-v);
+        }
+        float ReliefControl(float x,float z)
+        {
+            float h=SourceHeight(x,z);
+            float sx=(SourceHeight(x+cell,z)-SourceHeight(x-cell,z))/(2*cell);
+            float sz=(SourceHeight(x,z+cell)-SourceHeight(x,z-cell))/(2*cell);
+            float steep=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.18f,.45f,Mathf.Sqrt(sx*sx+sz*sz)));
+            float bands=h/18f,part=bands-Mathf.Floor(bands);
+            float ledge=(Mathf.Floor(bands)+Mathf.SmoothStep(0,1,Mathf.InverseLerp(.36f,.64f,part)))*18f;
+            return Mathf.Lerp(h,ledge,steep);
+        }
+
+        public float SourceHeight(float x,float z)
         {
             var t=world.terrain;float fx=Mathf.Clamp((x-xmin)/cell,0,t.columns-1),fz=Mathf.Clamp((z-zmin)/cell,0,t.rows-1);
             int ix=Mathf.Min((int)fx,t.columns-2),iz=Mathf.Min((int)fz,t.rows-2),n=iz*t.columns+ix;float u=fx-ix,v=fz-iz;
@@ -57,7 +94,7 @@ namespace Terra.Rendering
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
         Material GroundMat(Color color)
-        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_IllustrativeRelief",clusteredWoodland?1:0);material.SetFloat("_CultivatedBeds",clusteredWoodland?1:0);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
@@ -70,6 +107,7 @@ namespace Terra.Rendering
             BuildVegetation();
             BuildStreamsidePlants();
             BuildCultivatedContext();
+            BuildExistingCommunity();
             foreach(var site in world.sites)
             {
                 var holder=new GameObject("Baseline "+site.name).transform;holder.SetParent(root,false);baselines[site.id]=holder;
@@ -153,54 +191,26 @@ namespace Terra.Rendering
         void BuildVegetation()
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
-            meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            var trees=new[]{Resources.Load<GameObject>("Nature/ErceTree01"),Resources.Load<GameObject>("Nature/ErceTree02"),Resources.Load<GameObject>("Nature/ErceTree05"),Resources.Load<GameObject>("Nature/ErceTree03")};
-            var bush=Resources.Load<GameObject>("Nature/ErceTree01");
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
             var stone=Resources.Load<GameObject>("Nature/Rock_Medium_1");
-            // Canopy cohorts and low edge growth are illustration, not surveyed species or stem locations.
-            // Independent 150m clusters preserve culling and create groups instead of a regular canopy carpet.
+            // Low plants and stones are decorative; woodland cohorts are built separately.
+            // Spatial patches keep detail cullable without changing analytical cover.
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
-                var groups=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};
-                var shrubs=new List<Matrix4x4>();var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
+                var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
                 for(float z=cz+8;z<Mathf.Min(cz+150,zmax-6);z+=13)for(float x=cx+8;x<Mathf.Min(cx+150,xmax-6);x+=13)
                 {
                     float px=x+Range(-5,5),pz=z+Range(-5,5);string cover=CoverAt(px,pz);
                     if(NearLine(px,pz,4))continue;
                     float grouping=Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);
-                    if(cover=="woodland")
-                    {
-                        // Smaller edge trees step up into overlapping mature crowns. Broad gaps stay legible.
-                        bool edge=CoverAt(px-18,pz)!="woodland"||CoverAt(px+18,pz)!="woodland"||CoverAt(px,pz-18)!="woodland"||CoverAt(px,pz+18)!="woodland";
-                        float cohort=Mathf.PerlinNoise((px+820)*.008f,(pz+430)*.008f);
-                        bool clearing=grouping<.34f;
-                        if(!clearing||random.NextDouble()<.12)
-                        {
-                            int species=cohort>.64f?3:cohort<.40f?0:random.NextDouble()<.75?2:1;
-                            float scale=edge?Range(1.15f,1.8f):Range(1.8f,2.7f);
-                            if(clearing)scale*=.65f;
-                            groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360)));
-                        }
-                        if(edge||clearing)
-                        {
-                            int count=edge?4:2;
-                            for(int n=0;n<count;n++)
-                            {
-                                float sx=px+Range(-9,9),sz=pz+Range(-9,9);
-                                if(CoverAt(sx,sz)!="woodland"||NearLine(sx,sz,4))continue;
-                                shrubs.Add(PlantMatrix(bush,sx,sz,Range(.25f,.55f),Range(0,360)));
-                            }
-                        }
-                    }
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
                     {
                         if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
                         // Metre-scale plants form small stands with quiet ground between them.
                         // These positions illustrate habitat structure, not observed plant locations.
-                        if(grouping>.44f)
+                        if(grouping>.44f||cover=="woodland")
                         {
                             float angle=Range(0,Mathf.PI*2),radius=Range(2.5f,5.5f);
                             int count=random.Next(9,17);
@@ -218,14 +228,12 @@ namespace Terra.Rendering
                         if(grouping<.30f && random.NextDouble()<.18)rocks.Add(PlantMatrix(stone,px,pz,Range(1.1f,2.2f),Range(0,360)));
                     }
                 }
-                for(int i=0;i<4;i++)
-                {
-                    canopy.Add(trees[i],groups[i],Color.white);
-                }
-                canopy.Add(bush,shrubs,Color.white);
                 nature.Add(tuft,grasses,Color.white,true);
                 nature.Add(wispy,fine,Color.white,true);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }
+            BuildWoodlandCohorts();
+            BuildForestFloor();
+            BuildGrassland();
         }
         bool NearLine(float x,float z,float margin)
         {
@@ -312,7 +320,7 @@ namespace Terra.Rendering
         {
             availableFields.Clear();if(available!=null)availableFields.UnionWith(available);
             activeOutline=hover;chosenOutline=selected;settlingOutline=null;
-            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(1,.84f,.36f):new Color(1,.38f,.23f)):availableFields.Contains(pair.Key)?new Color(.35f,1f,.88f):chosen?new Color(.96f,.98f,.83f):new Color(.65f,.73f,.50f));}
+            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(.86f,.95f,.91f):new Color(1,.53f,.34f)):chosen?new Color(.96f,.87f,.58f):new Color(.42f,.59f,.54f));}
             ViewScale(boundaryScale);
         }
         Material BoundaryMat(Color color){if(!boundaryMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraBoundary"));material.SetColor("_BaseColor",color);boundaryMaterials.Add(color,material);}return material;}
@@ -320,9 +328,10 @@ namespace Terra.Rendering
         {
             FlushTreatmentSurface();
             boundaryScale=metresPerCssPixel;
-            foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:availableFields.Contains(pair.Key)?2f:pair.Key==chosenOutline?1.8f:1;
+            foreach(var pair in outlines){float width=pair.Key==activeOutline?1.25f:pair.Key==chosenOutline?1f:.15f;
                 pair.Value.enabled=pair.Key==activeOutline||pair.Key==chosenOutline||availableFields.Contains(pair.Key);
                 pair.Value.startWidth=pair.Value.endWidth=(width+1.4f)*boundaryScale;}
+            ScalePlacementBoundaries();
         }
         public void ClearGhost()
         {
@@ -332,18 +341,23 @@ namespace Terra.Rendering
         public void Ghost(Site site,bool valid,string treatment)
         {
             ClearGhost();if(site==null)return;ghost=new GameObject("Placement preview").transform;ghost.SetParent(root,false);
-            if(!valid){Patch("Unavailable footprint",site.polygon,new Color(.62f,.29f,.23f),.22f,ghost);return;}
-            ghostSiteId=site.id;ghostTreatment=treatment;surfaceDirty=true;baselines[site.id].gameObject.SetActive(false);if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
-            BuildTreatment(site,treatment,ghost,true);
+            if(valid)
+            {
+                // A proposal has its own material. Hover never paints the accepted ground mask.
+                ghostSiteId=site.id;ghostTreatment=null;baselines[site.id].gameObject.SetActive(false);
+                if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
+                BuildTreatment(site,treatment,ghost,true);TintPlacementGhost(ghost);
+            }
+            BuildPlacementBoundary(site,treatment,ghost,valid,false);
         }
-        public Transform Apply(Site site,string treatment)
+        public Transform Apply(Site site,string treatment,float vegetationMaturity=1)
         {
             if(treatment==null)surfaceTreatments.Remove(site.id);else surfaceTreatments[site.id]=treatment;
             surfaceDirty=true;
             if(proposals.TryGetValue(site.id,out var previous)){DestroyGroup(previous);proposals.Remove(site.id);}
             baselines[site.id].gameObject.SetActive(treatment==null);if(treatment==null)return null;
             var holder=new GameObject("Proposal "+site.id).transform;holder.SetParent(root,false);proposals[site.id]=holder;
-            BuildTreatment(site,treatment,holder,false);return holder;
+            BuildTreatment(site,treatment,holder,false,vegetationMaturity);return holder;
         }
         static Point[] Rectangle(float l,float b,float r,float t)=>new[]{new Point(l,b),new Point(r,b),new Point(r,t),new Point(l,t)};
         float Range(float a,float b)=>a+(float)random.NextDouble()*(b-a);
@@ -352,12 +366,48 @@ namespace Terra.Rendering
         // Clip every overlay against terrain triangles. Shared boundaries therefore share heights.
         void Surface(Point[] points,float lift,Geometry g)
         {
-            int x0=IndexX(points.Min(p=>p.x)),x1=IndexX(points.Max(p=>p.x)),z0=IndexZ(points.Min(p=>p.z)),z1=IndexZ(points.Max(p=>p.z));
+            // Overlays use the same grid as the displayed terrain. Coarse source
+            // triangles would bridge across the illustrative slopes and float above them.
+            float dx=clusteredWoodland?displayDx:cell;
+            float dz=clusteredWoodland?displayDz:cell;
+            int nx=Mathf.RoundToInt((xmax-xmin)/dx),nz=Mathf.RoundToInt((zmax-zmin)/dz);
+            int x0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.x)-xmin)/dx),0,nx-1),x1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.x)-xmin)/dx),0,nx-1);
+            int z0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.z)-zmin)/dz),0,nz-1),z1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.z)-zmin)/dz),0,nz-1);
             var polygon=points.Select(p=>new Vector2(p.x,p.z)).ToList();
+            int width=x1-x0+2;
+            var gridVertices=new int[width*(z1-z0+2)];
+            var gridInside=new byte[gridVertices.Length];
             for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
             {
-                float px=xmin+x*cell,pz=zmin+z*cell;var a=new Vector2(px,pz);var b=new Vector2(px+cell,pz);var c=new Vector2(px,pz+cell);var d=new Vector2(px+cell,pz+cell);
+                float px=xmin+x*dx,pz=zmin+z*dz;var a=new Vector2(px,pz);var b=new Vector2(px+dx,pz);var c=new Vector2(px,pz+dz);var d=new Vector2(px+dx,pz+dz);
+                // Interior cells need no polygon clipping. Share their grid vertices,
+                // retaining the same triangles, display heights and smooth normals.
+                // Only cells touching the polygon edge use the general clipping path.
+                if(Inside(x,z,a)&&Inside(x+1,z,b)&&Inside(x,z+1,c)&&Inside(x+1,z+1,d))
+                {
+                    int ia=Vertex(x,z,a),ib=Vertex(x+1,z,b),ic=Vertex(x,z+1,c),id=Vertex(x+1,z+1,d);
+                    g.triangles.Add(ia);g.triangles.Add(ic);g.triangles.Add(ib);
+                    g.triangles.Add(ib);g.triangles.Add(ic);g.triangles.Add(id);
+                    continue;
+                }
                 Add(ClipTriangle(polygon,a,b,c));Add(ClipTriangle(polygon,b,d,c));
+            }
+            bool Inside(int x,int z,Vector2 p)
+            {
+                int index=(z-z0)*width+x-x0;
+                if(gridInside[index]!=0)return gridInside[index]==1;
+                for(int i=0;i<polygon.Count;i++)
+                    if(Cross(polygon[(i+1)%polygon.Count]-polygon[i],p-polygon[i])<0)
+                    {gridInside[index]=2;return false;}
+                gridInside[index]=1;return true;
+            }
+            int Vertex(int x,int z,Vector2 p)
+            {
+                int index=(z-z0)*width+x-x0;
+                if(gridVertices[index]!=0)return gridVertices[index]-1;
+                int vertex=g.vertices.Count;gridVertices[index]=vertex+1;
+                g.vertices.Add(new Vector3(p.x,Height(p.x,p.y)+lift,p.y));g.normals.Add(Normal(p.x,p.y));
+                return vertex;
             }
             void Add(List<Vector2> poly)
             {
@@ -438,6 +488,7 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>(true))if(meshes.Remove(f.sharedMesh))Object.Destroy(f.sharedMesh);Object.Destroy(group.gameObject);}
-        public void Dispose(){if(projectGrassMaterial!=null)Object.Destroy(projectGrassMaterial);if(projectPathMaterial!=null)Object.Destroy(projectPathMaterial);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        public void Dispose(){DisposePlacementMaterials();if(forestFloor!=null)Object.Destroy(forestFloor);if(projectGrassMaterial!=null)Object.Destroy(projectGrassMaterial);if(projectPathMaterial!=null)Object.Destroy(projectPathMaterial);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+
     }
 }

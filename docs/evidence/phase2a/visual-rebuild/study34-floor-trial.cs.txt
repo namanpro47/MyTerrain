@@ -1,0 +1,18 @@
+var root=UnityEngine.GameObject.Find("Study33 native forest");
+var trees=root.GetComponentsInChildren<UnityEngine.LODGroup>().Where(l=>l.name.Contains("Tree_M_")).ToArray();
+int size=512;var colors=new UnityEngine.Color[size*size];
+foreach(var tree in trees){var p=tree.transform.position;float radius=tree.transform.localScale.x*11;
+ int x0=UnityEngine.Mathf.Max(0,UnityEngine.Mathf.FloorToInt((p.x-radius+590)/1180*size)),x1=UnityEngine.Mathf.Min(size-1,UnityEngine.Mathf.CeilToInt((p.x+radius+590)/1180*size));
+ int z0=UnityEngine.Mathf.Max(0,UnityEngine.Mathf.FloorToInt((p.z-radius+630)/1260*size)),z1=UnityEngine.Mathf.Min(size-1,UnityEngine.Mathf.CeilToInt((p.z+radius+630)/1260*size));
+ for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++){
+ float wx=(x+.5f)/size*1180-590,wz=(z+.5f)/size*1260-630;float d=UnityEngine.Vector2.Distance(new UnityEngine.Vector2(wx,wz),new UnityEngine.Vector2(p.x,p.z))/radius;
+ float weight=1-UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.InverseLerp(.35f,1,d));colors[z*size+x].r=UnityEngine.Mathf.Max(colors[z*size+x].r,weight);
+ }
+}
+var texture=new UnityEngine.Texture2D(size,size,UnityEngine.TextureFormat.RGBA32,true,true);texture.name="Illustrative canopy influence";texture.SetPixels(colors);texture.Apply();texture.wrapMode=UnityEngine.TextureWrapMode.Clamp;texture.filterMode=UnityEngine.FilterMode.Bilinear;
+var mats=new System.Collections.Generic.Dictionary<UnityEngine.Material,UnityEngine.Material>();
+foreach(var r in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None)){
+ var m=r.sharedMaterial;if(m==null||m.shader.name!="Terra/Illustrated Ground")continue;
+ if(!mats.TryGetValue(m,out var copy)){copy=new UnityEngine.Material(m);copy.shader=UnityEngine.Shader.Find("Terra/Study34 Woodland Ground");copy.SetTexture("_CanopyMap",texture);mats[m]=copy;}r.sharedMaterial=copy;
+}
+return new{trees=trees.Length,materials=mats.Count};

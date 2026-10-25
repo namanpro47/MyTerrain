@@ -1,0 +1,155 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 352,
+        "y": 102,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Review year 1</b>",
+      "rect": {
+        "x": 352,
+        "y": 141,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 578,
+        "y": 744,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "End Year",
+      "rect": {
+        "x": 513,
+        "y": 680,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>Your plan</b>\nTraditional farmland × 3   $300,000\nRunning costs   $6,000\n\n<b>Pay now   $306,000</b>\nTax receipts to collect   +$0\nAnnual public funding   +$1,000,000\n\n$10,000,000 − $306,000 + $0 + $1,000,000\n<b>Balance after this year   $10,694,000</b>\n\nReserved for later years   $54,000\n\nAI chapter · game estimates. Ending the year commits this plan.",
+      "rect": {
+        "x": 352,
+        "y": 190,
+        "width": 736,
+        "height": 349.9200134277344
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 349.9200134277344,
+      "availableHeight": 349.9200134277344
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 570,
+        "y": 742,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 505,
+        "y": 678,
+        "width": 430,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 286,
+      "y": 676,
+      "width": 688,
+      "height": 158
+    },
+    {
+      "x": 460,
+      "y": 118,
+      "width": 520,
+      "height": 52
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 220,
+      "y": 842,
+      "width": 1000,
+      "height": 48
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 320,
+      "y": 80,
+      "width": 800,
+      "height": 740
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=3; cash=1000000000; queued=3; assets=0\n"
+}

@@ -1,0 +1,11 @@
+var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Grass_M_1.prefab");var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var patches=new System.Collections.Generic.Dictionary<UnityEngine.Vector2Int,System.Collections.Generic.List<UnityEngine.Matrix4x4>>();int replaced=0;
+foreach(var instance in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){
+ var list=(System.Collections.IList)instance.GetType().GetField("batches",flags).GetValue(instance);
+ for(int i=list.Count-1;i>=0;i--){var b=list[i];var t=b.GetType();if(!(bool)t.GetField("groundcover",flags).GetValue(b))continue;var old=(UnityEngine.Matrix4x4[])t.GetField("transforms",flags).GetValue(b);
+ var keep=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();foreach(var m in old){var p=m.GetColumn(3);if(p.x< -330||p.x> -65||p.z< -220||p.z>100){keep.Add(m);continue;}var key=new UnityEngine.Vector2Int(UnityEngine.Mathf.FloorToInt(p.x/25),UnityEngine.Mathf.FloorToInt(p.z/25));if(!patches.TryGetValue(key,out var matrices)){matrices=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();patches.Add(key,matrices);}matrices.Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(p.x,p.y+.02f,p.z),UnityEngine.Quaternion.Euler(0,UnityEngine.Mathf.Repeat(p.x*83+p.z*13,360),0),new UnityEngine.Vector3(5.5f,2.2f,5.5f)));replaced++;}
+ if(keep.Count==0)list.RemoveAt(i);else t.GetField("transforms",flags).SetValue(b,keep.ToArray());
+ }
+}
+var root=new UnityEngine.GameObject("Study38 native bank sward");foreach(var patch in patches){var go=new UnityEngine.GameObject("Native grass tile");go.transform.SetParent(root.transform);go.AddComponent<Terra.Rendering.InstancedNature>().Add(source,patch.Value,UnityEngine.Color.white);}
+return new{replaced,tiles=patches.Count};

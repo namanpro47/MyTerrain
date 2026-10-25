@@ -1,0 +1,29 @@
+{
+  "source": "d04f7d4",
+  "files_sha256": {
+    "study60-banks.cs.txt": "ca72aad4df4569257054e55fb6f2c34fd8b96d79c2bc00e86f5236259e30002c",
+    "study60-banks.json": "9c1df03eb0cab5f681d16c925412224aece0410dc71d09bc3656f216a255f72b",
+    "study60-normal.cs.txt": "441ed0d8e6890894b623bf2d5ee8b2094fe2e4d7bca3914bc808a4ff932386d1",
+    "study60-close.cs.txt": "0bdaa39112c8bfd70667e508c84bf79e840a79c58382759b27c4c30aec09e968",
+    "study60-capture.cs.txt": "41d4a59b324c2eb4fd074b9fb7089a814ed8472461a671aada3a28408a72f437",
+    "study60-control.cs.txt": "fb7b654da7975c632af5550100510d6e23bb4b097c14e094bf2ebf8d5ba359f2",
+    "study60-check.cs.txt": "08489e747e28033d17850e188b38ad6715c695598b0ab8e1ace691a86c787bf4",
+    "study60-check.json": "6cc0e1c3c66cf936373cd1c1d5d675cad17a88fbb2ddabc9b1af53df0427bf6b",
+    "study60-compile.json": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2",
+    "study60-control-normal.png": "32aaa99b9bd8684d05cda5579e944a5b4302dccd97e6484aadd9603c1c06ef35",
+    "study60-control-close.png": "2f709408275f9816a7c99cd6ef6eacafd3d9f459f64c959c2df55ea6eb5e4b67",
+    "study60-bank-normal.png": "6b41c080307ef2002f20eeb3e8d9c934dffe4403dfbf6dd75115f971893ae217",
+    "study60-bank-close.png": "3a8719fb1847f7a6785041206d1760ec87a369c88f2e3447ae2d583b96626bef",
+    "study60-integrated-normal.png": "156276d56ffd5ee951fa9c6610830b0654142151b90b5bdf8d06ab1eb45c513d",
+    "study60-integrated-close.png": "8e2f527f4b0f276c855985cf2b6d69e838b542475fcadf56a2ad8fb96badbb1d",
+    "study60-browser-log.json": "2913c6f24c8d29aaf0e2adf1238a7e8f4118123f1564f182ae6fe2598c2d88c5",
+    "study60-build.json": "a44a9f2aa13d894289c9c4096529cbf9a50a1b18e79431a0e7f6eb437753f6b8",
+    "study60-chrome-1440.jpg": "1030220e52d5120489bbe758f653cf4ae89bd8af0c9ad3e65f50576d0e6bfb6e",
+    "study60-chrome-1920.jpg": "7bfe6d0fe3a1bda766e4a1352936b265184297eaf45135de07d6dd8c3c1385ad",
+    "study60-chrome-close.jpg": "c1e49e0b611786c9233b3898672603924a3a9407236740f99531848ee7d55759",
+    "study60-chrome-normal.jpg": "825f96ada210c0e94ea984b83ed0ca5cd794f0a35cc96b83b9e7a53a255df035",
+    "study60-chrome-queued.jpg": "3eed8c211c39286eac3901eac7c3c601fd2a3f585d043fec333b1952daf99b46",
+    "study60-chrome-undo.jpg": "5e737f773af9312e6c2770b65175c97d96dfc4b776734e0350931318b49a1133",
+    "study60-served.json": "81d28bd592de04135a3979f5e14166e5798e5594472842bd1d1ec4efc4397778"
+  }
+}

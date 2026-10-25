@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study62/bake.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "ClusterPine_1 LOD0: 2128 triangles; 4.502288m\nClusterPine_1 LOD1: 1156 triangles; 4.502288m\nClusterPine_1 LOD2: 992 triangles; 4.502288m\nClusterPine_3 LOD0: 1998 triangles; 2.346961m\nClusterPine_3 LOD1: 1026 triangles; 2.346961m\nClusterPine_3 LOD2: 866 triangles; 2.346961m"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

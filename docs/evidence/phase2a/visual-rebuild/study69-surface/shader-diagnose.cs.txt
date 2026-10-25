@@ -1,0 +1,2 @@
+var names=new[]{"Terra/Illustrated Ground","Study69/Shared Meadow Ground","Study69/Shared Meadow Foliage"};
+return names.Select(n=>{var s=UnityEngine.Shader.Find(n);return new{name=n,supported=s!=null&&s.isSupported,messages=s==null?null:UnityEditor.ShaderUtil.GetShaderMessages(s).Select(m=>new{m.message,m.file,m.line,severity=m.severity.ToString(),platform=m.platform.ToString()}).ToArray()};}).ToArray();

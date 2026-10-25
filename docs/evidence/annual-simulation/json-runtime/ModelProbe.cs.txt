@@ -1,0 +1,34 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Globalization;
+using Newtonsoft.Json;
+using Terra.Core;
+using Terra.Contracts;
+class Probe {
+ static int checks;
+ static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
+ static void Main() {
+  var settings=new JsonSerializerSettings { TypeNameHandling=TypeNameHandling.None, Culture=CultureInfo.InvariantCulture, DateParseHandling=DateParseHandling.None };
+  foreach(var name in new[]{"baseline","public-repair","repair-debt","six-centers"}) {
+   var root="Builds/AnnualSimulation/UnityVectors/"+name+"/";
+   var d=JsonConvert.DeserializeObject<AnnualTownDefinition>(File.ReadAllText(root+"definition.json"),settings);
+   var saved=JsonConvert.DeserializeObject<AnnualTownSnapshot>(File.ReadAllText(root+"snapshot.json"),settings);
+   var town=new AnnualTown(d,"probe");
+   Check(town.DefinitionHash==saved.definitionHash,name+" definition hash");
+   var restored=AnnualTown.Restore(d,saved);
+   Check(restored.History.Length==10 && restored.Phase==TownPhase.Completed,name+" full decade");
+   Check(restored.CashCents==saved.cashCents && restored.ArrearsCents==saved.arrearsCents,name+" ledger");
+   for(int y=0;y<10;y++) Check(restored.History[y].simulation.transitionHash==saved.history[y].simulation.transitionHash,name+" transition "+(y+1));
+   var json=JsonConvert.SerializeObject(restored.Snapshot(),settings);
+   var own=JsonConvert.DeserializeObject<AnnualTownSnapshot>(json,settings);
+   var replayed=AnnualTown.Restore(d,own);
+   Check(JsonConvert.SerializeObject(replayed.Snapshot(),settings)==json,name+" own JSON reload");
+   var definitionJson=JsonConvert.SerializeObject(d,settings);
+   var ownDefinition=JsonConvert.DeserializeObject<AnnualTownDefinition>(definitionJson,settings);
+   Check(new AnnualTown(ownDefinition,"probe-again").DefinitionHash==saved.definitionHash,name+" definition round trip");
+   Console.WriteLine(name+": 10 years, exact ledger, 10 accepted transition hashes and both JSON round trips passed; definition "+town.DefinitionHash);
+  }
+  Console.WriteLine("PASS "+checks+" assertions; bundled Mono, no Editor or browser");
+ }
+}

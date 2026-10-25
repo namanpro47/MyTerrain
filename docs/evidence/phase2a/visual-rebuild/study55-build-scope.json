@@ -1,0 +1,8 @@
+{
+  "commit": "5139ba3",
+  "trackedDirtyInputs": " D Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta\n D Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta\n M Assets/Settings/PC_RPAsset.asset\n M Assets/Terra/Art/ExternalKit/BuildActions/Materials/flower.mat\n M \"Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset\"\n M ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json\n",
+  "diagnosticNotCleanRelease": true,
+  "packedAssetInventoryAvailable": false,
+  "packedInventoryNote": "This incremental BuildReport returns zero packed asset paths; that is not evidence that no untracked/ignored inputs were compiled. Earlier study54 recorded the untracked TriForge wind-controller script and ignored generated test JSON in this working tree.",
+  "sourceOnlyReproducibilityClaim": false
+}

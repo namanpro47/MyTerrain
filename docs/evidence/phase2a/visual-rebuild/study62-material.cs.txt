@@ -1,0 +1,8 @@
+var root=UnityEngine.GameObject.Find("Study62 contrasting conifer groves");var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var n=root.GetComponent<Terra.Rendering.InstancedNature>();var field=n.GetType().GetField("batches",f);var changed=new System.Collections.Generic.HashSet<UnityEngine.Material>();
+foreach(var b in (System.Collections.IEnumerable)field.GetValue(n))
+{
+ var mat=(UnityEngine.Material)b.GetType().GetField("material",f).GetValue(b);if(!mat.name.Contains("Leaves")||!changed.Add(mat))continue;
+ mat.shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/ClusterLeaves.shader");mat.SetColor("_BaseColor",new UnityEngine.Color(.65f,.85f,.8f));mat.SetFloat("_Cutoff",.5f);
+}
+return new{materials=changed.Count};

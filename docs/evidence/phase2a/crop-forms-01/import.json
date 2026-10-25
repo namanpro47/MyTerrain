@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CropDiagnostic/import.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "sub": 0,
+          "material": "DarkRed",
+          "count": 576,
+          "min": [
+            -0.338477135,
+            -0.320681959,
+            -0.215886682
+          ],
+          "max": [
+            0.278031856,
+            0.710523248,
+            0.157806
+          ],
+          "color": "RGBA(0.393, 0.157, 0.207, 1.000)",
+          "localMatrix": "100.00000\t0.00000\t0.00000\t0.00000\n0.00000\t-0.00001\t99.99999\t0.00000\n0.00000\t-99.99999\t-0.00001\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+        },
+        {
+          "sub": 1,
+          "material": "DarkGreen",
+          "count": 304,
+          "min": [
+            -0.4059626,
+            0.11744041,
+            -0.232085034
+          ],
+          "max": [
+            0.345203072,
+            0.78116715,
+            0.112644456
+          ],
+          "color": "RGBA(0.420, 0.447, 0.335, 1.000)",
+          "localMatrix": "100.00000\t0.00000\t0.00000\t0.00000\n0.00000\t-0.00001\t99.99999\t0.00000\n0.00000\t-99.99999\t-0.00001\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

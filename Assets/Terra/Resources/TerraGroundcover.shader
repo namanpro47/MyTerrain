@@ -66,7 +66,9 @@ Shader "Terra/Soft Groundcover"
                 half3 blade=lerp(half3(.15,.26,.07),half3(.29,.40,.13),smoothstep(0,1,input.bladeHeight));
                 blade*=lerp(.9,1.1,saturate(value));
                 blade*=lerp(.72,1,smoothstep(0,.65,input.bladeHeight));
-                return half4(blade*illumination,coverage);
+                // Keep the authored blade gradient, but honor each stand's color and
+                // annual lifecycle tint. Tint must affect hue, not only luminance.
+                return half4(blade*illumination*_BaseColor.rgb,coverage);
             }
             ENDHLSL
         }

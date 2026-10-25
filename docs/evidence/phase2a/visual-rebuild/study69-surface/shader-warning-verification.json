@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Terra/Illustrated Ground",
+    "supported": true,
+    "messages": [
+      {
+        "message": "use of potentially uninitialized variable (PaintedFilteredSample)",
+        "file": "Assets/Terra/Resources/TerraGround.shader",
+        "line": 81,
+        "severity": "Warning",
+        "platform": "Metal"
+      }
+    ]
+  },
+  {
+    "name": "Study69/Shared Meadow Ground",
+    "supported": true,
+    "messages": []
+  },
+  {
+    "name": "Study69/Shared Meadow Foliage",
+    "supported": true,
+    "messages": []
+  }
+]

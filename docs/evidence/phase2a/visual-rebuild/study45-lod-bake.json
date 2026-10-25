@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return ClusteredForestAssets.Build();",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "NormalTree_1 LOD0: 8520 triangles\nNormalTree_1 LOD1: 3726 triangles\nNormalTree_1 LOD2: 1952 triangles\nNormalTree_3 LOD0: 7096 triangles\nNormalTree_3 LOD1: 2916 triangles\nNormalTree_3 LOD2: 1666 triangles\nNormalTree_5 LOD0: 2182 triangles\nNormalTree_5 LOD1: 928 triangles\nNormalTree_5 LOD2: 496 triangles"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study62/import.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "PineTree_1",
+          "bounds": "Center: (0.00, 2.25, -0.03), Extents: (1.49, 2.25, 1.52)",
+          "height": 4.5022893,
+          "triangles": 2128,
+          "materials": [
+            {
+              "name": "PineTree_Bark",
+              "texture": "PineTree_Bark"
+            },
+            {
+              "name": "PineTree_Leaves",
+              "texture": "PineTree_Leaves"
+            }
+          ]
+        },
+        {
+          "name": "PineTree_3",
+          "bounds": "Center: (-0.04, 1.18, 0.05), Extents: (0.88, 1.17, 0.87)",
+          "height": 2.34696126,
+          "triangles": 1998,
+          "materials": [
+            {
+              "name": "PineTree_Bark",
+              "texture": "PineTree_Bark"
+            },
+            {
+              "name": "PineTree_Leaves",
+              "texture": "PineTree_Leaves"
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

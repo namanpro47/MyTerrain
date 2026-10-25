@@ -1,0 +1,23 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Play required");
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var t=main.GetType();
+var land=(Terra.Rendering.LandscapeRenderer)t.GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)t.GetField("world",flags).GetValue(main);var lt=land.GetType();
+var entry=main.buildActionCatalog.Find("low-density-housing");
+var candidates=new[]{new UnityEngine.Vector3(-285,180,4),new UnityEngine.Vector3(-321,180,18),new UnityEngine.Vector3(-355,180,35),new UnityEngine.Vector3(-140,180,-20)};
+if(UnityEngine.GameObject.Find("Study65 existing fictional community")!=null)throw new System.Exception("Already created");
+var root=new UnityEngine.GameObject("Study65 existing fictional community");var parent=(UnityEngine.Transform)lt.GetField("root",flags).GetValue(land);root.transform.SetParent(parent,false);
+var paths=world.features.Where(f=>f.kind=="path").ToArray();var outputs=new System.Collections.Generic.List<object>();
+foreach(var p in candidates){
+ var corners=new[]{new Terra.Contracts.Point{x=p.x-13,z=p.z-16},new Terra.Contracts.Point{x=p.x+13,z=p.z-16},new Terra.Contracts.Point{x=p.x+13,z=p.z+16},new Terra.Contracts.Point{x=p.x-13,z=p.z+16}};
+ var layout=land.VisualLayout(new Terra.Core.BuildActionLayout{x=p.x,z=p.z,yaw=p.y,foundation=corners,footprint=corners});
+ var instance=UnityEngine.Object.Instantiate(entry.prefab,root.transform);instance.name="Existing fictional home "+(outputs.Count+1);instance.transform.localPosition=new UnityEngine.Vector3(p.x,layout.groundY,p.z);instance.transform.localRotation=UnityEngine.Quaternion.Euler(0,p.y,0);instance.transform.localScale=UnityEngine.Vector3.one;
+ lt.GetMethod("AdaptProjectGround",flags).Invoke(land,new object[]{instance});lt.GetMethod("GradeProjectEdges",flags).Invoke(land,new object[]{instance,layout});
+ var start3=instance.transform.TransformPoint(new UnityEngine.Vector3(6,0,16));var start=new UnityEngine.Vector2(start3.x,start3.z);float distance=float.MaxValue;var finish=start;
+ foreach(var path in paths)for(int i=1;i<path.points.Length;i++){var a=new UnityEngine.Vector2(path.points[i-1].x,path.points[i-1].z);var d=new UnityEngine.Vector2(path.points[i].x,path.points[i].z)-a;var u=UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(start-a,d)/UnityEngine.Mathf.Max(.0001f,d.sqrMagnitude));var q=a+u*d;float length=UnityEngine.Vector2.Distance(start,q);if(length<distance){distance=length;finish=q;}}
+ var delta=finish-start;var side=new UnityEngine.Vector2(-delta.y,delta.x).normalized*2;int steps=UnityEngine.Mathf.CeilToInt(distance);
+ var verts=new System.Collections.Generic.List<UnityEngine.Vector3>();var tris=new System.Collections.Generic.List<int>();
+ for(int i=0;i<=steps;i++){var q=UnityEngine.Vector2.Lerp(start,finish,(float)i/steps);foreach(var sign in new[]{-1,1}){var v=q+side*sign;verts.Add(new UnityEngine.Vector3(v.x,land.Height(v.x,v.y)+.08f,v.y));}if(i>0){int n=i*2;tris.AddRange(new[]{n-2,n,n-1,n-1,n,n+1});}}
+ var mesh=new UnityEngine.Mesh{name="Existing-home driveway"};mesh.SetVertices(verts);mesh.SetTriangles(tris,0);mesh.RecalculateNormals();mesh.RecalculateBounds();((System.Collections.Generic.List<UnityEngine.Mesh>)lt.GetField("meshes",flags).GetValue(land)).Add(mesh);
+ var driveway=new UnityEngine.GameObject("Existing-home road access");driveway.transform.SetParent(root.transform,false);driveway.AddComponent<UnityEngine.MeshFilter>().sharedMesh=mesh;driveway.AddComponent<UnityEngine.MeshRenderer>().sharedMaterial=(UnityEngine.Material)lt.GetMethod("ProjectGround",flags).Invoke(land,new object[]{true});
+ outputs.Add(new{x=p.x,z=p.z,yaw=p.y,groundY=layout.groundY,relief=layout.relief,driveLength=distance,driveStart=start.ToString(),driveEnd=finish.ToString()});
+}
+return new{annual=main.Diagnostic,homes=outputs};

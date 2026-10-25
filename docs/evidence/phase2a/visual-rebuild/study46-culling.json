@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var n=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None);Terra.Rendering.InstancedNature.SubmitOffscreenForComparison=true;return new {submitted=n.Sum(x=>x.LastSubmittedBatches),culled=n.Sum(x=>x.LastCulledBatches),grass=n.Sum(x=>x.LastCulledGroundcoverBatches),groups=n.Length};",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "submitted": 864,
+        "culled": 1302,
+        "grass": 397,
+        "groups": 666
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

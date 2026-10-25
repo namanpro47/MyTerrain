@@ -1,0 +1,160 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 352,
+        "y": 102,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Year 1 · offline chapter · 1 / 3</b>",
+      "rect": {
+        "x": 352,
+        "y": 141,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 578,
+        "y": 744,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Next card →",
+      "rect": {
+        "x": 666,
+        "y": 680,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 360,
+        "y": 680,
+        "width": 214,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>What the year leaves in the budget</b>\n\nThe year's bills have been paid. The balance left in the public budget is your starting point for what comes next; some of it is already promised to ongoing projects. No project tax receipts arrived this year. Projects that are still being built cannot yet contribute them.",
+      "rect": {
+        "x": 352,
+        "y": 190,
+        "width": 736,
+        "height": 143.53997802734375
+      },
+      "bodyCssPx": 19.999998092651367,
+      "minGlyphCssPx": 19.999998092651367,
+      "preferredHeight": 143.5399932861328,
+      "availableHeight": 143.5399932861328
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 570,
+        "y": 742,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 658,
+        "y": 678,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 352,
+        "y": 678,
+        "width": 230,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 320,
+      "y": 80,
+      "width": 800,
+      "height": 740
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1069400000; queued=0; assets=3\n"
+}

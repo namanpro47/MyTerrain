@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var r=UnityEditor.Build.Reporting.BuildReport.GetLatestReport();return new{warnings=r.steps.SelectMany(s=>s.messages).Where(m=>m.type==UnityEngine.LogType.Warning||m.type==UnityEngine.LogType.Error).Select(m=>m.content).ToArray(),paths=r.packedAssets.SelectMany(p=>p.contents.Select(c=>c.sourceAssetPath)).Distinct().OrderBy(p=>p).ToArray()};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "warnings": [
+          "Assets/Terra/Scripts/Gameplay/BrowserPerformance.cs(46,94): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "Assets/Terra/Scripts/Gameplay/BrowserPerformance.cs(46,24): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "Assets/Terra/Scripts/Gameplay/TerraMain.cs(39,21): warning CS0618: 'Object.FindFirstObjectByType<T>()' is obsolete: 'FindFirstObjectByType has been deprecated because it relies on instance ID ordering. Use FindAnyObjectByType instead, which does not depend on ordering.'",
+          "Assets/Terra/Phase0Smoke.cs(15,32): warning CS0414: The field 'Phase0Smoke.panning' is assigned but its value is never used",
+          "Assets/Terra/Scripts/Gameplay/TerraMain.cs(39,21): warning CS0618: 'Object.FindFirstObjectByType<T>()' is obsolete: 'FindFirstObjectByType has been deprecated because it relies on instance ID ordering. Use FindAnyObjectByType instead, which does not depend on ordering.'",
+          "Assets/Terra/Phase0Smoke.cs(15,32): warning CS0414: The field 'Phase0Smoke.panning' is assigned but its value is never used",
+          "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Library/Bee/artifacts/WebGL/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TMP_TextParsingUtilities::.cctor() - Method was given it's own cpp file because it is large and costly to compile",
+          "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Library/Bee/artifacts/WebGL/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshPro::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile",
+          "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Library/Bee/artifacts/WebGL/il2cppOutput/cpp: [Unity.TextMeshPro] - System.Void TMPro.TextMeshProUGUI::GenerateTextMesh() - Method was given it's own cpp file because it is large and costly to compile"
+        ],
+        "paths": []
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

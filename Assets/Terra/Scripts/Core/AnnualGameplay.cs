@@ -66,11 +66,13 @@ namespace Terra.Core
         // Resolve a detached copy for previews; the live run, history and treasury are untouched.
         public static TownYearReport Forecast(AnnualTown town)
         {
+            if(town.Definition.simulation!=null&&town.Phase!=TownPhase.Reviewing&&town.Phase!=TownPhase.Completed)
+                throw new InvalidOperationException("Numeric-v4 planning requires a conditional range; an unplayed harvest is not a forecast.");
             var copy=AnnualTown.Restore(town.Definition,town.Snapshot());
             if(copy.Phase==TownPhase.Reviewing||copy.Phase==TownPhase.Completed)return copy.History.Last();
             return AnnualTownDemo.Advance(copy,copy.PendingRequest?.requestId??copy.RunId+"/preview/"+copy.Revision,new AuthoredAnnualConsequenceProvider());
         }
         public static TownYearOutcomes Baseline(AnnualTownDefinition definition)
-            => Forecast(new AnnualTown(definition,"baseline-preview")).outcomes;
+            => definition.simulation!=null?AnnualSimulation.OpeningOutcomes(definition):Forecast(new AnnualTown(definition,"baseline-preview")).outcomes;
     }
 }
