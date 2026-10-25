@@ -4,14 +4,14 @@ Implementation checkpoint: `6e188ee`. Native fixture: base `13a15a4` plus Field 
 
 | Plan criterion | Current evidence | Remaining acceptance |
 |---|---|---|
-| 1. Neutral start and reopenable help | InitializeAnnual clears armed tool; native HUD creates help button and modal | Chrome770d4c0 neutral arrival/dismiss verified; reopen remains |
+| 1. Neutral start and reopenable help | InitializeAnnual clears armed tool; native HUD creates help button and modal | Chrome770d4c0 neutral arrival/dismiss and dock help reopen verified |
 | 2. All enabled recipes, names, icons, prices, eligibility | Native all17recipes ×4sizes ×2text sizes; selected card visible and labels fit | Actual catalog/keyboard navigation and unavailable-state explanation |
-| 3. Real footprint versus whole field/site slot | Native building/field/swale geometry matches current rules; shader imports | Chrome770d4c0 park footprint/site reservation captured; field/swale remain |
+| 3. Real footprint versus whole field/site slot | Native building/field/swale geometry matches current rules; shader imports | Chrome770d4c0 park, whole-field farming and swale previews captured |
 | 4. Blocked candidate and recovery | Native candidate title/reason/recovery assertion; inspection does not mutate ledger | Protected, occupied, physical-fit, disconnected and money rejection inputs |
 | 5. Press identity, drag/wheel/focus/keyboard | Frozen site/tool/mode/source/revision checks; focus-loss cancellation; merged input source inspected | Actual press-drag/up, scroll while pressed, blur, UI crossing and keyboard routes |
-| 6. Queue/edit/undo preserve command behavior | Existing full-game608checks; inspector nonmutation; existing HUD788checks | Chrome770d4c0 queue, move cancel, undo/redo verified; successful move/replace/remove remain |
-| 7. Responsive and stable layout | Native1024/1280/1440/1920, standard/larger text, everyrecipe; dock unchanged on valid/blocked transitions | Actual1280×720/1440×900/1920×1080,125% browser zoom; capsule placement and overlap |
-| 8. Accessible state grammar | Labels, dashed/solid geometry, blockedcross, selectedbadge, visiblefocus,44px primary targets in source | Actual muted/reducedmotion/colour-independent inspection and keyboard operation |
+| 6. Queue/edit/undo preserve command behavior | Existing full-game608checks; inspector nonmutation; existing HUD788checks | Chrome770d4c0 queue, move/cancel, replacement review/cancel/confirm, remove and undo/redo verified |
+| 7. Responsive and stable layout | Native1024/1280/1440/1920, standard/larger text, everyrecipe; dock unchanged on valid/blocked transitions | Standard Chrome1280×720/1440×900/1920×1080 captured. Rebuilt overlap fix,125% zoom and compact larger text remain |
+| 8. Accessible state grammar | Labels, dashed/solid geometry, blockedcross, selectedbadge, visiblefocus,44px primary targets in source | Keyboard settings navigation, reduced motion, larger text and mute verified. Final candidate inspection under all settings remains |
 | 9. Preview/placement latency | Existing instrumentation retained; hover target changes only | Chrome≤100ms preview and≤200ms placement-stall measurements with recorded conditions |
 | 10. World presentation | Legacy composition candidate; combined source preserves newer parcel settlement framing | Matched normal/close/overview Chrome captures, footprint visibility and model/thumbnail consistency |
 
@@ -28,3 +28,5 @@ At combined tip `f819fac`, the release owner has addressed both placement findin
 ## First combined Chrome pass
 
 [Actual walkthrough](COMBINED_CHROME.md) records Chrome770d4c0 at1728×940, reservation96. This is real game evidence, distinct from the P0 schematic board. Both the dock/card overlap and transient toast/capsule collision were reproduced; fixes56e1940 and9b5e14a are handed to the combined owner for native rerun and next export. Large empty map-edge framing remains a P4 observation, not an accepted scene. Preview left the ledger unchanged; protected Enter was rejected; queue/move-cancel/undo/redo retained the existing cash/commit semantics.
+
+The second Chrome pass and DevTools input-error boundary are documented in COMBINED_CHROME.md. Combined native suite subsequently passed4,115 assertions (receipt inspected in release worktree at19e7eae); the owner added fixture cleanup before later combined checks. No quiet performance claim yet.

@@ -34,3 +34,5 @@ A later DevTools input attempt appended digits instead of replacing the width/he
 Additional captures: game-move-preview,game-moved,game-replacement-review,game-replaced,game-removed,game-whole-field,game-swale-preview,game-placement-help (1728), the three resolution-named previews, game-accessibility-settings and game-muted-settings. Timing was not measured under this desktop-only reservation.
 
 The combined owner reported4,115 native assertions passed with56e1940 and9b5e14a integrated; it also fixed test-fixture cleanup in19e7eae because the previously surviving HUD/EventSystem caused subsequent combined tests to see duplicate buttons. Runtime semantics were unchanged by that cleanup.
+
+Second-pass state readouts were inspected in the tool transcript before reload; the console capture buffer was reset by reload, so no standalone second-pass log is claimed. Screenshots remain preserved.
