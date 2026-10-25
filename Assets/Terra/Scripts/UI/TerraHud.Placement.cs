@@ -56,12 +56,12 @@ namespace Terra.UI
             placementAnchor.obstacles=new[]{(RectTransform)budgetPanel,(RectTransform)annualIndicators,(RectTransform)tooltip.transform,(RectTransform)actionDock,(RectTransform)commandBar};
             placementAnchor.show=()=>!ModalOpen&&!AnnualOverviewOpen&&!ShowingToolHint();
             placementCapsule.gameObject.SetActive(false);
-            toolHint=Panel(root,"Project tool explanation",new Vector2(.5f,0),Vector2.zero,new Vector2(360,244),Ink);
+            toolHint=Panel(root,"Project tool explanation",new Vector2(1,1),new Vector2(-16,-114),new Vector2(304,330),Ink);
             toolHint.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             var hintGroup=toolHint.gameObject.AddComponent<CanvasGroup>();hintGroup.blocksRaycasts=false;hintGroup.interactable=false;hintGroup.alpha=0;
-            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-10),new Vector2(332,24),17,Paper,FontStyles.Bold);
-            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-38),new Vector2(332,44),16,Paper);
-            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-88),new Vector2(332,144),16,Soft);
+            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-14),new Vector2(276,34),18,Paper,FontStyles.Bold);
+            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-54),new Vector2(276,44),16,Paper);
+            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-108),new Vector2(276,204),16,Soft);
             var hintAnchor=toolHint.gameObject.AddComponent<HudPlacementAnchor>();hintAnchor.show=ShowingToolHint;hintAnchor.tick=UpdateToolHint;
         }
 
@@ -92,8 +92,8 @@ namespace Terra.UI
                 }
                 else toolHintReservation.text="Unavailable in this scenario";
             }
-            var dock=(RectTransform)actionDock;var hint=(RectTransform)toolHint;
-            hint.anchoredPosition=new Vector2(dock.anchoredPosition.x,dock.anchoredPosition.y+dock.sizeDelta.y*dock.localScale.y+12);
+            toolHintTitle.fontSize=LargeText?20:18;
+            toolHintPurpose.fontSize=toolHintReservation.fontSize=LargeText?17.5f:16;
         }
 
         public void HidePlacementFeedback(){if(placementCapsule!=null)placementCapsule.gameObject.SetActive(false);if(actionSummary!=null)actionSummary.gameObject.SetActive(true);}

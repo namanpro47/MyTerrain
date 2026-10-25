@@ -16,11 +16,11 @@ namespace Terra.UI
             if(receipt.mode=="offline"&&receipt.chapter?.introduction?.StartsWith("AI unavailable.")==true)
                 chapter.introduction="AI unavailable. "+chapter.introduction;
             int count=chapter.cards.Length;
-            string nextYear=town.Phase==TownPhase.Completed?"See ten-year future":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan";
+            string nextYear=town.Phase==TownPhase.Completed?"See ten-year future":town.DecisionsFinished?"Review Year 10 →":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan";
             if(page==0)
             {
-                FieldNotes(chapter.title,
-                    chapter.introduction+"\n\n<b>Cash  "+Money(report.ledger.closingCashCents)+"</b>\nReserved for later years  "+Money(report.ledger.futureCommitmentsCents)+"\n\nIllustrative game outcomes · not a forecast.",
+                FieldNotes(report.year==town.Definition.years?"The decade you shaped":chapter.title,
+                    (report.year==town.Definition.years?AnnualChapterNarrative.Decade(town.Definition,town.History.Where(r=>r.year<=report.year).ToArray()):chapter.introduction)+"\n\n<b>Cash  "+Money(report.ledger.closingCashCents)+"</b>\nFuture obligations  "+Money(report.ledger.futureCommitmentsCents)+"\n\nIllustrative game outcomes · not a forecast.",
                     "Read chapter →",()=>AnnualChapterReport(town,receipt,continuePlanning,ledger,1));
             }
             else
@@ -34,7 +34,7 @@ namespace Terra.UI
                 if(card.factIds.Contains("social"))FieldNotesMeter("Social",before.socialScore,report.outcomes.socialScore,new Color(.50f,.76f,.93f));
                 if(card.factIds.Contains("environmental"))FieldNotesMeter("Environmental",before.environmentalScore,report.outcomes.environmentalScore,Accent);
             }
-            modalEyebrow.text="YEAR "+report.year+"  /  "+(receipt.mode=="gemini"?"AI chapter":"local summary")+(page==0?"":"  ·  "+page+" / "+count);
+            modalEyebrow.text="YEAR "+report.year+"  /  "+(page==0&&report.year==town.Definition.years?"decade · local summary":receipt.mode=="gemini"?"AI chapter":"local summary")+(page==0?"":"  ·  "+page+" / "+count);
             AnnualSecondary("Budget & meters",ledger);
         }
         public void AnnualChapterWaiting(int year,Action stop)

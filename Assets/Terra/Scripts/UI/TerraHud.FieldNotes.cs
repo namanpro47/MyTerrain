@@ -192,6 +192,7 @@ namespace Terra.UI
                 rows.Add(group.Key+(group.Count()>1?" × "+group.Count():"")+"   "+NotesMoney(group.Sum(a=>a.upfrontPublicCostCents)));
             if(rows.Count==0)rows.Add("No new projects this year.");
             void Cost(string label,long amount){if(amount!=0)rows.Add(label+"   "+NotesMoney(amount));}
+            Cost("Land-use changes",ledger.upfrontPaidCents-state.queue.Sum(q=>annualRules.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).upfrontPublicCostCents));
             Cost("Running costs",ledger.operatingPaidCents);Cost("Program payments",ledger.programPaidCents);
             Cost("Repairs",ledger.repairPaidCents);Cost("Earlier unpaid bills",ledger.arrearsPaidCents);
             long total=ledger.upfrontPaidCents+ledger.operatingPaidCents+ledger.programPaidCents+ledger.repairPaidCents+ledger.arrearsPaidCents;
@@ -200,9 +201,9 @@ namespace Terra.UI
                 "\nAnnual public funding   +"+NotesMoney(ledger.appropriationCents)+
                 "\n\n"+NotesMoney(ledger.openingCashCents)+" − "+NotesMoney(total)+" + "+NotesMoney(ledger.publicReceiptsCents)+" + "+NotesMoney(ledger.appropriationCents)+
                 "\n<b>Balance after this year   "+NotesMoney(ledger.closingCashCents)+"</b>"+
-                "\n\nReserved for later years   "+NotesMoney(ledger.futureCommitmentsCents)+
+                "\n\nFuture obligations   "+NotesMoney(ledger.futureCommitmentsCents)+
                 (ledger.closingArrearsCents>0?"\nUnpaid bills carried forward   "+NotesMoney(ledger.closingArrearsCents):"")+
-                "\n\n"+mode+" · game estimates. Ending the year commits this plan.";
+                "\nFuture income helps pay these costs; shortfalls become unpaid bills.\n\n"+mode+" · game estimates. Ending the year commits this plan.";
             FieldNotes("Review year "+state.year,body,"End Year",accept);
         }
     }

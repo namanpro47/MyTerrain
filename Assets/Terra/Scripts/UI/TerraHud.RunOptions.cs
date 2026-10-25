@@ -27,7 +27,7 @@ namespace Terra.UI
                 button.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().flexibleWidth=1;
                 button.GetComponent<UnityEngine.UI.Image>().color=selected==years?new Color(.17f,.49f,.37f):Raised;
             }
-            LayoutFieldNotes();
+            fieldNotesLayoutDirty=true;LayoutFieldNotes();
         }
 
         public void FullLandscapeOption(AnnualTown town)

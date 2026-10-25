@@ -57,6 +57,7 @@ public static class MainGameChapterChecks
             count+=PlayFirstHudChecks.Run(hud,definition,world);
             count+=FieldNotesChecks.Run(hud,definition);
             count+=ActionFeedbackChecks.Run(hud);
+            count+=AnnualFeedbackWaveChecks.Run(hud,definition,world);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;
