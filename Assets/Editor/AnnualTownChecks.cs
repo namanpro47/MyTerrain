@@ -176,6 +176,27 @@ public static class AnnualTownChecks
         affected.ContinuePlanning(affected.Revision); var recovering = Advance(affected, "context2");
         Near(recovering.outcomes.productionUnits, 5.5, "Condition persists into the next year when the temporary disruption ends");
 
+        Check(AnnualTownSummary.Latest(new AnnualTown(Fixture(), "no-summary")) == null, "An unsubmitted run has no invented annual summary");
+        var firstSummary = AnnualTownSummary.Create(town.Definition, town.History, 0);
+        Check(firstSummary.year == 1 && firstSummary.newProjects == 2 && firstSummary.continuingProjects == 0 && !firstSummary.finalYear, "First summary describes committed choices and horizon");
+        Check(firstSummary.spentCents == 97500 && firstSummary.receivedCents == 0 && firstSummary.cashChangeCents == -97500
+            && firstSummary.freeAfterCommitmentsCents == 707500, "Summary distinguishes cash spent from the full reserved commitment");
+        Check(!firstSummary.economic.hasPreviousYear && !firstSummary.social.hasPreviousYear && !firstSummary.environmental.hasPreviousYear, "Year 1 does not invent a previous annual score");
+        var wetSummary = AnnualTownSummary.Create(town.Definition, town.History, 2);
+        Check(wetSummary.newProjects == 0 && wetSummary.continuingProjects == 2 && wetSummary.scenario.Contains("0.8"), "Waiting summary retains projects and discloses the authored output driver");
+        Near(wetSummary.economic.change, -16, "Summary economic delta is measured against the actual previous year");
+        Near(wetSummary.social.change, -16, "Summary social delta follows accepted illustrative services");
+        Near(wetSummary.environmental.change, 0, "Output setback does not fabricate environmental change");
+        Check(wetSummary.simulationNotice.Contains("PLACEHOLDER") && wetSummary.environmental.evidence.Contains("not a flood-risk estimate"), "Placeholder and environmental limits are visible in the summary");
+        var transition = AnnualTownSummary.Create(growing.Definition, growing.History, 1);
+        Check(transition.siteChanges.Any(s => s.Contains("Building -> Establishing")), "Summary explains delayed project establishment");
+        var finalSummary = AnnualTownSummary.Latest(town);
+        Check(finalSummary.year == 10 && finalSummary.finalYear && finalSummary.ledger.closingCashCents == 707500, "Final summary uses accepted Year 10 history");
+        int beforeSummaryRevision = town.Revision;
+        finalSummary.ledger.closingCashCents = 0; finalSummary.economic.score = -1;
+        Check(AnnualTownSummary.Latest(town).ledger.closingCashCents == 707500 && town.Revision == beforeSummaryRevision && town.History.Length == 10, "Reopening or mutating a summary never changes accepted state or charges again");
+        Reject(() => AnnualTownSummary.Create(town.Definition, town.History, 10), "A summary cannot invent Year 11");
+
         foreach (var row in town.History)
         {
             var l = row.ledger;
@@ -232,6 +253,31 @@ public static class AnnualTownChecks
             Check(session.State.phase == TownPhase.Reviewing && session.State.history.Length == 1 && session.State.cashCents > 0, "Unity session exports/imports state and publishes detached snapshots");
             var balance = session.State.cashCents; session.EndYearOffline("session-year-1");
             Check(session.State.cashCents == balance && session.State.history.Length == 1, "Unity button adapter handles repeated completion once");
+            var summary1 = session.LatestSummary;
+            Check(summary1.year == 1 && summary1.newProjects == 1 && summary1.siteChanges.Any(line => line.Contains("Building")), "Actual-map session summary shows the first project's construction delay");
+            session.ContinueYear(session.State.revision);
+            Check(session.State.year == 2 && session.State.phase == TownPhase.Planning && session.State.queue.Length == 0
+                && session.State.assets.Length == 1 && session.State.cashCents == balance, "Next-year control reopens the same town with committed assets and money intact");
+            var secondOffer = definition.actions.First(a => a.siteId != first.siteId && a.actionId == "restore-grass");
+            Check(session.Preview(secondOffer.siteId, secondOffer.actionId) >= 0, "Next-year planning can preview another affordable actual-map project");
+            session.QueueAction(secondOffer.siteId, secondOffer.actionId, session.State.revision);
+            session.EndYearOffline("session-year-2");
+            Check(session.LatestSummary.newProjects == 1 && session.LatestSummary.continuingProjects == 1
+                && session.LatestSummary.economic.hasPreviousYear && session.State.history.Length == 2, "Year 2 summary combines the new project and continued Year 1 project");
+            session.ContinueYear(session.State.revision);
+            var paused = session.BeginYear("session-year-3", session.State.revision);
+            session.ImportSave(session.ExportSave());
+            var year3 = session.EndYearOffline(paused.requestId);
+            Check(year3.year == 3 && session.LatestSummary.newProjects == 0 && session.State.history.Length == 3
+                && session.LatestSummary.scenario.Contains("0.8"), "Imported frozen request resumes into the same Year 3 waiting summary");
+            var restoredSummary = JsonUtility.ToJson(session.LatestSummary);
+            session.ImportSave(session.ExportSave());
+            Check(JsonUtility.ToJson(session.LatestSummary) == restoredSummary, "Reloading preserves the exact summary without rerunning simulation");
+            session.FinishOffline();
+            Check(session.State.phase == TownPhase.Completed && session.State.year == 10 && session.State.history.Length == 10 && session.LatestSummary.finalYear,
+                "Session control flow reaches the final summary without Year 11");
+            System.IO.Directory.CreateDirectory("Logs/AnnualTown");
+            System.IO.File.WriteAllText("Logs/AnnualTown/playtest-final-summary.json", JsonUtility.ToJson(session.LatestSummary, true));
         }
         finally { UnityEngine.Object.DestroyImmediate(sessionObject); }
         var report = JsonUtility.ToJson(new CheckResult { passed = true, checks = count, legacyChecks = legacyChecks, mapActions = definition.actions.Length, historyYears = reloaded.History.Length, closingCashCents = reloaded.CashCents }, true);

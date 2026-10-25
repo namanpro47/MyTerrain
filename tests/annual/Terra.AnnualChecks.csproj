@@ -11,6 +11,7 @@
     <Compile Include="../../Assets/Terra/Scripts/Contracts/WorldContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownDemo.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownSummary.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/TownCopies.cs" />
     <Compile Include="../../Assets/Editor/AnnualTownChecks.cs" />
     <Compile Include="Program.cs" />

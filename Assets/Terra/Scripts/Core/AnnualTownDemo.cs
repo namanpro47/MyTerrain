@@ -14,6 +14,10 @@ namespace Terra.Core
     {
         public TownYearConsequences Resolve(TownYearRequest request)
         {
+            // TODO(simulation provider): supply sourced, bounded site effects here (or via an
+            // async session adapter). For now the saved annual driver and funded lifecycle
+            // are the entire simulation. Do not invent flooding from missing vegetation.
+            // Empty extra effects is intentional; summaries explain the actual ledger/results.
             return new TownYearConsequences {
                 runId = request.runId, requestId = request.requestId, inputHash = request.inputHash, year = request.year,
                 effects = Array.Empty<TownSiteEffect>()

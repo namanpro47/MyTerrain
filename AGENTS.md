@@ -6,6 +6,8 @@ Before each new implementation task, inspect local status, run `git fetch --prun
 
 ## Authorized annual foundation
 
+Peter's project-specific delivery instruction: merge validated work directly into the current default branch (`main`); do not create pull requests. Fetch first, work in a fresh isolated worktree, preserve teammate changes, and use normal fast-forward pushes (never force-push). On October 24 he also authorized an isolated annual playtest/end-year summary and placeholder simulation while the teammate overhauls the main UI. Keep this test harness separate from TerraMain/TerraHud/scenes; leave integration comments for the owner.
+
 Peter explicitly requested annual town state, the public budget and three yearly outcomes on October 24, 2026, after agreeing that undo/refunds end when the year is submitted. Follow `docs/PRD_ANNUAL_GAMEPLAY.md` for this bounded module. It supersedes the old immediate-only/no-annual-model assumption for this task. Keep scenes, renderer, HUD and the ongoing visual rebuild with the engine owner; this module is an additive state/session handoff, not approval to complete later phases or certify Phase 2A.
 
 Read [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) before planning features or making product, gameplay, architecture, or scope decisions. It is Terra's north star for the intended vision, priorities, and constraints.

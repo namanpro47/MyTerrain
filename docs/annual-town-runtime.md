@@ -62,6 +62,21 @@ The provider interface is currently synchronous for offline examples. A future s
 
 ## Engine integration
 
+### Test the annual loop without touching the UI overhaul
+
+Open this Unity project, then **Terra → Annual Town → Playtest Year Loop → Start test run**. This temporary **Editor-only** window uses the same Meadowbrook Valley map/sites and `AnnualTownSession`; it is not included in player builds and does not open, alter or save the main scene. Closing the window discards the test session. Export/import JSON to keep a run.
+
+1. Select an eligible site and queue a treatment. Preview shows the remaining uncommitted cash after reserving the full agreement. Queue/remove/undo is allowed only before concluding the year.
+2. **Conclude year** accepts the plan once and shows actual upfront/program/upkeep payments, repairs, appropriations/receipts, closing cash, outstanding obligations, three contextual outcomes and per-site lifecycle progress.
+3. **Continue to Year 2** reopens the same planning controls with the same town, cash and committed projects. Add a different eligible site or conclude with no new action. Existing sites remain committed.
+4. Continue through Year 3 to see the explicit authored 0.8 output multiplier, then through Year 10 to inspect final results. There is no Year 11. Existing obligations can extend beyond the horizon and remain visible.
+
+`AnnualTownSummary` reads accepted reports only; it cannot spend money, rerun a provider or alter history. Year 1 has no invented previous-year delta. Subsequent score and production changes compare actual consecutive accepted reports. `AnnualTownSession.LatestSummary`, `Preview`, `CanUndo` and `QueuedCommitmentCents` are ready for the engine owner's final UI binding.
+
+**Simulation placeholder:** the existing authored annual driver, construction/establishment and funded operation determine results. The current provider intentionally returns no additional site effects. No LLM, flood event generation or calibrated yield model is connected. Code comments identify the asynchronous Begin/Complete provider seam and the future UI/animation binding. Restored pending requests retry with the same ID; accepted reports are never rerolled to render a summary.
+
+This developer window is a technical fixture for the one selected location. It has no map rendering, terrain animation or production styling. The live game still uses the owner's current placement interface until they bind the annual session. Relevant eventual design patterns: **TN-03** (small budget/outcome groups), **TN-08** (inspect results before continuing), **CS-01** (details on request). This fixture does not certify visual parity, Phase 2A or browser gameplay acceptance.
+
 Use `AnnualTown` directly from plain C#, or add **`AnnualTownSession`** to an engine-owned controller. It is not automatically added to TerraMain or any scene.
 
 1. After loading the world, call `InitializeFromWorldPack(world, scenario, packId, runId)` for the labelled demo, or `Initialize(yourDefinition, runId)` for the team's authored recipes.
@@ -87,4 +102,6 @@ Run the plain source specification without Unity or external packages:
 
 In Unity: **Terra → Annual Town → Run Foundation Checks**, or batch `-executeMethod AnnualTownChecks.RunBatch`. It also exercises the actual map adapter, `JsonUtility`, the Unity session and ten-year restore. Evidence is written under ignored `Logs/AnnualTown/`.
 
-**Verified on the latest base:** 81 plain-source assertions pass; Unity passes 86 annual assertions (including those 81), actual-map adapter validation with 32 existing offers, JSON/session round-trips and a ten-year saved history. The existing 139 Phase 2 contract/site/legacy-accounting assertions also pass. Unity batch exits successfully. [Verification receipt](evidence/annual-town/verification.json) records hashes and scope. No new annual HUD or browser interaction is claimed by a state-only check. Existing presentation remains with the engine owner; applicable design patterns are TN-03/05/08 and CS-01/04 when they bind these states to their new interface.
+**Foundation checkpoint:** 81 plain-source assertions and 86 annual Unity assertions (including the 81) passed, alongside 139 Phase 2 contract/site/legacy-accounting assertions. [Original receipt](evidence/annual-town/verification.json).
+
+**Annual-loop follow-up:** 94 plain-source assertions and 106 annual Unity assertions (including the 94) pass, alongside the same 139 legacy assertions. These cover summary calculations, absence of invented Year 1 deltas, construction/establishment explanations, mutation isolation, real-map Year 2 additions, waiting, frozen-request retry/restore, exact summary restore and the final Year 10 summary. Actual Windows Editor controls were used through Year 3; captures and source hashes are linked from [the follow-up receipt](evidence/annual-town/year-loop-verification.json). This task's fresh worktree is `C:\Users\Peter\Documents\Codex\2026-10-24\https-www-blockbyblock-org-our-work-7\work\Terra-year-loop`, based on `origin/main` at `a4ba01e` after the direct foundation merge. No main-game HUD, map transformation or browser annual-loop acceptance is claimed.

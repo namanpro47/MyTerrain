@@ -19,6 +19,10 @@ namespace Terra.Gameplay
         public AnnualTownSnapshot State => RequireTown().Snapshot();
         public long AvailableCents => RequireTown().AvailableCents;
         public long CommittedCents => RequireTown().CommittedCents;
+        public long QueuedCommitmentCents => RequireTown().QueuedCommitmentCents;
+        public bool CanUndo => RequireTown().CanUndo;
+        public AnnualTownSummary LatestSummary => AnnualTownSummary.Latest(RequireTown());
+        public long Preview(string siteId, string actionId) => RequireTown().Preview(siteId, actionId);
 
         public void Initialize(AnnualTownDefinition definition, string runId, bool restoreSaved = false)
         {
@@ -45,7 +49,10 @@ namespace Terra.Gameplay
         public void ContinueYear(int expectedRevision)
         { RequireTown().ContinuePlanning(expectedRevision); Publish(); }
 
-        // Explicit offline path. A future async provider uses BeginYear/CompleteYear instead.
+        // TODO(simulation service): call BeginYear once, pass its frozen input to an async provider,
+        // validate its bounded structured output through CompleteYear, then display LatestSummary.
+        // Keep retries on the same request ID. Money, lifecycle and scores remain engine-owned.
+        // Explicit offline placeholder: no LLM/network call or scientific prediction is made here.
         public TownYearReport EndYearOffline(string requestId)
         {
             var current = RequireTown();

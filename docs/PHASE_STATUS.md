@@ -1,5 +1,17 @@
 # Terra — phase status and evidence
 
+## Annual loop playtest — separately authorized October 24, 2026
+
+Peter requested direct integration to the repository's default branch (`main`, no new PR), an end-year summary and placeholder simulation while the teammate overhauls the main UI. The annual foundation `a4ba01e` was fast-forwarded into `main`; GitHub marked the existing draft PR #1 merged.
+
+The new **Terra → Annual Town → Playtest Year Loop** Editor window exercises the real map's eligible offers with the existing annual session. It supports current-year queue/replace/remove/undo, concluding or waiting, accepted summary, next-year planning, ten-year completion and save JSON export/import. `AnnualTownSummary` derives spend/receipts, remaining commitments, score deltas and site lifecycle explanations solely from accepted history. Integration TODOs mark the future game HUD, animation and async consequence-provider seams.
+
+**Verification:** 94 plain-source assertions; 106 annual Unity assertions (including the 94); 139 existing map/legacy-accounting assertions. Session checks cover a Year 2 additional project, a frozen Year 3 request restored/retried, exact summary restore and Year 10 completion. Actual Windows Editor interaction also verified Year 1 queue/conclude, Year 2 continued planning/wait, and Year 3's authored 0.8 output factor. [Year 1 summary](evidence/annual-town/year1-summary.png), [Year 2 planning](evidence/annual-town/year2-planning.png), [Year 2 summary](evidence/annual-town/year2-summary.png), [Year 3 summary](evidence/annual-town/year3-summary.png). [Current-source verification receipt](evidence/annual-town/year-loop-verification.json).
+
+Observed single-project UI path: $60,000 starting cash → $56,000 after Year 1's $24,000 upfront and $20,000 closing appropriation → $74,800 after Year 2's $1,200 upkeep and $20,000 appropriation → $93,600 after Year 3. West field progresses Building → Operating; total illustrative production goes 5 → 17 → 13.6. These are authored demo settings, not local cost/yield estimates.
+
+This is an **Editor-only technical fixture**, without map rendering or production styling. Main scene/HUD/renderer controls and player builds were not changed. There is no live LLM, calibrated yield/flood model, randomized event generation, AI final image or browser annual-flow acceptance. The ongoing Phase 2A gate remains unchanged. Reference patterns TN-03, TN-08 and CS-01 guide the eventual owner integration; screenshots establish usable technical controls only.
+
 ## Annual state foundation — separately authorized October 24, 2026
 
 Peter requested annual town state, a USD public ledger and three yearly outcomes while the main engineer continues the basics. The [additive state/session module](annual-town-runtime.md) implements Planning/Resolving/Reviewing/Completed, pre-submission queue-only undo, full-term public commitments and annual payments, funded lifecycle effects, derived contextual scores, idempotent annual history, save/replay and offline continuation to Year 10. It does not modify the main scene, renderer or HUD, finish the wider action catalog, connect a live LLM, or certify Phase 2A/later-phase completion.
