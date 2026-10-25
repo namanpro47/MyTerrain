@@ -1,0 +1,35 @@
+{
+  "sourceCommit": "ba88fdf",
+  "dateUtc": "2026-10-25",
+  "browser": "Chrome on Windows",
+  "origin": "http://127.0.0.1:8082/",
+  "build": "TreeRenderingAudit.BuildExperiment; TERRA_TREE_AUDIT only",
+  "hardware": "Laptop with Intel UHD and NVIDIA GeForce RTX 3080 Laptop GPU; active WebGL adapter not established for these samples",
+  "conditions": {
+    "warmupSeconds": 2,
+    "sampleSeconds": 12,
+    "bufferWidth": 1287,
+    "bufferHeight": 1304,
+    "devicePixelRatio": 1.5,
+    "revision": 0,
+    "cameraPosition": {"x": -43.21092224121094, "y": 236.65792846679688, "z": -282.7126159667969},
+    "cameraRotation": {"x": 37, "y": 328, "z": 0},
+    "fov": 36
+  },
+  "samples": [
+    {"mode": "normal", "timestampUtc": "2026-10-25T04:19:04.083Z", "seconds": 12.024002075195313, "frames": 99, "averageFps": 8.233531951904297, "p50Ms": 120, "p95Ms": 132, "maximumMs": 136, "unfocusedFrames": 0},
+    {"mode": "off", "timestampUtc": "2026-10-25T04:20:26.967Z", "seconds": 12.01300048828125, "frames": 177, "averageFps": 14.734037399291992, "p50Ms": 67, "p95Ms": 76, "maximumMs": 83, "unfocusedFrames": 0},
+    {"mode": "shadows", "timestampUtc": "2026-10-25T04:21:59.509Z", "seconds": 12.0880126953125, "frames": 106, "averageFps": 8.769018173217773, "p50Ms": 116, "p95Ms": 129, "maximumMs": 135, "unfocusedFrames": 0}
+  ],
+  "observations": [
+    "The native Chrome tree-off scene was visibly inspected: oak canopies and their shadows were absent; terrain, grass and river remained.",
+    "The native Chrome shadows-only scene was visibly inspected: oak canopies were absent and tree silhouettes remained in ground shadows.",
+    "Each result logged matching camera, buffer, annual revision and zero unfocused frames. Values shared above were checked against each log.",
+    "One trial per mode. Planned repeated normal baseline was blocked when the desktop locked. Treat causality and magnitude as preliminary.",
+    "An earlier hidden-tab exact 1 FPS throttle trial was discarded; a native startup normal trial at 6.207 FPS with a 753 ms maximum frame was also excluded.",
+    "Unity focus flags alone did not detect the discarded hidden-tab throttle; foreground UI and stable frame cadence were also checked.",
+    "Earlier GPU observations used an old Chrome GPU-process PID. A later counter capture matched no engines, so no adapter utilization is attributed to these timings.",
+    "This smaller viewport differs from the original 5.199 FPS report and the census viewport. Absolute FPS across those runs must not be treated as an optimization gain.",
+    "Removing trees changes occlusion and ground shading. Differences are net scene costs, not isolated GPU pass self-times. No rendering optimization was applied."
+  ]
+}

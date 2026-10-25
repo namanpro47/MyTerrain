@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "ba88fdf",
+  "files": [
+    {
+      "path": "Assets/Terra/Art/SymphonieOak/Model/M_Oak01.fbx",
+      "sha256": "4b16814207d8a156fc009d6fdfadb5bb663c51c0ef8494b719031bf3afa6f230"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Rendering/InstancedNature.cs",
+      "sha256": "1e6541919e965b5d3226ce88bf7c0f1f587d5cc7cddd3f6bf1cd07f83fcbf0a9"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs",
+      "sha256": "d27b40913e08310974992a01302650a2d37a7a5d321cf9485720b24ee572c342"
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/SolidOak01.prefab",
+      "sha256": "ffdcf89a71a9ad30f8e1f0919081fda74cb95893ab42fc658deaffc3d8a25dbe"
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/SolidOak02.prefab",
+      "sha256": "c9abf77918a4a9aacb32b38946bc4ddc00b2eba67c9c10d241829340f1e2ffef"
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/SolidOak03.prefab",
+      "sha256": "c416935692c4532f0a009bd1af1863dfa51e9fc94ae95550eac474d859851414"
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/SolidOak04.prefab",
+      "sha256": "6fe29d4cf5c74d646f5e674fcace193e11c95c0361adc4b228fc576b8039255b"
+    }
+  ]
+}
