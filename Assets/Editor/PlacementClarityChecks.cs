@@ -21,6 +21,11 @@ public static class PlacementClarityChecks
     static T Field<T>(object value,string name)=>(T)value.GetType().GetField(name,Private).GetValue(value);
     static void Invoke(object value,string name,params object[] args)=>value.GetType().GetMethod(name,Private).Invoke(value,args);
     static T Read<T>(string name)=>JsonUtility.FromJson<T>(File.ReadAllText("worlds/meadowbrook-v1/"+name+".json"));
+    static Rect WorldBounds(RectTransform rect)
+    {
+        var corners=new Vector3[4];rect.GetWorldCorners(corners);
+        return Rect.MinMaxRect(corners.Min(p=>p.x),corners.Min(p=>p.y),corners.Max(p=>p.x),corners.Max(p=>p.y));
+    }
 
     public static void RunBatch()
     {
@@ -55,6 +60,13 @@ public static class PlacementClarityChecks
                     var cards=Field<System.Collections.Generic.Dictionary<UnityEngine.UI.Button,string>>(hud,"actionButtons");
                     var card=cards.First(pair=>pair.Value==offer.actionId).Key;
                     Check(card.gameObject.activeInHierarchy,"Selected tool is hidden on another page: "+offer.actionId);
+                    var instruction=WorldBounds(Field<TextMeshProUGUI>(hud,"actionSummary").rectTransform);
+                    foreach(var visibleCard in cards.Keys.Where(b=>b.gameObject.activeInHierarchy))
+                    {
+                        var bounds=WorldBounds((RectTransform)visibleCard.transform);
+                        Check(!bounds.Overlaps(instruction)&&bounds.yMin>instruction.yMax,
+                            "Project card covers dock instruction at "+size+" (large text="+large+"): "+cards[visibleCard]);
+                    }
                     foreach(var text in card.GetComponentsInChildren<TextMeshProUGUI>())
                     {
                         text.ForceMeshUpdate();

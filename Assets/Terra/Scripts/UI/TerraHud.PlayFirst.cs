@@ -132,7 +132,8 @@ namespace Terra.UI
             void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
             {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
             float center=(left+right)/2;
-            Position(actionDock,new Vector2(.5f,0),new Vector2(center-width/2,74),new Vector2(dockWidth,annualCompact?172:186));
+            // Reserve a separate instruction line below the cards, including larger text.
+            Position(actionDock,new Vector2(.5f,0),new Vector2(center-width/2,74),new Vector2(dockWidth,annualCompact?184:198));
             actionSummary.rectTransform.sizeDelta=new Vector2(dockWidth-28,20);
             int ci=0;float tabWidth=(dockWidth-72)/3;
             foreach(var category in categoryButtons.Keys)
