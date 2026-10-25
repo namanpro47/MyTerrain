@@ -82,7 +82,7 @@ namespace Terra.Gameplay
         void Update()
         {
             if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
-            if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
+            if(k?.anyKey.wasPressedThisFrame??false){CancelPlacementPress();AudioGesture();}
             if(k!=null)
             {
                 bool uiHandled=hud.KeyboardInput(k);
@@ -142,6 +142,7 @@ namespace Terra.Gameplay
             hud.PointerHover(position,kind==0);
             if(kind==0)
             {
+                ClearPlacementIntent();
                 var hits=new List<RaycastResult>();
                 if(EventSystem.current!=null)EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 uiDown=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
@@ -152,11 +153,20 @@ namespace Terra.Gameplay
                 var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 var up=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
                 var button=uiDown;uiDown=null;pressed=false;
-                if(up==button&&button.IsInteractable())button.onClick.Invoke();return;
+                if(up==button&&button.IsInteractable())button.onClick.Invoke();ClearPlacementIntent();return;
             }
 #endif
-            if(kind==3){pressed=false;return;}
-            if(kind==0){pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen;return;}
+            if(kind==3){CancelPlacementPress();return;}
+            if(kind==0)
+            {
+                pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen;
+                if(ready&&!panning&&!hud.ModalOpen)
+                {
+                    if(!overUi){SetHover(landscape.Hit(view.ScreenPointToRay(position)));CapturePlacementIntent(PreviewSiteId);}
+                    else if(hud.IsPlacementCommand(uiDown))CapturePlacementIntent(PreviewSiteId);
+                }
+                return;
+            }
             if(!ready)return;
             if(kind==1)
             {
@@ -164,16 +174,24 @@ namespace Terra.Gameplay
                 {
                     if(Vector2.Distance(position,down)>6)dragged=true;
                     if(dragged)
-                    {Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();}
+                    {ClearPlacementIntent();Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();hud.HidePlacementFeedback();}
                 }
                 else if(!hud.ModalOpen&&!UiAt(position))SetHover(landscape.Hit(view.ScreenPointToRay(position)));
                 last=position;return;
             }
             if(kind==2)
-            {bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place&&(editMode=="place"||editMode=="move")){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}else if(dragged)UpdatePreview();}
+            {
+                bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;
+                if(place&&(editMode=="place"||editMode=="move"))
+                {SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}
+                else if(dragged)UpdatePreview();
+                // Native uGUI invokes its button callback independently; retain that captured intent
+                // until it consumes it (or the next input cancels it). Web clicks are handled above.
+                if(!overUi)ClearPlacementIntent();
+            }
         }
-        public void Scroll(float amount){if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
-        public void LoseFocus(string _){pressed=false;dragged=false;if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
+        public void Scroll(float amount){CancelPlacementPress();if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(ready&&hud.ScrollFieldNotes(amount))return;if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void LoseFocus(string _){CancelPlacementPress();if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
         {
@@ -202,7 +220,7 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
+        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);PlacementArrivalView();ApplyView();}
         void FocusSite()
         {
             // Preserve the annual full-footprint framing geometry at its calibrated pitch.

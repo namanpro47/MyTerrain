@@ -11,7 +11,7 @@ namespace Terra.Gameplay
         string placementIntentSite,placementIntentTool,placementIntentMode,placementIntentSource;
         int placementIntentRevision;
 
-        // Called on pointer-down by the shared input owner. Keyboard commands use the current preview.
+        // Capture the command target on pointer-down. Keyboard commands use their current preview.
         void CapturePlacementIntent(string siteId)
         {
             placementIntentPending=ready&&annual!=null;
@@ -20,6 +20,7 @@ namespace Terra.Gameplay
             placementIntentSource=moveSourceId;placementIntentRevision=annual.State.revision;
         }
         void ClearPlacementIntent(){placementIntentPending=false;}
+        void CancelPlacementPress(){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();}
         bool ConsumePlacementIntent()
         {
             if(!placementIntentPending)return true;placementIntentPending=false;
