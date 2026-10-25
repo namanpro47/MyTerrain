@@ -4,8 +4,8 @@
   "candidateCommit": "4ad59c61907f286ecb73e6a9c7c4134587a0a09f",
   "runtimeSourceCommit": "cb9e37ec00ab2a8e600d20b9178f8eb1a781bdfe",
   "readyForIntegration": true,
-  "readyForDeployment": false,
-  "remainingVerification": "Final Chrome confirmation of this combined native-atlas/play-first export is queued. Release owner must verify final combined UI after Field Notes/selector/audio merges.",
+  "readyForDeployment": true,
+  "remainingVerification": "Frozen guidance browser verification complete. Release owner still verifies final combined UI after Field Notes/selector/audio merges.",
   "tests": {
     "modelConnected": 2460,
     "modelLegacy": 2460,
@@ -13,7 +13,9 @@
     "existingHud": 809,
     "chapters": 16,
     "webExport": true,
-    "servedFilesMatched": 19
+    "servedFilesMatched": 19,
+    "chromeCombined": true,
+    "chromeErrorCount": 0
   },
   "exportDirectory": "/Users/naman/.codex/worktrees/annual-guidance/Terra/Builds/Verified/cb9e37e",
   "localUrl": "http://127.0.0.1:49713/",
