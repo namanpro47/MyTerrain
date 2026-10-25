@@ -12,6 +12,7 @@ namespace Terra.Gameplay
         AnnualNumericTransactions numeric;
         bool numericOpening, destroyed;
         public bool NumericActive => numeric != null;
+        public Exception NumericNarrationError => numeric?.LastNarrationError;
         public bool NumericRecoveryRequired => numeric?.RecoveryRequired ?? false;
         public AnnualNumericSave NumericSaveState => RequireNumeric().SaveState;
         public event Action<AnnualNumericSave> NumericStateChanged;
@@ -49,6 +50,9 @@ namespace Terra.Gameplay
         public Task<TownYearReport> ResolveNumericYearAsync(string requestId, int revision, string localReason = null,
             string modelVersion = ReportNarration.DefaultModelVersion, CancellationToken cancellation = default)
             => RequireNumeric().ResolveYear(requestId, revision, localReason, modelVersion, cancellation);
+        public Task PrepareNumericNarrationAsync(int year, string localReason = null,
+            string modelVersion = ReportNarration.DefaultModelVersion, CancellationToken cancellation = default)
+            => RequireNumeric().PrepareNarration(year, localReason, modelVersion, cancellation);
         public Task<bool> AcceptNumericNarrationAsync(ReportNarrationRequest request, ReportNarrationReceipt receipt, CancellationToken cancellation = default)
             => RequireNumeric().AcceptNarration(request, receipt, cancellation);
         public Task<bool> UseLocalNumericNarrationAsync(ReportNarrationRequest request, string reason, CancellationToken cancellation = default)

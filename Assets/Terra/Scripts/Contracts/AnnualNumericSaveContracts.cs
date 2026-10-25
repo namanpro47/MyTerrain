@@ -13,7 +13,7 @@ namespace Terra.Contracts
     }
     [Serializable] public sealed class AnnualNumericNarration
     {
-        public string status; // pending or visible; visible commits the first receipt/mode.
+        public string status; // unprojected, pending or visible; position binds to accepted history.
         public ReportNarrationRequest request;
         public ReportNarrationReceipt receipt;
     }

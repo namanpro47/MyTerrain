@@ -27,13 +27,17 @@ namespace Terra.Core
         bool recoveryRequired;
         public event Action<AnnualNumericSave> Changed;
         public bool RecoveryRequired => recoveryRequired;
+        public Exception LastNarrationError { get; private set; }
         public AnnualNumericSave SaveState => Copy(saved);
         public AnnualTownSnapshot State => TownCopies.Copy(saved.town);
         public AnnualTownDefinition Definition => TownCopies.Copy(definition);
         // UI queries may use this detached engine; mutating it cannot bypass saving.
         public AnnualTown ReadEngine() => AnnualTown.Restore(definition, saved.town);
         public AnnualNumericNarration ForYear(int year)
-            => TownCopies.Copy(saved.narration.SingleOrDefault(n => n.request.year == year));
+        {
+            var index = Array.FindIndex(saved.town.history, report => report.year == year);
+            return index < 0 ? null : TownCopies.Copy(saved.narration[index]);
+        }
 
         AnnualNumericTransactions(AnnualTownDefinition rules, IAnnualNumericStore persistence)
         {
@@ -101,6 +105,7 @@ namespace Terra.Core
                 if (accepted != null)
                 {
                     Require(accepted.acceptedRequest.revision == revision, "Committed request ID reused with another revision.");
+                    await TryPrepare(accepted.year, localReason, modelVersion, cancellation);
                     return accepted;
                 }
                 var pending = town.BeginResolution(requestId, revision);
@@ -111,21 +116,45 @@ namespace Terra.Core
                 }
                 cancellation.ThrowIfCancellationRequested();
                 town = AnnualTown.Restore(definition, saved.town);
-                var previous = town.History.LastOrDefault();
                 var report = town.CompleteResolution(new AuthoredAnnualConsequenceProvider().Resolve(pending));
-                var projection = AnnualReportProjection.Build(definition, report, previous, modelVersion);
-                var entry = new AnnualNumericNarration { status = "pending", request = projection };
-                if (localReason != null)
-                {
-                    entry.receipt = ReportNarration.Local(projection, localReason);
-                    entry.status = "visible";
-                }
                 var complete = Copy(saved); complete.town = town.Snapshot();
-                complete.narration = complete.narration.Concat(new[] { entry }).ToArray();
+                // Numeric acceptance is durable before optional projection or prose.
+                // Position binds this pending entry to the replay-validated history.
+                complete.narration = complete.narration.Concat(new[] { new AnnualNumericNarration { status = "unprojected" } }).ToArray();
                 await Persist(complete, cancellation);
+                await TryPrepare(report.year, localReason, modelVersion, cancellation);
                 return TownCopies.Copy(report);
             }
             finally { gate.Release(); }
+        }
+
+        // Retry projection independently after numeric acceptance. Unlike ResolveYear,
+        // this explicit presentation operation reports its own failure to its caller.
+        public async Task PrepareNarration(int year, string localReason = null,
+            string modelVersion = ReportNarration.DefaultModelVersion, CancellationToken cancellation = default)
+        {
+            await gate.WaitAsync(cancellation);
+            try { await Recover(cancellation); await Prepare(year, localReason, modelVersion, cancellation); LastNarrationError = null; }
+            catch (Exception error) { LastNarrationError = error; throw; }
+            finally { gate.Release(); }
+        }
+        async Task TryPrepare(int year, string localReason, string modelVersion, CancellationToken cancellation)
+        {
+            try { await Prepare(year, localReason, modelVersion, cancellation); LastNarrationError = null; }
+            catch (Exception error) { LastNarrationError = error; } // Numeric result is already acknowledged.
+        }
+        async Task Prepare(int year, string localReason, string modelVersion, CancellationToken cancellation)
+        {
+            var index = Array.FindIndex(saved.town.history, report => report.year == year);
+            Require(index >= 0, "Narration requires an accepted numeric year.");
+            if (saved.narration[index].status != "unprojected") return;
+            cancellation.ThrowIfCancellationRequested();
+            var report = saved.town.history[index];
+            var request = AnnualReportProjection.Build(definition, report, index == 0 ? null : saved.town.history[index - 1], modelVersion);
+            var entry = new AnnualNumericNarration { status = "pending", request = request };
+            if (localReason != null) { entry.receipt = ReportNarration.Local(request, localReason); entry.status = "visible"; }
+            var projected = Copy(saved); projected.narration[index] = entry;
+            await Persist(projected, cancellation);
         }
 
         public Task<bool> AcceptNarration(ReportNarrationRequest request, ReportNarrationReceipt receipt, CancellationToken cancellation = default)
@@ -141,14 +170,14 @@ namespace Terra.Core
             try
             {
                 await Recover(cancellation);
-                var existing = saved.narration.SingleOrDefault(n => n.request.acceptedTransitionId == request.acceptedTransitionId
+                var existing = saved.narration.SingleOrDefault(n => n.request != null && n.request.acceptedTransitionId == request.acceptedTransitionId
                     && n.request.acceptedTransitionHash == request.acceptedTransitionHash);
                 if (existing == null || existing.status == "visible") return false; // Old run or a committed first mode.
                 Require(ReportNarration.RequestHash(existing.request) == ReportNarration.RequestHash(request), "Narration projection changed.");
                 receipt = localReason == null ? receipt : ReportNarration.Local(existing.request, localReason);
                 ReportNarration.ValidateReceipt(existing.request, receipt);
                 var candidate = Copy(saved);
-                var target = candidate.narration.Single(n => n.request.acceptedTransitionId == request.acceptedTransitionId);
+                var target = candidate.narration.Single(n => n.request != null && n.request.acceptedTransitionId == request.acceptedTransitionId);
                 target.receipt = receipt; target.status = "visible";
                 await Persist(candidate, cancellation);
                 return true;
@@ -202,7 +231,13 @@ namespace Terra.Core
             for (int i = 0; i < history.Length; i++)
             {
                 var item = value.narration[i];
-                Require(item != null && item.request != null && (item.status == "pending" || item.status == "visible"), "Unknown narration state.");
+                Require(item != null && (item.status == "unprojected" || item.status == "pending" || item.status == "visible"), "Unknown narration state.");
+                if (item.status == "unprojected")
+                {
+                    Require(item.request == null && item.receipt == null, "Unprojected narration must not contain presentation data.");
+                    continue;
+                }
+                Require(item.request != null, "Projected narration needs a canonical request.");
                 var projected = AnnualReportProjection.Build(definition, history[i], i == 0 ? null : history[i - 1], item.request.modelVersion);
                 Require(ReportNarration.RequestHash(item.request) == ReportNarration.RequestHash(projected), "Saved narration does not match accepted numeric facts.");
                 if (item.status == "visible") ReportNarration.ValidateReceipt(item.request, item.receipt);
@@ -223,8 +258,20 @@ namespace Terra.Core
             // receipt is equivalent to absence; populated data must be validated.
             if (result?.narration != null)
                 foreach (var item in result.narration)
-                    if (item?.status == "pending" && EmptyReceipt(item.receipt)) item.receipt = null;
+                    {
+                        if ((item?.status == "pending" || item?.status == "unprojected") && EmptyReceipt(item.receipt)) item.receipt = null;
+                        if (item?.status == "unprojected" && EmptyRequest(item.request)) item.request = null;
+                    }
             return result;
+        }
+        static bool EmptyRequest(ReportNarrationRequest r)
+        {
+            if (r == null) return true;
+            if ((r.schemaVersion != 0 && r.schemaVersion != 2) || r.year != 0) return false;
+            return typeof(ReportNarrationRequest).GetFields().Where(f => f.Name != "schemaVersion" && f.Name != "year").All(f => {
+                var value = f.GetValue(r); return value == null || value is string text && text.Length == 0
+                    || value is Array array && array.Length == 0;
+            });
         }
         static bool EmptyReceipt(ReportNarrationReceipt r)
         {
