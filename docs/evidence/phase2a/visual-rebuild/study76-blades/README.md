@@ -2,6 +2,8 @@
 
 **Cold import and asset construction passed; actual visual comparison is pending.** Fresh isolated `codex/visual-field76`, base `19e7eae835ed4c06a21d42887a9a53ed28cc4fc2`, fetched October25. No Library copied/shared. This keeps the combined native selector, inherited settlements, dense parcels, current HUD and annual loop intact.
 
+**Deadline stop:** [submission handoff](HANDOFF.md). The bounded desktop wait ended; capture139 was cancelled so submission verification can continue. No study76 Play session or visual capture was produced. The compiled study stays inactive. [Cleanup receipt](cleanup.json), [production-reference check](inactive-check.json). Phase2A remains unaccepted.
+
 [Visible comparison brief](comparison.md): inspected Terra Nil frames beside the historical Chrome field, with the specific appearance this study must improve.
 
 Unity6000.6.6f1 / CLI1.0.0-beta.14 completed the cold batch import and `Study76Builder.Build` on source `225680b`. [Actual builder output](build.json), [source identity](preflight.json), [import verification](import-verification.json). Meshes are9/5/3 vertices and7/3/1 triangles, all1.2m high with rootY0 and the same0.304m width. Shader messages are empty; the scoped log has no compiler/shader/exception matches; no scene files changed. Runtime-settings serialization and two DOTween metadata removals from import remain uncommitted. The batch process ended and resource132 was released. No screenshot, Play-state or frame-time acceptance is implied.
@@ -20,11 +22,11 @@ The prototype is outside Resources, with no production scene or rendering activa
 
 [TN-02/09/10/12 design patterns](../../../../DESIGN_REFERENCE.md), [art contract](../../../../art-direction.md), [Phase2A goal](../../../../PHASE_2A_GOAL.md) remain binding. Cheap geometry is not art acceptance. Record exact submitted geometry, actual source/annual invariants and matched captures; reject aliasing, floating roots, isolated marks, artificial bright carpets or a strong near/far transition. Whole-scene and Chrome performance/interaction/release gates remain open.
 
-Run `Study76Builder.Build` in the owned Editor or isolated batch process after reserving editor + unity-heavy for cold import. Then stop/release before acquiring the short editor + desktop capture slot. No Unity job has started at this checkpoint. Shared phase status is owned by another task; evidence remains here until a coordinated status update.
+The cold import and `Study76Builder.Build` stage is complete. Future scene comparisons require a separate editor + desktop reservation. Shared phase status is owned by another task; evidence remains here until a coordinated status update.
 
 ## Prepared candidate and reproducible comparison
 
-Candidate `124393c` is pushed to `codex/visual-field76`. All four retained source-file hashes match `source.json`; the OBJ has nine positions and seven triangles. `git diff --check` passes. **C# compilation, shader compilation, rendering, timing and visual quality remain unverified.** Latest fetched main `ce27355f6bd7b1c55e1c53c2db00b1b748ccf926` adds release evidence/documentation after the code base `19e7eae`; no new runtime change was omitted in that comparison.
+Prepared code `124393c` is pushed to `codex/visual-field76`; built assets and import evidence followed at `d7e6e7c`. All four retained source-file hashes match `source.json`; the OBJ has nine positions and seven triangles. `git diff --check` passes. Compilation is covered by the completed import; **rendering, timing and visual quality remain unverified.** The final fetch observed main `615459ac7bcc93e9e2b3f7b76b388e1f01c1fe30`, including later owner work. Those later changes were not merged into this frozen study. Do not relabel its import as validation of the latest combined game.
 
 `Study76Scene` is an Editor-only reversible study harness. Its default target is the current `grid-07-05` Wisconsin parcel (180 m square), not the removed historical `south-01`. Placement uses the active renderer's crop eligibility, route exclusion and actual terrain height. Only the parcel's baseline presentation is hidden while the study exists. Exact serialized source-world and complete annual snapshot comparisons guard every variant, capture and removal.
 
@@ -39,4 +41,4 @@ After import and `Study76Builder.Build` succeed:
 
 Capture files and frame/hash/material receipts go to ignored `Builds/ArtResearch/Study76`. Copy only inspected results into this evidence folder, with a findings document distinguishing actual results from the prepared procedure. Source-mesh LOD counts are 7/3/1; geometry upper bounds are not GPU timings.
 
-Coordination checkpoint: waiting import reservation 128 was released without launching Unity, accommodating the queued bounded cached HUD check. Replacement reservation **132** requests only this worktree's editor + unity-heavy. Desktop capture is a separate subsequent reservation. No shared resource is held by this study at this checkpoint.
+Final coordination: initial waiting128 was cancelled, import132 completed and released, and capture139 was cancelled after the bounded deadline wait. No study Editor or Play session remains running. Import-generated changes outside the study were backed up locally and restored exactly to this worktree's HEAD. No shared resource remains held by this study.
