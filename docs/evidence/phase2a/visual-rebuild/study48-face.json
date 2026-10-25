@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEditor.AssetDatabase.ImportAsset(\"Assets/Study48Ground.shader\");var s=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>(\"Assets/Study48Ground.shader\");foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>m.shader.name==\"Terra/Illustrated Ground\"&&m.GetFloat(\"_SurfaceKind\")>2.5f))m.shader=s;return UnityEditor.ShaderUtil.GetShaderMessages(s).Select(x=>x.message).ToArray();",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": []
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,10 @@
+string folder="Assets/Terra/Art/YughuesGrassStudy/";
+foreach(var guid in UnityEditor.AssetDatabase.FindAssets("t:Model",new[]{folder.TrimEnd('/')}))
+{
+ var path=UnityEditor.AssetDatabase.GUIDToAssetPath(guid);var importer=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(path);
+ importer.importNormals=UnityEditor.ModelImporterNormals.Import;importer.importTangents=UnityEditor.ModelImporterTangents.CalculateMikk;importer.globalScale=1;importer.isReadable=true;importer.SaveAndReimport();
+}
+var ti=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(folder+"diffuse.tga");ti.alphaIsTransparency=true;ti.mipmapEnabled=true;ti.mipMapsPreserveCoverage=true;ti.alphaTestReferenceValue=.5f;ti.maxTextureSize=1024;ti.SaveAndReimport();
+var old=UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().First(m=>m.shader.name=="Terra/Studies/Painted Ground 47");old.shader=UnityEngine.Resources.Load<UnityEngine.Shader>("TerraGround");old.SetFloat("_MeadowScale",12);
+UnityEngine.GameObject.Find("Study47 formed stream banks").SetActive(false);
+return UnityEditor.AssetDatabase.FindAssets("t:Model",new[]{folder.TrimEnd('/')}).Select(g=>{var p=UnityEditor.AssetDatabase.GUIDToAssetPath(g);var go=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(p);return new{path=p,parts=go.GetComponentsInChildren<UnityEngine.MeshFilter>().Select(f=>new{f.name,bounds=f.sharedMesh.bounds.ToString(),tris=f.sharedMesh.triangles.Length/3,normals=f.sharedMesh.normals.Length,transform=f.transform.localToWorldMatrix.ToString()}).ToArray()};}).ToArray();

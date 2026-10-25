@@ -14,6 +14,36 @@ namespace Terra.Rendering
         Material projectGrassMaterial,projectPathMaterial;
         public void ConfigureBuildActions(BuildActionCatalog catalog,BuildActionRules rules){buildCatalog=catalog;buildRules=rules;}
 
+        // Rules cache analytical layouts. Derive a separate presentation object so
+        // placing or previewing a model can never rewrite suitability or source relief.
+        public BuildActionLayout VisualLayout(BuildActionLayout source)
+        {
+            if(!clusteredWoodland||source==null||!source.Valid)return source;
+            float left=source.foundation[0].x,right=source.foundation[2].x,bottom=source.foundation[0].z,top=source.foundation[2].z;
+            float dx=displayDx,dz=displayDz;
+            var xs=new List<float>{left,right};var zs=new List<float>{bottom,top};
+            for(float x=xmin+Mathf.Ceil((left-xmin)/dx)*dx;x<right;x+=dx)if(x>left)xs.Add(x);
+            for(float z=zmin+Mathf.Ceil((bottom-zmin)/dz)*dz;z<top;z+=dz)if(z>bottom)zs.Add(z);
+            float high=float.MinValue,low=float.MaxValue;
+            void Sample(float x,float z){float h=Height(x,z);high=Mathf.Max(high,h);low=Mathf.Min(low,h);}
+            foreach(float x in xs)foreach(float z in zs)Sample(x,z);
+            // Include intersections of displayed mesh diagonals with foundation edges.
+            foreach(float x in new[]{left,right})
+            {
+                float gx=(x-xmin)/dx,u=gx-Mathf.Floor(gx);
+                for(int iz=Mathf.FloorToInt((bottom-zmin)/dz);iz<=Mathf.FloorToInt((top-zmin)/dz);iz++)
+                {float z=zmin+(iz+1-u)*dz;if(z>=bottom&&z<=top)Sample(x,z);}
+            }
+            foreach(float z in new[]{bottom,top})
+            {
+                float gz=(z-zmin)/dz,v=gz-Mathf.Floor(gz);
+                for(int ix=Mathf.FloorToInt((left-xmin)/dx);ix<=Mathf.FloorToInt((right-xmin)/dx);ix++)
+                {float x=xmin+(ix+1-v)*dx;if(x>=left&&x<=right)Sample(x,z);}
+            }
+            return new BuildActionLayout{x=source.x,z=source.z,yaw=source.yaw,groundY=high+.04f,relief=high-low,
+                footprint=source.footprint,foundation=source.foundation,rejection=source.rejection};
+        }
+
         Material ProjectGround(bool path)
         {
             var material=path?projectPathMaterial:projectGrassMaterial;
@@ -36,11 +66,11 @@ namespace Terra.Rendering
                 if(renderer.name=="grass"||renderer.name=="path")renderer.sharedMaterial=ProjectGround(renderer.name=="path");
         }
 
-        bool BuildCatalogAction(Site site,string id,Transform parent,bool preview)
+        bool BuildCatalogAction(Site site,string id,Transform parent,bool preview,float vegetationMaturity=1)
         {
             var action=buildRules?.Find(id);if(action==null)return false;
-            if(action.landscape){BuildAnnualLand(site,id,parent,preview);return true;}
-            var entry=buildCatalog.Find(action.artId);var layout=buildRules.Layout(site,action);
+            if(action.landscape){BuildAnnualLand(site,id,parent,preview,vegetationMaturity);return true;}
+            var entry=buildCatalog.Find(action.artId);var layout=VisualLayout(buildRules.Layout(site,action));
             if(entry?.prefab==null||!layout.Valid)return false;
             if(id=="wind")BuildWindMeadow(site,layout,parent);else BuildRemainingSite(site,layout,parent);
             var instance=Object.Instantiate(entry.prefab,parent);instance.name=entry.title+(preview?" preview":"");
@@ -57,7 +87,7 @@ namespace Terra.Rendering
             }
             {
                 // A level foundation with terrain-following sides fills the bounded gap. Existing
-                // terrain heights stay intact; the rules reject >3 m fill and protected land.
+                // analytical terrain stays intact; the rules reject >3 m source relief and protected land.
                 var geometry=new Geometry();var ring=layout.foundation;
                 for(int edge=0;edge<4;edge++)
                 {

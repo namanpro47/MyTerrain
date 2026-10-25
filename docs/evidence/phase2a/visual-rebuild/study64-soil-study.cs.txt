@@ -1,0 +1,10 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var shaderText=System.IO.File.ReadAllText("Assets/Terra/Resources/TerraGround.shader").Replace("Terra/Illustrated Ground","Terra/Study64 Quiet Soil").Replace("earthPaint*half3(.765,.68,.565),_CultivatedBeds","half3(.307,.196,.089),_CultivatedBeds");
+const string path="Assets/Editor/Study64QuietSoil.shader";System.IO.File.WriteAllText(path,shaderText);UnityEditor.AssetDatabase.ImportAsset(path,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>(path);if(UnityEditor.ShaderUtil.GetShaderMessages(shader).Any(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error))throw new System.Exception("Shader compilation failed");
+var source=UnityEngine.Resources.Load<UnityEngine.Material>("CultivatedBeds/Soil");var soil=new UnityEngine.Material(source);soil.name="Study64 quiet soil";soil.SetTexture("_BaseMap",UnityEngine.Texture2D.whiteTexture);soil.SetColor("_BaseColor",new UnityEngine.Color(.59f,.48f,.33f));
+int meshes=0,grounds=0;foreach(var renderer in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None)){
+ if(renderer.sharedMaterial==source){renderer.sharedMaterial=soil;meshes++;}
+ else if(renderer.sharedMaterial!=null&&renderer.sharedMaterial.shader.name=="Terra/Illustrated Ground"){
+ var material=new UnityEngine.Material(renderer.sharedMaterial);material.shader=shader;renderer.sharedMaterial=material;grounds++;}}
+return new{meshes,grounds,shaderErrors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Where(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error).Select(m=>m.message).ToArray()};

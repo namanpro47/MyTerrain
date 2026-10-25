@@ -1,0 +1,6 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;int changed=0;
+foreach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){
+ bool low=false;foreach(var b in (System.Collections.IEnumerable)n.GetType().GetField("batches",flags).GetValue(n))if((bool)b.GetType().GetField("groundcover",flags).GetValue(b)){low=true;break;}
+ if(low){n.CastShadows=false;changed++;}
+}
+return new{changed,frame=UnityEngine.Time.frameCount};

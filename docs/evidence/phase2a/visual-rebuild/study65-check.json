@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study65/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 35,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "homes": [
+          {
+            "x": -285,
+            "z": 4,
+            "floor": 16.193882,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "minWater": 42.17981
+          },
+          {
+            "x": -321,
+            "z": 18,
+            "floor": 17.02465,
+            "covers": [
+              "sealed"
+            ],
+            "minWater": 47.6324654
+          },
+          {
+            "x": -355,
+            "z": 35,
+            "floor": 17.41435,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "minWater": 13.022644
+          },
+          {
+            "x": -140,
+            "z": -20,
+            "floor": 13.2989511,
+            "covers": [
+              "grass"
+            ],
+            "minWater": 38.4354439
+          }
+        ],
+        "comparisonYear": 10,
+        "scope": "Editor source/site sampling and renderer lifecycle including no-action Year10. No browser, performance or replay claim."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

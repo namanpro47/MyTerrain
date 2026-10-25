@@ -1,0 +1,36 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Create evaluation prefabs in Edit mode");
+var folder="Assets/Terra/Art/QuaterniusCrops/Study59";
+if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Terra/Art/QuaterniusCrops","Study59");
+var rows=new System.Collections.Generic.List<object>();
+foreach(var name in new[]{"Beet_4"})
+{
+ var model=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/QuaterniusCrops/"+name+".fbx");
+ if(model==null)throw new System.Exception("Missing imported source "+name);
+ var root=new UnityEngine.GameObject(name);var copy=UnityEngine.Object.Instantiate(model,root.transform,false);copy.name="Artist source";
+ try
+ {
+  foreach(var renderer in copy.GetComponentsInChildren<UnityEngine.MeshRenderer>(true))
+  {
+   var source=renderer.sharedMaterials;var adapted=new UnityEngine.Material[source.Length];
+   for(int i=0;i<source.Length;i++)
+   {
+    string path=folder+"/"+name+"-"+source[i].name+".mat";
+    var mat=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>(path);
+    if(mat==null)
+    {
+     mat=new UnityEngine.Material(UnityEngine.Shader.Find("Universal Render Pipeline/Simple Lit")){name=name+" "+source[i].name,enableInstancing=true};
+     mat.SetColor("_BaseColor",source[i].color);mat.SetColor("_SpecColor",UnityEngine.Color.black);mat.SetFloat("_Smoothness",0);
+     if(source[i].mainTexture!=null)mat.SetTexture("_BaseMap",source[i].mainTexture);
+     UnityEditor.AssetDatabase.CreateAsset(mat,path);
+    }
+    adapted[i]=mat;
+   }
+   renderer.sharedMaterials=adapted;
+  }
+  var prefab=UnityEditor.PrefabUtility.SaveAsPrefabAsset(root,folder+"/"+name+".prefab");
+  var filters=prefab.GetComponentsInChildren<UnityEngine.MeshFilter>(true);
+  rows.Add(new{name,vertices=filters.Sum(x=>x.sharedMesh.vertexCount),triangles=filters.Sum(x=>x.sharedMesh.triangles.Length/3),materials=filters.SelectMany(x=>x.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials).Select(x=>new{name=x.name,color=x.color.ToString(),shader=x.shader.name}).ToArray()});
+ }
+ finally{UnityEngine.Object.DestroyImmediate(root);}
+}
+UnityEditor.AssetDatabase.SaveAssets();return rows;

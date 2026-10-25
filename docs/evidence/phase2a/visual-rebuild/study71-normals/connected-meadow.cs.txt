@@ -1,0 +1,37 @@
+// Stage one: isolate shared surface shading before changing any planting layout.
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();
+var root=UnityEngine.GameObject.Find("Mapped grassland stands");
+if(main==null||root==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)main.GetType().GetField("world",flags).GetValue(main);
+var before=UnityEngine.JsonUtility.ToJson(world);var state=main.Diagnostic;
+var groundShader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Terra/Art/MeadowSurfaceStudy/Ground.shader");
+var foliageShader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Terra/Art/MeadowSurfaceStudy/Foliage.shader");
+if(groundShader==null||foliageShader==null||!groundShader.isSupported||!foliageShader.isSupported)throw new System.Exception("Study shaders unavailable");
+var paint=UnityEngine.Resources.Load<UnityEngine.Texture2D>("JulioGround/MeadowColor");
+var grounds=(System.Collections.IDictionary)land.GetType().GetField("groundMaterials",flags).GetValue(land);
+int groundCount=0,materialCount=0,instances=0;
+foreach(UnityEngine.Material material in grounds.Values){material.shader=groundShader;material.SetFloat("_MeadowScale",40);groundCount++;}
+foreach(var nature in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var copies=new System.Collections.Generic.Dictionary<UnityEngine.Material,UnityEngine.Material>();
+ var owned=(System.Collections.Generic.List<UnityEngine.Material>)nature.GetType().GetField("ownedMaterials",flags).GetValue(nature);
+ foreach(var batch in (System.Collections.IEnumerable)nature.GetType().GetField("batches",flags).GetValue(nature)){
+  var bt=batch.GetType();var mesh=(UnityEngine.Mesh)bt.GetField("mesh",flags).GetValue(batch);var bounds=mesh.bounds;
+  if((int)bt.GetField("submesh",flags).GetValue(batch)==0)instances+=((UnityEngine.Matrix4x4[])bt.GetField("transforms",flags).GetValue(batch)).Length;
+  foreach(var name in new[]{"material","mediumMaterial","distantMaterial"}){
+   var f=bt.GetField(name,flags);var original=(UnityEngine.Material)f.GetValue(batch);if(original==null)continue;
+   if(!copies.TryGetValue(original,out var copy)){
+    copy=new UnityEngine.Material(original){shader=foliageShader,name="Study69 shared meadow",enableInstancing=true};
+    copy.SetTexture("_MeadowPaint",paint);copy.SetFloat("_MeadowScale",40);copy.SetColor("_BaseColor",UnityEngine.Color.white);
+    copy.SetVector("_PlantBounds",new UnityEngine.Vector4(bounds.min.y,bounds.max.y,System.Math.Max(bounds.size.x,bounds.size.z),0));
+    copies.Add(original,copy);owned.Add(copy);materialCount++;
+   }
+   f.SetValue(batch,copy);
+  }
+ }
+}
+if(before!=UnityEngine.JsonUtility.ToJson(world)||state!=main.Diagnostic)throw new System.Exception("Source or state changed");
+var report=new{groundCount,materialCount,instances,state,placementChanged=false,paint="JulioGround/MeadowColor",paintTileMetres=40,scope="Runtime material copies and runtime ground materials only; mapped grass layout unchanged; river meadow and interventions retain original materials."};
+System.IO.File.WriteAllText("Builds/ArtResearch/Study69/material-stage.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;

@@ -1,0 +1,1 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Terra/Art/FieldMassStudy/VolumeField.shader",UnityEditor.ImportAssetOptions.ForceUpdate);return true;

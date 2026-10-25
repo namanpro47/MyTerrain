@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEditor.AssetDatabase.ImportAsset(\"Assets/Study53Ground.shader\",UnityEditor.ImportAssetOptions.ForceSynchronousImport);return UnityEditor.ShaderUtil.GetShaderMessages(UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>(\"Assets/Study53Ground.shader\")).Select(m=>m.message).ToArray();"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": []
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

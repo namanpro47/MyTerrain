@@ -1,0 +1,208 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 144,
+        "y": 38,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Review year 1</b>",
+      "rect": {
+        "x": 144,
+        "y": 77,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 370,
+        "y": 484,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "End Year",
+      "rect": {
+        "x": 305,
+        "y": 420,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>Your plan</b>\nTraditional farmland × 3   $300,000\nRunning costs   $6,000\n\n<b>Pay now   $306,000</b>\nTax receipts to collect   +$0\nAnnual public funding   +$1,000,000\n\n$10,000,000 − $306,000 + $0 + $1,000,000\n<b>Balance after this year   $10,694,000</b>\n\nReserved for later years   $54,000\n\nAI chapter · game estimates. Ending the year commits this plan.",
+      "rect": {
+        "x": 144,
+        "y": 126,
+        "width": 736,
+        "height": 349.9200134277344
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 349.9200134277344,
+      "availableHeight": 349.9200134277344
+    },
+    {
+      "text": "↑",
+      "rect": {
+        "x": 668,
+        "y": 382,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "↓",
+      "rect": {
+        "x": 716,
+        "y": 382,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "Scroll to read",
+      "rect": {
+        "x": 760,
+        "y": 383,
+        "width": 120,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 362,
+        "y": 482,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 297,
+        "y": 418,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ↑",
+      "enabled": true,
+      "rect": {
+        "x": 660,
+        "y": 380,
+        "width": 40,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ↓",
+      "enabled": true,
+      "rect": {
+        "x": 708,
+        "y": 380,
+        "width": 40,
+        "height": 30
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 168,
+      "y": 370,
+      "width": 688,
+      "height": 140
+    },
+    {
+      "x": 16,
+      "y": 428,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 518,
+      "width": 992,
+      "height": 48
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 520,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "width": 800,
+      "height": 544
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=3; cash=1000000000; queued=3; assets=0\n"
+}

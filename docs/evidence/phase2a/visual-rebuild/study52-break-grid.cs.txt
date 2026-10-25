@@ -1,0 +1,8 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);int count=0;var random=new System.Random(52612);
+foreach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){
+var batches=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);
+foreach(var b in batches){var t=b.GetType();if(!(bool)t.GetField("crop",flags).GetValue(b))continue;var f=t.GetField("transforms",flags);var ms=(UnityEngine.Matrix4x4[])f.GetValue(b);
+for(int j=0;j<ms.Length;j++){var m=ms[j];float x=m.m03,z=m.m23;float dx=((float)random.NextDouble()-.5f)*.8f,dz=((float)random.NextDouble()-.5f)*.8f;float oldY=land.Height(x,z);m.m03+=dx;m.m23+=dz;m.m13+=land.Height(x+dx,z+dz)-oldY;ms[j]=m*UnityEngine.Matrix4x4.TRS(UnityEngine.Vector3.zero,UnityEngine.Quaternion.Euler(0,((float)random.NextDouble()-.5f)*40,0),new UnityEngine.Vector3(1.15f,.97f+(float)random.NextDouble()*.06f,1.08f));count++;}
+}}
+return new{count,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

@@ -1,0 +1,67 @@
+{
+  "source": "f1b6f73",
+  "originMainInspected": "3562320",
+  "archiveBytes": 56723476,
+  "archiveSha256": "b1d276bf3ec494e5e1ca598106f4fbb56308363b0a4d3e86688e89f889490b0c",
+  "assetCounts": {
+    ".prefab": 108,
+    ".fbx": 107,
+    ".png": 25,
+    ".mat": 32,
+    "directory": 11,
+    ".asset": 10,
+    ".shadersubgraph": 2,
+    ".lighting": 1,
+    ".unity": 2,
+    ".exr": 1,
+    ".shadergraph": 2,
+    ".terrainlayer": 3
+  },
+  "grassGraphNodes": {
+    "UnityEditor.ShaderGraph.AddNode": 3,
+    "UnityEditor.ShaderGraph.MultiplyNode": 3,
+    "UnityEditor.ShaderGraph.BlockNode": 9,
+    "UnityEditor.ShaderGraph.SineNode": 1,
+    "UnityEditor.ShaderGraph.PropertyNode": 5,
+    "UnityEditor.ShaderGraph.TriplanarNode": 1,
+    "UnityEditor.ShaderGraph.SplitNode": 2,
+    "UnityEditor.ShaderGraph.TimeNode": 1,
+    "UnityEditor.ShaderGraph.PositionNode": 2,
+    "UnityEditor.ShaderGraph.TransformNode": 1,
+    "UnityEditor.ShaderGraph.UVNode": 1
+  },
+  "properties": [
+    {
+      "name": "Texture2D",
+      "reference": "_Texture2D",
+      "value": {
+        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_Guid": ""
+      }
+    },
+    {
+      "name": "SwayAmount",
+      "reference": "_SwayAmount",
+      "value": 0.10000000149011612
+    },
+    {
+      "name": "Smoothness",
+      "reference": "_Smoothness",
+      "value": 0.0
+    },
+    {
+      "name": "Metalic",
+      "reference": "_Metalic",
+      "value": 0.0
+    },
+    {
+      "name": "WindSpeed",
+      "reference": "_WindSpeed",
+      "value": 0.10000000149011612
+    }
+  ],
+  "state": "Native original/distant and actual Terra normal/close rendered; direct grass replacement rejected; no production changes",
+  "editorVersion": "6000.6.6f1",
+  "importReservation": 20,
+  "nativeCaptureReservation": 25
+}

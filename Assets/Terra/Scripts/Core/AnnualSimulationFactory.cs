@@ -9,6 +9,7 @@ namespace Terra.Core
         // A new definition/save identity. The supplied legacy definition is never mutated.
         public static AnnualTownDefinition Create(AnnualTownDefinition legacy, AnnualSimulationWeather weather, string seed, string sensitivity = "central", WorldData baselineWorld = null)
         {
+            legacy = TownCopies.Copy(legacy); // Normalize Unity-expanded absent optional DTOs before validation.
             AnnualTown.Require(legacy != null && legacy.schemaVersion == 2 && legacy.simulation == null, "Upgrade an explicit legacy full-game definition once.");
             AnnualTown.Require(new[]{"low","central","high"}.Contains(sensitivity), "Choose a pinned low/central/high response sensitivity.");
             AnnualTown.Require(legacy.version!="4.0.0"||baselineWorld!=null,"Dense parcels require their source cultivated-cover partition; output presence cannot imply a whole cropped field.");
@@ -22,7 +23,7 @@ namespace Terra.Core
                     &&Math.Abs(source.baselineCover.Sum(c=>(double)c.fraction)-1)<.00001,"Incomplete source cover partition.");
                 return Math.Min(1,source.baselineCover.Where(c=>c.coverId=="cultivated").Sum(c=>(double)c.fraction));
             }
-            var d = TownCopies.Copy(legacy);
+            var d = legacy;
             d.schemaVersion = 3; d.version = "4.0.0";
             d.assumptions = AnnualSimulationWeather.Disclosure + " Crop output, exposure, response curves and repair duties are illustrative scenario rules. No calibrated yield, flood depth, probability or private crop income enters public cash.";
             var crops = new[] {

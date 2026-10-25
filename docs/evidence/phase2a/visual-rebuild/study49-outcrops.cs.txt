@@ -1,0 +1,16 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);
+foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.shader.name=="Terra/Studies/Cliff49"))m.shader=UnityEngine.Resources.Load<UnityEngine.Shader>("TerraGround");
+var root=new UnityEngine.GameObject("Study49 native rock outcrops");var prefab=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Rock_01.prefab");
+var rng=new System.Random(492);var placed=new System.Collections.Generic.List<UnityEngine.Vector2>();
+float Distance(Terra.Contracts.Point[] points,float x,float z){var p=new UnityEngine.Vector2(x,z);float d=10000;for(int i=1;i<points.Length;i++){var a=new UnityEngine.Vector2(points[i-1].x,points[i-1].z);var b=new UnityEngine.Vector2(points[i].x,points[i].z);var v=b-a;var t=UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(p-a,v)/v.sqrMagnitude);d=UnityEngine.Mathf.Min(d,UnityEngine.Vector2.Distance(p,a+v*t));}return d;}
+for(float z=-220;z<180;z+=3)for(float x=-400;x<80;x+=3){
+float h=land.SourceHeight(x,z),f=h/6-UnityEngine.Mathf.Floor(h/6);if(UnityEngine.Mathf.Abs(f-.5f)>.025f)continue;
+var p=new UnityEngine.Vector2(x,z);if(placed.Any(q=>(q-p).sqrMagnitude<64))continue;
+if(UnityEngine.Mathf.PerlinNoise(x*.022f+10,z*.022f+20)<.46f)continue;
+if(world.features.Any(w=>(w.kind=="water"||w.kind=="path")&&Distance(w.points,x,z)<w.widthM*.5f+6))continue;
+var uphill=new UnityEngine.Vector2(land.SourceHeight(x+1,z)-land.SourceHeight(x-1,z),land.SourceHeight(x,z+1)-land.SourceHeight(x,z-1));if(uphill.magnitude<.09f)continue;
+var rock=UnityEngine.Object.Instantiate(prefab,root.transform);rock.name="Illustrative outcrop";float s=.8f+(float)rng.NextDouble()*.5f;rock.transform.position=new UnityEngine.Vector3(x,land.Height(x,z)-.6f,z);
+rock.transform.localScale=new UnityEngine.Vector3(10*s,9*s,8*s);rock.transform.rotation=UnityEngine.Quaternion.Euler((float)rng.NextDouble()*12-6,UnityEngine.Mathf.Atan2(-uphill.x,-uphill.y)*UnityEngine.Mathf.Rad2Deg+(float)rng.NextDouble()*30-15,(float)rng.NextDouble()*8-4);placed.Add(p);
+}
+return new{placed=placed.Count,vertices=placed.Count*348,sourceShader=prefab.GetComponentInChildren<UnityEngine.Renderer>().sharedMaterial.shader.name,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

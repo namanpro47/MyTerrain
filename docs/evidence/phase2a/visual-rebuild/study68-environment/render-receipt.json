@@ -1,0 +1,65 @@
+{
+  "productionSource": "f1b6f73",
+  "researchSource": "cc51f5a",
+  "originMainInspected": "7c322e9",
+  "editor": "6000.6.6f1",
+  "pipeline": "PC_RPAsset with existing local configuration, not publisher project settings",
+  "renders": {
+    "native-original.png": {
+      "size": [
+        1280,
+        720
+      ],
+      "camera": [
+        -155.66,
+        17.24,
+        -223.14
+      ],
+      "rotation": [
+        32.16,
+        132.04,
+        0
+      ],
+      "sha256": "c973d36b1f612eaa17adf74ffc9814b9ca645799383df62d8b53165f1135b046"
+    },
+    "native-distant.png": {
+      "size": [
+        1280,
+        720
+      ],
+      "camera": [
+        -205.96,
+        59.82,
+        -177.79
+      ],
+      "rotation": [
+        32.16,
+        132.04,
+        0
+      ],
+      "sha256": "dae490cd6e6c79d0742ef1e6a95bd656214b285861c6c9bbca5e0f7e991e3ae4"
+    },
+    "terra-control-normal.png": {
+      "frame": 8194,
+      "sha256": "2d005809bad3c9dead5b6b30a8a27ac35d133790e0a0586a7e818dce24196b23"
+    },
+    "terra-native-grass-normal.png": {
+      "frame": 9203,
+      "sha256": "7d436b5261aab8737acdbfb76d81ab3e50d865180f9050a77d9031540d7efbd1"
+    },
+    "terra-native-grass-close.png": {
+      "frame": 105658,
+      "sha256": "695a68fb75f67a0d32c0b198ddbc72839315a0bcf7de745474fc97eb0c853aea"
+    }
+  },
+  "cleanup": {
+    "playing": false,
+    "scene": "Assets/Terra/Scenes/TerraMain.unity",
+    "dirty": false,
+    "remainingStudyObjects": 0,
+    "editorPid44867": "closed gracefully and process absent",
+    "launcherPid44864": "process absent",
+    "reservation25": "released"
+  },
+  "decision": "Reject direct native grass replacement. Native near-field construction does not establish coherent meadow masses at Terra play distance. No production changes."
+}

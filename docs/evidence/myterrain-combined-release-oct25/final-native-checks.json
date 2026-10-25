@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "try {\nvar flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic;\ntypeof(MainGameChapterChecks).GetField(\"count\",flags).SetValue(null,0);\ntypeof(MainGameChapterChecks).GetMethod(\"CheckSessionAndHud\",flags).Invoke(null,null);\nint hud=(int)typeof(MainGameChapterChecks).GetField(\"count\",flags).GetValue(null);\nPlacementClarityChecks.RunBatch();\nreturn new {hud,chapters=AnnualChapterChecks.Run(),audio=TerraAudioChecks.Run(),atlas=AtlasLocationChecks.Run()};\n} catch(System.Exception e) {return new {failure=e.ToString()};}\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "hud": 881,
+        "chapters": 16,
+        "audio": "{\n    \"checks\": 380,\n    \"clips\": 79,\n    \"bytes\": 7827093,\n    \"families\": [\n        \"farm\",\n        \"rotation\",\n        \"margin\",\n        \"cover\",\n        \"meadow\",\n        \"swale\",\n        \"park\",\n        \"home\",\n        \"housing\",\n        \"warehouse\",\n        \"data\",\n        \"village\",\n        \"power\",\n        \"solar\",\n        \"wind\",\n        \"stewardship\",\n        \"water\"\n    ],\n    \"unity\": \"6000.6.6f1\",\n    \"result\": \"passed\"\n}",
+        "atlas": "Atlas locations: 678 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,6 @@
+{
+  "originalSceneGuid": "99c9720ab356a0642a771bea13969a05",
+  "studySceneGuid": "0ad0aa77045d53e782cbf4a754500c74",
+  "reason": "Original GUID collides with Assets/Scenes/SampleScene.unity.meta; remap study copy and text references only",
+  "otherOriginalGuidCollisions": 0
+}

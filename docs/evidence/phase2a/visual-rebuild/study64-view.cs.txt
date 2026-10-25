@@ -1,0 +1,12 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var values=System.IO.File.ReadAllText("Builds/ArtResearch/Study64/view.txt").Split(',');
+float V(int i)=>float.Parse(values[i],System.Globalization.CultureInfo.InvariantCulture);
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var t=main.GetType();
+var land=(Terra.Rendering.LandscapeRenderer)t.GetField("landscape",flags).GetValue(main);
+t.GetField("perspective",flags).SetValue(main,V(0)>0);
+foreach(var n in new[]{"yaw","shownYaw"})t.GetField(n,flags).SetValue(main,V(1));
+foreach(var n in new[]{"pitch","shownPitch"})t.GetField(n,flags).SetValue(main,V(2));
+foreach(var n in new[]{"zoom","shownZoom"})t.GetField(n,flags).SetValue(main,V(3));
+foreach(var n in new[]{"target","shownTarget"})t.GetField(n,flags).SetValue(main,new UnityEngine.Vector3(V(4),V(5),V(6)));
+t.GetMethod("RenderView",flags).Invoke(main,null);land.ViewScale(2*V(3)/720);
+return new{frame=UnityEngine.Time.frameCount,settings=values,annual=main.Diagnostic,camera=UnityEngine.Camera.main.transform.position.ToString(),lights=UnityEngine.Object.FindObjectsByType<UnityEngine.Light>(UnityEngine.FindObjectsSortMode.None).Select(l=>new{l.name,l.intensity,direction=l.transform.eulerAngles.ToString()}).ToArray()};

@@ -1,0 +1,7 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study49Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study49Ground.shader");
+var path="/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/ArtResearch/CliffRock002/";
+UnityEngine.Texture2D Load(string name,bool linear){var tex=new UnityEngine.Texture2D(2,2,UnityEngine.TextureFormat.RGBA32,true,linear);tex.LoadImage(System.IO.File.ReadAllBytes(path+name));tex.wrapMode=UnityEngine.TextureWrapMode.Repeat;tex.name=name;return tex;}
+var color=Load("Stylized_Cliff_Rock_002_basecolor.jpg",false);var normal=Load("Stylized_Cliff_Rock_002_normal.jpg",true);int changed=0;
+foreach(var material in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.shader.name=="Terra/Illustrated Ground"&&m.HasFloat("_SurfaceKind")&&m.GetFloat("_SurfaceKind")>2.5f)) {material.shader=shader;material.SetTexture("_CliffMap",color);material.SetTexture("_CliffNormal",normal);changed++;}
+return new{changed,errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray(),frame=UnityEngine.Time.frameCount};

@@ -1,0 +1,1341 @@
+{
+  "schema": 1,
+  "license": "CC0-1.0",
+  "sources": [
+    {
+      "id": "impact",
+      "creator": "Kenney",
+      "title": "Impact Sounds 1.0",
+      "page": "https://kenney.nl/assets/impact-sounds",
+      "url": "https://kenney.nl/media/pages/assets/impact-sounds/87b4ddecda-1677589768/kenney_impact-sounds.zip",
+      "file": "impact.zip",
+      "license": "CC0-1.0",
+      "sha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8"
+    },
+    {
+      "id": "piano",
+      "creator": "Indieteur",
+      "title": "Mystical Piano",
+      "page": "https://opengameart.org/content/mystical-piano",
+      "url": "https://opengameart.org/sites/default/files/Mystical%20Piano.Wav",
+      "file": "piano.wav",
+      "license": "CC0-1.0",
+      "sha256": "e87ccffc94434be0d94dd91113725c13a42a88805f4091e5cecc7008fe8ba82d"
+    },
+    {
+      "id": "vaporware",
+      "creator": "The Cynic Project / cynicmusic.com / pixelsphere.org",
+      "title": "Vaporware",
+      "page": "https://opengameart.org/content/calm-piano-1-vaporware",
+      "url": "https://opengameart.org/sites/default/files/003_Vaporware_2.mp3",
+      "file": "vaporware.mp3",
+      "license": "CC0-1.0",
+      "sha256": "1697fa1b7ed6f3fe1eca4daa4f9d1a2eb3db8fe40a0f3c283529ab47e57b5b38"
+    },
+    {
+      "id": "river",
+      "creator": "Thimras",
+      "title": "Park ambiences: river",
+      "page": "https://opengameart.org/content/park-ambiences",
+      "url": "https://opengameart.org/sites/default/files/park_ambience_river.wav",
+      "file": "river.wav",
+      "license": "CC0-1.0",
+      "sha256": "da0c0c9b1249a83a1611cc116d5737b0864a8db9f45f1ae8dcc079d0f7c0bbbf"
+    },
+    {
+      "id": "birds",
+      "creator": "Thimras",
+      "title": "Park ambiences: birds",
+      "page": "https://opengameart.org/content/park-ambiences",
+      "url": "https://opengameart.org/sites/default/files/park_ambience_birds.wav",
+      "file": "birds.wav",
+      "license": "CC0-1.0",
+      "sha256": "dc1a5ac34b89cab7f8f261b53a23da7c1c5e3cc895aae4cb6fb4a1a04001b2af"
+    }
+  ],
+  "legacy_manifest": "Assets/Terra/Audio/ExternalKit/manifest.json",
+  "original_tones": "Original mathematically synthesized mallet gestures in scripts/prepare-audio.py; CC0-1.0.",
+  "processing": "32 kHz; DC removal; low pass; RMS/peak mastering; microfades; crossfaded nature loops; music full-length except creator-specified 95s Mystical Piano boundary. Runtime six-second musical transitions.",
+  "geography": "Decorative illustrative sound only. Thimras recordings were made in Adelaide, Australia, not game locations. No observed species/weather claims.",
+  "clips": [
+    {
+      "id": "place-farm-0",
+      "file": "place-farm-0.wav",
+      "seconds": 0.7776,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.95,
+      "boundary_step": 0.0,
+      "sha256": "3ecb3e127b5143c81426e1a3ccb8a220adab789071bc74a7b347e7c5fe1ba6de",
+      "bytes": 49810
+    },
+    {
+      "id": "place-farm-1",
+      "file": "place-farm-1.wav",
+      "seconds": 0.6736,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.74,
+      "rms_dbfs": -24.23,
+      "boundary_step": 0.0,
+      "sha256": "7d67895ccebbb6769c7262505dec3fd6f3e88e353d07b05f6aadb281f8565a95",
+      "bytes": 43156
+    },
+    {
+      "id": "place-farm-2",
+      "file": "place-farm-2.wav",
+      "seconds": 0.6925,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.25,
+      "rms_dbfs": -24.24,
+      "boundary_step": 0.0,
+      "sha256": "eed56ee38d6bc577f6b21e13c375cc6710e3c7c134eeb29464dde6ff243001ec",
+      "bytes": 44362
+    },
+    {
+      "id": "place-rotation-0",
+      "file": "place-rotation-0.wav",
+      "seconds": 0.9876,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.16,
+      "boundary_step": 0.0,
+      "sha256": "f180092681ac81b51065cd40a79dec3a3fc80f6cc75d4c5e0b1a5496dcd2c84b",
+      "bytes": 63250
+    },
+    {
+      "id": "place-rotation-1",
+      "file": "place-rotation-1.wav",
+      "seconds": 0.8836,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.4,
+      "boundary_step": 0.0,
+      "sha256": "8727eb693170ad48df71908254ef2cdaab296e07354030f86ed9154d729f48af",
+      "bytes": 56596
+    },
+    {
+      "id": "place-rotation-2",
+      "file": "place-rotation-2.wav",
+      "seconds": 0.9025,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.58,
+      "boundary_step": 0.0,
+      "sha256": "9d095013080a19c5504b58982eb65d99d99c1fd2a1ab90b45d2b71960711d618",
+      "bytes": 57802
+    },
+    {
+      "id": "place-margin-0",
+      "file": "place-margin-0.wav",
+      "seconds": 0.7776,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.76,
+      "boundary_step": 0.0,
+      "sha256": "995a960bdf655ffc82e68a2fd5b7adfa9bb0bd82cca02dfa0f7e9e322be13335",
+      "bytes": 49810
+    },
+    {
+      "id": "place-margin-1",
+      "file": "place-margin-1.wav",
+      "seconds": 0.6736,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.16,
+      "rms_dbfs": -24.3,
+      "boundary_step": 0.0,
+      "sha256": "fa4febad44089d97963746b7e6e883c025e616dec9aff85c1538f75d63086a5a",
+      "bytes": 43156
+    },
+    {
+      "id": "place-margin-2",
+      "file": "place-margin-2.wav",
+      "seconds": 0.6925,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.67,
+      "rms_dbfs": -24.31,
+      "boundary_step": 0.0,
+      "sha256": "c90ef9ac57c9df215fca3cbd37eb050b886870282d7a5803c73fa78850e6dbf6",
+      "bytes": 44362
+    },
+    {
+      "id": "place-cover-0",
+      "file": "place-cover-0.wav",
+      "seconds": 1.0376,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -27.02,
+      "boundary_step": 0.0,
+      "sha256": "edcafa7b1b39c6c1cd6343c240da10763749f1358a7d78cc78751e645d1cce1d",
+      "bytes": 66450
+    },
+    {
+      "id": "place-cover-1",
+      "file": "place-cover-1.wav",
+      "seconds": 0.9336,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.4,
+      "boundary_step": 0.0,
+      "sha256": "b58d2cf9adbd9900c45dbd1b17cef8ac5c7942d5dab392a46e11cef6d49f1b47",
+      "bytes": 59796
+    },
+    {
+      "id": "place-cover-2",
+      "file": "place-cover-2.wav",
+      "seconds": 0.9525,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.96,
+      "boundary_step": 0.0,
+      "sha256": "830336f37c4a9be81720a18cadc94efb81c89f789b358ccf4e669c9fe798e1f5",
+      "bytes": 61002
+    },
+    {
+      "id": "place-meadow-0",
+      "file": "place-meadow-0.wav",
+      "seconds": 0.7776,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.9,
+      "rms_dbfs": -24.25,
+      "boundary_step": 0.0,
+      "sha256": "a49fe7bb2722d5af0211893c498f1f1a836a74df0546c9729e5cd8807491182e",
+      "bytes": 49810
+    },
+    {
+      "id": "place-meadow-1",
+      "file": "place-meadow-1.wav",
+      "seconds": 0.7121,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -11.32,
+      "rms_dbfs": -24.23,
+      "boundary_step": 0.0,
+      "sha256": "2e19a5619710c43c678056d595a2eed1395642d3cc3f658454f5bed392c3bb94",
+      "bytes": 45616
+    },
+    {
+      "id": "place-meadow-2",
+      "file": "place-meadow-2.wav",
+      "seconds": 0.7123,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -11.61,
+      "rms_dbfs": -24.2,
+      "boundary_step": 0.0,
+      "sha256": "2e2d492d0947c46efd17e79050098a607d46a02d7f8b7518c0c3c46170a600eb",
+      "bytes": 45634
+    },
+    {
+      "id": "place-swale-0",
+      "file": "place-swale-0.wav",
+      "seconds": 0.9375,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.68,
+      "rms_dbfs": -24.12,
+      "boundary_step": 0.0,
+      "sha256": "2ab1147c44a3c64bd960f246f22b63eba979bae7b304765600e77b0254f481fa",
+      "bytes": 60042
+    },
+    {
+      "id": "place-swale-1",
+      "file": "place-swale-1.wav",
+      "seconds": 0.8694,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.11,
+      "rms_dbfs": -24.12,
+      "boundary_step": 0.0,
+      "sha256": "2da03bad4ef7bc2449e86e6a2387c3fc97eee0a3ef41d06d23a957e570644b90",
+      "bytes": 55688
+    },
+    {
+      "id": "place-swale-2",
+      "file": "place-swale-2.wav",
+      "seconds": 0.82,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.44,
+      "rms_dbfs": -24.17,
+      "boundary_step": 0.0,
+      "sha256": "86fedfbf01d33763a1e899c3ffe17820780288d7a3bdf662205f9a96dc4a3732",
+      "bytes": 52524
+    },
+    {
+      "id": "place-park-0",
+      "file": "place-park-0.wav",
+      "seconds": 0.9376,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.52,
+      "boundary_step": 0.0,
+      "sha256": "d471dee1754cb388c858364c72e19abbe3a35ea9f576ffea25f0a974d375eb51",
+      "bytes": 60050
+    },
+    {
+      "id": "place-park-1",
+      "file": "place-park-1.wav",
+      "seconds": 0.8336,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -25.43,
+      "boundary_step": 0.0,
+      "sha256": "672c6481af729b81fac8165b40ac8a120fc6d8d2b6cfc4e034c7cfdf2a7b75a3",
+      "bytes": 53396
+    },
+    {
+      "id": "place-park-2",
+      "file": "place-park-2.wav",
+      "seconds": 0.8525,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -25.57,
+      "boundary_step": 0.0,
+      "sha256": "51b8fe2206343999e08223b159df5cf6c622962d0493c9deddd7e51b9135453e",
+      "bytes": 54602
+    },
+    {
+      "id": "place-home-0",
+      "file": "place-home-0.wav",
+      "seconds": 0.949,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.48,
+      "rms_dbfs": -24.26,
+      "boundary_step": 0.0,
+      "sha256": "c402212feb09a6eab0bc42c6261cf7745044201c71d26c215e78fbdc36b2cb4a",
+      "bytes": 60782
+    },
+    {
+      "id": "place-home-1",
+      "file": "place-home-1.wav",
+      "seconds": 0.949,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.91,
+      "rms_dbfs": -24.18,
+      "boundary_step": 0.0,
+      "sha256": "48798fec8d593232638ef199174af74328c6622bfb3788f50bc896ad9bab28e8",
+      "bytes": 60782
+    },
+    {
+      "id": "place-home-2",
+      "file": "place-home-2.wav",
+      "seconds": 0.949,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.74,
+      "rms_dbfs": -24.21,
+      "boundary_step": 0.0,
+      "sha256": "8aa6cdbe7bbe336a7a1de9ccccd7b0731341c8d0176750e497012235b3892f7e",
+      "bytes": 60782
+    },
+    {
+      "id": "place-housing-0",
+      "file": "place-housing-0.wav",
+      "seconds": 0.9375,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.64,
+      "rms_dbfs": -24.1,
+      "boundary_step": 0.0,
+      "sha256": "3cc9e7cf4fc97bf860f321fce682fb2deef315b6bf5b68c0308c91c17be3f8ec",
+      "bytes": 60042
+    },
+    {
+      "id": "place-housing-1",
+      "file": "place-housing-1.wav",
+      "seconds": 0.8694,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.25,
+      "rms_dbfs": -24.1,
+      "boundary_step": 0.0,
+      "sha256": "41e450d56ee14fb8fa86d67fed8e77460ba3e459698fea89edd4ddc7596a8f75",
+      "bytes": 55688
+    },
+    {
+      "id": "place-housing-2",
+      "file": "place-housing-2.wav",
+      "seconds": 0.8047,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.17,
+      "rms_dbfs": -24.12,
+      "boundary_step": 0.0,
+      "sha256": "846b960d6c9433ebc89dbb7b0230eb74c3bed93a33982afcac04ceb094d12b95",
+      "bytes": 51544
+    },
+    {
+      "id": "place-warehouse-0",
+      "file": "place-warehouse-0.wav",
+      "seconds": 0.779,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.93,
+      "rms_dbfs": -24.12,
+      "boundary_step": 0.0,
+      "sha256": "a7e1d5c993d4c1e3cd06d2aa71f01d5ba96ae7162478fcbd6e168e3e2952990c",
+      "bytes": 49902
+    },
+    {
+      "id": "place-warehouse-1",
+      "file": "place-warehouse-1.wav",
+      "seconds": 0.779,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.09,
+      "rms_dbfs": -24.14,
+      "boundary_step": 0.0,
+      "sha256": "43d597c71f80e39d66bd96b7bd05d3d142a741d5db3fd1a2d296d20fa56b9276",
+      "bytes": 49902
+    },
+    {
+      "id": "place-warehouse-2",
+      "file": "place-warehouse-2.wav",
+      "seconds": 0.779,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.54,
+      "rms_dbfs": -24.27,
+      "boundary_step": 0.0,
+      "sha256": "d20b8ebf17e5c8dcd65156820ce905184e00dc47a515709bee32f2a42e35b527",
+      "bytes": 49902
+    },
+    {
+      "id": "place-data-0",
+      "file": "place-data-0.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.57,
+      "rms_dbfs": -24.17,
+      "boundary_step": 0.0,
+      "sha256": "1635e2edfaa52636a7eb9275512c1cfd8344afb335c63589625b63faa0449368",
+      "bytes": 53164
+    },
+    {
+      "id": "place-data-1",
+      "file": "place-data-1.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.22,
+      "rms_dbfs": -24.21,
+      "boundary_step": 0.0,
+      "sha256": "0cbad62c0351de511c312ab63e2f5f2a66a99b4cf7dd7189a5f3749e9a7c1dbb",
+      "bytes": 53164
+    },
+    {
+      "id": "place-data-2",
+      "file": "place-data-2.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.2,
+      "rms_dbfs": -24.2,
+      "boundary_step": 0.0,
+      "sha256": "30d5019af282dd55ba371318c05a8896673fba3194522427fa73e47bb246258c",
+      "bytes": 53164
+    },
+    {
+      "id": "place-village-0",
+      "file": "place-village-0.wav",
+      "seconds": 0.5096,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.0,
+      "rms_dbfs": -24.4,
+      "boundary_step": 0.0,
+      "sha256": "ef9f1e2baf28187c65208b13675ed1a8fec647c3be2b591f4f5bdc7e242e57dd",
+      "bytes": 32658
+    },
+    {
+      "id": "place-village-1",
+      "file": "place-village-1.wav",
+      "seconds": 0.5096,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.72,
+      "rms_dbfs": -24.34,
+      "boundary_step": 0.0,
+      "sha256": "c6ae2925e533a9a35a895eca2f03a07420f3c451f6fd6eb2f64afc382df79f24",
+      "bytes": 32658
+    },
+    {
+      "id": "place-village-2",
+      "file": "place-village-2.wav",
+      "seconds": 0.5096,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.15,
+      "rms_dbfs": -24.38,
+      "boundary_step": 0.0,
+      "sha256": "9e55b91ecbf074283f31459399152a2d09f5c6eea121851c7803879046898c0e",
+      "bytes": 32658
+    },
+    {
+      "id": "place-power-0",
+      "file": "place-power-0.wav",
+      "seconds": 0.3787,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.63,
+      "rms_dbfs": -24.98,
+      "boundary_step": 0.0,
+      "sha256": "335db90928cb8ab2fa62eb15c54f211b35a316cfe8e7c60e271e71f139eab1b0",
+      "bytes": 24282
+    },
+    {
+      "id": "place-power-1",
+      "file": "place-power-1.wav",
+      "seconds": 0.3943,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.01,
+      "rms_dbfs": -24.9,
+      "boundary_step": 0.0,
+      "sha256": "3135304be2e8a8b96f511524da8ad10fc0520325c7080dfb4028dd337b44d50f",
+      "bytes": 25280
+    },
+    {
+      "id": "place-power-2",
+      "file": "place-power-2.wav",
+      "seconds": 0.3538,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.81,
+      "rms_dbfs": -24.94,
+      "boundary_step": 0.0,
+      "sha256": "8aa145a0544efa4198f86e2e7816e331b8552168b3ed779f1e9aa3b080735583",
+      "bytes": 22688
+    },
+    {
+      "id": "place-solar-0",
+      "file": "place-solar-0.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.37,
+      "rms_dbfs": -24.13,
+      "boundary_step": 0.0,
+      "sha256": "871bb01dbd5bd711af293fe259bff318aa0ea610fa4896e6ff2385725e688154",
+      "bytes": 53164
+    },
+    {
+      "id": "place-solar-1",
+      "file": "place-solar-1.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.89,
+      "rms_dbfs": -24.14,
+      "boundary_step": 0.0,
+      "sha256": "58027fa5a9b91eb9041d83059c5a254977c024417520035890a8942374f95913",
+      "bytes": 53164
+    },
+    {
+      "id": "place-solar-2",
+      "file": "place-solar-2.wav",
+      "seconds": 0.83,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.3,
+      "rms_dbfs": -24.16,
+      "boundary_step": 0.0,
+      "sha256": "885c872247fe32bb7f749323d2ba421002fa0174bc8c9332327d66ba6ff07a60",
+      "bytes": 53164
+    },
+    {
+      "id": "place-wind-0",
+      "file": "place-wind-0.wav",
+      "seconds": 0.98,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "legacy-wind"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -12.3,
+      "rms_dbfs": -24.09,
+      "boundary_step": 0.0,
+      "sha256": "c5e0f532357562653f4ee26fecacd4da5893ca5fee39e97cb2e49c3c50e79cb3",
+      "bytes": 62764
+    },
+    {
+      "id": "place-wind-1",
+      "file": "place-wind-1.wav",
+      "seconds": 0.98,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "legacy-wind"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -12.27,
+      "rms_dbfs": -24.11,
+      "boundary_step": 0.0,
+      "sha256": "3d35b0e1945acd60d437f8cfcd300d892c71548d55818ffd9b0eb2d88563aa1d",
+      "bytes": 62764
+    },
+    {
+      "id": "place-wind-2",
+      "file": "place-wind-2.wav",
+      "seconds": 0.98,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "legacy-wind"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -12.43,
+      "rms_dbfs": -24.09,
+      "boundary_step": 0.0,
+      "sha256": "c572f70fd2a674463d625398657450c6bcf72058447ddcd40e7c4aa63c4e6db7",
+      "bytes": 62764
+    },
+    {
+      "id": "place-stewardship-0",
+      "file": "place-stewardship-0.wav",
+      "seconds": 0.7776,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -25.55,
+      "boundary_step": 0.0,
+      "sha256": "ff52778206b53b52e809909306aafdac2e3f22796e639f86ac68c0791cea844b",
+      "bytes": 49810
+    },
+    {
+      "id": "place-stewardship-1",
+      "file": "place-stewardship-1.wav",
+      "seconds": 0.6736,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.08,
+      "rms_dbfs": -24.5,
+      "boundary_step": 0.0,
+      "sha256": "5b6b2c0c93356561ce974bf53b3b245bcd50fca6b853b7d2ee323db4c298a74b",
+      "bytes": 43156
+    },
+    {
+      "id": "place-stewardship-2",
+      "file": "place-stewardship-2.wav",
+      "seconds": 0.6925,
+      "channels": 1,
+      "sources": [
+        "impact"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -24.42,
+      "boundary_step": 0.0,
+      "sha256": "e621fdccfd2c776f2d3e6e7d69b1c93a7803bfe324e4d0c8bae4c3e2923d5c04",
+      "bytes": 44362
+    },
+    {
+      "id": "place-water-0",
+      "file": "place-water-0.wav",
+      "seconds": 1.0675,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.8,
+      "rms_dbfs": -24.12,
+      "boundary_step": 0.0,
+      "sha256": "4fad916587fc7ca80da91a597cc40f395df0ac3e062c81f240bbfc2fd4b65890",
+      "bytes": 68362
+    },
+    {
+      "id": "place-water-1",
+      "file": "place-water-1.wav",
+      "seconds": 0.9994,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.36,
+      "rms_dbfs": -24.17,
+      "boundary_step": 0.0,
+      "sha256": "1b2e0d7d12b457a0e80d661784dd0ee97e7f6f8057b37e3d8d2536e1c79a93e9",
+      "bytes": 64008
+    },
+    {
+      "id": "place-water-2",
+      "file": "place-water-2.wav",
+      "seconds": 0.9347,
+      "channels": 1,
+      "sources": [
+        "impact",
+        "river"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -10.31,
+      "rms_dbfs": -24.18,
+      "boundary_step": 0.0,
+      "sha256": "e1cc7137ca86154264fef3bf7fa7aff97f384414db45543148e5b609e2fef8de",
+      "bytes": 59864
+    },
+    {
+      "id": "ui-click",
+      "file": "ui-click.wav",
+      "seconds": 0.1098,
+      "channels": 1,
+      "sources": [
+        "legacy-kenney"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -11.91,
+      "rms_dbfs": -25.34,
+      "boundary_step": 0.0,
+      "sha256": "c2947d73990bf5b8d16908393964190f2bb76a52fbae05dc388e04d8db194bca",
+      "bytes": 7074
+    },
+    {
+      "id": "ui-focus",
+      "file": "ui-focus.wav",
+      "seconds": 0.065,
+      "channels": 1,
+      "sources": [
+        "legacy-kenney"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -15.82,
+      "rms_dbfs": -24.63,
+      "boundary_step": 0.0,
+      "sha256": "3c3851cf6ac46cf5d96374d1b70606d98247a415a6fd6980a5561340107a7a88",
+      "bytes": 4204
+    },
+    {
+      "id": "cancel",
+      "file": "cancel.wav",
+      "seconds": 0.1478,
+      "channels": 1,
+      "sources": [
+        "legacy-kenney"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.54,
+      "rms_dbfs": -24.23,
+      "boundary_step": 0.0,
+      "sha256": "c73350bfa42df288a1b996d8a7bb420e0b770ed594befdbec5a59b7b54a69e3a",
+      "bytes": 9504
+    },
+    {
+      "id": "undo",
+      "file": "undo.wav",
+      "seconds": 0.0639,
+      "channels": 1,
+      "sources": [
+        "legacy-kenney"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.83,
+      "boundary_step": 0.0,
+      "sha256": "618377d2baf6c7dbbab466e47f796c1e9dab1a8bd5649cd4a98b15e0477d7571",
+      "bytes": 4134
+    },
+    {
+      "id": "blocked",
+      "file": "blocked.wav",
+      "seconds": 0.1646,
+      "channels": 1,
+      "sources": [
+        "legacy-kenney"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -12.33,
+      "rms_dbfs": -24.26,
+      "boundary_step": 0.0,
+      "sha256": "7a8d2f12b92d5f1ea3b329ee48fb868aa7ea4a73d40b37d310870ab7459ad6f7",
+      "bytes": 10578
+    },
+    {
+      "id": "ui-confirm",
+      "file": "ui-confirm.wav",
+      "seconds": 0.45,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -16.15,
+      "rms_dbfs": -24.02,
+      "boundary_step": 0.0,
+      "sha256": "eb5a519ea722b9b86a1b9beddc42fd457d1fa46aff751164a2fdfe8b9ce8807d",
+      "bytes": 28844
+    },
+    {
+      "id": "ui-open",
+      "file": "ui-open.wav",
+      "seconds": 0.55,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.66,
+      "rms_dbfs": -24.01,
+      "boundary_step": 0.0,
+      "sha256": "badeb8e7cba18cae644006c6e7ba46719fd11c7db32ebc33ef5cbec5a3018ed7",
+      "bytes": 35244
+    },
+    {
+      "id": "ui-close",
+      "file": "ui-close.wav",
+      "seconds": 0.5,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.76,
+      "rms_dbfs": -24.02,
+      "boundary_step": 0.0,
+      "sha256": "3405b31aa33ac358545efa86d927f158cc5e409bf9e2134d6329f47623a96b2c",
+      "bytes": 32044
+    },
+    {
+      "id": "tool-select",
+      "file": "tool-select.wav",
+      "seconds": 0.5,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -15.03,
+      "rms_dbfs": -24.02,
+      "boundary_step": 0.0,
+      "sha256": "fd84da1c197f5f092aff0baa9fcdf7b175d483981721ccecdb70ea8fdef576ce",
+      "bytes": 32044
+    },
+    {
+      "id": "atlas-select",
+      "file": "atlas-select.wav",
+      "seconds": 0.9,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.17,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "44fb2570f80a3eb8f98e360a5c0ead1d35d98328a38486c75b99d1d040292da1",
+      "bytes": 57644
+    },
+    {
+      "id": "arrival",
+      "file": "arrival.wav",
+      "seconds": 2.5,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.54,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "565e4a8556ef8ac5aa0ea0a12d2db694f8c7124f801591fd35467a9d06176431",
+      "bytes": 160044
+    },
+    {
+      "id": "travel",
+      "file": "travel.wav",
+      "seconds": 2.0,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.64,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "a2a283f70b6a356319abb71acf3e50de0a45d9ce3b438bf1da617255eae64645",
+      "bytes": 128044
+    },
+    {
+      "id": "redo",
+      "file": "redo.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.94,
+      "rms_dbfs": -24.01,
+      "boundary_step": 0.0,
+      "sha256": "c6590c7134dd8a195d5021ebd1451f46a34664e8969fea3763427475e16a222f",
+      "bytes": 38444
+    },
+    {
+      "id": "move",
+      "file": "move.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -15.53,
+      "rms_dbfs": -24.01,
+      "boundary_step": 0.0,
+      "sha256": "487078fb1fa7d11369c52db24624081aa4d8e988814fcd417bd402344d36bd60",
+      "bytes": 38444
+    },
+    {
+      "id": "remove",
+      "file": "remove.wav",
+      "seconds": 0.6,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.75,
+      "rms_dbfs": -24.01,
+      "boundary_step": 0.0,
+      "sha256": "e90f0c7687f42f73352c78e3066db150a701c71ca8d2d82885d6a18cf86447b5",
+      "bytes": 38444
+    },
+    {
+      "id": "clear",
+      "file": "clear.wav",
+      "seconds": 0.8,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.88,
+      "rms_dbfs": -24.01,
+      "boundary_step": 0.0,
+      "sha256": "2a1dc2d1344ea808de2648f70c0eb3bb228db2de279bae49b2757119d3dc4eb7",
+      "bytes": 51244
+    },
+    {
+      "id": "camera",
+      "file": "camera.wav",
+      "seconds": 0.45,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -16.16,
+      "rms_dbfs": -24.02,
+      "boundary_step": 0.0,
+      "sha256": "2d4552294583028f7e9cb96096d146b5bf68a37cb54c30a09b70cb271642e995",
+      "bytes": 28844
+    },
+    {
+      "id": "year-submit",
+      "file": "year-submit.wav",
+      "seconds": 1.1,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.97,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "34f8d03c523f45f85846af96683e028d9092a2efc1f6b872aee82c91301e40c8",
+      "bytes": 70444
+    },
+    {
+      "id": "year-report",
+      "file": "year-report.wav",
+      "seconds": 1.9,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.99,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "00486f034ffb2527decd4a391b218c743524c4a9875be7efc867a6157d8202ce",
+      "bytes": 121644
+    },
+    {
+      "id": "year-attention",
+      "file": "year-attention.wav",
+      "seconds": 1.7,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.93,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "674e332249d8cb1fe016f9d926b237c1bade086bceec452031d1f10de2c979a0",
+      "bytes": 108844
+    },
+    {
+      "id": "year-continue",
+      "file": "year-continue.wav",
+      "seconds": 1.2,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.97,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "ffa7f002248dbe3812537877d9cc20420cfb30ee7eb70f0171291293578520b1",
+      "bytes": 76844
+    },
+    {
+      "id": "new-run",
+      "file": "new-run.wav",
+      "seconds": 1.8,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -14.03,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "b57d8877d6827ac124356b42063216440ac1f28a847e1016aab2d900ebfce6dc",
+      "bytes": 115244
+    },
+    {
+      "id": "decade-complete",
+      "file": "decade-complete.wav",
+      "seconds": 3.5,
+      "channels": 1,
+      "sources": [
+        "original-tones"
+      ],
+      "loop": false,
+      "music": false,
+      "peak_dbfs": -13.72,
+      "rms_dbfs": -24.0,
+      "boundary_step": 0.0,
+      "sha256": "39bb3977450f4769d8986d6cf93f0141f6baf1f67546b51b8fe46ad550b41b98",
+      "bytes": 224044
+    },
+    {
+      "id": "ambient-wind",
+      "file": "ambient-wind.ogg",
+      "seconds": 34.0,
+      "channels": 1,
+      "sources": [
+        "legacy-wind"
+      ],
+      "loop": true,
+      "music": false,
+      "peak_dbfs": -12.79,
+      "rms_dbfs": -29.17,
+      "boundary_step": 0.008489246712997556,
+      "sha256": "306fe61ed91ce179d98619535fe765da01767040cfc67a4a86b977b0a49ed6ba",
+      "bytes": 179093
+    },
+    {
+      "id": "ambient-river",
+      "file": "ambient-river.ogg",
+      "seconds": 30.0,
+      "channels": 1,
+      "sources": [
+        "river"
+      ],
+      "loop": true,
+      "music": false,
+      "peak_dbfs": -14.84,
+      "rms_dbfs": -29.18,
+      "boundary_step": 0.005394832929596305,
+      "sha256": "0dbab34c5fdafe55d712d0cef9a5461345f9d62ce877be8111bf8e6cbd752cf2",
+      "bytes": 228537
+    },
+    {
+      "id": "ambient-birds",
+      "file": "ambient-birds.ogg",
+      "seconds": 32.0,
+      "channels": 1,
+      "sources": [
+        "birds"
+      ],
+      "loop": true,
+      "music": false,
+      "peak_dbfs": -11.83,
+      "rms_dbfs": -29.14,
+      "boundary_step": 0.01046823337674141,
+      "sha256": "a8b1acc851c4a5780b0619f8d4bcd93747b83239b87ccc81eb01dec0322851a6",
+      "bytes": 236690
+    },
+    {
+      "id": "music-mystical",
+      "file": "music-mystical.ogg",
+      "seconds": 95.0,
+      "channels": 2,
+      "sources": [
+        "piano"
+      ],
+      "loop": false,
+      "music": true,
+      "peak_dbfs": -9.09,
+      "rms_dbfs": -28.1,
+      "boundary_step": 6.141921090829783e-06,
+      "sha256": "da73bafa77a061f4f45aa4b05337112b5a870e6ba61e1e61da502d5c594a437f",
+      "bytes": 1271689
+    },
+    {
+      "id": "music-vaporware",
+      "file": "music-vaporware.ogg",
+      "seconds": 164.9546,
+      "channels": 2,
+      "sources": [
+        "vaporware"
+      ],
+      "loop": false,
+      "music": true,
+      "peak_dbfs": -9.0,
+      "rms_dbfs": -26.06,
+      "boundary_step": 8.548788343887281e-10,
+      "sha256": "cbcf186a310bdb8bca665215e6cbb20136cb7fb7ca2b474436bf4f32b3d4e8ea",
+      "bytes": 1865896
+    }
+  ]
+}

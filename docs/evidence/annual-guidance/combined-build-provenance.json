@@ -1,0 +1,126 @@
+{
+  "sourceCommit": "cb9e37ec00ab2a8e600d20b9178f8eb1a781bdfe",
+  "incomingMain": "67c01417906b74a8f024ae9975158cb1dda6979d",
+  "inputSha256": {
+    "Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs": "62b24e34a3ce74bcf242d2675e51165e624e3cdff89c3c5b4abdbee6c7c0e958",
+    "Assets/Terra/Scripts/UI/TerraHud.Annual.cs": "45917e25d46293ec2e2920aaa9ecde995a58ba27c54fbf454ced120c6feae707",
+    "Assets/Terra/Scripts/UI/TerraHud.BuildActions.cs": "32559dd92712efeb465e043f80672e834ebb56470c894ba2052386365d2b2057",
+    "Assets/Terra/Scripts/UI/TerraHud.AnnualLayout.cs": "5378eaf7c6a86e8a65bec5ec0ce8b0542c01700781e20f9e888a79829f195152",
+    "docs/evidence/annual-guidance/hud-guidance-check.cs": "d6299253d220021ea377dae6114923bcc1f9e3f83b03a240d396b05232a0d5f5"
+  },
+  "unityVersion": "6000.6.6f1",
+  "playFrameAtJourney": 1912,
+  "guidanceChecks": 783,
+  "playFirstChecks": 809,
+  "chapterChecks": 16,
+  "exportDirectory": "/Users/naman/.codex/worktrees/annual-guidance/Terra/Builds/Verified/cb9e37e",
+  "files": [
+    {
+      "path": "Build/240d77c2484db296d90f766dd71fbe16.loader.js",
+      "bytes": 118806,
+      "sha256": "029c81ee7e63b585874bb0d085ff5446d5b9d57d1190be5812d0e70303be10d1"
+    },
+    {
+      "path": "Build/64f81469e782c0e979cfc39144204921.data.unityweb",
+      "bytes": 30529395,
+      "sha256": "52cc4b67e81d07c56678be44469c227c8280d15e08e8b9d6b489c6a1dacb799b"
+    },
+    {
+      "path": "Build/85c92d0c825f3e6a17bba1376a28a995.framework.js.unityweb",
+      "bytes": 67747,
+      "sha256": "5010148ec732ab75b15e688f821664c630d255c21fce0ae15228bd74efcdea5d"
+    },
+    {
+      "path": "Build/d914a9c8c92d701002676381762967f1.wasm.unityweb",
+      "bytes": 7952128,
+      "sha256": "9c54b8a087e3a35447c55ff953469e4aa81c194e2318e7df30175e7083f53edf"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2103,
+      "sha256": "2fd6b88e6afdea8463bbf8428ede2e3684f0efec5a55f48d23eb0fc26bb40674"
+    },
+    {
+      "path": "licenses/WATER-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87"
+    },
+    {
+      "path": "player.js",
+      "bytes": 2548,
+      "sha256": "279618ee306155b7c4865b565a4f099af27504c57171981bb48296de7209ba47"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ],
+  "totalBytes": 40169854,
+  "generatedChanges": " .../Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta |   7 -\n .../DOTween/Editor/DOTweenEditor.dll.mdb.meta      |   7 -\n .../LiberationSans SDF - Fallback.asset            | 146 ++++++++++++---------\n 3 files changed, 81 insertions(+), 79 deletions(-)\n",
+  "ownedEditorClosed": true,
+  "postBuildCleanupChange": "diff --git a/ProjectSettings/ProjectSettings.asset b/ProjectSettings/ProjectSettings.asset\nindex 755d29b..d80be98 100644\n--- a/ProjectSettings/ProjectSettings.asset\n+++ b/ProjectSettings/ProjectSettings.asset\n@@ -87,7 +87,7 @@ PlayerSettings:\n   androidApplicationEntry: 1\n   defaultIsNativeResolution: 1\n   macRetinaSupport: 1\n-  runInBackground: 1\n+  runInBackground: 0\n   callOnDisableOnAssetBundleUnload: 1\n   muteOtherAudioSources: 0\n   Prepare IOS For Recording: 0\n",
+  "cleanupExplanation": "Closing the owned Editor set runInBackground to0 after the export; restore tracked value1. The exported player was built from value1.",
+  "buildJobElapsedSeconds": 421.429,
+  "unityPlayerBuildSeconds": 420.29
+}

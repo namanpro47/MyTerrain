@@ -1,0 +1,9 @@
+{
+  "exactGeometryAndPlacementMatch": true,
+  "soilVertices": 1310548,
+  "plants": 39246,
+  "hashedGroups": 381,
+  "editorBuildMsBefore": 27307,
+  "editorBuildMsAfter": 15109,
+  "scope": "Matched baseline plus deferred-destruction preview state; first unmatched comparison had no pending preview, now repeated with the same lifecycle state. Editor observations, not Web timing."
+}

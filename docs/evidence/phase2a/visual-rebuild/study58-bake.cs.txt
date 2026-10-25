@@ -1,0 +1,36 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Bake in Edit mode");
+const float tile=10,step=.5f;const int grid=20,resolution=1024;
+var shaderPath="Assets/Editor/Study58/CropBake.shader";
+UnityEditor.AssetDatabase.ImportAsset(shaderPath,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>(shaderPath);
+var errors=UnityEditor.ShaderUtil.GetShaderMessages(shader);if(errors.Any(e=>e.severity.ToString()=="Error"))throw new System.Exception(string.Join(";",errors.Select(e=>e.message)));
+var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/ArchivedNature45/GeometricWheat.prefab").GetComponent<UnityEngine.MeshFilter>().sharedMesh;
+var parts=new System.Collections.Generic.List<UnityEngine.CombineInstance>();
+for(int z=-4;z<grid+4;z++)for(int x=-4;x<grid+4;x++)
+{
+ int ix=(x+grid)%grid,iz=(z+grid)%grid;var rng=new System.Random(ix*9187+iz*4631+5801);
+ float J(float a,float b)=>UnityEngine.Mathf.Lerp(a,b,(float)rng.NextDouble());
+ float scale=J(.6f,.7f);var p=new UnityEngine.Vector3((x+.5f)*step+J(-.17f,.17f),0,(z+.5f)*step+J(-.17f,.17f));
+ parts.Add(new UnityEngine.CombineInstance{mesh=source,transform=UnityEngine.Matrix4x4.TRS(p,UnityEngine.Quaternion.Euler(0,J(0,360),0),UnityEngine.Vector3.one*scale)});
+}
+var combined=new UnityEngine.Mesh{name="Study58 offline grain tile",indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};combined.CombineMeshes(parts.ToArray(),true,true);
+var material=new UnityEngine.Material(shader);material.SetColor("_BaseColor",new UnityEngine.Color(.74f,.65f,.38f));material.SetFloat("_Top",1.8f);
+var root=new UnityEngine.GameObject("Study58 temporary bake"){hideFlags=UnityEngine.HideFlags.HideAndDontSave,layer=31};
+var camObject=new UnityEngine.GameObject("Study58 bake camera"){hideFlags=UnityEngine.HideFlags.HideAndDontSave};
+var cam=camObject.AddComponent<UnityEngine.Camera>();cam.enabled=false;cam.orthographic=true;cam.orthographicSize=tile*.5f;cam.aspect=1;cam.nearClipPlane=.1f;cam.farClipPlane=20;cam.cullingMask=1<<31;cam.clearFlags=UnityEngine.CameraClearFlags.SolidColor;cam.allowHDR=false;cam.allowMSAA=false;
+cam.transform.position=new UnityEngine.Vector3(tile*.5f,10,tile*.5f);cam.transform.rotation=UnityEngine.Quaternion.Euler(90,0,0);
+root.AddComponent<UnityEngine.MeshFilter>().sharedMesh=combined;root.AddComponent<UnityEngine.MeshRenderer>().sharedMaterial=material;
+var original=UnityEngine.RenderTexture.active;var files=new System.Collections.Generic.List<string>();
+try
+{
+ for(int mode=0;mode<2;mode++)
+ {
+  material.SetFloat("_Mode",mode);cam.backgroundColor=mode==0?new UnityEngine.Color(.36f,.29f,.13f,0):new UnityEngine.Color(.5f,.5f,1,0);
+  var rt=new UnityEngine.RenderTexture(resolution,resolution,24,UnityEngine.RenderTextureFormat.ARGB32,mode==0?UnityEngine.RenderTextureReadWrite.sRGB:UnityEngine.RenderTextureReadWrite.Linear);rt.Create();cam.targetTexture=rt;
+  var tex=new UnityEngine.Texture2D(resolution,resolution,UnityEngine.TextureFormat.RGBA32,false,mode==1);
+  try{cam.Render();UnityEngine.RenderTexture.active=rt;tex.ReadPixels(new UnityEngine.Rect(0,0,resolution,resolution),0,0);tex.Apply();string path="Builds/ArtResearch/Study58/"+(mode==0?"grain-albedo.png":"grain-normal-height.png");System.IO.File.WriteAllBytes(path,tex.EncodeToPNG());files.Add(path);}
+  finally{cam.targetTexture=null;UnityEngine.RenderTexture.active=original;UnityEngine.Object.DestroyImmediate(tex);rt.Release();UnityEngine.Object.DestroyImmediate(rt);}
+ }
+ return new{source=source.name,instances=parts.Count,vertices=combined.vertexCount,triangles=combined.triangles.Length/3,resolution,tile,files};
+}
+finally{UnityEngine.RenderTexture.active=original;UnityEngine.Object.DestroyImmediate(root);UnityEngine.Object.DestroyImmediate(camObject);UnityEngine.Object.DestroyImmediate(combined);UnityEngine.Object.DestroyImmediate(material);}

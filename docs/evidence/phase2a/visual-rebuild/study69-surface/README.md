@@ -1,0 +1,34 @@
+# Study 69 — a shared meadow surface
+
+**Rendered; shared shading is a limited candidate improvement, added geometry rejected. Not adopted in production.** Experiment source `399ff46`; refreshed main inspected at `67c0141`. Incoming annual-status label changes were reviewed and remain with their owner; this study touches no annual/HUD implementation. TN-01/02/09/12; [operative goal](../../../../PHASE_2A_GOAL.md), [visible reference review](../../../../CURRENT_VISUAL_REVIEW.md).
+
+Studies67–68 reject another forest/grass family swap. The next construction treats the meadow as a shared painted surface with plant geometry emerging from it, rather than separate dark grass islands on bright lawn. It uses existing licensed Julio Sillet painted grass and existing artist grass meshes; no image generation or new asset search.
+
+The construction has two parts, evaluated in order so a density change cannot conceal a failed material comparison:
+
+1. Ground and grass roots sample the same artist paint at the same world coordinates through one HLSL function. A common palette transform replaces the unrelated constant ground color and dark root gradient. The original source textures are unchanged.
+2. A low, overlapping base layer replaces isolated mapped-grass patches, with a smaller amount of taller growth for structure. Its LOD must consider footprint width so low plants do not disappear solely because their height is small. Source cover, road/water clearances, site exclusions and annual state remain authoritative.
+
+[Shader preparation](prepare-shaders.py) writes experimental shaders to ignored `Builds/ArtResearch/Study69/Shaders`, then copies were imported into the isolated `Assets/Terra/Art/MeadowSurfaceStudy` directory under reservation34. [First application stage](apply-materials.cs.txt) keeps every existing plant transform, camera and light unchanged, isolates material copies to mapped meadow, and checks unchanged source-world JSON/annual diagnostic. One runtime terrain material and 168 temporary foliage material copies cover 20,770 existing meadow instances. [Receipt](material-stage.json). The experimental foliage fade considers footprint width as well as height; this is not a claim of identical pixel coverage to the control.
+
+## Actual comparison and decisions
+
+All images are actual 1280×720 Unity camera renders without HUD; no Chrome or motion acceptance. [Render identity/frames](render-receipt.json), [control](control-normal.png).
+
+- **Initial shared paint:** [normal](shared-normal.png), [close](shared-close.png). Ground and plant roots relate better, but the source painting's broad exposure variation becomes conspicuous cloud-like mottling. Reject this unfiltered color treatment. [Initial include](MeadowSurface-initial.hlsl.txt).
+- **Corrected shared paint:** [normal](connected-normal.png), [close](connected-close.png), [wide](connected-wide.png). Dividing by a coarse sample of the same source image removes broad exposure variation while retaining painted blade structure. Both terrain and vegetation use exactly the same function and 40 m world-space tile. [Final include](MeadowSurface.hlsl.txt), [terrain](Ground.shader.txt), [foliage](Foliage.shader.txt). This gives a limited improvement in ground detail and root continuity; it does not resolve the scene's substantial field/forest/composition gaps.
+- **Added low layer:** [normal](layer-normal.png), [close](layer-close.png). [Construction](low-layer.cs.txt) adds 15,874 native RG Poly grass meshes in 261 spatial tiles, with uniform scaling to 4.2–5.3 m footprints, source-cover/route/site exclusions, and the shared shader. Existing tall meadow remains. [Receipt](low-layer.json). Reject the additional geometry: the normal-view benefit is too small and it introduces isolated light flecks at some steep woodland boundaries. No performance benefit or acceptable browser cost is established. Do not optimize or densify this rejected layer.
+
+**Material candidate remains unpromoted.** A final post-render ShaderUtil inspection reports `use of potentially uninitialized variable (PaintedFilteredSample)` in the experimental ground shader. No error-level shader message was reported. This historical warning was diagnosed and cleared in the isolated candidate in the follow-up below. Existing material ownership tests were not rerun for these temporary reflection-based edits. Both source-world JSON and initial annual diagnostic stayed unchanged; that narrow guard is not a full annual/lifecycle regression check.
+
+Play stopped; TerraMain remained clean with zero study runtime objects. No temporary study materials remained after teardown. Own Editor49694 and launcher49688 closed and were confirmed absent; reservation34 released. [Cleanup](cleanup.json). Experimental shader files remain isolated and untracked, unused by production source. No camera/source terrain/HUD/annual edits, generated imagery, Web export or quality-gate completion.
+
+Next: retain only the useful shared-surface idea while rebuilding field mass. Farmland remains a separate substantial gap: meadow improvement cannot pass the field/ground category alone. Normal/close/wide, motion, annual transformations, Chrome performance and the full HUD still need to hold together. Do not call this experiment a completed art direction merely because it is more coherent than a rejected baseline.
+
+## Shader diagnostic follow-up — October 25
+
+Source `da05997`; refreshed main inspected at `13a15a4` (release evidence only since `67c0141`). Reservation43. The original production shader and experimental shader both reported the same Metal warning at the early return in `PaintedFilteredSample`. The [corrected experimental shader](Ground-corrected.shader.txt) initializes one result, computes detailed paint inside the existing distance branch, and returns once. This retains the far-distance shortcut. Production shader source is unchanged.
+
+The candidate was reimported and rendered at [normal](corrected-normal.png) and [wide](corrected-wide.png), frames82 and5343. Both experimental shaders report zero messages after those renders; the original still reports its warning. [Diagnostic](shader-warning-verification.json), [receipt](shader-fix-receipt.json), [inspection script](shader-diagnose.cs.txt). Visual inspection found no conspicuous regression from the earlier candidate. No browser, performance, close-view retest, full-suite, or quality-gate acceptance is claimed. The wide-capture helper initially referenced the deliberately absent rejected layer; it was made null-safe in [the follow-up helper](wide-corrected.cs.txt) before the successful capture.
+
+Play stopped; the scene was clean with zero study objects and zero candidate shader messages. [Cleanup](cleanup-warning.json). The material remains an unpromoted experiment. No new runtime art or renderer change is proposed for the combined release by this slice.

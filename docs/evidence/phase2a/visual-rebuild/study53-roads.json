@@ -1,0 +1,83 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study53-roads.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "maskWidth": 1024,
+        "unchangedRed": true,
+        "routes": [
+          {
+            "widthM": 5,
+            "points": 10
+          },
+          {
+            "widthM": 5,
+            "points": 4
+          },
+          {
+            "widthM": 5,
+            "points": 6
+          },
+          {
+            "widthM": 5,
+            "points": 4
+          },
+          {
+            "widthM": 5,
+            "points": 10
+          },
+          {
+            "widthM": 7,
+            "points": 9
+          },
+          {
+            "widthM": 8,
+            "points": 3
+          },
+          {
+            "widthM": 8,
+            "points": 5
+          },
+          {
+            "widthM": 8,
+            "points": 2
+          },
+          {
+            "widthM": 8,
+            "points": 4
+          },
+          {
+            "widthM": 8,
+            "points": 3
+          },
+          {
+            "widthM": 8,
+            "points": 2
+          },
+          {
+            "widthM": 8,
+            "points": 3
+          }
+        ],
+        "errors": [],
+        "frame": 113518
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

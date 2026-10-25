@@ -1,0 +1,134 @@
+{
+  "Assets/Terra/Art/QuaterniusCrops/Lettuce_4.fbx": {
+    "bytes": 42060,
+    "sha256": "a8a5e3acb0a9ffda78b438e81d7ecccc28426713a571ceea61a733c6481d9879"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/Leaf-0.mat": {
+    "bytes": 2912,
+    "sha256": "91f4d46f662c254ede318372c01c83daf12d4b3a0b1913cbb2a0a053d83e24ee"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/Leaf-0.mat.meta": {
+    "bytes": 188,
+    "sha256": "d1ea53065ce66fa665d7a741df610b74e9135e8dc5c6f231111ecab1f3539a6d"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod0.asset": {
+    "bytes": 249418,
+    "sha256": "880174fcd0990cb5c23b4336fc67982d150bab466f9a0a18b46d173591d2489a"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod0.asset.meta": {
+    "bytes": 188,
+    "sha256": "cbdf43d7e6f41931105e4fd771fabdb12660bf079847198974e5af63e6d96d7a"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod1.asset": {
+    "bytes": 82016,
+    "sha256": "875c02759599861534583919817fd3c40837c0f5797a6781974a9cf7e7c1dd01"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod1.asset.meta": {
+    "bytes": 188,
+    "sha256": "b346229004b892d0684a45c7194973a32866abfbec20cafe84d1ffc96f827f66"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod2.asset": {
+    "bytes": 23156,
+    "sha256": "5f500359f63729159b860c27402eacbf8b88a044de0c9b571ff7ec363ddd0336"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop-lod2.asset.meta": {
+    "bytes": 188,
+    "sha256": "8e317f7c31136d8aef60e872fabcb005e6c28210a179a83600d5b708f92e0684"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop.prefab": {
+    "bytes": 10234,
+    "sha256": "e2dba99bd69a117f89ea009fd66d002205439a6e4006b1a9b83c66d7441307ae"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/LeafCrop.prefab.meta": {
+    "bytes": 154,
+    "sha256": "0b21292cb3ae06ee2bf9136ea8550df14fc6e5f698dea096c0e4dcbfcd03ed73"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/Soil.mat": {
+    "bytes": 2949,
+    "sha256": "58fbae64f8d92f6b716675a40864d86c203818e1bb023d033f120d803542c8dc"
+  },
+  "Assets/Terra/Resources/CultivatedBeds/Soil.mat.meta": {
+    "bytes": 188,
+    "sha256": "f93f1c5f2e70fdf27020bbe6d17364a5db71e3d7a948b2d0401c5e2e3496bf5a"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-after-cache-matched.json": {
+    "bytes": 30361,
+    "sha256": "ffa46d09cb3b1813c002c5e8d3f0ac33f83ada11c44ee13c19e3d8620a07a783"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-after-cache.json": {
+    "bytes": 29737,
+    "sha256": "31d8a13d8dec77453b9cf15904fc8dc62ce5e963131d79bf199301ff7fa33693"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-before-cache.json": {
+    "bytes": 30361,
+    "sha256": "ffa46d09cb3b1813c002c5e8d3f0ac33f83ada11c44ee13c19e3d8620a07a783"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-cache-check.json": {
+    "bytes": 381,
+    "sha256": "eb01e0c4abe287c91781d62e0c19f6fdc2d13391073366ebabf185c60d7ca42d"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-capture.cs.txt": {
+    "bytes": 846,
+    "sha256": "6566ad3b93256ce1294d5160e58704747b5bc7691b78d7ba3c36e93260b2c447"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-check.cs.txt": {
+    "bytes": 6279,
+    "sha256": "e70d02594db8783464ca33269fd7a0d765c08426a1f388eec3187bebefec02c3"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-check.json": {
+    "bytes": 1158,
+    "sha256": "325edd9efa1c2444566c36b45cab00a05810ca855474232192736a08d6fbe459"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-close.cs.txt": {
+    "bytes": 1073,
+    "sha256": "93fdd7032f39d13a4ae6f55d67804a64cb2d5474006a466023d56c800873ef99"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-compile-final.json": {
+    "bytes": 269,
+    "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-compile.json": {
+    "bytes": 269,
+    "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-console.json": {
+    "bytes": 866,
+    "sha256": "2ab528ca11bc3cf5cd073cefd741750372dd300c2eccde79ad17e0c40ed00b17"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-findings.md": {
+    "bytes": 5327,
+    "sha256": "b0f3baad0fd5756a3ae411304c6e14d46b1ee3fdb51243af29304fed4d61cba5"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-import.cs.txt": {
+    "bytes": 753,
+    "sha256": "5bcafd21a2e6c665089383198d003771908cda3644b9f04137ce11f53f15da4c"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-import.json": {
+    "bytes": 659,
+    "sha256": "52619b04cdb9ccaea6adb483df0a39e945c9247e733f57387f6b061879ad96bf"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-integrated-close.png": {
+    "bytes": 1866775,
+    "sha256": "37b62971ee45f4236dc53bc6291d698ad614628207a5e48ca3a192693a014236"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-integrated-normal.png": {
+    "bytes": 1765371,
+    "sha256": "9f59d76153fc4876b6a06511b130e81b77f849af886aaa281915a9a3d2581166"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-margin-preview.png": {
+    "bytes": 1853017,
+    "sha256": "26463b80decb0f554e0c1a48653c79298b02286ee4d025ac2131ddf1dd688c69"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-margin.cs.txt": {
+    "bytes": 469,
+    "sha256": "e16580fe1715593d0be879cef995c88d005ffb0e7609e7af31468b5ec92d3dfb"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-normal.cs.txt": {
+    "bytes": 1413,
+    "sha256": "6f10414bbf9dda62c5ce24f3b96ebb7036b33d00b71a9a0bb4823af5b05151b5"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study63-snapshot.cs.txt": {
+    "bytes": 1901,
+    "sha256": "40cc0544efc04a894d5e8bcd41d148eaa48393c5d22c3f3f25bf392b77a07a8b"
+  }
+}

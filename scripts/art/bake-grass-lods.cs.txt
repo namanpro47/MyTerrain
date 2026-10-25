@@ -1,0 +1,9 @@
+string folder="Assets/Terra/Resources/NatureLods";if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Terra/Resources","NatureLods");
+var results=new System.Collections.Generic.List<object>();
+foreach(var name in new[]{"Grass_Common_Short","Grass_Wispy_Short","Grass_Common_Tall"}){
+var go=UnityEngine.Resources.Load<UnityEngine.GameObject>("Nature/"+name);var filters=go.GetComponentsInChildren<UnityEngine.MeshFilter>(true);
+foreach(var f in filters){var original=f.sharedMesh;foreach(var level in new[]{1,2}){
+var simplifier=new UnityMeshSimplifier.MeshSimplifier(original);var options=UnityMeshSimplifier.SimplificationOptions.Default;options.PreserveUVSeamEdges=true;options.PreserveUVFoldoverEdges=true;options.PreserveSurfaceCurvature=true;options.PreserveBorderEdges=name=="Grass_Common_Short"&&level==1;simplifier.SimplificationOptions=options;simplifier.SimplifyMesh(name=="Grass_Common_Short"?(level==1?.35f:.65f):(level==1?.65f:.35f));var mesh=simplifier.ToMesh();mesh.name=original.name+"-lod"+level;mesh.RecalculateBounds();string path=folder+"/"+mesh.name+".asset";var old=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Mesh>(path);if(old==null)UnityEditor.AssetDatabase.CreateAsset(mesh,path);else{UnityEditor.EditorUtility.CopySerialized(mesh,old);UnityEditor.EditorUtility.SetDirty(old);UnityEngine.Object.DestroyImmediate(mesh);mesh=old;}
+results.Add(new{name=mesh.name,source=UnityEditor.AssetDatabase.GetAssetPath(original),originalTriangles=original.triangles.Length/3,triangles=mesh.triangles.Length/3,submeshes=mesh.subMeshCount,sourceBounds=original.bounds.ToString(),bounds=mesh.bounds.ToString()});
+}}}
+UnityEditor.AssetDatabase.SaveAssets();return results;

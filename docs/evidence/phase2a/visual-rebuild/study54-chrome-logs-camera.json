@@ -1,0 +1,86 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_STREAM_SURFACE: normal=SurfaceNormal; size=1024; cameraCopies=0; worldSpaceNormals=true\n",
+    "timestamp": "2026-10-25T12:03:24.722Z",
+    "url": "blob:http://127.0.0.1:49669/61966418-6164-41c4-9aca-f9f4eb2bba31"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_WOODLAND: trees=7321; lowerEdgeTrees=1326; illustrativeSourceWoodland=true\n",
+    "timestamp": "2026-10-25T12:03:24.933Z",
+    "url": "blob:http://127.0.0.1:49669/61966418-6164-41c4-9aca-f9f4eb2bba31"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1286; meshes=202; vertices=878193; materials=4\n",
+    "timestamp": "2026-10-25T12:03:25.862Z",
+    "url": "blob:http://127.0.0.1:49669/61966418-6164-41c4-9aca-f9f4eb2bba31"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T12:03:25.926Z",
+    "url": "blob:http://127.0.0.1:49669/61966418-6164-41c4-9aca-f9f4eb2bba31"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 13961",
+    "timestamp": "2026-10-25T12:03:25.926Z",
+    "url": "blob:http://127.0.0.1:49669/61966418-6164-41c4-9aca-f9f4eb2bba31"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_STREAM_SURFACE: normal=SurfaceNormal; size=1024; cameraCopies=0; worldSpaceNormals=true\n",
+    "timestamp": "2026-10-25T12:05:08.500Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_WOODLAND: trees=7321; lowerEdgeTrees=1326; illustrativeSourceWoodland=true\n",
+    "timestamp": "2026-10-25T12:05:08.716Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1305; meshes=202; vertices=878193; materials=4\n",
+    "timestamp": "2026-10-25T12:05:09.656Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T12:05:09.730Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 23834",
+    "timestamp": "2026-10-25T12:05:09.730Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T12:05:48.650Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.010997772216797,\"averageFps\":54.28010177612305,\"frameP50Ms\":16.0,\"frameP95Ms\":34.0,\"frameP99Ms\":44.0,\"maxFrameMs\":64.00000762939453,\"maxPreviewCpuMs\":-1.0,\"maxPlacementCpuMs\":-1.0,\"frames\":1629,\"framesOver33Ms\":88,\"framesOver200Ms\":0,\"previewEvents\":0,\"placementEvents\":0,\"cameraEvents\":1140,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T12:06:18.664Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_RENDER_SUBMISSIONS: submitted=838; culled=1108; groundcoverCulled=256; groups=414\n",
+    "timestamp": "2026-10-25T12:06:18.664Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T12:06:18.689Z",
+    "url": "blob:http://127.0.0.1:49669/3ea31854-de15-4ce1-b9a8-bc15b9e2e9dd"
+  }
+]

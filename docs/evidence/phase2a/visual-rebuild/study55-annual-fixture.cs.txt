@@ -1,0 +1,14 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+const int targetYear=0;
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.Public|System.Reflection.BindingFlags.NonPublic;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var type=main.GetType();var land=(Terra.Rendering.LandscapeRenderer)type.GetField("landscape",flags).GetValue(main);var world=(Terra.Contracts.WorldData)type.GetField("world",flags).GetValue(main);
+var session=(Terra.Gameplay.AnnualTownSession)type.GetField("annual",flags).GetValue(main);var before=UnityEngine.JsonUtility.ToJson(session.State);var sourceBefore=UnityEngine.JsonUtility.ToJson(world);
+var site=world.sites.First(s=>s.id=="south-01");var town=new Terra.Core.AnnualTown(session.Definition,"study55-display-fixture");town.QueueAction(site.id,"restore-grass",town.Revision);
+for(int y=0;y<targetYear;y++){if(town.Phase==Terra.Contracts.TownPhase.Reviewing)town.ContinuePlanning(town.Revision);Terra.Core.AnnualTownDemo.Advance(town,"study55-year-"+(y+1),new Terra.Core.AuthoredAnnualConsequenceProvider());}
+var snapshot=town.Snapshot();((System.Collections.Generic.Dictionary<string,string>)type.GetField("displayedAnnual",flags).GetValue(main)).Clear();type.GetMethod("DisplayAnnual",flags).Invoke(main,new object[]{snapshot});land.ViewScale(UnityEngine.Camera.main.orthographicSize*2/720);land.AnnualViewScale(UnityEngine.Camera.main.orthographicSize*2/720);
+var holder=((System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)land.GetType().GetField("proposals",flags).GetValue(land))[site.id];
+var layers=holder.GetComponentsInChildren<Terra.Rendering.InstancedNature>().Select(n=>{var batches=((System.Collections.IEnumerable)n.GetType().GetField("batches",flags).GetValue(n)).Cast<object>().ToArray();var matrices=batches.SelectMany(b=>(UnityEngine.Matrix4x4[])b.GetType().GetField("transforms",flags).GetValue(b)).ToArray();return new{name=n.name,count=matrices.Length,averageScale=matrices.Average(m=>m.lossyScale.y),maximumScale=matrices.Max(m=>m.lossyScale.y)};}).ToArray();
+if(before!=UnityEngine.JsonUtility.ToJson(session.State)||sourceBefore!=UnityEngine.JsonUtility.ToJson(world))throw new System.Exception("Diagnostic mutated authoritative source/session");
+var result=snapshot.history.LastOrDefault()?.outcomes.sites.First(s=>s.siteId==site.id);
+return new{targetYear,phase=result?.phase.ToString()??"PROPOSED",maturity=result?.maturity,cash=town.CashCents,layers,liveSessionUnchanged=true,sourceUnchanged=true,frame=UnityEngine.Time.frameCount};

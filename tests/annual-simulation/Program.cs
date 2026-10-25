@@ -65,6 +65,10 @@ foreach (string folder in new[]{"hud-connected","full-game"})
     history.simulation=new TownSimulationState();
     foreach(var report in history.history) {report.simulation=new TownSimulationReport();report.acceptedRequest.simulation=new TownSimulationRequest();}
     Check(AnnualTown.Restore(legacy,history).DefinitionHash==restored.DefinitionHash,"Expanded empty Unity DTO invalidated legacy save");
+    foreach(var report in history.history) { report.simulation.driver=new TownSimulationDriver(); report.acceptedRequest.simulation.driver=new TownSimulationDriver(); }
+    Check(AnnualTown.Restore(legacy,history).DefinitionHash==restored.DefinitionHash,"Unity-initialized solar/wind defaults invalidated legacy save");
+    history.history[0].acceptedRequest.simulation.driver.solarFactor=2;
+    Reject(()=>AnnualTown.Restore(legacy,history),"Nondefault numeric data silently removed from legacy request");
 }
 Console.WriteLine("Weather and legacy compatibility checks passed: "+count);
 

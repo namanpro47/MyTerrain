@@ -40,7 +40,11 @@ namespace Terra.Core
             if(value is Array array) return array.Length == 0;
             var type=value.GetType();
             if(type.IsValueType) return value.Equals(Activator.CreateInstance(type));
-            return type.GetFields(BindingFlags.Public | BindingFlags.Instance).All(f=>EmptyExtension(f.GetValue(value)));
+            return type.GetFields(BindingFlags.Public | BindingFlags.Instance).All(f=>
+                // JsonUtility expands an absent driver using these declared initializers.
+                // Other identity/data fields must still be entirely empty.
+                value is TownSimulationDriver && (f.Name=="solarFactor"||f.Name=="windFactor") && (double)f.GetValue(value)==1
+                || EmptyExtension(f.GetValue(value)));
         }
 
         // Stable across runtimes, independent of reflection ordering and JSON formatting.

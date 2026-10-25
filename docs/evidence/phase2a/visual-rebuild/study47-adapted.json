@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEditor.AssetDatabase.ImportAsset(\"Assets/Study47Grass.shader\");var s=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>(\"Assets/Study47Grass.shader\");var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var root=UnityEngine.GameObject.Find(\"Study47 native artist meadow\");int changed=0;foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){var batches=(System.Collections.IList)n.GetType().GetField(\"batches\",flags).GetValue(n);foreach(var b in batches){var t=b.GetType();var m=(UnityEngine.Material)t.GetField(\"material\",flags).GetValue(b);var mesh=(UnityEngine.Mesh)t.GetField(\"mesh\",flags).GetValue(b);m.shader=s;m.SetVector(\"_PlantBounds\",new UnityEngine.Vector4(mesh.bounds.min.y,mesh.bounds.max.y,0,0));changed++;}}return new{changed,errors=UnityEditor.ShaderUtil.GetShaderMessages(s).Select(x=>x.message).ToArray()};",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "changed": 478,
+        "errors": []
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

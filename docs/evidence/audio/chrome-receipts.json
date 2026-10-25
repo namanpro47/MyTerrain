@@ -1,0 +1,3995 @@
+[
+  {
+    "name": "before-user-gesture",
+    "audio": {
+      "unlocked": false,
+      "audible": false,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": false,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "none",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [],
+      "played": 0,
+      "dropped": 0,
+      "activeVoices": 0,
+      "musicSeconds": 0,
+      "musicGain": 0,
+      "ambienceGain": 0
+    },
+    "output": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  {
+    "name": "settings-open-first-gesture",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": true,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-open",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-open"
+      ],
+      "played": 1,
+      "dropped": 0,
+      "activeVoices": 0,
+      "musicSeconds": 2.0665760040283203,
+      "musicGain": 0.35200002789497375,
+      "ambienceGain": 0.054079994559288025
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.006477111037468324,
+          "peak": 0.01601153239607811,
+          "time": 18.976507936507936
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.006736708859584164,
+          "peak": 0.014831513166427612,
+          "time": 19.080997732426304
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017102460793663333,
+          "peak": 0.04690008610486984,
+          "time": 19.18548752834467
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01679640583553504,
+          "peak": 0.045367106795310974,
+          "time": 19.284172335600907
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01462652875763407,
+          "peak": 0.039079390466213226,
+          "time": 19.388662131519276
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012651897416350238,
+          "peak": 0.039555780589580536,
+          "time": 19.48734693877551
+        }
+      ]
+    ]
+  },
+  {
+    "name": "overall-decreased",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": true,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-confirm",
+      "track": "music-mystical",
+      "levels": [
+        0.699999988079071,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-open",
+        "ui-confirm"
+      ],
+      "played": 2,
+      "dropped": 0,
+      "activeVoices": 1,
+      "musicSeconds": 13.815873146057129,
+      "musicGain": 0.30799999833106995,
+      "ambienceGain": 0.04731999710202217
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.026613996171143017,
+          "peak": 0.05545387417078018,
+          "time": 30.72580498866213
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016646125531422095,
+          "peak": 0.03562040999531746,
+          "time": 30.824489795918367
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009342579045409445,
+          "peak": 0.02464522235095501,
+          "time": 30.928979591836736
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.006079084655944678,
+          "peak": 0.017796486616134644,
+          "time": 31.0508843537415
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.00864631704778541,
+          "peak": 0.025036096572875977,
+          "time": 31.190204081632654
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008116188992511451,
+          "peak": 0.02093169465661049,
+          "time": 31.291791383219955
+        }
+      ]
+    ]
+  },
+  {
+    "name": "muted",
+    "audio": {
+      "unlocked": true,
+      "audible": false,
+      "muted": true,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": false,
+      "settingsOpen": true,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-focus",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-open",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-close",
+        "ui-open",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus",
+        "ui-focus"
+      ],
+      "played": 13,
+      "dropped": 0,
+      "activeVoices": 0,
+      "musicSeconds": 21.91963768005371,
+      "musicGain": 0,
+      "ambienceGain": 0
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.421678004535146
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.52036281179139
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.62485260770975
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.72934240362812
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.82802721088435
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 39.93251700680272
+        }
+      ]
+    ]
+  },
+  {
+    "name": "reload-preserves-mute",
+    "audio": {
+      "unlocked": false,
+      "audible": false,
+      "muted": true,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": false,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "none",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [],
+      "played": 0,
+      "dropped": 0,
+      "activeVoices": 0,
+      "musicSeconds": 0,
+      "musicGain": 0,
+      "ambienceGain": 0
+    },
+    "output": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  {
+    "name": "entered-wisconsin",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "travel",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel"
+      ],
+      "played": 3,
+      "dropped": 11,
+      "activeVoices": 0,
+      "musicSeconds": 4.597550868988037,
+      "musicGain": 0.35200002789497375,
+      "ambienceGain": 0.054079994559288025
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.026435654482777564,
+          "peak": 0.0786440372467041,
+          "time": 18.07092970521542
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.04580699603654536,
+          "peak": 0.10049650073051453,
+          "time": 18.18702947845805
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.046063521827927896,
+          "peak": 0.10922833532094955,
+          "time": 18.303129251700682
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.03234386762156123,
+          "peak": 0.07341986894607544,
+          "time": 18.41922902494331
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.03586784221433534,
+          "peak": 0.08018247783184052,
+          "time": 18.517913832199547
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.031094464440858564,
+          "peak": 0.07373882085084915,
+          "time": 18.622403628117915
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-farm",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-farm-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0"
+      ],
+      "played": 7,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 26.528799057006836,
+      "musicGain": 0.21155203878879547,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.01833513808479973,
+          "peak": 0.05826664716005325,
+          "time": 36.91972789115646
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016770518671732525,
+          "peak": 0.05912100523710251,
+          "time": 37.05324263038549
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015449313564579738,
+          "peak": 0.0450250506401062,
+          "time": 37.18675736961451
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014534105483125878,
+          "peak": 0.05408110469579697,
+          "time": 37.30285714285714
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01656926098618688,
+          "peak": 0.04658704251050949,
+          "time": 37.41895691609977
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014972894073003739,
+          "peak": 0.04496132582426071,
+          "time": 37.535056689342404
+        }
+      ]
+    ]
+  },
+  {
+    "name": "undo",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "undo",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0",
+        "undo"
+      ],
+      "played": 8,
+      "dropped": 11,
+      "activeVoices": 0,
+      "musicSeconds": 27.533039093017578,
+      "musicGain": 0.35200002789497375,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.016770904915363635,
+          "peak": 0.06041015312075615,
+          "time": 37.918185941043085
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016993320504757242,
+          "peak": 0.05157504975795746,
+          "time": 38.034285714285716
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016993167502619186,
+          "peak": 0.05057746171951294,
+          "time": 38.15038548752835
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.0163624692344309,
+          "peak": 0.04819481447339058,
+          "time": 38.26648526077098
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01447174589124708,
+          "peak": 0.05003301799297333,
+          "time": 38.4
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01303498287969221,
+          "peak": 0.0375722199678421,
+          "time": 38.51609977324263
+        }
+      ]
+    ]
+  },
+  {
+    "name": "redo",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "redo",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "redo"
+      ],
+      "played": 9,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 28.479251861572266,
+      "musicGain": 0.23795203864574432,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.03913158071588666,
+          "peak": 0.09016335010528564,
+          "time": 38.87020408163265
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02744186040334396,
+          "peak": 0.07443493604660034,
+          "time": 38.98630385487528
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.018072562189735193,
+          "peak": 0.061409249901771545,
+          "time": 39.10240362811791
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01544944937993922,
+          "peak": 0.0452718660235405,
+          "time": 39.21850340136054
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013629553636339093,
+          "peak": 0.04739782214164734,
+          "time": 39.334603174603174
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013720681460300468,
+          "peak": 0.038954004645347595,
+          "time": 39.450702947845805
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-cover",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-cover-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "redo",
+        "undo",
+        "tool-select",
+        "place-cover-0"
+      ],
+      "played": 12,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 30.313650131225586,
+      "musicGain": 0.21155203878879547,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.014548509081553878,
+          "peak": 0.04908761754631996,
+          "time": 40.68716553287982
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01270486153786405,
+          "peak": 0.03830215334892273,
+          "time": 40.79746031746032
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012429386183981391,
+          "peak": 0.04480108991265297,
+          "time": 40.936780045351476
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.018675144947531985,
+          "peak": 0.06451926380395889,
+          "time": 41.05287981859411
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017248420493882,
+          "peak": 0.05233645439147949,
+          "time": 41.16897959183674
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013850276477893603,
+          "peak": 0.04116421192884445,
+          "time": 41.28507936507936
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-rotation",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-rotation-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "redo",
+        "undo",
+        "tool-select",
+        "place-cover-0",
+        "undo",
+        "tool-select",
+        "place-rotation-0"
+      ],
+      "played": 15,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 41.17478561401367,
+      "musicGain": 0.2152480185031891,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.019686683687404394,
+          "peak": 0.06423261016607285,
+          "time": 51.594739229024945
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01248970224411147,
+          "peak": 0.03657114505767822,
+          "time": 51.7340589569161
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01936572594341802,
+          "peak": 0.05258266627788544,
+          "time": 51.88498866213152
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01395890656634234,
+          "peak": 0.04836249351501465,
+          "time": 51.98947845804989
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012932261299074849,
+          "peak": 0.04163443297147751,
+          "time": 52.099773242630384
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014666711245085864,
+          "peak": 0.043039821088314056,
+          "time": 52.21006802721089
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-margin",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-margin-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "redo",
+        "undo",
+        "tool-select",
+        "place-cover-0",
+        "undo",
+        "tool-select",
+        "place-rotation-0",
+        "undo",
+        "tool-select",
+        "place-margin-0"
+      ],
+      "played": 18,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 43.096214294433594,
+      "musicGain": 0.19360001385211945,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.0173532197725111,
+          "peak": 0.040170103311538696,
+          "time": 53.50458049886621
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009751103254010355,
+          "peak": 0.025594977661967278,
+          "time": 53.67292517006803
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011494876163524742,
+          "peak": 0.04211219772696495,
+          "time": 53.79482993197279
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010284504778845061,
+          "peak": 0.03325439244508743,
+          "time": 53.90512471655329
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01627873383743588,
+          "peak": 0.05363401025533676,
+          "time": 54.05605442176871
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011648249690661201,
+          "peak": 0.035092562437057495,
+          "time": 54.160544217687075
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-swale",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-swale-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "place-farm-0",
+        "undo",
+        "redo",
+        "undo",
+        "tool-select",
+        "place-cover-0",
+        "undo",
+        "tool-select",
+        "place-rotation-0",
+        "undo",
+        "tool-select",
+        "place-margin-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-swale-0"
+      ],
+      "played": 22,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 49.632652282714844,
+      "musicGain": 0.23742403090000153,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.024400940270082112,
+          "peak": 0.07083836197853088,
+          "time": 60.02358276643991
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017009691868619323,
+          "peak": 0.05462329834699631,
+          "time": 60.1512925170068
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015536195679128418,
+          "peak": 0.04703323543071747,
+          "time": 60.29061224489796
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014499560783197848,
+          "peak": 0.04424300789833069,
+          "time": 60.40090702947846
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013277676914417289,
+          "peak": 0.03829643875360489,
+          "time": 60.50539682539682
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015285567681445752,
+          "peak": 0.04740900546312332,
+          "time": 60.62149659863945
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-meadow",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-meadow-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-cover-0",
+        "undo",
+        "tool-select",
+        "place-rotation-0",
+        "undo",
+        "tool-select",
+        "place-margin-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-swale-0",
+        "undo",
+        "tool-select",
+        "place-meadow-0"
+      ],
+      "played": 25,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 51.38576126098633,
+      "musicGain": 0.23425596952438354,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.05887006526285557,
+          "peak": 0.10943947732448578,
+          "time": 61.78829931972789
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01932504948565919,
+          "peak": 0.0673462525010109,
+          "time": 61.910204081632656
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01638946688098864,
+          "peak": 0.048913419246673584,
+          "time": 62.01469387755102
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014591620850967702,
+          "peak": 0.03985413908958435,
+          "time": 62.11918367346939
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012134700449777018,
+          "peak": 0.04050879925489426,
+          "time": 62.22947845804989
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01231543144566529,
+          "peak": 0.04122526943683624,
+          "time": 62.339773242630386
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-stewardship",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-stewardship-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-rotation-0",
+        "undo",
+        "tool-select",
+        "place-margin-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-swale-0",
+        "undo",
+        "tool-select",
+        "place-meadow-0",
+        "undo",
+        "tool-select",
+        "place-stewardship-0"
+      ],
+      "played": 28,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 53.150474548339844,
+      "musicGain": 0.20679998397827148,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.07693946553965737,
+          "peak": 0.203044593334198,
+          "time": 63.535600907029476
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01358898142805469,
+          "peak": 0.04632318764925003,
+          "time": 63.65750566893424
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013414046155421104,
+          "peak": 0.0494198314845562,
+          "time": 63.82004535147392
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017930190233174655,
+          "peak": 0.05362233892083168,
+          "time": 63.92453514739229
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.019512369506267266,
+          "peak": 0.05543053150177002,
+          "time": 64.04063492063491
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01877388395473259,
+          "peak": 0.06074927747249603,
+          "time": 64.15092970521542
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-home",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-home-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "place-margin-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-swale-0",
+        "undo",
+        "tool-select",
+        "place-meadow-0",
+        "undo",
+        "tool-select",
+        "place-stewardship-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-home-0"
+      ],
+      "played": 32,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 59.12959289550781,
+      "musicGain": 0.2295040488243103,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.09448714239161424,
+          "peak": 0.1858142912387848,
+          "time": 69.50312925170068
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.019090966221639395,
+          "peak": 0.06738108396530151,
+          "time": 69.61342403628117
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017323121930501905,
+          "peak": 0.050346724689006805,
+          "time": 69.71791383219954
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016693677777674675,
+          "peak": 0.054159216582775116,
+          "time": 69.83401360544218
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01607609106068328,
+          "peak": 0.041453972458839417,
+          "time": 69.9501133786848
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015183281371102341,
+          "peak": 0.050247177481651306,
+          "time": 70.06621315192744
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-housing",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-housing-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-swale-0",
+        "undo",
+        "tool-select",
+        "place-meadow-0",
+        "undo",
+        "tool-select",
+        "place-stewardship-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-home-0",
+        "undo",
+        "tool-select",
+        "place-housing-0"
+      ],
+      "played": 35,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 60.929161071777344,
+      "musicGain": 0.2289760410785675,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.045709714995669636,
+          "peak": 0.131104975938797,
+          "time": 71.30267573696145
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02356425033431943,
+          "peak": 0.11547526717185974,
+          "time": 71.41297052154195
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02548212460233681,
+          "peak": 0.07016199827194214,
+          "time": 71.51746031746032
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014398124607069986,
+          "peak": 0.045271776616573334,
+          "time": 71.63356009070294
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.0138575993391985,
+          "peak": 0.044591598212718964,
+          "time": 71.73224489795918
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016339549764527856,
+          "peak": 0.048768144100904465,
+          "time": 71.84834467120182
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-park",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-park-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-meadow-0",
+        "undo",
+        "tool-select",
+        "place-stewardship-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-home-0",
+        "undo",
+        "tool-select",
+        "place-housing-0",
+        "undo",
+        "tool-select",
+        "place-park-0"
+      ],
+      "played": 38,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 62.71126937866211,
+      "musicGain": 0.21102403104305267,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.015497316983258218,
+          "peak": 0.04615985229611397,
+          "time": 73.10222222222222
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01531830337934334,
+          "peak": 0.04476217180490494,
+          "time": 73.21832199546485
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012268552027886629,
+          "peak": 0.03855589032173157,
+          "time": 73.31700680272108
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011176029624896375,
+          "peak": 0.03321985900402069,
+          "time": 73.43310657596372
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011134868395411725,
+          "peak": 0.03532768040895462,
+          "time": 73.54920634920634
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013111775900939452,
+          "peak": 0.04378059133887291,
+          "time": 73.66530612244898
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-village",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-village-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-stewardship-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-home-0",
+        "undo",
+        "tool-select",
+        "place-housing-0",
+        "undo",
+        "tool-select",
+        "place-park-0",
+        "undo",
+        "tool-select",
+        "place-village-0"
+      ],
+      "played": 41,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 64.81269836425781,
+      "musicGain": 0.21155203878879547,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.01727865235599558,
+          "peak": 0.07324627786874771,
+          "time": 75.18621315192743
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.021048196731768467,
+          "peak": 0.08281994611024857,
+          "time": 75.29650793650794
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012391585450260964,
+          "peak": 0.03424593806266785,
+          "time": 75.4009977324263
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01165223885324646,
+          "peak": 0.036313775926828384,
+          "time": 75.51709750566893
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013887341805867036,
+          "peak": 0.045472536236047745,
+          "time": 75.67963718820862
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013491372974247047,
+          "peak": 0.040355127304792404,
+          "time": 75.80154195011337
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-warehouse",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-warehouse-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-home-0",
+        "undo",
+        "tool-select",
+        "place-housing-0",
+        "undo",
+        "tool-select",
+        "place-park-0",
+        "undo",
+        "tool-select",
+        "place-village-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-warehouse-0"
+      ],
+      "played": 45,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 70.31582641601562,
+      "musicGain": 0.22791999578475952,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.06608716660207013,
+          "peak": 0.1454317569732666,
+          "time": 80.70095238095239
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014681773260402734,
+          "peak": 0.04406207054853439,
+          "time": 80.81705215419501
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013595887994881116,
+          "peak": 0.040736351162195206,
+          "time": 80.93315192743763
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011256414503885037,
+          "peak": 0.032623693346977234,
+          "time": 81.04925170068027
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012459535697675722,
+          "peak": 0.03820543736219406,
+          "time": 81.1653514739229
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016424224801379683,
+          "peak": 0.05116775631904602,
+          "time": 81.28145124716553
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-data",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-data-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-housing-0",
+        "undo",
+        "tool-select",
+        "place-park-0",
+        "undo",
+        "tool-select",
+        "place-village-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-warehouse-0",
+        "undo",
+        "tool-select",
+        "place-data-0"
+      ],
+      "played": 48,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 72.34754943847656,
+      "musicGain": 0.19729602336883545,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.023321947960608425,
+          "peak": 0.06362810730934143,
+          "time": 82.7501133786848
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02107495865965833,
+          "peak": 0.06180465593934059,
+          "time": 82.86621315192744
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015265929405837975,
+          "peak": 0.043520305305719376,
+          "time": 82.98231292517006
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016556255886349056,
+          "peak": 0.045860860496759415,
+          "time": 83.08680272108843
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012829848159945987,
+          "peak": 0.0414729043841362,
+          "time": 83.20290249433107
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015953023589819537,
+          "peak": 0.049959972500801086,
+          "time": 83.3190022675737
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-power",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-power-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-park-0",
+        "undo",
+        "tool-select",
+        "place-village-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-warehouse-0",
+        "undo",
+        "tool-select",
+        "place-data-0",
+        "undo",
+        "tool-select",
+        "place-power-0"
+      ],
+      "played": 51,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 74.51283264160156,
+      "musicGain": 0.2284480184316635,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.015581427310906497,
+          "peak": 0.04069812595844269,
+          "time": 84.88634920634921
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015285607656117736,
+          "peak": 0.04824104532599449,
+          "time": 85.00825396825397
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013184194109993726,
+          "peak": 0.045254744589328766,
+          "time": 85.11854875283447
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012856708108439386,
+          "peak": 0.03148897737264633,
+          "time": 85.2346485260771
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014320223350795911,
+          "peak": 0.043785110116004944,
+          "time": 85.33333333333333
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01422275290491279,
+          "peak": 0.040281835943460464,
+          "time": 85.44943310657597
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-solar",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-solar-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-village-0",
+        "ui-focus",
+        "undo",
+        "tool-select",
+        "place-warehouse-0",
+        "undo",
+        "tool-select",
+        "place-data-0",
+        "undo",
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0"
+      ],
+      "played": 54,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 76.53295135498047,
+      "musicGain": 0.20891202986240387,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.036170232589037885,
+          "peak": 0.10835222899913788,
+          "time": 86.91809523809523
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02772227591999615,
+          "peak": 0.0770711749792099,
+          "time": 87.03419501133787
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.022735359734042445,
+          "peak": 0.05969475209712982,
+          "time": 87.1328798185941
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015074276856967947,
+          "peak": 0.04986634850502014,
+          "time": 87.23736961451247
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014034482016141587,
+          "peak": 0.038401734083890915,
+          "time": 87.3534693877551
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013656554672671637,
+          "peak": 0.0498243123292923,
+          "time": 87.46956916099774
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-wind",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-wind-0",
+      "track": "music-mystical",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-warehouse-0",
+        "undo",
+        "tool-select",
+        "place-data-0",
+        "undo",
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0"
+      ],
+      "played": 58,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 86.92970275878906,
+      "musicGain": 0.21102403104305267,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.02711957676460816,
+          "peak": 0.07852321863174438,
+          "time": 97.3148299319728
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.028304449657268003,
+          "peak": 0.0750524029135704,
+          "time": 97.43092970521542
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.031365368709491054,
+          "peak": 0.09272383898496628,
+          "time": 97.54702947845804
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02945608050507287,
+          "peak": 0.07815153896808624,
+          "time": 97.66312925170068
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.03137551723555245,
+          "peak": 0.08769257366657257,
+          "time": 97.78503401360544
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02933203152955126,
+          "peak": 0.12664751708507538,
+          "time": 97.90113378684808
+        }
+      ]
+    ]
+  },
+  {
+    "name": "place-water",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-water-0",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-data-0",
+        "undo",
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0"
+      ],
+      "played": 61,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 0,
+      "musicGain": 0.0009591293055564165,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.05383945252507126,
+          "peak": 0.11214588582515717,
+          "time": 99.38140589569161
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01930345744140504,
+          "peak": 0.05147884413599968,
+          "time": 99.49750566893424
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016565135386552774,
+          "peak": 0.050831299275159836,
+          "time": 99.61360544217688
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02156055307018541,
+          "peak": 0.06536072492599487,
+          "time": 99.71809523809524
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014402411019977641,
+          "peak": 0.048779167234897614,
+          "time": 99.82839002267573
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02157370864876078,
+          "peak": 0.06416101008653641,
+          "time": 99.9328798185941
+        }
+      ]
+    ]
+  },
+  {
+    "name": "invalid-move-blocked",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "blocked",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "place-data-0",
+        "undo",
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked"
+      ],
+      "played": 63,
+      "dropped": 11,
+      "activeVoices": 0,
+      "musicSeconds": 1.265487551689148,
+      "musicGain": 0.07825694978237152,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.015028335749316096,
+          "peak": 0.04610009491443634,
+          "time": 100.64689342403628
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016666253395198217,
+          "peak": 0.04909028857946396,
+          "time": 100.75138321995465
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01397262540558614,
+          "peak": 0.04098092392086983,
+          "time": 100.86167800453515
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01600929786263537,
+          "peak": 0.05361464247107506,
+          "time": 100.96616780045352
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.014677324670510583,
+          "peak": 0.04268305003643036,
+          "time": 101.08226757369614
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013857481185138791,
+          "peak": 0.04741986095905304,
+          "time": 101.19836734693878
+        }
+      ]
+    ]
+  },
+  {
+    "name": "remove-tool-selected",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "tool-select",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "undo",
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select"
+      ],
+      "played": 64,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 2.2000906467437744,
+      "musicGain": 0.19294790923595428,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.02913878250283021,
+          "peak": 0.07116259634494781,
+          "time": 101.59891156462585
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.019822878285645974,
+          "peak": 0.05625668540596962,
+          "time": 101.71501133786848
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017012851551052605,
+          "peak": 0.04508243501186371,
+          "time": 101.83111111111111
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.017909940331291768,
+          "peak": 0.061941131949424744,
+          "time": 101.94721088435374
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.025923457631559482,
+          "peak": 0.0838412418961525,
+          "time": 102.06331065759638
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02219245631973955,
+          "peak": 0.0721767246723175,
+          "time": 102.18521541950113
+        }
+      ]
+    ]
+  },
+  {
+    "name": "camera-reset",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "camera",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera"
+      ],
+      "played": 65,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 3.1288888454437256,
+      "musicGain": 0.2584189176559448,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.033551941126640096,
+          "peak": 0.08040596544742584,
+          "time": 102.53351473922902
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.027293922583871106,
+          "peak": 0.07228051126003265,
+          "time": 102.64961451247166
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.022311175825339882,
+          "peak": 0.057049743831157684,
+          "time": 102.76571428571428
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.023966760507100067,
+          "peak": 0.06818492710590363,
+          "time": 102.86439909297052
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01910739873020797,
+          "peak": 0.05940704047679901,
+          "time": 102.98049886621315
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02020032352940217,
+          "peak": 0.05628371983766556,
+          "time": 103.09659863945578
+        }
+      ]
+    ]
+  },
+  {
+    "name": "remove-confirmed",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "remove",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "place-power-0",
+        "undo",
+        "tool-select",
+        "place-solar-0",
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove"
+      ],
+      "played": 66,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 15.946281433105469,
+      "musicGain": 0.23795205354690552,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.04026384766889003,
+          "peak": 0.10441312193870544,
+          "time": 115.33351473922903
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.027071750439907772,
+          "peak": 0.06768457591533661,
+          "time": 115.44961451247165
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.020751449878435486,
+          "peak": 0.0595555454492569,
+          "time": 115.56571428571428
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.019460713394849585,
+          "peak": 0.057907894253730774,
+          "time": 115.68181405895692
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01594340944292845,
+          "peak": 0.05504043400287628,
+          "time": 115.79791383219954
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.018562812827846387,
+          "peak": 0.051778607070446014,
+          "time": 115.91401360544218
+        }
+      ]
+    ]
+  },
+  {
+    "name": "move-confirmed",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "move",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "ui-click",
+        "undo",
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove",
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move"
+      ],
+      "played": 70,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 18.494693756103516,
+      "musicGain": 0.23689599335193634,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.04174934356186278,
+          "peak": 0.09443444758653641,
+          "time": 117.93414965986395
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.029793140420279106,
+          "peak": 0.0761718600988388,
+          "time": 118.05024943310657
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.025914357071828518,
+          "peak": 0.0903024673461914,
+          "time": 118.16634920634921
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013707493014900766,
+          "peak": 0.04189706966280937,
+          "time": 118.28244897959183
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01652703568701089,
+          "peak": 0.052689239382743835,
+          "time": 118.39854875283447
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015616656544104813,
+          "peak": 0.04189985245466232,
+          "time": 118.5146485260771
+        }
+      ]
+    ]
+  },
+  {
+    "name": "clear-plan",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "clear",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "place-wind-0",
+        "undo",
+        "tool-select",
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove",
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear"
+      ],
+      "played": 72,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 19.81242561340332,
+      "musicGain": 0.21155203878879547,
+      "ambienceGain": 0.33799996972084045
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.017721878960956727,
+          "peak": 0.048333391547203064,
+          "time": 119.47827664399092
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012407068897475141,
+          "peak": 0.041486404836177826,
+          "time": 119.6756462585034
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010863958546036884,
+          "peak": 0.03802860528230667,
+          "time": 119.8033560090703
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010941710042663063,
+          "peak": 0.029840415343642235,
+          "time": 119.94848072562358
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.011261169153252253,
+          "peak": 0.035548560321331024,
+          "time": 120.0645804988662
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010486115601279456,
+          "peak": 0.03888631984591484,
+          "time": 120.18068027210884
+        }
+      ]
+    ]
+  },
+  {
+    "name": "year-submit-network-failure",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "blocked",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "place-water-0",
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove",
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear",
+        "ui-focus",
+        "ui-open",
+        "year-submit",
+        "blocked"
+      ],
+      "played": 76,
+      "dropped": 11,
+      "activeVoices": 0,
+      "musicSeconds": 32.39761734008789,
+      "musicGain": 0.28600001335144043,
+      "ambienceGain": 0.21969997882843018
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.013343906873616331,
+          "peak": 0.04092185199260712,
+          "time": 131.79646258503402
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01609697268494022,
+          "peak": 0.04952968284487724,
+          "time": 131.91256235827663
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015680303303435127,
+          "peak": 0.05710639804601669,
+          "time": 132.02866213151927
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013378707139700399,
+          "peak": 0.04246211796998978,
+          "time": 132.13315192743764
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013959623597011701,
+          "peak": 0.04016106575727463,
+          "time": 132.24344671201814
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01243201096267048,
+          "peak": 0.038749031722545624,
+          "time": 132.3479365079365
+        }
+      ]
+    ]
+  },
+  {
+    "name": "accepted-year-report",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "year-report",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove",
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear",
+        "ui-focus",
+        "ui-open",
+        "year-submit",
+        "blocked",
+        "year-report"
+      ],
+      "played": 77,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 36.7804069519043,
+      "musicGain": 0.15730001032352448,
+      "ambienceGain": 0.21969997882843018
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.01956742984397477,
+          "peak": 0.05152929574251175,
+          "time": 136.1618140589569
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013040284077490921,
+          "peak": 0.04155922681093216,
+          "time": 136.26630385487528
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010126188884357627,
+          "peak": 0.030061859637498856,
+          "time": 136.3824036281179
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010225002043812248,
+          "peak": 0.032593607902526855,
+          "time": 136.48108843537415
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008203951505865158,
+          "peak": 0.02501758001744747,
+          "time": 136.59718820861679
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.007950597511116316,
+          "peak": 0.02279144525527954,
+          "time": 136.69587301587302
+        }
+      ]
+    ]
+  },
+  {
+    "name": "next-year",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "year-continue",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "blocked",
+        "tool-select",
+        "camera",
+        "remove",
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear",
+        "ui-focus",
+        "ui-open",
+        "year-submit",
+        "blocked",
+        "year-report",
+        "year-continue"
+      ],
+      "played": 78,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 42.70149612426758,
+      "musicGain": 0.19412806630134583,
+      "ambienceGain": 0.25557997822761536
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.042373964809967385,
+          "peak": 0.09863221645355225,
+          "time": 142.10031746031746
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.04467192361822231,
+          "peak": 0.1012590229511261,
+          "time": 142.21061224489796
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.030214897674574363,
+          "peak": 0.0830598697066307,
+          "time": 142.3267120181406
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.019811652200110837,
+          "peak": 0.06105169281363487,
+          "time": 142.43120181405897
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015614951978186017,
+          "peak": 0.05168468505144119,
+          "time": 142.54730158730158
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.013281314001238479,
+          "peak": 0.04576607793569565,
+          "time": 142.6634013605442
+        }
+      ]
+    ]
+  },
+  {
+    "name": "decade-ending",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "decade-complete",
+      "track": "music-vaporware",
+      "levels": [
+        0.800000011920929,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "place-farm-1",
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear",
+        "ui-focus",
+        "ui-open",
+        "year-submit",
+        "blocked",
+        "year-report",
+        "year-continue",
+        "ui-focus",
+        "ui-open",
+        "ui-click",
+        "decade-complete"
+      ],
+      "played": 82,
+      "dropped": 11,
+      "activeVoices": 1,
+      "musicSeconds": 49.48172378540039,
+      "musicGain": 0.15730001032352448,
+      "ambienceGain": 0.21969997882843018
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.04655632713518117,
+          "peak": 0.09224812686443329,
+          "time": 148.86312925170068
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02902714801421965,
+          "peak": 0.059694431722164154,
+          "time": 148.97922902494332
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.05245426559787047,
+          "peak": 0.10157559812068939,
+          "time": 149.07791383219956
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.03586726169681743,
+          "peak": 0.06995110213756561,
+          "time": 149.19401360544217
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.02401519456301819,
+          "peak": 0.055551737546920776,
+          "time": 149.29850340136053
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.04674161875605335,
+          "peak": 0.09396889805793762,
+          "time": 149.41460317460317
+        }
+      ]
+    ]
+  },
+  {
+    "name": "saved-master-70",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": true,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-confirm",
+      "track": "music-vaporware",
+      "levels": [
+        0.699999988079071,
+        0.550000011920929,
+        0.6499999761581421,
+        0.800000011920929
+      ],
+      "recent": [
+        "tool-select",
+        "move",
+        "tool-select",
+        "clear",
+        "ui-focus",
+        "ui-open",
+        "year-submit",
+        "blocked",
+        "year-report",
+        "year-continue",
+        "ui-focus",
+        "ui-open",
+        "ui-click",
+        "decade-complete",
+        "ui-open",
+        "ui-confirm"
+      ],
+      "played": 84,
+      "dropped": 11,
+      "activeVoices": 2,
+      "musicSeconds": 58.17759704589844,
+      "musicGain": 0.250249981880188,
+      "ambienceGain": 0.19965998828411102
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.023865084879389483,
+          "peak": 0.061602719128131866,
+          "time": 157.56480725623584
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.0206312941031609,
+          "peak": 0.04707988351583481,
+          "time": 157.68090702947845
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016483806947094944,
+          "peak": 0.05152826011180878,
+          "time": 157.77959183673468
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.012492796016680786,
+          "peak": 0.03283260390162468,
+          "time": 157.89569160997732
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01135490774668645,
+          "peak": 0.032953664660453796,
+          "time": 157.99437641723355
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010499684300725922,
+          "peak": 0.029589727520942688,
+          "time": 158.09886621315192
+        }
+      ]
+    ]
+  },
+  {
+    "name": "all-buses-zero-verified",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-click",
+      "track": "music-mystical",
+      "levels": [
+        0.699999988079071,
+        0,
+        0,
+        0
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-focus",
+        "ui-focus",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-click"
+      ],
+      "played": 28,
+      "dropped": 2,
+      "activeVoices": 0,
+      "musicSeconds": 30.464580535888672,
+      "musicGain": 0,
+      "ambienceGain": 0
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 68.8413605442177
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 68.94585034013605
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 69.05034013605442
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 69.14902494331066
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 69.25351473922902
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 69.35800453514739
+        }
+      ]
+    ]
+  },
+  {
+    "name": "effects-only-idle",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": true,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-confirm",
+      "track": "music-mystical",
+      "levels": [
+        0.699999988079071,
+        0,
+        0,
+        0.8000000715255737
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-click",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm"
+      ],
+      "played": 36,
+      "dropped": 12,
+      "activeVoices": 0,
+      "musicSeconds": 48.83154296875,
+      "musicGain": 0,
+      "ambienceGain": 0
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.20834467120181
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.30702947845805
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.41151927437642
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.51020408163265
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.61469387755102
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0,
+          "peak": 0,
+          "time": 87.71337868480725
+        }
+      ]
+    ]
+  },
+  {
+    "name": "buses-restored",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": true,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "ui-close",
+      "track": "music-mystical",
+      "levels": [
+        0.699999988079071,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "ui-focus",
+        "ui-focus",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-focus",
+        "ui-focus",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-close"
+      ],
+      "played": 55,
+      "dropped": 12,
+      "activeVoices": 0,
+      "musicSeconds": 53.88190460205078,
+      "musicGain": 0.2800000011920929,
+      "ambienceGain": 0.04367999732494354
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.0077411202333532575,
+          "peak": 0.02018623612821102,
+          "time": 92.25287981859411
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.00681281296295609,
+          "peak": 0.016798287630081177,
+          "time": 92.35736961451248
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.006430150698696161,
+          "peak": 0.014490816742181778,
+          "time": 92.45605442176871
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.006001002926697352,
+          "peak": 0.014594712294638157,
+          "time": 92.56054421768708
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.005261423481162392,
+          "peak": 0.01372018177062273,
+          "time": 92.65922902494331
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.004619226333351194,
+          "peak": 0.01439637877047062,
+          "time": 92.76371882086168
+        }
+      ]
+    ]
+  },
+  {
+    "name": "replay-new-run",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "new-run",
+      "track": "music-vaporware",
+      "levels": [
+        0.699999988079071,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "ui-focus",
+        "ui-focus",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "ui-click",
+        "ui-open",
+        "new-run"
+      ],
+      "played": 62,
+      "dropped": 12,
+      "activeVoices": 1,
+      "musicSeconds": 14.077075004577637,
+      "musicGain": 0.125124990940094,
+      "ambienceGain": 0.1774500012397766
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.026237412768905045,
+          "peak": 0.06501100957393646,
+          "time": 141.90875283446712
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.016267109901175195,
+          "peak": 0.04278958588838577,
+          "time": 142.0132426303855
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010988831892450208,
+          "peak": 0.031374383717775345,
+          "time": 142.11773242630386
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008312878499402631,
+          "peak": 0.02032359316945076,
+          "time": 142.22222222222223
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.006542787141113664,
+          "peak": 0.019456766545772552,
+          "time": 142.3267120181406
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.005877908559172603,
+          "peak": 0.018640782684087753,
+          "time": 142.4428117913832
+        }
+      ]
+    ]
+  },
+  {
+    "name": "settings-input-isolation",
+    "before": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "after": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n"
+  },
+  {
+    "name": "repeat-farm-0",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-farm-0",
+      "track": "music-vaporware",
+      "levels": [
+        0.5999999642372131,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "ui-confirm",
+        "ui-confirm",
+        "ui-close",
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "ui-click",
+        "ui-open",
+        "new-run",
+        "ui-close",
+        "tool-select",
+        "ui-open",
+        "ui-confirm",
+        "ui-close",
+        "place-farm-0"
+      ],
+      "played": 68,
+      "dropped": 12,
+      "activeVoices": 1,
+      "musicSeconds": 23.243175506591797,
+      "musicGain": 0.17376001179218292,
+      "ambienceGain": 0.23399998247623444
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.06659740532655692,
+          "peak": 0.1397000104188919,
+          "time": 151.0748299319728
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010452625855479509,
+          "peak": 0.03339238837361336,
+          "time": 151.1909297052154
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010906939703219475,
+          "peak": 0.03076559491455555,
+          "time": 151.28961451247164
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.015531385213307857,
+          "peak": 0.04345463216304779,
+          "time": 151.40571428571428
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008562440891978558,
+          "peak": 0.022823434323072433,
+          "time": 151.51020408163265
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009744129600290297,
+          "peak": 0.029603343456983566,
+          "time": 151.6263038548753
+        }
+      ]
+    ]
+  },
+  {
+    "name": "repeat-farm-1",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-farm-1",
+      "track": "music-vaporware",
+      "levels": [
+        0.5999999642372131,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "travel",
+        "arrival",
+        "ui-open",
+        "ui-close",
+        "ui-click",
+        "ui-open",
+        "new-run",
+        "ui-close",
+        "tool-select",
+        "ui-open",
+        "ui-confirm",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "tool-select",
+        "place-farm-1"
+      ],
+      "played": 71,
+      "dropped": 12,
+      "activeVoices": 1,
+      "musicSeconds": 24.642154693603516,
+      "musicGain": 0.1741200089454651,
+      "ambienceGain": 0.23399998247623444
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.06618402265462585,
+          "peak": 0.14038895070552826,
+          "time": 152.47383219954648
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010674385703121235,
+          "peak": 0.031015127897262573,
+          "time": 152.58993197278912
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009885828253466563,
+          "peak": 0.027598433196544647,
+          "time": 152.69442176870749
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010208956954157446,
+          "peak": 0.030376248061656952,
+          "time": 152.81052154195012
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009400253443267554,
+          "peak": 0.030691467225551605,
+          "time": 152.90920634920636
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01242159274827768,
+          "peak": 0.03867146372795105,
+          "time": 153.02530612244897
+        }
+      ]
+    ]
+  },
+  {
+    "name": "repeat-farm-2",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-farm-2",
+      "track": "music-vaporware",
+      "levels": [
+        0.5999999642372131,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "ui-close",
+        "ui-click",
+        "ui-open",
+        "new-run",
+        "ui-close",
+        "tool-select",
+        "ui-open",
+        "ui-confirm",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "tool-select",
+        "place-farm-1",
+        "undo",
+        "tool-select",
+        "place-farm-2"
+      ],
+      "played": 74,
+      "dropped": 12,
+      "activeVoices": 1,
+      "musicSeconds": 26.139841079711914,
+      "musicGain": 0.16331999003887177,
+      "ambienceGain": 0.23399998247623444
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.017529136162359335,
+          "peak": 0.055496253073215485,
+          "time": 153.98893424036282
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009587434841505914,
+          "peak": 0.026384714990854263,
+          "time": 154.0934240362812
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.00973980730874434,
+          "peak": 0.026695579290390015,
+          "time": 154.2095238095238
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009693705875085876,
+          "peak": 0.026572909206151962,
+          "time": 154.30820861678004
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008258941539006021,
+          "peak": 0.025882983580231667,
+          "time": 154.4126984126984
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.00963705412807763,
+          "peak": 0.03051699511706829,
+          "time": 154.5229931972789
+        }
+      ]
+    ]
+  },
+  {
+    "name": "repeat-farm-3",
+    "audio": {
+      "unlocked": true,
+      "audible": true,
+      "muted": false,
+      "focused": true,
+      "atlas": false,
+      "musicPlaying": true,
+      "settingsOpen": false,
+      "region": "meadowbrook-v1",
+      "lastCue": "place-farm-0",
+      "track": "music-vaporware",
+      "levels": [
+        0.5999999642372131,
+        0.5,
+        0.6000000238418579,
+        0.8000000715255737
+      ],
+      "recent": [
+        "new-run",
+        "ui-close",
+        "tool-select",
+        "ui-open",
+        "ui-confirm",
+        "ui-close",
+        "place-farm-0",
+        "undo",
+        "tool-select",
+        "place-farm-1",
+        "undo",
+        "tool-select",
+        "place-farm-2",
+        "undo",
+        "tool-select",
+        "place-farm-0"
+      ],
+      "played": 77,
+      "dropped": 12,
+      "activeVoices": 1,
+      "musicSeconds": 27.591110229492188,
+      "musicGain": 0.15611998736858368,
+      "ambienceGain": 0.23399998247623444
+    },
+    "output": [
+      [
+        {
+          "state": "running",
+          "rms": 0.012868606481795988,
+          "peak": 0.03957519680261612,
+          "time": 155.44598639455782
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.01126557566454375,
+          "peak": 0.03433042764663696,
+          "time": 155.55628117913832
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010918723549010752,
+          "peak": 0.026926353573799133,
+          "time": 155.67238095238096
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.009858817729658648,
+          "peak": 0.031099455431103706,
+          "time": 155.77687074829933
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.008824973472227262,
+          "peak": 0.02367096208035946,
+          "time": 155.87555555555556
+        }
+      ],
+      [
+        {
+          "state": "running",
+          "rms": 0.010865813112046213,
+          "peak": 0.03554229438304901,
+          "time": 155.99165532879817
+        }
+      ]
+    ]
+  }
+]
