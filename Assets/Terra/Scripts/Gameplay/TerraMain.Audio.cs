@@ -1,65 +1,107 @@
+using System.Linq;
+using Terra.Audio;
+using Terra.Contracts;
 using UnityEngine;
-using Terra.Core;
+using UnityEngine.InputSystem;
 
 namespace Terra.Gameplay
 {
     public sealed partial class TerraMain
     {
-        public AudioClip ambientSound,undoSound,cancelSound,blockedSound;
-        AudioSource ambience,changeSound;
-        AudioClip[] changeClips;
-        bool audioGesture;
-        float lastBlocked=-10;
-        void InitializeAudio()
-        {
-            sound.volume=1;sound.spatialBlend=0;
-            changeSound=gameObject.AddComponent<AudioSource>();changeSound.playOnAwake=false;changeSound.spatialBlend=0;changeSound.volume=.48f;
-            changeClips=new[]{ChangeChime("Plan",520,660),ChangeChime("Reserve",660,440),ChangeChime("Release",440,740),ChangeChime("Outcome",523,784),ChangeChime("Decline",392,294),ChangeChime("Mixed",523,494)};
-            ambience=gameObject.AddComponent<AudioSource>();ambience.playOnAwake=false;ambience.loop=true;ambience.spatialBlend=0;ambience.volume=0;ambience.clip=ambientSound;
-        }
-        void AudioGesture(){audioGesture=true;if(ambientSound!=null&&ambientSound.loadState==AudioDataLoadState.Unloaded)ambientSound.LoadAudioData();}
+        // Retain serialized legacy fields so historical scenes remain readable. The new bank owns playback.
+        public AudioClip ambientSound, undoSound, cancelSound, blockedSound;
+        TownPhase audioPhase;
+        string audioRun;
+        int audioYear;
+        bool audioBound, audioModal;
+        AnnualTownSession audioSession;
+        Feature[] audioWater; float audioWaterGain, nextAudioWater; string audioChapterError;
+        void InitializeAudio() { TerraAudio.Ensure(); }
+        void AudioGesture() { TerraAudio.Ensure().Gesture(); }
+        public void AudioVisibility(string value) { TerraAudio.Ensure().BrowserFocus(value == "1"); }
+        public void AudioAudit(string _) { Debug.Log("TERRA_AUDIO_AUDIT: " + TerraAudio.Ensure().Audit()); }
         void AudioTick()
         {
-            if(ambience==null)return;
-            bool audible=audioGesture&&!hud.Muted&&Application.isFocused;
-            sound.mute=!audible;
-            if(changeSound!=null){changeSound.mute=!audible;if(!audible)changeSound.Stop();}
-            if(!audible){ambience.Stop();ambience.volume=0;return;}
-            if(ambientSound!=null&&ambientSound.loadState==AudioDataLoadState.Loaded&&!ambience.isPlaying)ambience.Play();
-            ambience.volume=Mathf.MoveTowards(ambience.volume,.65f,Time.unscaledDeltaTime*.4f);
+            var audio = TerraAudio.Ensure();
+            var k = Keyboard.current;
+            if (k?.anyKey.wasPressedThisFrame ?? false) audio.Gesture();
+            if ((k?.uKey.wasPressedThisFrame ?? false) && !TerraAudioPanel.ConsumedInput) TerraAudioPanel.Show();
+            if (k?.f8Key.wasPressedThisFrame ?? false) AudioAudit("");
+            if (annual != null && annual.Initialized && audioSession != annual)
+            {
+                if (audioSession != null) audioSession.Changed -= AnnualAudioChanged;
+                audioSession = annual; audioSession.Changed += AnnualAudioChanged;
+                var state = annual.State; audioPhase = state.phase; audioRun = state.runId; audioYear = state.year; audioBound = true;
+            }
+            if(chapters!=null && chapters.Error!=audioChapterError)
+            {audioChapterError=chapters.Error;if(!string.IsNullOrEmpty(audioChapterError))audio.Request("blocked",9);}
+            bool modal = hud != null && (hud.ModalOpen || hud.AnnualOverviewOpen);
+            if (hud != null && modal != audioModal)
+            { audio.Request(modal ? "ui-open" : "ui-close", 2); audioModal = modal; }
+            if(ready && Time.unscaledTime >= nextAudioWater)
+            {
+                nextAudioWater=Time.unscaledTime+.25f;
+                if(audioWater==null)audioWater=world.features.Where(f=>f.kind=="water").ToArray();
+                float nearest=10000;var focusPoint=new Vector2(shownTarget.x,shownTarget.z);
+                foreach(var feature in audioWater)for(int i=1;i<feature.points.Length;i++)
+                {
+                    var a=new Vector2(feature.points[i-1].x,feature.points[i-1].z);
+                    var b=new Vector2(feature.points[i].x,feature.points[i].z);var ab=b-a;
+                    var closest=a+ab*Mathf.Clamp01(Vector2.Dot(focusPoint-a,ab)/Mathf.Max(.001f,ab.sqrMagnitude));
+                    nearest=Mathf.Min(nearest,Vector2.Distance(focusPoint,closest));
+                }
+                audioWaterGain=Mathf.InverseLerp(280,25,nearest);
+            }
+            audio.Context(atlasVisible, location.PackId, modal || fastForwarding, audioBound && audioPhase == TownPhase.Completed, Mathf.InverseLerp(600,60,shownZoom),audioWaterGain);
+        }
+        void AnnualAudioChanged(AnnualTownSnapshot state)
+        {
+            var audio = TerraAudio.Ensure();
+            if (audioBound && state.runId != audioRun) audio.Request("new-run", 7);
+            else if (audioBound && (state.phase != audioPhase || state.year != audioYear))
+            {
+                if (state.phase == TownPhase.Completed) audio.Request("decade-complete", 10);
+                else if (!fastForwarding)
+                {
+                    if (state.phase == TownPhase.Resolving) audio.Request("year-submit", 7);
+                    else if (state.phase == TownPhase.Reviewing)
+                    {
+                        var result = state.history.LastOrDefault();
+                        bool attention = result != null && (result.outcomes.disruptedSites > 0 || state.arrearsCents > 0 || result.outcomes.sites.Any(s => s.phase == TownAssetPhase.Suspended));
+                        audio.Request(attention ? "year-attention" : "year-report", 8);
+                    }
+                    else if (state.year > audioYear) audio.Request("year-continue", 7);
+                    else if (audioPhase == TownPhase.Resolving) audio.Request("cancel", 6);
+                }
+            }
+            audioBound = true; audioPhase = state.phase; audioRun = state.runId; audioYear = state.year;
         }
         void Cue(AudioClip clip)
         {
-            AudioGesture();if(hud.Muted||clip==null)return;
-            sound.mute=false;sound.PlayOneShot(clip);
+            if (clip == cancelSound) TerraAudio.Ensure().Request("cancel", 4);
+            else if (clip == undoSound) TerraAudio.Ensure().Request("undo", 5);
+            else if (clip == blockedSound) BlockedCue();
+            else TerraAudio.Ensure().Request("ui-confirm", 4);
         }
-        // Original synthesized, softly enveloped notes: no new asset/license dependency.
-        static AudioClip ChangeChime(string name,float first,float second)
+        void ChangeCue(Terra.Core.AnnualFeedbackTone tone)
         {
-            const int rate=22050;var samples=new float[(int)(rate*.34f)];
-            for(int i=0;i<samples.Length;i++)
+            // Model notifications never unlock audio; category cues keep priority.
+            string cue=tone==Terra.Core.AnnualFeedbackTone.Decline||tone==Terra.Core.AnnualFeedbackTone.Mixed?"year-attention":
+                tone==Terra.Core.AnnualFeedbackTone.Outcome?"year-report":tone==Terra.Core.AnnualFeedbackTone.Release?"undo":"ui-confirm";
+            TerraAudio.Ensure().Request(cue,1);
+        }
+        void BlockedCue() { TerraAudio.Ensure().Request("blocked", 9); }
+        void PlacementCue(string action, string mode, Site site)
+        {
+            var audio = TerraAudio.Ensure();
+            if (mode == "remove" || mode == "reset") { audio.Request(mode == "reset" ? "clear" : "remove", 6); return; }
+            if (mode == "move") { audio.Request("move", 6); return; }
+            float pan = 0;
+            if (site != null && site.polygon.Length > 0)
             {
-                float time=(float)i/rate;
-                float Note(float start,float hz)
-                {
-                    float t=time-start;if(t<0||t>.20f)return 0;
-                    float envelope=Mathf.Min(1,t/.009f)*Mathf.Pow(1-t/.20f,2);
-                    return envelope*(Mathf.Sin(2*Mathf.PI*hz*t)+.18f*Mathf.Sin(4*Mathf.PI*hz*t))*.35f;
-                }
-                samples[i]=Note(0,first)+Note(.12f,second);
+                var point = site.polygon[0]; pan = (view.WorldToViewportPoint(new Vector3(point.x,0,point.z)).x - .5f) * .65f;
             }
-            var clip=AudioClip.Create("Feedback "+name,samples.Length,1,rate,false);clip.SetData(samples,0);return clip;
+            audio.Placement(action, pan);
         }
-        void ChangeCue(AnnualFeedbackTone tone)
-        {
-            AudioGesture();if(hud.Muted||!Application.isFocused||changeSound==null)return;
-            // Replace rapid edits' cue rather than stacking loud overlapping voices.
-            changeSound.Stop();changeSound.mute=false;changeSound.clip=changeClips[(int)tone];changeSound.Play();
-        }
-        void DisposeFeedbackAudio()
-        {
-            if(changeClips!=null)foreach(var clip in changeClips)if(clip!=null)Destroy(clip);
-        }
-        void BlockedCue(){if(Time.unscaledTime-lastBlocked<.35f)return;lastBlocked=Time.unscaledTime;Cue(blockedSound);}
     }
 }

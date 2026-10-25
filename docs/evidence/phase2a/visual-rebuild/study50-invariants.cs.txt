@@ -1,0 +1,14 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);var rules=(Terra.Core.BuildActionRules)main.GetType().GetField("buildActionRules",flags).GetValue(main);var world=(Terra.Contracts.WorldData)main.GetType().GetField("world",flags).GetValue(main);
+string before=UnityEngine.JsonUtility.ToJson(world),state=main.Diagnostic;
+var rnd=new System.Random(5050);float maxDelta=0,maxSourceError=0,minClearance=float.MaxValue,maxFill=0;int sourceSamples=0,foundationSamples=0,valid=0;
+for(int i=0;i<20000;i++){float x=world.terrain.xMin+(float)rnd.NextDouble()*(world.terrain.columns-1)*world.terrain.cellSizeM;float z=world.terrain.zMin+(float)rnd.NextDouble()*(world.terrain.rows-1)*world.terrain.cellSizeM;float h=land.Height(x,z);if(float.IsNaN(h)||float.IsInfinity(h))throw new System.Exception("Non-finite display height");maxDelta=UnityEngine.Mathf.Max(maxDelta,UnityEngine.Mathf.Abs(h-land.SourceHeight(x,z)));maxSourceError=UnityEngine.Mathf.Max(maxSourceError,UnityEngine.Mathf.Abs(rules.Height(x,z)-land.SourceHeight(x,z)));sourceSamples++;}
+foreach(var site in world.sites)foreach(var action in rules.actions.Where(a=>!a.landscape)){
+var raw=rules.Layout(site,action);if(!raw.Valid)continue;string saved=UnityEngine.JsonUtility.ToJson(raw);var visual=land.VisualLayout(raw);valid++;
+var ring=visual.foundation;float minX=ring.Min(p=>p.x),maxX=ring.Max(p=>p.x),minZ=ring.Min(p=>p.z),maxZ=ring.Max(p=>p.z);
+for(float z=minZ;z<=maxZ;z+=.4f)for(float x=minX;x<=maxX;x+=.4f){float d=visual.groundY-land.Height(x,z);minClearance=UnityEngine.Mathf.Min(d,minClearance);maxFill=UnityEngine.Mathf.Max(d,maxFill);foundationSamples++;if(d<-.001)throw new System.Exception("Ground intersects foundation: "+site.id+"/"+action.id);}
+if(saved!=UnityEngine.JsonUtility.ToJson(raw)||!object.ReferenceEquals(raw,rules.Layout(site,action)))throw new System.Exception("Cached analytical layout changed");}
+if(maxSourceError>0||before!=UnityEngine.JsonUtility.ToJson(world)||state!=main.Diagnostic)throw new System.Exception("Analytical source or state changed");
+var cache=(float[])land.GetType().GetField("displayHeights",flags).GetValue(land);
+var ground=UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.shader.name=="Terra/Illustrated Ground"&&m.GetFloat("_SurfaceKind")>2.5f).ToArray();if(ground.Length!=1||ground[0].GetFloat("_IllustrativeRelief")!=1)throw new System.Exception("Expected Wisconsin material scope");
+return new{sourceSamples,maxSourceError,maxDelta,validLayouts=valid,foundationSamples,minClearance,maxFill,cachePoints=cache.Length,cacheBytes=cache.Length*4,worldAndStateUnchanged=true,frame=UnityEngine.Time.frameCount};

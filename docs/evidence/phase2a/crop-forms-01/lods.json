@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CropDiagnostic/lods.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "level": 0,
+          "vertices": 2864,
+          "triangles": 1392,
+          "bounds": "Center: (0.00, 0.17, 0.00), Extents: (0.52, 0.24, 0.52)"
+        },
+        {
+          "level": 1,
+          "vertices": 922,
+          "triangles": 390,
+          "bounds": "Center: (0.00, 0.17, 0.00), Extents: (0.52, 0.23, 0.52)"
+        },
+        {
+          "level": 2,
+          "vertices": 232,
+          "triangles": 84,
+          "bounds": "Center: (0.00, 0.16, 0.00), Extents: (0.49, 0.22, 0.50)"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

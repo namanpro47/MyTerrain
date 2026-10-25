@@ -1,0 +1,7 @@
+{
+  "Assets/Terra/Scripts/Core/AnnualPlanningGuidance.cs": "c28ba2d9bbe1fc99d27d8fc8311a9abc473d95b549f7b38706e1710232c40910",
+  "Assets/Terra/Scripts/UI/TerraHud.Annual.cs": "4175389edafc5c32562211a03063c9a36bc9ff19011edc5d01a403bdede84fd7",
+  "Assets/Terra/Scripts/UI/TerraHud.BuildActions.cs": "c793bd2cfb105d6468cca78edb2a78306c58f47bfe5ef0a3b8c4a217521e38c8",
+  "tests/full-game/PlanningGuidanceChecks.cs": "d6d35d2206a97229688ac213906caf70fb1e2acbaa2d06830cfd87dd58e74bab",
+  "tests/full-game/Program.cs": "233ac141bba0825e3077f2099c30c1303bd8be72b2dc13d1e88f21019323d781"
+}

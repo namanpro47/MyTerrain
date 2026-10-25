@@ -23,7 +23,7 @@ namespace Terra.Gameplay
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             if(annual.State.phase==TownPhase.Reviewing){ShowAcceptedReport();return;}
             if(!introPending)return;introPending=false;
-            hud.AnnualDialog("Ten years in "+location.Name,(location.IsWisconsin&&PlayerPrefs.HasKey("terra.meadowbrook.annual-full.v3.1")?"Connected fields use a new run. Your previous-layout save is retained locally.\n\n":"")+"You have $10M in public funds and ten years. This fictional community starts with 4 of 16 needed homes and 4 of 36 target jobs. Food, services, land and water also matter.\n\nCompare farming and community projects, inspect a field, then queue a plan. End Year pays once and advances construction and establishment. Upkeep reserves funds for future years.\n\nEdit this year's plan freely; accepted years stay in history. Aim for Economic 75, Social 75 and Environmental 60 by Year 10. Every run gets an ending.","Explore the landscape",()=>{hud.CloseModal();SaveAnnual();});
+            hud.AnnualDialog(parcelPack.title+" · "+location.Name,parcelPack.story+"\n\n"+world.sites.Count(s=>!s.protectedSite)+" open plots · 60 m grid; large projects use joined cells. Seven existing community plots remain in place. Woodland, water and protected areas cannot be built over.\n\nYou have $10M in public funds and ten years. The community starts with 4 of 16 needed homes and 4 of 36 target jobs. Queue a plan, then End Year to pay and advance construction. Upkeep reserves future funds.\n\nFictional scenario · shared weather and economic reference: Coon Valley, Wisconsin; other parameters are authored. Previous-layout saves are retained separately.","Explore the landscape",()=>{hud.CloseModal();SuppressMapPointer();SaveAnnual();});
         }
         void ReviewFuture()
         {
@@ -41,7 +41,7 @@ namespace Terra.Gameplay
             var forecast=AnnualGameplay.Forecast(forecastTown);
             string start=reviewing?"Continue from accepted Year "+annual.State.year+", then advance the remaining years without new projects.":"Submit the current reviewed plan, then advance the remaining years without new projects.";
             hud.AnnualDialog("See my ten-year future?",start+" Existing projects still age, need upkeep and encounter the same saved conditions.\n\n"+
-                "Current plan: "+annual.State.queue.Length+" projects; expected Year "+forecast.year+" closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
+                "Current plan: "+annual.State.queue.Length+" projects; expected Year "+forecast.year+" closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled local summaries. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
         }
         IEnumerator FinishYears()
         {
@@ -60,12 +60,12 @@ namespace Terra.Gameplay
                 catch(Exception e){error=e.Message;}
                 if(error!=null)
                 {
-                    fastForwarding=false;
+                    fastForwarding=false;RefreshLandscape();Refresh();
                     hud.AnnualDialog("Year not completed",error+"\n\nThe frozen request and accepted history are retained. Retry continues the same conditions.","Retry future",()=>{hud.CloseModal();StartCoroutine(FinishYears());});
                     yield break;
                 }
             }
-            fastForwarding=false;hud.CloseModal();RefreshLandscape();Refresh();ShowFuture();Debug.Log("TERRA_ANNUAL_TIMING: fast-forward from year "+firstYear+" completed in "+timing.Elapsed.TotalMilliseconds.ToString("0.0")+" ms including yielding and final world refresh");
+            fastForwarding=false;hud.CloseModal();RefreshLandscape();Refresh();ShowAcceptedReport();Debug.Log("TERRA_ANNUAL_TIMING: fast-forward from year "+firstYear+" completed in "+timing.Elapsed.TotalMilliseconds.ToString("0.0")+" ms including yielding and final world refresh");
         }
         void ShowFuture()
         {

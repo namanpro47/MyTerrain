@@ -1,0 +1,83 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study65/layout.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 8644,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "dimensions": "One 12 x 9 m house, 3 m eaves, 5.8 m ridge; 26 x 32 m lot includes access and yard.",
+        "candidates": [
+          {
+            "x": -285,
+            "z": 4,
+            "yaw": 180,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "heightLow": 15.1338329,
+            "heightHigh": 17.021286,
+            "relief": 1.88745308,
+            "minWater": 42.17981,
+            "overlappingSiteBounds": []
+          },
+          {
+            "x": -321,
+            "z": 18,
+            "yaw": 180,
+            "covers": [
+              "sealed"
+            ],
+            "heightLow": 16.2726,
+            "heightHigh": 17.7657986,
+            "relief": 1.49319839,
+            "minWater": 47.6324654,
+            "overlappingSiteBounds": []
+          },
+          {
+            "x": -355,
+            "z": 35,
+            "yaw": 180,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "heightLow": 16.9356,
+            "heightHigh": 18.4253178,
+            "relief": 1.48971748,
+            "minWater": 13.022644,
+            "overlappingSiteBounds": []
+          },
+          {
+            "x": -140,
+            "z": -20,
+            "yaw": 180,
+            "covers": [
+              "grass"
+            ],
+            "heightLow": 12.2353277,
+            "heightHigh": 14.121398,
+            "relief": 1.88607025,
+            "minWater": 38.4354439,
+            "overlappingSiteBounds": []
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

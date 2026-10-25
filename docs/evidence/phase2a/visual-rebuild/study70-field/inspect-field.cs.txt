@@ -1,0 +1,3 @@
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var result=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None).Select(n=>{var bs=(System.Collections.IEnumerable)n.GetType().GetField("batches",f).GetValue(n);var names=bs.Cast<object>().Select(b=>((UnityEngine.Mesh)b.GetType().GetField("mesh",f).GetValue(b)).name).Distinct().ToArray();return new{name=n.name,enabled=n.enabled,meshes=names};}).Where(n=>n.meshes.Any(s=>s.Contains("LeafCrop"))).ToArray();
+return new{count=result.Length,examples=result.Take(5).ToArray()};

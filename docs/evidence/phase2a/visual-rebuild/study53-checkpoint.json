@@ -1,0 +1,251 @@
+{
+  "sourceBase": "e4d7bc7",
+  "status": "Wisconsin path candidate; visual/browser gates remain open",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-camera.cs.txt",
+      "bytes": 834,
+      "sha256": "f3ab720baeead498133d2bf8bc359be26996502cec3548a32c5530b125d2f5f0"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-camera.json",
+      "bytes": 564,
+      "sha256": "692a461e902d37b93bfc97863fa151da5a36a7f0fbbfec6640f0091bea245877"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-compile.json",
+      "bytes": 269,
+      "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-control.json",
+      "bytes": 685,
+      "sha256": "c14244bf0aa8a60d66494cdd3cc4f132eef296c222e33d0ca8fe035cb42a6eda"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credit-camera.json",
+      "bytes": 246,
+      "sha256": "94d791bc5582648419d68721b848c3160597594dee8669176ef94f1a8d53d620"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credit-lines-hidden.json",
+      "bytes": 621,
+      "sha256": "15f5200da9a78539f6b2f3daefa5ead9007d2cba223f1fec8b5a63ae39f6b59b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-diagnostic.json",
+      "bytes": 1820,
+      "sha256": "5b0b4574ae56b35335f8f560279b90a4cef34732372f9b882d47a74d05c28eae"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-final.cs.txt",
+      "bytes": 1264,
+      "sha256": "33ba0728a57daaf7786c3079eb1c37bbbaf3632246a373bd83445eb4d8f18b4a"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-final.json",
+      "bytes": 1763,
+      "sha256": "4722230bc2e227f395108925bb39c500b8629ba186d112cd4a0b36efd38d1225"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-fit-failure.json",
+      "bytes": 212,
+      "sha256": "d6541e844f57fdf9424c8d490bdb44dc2b1973f5402431ffdbd6c2ea0112ba5f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-initial.json",
+      "bytes": 1326,
+      "sha256": "a333707f56ff9269a02ac882a937c20064a78321944495a417a5a8a2f63f799b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-no-play.json",
+      "bytes": 246,
+      "sha256": "94d791bc5582648419d68721b848c3160597594dee8669176ef94f1a8d53d620"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits.cs.txt",
+      "bytes": 650,
+      "sha256": "57a190d2ea2636ead3063e99ac7a295eac6eea81cb4f9acc2163ec2dbb88603b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-final-compile.json",
+      "bytes": 269,
+      "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-final-ticking.json",
+      "bytes": 673,
+      "sha256": "2e0e9ce1fd0ffea8ada0684b589e4f778c85334ed16ce2d757678caa0087c2df"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-fresh-camera.json",
+      "bytes": 899,
+      "sha256": "f3da2bfcabe56d942b7801b532f001c2baba458bc4aa0a32ec5f40f92f525450"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-fresh-ticking.json",
+      "bytes": 675,
+      "sha256": "2907f192115740aeaeda05df03b8d66426fb318bbbf0127637ec935639aa5cdb"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-ground.shader.txt",
+      "bytes": 14628,
+      "sha256": "ef7f53a32a6cbade63cf5b87fcc3f721d73059c6cc0704cde7beaab39e8fa0da"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-import.cs.txt",
+      "bytes": 1467,
+      "sha256": "85f154b0bcad4b172b10db777e2b2b1e2c6673052dfc8458c973f077a2180641"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-import.json",
+      "bytes": 676,
+      "sha256": "ebf6fcb6d860ca469370c7359aaba6637677b59c15684c91a1dbcf8bbc751704"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-initial.shader.txt",
+      "bytes": 14628,
+      "sha256": "ef7f53a32a6cbade63cf5b87fcc3f721d73059c6cc0704cde7beaab39e8fa0da"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-no-play-check.json",
+      "bytes": 678,
+      "sha256": "36b452804e27a2fd77e70aacbb8986d6f88de612a38cd6e258cc59940d62f191"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-normal-camera.json",
+      "bytes": 893,
+      "sha256": "2c157d05db85d7560b2ed02af14ddca84851d1c968c9962f90a09154a72bb36d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-paused-check.json",
+      "bytes": 686,
+      "sha256": "7c41c23d76e0c467fd58f614819b54e41b972df3579ae0783609ece28a801c9c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-production-close-camera.json",
+      "bytes": 563,
+      "sha256": "53a100ee54e3f43ce2e236df0ca3161737c8a19b0f29e9cd5b86f52b013fcd45"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-refined-camera.json",
+      "bytes": 564,
+      "sha256": "3b4c1b4313da2b610d9498b99d6b4966e23e82cabb50e0d5e14082bb9dcaebf3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-refined.json",
+      "bytes": 744,
+      "sha256": "e15f356b0921439a7a3ea9b3c88b93fe8b5a5061f83a74c4a23c6e271a329cfb"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-roads.cs.txt",
+      "bytes": 3755,
+      "sha256": "6f56d81a8c07f97af96a5b5a0a743d9cdc092df3dc61b21aa98e6df4251d24a0"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-roads.json",
+      "bytes": 1608,
+      "sha256": "4dee6c88eb8a6e8361aacf0ffb2de85bc5521dc2b580e63a6c37dfd1cc3067b2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-ticking.json",
+      "bytes": 679,
+      "sha256": "7f8059baafdfd9081b23360d2d54539dd2f5d0be5b27e24b00f3a98f1290c968"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-ui-camera.cs.txt",
+      "bytes": 527,
+      "sha256": "4bc15018a94cf1b256f81389b48db2d9198e7b622b7d0b7e923368f5c5b0e420"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-ui-camera.json",
+      "bytes": 605,
+      "sha256": "a19f2d736c4bfa2ea743b253f74c6966985f0fffc2424bbfd59f31ef65f79e4e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-verify.cs.txt",
+      "bytes": 3027,
+      "sha256": "106962f022b9af3fcc578d47210e2df410d9e3951cb1fc4b575ae58c819a9718"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-verify.json",
+      "bytes": 859,
+      "sha256": "48f944752a4d124929da03c0a0c7c6bbc0f30778e7f11979a24767a706962feb"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-diagnostic.png",
+      "bytes": 159727,
+      "sha256": "f40e39b5cc84ded5afd2372bd97bcf5b94881144186ca9628741de967ec64dd1"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-final-clean.png",
+      "bytes": 730371,
+      "sha256": "3c93bfb86bee20fe17c31055f7a964c88e5b86ecc74ecf03d4bf0c88cb4cb46f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits-final.png",
+      "bytes": 748112,
+      "sha256": "91ab88c20c681e663040d323f94ade1a4e56f63dc81092fc834285ae373ffc7c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-credits.png",
+      "bytes": 118163,
+      "sha256": "64d90fc193abc5b81ecf379e88ed468111d2b99a4ed24d94dc8a98fd48930ddb"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-production-close.png",
+      "bytes": 1575875,
+      "sha256": "85489daced1c686b0afc5dcd39460e10e5ab24c6781df9b46c23104589758a9d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-production-control.png",
+      "bytes": 1805620,
+      "sha256": "a9de5e4a3e228e84a8984d61dd38c4dc95683d4538103159c03757e421e176e0"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-production-normal.png",
+      "bytes": 1812617,
+      "sha256": "fe1fda36e805105b9c2cf2dc77b910aa858c15532635cb2070489120056b722b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-after-live.png",
+      "bytes": 1224778,
+      "sha256": "5efaabf656ba24ce015fd531c0a62f04a487cb49747377df8ff34b2ba93e7123"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-after.png",
+      "bytes": 1224778,
+      "sha256": "5efaabf656ba24ce015fd531c0a62f04a487cb49747377df8ff34b2ba93e7123"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-before.png",
+      "bytes": 1216498,
+      "sha256": "3f311fec44786049e3f058f7a0f141e467becbdf66eb4254778a7e454e29851e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-normal.png",
+      "bytes": 1564352,
+      "sha256": "b0251175f1a3232c023270b1c17184ebf6242275b8e4582f7ecacace5f61e5b3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-refined-close.png",
+      "bytes": 1213347,
+      "sha256": "cdf54b5edb247c9aa1c185214909c7f9efb184b954dbea519049fe235316b3ca"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-road-refined-normal.png",
+      "bytes": 1555834,
+      "sha256": "f2b06fd89d68db7729ad8531977cc4e935078f18c3e4939b8d31a5fe3fe8da44"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-final-ground.shader.txt",
+      "bytes": 14757,
+      "sha256": "cf229650cd0840ba982613a80bcfeacbf3a6eee1070536e2eada164759428410"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study53-cleanup.json",
+      "bytes": 1455,
+      "sha256": "7ca6a26f71043a0e7cc0d898b758b54f2012faf161abbf4ae3a0024ca27e4e78"
+    }
+  ]
+}

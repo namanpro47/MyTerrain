@@ -1,0 +1,288 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study66/asset-metrics.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "bush_01",
+          "scale": "(1.91, 1.91, 1.78)",
+          "meshes": [
+            {
+              "name": "bush_01",
+              "vertexCount": 592,
+              "triangles": 696,
+              "bounds": "Center: (0.14, 0.10, 0.87), Extents: (1.22, 1.06, 1.11)",
+              "scale": "(1.91, 1.91, 1.78)"
+            }
+          ]
+        },
+        {
+          "name": "bush_02",
+          "scale": "(1.00, 1.00, 1.00)",
+          "meshes": [
+            {
+              "name": "bush_02",
+              "vertexCount": 552,
+              "triangles": 552,
+              "bounds": "Center: (-0.12, 0.53, 0.79), Extents: (1.44, 0.96, 0.97)",
+              "scale": "(1.00, 1.00, 1.00)"
+            }
+          ]
+        },
+        {
+          "name": "bush_03",
+          "scale": "(1.52, 1.66, 1.52)",
+          "meshes": [
+            {
+              "name": "bush_leafs_03",
+              "vertexCount": 376,
+              "triangles": 272,
+              "bounds": "Center: (0.02, 0.04, 1.06), Extents: (2.50, 1.38, 1.36)",
+              "scale": "(1.52, 1.52, 1.66)"
+            },
+            {
+              "name": "bush_main_03",
+              "vertexCount": 54,
+              "triangles": 40,
+              "bounds": "Center: (0.00, 0.00, 0.88), Extents: (2.15, 0.83, 0.88)",
+              "scale": "(1.52, 1.52, 1.66)"
+            }
+          ]
+        },
+        {
+          "name": "bush_04",
+          "scale": "(1.85, 1.85, 2.77)",
+          "meshes": [
+            {
+              "name": "road_border_03 (14)",
+              "vertexCount": 145,
+              "triangles": 104,
+              "bounds": "Center: (0.00, 0.00, 0.14), Extents: (1.04, 1.04, 0.14)",
+              "scale": "(1.85, 1.85, 2.77)"
+            },
+            {
+              "name": "bush_01 (39)",
+              "vertexCount": 592,
+              "triangles": 696,
+              "bounds": "Center: (0.14, 0.10, 0.87), Extents: (1.22, 1.06, 1.11)",
+              "scale": "(2.09, 2.09, 1.72)"
+            }
+          ]
+        },
+        {
+          "name": "bush_05",
+          "scale": "(1.52, 1.52, 1.66)",
+          "meshes": [
+            {
+              "name": "bush_leafs_03",
+              "vertexCount": 376,
+              "triangles": 272,
+              "bounds": "Center: (0.02, 0.04, 1.06), Extents: (2.50, 1.38, 1.36)",
+              "scale": "(1.52, 1.52, 1.66)"
+            },
+            {
+              "name": "bush_main_03",
+              "vertexCount": 54,
+              "triangles": 40,
+              "bounds": "Center: (0.00, 0.00, 0.88), Extents: (2.15, 0.83, 0.88)",
+              "scale": "(1.52, 1.52, 1.66)"
+            },
+            {
+              "name": "road_border_01 (51)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (53)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_01 (52)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (54)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (55)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (56)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_01 (53)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 0.47, 1.00)"
+            },
+            {
+              "name": "road_border_01 (54)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 0.47, 1.00)"
+            }
+          ]
+        },
+        {
+          "name": "bush_border",
+          "scale": "(1.00, 1.00, 1.00)",
+          "meshes": [
+            {
+              "name": "road_border_01 (51)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (53)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_01 (52)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (54)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (55)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_02 (56)",
+              "vertexCount": 44,
+              "triangles": 28,
+              "bounds": "Center: (0.00, 0.00, 0.27), Extents: (0.39, 0.39, 0.27)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "road_border_01 (53)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 0.47, 1.00)"
+            },
+            {
+              "name": "road_border_01 (54)",
+              "vertexCount": 50,
+              "triangles": 34,
+              "bounds": "Center: (0.00, 0.00, 0.17), Extents: (0.27, 4.00, 0.17)",
+              "scale": "(1.00, 0.47, 1.00)"
+            }
+          ]
+        },
+        {
+          "name": "tree_common_01",
+          "scale": "(1.00, 1.00, 1.00)",
+          "meshes": [
+            {
+              "name": "tree_common_01",
+              "vertexCount": 1943,
+              "triangles": 1901,
+              "bounds": "Center: (-2.16, -0.32, 14.61), Extents: (11.60, 9.59, 14.62)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "leafs_02",
+              "vertexCount": 2100,
+              "triangles": 2688,
+              "bounds": "Center: (-0.54, -0.64, 19.67), Extents: (15.14, 15.76, 12.52)",
+              "scale": "(1.00, 1.00, 1.00)"
+            }
+          ]
+        },
+        {
+          "name": "tree_common_02",
+          "scale": "(1.00, 1.00, 1.00)",
+          "meshes": [
+            {
+              "name": "tree_common_02",
+              "vertexCount": 1973,
+              "triangles": 1901,
+              "bounds": "Center: (0.04, 2.35, 13.62), Extents: (7.52, 6.12, 13.64)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "leafs_04",
+              "vertexCount": 1050,
+              "triangles": 1344,
+              "bounds": "Center: (0.53, 1.95, 19.79), Extents: (14.01, 9.46, 10.21)",
+              "scale": "(1.00, 1.00, 1.00)"
+            }
+          ]
+        },
+        {
+          "name": "tree_common_03",
+          "scale": "(1.00, 1.00, 1.00)",
+          "meshes": [
+            {
+              "name": "tree_common_03",
+              "vertexCount": 1751,
+              "triangles": 1751,
+              "bounds": "Center: (-0.29, -1.54, 11.69), Extents: (5.46, 5.17, 11.70)",
+              "scale": "(1.00, 1.00, 1.00)"
+            },
+            {
+              "name": "leafs_03",
+              "vertexCount": 1050,
+              "triangles": 1344,
+              "bounds": "Center: (0.96, -1.87, 16.47), Extents: (10.08, 8.31, 8.74)",
+              "scale": "(1.00, 1.00, 1.00)"
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

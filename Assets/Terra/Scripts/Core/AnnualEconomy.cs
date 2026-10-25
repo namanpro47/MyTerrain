@@ -93,12 +93,20 @@ namespace Terra.Core
             double clean = Met(v.cleanEnergySupplied,v.energyDemand)*(1-Cap(v.emissionsPressure/e.emissionsLimit));
             double waterPressure = (water + Met(v.wastewaterTreated,v.wastewaterLoad))/2;
             outcomes.economicScore=100*(.4*Cap(outcomes.productionUnits/definition.rubric.productionTargetUnits)+.3*Cap(v.jobs/e.jobsTarget)+.3*v.fundedFraction);
-            outcomes.socialScore=100*(.4*Cap(v.occupiedHomes/e.householdDemand)+.4*v.serviceFraction+.2*(1-(double)outcomes.disruptedSites/definition.sites.Length));
+            // Numeric v4 records time-weighted site condition. A tiny one-day impact
+            // must not remove the same whole-year social share as severe disruption.
+            // Legacy saved rubrics retain their published binary site-count equation.
+            double continuity=definition.simulation==null?1-(double)outcomes.disruptedSites/definition.sites.Length
+                :outcomes.sites.Average(row=>Cap(row.condition));
+            outcomes.socialScore=100*(.4*Cap(v.occupiedHomes/e.householdDemand)+.4*v.serviceFraction+.2*continuity);
             outcomes.environmentalScore=100*(.4*Cap(outcomes.vegetatedAreaM2/outcomes.managedAreaM2/e.coverTargetFraction)+.25*runoffScore+.2*clean+.15*waterPressure);
             outcomes.economicExplanation="40% output need + 30% sustained jobs + 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.";
-            outcomes.socialExplanation="40% occupied housing + 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) + 20% undisrupted sites. Resources limit occupied homes.";
+            outcomes.socialExplanation="40% occupied housing + 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) + 20% "
+                +(definition.simulation==null?"undisrupted sites.":"mean time-weighted site condition (authored service continuity proxy).")+" Resources limit occupied homes.";
             outcomes.environmentalExplanation="40% cover/condition + 25% same-storm discharge reduction + 20% low-emissions supply + 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.";
-            v.reasons=new[]{"Homes occupied "+v.occupiedHomes.ToString("0.0")+" / "+e.householdDemand+"; resources supplied "+(100*v.resourceFraction).ToString("0")+"%.","Sustained jobs "+v.jobs.ToString("0.0")+" / "+e.jobsTarget+"; obligations funded "+(100*v.fundedFraction).ToString("0")+"%.","Reference-storm discharge "+v.dischargedM3.ToString("0")+" m³; wastewater treated "+v.wastewaterTreated.ToString("0.0")+" / "+v.wastewaterLoad.ToString("0.0")+" scenario units."};
+            var culture=definition.simulation==null?System.Globalization.CultureInfo.CurrentCulture:System.Globalization.CultureInfo.InvariantCulture;
+            string Number(double value,string format="0.0")=>value.ToString(format,culture);
+            v.reasons=new[]{"Homes occupied "+Number(v.occupiedHomes)+" / "+Number(e.householdDemand,"G")+"; resources supplied "+Number(100*v.resourceFraction,"0")+"%.","Sustained jobs "+Number(v.jobs)+" / "+Number(e.jobsTarget,"G")+"; obligations funded "+Number(100*v.fundedFraction,"0")+"%.","Reference-storm discharge "+Number(v.dischargedM3,"0")+" m³; wastewater treated "+Number(v.wastewaterTreated)+" / "+Number(v.wastewaterLoad)+" scenario units."};
             outcomes.economy=v;
         }
     }

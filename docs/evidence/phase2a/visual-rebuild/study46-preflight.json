@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study46-preflight.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "target": "WebGL",
+        "compression": "Gzip",
+        "fallback": true,
+        "strip": true,
+        "managed": "Minimal",
+        "exceptions": "ExplicitlyThrownExceptionsOnly",
+        "optimization": "RuntimeSpeedLTO",
+        "frameRate": -1,
+        "vsync": 0,
+        "cache": true,
+        "symbols": "Off",
+        "initial": 256,
+        "maximum": 2048,
+        "growth": "Geometric",
+        "api": "NET_Standard_2_0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

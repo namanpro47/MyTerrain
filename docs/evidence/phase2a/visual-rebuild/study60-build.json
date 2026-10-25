@@ -1,0 +1,16 @@
+{
+  "source": "d04f7d4a59d1e35b92ac3353ee05e73c97f05b1e",
+  "job": "36eb3989107641ffa3100284479db716",
+  "status": "succeeded",
+  "build": "Builds/Web60",
+  "url": "http://127.0.0.1:49671",
+  "tracked_local_differences": [
+    "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+    "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+    "Assets/Settings/PC_RPAsset.asset",
+    "Assets/Terra/Art/ExternalKit/BuildActions/Materials/flower.mat",
+    "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+    "ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json"
+  ],
+  "scope": "local diagnostic export; imported/ignored inputs not eliminated; no clean Git-only or public release claim"
+}

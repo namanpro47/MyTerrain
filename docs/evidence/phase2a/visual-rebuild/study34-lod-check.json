@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var result=new System.Collections.Generic.List<object>();foreach(var name in new[]{\"ForestOak\",\"ForestSapling\"}){var p=UnityEngine.Resources.Load<UnityEngine.GameObject>(\"Forest/\"+name);var levels=p.GetComponent<UnityEngine.LODGroup>().GetLODs();if(levels.Length!=3)throw new System.Exception(\"LOD count\");foreach(var l in levels){if(l.renderers.Length!=levels[0].renderers.Length)throw new System.Exception(\"Part count\");for(int i=0;i<l.renderers.Length;i++){var m=l.renderers[i].GetComponent<UnityEngine.MeshFilter>().sharedMesh;if(m.subMeshCount!=1||l.renderers[i].sharedMaterial!=levels[0].renderers[i].sharedMaterial)throw new System.Exception(\"Slot mismatch\");}}result.Add(new{name,triangles=levels.Select(l=>l.renderers.Sum(r=>r.GetComponent<UnityEngine.MeshFilter>().sharedMesh.triangles.Length/3)).ToArray()});}return new {target=UnityEditor.EditorUserBuildSettings.activeBuildTarget.ToString(),assets=result};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "target": "WebGL",
+        "assets": [
+          {
+            "name": "ForestOak",
+            "triangles": [
+              18324,
+              11566,
+              9234
+            ]
+          },
+          {
+            "name": "ForestSapling",
+            "triangles": [
+              2046,
+              2046,
+              2046
+            ]
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

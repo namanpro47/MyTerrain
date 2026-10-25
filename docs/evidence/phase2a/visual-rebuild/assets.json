@@ -510,6 +510,25 @@
         }
       ],
       "detailStudy30": "Unchanged source texture strokes separated from coarse color variation at 40m scale. Oversized 80m study rejected. Editor and study31a Chrome captures recorded; not final acceptance."
+    },
+    {
+      "name": "Stylized Hand Painted Nature Pack - Free",
+      "creator": "BigRookGames",
+      "source": "https://assetstore.unity.com/packages/3d/vegetation/trees/stylized-hand-painted-nature-pack-free-177775",
+      "version": "1.1",
+      "acquired": "2026-10-25",
+      "tier": "Free",
+      "license": "Unity Asset Store EULA (Extension Asset)",
+      "licenseUrl": "https://unity.com/legal/as-terms",
+      "status": "Downloaded and imported through Unity Asset Store installer. Supplied URP materials/demo inspected; native and adapted broadleaf family rendered in Wisconsin at normal/close distances. Not adopted: repeated rounded crowns, dark pattern and incomplete edge structure remain below the reference. Editor-only evidence, no browser/performance claim.",
+      "advertisedContents": "Three trees, five bushes, two bush platforms, dirt and grass textures; 50.7 MB listing. This is not a downloaded inventory.",
+      "receipt": "Local Builds/ArtResearch/Study65/bigrook-acquired.jpg",
+      "archive": "/Users/naman/Library/Unity/Asset Store-5.x/BigRookGames/3D ModelsVegetationTrees/Stylized Hand Painted Nature Pack - Free.unitypackage",
+      "sha256": "233fc839ec098e654ec1672887acb3b426f760afbb186ab9ea5e61acf8250cab",
+      "archiveBytes": 53124420,
+      "inventory": "study66-archive-inventory.json",
+      "urpInventory": "study66-urp-inventory.json",
+      "renderedEvaluation": "study66-findings.md"
     }
   ],
   "researchExclusions": [

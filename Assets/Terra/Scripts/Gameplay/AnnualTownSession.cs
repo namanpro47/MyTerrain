@@ -10,7 +10,7 @@ namespace Terra.Gameplay
     /// Optional binding for the engine owner. No scene/HUD is changed automatically.
     /// Call Initialize after loading the map, then bind buttons to these transactions.
     /// </summary>
-    public sealed class AnnualTownSession : MonoBehaviour
+    public sealed partial class AnnualTownSession : MonoBehaviour
     {
         public string saveKey = "terra.annual-town.v1";
         AnnualTown town;
@@ -21,7 +21,7 @@ namespace Terra.Gameplay
         public long AvailableCents => RequireTown().AvailableCents;
         public long CommittedCents => RequireTown().CommittedCents;
         public long QueuedCommitmentCents => RequireTown().QueuedCommitmentCents;
-        public AnnualTown Engine => RequireTown();
+        public AnnualTown Engine => numeric != null ? numeric.ReadEngine() : RequireTown();
         public bool CanRedo => RequireTown().CanRedo;
         public bool CanUndo => RequireTown().CanUndo;
         public AnnualTownSummary LatestSummary => AnnualTownSummary.Latest(RequireTown());
@@ -29,6 +29,8 @@ namespace Terra.Gameplay
 
         public void Initialize(AnnualTownDefinition definition, string runId, bool restoreSaved = false)
         {
+            RequireLegacyMutation();
+            if (definition?.schemaVersion == 3) throw new InvalidOperationException("Numeric runs require InitializeNumericAsync and acknowledged storage.");
             var next = new AnnualTown(definition, runId);
             if (restoreSaved && PlayerPrefs.HasKey(saveKey))
                 next = AnnualTown.Restore(definition, JsonUtility.FromJson<AnnualTownSnapshot>(PlayerPrefs.GetString(saveKey)));
@@ -38,22 +40,22 @@ namespace Terra.Gameplay
             => Initialize(AnnualTownDemo.FromWorldPack(world, scenario, packId), runId, restoreSaved);
 
         public void QueueAction(string siteId, string actionId, int expectedRevision)
-        { RequireTown().QueueAction(siteId, actionId, expectedRevision); Publish(); }
+        { RequireLegacyMutation(); RequireTown().QueueAction(siteId, actionId, expectedRevision); Publish(); }
         public void RemoveQueuedAction(string siteId, int expectedRevision)
-        { RequireTown().RemoveQueuedAction(siteId, expectedRevision); Publish(); }
+        { RequireLegacyMutation(); RequireTown().RemoveQueuedAction(siteId, expectedRevision); Publish(); }
         public void UndoPlan(int expectedRevision)
-        { RequireTown().UndoPlan(expectedRevision); Publish(); }
-        public void RedoPlan(int revision) { RequireTown().RedoPlan(revision); Publish(); }
-        public void ClearPlan(int revision) { RequireTown().ClearPlan(revision); Publish(); }
-        public void MovePlan(string source, string destination, int revision) { RequireTown().MoveQueuedAction(source, destination, revision); Publish(); }
+        { RequireLegacyMutation(); RequireTown().UndoPlan(expectedRevision); Publish(); }
+        public void RedoPlan(int revision) { RequireLegacyMutation(); RequireTown().RedoPlan(revision); Publish(); }
+        public void ClearPlan(int revision) { RequireLegacyMutation(); RequireTown().ClearPlan(revision); Publish(); }
+        public void MovePlan(string source, string destination, int revision) { RequireLegacyMutation(); RequireTown().MoveQueuedAction(source, destination, revision); Publish(); }
         public TownYearRequest BeginYear(string requestId, int expectedRevision)
-        { var request = RequireTown().BeginResolution(requestId, expectedRevision); Publish(); return request; }
+        { RequireLegacyMutation(); var request = RequireTown().BeginResolution(requestId, expectedRevision); Publish(); return request; }
         public TownYearReport CompleteYear(TownYearConsequences consequences)
-        { var result = RequireTown().CompleteResolution(consequences); Publish(); return result; }
+        { RequireLegacyMutation(); var result = RequireTown().CompleteResolution(consequences); Publish(); return result; }
         public void CancelResolution(int expectedRevision)
-        { RequireTown().CancelResolution(expectedRevision); Publish(); }
+        { RequireLegacyMutation(); RequireTown().CancelResolution(expectedRevision); Publish(); }
         public void ContinueYear(int expectedRevision)
-        { RequireTown().ContinuePlanning(expectedRevision); Publish(); }
+        { RequireLegacyMutation(); RequireTown().ContinuePlanning(expectedRevision); Publish(); }
 
         // AnnualChapterSession supplies optional asynchronous chapters around this boundary.
         // A future approved causal pack may add bounded effects; chapter v1 only narrates results.
@@ -61,15 +63,18 @@ namespace Terra.Gameplay
         // Explicit offline placeholder: no LLM/network call or scientific prediction is made here.
         public TownYearReport EndYearOffline(string requestId)
         {
+            RequireLegacyMutation();
             var current = RequireTown();
             var committed = current.History.FirstOrDefault(r => r.acceptedRequest.requestId == requestId);
             if (committed != null) return committed;
             var request = BeginYear(requestId, current.Revision);
             return CompleteYear(new AuthoredAnnualConsequenceProvider().Resolve(request));
         }
-        public string ExportSave() => JsonUtility.ToJson(RequireTown().Snapshot(), true);
+        public string ExportSave()
+        { RequireLegacyMutation(); return JsonUtility.ToJson(RequireTown().Snapshot(), true); }
         public void FinishOffline()
         {
+            RequireLegacyMutation();
             var current = RequireTown();
             while (current.Phase != TownPhase.Completed)
             {
@@ -80,11 +85,13 @@ namespace Terra.Gameplay
         }
         public void ImportSave(string json)
         {
+            RequireLegacyMutation();
             var next = AnnualTown.Restore(RequireTown().Definition, JsonUtility.FromJson<AnnualTownSnapshot>(json));
             town = next; Publish();
         }
         public void Save()
         {
+            RequireLegacyMutation();
             if (string.IsNullOrWhiteSpace(saveKey)) throw new InvalidOperationException("Set a run-specific save key before saving.");
             PlayerPrefs.SetString(saveKey, ExportSave()); PlayerPrefs.Save();
         }

@@ -1,0 +1,6 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Native scene study uses stopped Editor");
+var c=UnityEngine.Object.FindFirstObjectByType<UnityEngine.Camera>();if(c==null)throw new System.Exception("Missing native camera");
+var oldTarget=c.targetTexture;var oldActive=UnityEngine.RenderTexture.active;float oldAspect=c.aspect;
+var target=new UnityEngine.RenderTexture(1280,720,24);var image=new UnityEngine.Texture2D(1280,720,UnityEngine.TextureFormat.RGB24,false);
+try{c.targetTexture=target;c.aspect=1280f/720;c.Render();UnityEngine.RenderTexture.active=target;image.ReadPixels(new UnityEngine.Rect(0,0,1280,720),0,0);image.Apply();var path=System.IO.Path.GetFullPath("Builds/ArtResearch/Study68/native.png");System.IO.File.WriteAllBytes(path,image.EncodeToPNG());return new{path,width=1280,height=720,camera=c.transform.position.ToString(),rotation=c.transform.eulerAngles.ToString(),pipeline=UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline.name};}
+finally{c.targetTexture=oldTarget;c.aspect=oldAspect;UnityEngine.RenderTexture.active=oldActive;UnityEngine.Object.DestroyImmediate(image);UnityEngine.Object.DestroyImmediate(target);}

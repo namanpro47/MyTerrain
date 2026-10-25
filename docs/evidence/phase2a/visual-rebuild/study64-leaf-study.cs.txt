@@ -1,0 +1,5 @@
+var source=UnityEngine.Resources.Load<UnityEngine.Material>("CultivatedBeds/Leaf-0");var material=new UnityEngine.Material(source){name="Study64 crop leaf"};material.SetColor("_BaseColor",new UnityEngine.Color(.38f,.62f,.25f));
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;int changed=0;
+foreach(var nature in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){
+var batches=(System.Collections.IEnumerable)nature.GetType().GetField("batches",flags).GetValue(nature);foreach(var batch in batches){var t=batch.GetType();if(!((UnityEngine.Mesh)t.GetField("mesh",flags).GetValue(batch)).name.StartsWith("LeafCrop"))continue;foreach(var name in new[]{"material","mediumMaterial","distantMaterial"})t.GetField(name,flags).SetValue(batch,material);changed++;}}
+return new{changed,annual=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>().Diagnostic};

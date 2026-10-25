@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-25",
+  "scope": "Research document and board only; no runtime verification",
+  "sourceBase": "061fe5191a5f44acfb1ec232e0924b6a5c49721f",
+  "staticChecks": [
+    "All local Markdown links resolve",
+    "All literal HTML local resource links resolve",
+    "No duplicate HTML IDs; all static script ID references exist",
+    "JavaScript syntax passes node --check",
+    "17 timestamped JPEG captures exist and have correct magic bytes"
+  ],
+  "chromeReview": "Not performed for the finished research board: shared desktop remained occupied/queued. Static validation passed; no visual-layout or interaction acceptance claimed.",
+  "humanComprehension": "not tested",
+  "images": [
+    {
+      "path": "images/user-01-placement.png",
+      "sha256": "5b8f8fc7a76632b3a4ecb08a02ccbcb99dcf9b13b6123564e5761363eade4594"
+    },
+    {
+      "path": "images/user-02-world.png",
+      "sha256": "1e421da6b9d3250aa33213e7e8a1e13ec27ae3b237e5b2f31317e1fdef88946d"
+    },
+    {
+      "path": "images/user-03-footprint.png",
+      "sha256": "48681ddeb0f00391e62c6cdd5f45dd4756095836bc40e21624d18f680bac2758"
+    },
+    {
+      "path": "images/video-0010.jpg",
+      "sha256": "df1126ac9961eebbeb8be9973817b609c631a84dfc426342ad0788349c686b9b"
+    },
+    {
+      "path": "images/video-0015.jpg",
+      "sha256": "01cfe33d96e607cbbd1a71af8bcdec2e655543cbd8ad7737a6fa2edb6164e8fb"
+    },
+    {
+      "path": "images/video-0025.jpg",
+      "sha256": "5209406f1632ba12a1fdbb9d8e517f9014882d4fe73cc240ef1e1149eeec4140"
+    },
+    {
+      "path": "images/video-0030.jpg",
+      "sha256": "a59e2d53909eae020818aca33d38bb94b108a27c6afd71e5377715b689646e30"
+    },
+    {
+      "path": "images/video-0035.jpg",
+      "sha256": "1c904214c8d4b08c9ac3e923ce8f135b8e217004599d36b4fbca15a4f9dee3f3"
+    },
+    {
+      "path": "images/video-0045.jpg",
+      "sha256": "4cf43967a576c929fc16692e70b1b825b14dcbe659f6632cbd2cb74ff8ea0666"
+    },
+    {
+      "path": "images/video-0100.jpg",
+      "sha256": "f86d184b9f7c600bbc9d7c7ecb151861e384cbb818221680dcbf42a36fb8bd22"
+    },
+    {
+      "path": "images/video-0105.jpg",
+      "sha256": "a564b832e464e03c435cd8fc7f414c133dc16f7c7a7d455f51c6acb166fc7eb3"
+    },
+    {
+      "path": "images/video-0110.jpg",
+      "sha256": "a0eb54039270f13ff50296893a911fc53e73041105b0d2599668d48ac68cd3e0"
+    },
+    {
+      "path": "images/video-0130.jpg",
+      "sha256": "a15231f465e7385ae4a3a0a9e13a4d40684796a9d7cf6ff6e37c041ce7158d5e"
+    },
+    {
+      "path": "images/video-0200.jpg",
+      "sha256": "a8d3bf7822062e648edb621f3365639613348e6b6b718f1e95298122794b0b3a"
+    },
+    {
+      "path": "images/video-0300.jpg",
+      "sha256": "548a194cd59eac452b044b38e1bab5c327dc88db0b2b80fb580de31ccfd5f02f"
+    },
+    {
+      "path": "images/video-0400.jpg",
+      "sha256": "9924921b4c20b951837a85e237b8605c5bb6620aa4ebf2a05e3950f36a58e686"
+    },
+    {
+      "path": "images/video-0600.jpg",
+      "sha256": "1a72e80d203ee86d4b4136c0c11da8aa6ec90264935560435762d3474fb8e752"
+    },
+    {
+      "path": "images/video-0800.jpg",
+      "sha256": "3e4535d5fbb4e3d01ebfda6f88be48007ff1a66d12af41639a79f9f237c10725"
+    },
+    {
+      "path": "images/video-1000.jpg",
+      "sha256": "48aae3737abc636988e51b4fd1b805db0ba8c9cf3fd8bf6a8f38eb3751bcba2d"
+    },
+    {
+      "path": "images/video-1200.jpg",
+      "sha256": "d7a4142a35d3189772ad58479ba04144e2ec158db6f350441a7dbc3b93e447d0"
+    }
+  ]
+}

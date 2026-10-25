@@ -1,0 +1,8 @@
+{
+  "deterministic": true,
+  "sha256": {
+    "meadowbrook-v1.json": "ebc600a3703d9598bf80003e725ffbc9737522dd27e588ff93f64e969e2091f4",
+    "point-reyes-v1.json": "f695eb93938e23c462bb44fee6ec53b10000b797bc647764397f032beaf9f751",
+    "suusamyr-v1.json": "d2a2be872079eed516a477620bfe006dc694ffd30404188bed5196e36a37b6eb"
+  }
+}

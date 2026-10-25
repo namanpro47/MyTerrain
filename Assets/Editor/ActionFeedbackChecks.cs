@@ -49,16 +49,8 @@ public static class ActionFeedbackChecks
             Check(Field<System.Collections.Generic.List<AnnualFeedback>>("recentChanges").Count==8,"bounded inspectable recent history");
             hud.ClearChangeFeedback();Check(Field<AnnualFeedback>("activeChange")==null&&Field<System.Collections.Generic.List<AnnualFeedback>>("recentChanges").Count==0,"new run clears feedback");
             hud.SetReducedMotion(false);hud.Toast("");
-            // All authored cues have signal, bounded amplitude, and distinct note contours.
-            var chime=typeof(TerraMain).GetMethod("ChangeChime",BindingFlags.Static|BindingFlags.NonPublic);
-            foreach(var notes in new[]{new[]{660f,440f},new[]{440f,740f},new[]{523f,784f},new[]{392f,294f},new[]{523f,494f}})
-            {
-                var clip=(AudioClip)chime.Invoke(null,new object[]{"test",notes[0],notes[1]});
-                var samples=new float[clip.samples];clip.GetData(samples,0);
-                Check(samples.Any(v=>Mathf.Abs(v)>.05f)&&samples.All(v=>Mathf.Abs(v)<.8f),"audible nonclipping cue");
-                Check(Mathf.Abs(samples[0])<.001f&&Mathf.Abs(samples.Last())<.001f,"click-free cue envelope");
-                UnityEngine.Object.DestroyImmediate(clip);
-            }
+            // TerraAudioChecks verifies the shared bank and master/effects controls.
+
         }
         finally{hud.FeedbackSound-=heard;}
         Debug.Log("ACTION_FEEDBACK_UI_CHECKS_PASSED: "+checks);return checks;

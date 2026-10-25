@@ -1,0 +1,1522 @@
+[
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Dragon Variant.prefab",
+    "bytes": 2543,
+    "guid": "004f1933f036f894aa47bbc1d5524234"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Podest_1.fbx",
+    "bytes": 43452,
+    "guid": "0083daa9f38a38345b6d704e06dd4d40"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Ivy_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "00e8cb05168242242b7ec23513478018"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rope_Bells_1 Variant.prefab",
+    "bytes": 2549,
+    "guid": "011472af248084b45ac5cf1ade2a8525"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Fence 2_1 Variant.prefab",
+    "bytes": 2546,
+    "guid": "0141811acbdc750489849ad973bfcfcd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Bush_1.fbx",
+    "bytes": 52684,
+    "guid": "016d892f2b6dcb347b24f6c5541d5b7d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Random Bricks Normal.png",
+    "bytes": 1999868,
+    "guid": "01b428f2cf546184180d65c0034651ec"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Sky/Sky Material.mat",
+    "bytes": 4679,
+    "guid": "02ce78df06a52ef4f91cb77074ae76a8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Concrate Color.png",
+    "bytes": 4014277,
+    "guid": "02d97686d8aba0d46a33b416ab5781fa"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rock_Formation_3 Variant.prefab",
+    "bytes": 2553,
+    "guid": "02df3d681d3ea5e4fbbcb134094d264d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tile_1_4 Variant.prefab",
+    "bytes": 2545,
+    "guid": "038ff179d90231a44ac9e65a90dd3ec1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/RiverBridge_1 Variant.prefab",
+    "bytes": 2550,
+    "guid": "03f3911c5c4974e4c92c4bd18d2abd2e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Grass Mat.mat",
+    "bytes": 4481,
+    "guid": "03fd2dfab5ec6e140b7820175802afd1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stone_1.fbx",
+    "bytes": 22076,
+    "guid": "048d979cc70e6334fbe653f605952284"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Cocnrate Mat 3.mat",
+    "bytes": 3899,
+    "guid": "065ea331a0d609847bf7058a202a8cf6"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Geisha 1 Mat.mat",
+    "bytes": 3779,
+    "guid": "06bfedc15b387e04589a735d1f65091b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lily Flower.fbx",
+    "bytes": 23628,
+    "guid": "07888fedf5a40324a8f2af09ca51c7ba"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Katana Variant.prefab",
+    "bytes": 2543,
+    "guid": "079df9cf89946f84f959d05e58528d82"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Roof 1.png",
+    "bytes": 1126997,
+    "guid": "0827f187919faa444aa2821b50284e6d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Podest_2 Variant.prefab",
+    "bytes": 2797,
+    "guid": "0a8cf63d83e6fcd488c602dcecaebf7c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Layers",
+    "bytes": 0,
+    "guid": "0afc49d301ad23f4bb5ac10076232580"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Bambo_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "0c71a43b9d865124c9490d695b12df8f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_1_2.fbx",
+    "bytes": 116028,
+    "guid": "0c8142e232a2ab04cb95ca6c0520e4e8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lily Multi 2.fbx",
+    "bytes": 24332,
+    "guid": "0d5f5c93349d4844eb8840de1e7d35b6"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_1_4 Variant.prefab",
+    "bytes": 2544,
+    "guid": "0d965b26b3c3f3d4198c6df650bda36b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings",
+    "bytes": 0,
+    "guid": "0df51671513043945b1aab5e7f40478e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Weapon_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "0e1dbc3ab9116f84a9b80a1e75ce3c4d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Single Leaf.png",
+    "bytes": 38042,
+    "guid": "0ef404bc07af1d9448dbfbfcaab7f3ee"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building_1 Variant.prefab",
+    "bytes": 2547,
+    "guid": "0f908046f147f4049978b305dbf44670"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rake Variant.prefab",
+    "bytes": 2541,
+    "guid": "0fad55b331d6a8146a27e95544071ff1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Sakura Tree Texture.png",
+    "bytes": 239304,
+    "guid": "0fe987b4577b6044b9d32d74f4aa942e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Fence 2_2.fbx",
+    "bytes": 38428,
+    "guid": "106e3ba6ba5ea624ab91de9d4f2bce0f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Grass.fbx",
+    "bytes": 37356,
+    "guid": "131824d4ee0bd4b4e9de7fbf0c9272af"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Roof 1.mat",
+    "bytes": 1725,
+    "guid": "132138d0cffe4a942bda012ca9ddf983"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Manekin.fbx",
+    "bytes": 93036,
+    "guid": "13bc97d7255931e468332a2a99ae9354"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Metal 1.mat",
+    "bytes": 3852,
+    "guid": "13c57cf9dbfe8524f866acb3fa410fc9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_3 Variant.prefab",
+    "bytes": 2549,
+    "guid": "145e0cae4b3350941b352e5315b973ca"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lampion_2.fbx",
+    "bytes": 27116,
+    "guid": "17b52b9fdffd62248938a463b689330d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Gong.fbx",
+    "bytes": 40140,
+    "guid": "182b762e9ac546541a7e6faaf0d0edaf"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Fan_1.fbx",
+    "bytes": 33292,
+    "guid": "1aa2e6e9d9c769544b6714098146e79e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Vase_2.fbx",
+    "bytes": 62156,
+    "guid": "1def67be309afad40abf5b06b74dd6d2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_2_2 Variant.prefab",
+    "bytes": 2551,
+    "guid": "1ed1169b94c800e4fab7e409173e246b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Table_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "1f962b3e2bb335648be83c3d5a738010"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Shuriken Variant.prefab",
+    "bytes": 2545,
+    "guid": "2127641386f84204e8d3170c12d36e4a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Gong Variant.prefab",
+    "bytes": 2541,
+    "guid": "22be2a1e1decec149a7f90edb39bb25b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rope_Bells_1.fbx",
+    "bytes": 90700,
+    "guid": "230cd62cf355bc94cb242d15d75a8f06"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Drum.fbx",
+    "bytes": 91916,
+    "guid": "25c3c2d548487ba408e9f9632fec1e3f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Podest_3.fbx",
+    "bytes": 29180,
+    "guid": "27596308faac9134bba5f76eea8afbfe"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sakwa_2.fbx",
+    "bytes": 30364,
+    "guid": "2783f3e1b1a140b4a9b4b69ef2b8df48"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/medieval_brick_normal.png",
+    "bytes": 732246,
+    "guid": "2964d50738a6ca7498703da39ee4a9d3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_Gate_2.fbx",
+    "bytes": 83740,
+    "guid": "2b2166c573ed9ea4b9288c72b5e876f2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rock_3.fbx",
+    "bytes": 33036,
+    "guid": "2c8b1b2d14d8e564d91b05fef0490b6b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Small Building_1 Variant.prefab",
+    "bytes": 2553,
+    "guid": "2d35a1443073bef4688049e4965f8898"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Cart_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "2e6717efd616e7545b6ac5f5574b5679"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Metal Normal.png",
+    "bytes": 3003758,
+    "guid": "2ea1b333c435a7449a3cba8b22171d5b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/FootBridge_1.fbx",
+    "bytes": 38380,
+    "guid": "2f2689ff596b4624ba76154e206ca1af"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-Balanced.asset",
+    "bytes": 3496,
+    "guid": "30ed8263e8eb2e847a2ec3e2cbc24bbc"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Flower_2_Multi.fbx",
+    "bytes": 44188,
+    "guid": "31b82cd13f978424fa7a535492920e34"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sakura_1.fbx",
+    "bytes": 259100,
+    "guid": "32dba68062f265c4aa8a8ea57a091da4"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood 1.mat",
+    "bytes": 3891,
+    "guid": "345b1ac4b88e172408568e615612552f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Geisha 2 Texture.png",
+    "bytes": 876341,
+    "guid": "37b4288cbb0e5cf479e478108ec99a00"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building 5 Variant.prefab",
+    "bytes": 2547,
+    "guid": "381e57030816e1b44b8d241ed276ad80"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_2_2.fbx",
+    "bytes": 52124,
+    "guid": "3a906ec4fb4531046a67c89d94a8a476"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Metal 2.mat",
+    "bytes": 1792,
+    "guid": "3c41143de0ed7aa489e1a3c02b8ff9ce"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lily Single.fbx",
+    "bytes": 19212,
+    "guid": "3c86339f29dba324d829a1b46c35b35d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Bowl_2.fbx",
+    "bytes": 28876,
+    "guid": "3d383e6823f03d449bc869a5afd4711d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Shuriken.fbx",
+    "bytes": 26364,
+    "guid": "3d925b0b183e54a4cbb3732b917f6ba8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rock_2 Variant.prefab",
+    "bytes": 2543,
+    "guid": "3f6a25dc97f81354bbd33842ab8f1c09"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tile_1_3.fbx",
+    "bytes": 20172,
+    "guid": "410f4b917f234ab4da9005dd0aaf6131"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Gold.mat",
+    "bytes": 3734,
+    "guid": "42750f80385ea9f43922ee6f0817ad94"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Ivy_1.fbx",
+    "bytes": 25036,
+    "guid": "42a8976618370b74b8b88b6bfdbbd816"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rock_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "42d11e5b299e9334f81751fc489e3b8e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Ground Normal.png",
+    "bytes": 1508807,
+    "guid": "42d1d4658eec5d9469e1c12580c30259"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Bowl_Scrap_2 Variant.prefab",
+    "bytes": 2549,
+    "guid": "431b1d8b845dd30488caf1bb8416038c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Token on rope Variant.prefab",
+    "bytes": 2550,
+    "guid": "43b76e2bdfe6cac4194a6bd566488d28"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Roof 2.mat",
+    "bytes": 3944,
+    "guid": "47cdf73fa014d1447ba5a695562fcf73"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Ground Mat.mat",
+    "bytes": 3851,
+    "guid": "47e5e41a4903c76449806a06d812ff00"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood Green.mat",
+    "bytes": 3862,
+    "guid": "49e96153c3133c843b4985f8cbba7673"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lily Flower Variant.prefab",
+    "bytes": 2548,
+    "guid": "4a00268011bb7114a8e5d34dc68991ba"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-Performant.asset",
+    "bytes": 3499,
+    "guid": "4a166f5203ff3504ebaf9dba1b26250a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/RiverBridge_1.fbx",
+    "bytes": 48588,
+    "guid": "4a7e9e68fab906a4aa778ed2e0e4ab32"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-HighFidelity-Renderer.asset",
+    "bytes": 2930,
+    "guid": "4b572b5f08dfa1f44a00a5127a50e531"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rope_1.fbx",
+    "bytes": 20812,
+    "guid": "4b66601b3b2c2a84bbd1b83a3e141b96"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Shader Graphs",
+    "bytes": 0,
+    "guid": "4de727e34d7310a43b1bf1a594536870"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Sakura Tree Mat.mat",
+    "bytes": 3812,
+    "guid": "4e154227df2da30449e042488c9d075b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Shader Graphs/Stylized Refracted UV.shadersubgraph",
+    "bytes": 39778,
+    "guid": "4e19ce03907a82245a418cba4db65d2c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_2 Variant.prefab",
+    "bytes": 2549,
+    "guid": "4f3338b69ddd8bb4b934f4f68c022e43"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tora _1.fbx",
+    "bytes": 62332,
+    "guid": "4ff20a2083e0a974babc3eda0403dfb9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG",
+    "bytes": 0,
+    "guid": "50587cf04ae05b44db5cf944cc1bbb57"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes/Demo Stylized Medieval",
+    "bytes": 0,
+    "guid": "521dedbfd1182fd458ea3dd6fa23d9fd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stone Lamp_1.fbx",
+    "bytes": 40636,
+    "guid": "529624e9755302b409b8b4d46e0f96a0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Boat_1.fbx",
+    "bytes": 89836,
+    "guid": "535db181495311e47aff11ef7f9f34e5"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_4.fbx",
+    "bytes": 38508,
+    "guid": "54b5ea46627c5504286f549cdfdca955"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Dojo_1.fbx",
+    "bytes": 321084,
+    "guid": "559aa6544dd5548469a42698bb3b15e5"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes",
+    "bytes": 0,
+    "guid": "55b42bdf7bcf61c4283268f07c7f839b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tile_1_5.fbx",
+    "bytes": 21116,
+    "guid": "55be620b0190b2147a2835014ffbe4f2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs",
+    "bytes": 0,
+    "guid": "566c5e3b87e13e344a6875a14995d854"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building_4 Variant.prefab",
+    "bytes": 2546,
+    "guid": "56b90c116091ff04ea070aa95c376c51"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rock_3 Variant.prefab",
+    "bytes": 2543,
+    "guid": "56e6206fefa53d04e8965d84abfa58cb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Random Bricks Texture.png",
+    "bytes": 2133429,
+    "guid": "577cea9077493e643b92bed88b77eef7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Bowl_Scrap_2.fbx",
+    "bytes": 21564,
+    "guid": "57e7215d4eaafc74ab3dfae95508ca78"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_1_3.fbx",
+    "bytes": 78732,
+    "guid": "57f2bf9ba3dfb83408c76162a7b365d9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Gong Texture.png",
+    "bytes": 294666,
+    "guid": "58f6480874a5abd4682dd0270b6de216"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Dojo_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "5b17bf0d862d2d34a83add58a1759b8b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Geisha 1 Texture.png",
+    "bytes": 567194,
+    "guid": "5b6488b5b46312d4cbdf115beeb9fd2d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Manekin Variant.prefab",
+    "bytes": 2543,
+    "guid": "5c4ca224c8094994f9ee5face3ee0a16"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stairs_2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "5dce72d927e39a94eb27a45acec51d69"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lily Multi Variant.prefab",
+    "bytes": 2547,
+    "guid": "5e0ce7d85946563479d4c544d907d665"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Pagoda Variant.prefab",
+    "bytes": 2543,
+    "guid": "5fa910b0b88fdad41821a18a20ce2682"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lampion_1.fbx",
+    "bytes": 49740,
+    "guid": "6005a3dd4c4a6bc46b76e2966d98b227"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stone_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "6205aad8314c6714393f92e384f433a7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sakura_3.fbx",
+    "bytes": 650588,
+    "guid": "629b341c782693c45987832c8bfca8f8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Fence 2_1.fbx",
+    "bytes": 36460,
+    "guid": "635c753c699eb8944a52edac4ec86482"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_1_5.fbx",
+    "bytes": 73020,
+    "guid": "63a3a9bfca98d704eb065f9018c353da"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Altana_1.fbx",
+    "bytes": 141580,
+    "guid": "64daffe213cfdee419c23ba755fa5b31"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Wood_1 Normal.png",
+    "bytes": 2920398,
+    "guid": "67c28b96f5d4a8e46ace0eac19e08b9e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Flower_2_Multi Variant.prefab",
+    "bytes": 2551,
+    "guid": "689b8dda7d7ee7e4c92ff26064ead2b8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Plants Mat 1.mat",
+    "bytes": 4241,
+    "guid": "6a4d3f7bfbac35f4ca53457e021c81e2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Flower_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "6bb06fef15a3a8042a19d0f525e690d0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-Performant-Renderer.asset",
+    "bytes": 2143,
+    "guid": "6c98cb500d796704e9d2b1cd1eb15e88"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Fence 1_1.fbx",
+    "bytes": 22300,
+    "guid": "6cc03278d47168d4f9c700f5979720b9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lily Multi 2 Variant.prefab",
+    "bytes": 2549,
+    "guid": "6d9bcf7787da8144889a13c83d566165"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_Gate.fbx",
+    "bytes": 74092,
+    "guid": "6f01ecb75b2c0354da1c326bb1f574ea"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sakura_2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "7087d7eaee5e0cb4e9a40817deddf584"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_1_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "70ffd5f2409307743b743273194222cf"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/Stylized Medieval Lighting Settings.lighting",
+    "bytes": 1886,
+    "guid": "711aaa5dc4aaafb47abbcb3226a31f5a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_4 Variant.prefab",
+    "bytes": 2549,
+    "guid": "71a514264d491cc45bc96ee174609864"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/mat_leaf.mat",
+    "bytes": 4695,
+    "guid": "71bb3acb47d7d7b489dd06039978556d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_1_2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "72e883c6a2129974faf29d4fb01a322e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Pot.fbx",
+    "bytes": 46092,
+    "guid": "742236e021b37a74a9b2d9d5fea5e54d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Board Variant.prefab",
+    "bytes": 2542,
+    "guid": "7484e4150cc6969478da677869dda7eb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lily Single Variant.prefab",
+    "bytes": 2548,
+    "guid": "74abd3f73c5f2cf41858e160f3e49159"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-HighFidelity.asset",
+    "bytes": 3503,
+    "guid": "76934b92d84ef3246a62fff1dea0c8df"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rock_4 Variant.prefab",
+    "bytes": 2542,
+    "guid": "7693a08c9ea8516439f09dc062cde962"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/URP-Balanced-Renderer.asset",
+    "bytes": 2820,
+    "guid": "76c0c2a164f6d5242a4b6fda089602c7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Token on rope.fbx",
+    "bytes": 22700,
+    "guid": "76e197914f4fcc5409b46bff68d27e9f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tile_1_5 Variant.prefab",
+    "bytes": 2545,
+    "guid": "771bfc56656c8f04899b886a8a6522ad"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Kunai Variant.prefab",
+    "bytes": 2541,
+    "guid": "7789a370b2b55d94b9a5dbc7d42912ae"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Token_1.fbx",
+    "bytes": 20236,
+    "guid": "787916d031b595c418fb6d0a76fe296a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tora _1 Variant.prefab",
+    "bytes": 2543,
+    "guid": "7962cac52adb74b4eb01d921cfe1e2bf"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building_4.fbx",
+    "bytes": 148588,
+    "guid": "7b3096bb38a09e549af98096a6f19875"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sign_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "7cc7f48386f48224087ad2fadc1a36c7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Random Bricks May.mat",
+    "bytes": 3879,
+    "guid": "7d9b23e302a35484a851c2af8b1b575f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tile_1_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "7e3aeaa58c9cf7449ab876f06f2b0d35"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sakwa_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "7eb2f9724db66014ca70406349366c4c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Sky",
+    "bytes": 0,
+    "guid": "806981d0b6eb3fb408d55f7d5d74385d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood 2.mat",
+    "bytes": 2026,
+    "guid": "822f0c5d6e244394a93ad5f3f3d7ee6b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_Column_1 Variant.prefab",
+    "bytes": 2550,
+    "guid": "83f6e79c373d2684c88762e8d6a5303b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stairs_2.fbx",
+    "bytes": 24428,
+    "guid": "841c5fc85925a734f807dabeb1db8143"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Shrine_1.fbx",
+    "bytes": 201196,
+    "guid": "84bef9fc3a9bde1428c89e8763f82fa0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Drum Variant.prefab",
+    "bytes": 2541,
+    "guid": "861febb8075d4c0478fb0da373c5a7ae"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Fence 1_2.fbx",
+    "bytes": 22364,
+    "guid": "89337c7b4dc53364eac1f195fa7b307d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes/Owerview.unity",
+    "bytes": 285287,
+    "guid": "8b1e8b9db46950541bbad92f44590e07"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tile_1_2.fbx",
+    "bytes": 19900,
+    "guid": "8bedd57c35c862b4e8950e6e04f4014c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Roof 2.png",
+    "bytes": 496677,
+    "guid": "8c294fba946e092488c85f4f7592db8b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Umbrella.fbx",
+    "bytes": 28204,
+    "guid": "8cc809e62efa27045a9b5f03f732e151"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_Column_1.fbx",
+    "bytes": 33404,
+    "guid": "8d45583da52c2aa45a6d3c4bd24e27ca"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_Gate Variant.prefab",
+    "bytes": 3308,
+    "guid": "8f97f6cc9aab6734ab6958a04c56ada4"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Bricks.mat",
+    "bytes": 3920,
+    "guid": "8faada597b59e8646871aa43f4d5fc32"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tile_1_1.fbx",
+    "bytes": 19676,
+    "guid": "91470f0055d132049afd5134e655282e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Fan_1 Variant.prefab",
+    "bytes": 2542,
+    "guid": "9459b64042c15ce40bad308c493b27f3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Shader Graphs/Stylized Water Depth Fade.shadersubgraph",
+    "bytes": 20589,
+    "guid": "9606c1affed563341810f3c4414ca843"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Coin Variant.prefab",
+    "bytes": 2541,
+    "guid": "9636ee2a654f3774b8157081f850ae7d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials",
+    "bytes": 0,
+    "guid": "97676156a90e8b045b17f597fe15e26c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stairs_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "97d4804c20e42fe45a9024ff8834c89c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Fence 1_2 Variant.prefab",
+    "bytes": 2546,
+    "guid": "97ea63cfab3e980428f719f7e16f7291"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes/Demo Stylized Asia.unity",
+    "bytes": 4677324,
+    "guid": "99c9720ab356a0642a771bea13969a05"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Grass Variant.prefab",
+    "bytes": 2542,
+    "guid": "9abd5ce944366914b8549d57fa9a584c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building_6 Variant.prefab",
+    "bytes": 2546,
+    "guid": "9c1ea5abb0082804c82ceacb911fa02d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes/Demo Stylized Medieval/ReflectionProbe-0.exr",
+    "bytes": 98653,
+    "guid": "9c54d3e5844269b4ea7b742012ea026d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_3.fbx",
+    "bytes": 37036,
+    "guid": "9c83280ce97b2af46b3cada0c9b45ebc"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Ground Color.png",
+    "bytes": 1584427,
+    "guid": "9ca8605958ed49b40b52cdc052164e59"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Weapon_1.fbx",
+    "bytes": 43340,
+    "guid": "9e81e411d5c7bbb4094cc75ab46c5de1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/Stylized Medieval PPV.asset",
+    "bytes": 3658,
+    "guid": "9efeb08109451b940a71c468a808d44b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rodck_Formation_2.fbx",
+    "bytes": 60940,
+    "guid": "a0fc22f725f3b1746880c6e1e7c3c839"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building 5.fbx",
+    "bytes": 315804,
+    "guid": "a133d1adf624ac24a9dfc86b9233893d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Shader Graphs/Stylized Water.shadergraph",
+    "bytes": 101510,
+    "guid": "a17d6c6d30a815340bfff224cb00b614"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures",
+    "bytes": 0,
+    "guid": "a1a0ff1e63ac3854bad93cc2ce333bc3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Chair_1 Variant.prefab",
+    "bytes": 2544,
+    "guid": "a3ece8dc29add884385bab30d6a3793a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Sky/Sky Map.png",
+    "bytes": 193691,
+    "guid": "a5063b508f32ab74496572c55c2830bc"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sakura_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "a56b8204027123a46b4c401904818b35"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Layers/Terrain.asset",
+    "bytes": 3656548,
+    "guid": "a574d8244d30ac441909e10b28c25cc6"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Bush_1 Variant.prefab",
+    "bytes": 2543,
+    "guid": "a660961f78d406a47a44322df38b7921"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Falling Leaves.prefab",
+    "bytes": 116929,
+    "guid": "a76e261cc8f91d14988c688b5d833135"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Podest_3 Variant.prefab",
+    "bytes": 2544,
+    "guid": "a790c30bccbdaec4aa1117488ed396ca"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rope_1 Variant.prefab",
+    "bytes": 2543,
+    "guid": "a7c6c1f162e5c8c4fb3d6bb5ea00776d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sakura_2.fbx",
+    "bytes": 344348,
+    "guid": "a7cbb1c6e9b64784c93c93b7e8f80f1d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Wood_1 BaseColor.png",
+    "bytes": 3103399,
+    "guid": "a9ddf4206ff68af45b54ffcaf313fca0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rock_2.fbx",
+    "bytes": 35596,
+    "guid": "aa560726e21e67d438c8b74597292045"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stone_2.fbx",
+    "bytes": 21308,
+    "guid": "aab01ab9a6175d34f9ecd109df06588e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stone_2 Variant.prefab",
+    "bytes": 2544,
+    "guid": "acdfae6aca3c6574595c131b9275cb38"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Flower_1_Multi Variant.prefab",
+    "bytes": 2551,
+    "guid": "ad0f34ac7e29e6746a8e44396fe60021"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Geisha 2.fbx",
+    "bytes": 337772,
+    "guid": "ad32d3a6712430b4d9c6e926640263b0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_2.fbx",
+    "bytes": 48172,
+    "guid": "ad4a13e8d2cfa20459cb261ecdab6f5d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_1_5 Variant.prefab",
+    "bytes": 2545,
+    "guid": "ada72ddd30046cf4f81ed9d75d335f6d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building_3 Variant.prefab",
+    "bytes": 2546,
+    "guid": "adbe1f087e651e34bb653d7177f8fbf8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Kunai.fbx",
+    "bytes": 28220,
+    "guid": "ade95a04dc6e9504ea60c2c5eed2ce5d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Concrate Normal.png",
+    "bytes": 3863036,
+    "guid": "af3e6ad49ebab07479130273dc54fc2d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood Red 1.mat",
+    "bytes": 3887,
+    "guid": "afcc3f21dc8c9a04785cc4070ff6fdf2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Balkon Variant.prefab",
+    "bytes": 2543,
+    "guid": "afe88ab2ba5603042b55e4208dce03fb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Poster 2.fbx",
+    "bytes": 19132,
+    "guid": "b1b18e810afc8b341888dd01da1470cb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Emit Mat.mat",
+    "bytes": 3929,
+    "guid": "b1f57693c73136b498256818318529c2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Geisha Variant.prefab",
+    "bytes": 2543,
+    "guid": "b2703f93d8fef4649903920cc78bcb2c"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building_2.fbx",
+    "bytes": 162508,
+    "guid": "b27649213597fd1438a3a7376d2c3e3f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Table_1.fbx",
+    "bytes": 35836,
+    "guid": "b2bf36258ba973d44a7014baa9d700f9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Gong Mat.mat",
+    "bytes": 3777,
+    "guid": "b68999fe5177a9b468f4b64024f55525"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_1_4.fbx",
+    "bytes": 85676,
+    "guid": "b77e5fe4aef25504d962443778a955fd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lampion_1 Variant.prefab",
+    "bytes": 2546,
+    "guid": "b7e80b2a4dbbd1249abfeb2a9b93567d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Flower_1_Multi.fbx",
+    "bytes": 52748,
+    "guid": "ba1039ec9ee52e6479701ce0586d424f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Altana_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "bce8ace735607b94aae00bab74842322"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rake.fbx",
+    "bytes": 26204,
+    "guid": "bde92e0ef180bfe448877b3b720f5c67"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Lily Multi.fbx",
+    "bytes": 49532,
+    "guid": "beaf75e7149e8434ca315cb06f0cd4e2"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_Gate_2 Variant.prefab",
+    "bytes": 2554,
+    "guid": "bf1b537638cbb254eb7d6b3920ad0dc4"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Sakura Tree Mat 1.mat",
+    "bytes": 3816,
+    "guid": "bfcccea8a50ba844e83126e5b67208d9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Reed Multi Variant.prefab",
+    "bytes": 2547,
+    "guid": "c0313cb123a4e4f4dbd4e740a123be53"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building_3.fbx",
+    "bytes": 102156,
+    "guid": "c03e30ab8129f6d4fa112e9e856fad39"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Flower_1.fbx",
+    "bytes": 34956,
+    "guid": "c1353f165143d184297fee70fe959b67"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Bricks 2 Color.png",
+    "bytes": 1925427,
+    "guid": "c225dd6a6da0bba41b11f629084abba1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Shrine_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "c54624ce19a903944840f952677608c9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Cart_1.fbx",
+    "bytes": 86620,
+    "guid": "c577c5b7cb7c36e4b93ebf01d09f6af7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Metak BaseColor.png",
+    "bytes": 882504,
+    "guid": "c7d35575e385c7c48a78abbbddeec478"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/PropsMat Asia.mat",
+    "bytes": 3734,
+    "guid": "c84ea9514b98b5c4a858b5b5dcdf664a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Small Building_1.fbx",
+    "bytes": 73836,
+    "guid": "c9d69822242055a4cb8c842f76c062d9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Props Texture Asia.png",
+    "bytes": 6025732,
+    "guid": "ca1c50a25baacbb4888919063c3e8f95"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/GardenWall_3_1.fbx",
+    "bytes": 40940,
+    "guid": "cb68bc71e61040542b60ecd924f5ffa8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Grass Normal.png",
+    "bytes": 4743716,
+    "guid": "cc7066fcf0dd13c44b25ef26a7230e6d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_Ladder.fbx",
+    "bytes": 49884,
+    "guid": "ccc68049ecfd8644ca218554ccfbedbe"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Reed Multi.fbx",
+    "bytes": 78300,
+    "guid": "ccebaae47f2e8084ab5d8cc330e7fc08"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Dragon.fbx",
+    "bytes": 57756,
+    "guid": "cd352afb48247e1419a0c48f4405d12f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Tile_1_4.fbx",
+    "bytes": 20700,
+    "guid": "cd38e46658fc6c24ba8f14c15f9b4da7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood 4.mat",
+    "bytes": 1400,
+    "guid": "cd466b516a7684a4eb3a7c813242dff1"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rock_4.fbx",
+    "bytes": 22236,
+    "guid": "cf169b8d3a2912b4597bdf6c86c9effc"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Balkon.fbx",
+    "bytes": 47676,
+    "guid": "cf921744353cafe499b8251104f631e3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stairs_3 Variant.prefab",
+    "bytes": 2545,
+    "guid": "d07824dfdf40f444bbba332178176e38"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/TreePLace Variant.prefab",
+    "bytes": 2546,
+    "guid": "d1d2a0f9eca513443923dd9a4ae9876d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Settings/UniversalRenderPipelineGlobalSettings.asset",
+    "bytes": 933,
+    "guid": "d1f27e59767411a45882e4459c8ca539"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sakwa_2 Variant.prefab",
+    "bytes": 2544,
+    "guid": "d23baa6d9421d4f448c1573eb8931824"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Poster Variant.prefab",
+    "bytes": 2543,
+    "guid": "d253bab5a59debe458dc1d9810e20262"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood 5.mat",
+    "bytes": 3886,
+    "guid": "d2ee5041cdc157a4d96a1230046439c6"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stairs_1.fbx",
+    "bytes": 23644,
+    "guid": "d44ff620b4093654fa7332920ec4cd26"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Layers/Grass Layer.terrainlayer",
+    "bytes": 755,
+    "guid": "d46b5f57ae446c247b7d3bf5da647a46"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood 3.mat",
+    "bytes": 3900,
+    "guid": "d50640e7bf8b3df45938897fe44be02b"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Fence 1_1 Variant.prefab",
+    "bytes": 2546,
+    "guid": "d5463689ec6926a4899e5f203fcd4801"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rock_1.fbx",
+    "bytes": 32668,
+    "guid": "d5690ec71d7057c42b7db4595f6adfdb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/FootBridge_1 Variant.prefab",
+    "bytes": 2549,
+    "guid": "d7557befcb289c747a3d7b6a57125d4e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Grass Texture (Texture).png",
+    "bytes": 3704912,
+    "guid": "d7cfdb0d65d21aa4fa9d3796f54d0ec8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Roof 1 Normal.png",
+    "bytes": 1126997,
+    "guid": "d8b3d650b84fc9b4483584078d96fabd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall_1_1.fbx",
+    "bytes": 84220,
+    "guid": "d93b171d4805ebd4ca096dc2a7f16c3e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Layers/NewLayer.terrainlayer",
+    "bytes": 727,
+    "guid": "da4cd8bfbdee68945982ddc99a461b33"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Cocnrate 2 Mat.mat",
+    "bytes": 3905,
+    "guid": "db27bd8bbe18fee4cb8ca0ac452b4c0d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Pot Variant.prefab",
+    "bytes": 2540,
+    "guid": "dc652f4496449aa4ca1f13b0b5a05a07"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Wall Shield Style.fbx",
+    "bytes": 26620,
+    "guid": "dc96011939a0c6e45b3044675771cfb3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Podest_1 Variant.prefab",
+    "bytes": 2545,
+    "guid": "dc99e30e3063000429872e587b97b2ac"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Water IS.mat",
+    "bytes": 4245,
+    "guid": "dcc9e030fa2f832419b48ac0ea155aa7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Pagoda.fbx",
+    "bytes": 374476,
+    "guid": "dd7f4f41c17b256418290651f1c3c54e"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Cocnrate 1  Mat.mat",
+    "bytes": 3898,
+    "guid": "de932fbf79882774bbb727361b23765a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Podest_2.fbx",
+    "bytes": 24124,
+    "guid": "dee0b9480579ae54a9eead00346711cf"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Boat_1 Variant.prefab",
+    "bytes": 3104,
+    "guid": "df565ff08ca72a0458336bd2d5f28503"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Board.fbx",
+    "bytes": 48028,
+    "guid": "df5961dbf3a09d6449898a8d22b47620"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Geisha.fbx",
+    "bytes": 334796,
+    "guid": "dfc8656c7be484b499783cf17867eef7"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_1_3 Variant.prefab",
+    "bytes": 2545,
+    "guid": "e1437b61dc660644795f08d45a4498ef"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Chair_1.fbx",
+    "bytes": 22348,
+    "guid": "e186f33cdc9bd7d4b8fc718f759af592"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Flower_2.fbx",
+    "bytes": 20812,
+    "guid": "e194a88295ff16040a9169ceca6f4ff0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Token_1 Variant.prefab",
+    "bytes": 2543,
+    "guid": "e1f47da8e6c9e7e47bb670923917be24"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Gate_1.fbx",
+    "bytes": 42316,
+    "guid": "e235f76e39585ef4ea0f2d5790b64ba3"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tile_1_3 Variant.prefab",
+    "bytes": 2544,
+    "guid": "e31def01faf754f41be3b320f3f83f5f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/TeaPot Variant.prefab",
+    "bytes": 2543,
+    "guid": "e37e07f4afa2b8f46ac79050d6ed2544"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Geisha 2 Mat.mat",
+    "bytes": 3843,
+    "guid": "e3cc7664b8a76874e90c3df62485234f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Rodck_Formation_2 Variant.prefab",
+    "bytes": 2554,
+    "guid": "e3ddaeb4a102fa44d92ecf1cd04d51ba"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/TreePLace.fbx",
+    "bytes": 41244,
+    "guid": "e448fea8b0d7b154382a1ab12932f117"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Stairs_3.fbx",
+    "bytes": 29772,
+    "guid": "e486750f437433a46b6915fd2032f0c4"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Building_2 Variant.prefab",
+    "bytes": 2547,
+    "guid": "e50c5df4c9e3ec64e9527ede6608c7b9"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Poster.fbx",
+    "bytes": 19132,
+    "guid": "e79efc139bc047f4a9f5f7df8eac4876"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Gate_1 Variant.prefab",
+    "bytes": 2543,
+    "guid": "e88579b5f8312ed40ae349ae89db0c52"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Sakura_3 Variant.prefab",
+    "bytes": 2545,
+    "guid": "e937e2efaf9d14946a4b8b21b56c5aed"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Wood Red.mat",
+    "bytes": 3875,
+    "guid": "e99c9ed2d1f561f46855d755395801f8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Rock_Formation_3.fbx",
+    "bytes": 32380,
+    "guid": "ea4ca50f05f44fe43958a71b1072f7bd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building_6.fbx",
+    "bytes": 107964,
+    "guid": "eaa3c1f549bbf8f4f99ae7bfed65e211"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models",
+    "bytes": 0,
+    "guid": "ec0fcdd27652a5e43bdd55db3311b963"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Lampion_2 Variant.prefab",
+    "bytes": 2546,
+    "guid": "ecb25fd1ccd8a3f48967b3d4fe1cd2e6"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall Shield Style Variant.prefab",
+    "bytes": 2554,
+    "guid": "ed5c92d60728388469d6f7e4eaf262bd"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Cocnrate Mat 4.mat",
+    "bytes": 3905,
+    "guid": "ee864e8d68c309648b196143ba64de87"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Scenes/Demo Stylized Medieval/LightingData.asset",
+    "bytes": 18192,
+    "guid": "f08d41d437c14cb4293e9b696310f5be"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Bambo_1.fbx",
+    "bytes": 139532,
+    "guid": "f1ee12e88ac367f478034ad31fab1f35"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Bowl_2 Variant.prefab",
+    "bytes": 2543,
+    "guid": "f2d19d9172f5abb42a34b9eb4e31936a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sign_1.fbx",
+    "bytes": 39180,
+    "guid": "f30c9ddb6d75aee4280575beb24a4823"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/TeaPot.fbx",
+    "bytes": 36988,
+    "guid": "f44f146c8b1e8384c943049c20b0e24f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Geisha 2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "f5e4cdc0fec5e8a4fa05249419b034f0"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Flower_2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "f61712fcde4d58b4289d8b8c6fa9dbb8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/GardenWall_3_1 Variant.prefab",
+    "bytes": 2551,
+    "guid": "f664f1a8c0df3c741906bc8b8afddb89"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Sakwa_1.fbx",
+    "bytes": 30252,
+    "guid": "f69b8a996d2c8c744a583b0baa89ffdb"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Vase_2 Variant.prefab",
+    "bytes": 2543,
+    "guid": "f72f1d4187c081c4e872d98b4dbe542a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Poster 2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "f8521c860de1ff04787b352d750bff3d"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Wall_Ladder Variant.prefab",
+    "bytes": 2548,
+    "guid": "f8f33f14ebbecaa468ca907f9a13f81a"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Fence 2_2 Variant.prefab",
+    "bytes": 2546,
+    "guid": "f92fd09c55a2f574e813b562be83d213"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Layers/Brick Layer.terrainlayer",
+    "bytes": 807,
+    "guid": "f93ad20b386ef7f4a9c37647cd06f682"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Textures/Plants Texture 1.png",
+    "bytes": 2553093,
+    "guid": "f974f4f1c2935f5499084235d757d885"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Coin.fbx",
+    "bytes": 23692,
+    "guid": "f9ec20641bb3a9243b62cc5af38307dc"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Materials/Shader Graphs/Grass SG.shadergraph",
+    "bytes": 75590,
+    "guid": "fbdd292206a5c444bb35cad920276153"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Katana.fbx",
+    "bytes": 49820,
+    "guid": "fe469d535384f8e419fa4b4d7d29aeea"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Umbrella Variant.prefab",
+    "bytes": 2797,
+    "guid": "fe7cd4178cd7cdf4c971476d14dc4f9f"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Tile_1_2 Variant.prefab",
+    "bytes": 2545,
+    "guid": "fea86e00f2a328e439b091fe48f633a8"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Models/Building_1.fbx",
+    "bytes": 753660,
+    "guid": "feab4bf3d15b52747bcecf4580e11452"
+  },
+  {
+    "path": "Assets/Assets/Stylized Asia RG/Prefabs/Stone Lamp_1 Variant.prefab",
+    "bytes": 2548,
+    "guid": "ffa14e2c7fb0c3f498c421c50dc30fbf"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "4488af90bdd4e0cd32cb2827450f74bb2e1534d2",
+  "postBuildMaterialCheckpoint": "7f258cc",
+  "buildJob": "a1ae18b0f8e6438dbeecfa0d92d39429",
+  "url": "http://127.0.0.1:49675",
+  "viewport": [
+    1280,
+    720
+  ],
+  "entryMode": "fresh-player",
+  "entryHandlerToFocusedGameMs": 9611.200000047684,
+  "legacyInteractiveMarkerMs": 13476,
+  "sceneryBuildMs": 2064,
+  "meshes": 250,
+  "meshVertices": 2160781,
+  "year": 1,
+  "phase": "Planning",
+  "revision": 0,
+  "cashCents": 1000000000,
+  "queued": 0,
+  "assets": 0,
+  "limits": "One observed entry, not three fresh-cache trials. Timed camera and interaction checks pending. Six unrelated tracked Unity changes and unused imported assets existed during export; not a clean Git-only reproduction."
+}

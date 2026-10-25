@@ -31,7 +31,7 @@ namespace Terra.Gameplay
         readonly string[] descriptions={"Wooded ridges, working fields and a winding creek.","Coastal grasslands at the edge of the Pacific.","An open mountain valley beneath the Tian Shan."};
         float latitude=25,longitude=-100,distance=4.65f,targetDistance=4.65f;Vector2 velocity,last,down;
         bool pointerHeld,dragged,landscapeReady,chosen,pointerOverUI;string failure;UnityEngine.UI.Button pressedButton;Coroutine journey;
-        static readonly Color Cream=new Color(.94f,.96f,.91f),Mint=new Color(.60f,.87f,.72f),Muted=new Color(.55f,.68f,.71f),Navy=new Color(.035f,.075f,.10f);
+        static readonly Color Cream=new Color(.98f,.96f,.86f),Mint=new Color(.52f,.85f,.76f),Muted=new Color(.63f,.76f,.76f),Navy=new Color(.025f,.065f,.09f),Gold=new Color(1f,.79f,.38f);
 #if UNITY_WEBGL && !UNITY_EDITOR
         [DllImport("__Internal")] static extern void MyTerrainAtlasReady();
         [DllImport("__Internal")] static extern int TerraAtlasReducedMotion();
@@ -72,16 +72,17 @@ namespace Terra.Gameplay
         public void Select(int index,bool snap=false)
         {
             if(notes!=null&&notes.activeSelf)return;
+            if(!snap&&Selected!=(index+3)%3)Terra.Audio.TerraAudio.Ensure().Request("atlas-select",3);
             Selected=(index+3)%3;var place=LocationProfile.At(Selected);region.text=regions[Selected];nameLabel.text=place.Name;description.text=descriptions[Selected];
             var p=places[Selected];coordinates.text=$"{p.x:0.00}° N    {Mathf.Abs(p.y):0.00}° {(p.y<0?"W":"E")}";
-            for(int i=0;i<3;i++){choices[i].image.color=i==Selected?new Color(.17f,.29f,.29f):new Color(.065f,.13f,.16f);}
+            for(int i=0;i<3;i++){choices[i].image.color=i==Selected?new Color(.18f,.32f,.33f,.98f):new Color(.06f,.13f,.17f,.78f);choiceUnderline[i].enabled=i==Selected;}
             if(snap){latitude=p.x-12;longitude=p.y;ApplyGlobe();}else{velocity=Vector2.zero;focusTime=0;focusFrom=new Vector2(latitude,longitude);focusing=true;}
         }
         bool focusing;float focusTime;Vector2 focusFrom;
         public void StartJourney()
         {
             if(Traveling||notes.activeSelf)return;if(!Visible)Show();Traveling=true;Visible=true;chosen=true;failure=null;focusing=false;pointerHeld=false;velocity=Vector2.zero;
-            journey=StartCoroutine(Travel());
+            Terra.Audio.TerraAudio.Ensure().Request("travel",6);journey=StartCoroutine(Travel());
         }
         IEnumerator Travel()
         {
@@ -100,17 +101,17 @@ namespace Terra.Gameplay
             duration=ReducedMotion?.2f:1.6f;
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/duration){SetVeil(1-Mathf.SmoothStep(0,1,t));main.AtlasDescent(t);yield return null;}
             main.AtlasDescent(1);SetVeil(0);Visible=false;Traveling=false;canvas.gameObject.SetActive(false);main.FinishAtlasDescent();journey=null;
-            Debug.Log("MYTERRAIN_ARRIVAL: "+LocationProfile.At(Selected).PackId);
+            Terra.Audio.TerraAudio.Ensure().Request("arrival",7);Debug.Log("MYTERRAIN_ARRIVAL: "+LocationProfile.At(Selected).PackId);
         }
         public void BeginLoading(){landscapeReady=false;failure=null;}
         public void LandscapeReady(){landscapeReady=true;}
         public void LoadProgress(string message){if(Traveling)journeyStatus.text=message;}
-        public void LoadFailed(string message){failure="This landscape could not load. Please try again.\n"+message;}
+        public void LoadFailed(string message){Terra.Audio.TerraAudio.Ensure().Request("blocked",9);failure="This landscape could not load. Please try again.\n"+message;}
         void Retry(){retry.gameObject.SetActive(false);failure=null;landscapeReady=false;Traveling=false;Visible=false;distance=targetDistance=4.65f;SceneManager.LoadScene(SceneManager.GetActiveScene().name);}
         void SetVeil(float alpha){veil.color=new Color(Navy.r,Navy.g,Navy.b,alpha);veil.raycastTarget=alpha>.98f;}
         void Update()
         {
-            if(!Visible)return;var k=Keyboard.current;
+            if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(!Visible)return;var k=Keyboard.current;
             if(k!=null)
             {
                 if(k.escapeKey.wasPressedThisFrame){if(notes.activeSelf){notes.SetActive(false);return;}if(Traveling)Show();}
@@ -128,7 +129,8 @@ namespace Terra.Gameplay
                 }
             }
 #if !UNITY_WEBGL || UNITY_EDITOR
-            var m=Mouse.current;if(m!=null){var pos=m.position.ReadValue();if(m.leftButton.wasPressedThisFrame)Pointer(0,pos);if(pos!=last)Pointer(1,pos);if(m.leftButton.wasReleasedThisFrame)Pointer(2,pos);if(m.scroll.ReadValue().y!=0)Zoom(-m.scroll.ReadValue().y/120);}
+            // Input System 1.20 already normalizes scroll deltas across platforms.
+            var m=Mouse.current;if(m!=null){var pos=m.position.ReadValue();if(m.leftButton.wasPressedThisFrame)Pointer(0,pos);if(pos!=last)Pointer(1,pos);if(m.leftButton.wasReleasedThisFrame)Pointer(2,pos);if(m.scroll.ReadValue().y!=0)Zoom(-m.scroll.ReadValue().y);}
 #endif
             if(!Traveling)
             {
@@ -136,7 +138,7 @@ namespace Terra.Gameplay
                 else if(!pointerHeld&&!ReducedMotion){longitude+=velocity.x*Time.unscaledDeltaTime;latitude+=velocity.y*Time.unscaledDeltaTime;velocity*=Mathf.Exp(-Time.unscaledDeltaTime*5);}
                 latitude=Mathf.Clamp(latitude,-75,75);distance=Mathf.Lerp(distance,targetDistance,1-Mathf.Exp(-Time.unscaledDeltaTime*8));ApplyGlobe();
             }
-            PositionPins();
+            PositionPins();AnimateScenery();
         }
         public void SetMotion(bool reduced)
         {
@@ -161,11 +163,29 @@ namespace Terra.Gameplay
                 pointerHeld=false;pressedButton=null;
             }
         }
-        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(0,-.10f,-distance);globeCamera.transform.localRotation=Quaternion.identity;}
+        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(-distance*globeCamera.aspect*.105f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-.23f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-distance);globeCamera.transform.localRotation=Quaternion.identity;}
         static Vector3 Geo(Vector2 p){float a=p.x*Mathf.Deg2Rad,b=p.y*Mathf.Deg2Rad;return new Vector3(-Mathf.Cos(a)*Mathf.Sin(b),Mathf.Sin(a),Mathf.Cos(a)*Mathf.Cos(b));}
         void PositionPins()
         {
-            for(int i=0;i<3;i++){var world=earth.TransformPoint(Geo(places[i])*1.012f);var normal=(world-earth.position).normalized;bool front=Vector3.Dot(normal,(globeCamera.transform.position-world).normalized)>.08f;pins[i].gameObject.SetActive(front&&!Traveling);if(front){Vector2 screen=globeCamera.WorldToScreenPoint(world);RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRoot,screen,null,out var point);pins[i].anchoredPosition=point;pins[i].localScale=Vector3.one*(i==Selected&&!ReducedMotion?1+.06f*Mathf.Sin(Time.unscaledTime*2.5f):1);}}
+            for(int i=0;i<3;i++)
+            {
+                var world=earth.TransformPoint(Geo(places[i])*1.012f);
+                var normal=(world-earth.position).normalized;
+                var screen=globeCamera.WorldToScreenPoint(world);
+                bool front=Vector3.Dot(normal,(globeCamera.transform.position-world).normalized)>.08f;
+                bool inView=screen.z>0&&screen.x>16&&screen.x<globeCamera.pixelWidth-16&&screen.y>16&&screen.y<globeCamera.pixelHeight-16;
+                pins[i].gameObject.SetActive(front&&inView&&!Traveling);
+                pins[i].GetComponent<UnityEngine.UI.Image>().color=i==Selected?new Color(1,.79f,.38f,.32f):new Color(.25f,.85f,.85f,.25f);
+                var pennant=(RectTransform)pinLabels[i].transform.parent;
+                pennant.gameObject.SetActive(i==Selected);
+                if(!front||!inView)continue;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRoot,screen,null,out var point);
+                pins[i].anchoredPosition=point;
+                bool left=point.x>uiRoot.rect.width*.5f-230;
+                pennant.anchorMin=pennant.anchorMax=pennant.pivot=new Vector2(left?1:0,.5f);
+                pennant.anchoredPosition=new Vector2(left?-53:53,0);
+                pins[i].localScale=Vector3.one*(i==Selected&&!ReducedMotion?1+.06f*Mathf.Sin(Time.unscaledTime*2.5f):1);
+            }
         }
         void OnDestroy(){if(Instance==this)Instance=null;foreach(var item in owned)if(item!=null)Destroy(item);AudioListener.pause=false;}
     }

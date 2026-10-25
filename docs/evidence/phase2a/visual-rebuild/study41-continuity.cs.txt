@@ -1,0 +1,5 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study41Sward.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);UnityEditor.AssetDatabase.ImportAsset("Assets/Study41Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study41Ground.shader");var errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray();if(errors.Length>0)return new{errors};
+var ground=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).First(r=>r.name.StartsWith("Continuous ground "));ground.sharedMaterial.shader=shader;
+var root=UnityEngine.GameObject.Find("Study41 continuous sward");foreach(var m in root.GetComponentsInChildren<UnityEngine.MeshRenderer>().Select(r=>r.sharedMaterial).Distinct())m.SetFloat("_Height",1.15f);
+return new{shader=shader.name,supported=shader.isSupported,frame=UnityEngine.Time.frameCount};

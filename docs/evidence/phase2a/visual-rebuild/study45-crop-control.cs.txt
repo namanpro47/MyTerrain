@@ -1,0 +1,3 @@
+var type=typeof(Terra.Rendering.InstancedNature);var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;int batches=0;float min=999,max=0;
+foreach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None))foreach(var b in (System.Collections.IEnumerable)type.GetField("batches",flags).GetValue(n)){var t=b.GetType();if(!(bool)t.GetField("crop").GetValue(b))continue;float h=(float)t.GetField("maxHeight").GetValue(b);min=UnityEngine.Mathf.Min(min,h);max=UnityEngine.Mathf.Max(max,h);t.GetField("crop").SetValue(b,false);batches++;}
+return new{batches,min,max};

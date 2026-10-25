@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "#pragma warning disable CS0162\nif(!UnityEngine.Application.isPlaying)throw new System.Exception(\"Requires Play\");\nvar flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;\nvar main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();var mt=main.GetType();var land=(Terra.Rendering.LandscapeRenderer)mt.GetField(\"landscape\",flags).GetValue(main);var world=(Terra.Contracts.WorldData)mt.GetField(\"world\",flags).GetValue(main);var group=UnityEngine.GameObject.Find(\"Existing fictional community\");\nint checks=0;void Check(bool x,string why){checks++;if(!x)throw new System.Exception(why);}\nCheck(group!=null,\"Community missing\");var annual=main.Diagnostic;var source=UnityEngine.JsonUtility.ToJson(world);var homes=group.transform.Cast<UnityEngine.Transform>().Where(t=>t.name==\"Existing fictional home\").ToArray();Check(homes.Length==4,\"Four initial homes required\");\nvar objects=group.GetComponentsInChildren<UnityEngine.Transform>(true).Select(t=>t.GetEntityId()).ToArray();\nvar meshes=group.GetComponentsInChildren<UnityEngine.MeshFilter>(true);var fingerprint=meshes.Select(m=>m.sharedMesh.GetEntityId()+\":\"+m.transform.localToWorldMatrix.ToString()).ToArray();\nvar owned=(System.Collections.Generic.List<UnityEngine.Mesh>)land.GetType().GetField(\"meshes\",flags).GetValue(land);\nvar measurements=new System.Collections.Generic.List<object>();\nforeach(var home in homes){\n Check(home.localScale==UnityEngine.Vector3.one,\"Metric building scale\");float x=home.position.x,z=home.position.z;var overlaps=world.sites.Where(s=>s.polygon.Min(p=>p.x)<x+13&&s.polygon.Max(p=>p.x)>x-13&&s.polygon.Min(p=>p.z)<z+16&&s.polygon.Max(p=>p.z)>z-16).Select(s=>s.id).ToArray();Check(overlaps.Length==0,\"Lot overlaps management/protected site\");\n var covers=new System.Collections.Generic.HashSet<string>();float minWater=float.MaxValue;\n for(float pz=z-16;pz<=z+16;pz++)for(float px=x-13;px<=x+13;px++){covers.Add(land.CoverAt(px,pz));foreach(var f in world.features.Where(f=>f.kind==\"water\"))for(int i=1;i<f.points.Length;i++){var a=new UnityEngine.Vector2(f.points[i-1].x,f.points[i-1].z);var d=new UnityEngine.Vector2(f.points[i].x,f.points[i].z)-a;var p=new UnityEngine.Vector2(px,pz);var q=a+d*UnityEngine.Mathf.Clamp01(UnityEngine.Vector2.Dot(p-a,d)/UnityEngine.Mathf.Max(d.sqrMagnitude,.0001f));minWater=UnityEngine.Mathf.Min(minWater,UnityEngine.Vector2.Distance(p,q)-f.widthM*.5f);}}\n Check(covers.All(c=>c==\"grass\"||c==\"sealed\"),\"Lot sampled across woodland/crop/water\");Check(minWater>8,\"Lot too close to mapped water\");\n foreach(var mf in home.GetComponentsInChildren<UnityEngine.MeshFilter>())if(mf.sharedMesh.name.StartsWith(\"Grounded home garden\"))Check(owned.Contains(mf.sharedMesh),\"Garden copy not owned for teardown\");\n measurements.Add(new{x,z,floor=home.position.y,covers=covers.ToArray(),minWater});\n}\nvar site=world.sites.First(s=>s.id==\"south-01\");land.Ghost(site,true,\"cultivate-margin\");land.ClearGhost();land.Apply(site,\"restore-grass\");land.Apply(site,null);\nCheck(objects.SequenceEqual(group.GetComponentsInChildren<UnityEngine.Transform>(true).Select(t=>t.GetEntityId())),\"Project changes altered initial community\");\nvar definition=(Terra.Contracts.AnnualTownDefinition)mt.GetField(\"annualDefinition\",flags).GetValue(main);\nvar comparison=new Terra.Core.AnnualTown(definition,\"study65-no-action\");Terra.Core.AnnualTownDemo.Finish(comparison,new Terra.Core.AuthoredAnnualConsequenceProvider());\nmt.GetMethod(\"DisplayAnnual\",flags).Invoke(main,new object[]{comparison.Snapshot()});Check(objects.SequenceEqual(group.GetComponentsInChildren<UnityEngine.Transform>(true).Select(t=>t.GetEntityId())),\"No-action Year10 changed homes\");\nmt.GetMethod(\"RefreshLandscape\",flags).Invoke(main,null);\nCheck(fingerprint.SequenceEqual(meshes.Select(m=>m.sharedMesh.GetEntityId()+\":\"+m.transform.localToWorldMatrix.ToString())),\"Community geometry or placement changed\");Check(main.Diagnostic==annual,\"Saved annual state changed\");Check(UnityEngine.JsonUtility.ToJson(world)==source,\"Source geography changed\");\nreturn new{checks,annual,homes=measurements,comparisonYear=comparison.Snapshot().year,scope=\"Editor source/site sampling and renderer lifecycle including no-action Year10. No browser, performance or replay claim.\"};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 35,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "homes": [
+          {
+            "x": -285,
+            "z": 4,
+            "floor": 16.193882,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "minWater": 42.17981
+          },
+          {
+            "x": -321,
+            "z": 18,
+            "floor": 17.02465,
+            "covers": [
+              "sealed"
+            ],
+            "minWater": 47.6324654
+          },
+          {
+            "x": -355,
+            "z": 35,
+            "floor": 17.41435,
+            "covers": [
+              "sealed",
+              "grass"
+            ],
+            "minWater": 13.022644
+          },
+          {
+            "x": -140,
+            "z": -20,
+            "floor": 13.2989511,
+            "covers": [
+              "grass"
+            ],
+            "minWater": 38.4354439
+          }
+        ],
+        "comparisonYear": 10,
+        "scope": "Editor source/site sampling and renderer lifecycle including no-action Year10. No browser, performance or replay claim."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

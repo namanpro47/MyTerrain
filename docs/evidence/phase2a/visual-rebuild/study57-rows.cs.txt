@@ -1,0 +1,39 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);
+var baselines=(System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)land.GetType().GetField("baselines",f).GetValue(land);
+var holder=baselines["south-01"];
+foreach(var prior in holder.GetComponentsInChildren<Terra.Rendering.InstancedNature>().Where(n=>n.name=="Study57 solid-leaf crop"))UnityEngine.Object.DestroyImmediate(prior.gameObject);
+var plant=land.GetType().GetMethod("PlantMatrix",f);
+var prefab=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/QuaterniusCrops/Study57/Corn_4.prefab");
+var bf=typeof(Terra.Rendering.InstancedNature).GetField("batches",f);int original=0,retained=0;
+foreach(var old in holder.GetComponents<Terra.Rendering.InstancedNature>())
+{
+ var batches=(System.Collections.IList)bf.GetValue(old);if(batches.Count==0)continue;var type=batches[0].GetType();
+ if(!(bool)type.GetField("crop").GetValue(batches[0]))continue;
+ var chosen=new System.Collections.Generic.Dictionary<UnityEngine.Vector2Int,UnityEngine.Vector3>();
+ foreach(var batch in batches)foreach(var m in (UnityEngine.Matrix4x4[])type.GetField("transforms").GetValue(batch))
+ {
+  original++;var v=new UnityEngine.Vector3(m.m03,m.m13,m.m23);
+  // Preserve source-valid roots in larger curved planting cells.
+  float u=v.x-12*UnityEngine.Mathf.Sin(v.z*.012f)-5*UnityEngine.Mathf.Sin(v.z*.029f);
+  var key=new UnityEngine.Vector2Int(UnityEngine.Mathf.RoundToInt(u/2.7f),UnityEngine.Mathf.RoundToInt(v.z/1.1f));
+  if(!chosen.ContainsKey(key))chosen.Add(key,v);
+ }
+ var matrices=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var v in chosen.Values)
+ {
+  float drift=UnityEngine.Mathf.PerlinNoise(v.x*.025f+75,v.z*.025f+31);
+  float h=UnityEngine.Mathf.Lerp(1.55f,1.8f,drift),width=h;
+  float yaw=UnityEngine.Mathf.Atan(.144f*UnityEngine.Mathf.Cos(v.z*.012f)+.145f*UnityEngine.Mathf.Cos(v.z*.029f))*UnityEngine.Mathf.Rad2Deg;
+  yaw+=UnityEngine.Mathf.PerlinNoise(v.x*.8f+42,v.z*.8f+16)*40-20;
+  var m=(UnityEngine.Matrix4x4)plant.Invoke(land,new object[]{prefab,v.x,v.z,h,yaw});
+  matrices.Add(m*UnityEngine.Matrix4x4.Scale(new UnityEngine.Vector3(width/h,1,width/h)));
+ }
+ old.enabled=false;var layer=new UnityEngine.GameObject("Study57 solid-leaf crop");layer.transform.SetParent(holder,false);
+ var nature=layer.AddComponent<Terra.Rendering.InstancedNature>();nature.Add(prefab,matrices,UnityEngine.Color.white);
+ typeof(Terra.Rendering.InstancedNature).GetMethod("MakeTintMaterialsPrivate",f).Invoke(nature,null);
+ foreach(var mat in (System.Collections.Generic.List<UnityEngine.Material>)typeof(Terra.Rendering.InstancedNature).GetField("ownedMaterials",f).GetValue(nature)){var color=mat.color;mat.color=new UnityEngine.Color(color.r*.72f,color.g*.76f,color.b*.66f,1);}retained+=matrices.Count;
+}
+return new{original,retained,state=main.Diagnostic};

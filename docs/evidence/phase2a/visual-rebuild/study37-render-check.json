@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var root=UnityEngine.GameObject.Find(\"Layered woodland cohorts\");var counts=new System.Collections.Generic.Dictionary<string,int>();foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){foreach(var b in (System.Collections.IEnumerable)n.GetType().GetField(\"batches\",flags).GetValue(n)){var t=b.GetType();var mesh=(UnityEngine.Mesh)t.GetField(\"mesh\").GetValue(b);var matrices=(UnityEngine.Matrix4x4[])t.GetField(\"transforms\").GetValue(b);counts.TryGetValue(mesh.name,out int count);counts[mesh.name]=count+matrices.Length;}}return new{tiles=root.transform.childCount,counts,frame=UnityEngine.Time.frameCount};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "tiles": 69,
+        "counts": {
+          "ForestOak-part0-lod0": 2272,
+          "ForestOak-part1-lod0": 2272,
+          "ForestOak-part2-lod0": 2272,
+          "ForestSapling-part0-lod0": 4981,
+          "ForestSapling-part1-lod0": 4981
+        },
+        "frame": 4480
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

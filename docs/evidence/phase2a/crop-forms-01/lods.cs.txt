@@ -1,0 +1,29 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires Edit mode");
+var folder="Assets/Editor/CropDiagnostic";
+var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(folder+"/Lettuce.prefab");
+var filter=source.GetComponentInChildren<UnityEngine.MeshFilter>();
+var matrix=source.transform.worldToLocalMatrix*filter.transform.localToWorldMatrix;
+var original=UnityEngine.Object.Instantiate(filter.sharedMesh);original.name="Lettuce-full";
+original.vertices=original.vertices.Select(v=>matrix.MultiplyPoint3x4(v)).ToArray();
+original.normals=original.normals.Select(n=>matrix.inverse.transpose.MultiplyVector(n).normalized).ToArray();original.RecalculateBounds();
+var materials=filter.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials;
+var root=new UnityEngine.GameObject("LettuceLods");var lods=new UnityEngine.LOD[3];var rows=new System.Collections.Generic.List<object>();
+try {
+ for(int level=0;level<3;level++) {
+  UnityEngine.Mesh mesh;
+  if(level==0)mesh=original;
+  else {
+   var simplifier=new UnityMeshSimplifier.MeshSimplifier(original);
+   simplifier.SimplifyMesh(level==1?.28f:.06f);mesh=simplifier.ToMesh();mesh.RecalculateBounds();
+  }
+  mesh.name="Lettuce-lod"+level;
+  var path=folder+"/"+mesh.name+".asset";var saved=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Mesh>(path);
+  if(saved==null){UnityEditor.AssetDatabase.CreateAsset(mesh,path);saved=mesh;}else{UnityEditor.EditorUtility.CopySerialized(mesh,saved);UnityEditor.EditorUtility.SetDirty(saved);}
+  var part=new UnityEngine.GameObject("LOD"+level);part.transform.SetParent(root.transform,false);part.AddComponent<UnityEngine.MeshFilter>().sharedMesh=saved;
+  var renderer=part.AddComponent<UnityEngine.MeshRenderer>();renderer.sharedMaterials=materials;
+  lods[level]=new UnityEngine.LOD(level==0?.5f:level==1?.18f:.002f,new UnityEngine.Renderer[]{renderer});
+  rows.Add(new{level,vertices=saved.vertexCount,triangles=saved.triangles.Length/3,bounds=saved.bounds.ToString()});
+ }
+ var group=root.AddComponent<UnityEngine.LODGroup>();group.SetLODs(lods);group.RecalculateBounds();
+ UnityEditor.PrefabUtility.SaveAsPrefabAsset(root,folder+"/LettuceLods.prefab");UnityEditor.AssetDatabase.SaveAssets();return rows;
+}finally{UnityEngine.Object.DestroyImmediate(root);}

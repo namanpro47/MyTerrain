@@ -1,0 +1,61 @@
+{
+  "source": "1f2eba3a4a8ad0ccdafb7b42a128d04ab50e85cf",
+  "mainFetchedAfterCapture": "ea37af047f4d8d167f88b802e76827c82a6c8183",
+  "scope": "Actual 1280x720 Editor camera renders; HUD absent; no Chrome or performance acceptance",
+  "captures": [
+    {
+      "file": "flat-normal.png",
+      "frame": 264,
+      "sha256": "20c1faa2ec73e4c85dc06d53d9ee7b485f70cdc20d6bc48af9bb6f6b5f906194",
+      "normalWeight": 0
+    },
+    {
+      "file": "flat-close.png",
+      "frame": 684,
+      "sha256": "e90821cd41292e5e72bad49aa187618d390ce8bfa956cfd469fe18a901420a23",
+      "normalWeight": 0
+    },
+    {
+      "file": "flat-wide.png",
+      "frame": 1196,
+      "sha256": "b947c99867884b09418eb2e6fc76490df6734152dca6232df46c29d75bb117df",
+      "normalWeight": 0
+    },
+    {
+      "file": "lit-wide.png",
+      "frame": 1558,
+      "sha256": "80fb8278180d0bb2849b9acaf3642988f6067b4918c58d9da50dd77b6e5ccfbc",
+      "normalWeight": 1
+    },
+    {
+      "file": "lit-normal.png",
+      "frame": 1956,
+      "sha256": "774bd03db44f3968b54888cbc90047c0529a434eb572bf0bf2c422a801b4a07a",
+      "normalWeight": 1
+    },
+    {
+      "file": "lit-close.png",
+      "frame": 2649,
+      "sha256": "597af3e297c9811898dc55f52560fff8d732a049cf547a4b8fd92a1582d9ffd7",
+      "normalWeight": 1
+    },
+    {
+      "file": "soft-close.png",
+      "frame": 47774,
+      "sha256": "98d02c29541c4e5cfb875ca2859a2dd7c0f07a517ff45ee9f932001b2c898d14",
+      "normalWeight": 0.35
+    },
+    {
+      "file": "soft-normal.png",
+      "frame": 48204,
+      "sha256": "64d47763dc7ba814041e9d1bcef19e0247fa8bcbff3810db3cc1a8bb22cc622c",
+      "normalWeight": 0.35
+    },
+    {
+      "file": "soft-wide.png",
+      "frame": 48439,
+      "sha256": "2a5f1fa7ff1975f5b562c439215c1e657c2a067c12cfa3f83ff715a6092af7e7",
+      "normalWeight": 0.35
+    }
+  ]
+}

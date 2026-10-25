@@ -1,0 +1,25 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic=="loading")throw new System.Exception("Not ready");
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Editor/Study58/CropSurface.shader");
+var paint=new UnityEngine.Texture2D(2,2,UnityEngine.TextureFormat.RGBA32,true,false){name="Study58 baked grain albedo",wrapMode=UnityEngine.TextureWrapMode.Repeat,anisoLevel=8,filterMode=UnityEngine.FilterMode.Trilinear};
+var relief=new UnityEngine.Texture2D(2,2,UnityEngine.TextureFormat.RGBA32,true,true){name="Study58 baked grain relief",wrapMode=UnityEngine.TextureWrapMode.Repeat,anisoLevel=8,filterMode=UnityEngine.FilterMode.Trilinear};
+UnityEngine.ImageConversion.LoadImage(paint,System.IO.File.ReadAllBytes("Builds/ArtResearch/Study58/grain-albedo.png"));UnityEngine.ImageConversion.LoadImage(relief,System.IO.File.ReadAllBytes("Builds/ArtResearch/Study58/grain-normal-height.png"));
+var mats=(System.Collections.Generic.Dictionary<UnityEngine.Color,UnityEngine.Material>)land.GetType().GetField("groundMaterials",f).GetValue(land);int changed=0;
+foreach(var mat in mats.Values.Where(m=>m.GetFloat("_SurfaceKind")>2.5f)){mat.shader=shader;mat.SetTexture("_CropPaint",paint);mat.SetTexture("_CropRelief",relief);changed++;}
+var visual=land.GetType().GetMethod("VisualCropAt",f);bool Crop(float x,float z)=>(bool)visual.Invoke(land,new object[]{x,z});
+var type=typeof(Terra.Rendering.InstancedNature);var bf=type.GetField("batches",f);var grain=UnityEngine.Resources.Load<UnityEngine.GameObject>("Nature/FieldCluster");int roots=0,components=0;
+foreach(var old in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None))
+{
+ var bs=(System.Collections.IList)bf.GetValue(old);if(bs.Count==0)continue;var bt=bs[0].GetType();if(!(bool)bt.GetField("crop").GetValue(bs[0]))continue;
+ var retained=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var b in bs)foreach(var m in (UnityEngine.Matrix4x4[])bt.GetField("transforms").GetValue(b))
+ {
+  float x=m.m03,z=m.m23;bool edge=!Crop(x-3,z)||!Crop(x+3,z)||!Crop(x,z-3)||!Crop(x,z+3);
+  float pockets=UnityEngine.Mathf.PerlinNoise(x*.055f+245,z*.055f+163);
+  if(edge||pockets>.72f)retained.Add(m);
+ }
+ old.enabled=false;var layer=new UnityEngine.GameObject("Study58 crop edge accents");layer.transform.SetParent(old.transform,false);layer.AddComponent<Terra.Rendering.InstancedNature>().Add(grain,retained,UnityEngine.Color.white);roots+=retained.Count;components++;
+}
+return new{changedGroundMaterials=changed,roots,components,state=main.Diagnostic};

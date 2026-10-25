@@ -1,0 +1,18 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var oldRoot=UnityEngine.GameObject.Find("Layered woodland cohorts");
+var root=new UnityEngine.GameObject("Study40 AssetQuest woodland");
+var birch=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/AssetQuestForestDemo/Preview/Birch_Tree_1.prefab");
+var pine=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/AssetQuestForestDemo/Preview/Pine_Tree_1.prefab");
+int mature=0,young=0,conifers=0;var rng=new System.Random(4007);
+foreach(var n in oldRoot.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var list=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);var deciduous=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();var evergreen=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var b in list){var t=b.GetType();var mesh=(UnityEngine.Mesh)t.GetField("mesh",flags).GetValue(b);if(mesh.name!="ForestOak-part0-lod0"&&mesh.name!="ForestSapling-part0-lod0")continue;
+ bool small=mesh.name.StartsWith("ForestSapling");foreach(var m in (UnityEngine.Matrix4x4[])t.GetField("transforms",flags).GetValue(b)){
+ var p=m.GetColumn(3);var scale=m.lossyScale;float h=small?scale.y*.15f:scale.y*1.5f;
+ var matrix=UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(p.x,land.Height(p.x,p.z),p.z),m.rotation,new UnityEngine.Vector3(h*scale.x/scale.y,h,h));
+ if(!small&&rng.NextDouble()<.20){evergreen.Add(matrix);conifers++;}else deciduous.Add(matrix);if(small)young++;else mature++;
+ }}
+ var go=new UnityEngine.GameObject("Mixed woodland tile");go.transform.SetParent(root.transform,false);var nature=go.AddComponent<Terra.Rendering.InstancedNature>();nature.Add(birch,deciduous,UnityEngine.Color.white);nature.Add(pine,evergreen,UnityEngine.Color.white);
+}
+oldRoot.SetActive(false);
+return new{mature,young,conifers,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

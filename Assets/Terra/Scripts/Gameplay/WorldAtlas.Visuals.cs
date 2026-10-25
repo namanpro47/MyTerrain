@@ -26,7 +26,7 @@ namespace Terra.Gameplay
         TextMeshProUGUI Text(Transform parent,string text,Vector2 anchor,Vector2 position,Vector2 size,float fontSize,Color color,TextAlignmentOptions align=TextAlignmentOptions.Left)
         {var r=Box(parent,text,anchor,position,size);var label=r.gameObject.AddComponent<TextMeshProUGUI>();label.font=TMP_Settings.defaultFontAsset;label.text=text;label.fontSize=fontSize;label.color=color;label.alignment=align;label.raycastTarget=false;label.textWrappingMode=TextWrappingModes.Normal;return label;}
         UnityEngine.UI.Button Button(Transform parent,string title,Vector2 anchor,Vector2 position,Vector2 size,System.Action action,bool primary=false)
-        {var r=Box(parent,title,anchor,position,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=primary?Mint:new Color(.085f,.16f,.19f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.onClick.AddListener(()=>action());var c=b.colors;c.highlightedColor=new Color(1.15f,1.15f,1.15f);c.pressedColor=new Color(.7f,.8f,.75f);b.colors=c;var t=Text(r,title,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),18,primary?Navy:Cream,TextAlignmentOptions.Center);return b;}
+        {var r=Box(parent,title,anchor,position,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=primary?Gold:new Color(.11f,.20f,.23f,.78f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.onClick.AddListener(()=>{Terra.Audio.TerraAudio.Ensure().Click();action();});var c=b.colors;c.highlightedColor=new Color(1.15f,1.15f,1.15f);c.pressedColor=new Color(.7f,.8f,.75f);b.colors=c;var t=Text(r,title,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),18,primary?Navy:Cream,TextAlignmentOptions.Center);return b;}
         Sprite Shape(bool disk)
         {int size=64;var texture=new Texture2D(size,size,TextureFormat.RGBA32,false);texture.filterMode=FilterMode.Bilinear;for(int y=0;y<size;y++)for(int x=0;x<size;x++){float dx=Mathf.Max(Mathf.Abs(x-31.5f)-(disk?0:23),0),dy=Mathf.Max(Mathf.Abs(y-31.5f)-(disk?0:23),0);float a=Mathf.Clamp01((disk?31:8)-Mathf.Sqrt(dx*dx+dy*dy));texture.SetPixel(x,y,new Color(1,1,1,a));}texture.Apply();var s=Sprite.Create(texture,new Rect(0,0,size,size),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,new Vector4(10,10,10,10));owned.Add(texture);owned.Add(s);return s;}
         void BuildUI()
@@ -41,30 +41,39 @@ namespace Terra.Gameplay
                 EventSystem.current.sendNavigationEvents=false;
             }
             var panel=Box(uiRoot,"Selection",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);panel.anchorMin=Vector2.zero;panel.anchorMax=Vector2.one;selection=panel.gameObject.AddComponent<CanvasGroup>();
-            Text(panel,"MyTerrain",new Vector2(0,1),new Vector2(42,-30),new Vector2(260,45),30,Cream);
-            Text(panel,"SELECT YOUR TERRAIN",new Vector2(0,1),new Vector2(44,-80),new Vector2(400,24),11,Muted);
-            Text(panel,"CHOOSE A LANDSCAPE",new Vector2(.5f,1),new Vector2(0,-42),new Vector2(420,28),15,Mint,TextAlignmentOptions.Center);
-            motion=Button(panel,"Motion: full",new Vector2(1,1),new Vector2(-42,-34),new Vector2(150,40),()=>SetMotion(!ReducedMotion));
+            BuildSky(panel);
+            Text(panel,"MyTerrain",new Vector2(0,1),new Vector2(58,-30),new Vector2(350,62),42,Cream).fontStyle=FontStyles.Bold;
+            Text(panel,"C H O O S E   Y O U R   L A N D S C A P E",new Vector2(0,1),new Vector2(60,-97),new Vector2(600,24),12,Muted);
+            motion=Button(panel,"Motion: full",new Vector2(0,1),new Vector2(60,-145),new Vector2(145,36),()=>SetMotion(!ReducedMotion));
             motion.GetComponentInChildren<TextMeshProUGUI>().text=ReducedMotion?"Motion: reduced":"Motion: full";
-            region=Text(panel,"",new Vector2(0,.5f),new Vector2(44,66),new Vector2(330,25),14,Mint);
-            nameLabel=Text(panel,"",new Vector2(0,.5f),new Vector2(42,18),new Vector2(305,90),32,Cream);
-            description=Text(panel,"",new Vector2(0,.5f),new Vector2(44,-52),new Vector2(265,70),17,Muted);
-            coordinates=Text(panel,"",new Vector2(0,.5f),new Vector2(44,-135),new Vector2(310,25),14,Muted);
-            Text(panel,"N",new Vector2(.5f,1),new Vector2(0,-108),new Vector2(40,25),13,Mint,TextAlignmentOptions.Center);
+            Button(panel,"Sound  U",new Vector2(0,1),new Vector2(216,-145),new Vector2(116,36),Terra.Audio.TerraAudioPanel.Show);
+            Button(panel,"Field notes  I",new Vector2(0,1),new Vector2(344,-145),new Vector2(140,36),()=>notes.SetActive(true));
+            region=Text(panel,"",new Vector2(0,.5f),new Vector2(62,194),new Vector2(420,28),14,Gold);
+            nameLabel=Text(panel,"",new Vector2(0,.5f),new Vector2(58,103),new Vector2(415,146),54,Cream);nameLabel.fontStyle=FontStyles.Bold;nameLabel.lineSpacing=-12;
+            description=Text(panel,"",new Vector2(0,.5f),new Vector2(62,-8),new Vector2(342,64),20,Muted);
+            coordinates=Text(panel,"",new Vector2(0,.5f),new Vector2(62,-75),new Vector2(350,24),13,Muted);
+            var travel=Button(panel,"Begin journey   →",new Vector2(0,.5f),new Vector2(60,-166),new Vector2(306,64),StartJourney,true);
+            travel.GetComponentInChildren<TextMeshProUGUI>().fontSize=23;
+            Text(panel,"TEN YEARS.  A LANDSCAPE OF POSSIBILITIES.",new Vector2(0,.5f),new Vector2(64,-214),new Vector2(410,25),11,Muted);
             for(int i=0;i<3;i++)
             {
-                int index=i;var pin=Button(panel,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(42,42),()=>Select(index));pin.image.sprite=circle;pin.image.type=UnityEngine.UI.Image.Type.Simple;pin.image.color=new Color(Mint.r,Mint.g,Mint.b,.24f);pins[i]=(RectTransform)pin.transform;
-                var dot=Box(pin.transform,"Pin center",new Vector2(.5f,.5f),Vector2.zero,new Vector2(12,12));var im=dot.gameObject.AddComponent<UnityEngine.UI.Image>();im.sprite=circle;im.color=Mint;im.raycastTarget=false;
-                Text(pin.transform,Terra.Core.LocationProfile.At(i).Name,new Vector2(i==1?1:0,.5f),new Vector2(i==1?-52:52,0),new Vector2(210,32),15,Cream,i==1?TextAlignmentOptions.Right:TextAlignmentOptions.Left);
-                choices[i]=Button(panel,"",new Vector2(.5f,0),new Vector2(-412+i*278,105),new Vector2(264,77),()=>Select(index));
-                Text(choices[i].transform,$"0{i+1}  /  "+new[]{"RIVER & RIDGE","PACIFIC COAST","ALPINE VALLEY"}[i],new Vector2(0,1),new Vector2(18,-12),new Vector2(230,20),12,Mint);
-                Text(choices[i].transform,Terra.Core.LocationProfile.At(i).Name,new Vector2(0,1),new Vector2(18,-37),new Vector2(230,30),21,Cream);
+                int index=i;
+                var pin=Button(panel,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(46,46),()=>Select(index));pin.image.sprite=circle;pin.image.type=UnityEngine.UI.Image.Type.Simple;pins[i]=(RectTransform)pin.transform;
+                var dot=Box(pin.transform,"Destination",new Vector2(.5f,.5f),Vector2.zero,new Vector2(28,28));var im=dot.gameObject.AddComponent<UnityEngine.UI.Image>();im.sprite=circle;im.color=Gold;im.raycastTarget=false;
+                Text(pin.transform,(i+1).ToString(),Vector2.one*.5f,Vector2.zero,new Vector2(30,30),16,Navy,TextAlignmentOptions.Center).fontStyle=FontStyles.Bold;
+                var pennant=Box(pin.transform,"Selected destination",new Vector2(0,.5f),new Vector2(53,0),new Vector2(174,34));
+                var paper=pennant.gameObject.AddComponent<UnityEngine.UI.Image>();paper.sprite=rounded;paper.type=UnityEngine.UI.Image.Type.Sliced;paper.color=Cream;paper.raycastTarget=false;
+                pinLabels[i]=Text(pennant,new[]{"MEADOWBROOK","POINT REYES","SUUSAMYR"}[i],Vector2.one*.5f,Vector2.zero,new Vector2(164,30),13,Navy,TextAlignmentOptions.Center);pinLabels[i].fontStyle=FontStyles.Bold;
+                choices[i]=Button(panel,"",new Vector2(.5f,0),new Vector2(-320+i*320,82),new Vector2(302,112),()=>Select(index));
+                AddLandscapeStamp(choices[i].transform,i);
+                Text(choices[i].transform,$"0{i+1}  /  "+new[]{"WISCONSIN","CALIFORNIA","KYRGYZSTAN"}[i],new Vector2(0,1),new Vector2(112,-19),new Vector2(182,22),11,Gold);
+                Text(choices[i].transform,new[]{"Meadowbrook\nValley","Point Reyes","Suusamyr"}[i],new Vector2(0,1),new Vector2(112,-44),new Vector2(182,56),20,Cream).fontStyle=FontStyles.Bold;
+                choiceUnderline[i]=Box(choices[i].transform,"Selected landscape",new Vector2(.5f,0),new Vector2(0,0),new Vector2(270,3)).gameObject.AddComponent<UnityEngine.UI.Image>();choiceUnderline[i].color=Gold;choiceUnderline[i].raycastTarget=false;
             }
-            Button(panel,"Enter landscape  →",new Vector2(.5f,0),new Vector2(450,105),new Vector2(260,77),StartJourney,true);
-            Text(panel,"Drag to rotate    ·    Scroll to zoom    ·    1–3 choose    ·    Enter to descend    ·    M motion",new Vector2(.5f,0),new Vector2(0,58),new Vector2(1000,25),16,Muted,TextAlignmentOptions.Center);
-            Button(panel,"−",new Vector2(1,.5f),new Vector2(-44,-32),new Vector2(44,44),()=>Zoom(1));Button(panel,"+",new Vector2(1,.5f),new Vector2(-44,22),new Vector2(44,44),()=>Zoom(-1));Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-44,-86),new Vector2(70,36),()=>Select(Selected));
-            Text(panel,"NASA BLUE MARBLE  /  REAL PLACES · ILLUSTRATIVE FUTURES",new Vector2(.5f,0),new Vector2(0,16),new Vector2(1000,20),10,Muted,TextAlignmentOptions.Center);
-            Button(panel,"Field notes  I",new Vector2(1,1),new Vector2(-42,-86),new Vector2(150,36),()=>notes.SetActive(true));
+            Button(panel,"−",new Vector2(1,.5f),new Vector2(-46,-65),new Vector2(40,40),()=>Zoom(1));
+            Button(panel,"+",new Vector2(1,.5f),new Vector2(-46,-15),new Vector2(40,40),()=>Zoom(-1));
+            Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-46,-116),new Vector2(82,36),()=>Select(Selected));
+            Text(panel,"1 / 2 / 3   Choose     ·     Drag   Rotate     ·     Scroll   Zoom     ·     Enter   Travel",new Vector2(.5f,0),new Vector2(0,35),new Vector2(1100,26),15,Muted,TextAlignmentOptions.Center);
             var notesRect=Box(uiRoot,"Atlas field notes",Vector2.one*.5f,Vector2.zero,new Vector2(700,580));notes=notesRect.gameObject;
             var notesBackground=notes.AddComponent<UnityEngine.UI.Image>();notesBackground.sprite=rounded;notesBackground.type=UnityEngine.UI.Image.Type.Sliced;notesBackground.color=new Color(.09f,.16f,.19f);
             Text(notesRect,"MyTerrain  /  FIELD NOTES",new Vector2(0,1),new Vector2(36,-28),new Vector2(620,30),14,Mint);

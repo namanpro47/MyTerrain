@@ -1,0 +1,9 @@
+test_bank_integrity_and_headroom (__main__.SoundBankChecks) ... ok
+test_every_playable_action_has_three_distinct_recordings (__main__.SoundBankChecks) ... ok
+test_every_requested_cue_exists (__main__.SoundBankChecks) ... ok
+test_provenance_and_size (__main__.SoundBankChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.654s
+
+OK

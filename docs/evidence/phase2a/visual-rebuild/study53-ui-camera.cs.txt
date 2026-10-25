@@ -1,0 +1,3 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Play mode required");
+var c=UnityEngine.Camera.main;c.targetTexture=new UnityEngine.RenderTexture(1280,720,24);c.rect=new UnityEngine.Rect(0,0,1,1);c.aspect=1280f/720;
+var ui=UnityEngine.GameObject.Find("Terra HUD").GetComponent<UnityEngine.Canvas>();ui.renderMode=UnityEngine.RenderMode.ScreenSpaceCamera;ui.worldCamera=c;ui.planeDistance=2;UnityEngine.Canvas.ForceUpdateCanvases();return new{canvas=ui.pixelRect.ToString(),frame=UnityEngine.Time.frameCount};

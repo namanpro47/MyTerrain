@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var r=UnityEditor.Build.Reporting.BuildReport.GetLatestReport();return new{result=r.summary.result.ToString(),seconds=r.summary.totalTime.TotalSeconds,totalSize=r.summary.totalSize,totalErrors=r.summary.totalErrors,totalWarnings=r.summary.totalWarnings,output=r.summary.outputPath};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "result": "Succeeded",
+        "seconds": 371.513048,
+        "totalSize": 4552987,
+        "totalErrors": 0,
+        "totalWarnings": 24,
+        "output": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/Staging/Web"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

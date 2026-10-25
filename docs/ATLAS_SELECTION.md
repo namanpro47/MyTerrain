@@ -12,7 +12,7 @@ Travel turns toward the selected coordinate, approaches the surface and fades th
 
 The native World atlas button or Shift+Escape returns to the globe. Same-place entry preserves the live scene; different-place entry reloads the gameplay scene behind the persistent atlas and restores that place's isolated save. Existing committed-year rules and save keys remain intact. Internal Terra names are retained for compatibility; they are not player branding.
 
-Patterns: **TN-01/02/03/06**, **AX-01**. A navy orbital scene, mint markers and cream typography connect selection to the current annual HUD. This bounded atlas correction does not certify the separate Phase 2A landscape gate.
+Patterns: **TN-01/02/03/06**, **AX-01**. A cinematic orbital scene, stylized sourced Earth, gold travel arcs and numbered destinations provide a game level-selection view. Native isometric biome miniatures support the three location choices; cream typography and gold travel action emphasize the selected landscape. See the [comparison study and new render evidence](evidence/myterrain-combined-release-oct25/README.md). This bounded atlas correction does not certify the separate Phase 2A landscape gate.
 
 ## Fixed catalog and evidence
 

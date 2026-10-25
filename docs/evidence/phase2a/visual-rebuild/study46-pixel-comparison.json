@@ -1,0 +1,30 @@
+{
+  "normal": {
+    "size": [
+      1280,
+      720
+    ],
+    "max_channel_difference_255": 6,
+    "mean_absolute_channel_difference_255": [
+      0.0005479600694444444,
+      0.0005750868055555556,
+      0.0002712673611111111
+    ],
+    "different_pixels": 418,
+    "pixel_count": 921600
+  },
+  "close": {
+    "size": [
+      1280,
+      720
+    ],
+    "max_channel_difference_255": 6,
+    "mean_absolute_channel_difference_255": [
+      0.00048177083333333335,
+      0.0005295138888888889,
+      0.0002300347222222222
+    ],
+    "different_pixels": 366,
+    "pixel_count": 921600
+  }
+}

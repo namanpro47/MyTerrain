@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study71/import-normals.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "assigned": 0,
+        "slices": 48,
+        "mips": 9,
+        "method": "Unity importer alphaIsTransparency + mipMapsPreserveCoverage at .4; copy authored mips without regenerating."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

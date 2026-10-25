@@ -1,0 +1,129 @@
+{
+  "preparedSource": "4651366",
+  "mainInspected": "13a15a4",
+  "reservation": 48,
+  "editor": "6000.6.6f1 / Metal",
+  "runtimeWorldGuard": "Source JSON unchanged across parcel and full-map application; Year1 Planning revision0 cash1000000000cents queue0 assets0 unchanged. Not a full annual regression.",
+  "frames": {
+    "control-normal": 40,
+    "control-close": 320,
+    "volume-close": 569,
+    "uniform-normal": 9485,
+    "filtered-close": 21832,
+    "filtered-edge": 22441,
+    "union-normal": 32218,
+    "union-close": 31918,
+    "all-normal": 41867,
+    "all-wide": 44679,
+    "combined-normal": 49866,
+    "filtered-wide": 55441,
+    "coverage-wide": 69749,
+    "coverage-close": 70022,
+    "coverage-normal": 70370,
+    "control-connected-normal": 78899,
+    "control-connected-wide": 79129
+  },
+  "assets": {
+    "WheatSlices.asset": {
+      "bytes": 33555160,
+      "sha256": "5d53ac6c0d4d875e3106cc64faea2e5e09152930992dc61ffd29ec987fa67c74"
+    },
+    "WheatSlicesCoverage.asset": {
+      "bytes": 33555168,
+      "sha256": "6b7bbd0696d4e9a14a74d6197ebd1004b36d762b20e36ee81f46049f44d6bb78"
+    },
+    "VolumeBake.shader": {
+      "bytes": 987,
+      "sha256": "e5ec60053cfb82930583dab4ea3a5519451e5e56468271ff17a21b50bb117c7c"
+    },
+    "VolumeField.shader": {
+      "bytes": 1877,
+      "sha256": "910abf0e38a07f95604d1c9f0fc462e1984b89bb99387e8204c32f78bae1ffea"
+    }
+  },
+  "captures": {
+    "control-normal.png": {
+      "bytes": 1674480,
+      "sha256": "c71913228b0ebe920d53c8bd711938ebbfc6b2d22626e6252f59cb192fe3001d"
+    },
+    "control-close.png": {
+      "bytes": 1498463,
+      "sha256": "87d9dd2fe8b4f2c013074c32729927dbe5176ddcb644762aa1f94494babda159"
+    },
+    "volume-close.png": {
+      "bytes": 1851783,
+      "sha256": "4d331742e164e8dfc3a289d9a6a4ace9997f3274b3f2e0a9095ea014a1ebfe58"
+    },
+    "uniform-normal.png": {
+      "bytes": 1710217,
+      "sha256": "c5a501c4296eb719a235d1bf9693e3ad75f1506a3077b1aab2c1f35c5ef2dd96"
+    },
+    "filtered-close.png": {
+      "bytes": 1779218,
+      "sha256": "42a75a6c2829fb688131e494226a2b1c467f3bc0c9b83c9427ab27a73391fdcf"
+    },
+    "filtered-edge.png": {
+      "bytes": 1604462,
+      "sha256": "3dffdcc18cd26d3c1fb25e1ee511d56d54f9b3f602f5a6c1b7a0009faf04dd30"
+    },
+    "union-normal.png": {
+      "bytes": 1684552,
+      "sha256": "83fe507e7fc802fda45a8d059e9d3ebc01ababf24f97128236904f7aec8a5848"
+    },
+    "union-close.png": {
+      "bytes": 1727855,
+      "sha256": "9237e97c815dd91a9b9259ec7e7f3dbd1d4f1febed5bee95abd6c1b59bb8742b"
+    },
+    "all-normal.png": {
+      "bytes": 1655517,
+      "sha256": "9e041b81f10c6ae874718c7c9c9ebd9196d1832899fd08aa8e73093f77f4be2d"
+    },
+    "all-wide.png": {
+      "bytes": 1633447,
+      "sha256": "f3de725f1c7d37cdf905d1ee0d8670eb2f75789f8a441dc680b6e8b9daedb20e"
+    },
+    "combined-normal.png": {
+      "bytes": 1773783,
+      "sha256": "075a8af4656c2c531dccf4414c5742fb1f896c9d862c6c9be0449262dc22d39d"
+    },
+    "filtered-wide.png": {
+      "bytes": 1668244,
+      "sha256": "b25d80ec65c4c6e33f4a6423929d86f03f236794e2bfe84ce2602683a0b6d40e"
+    },
+    "coverage-normal.png": {
+      "bytes": 1678428,
+      "sha256": "47f73819eb97c8795160f05fe452af2d56f2cebb229a17eb92d9746256b7fa1d"
+    },
+    "coverage-close.png": {
+      "bytes": 1413304,
+      "sha256": "e90821cd41292e5e72bad49aa187618d390ce8bfa956cfd469fe18a901420a23"
+    },
+    "coverage-wide.png": {
+      "bytes": 1581321,
+      "sha256": "5640995eb17e20021dff108c1102bb699c2cb6bcab946199f04bcdddfb75cc87"
+    },
+    "control-connected-normal.png": {
+      "bytes": 1794811,
+      "sha256": "b27d9295b6db285584c7c5c0fc663723d3aec266b980ff89c82d80f8d0181f51"
+    },
+    "control-connected-wide.png": {
+      "bytes": 1752121,
+      "sha256": "6d475bafd0150af1bd7ad3625c1f0964e7a875d457f36ed1caf4489d62a65ff0"
+    },
+    "slice-axis0.png": {
+      "bytes": 26280,
+      "sha256": "a9e4776983a38442866231b7b13fb9549f50d3acea3ecae2331c2621d9349bd3"
+    },
+    "slice-axis1.png": {
+      "bytes": 51549,
+      "sha256": "4bf73b592d9f0561dd3c629b46f792ea676c9de3842ba533d93d65bb75f3e50f"
+    },
+    "slice-axis2.png": {
+      "bytes": 26328,
+      "sha256": "393cd73cac6e6db45ce7038ed720ef5b0a53258fc1b9fe63765507c7d9ee9c72"
+    }
+  },
+  "productionAdopted": false,
+  "ChromeTested": false,
+  "performanceTested": false
+}
