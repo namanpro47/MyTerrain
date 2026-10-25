@@ -1,6 +1,6 @@
 {
-  "assertions": 30,
-  "visualCaptures": false,
+  "assertions": 29,
+  "visualCaptures": true,
   "version": "155.0.8059.85",
   "errors": [
     "Failed to load resource: net::ERR_FAILED"

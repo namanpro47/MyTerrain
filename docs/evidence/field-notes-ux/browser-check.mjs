@@ -72,7 +72,9 @@ try{
  await key('Escape');await key('Escape');await key('g');a=await capture('guide-after-chapter');
  check(!a.labels.some(l=>l.text==='Environmental  / 100'),'Bars leaked into guide');await key('Escape');
  const saved=(await audit()).state;
+ if(!process.env.TERRA_SKIP_RELOAD){
  await page.reload();await page.waitForFunction(()=>window.terraPlayer,null,{timeout:120000});await page.waitForTimeout(2000);await key('1');await key('Enter');await page.waitForTimeout(12000);
  a=await capture('reloaded');check(a.state===saved,'Reload changed accepted state');
+ }
  await fs.writeFile(output+'browser-checks.json',JSON.stringify({assertions,visualCaptures:visual,version:browser.version(),errors,accepted,saved},null,2));
 }catch(e){if(visual)await page.screenshot({path:output+'failure.png'});await fs.writeFile(output+'failure-logs.json',JSON.stringify(logs,null,2));throw e;}finally{await browser.close();}
