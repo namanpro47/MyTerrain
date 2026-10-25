@@ -50,7 +50,7 @@ async function enter(){if(busy)return;
 }
 function returnToAtlas(){window.terraAtlasVisible=true;journeyToken++;busy=false;pausePlayer();$('game').hidden=true;$('game').style.visibility='';$('journey').hidden=true;$('journey').classList.remove('veiled');$('atlas').hidden=false;$('atlas').inert=false;document.body.classList.remove('departing');document.body.style.overflow='';globe?.restore();select(selected.id);$('enter').focus({preventScroll:true});}
 $('enter').addEventListener('click',enter);$('return-atlas').addEventListener('click',returnToAtlas);$('cancel-journey').addEventListener('click',returnToAtlas);$('retry').addEventListener('click',()=>{const url=new URL(location.href);url.searchParams.set('enter','1');location.assign(url);});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&busy)returnToAtlas();});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&(busy||(e.shiftKey&&$('atlas').hidden))){e.preventDefault();e.stopPropagation();returnToAtlas();}},true);
 // Read before select() normalizes the URL: this flag is used only for switching an existing runtime.
 if(autoEnter)enter();
 window.terraAtlas={get selected(){return selected.id;},get state(){return busy?'entering':$('atlas').hidden?'playing':'selecting';}};

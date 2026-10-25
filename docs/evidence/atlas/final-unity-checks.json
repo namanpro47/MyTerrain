@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return AtlasLocationChecks.Run();"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "Atlas locations: 675 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection."
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7805,
+      "projectPath": "/Users/naman/.codex/worktrees/globe-selection/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

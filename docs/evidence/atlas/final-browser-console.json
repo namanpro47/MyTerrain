@@ -1,0 +1,20 @@
+[
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:02:10.959Z",
+    "url": "blob:http://127.0.0.1:49174/6db33f5b-60bc-4324-97e8-ad1d04be7018"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:02:35.561Z",
+    "url": "blob:http://127.0.0.1:49174/86bd9488-091c-42ad-b3c2-fb8c0007f931"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T08:03:15.228Z",
+    "url": "blob:http://127.0.0.1:49174/9ca43ae7-94fd-4f16-ac3a-72a37266916a"
+  }
+]
