@@ -520,11 +520,14 @@
       "tier": "Free",
       "license": "Unity Asset Store EULA (Extension Asset)",
       "licenseUrl": "https://unity.com/legal/as-terms",
-      "status": "User-authorized Terms/EULA acceptance completed; browser confirms account ownership. Not yet downloaded, imported or evaluated in-engine.",
+      "status": "Downloaded through the signed-in Unity Asset Store service; archive and nested URP materials inventoried. Import attempt paused on the Editor package-trust dialog; no files imported and no rendered evaluation yet.",
       "advertisedContents": "Three trees, five bushes, two bush platforms, dirt and grass textures; 50.7 MB listing. This is not a downloaded inventory.",
       "receipt": "Local Builds/ArtResearch/Study65/bigrook-acquired.jpg",
-      "archive": null,
-      "sha256": null
+      "archive": "/Users/naman/Library/Unity/Asset Store-5.x/BigRookGames/3D ModelsVegetationTrees/Stylized Hand Painted Nature Pack - Free.unitypackage",
+      "sha256": "233fc839ec098e654ec1672887acb3b426f760afbb186ab9ea5e61acf8250cab",
+      "archiveBytes": 53124420,
+      "inventory": "study66-archive-inventory.json",
+      "urpInventory": "study66-urp-inventory.json"
     }
   ],
   "researchExclusions": [

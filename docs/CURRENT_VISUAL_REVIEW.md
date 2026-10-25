@@ -1,15 +1,19 @@
 # Current visual review — Phase 2A remains open
 
-**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Combined performance is still pending.
+**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). The subsequent focused Chrome opening/editing/Year10 paths fail the stable-30 limit at37/41/34ms p95. [Timing and annual checks](evidence/phase2a/combined-crops-browser-01/README.md).
 
 ![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
 
-Camera comparisons did not solve the broad empty-ground problem and were not promoted. Next structural study: depict the annual scenario's four existing fictional homes outside project footprints, using metric art and preserving all baseline accounting. This is an unimplemented scene hypothesis, not observed buildings or additional gameplay.
+**Latest Editor candidate: study65, source `3b28015`.** Four metric homes depict the already-counted fictional starting community, with foundations and terrain-following road access. Compilation and35 source/state/lifecycle checks pass. This capture excludes the HUD and has not been verified in Chrome; repeated houses, sparse yards and whole-scene weaknesses remain. [Study65 evidence](evidence/phase2a/visual-rebuild/study65-findings.md).
+
+![Latest Editor candidate — fictional starting community, not browser acceptance](evidence/phase2a/visual-rebuild/study65-integrated-normal.png)
+
+[Study66 acquisition checkpoint](evidence/phase2a/visual-rebuild/study66-findings.md): approved free BigRookGames painted nature family downloaded, with supplied URP materials inventoried. No rendered comparison or adoption yet.
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
 
-**Latest candidate: study60, source `d04f7d4`, October 25, 2026.** This page presents the current rendered game; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
+**Historical candidate: study60, source `d04f7d4`, October 25, 2026.** The sections below preserve earlier rendered evidence; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
 
 [Latest unfinished investigation: study59 cultivated soil beds](evidence/phase2a/visual-rebuild/study59-findings.md). Saved for continuity; it does not replace the retained candidate below.
 
