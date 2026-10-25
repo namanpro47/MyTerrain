@@ -112,7 +112,7 @@ namespace Terra.UI
         {
             var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id&&a.cancelledYear==0);
             var proposal=state.queue.FirstOrDefault(q=>q.siteId==site?.id);
-            projectStatsAccepted=asset!=null&&string.IsNullOrEmpty(activeTool);
+            projectStatsAccepted=asset!=null&&string.IsNullOrEmpty(activeTool)&&(proposal==null||proposal.actionId==AnnualPlayerRules.CancelAction);
             projectStatsCatalog=site==null&&mode=="place"&&!string.IsNullOrEmpty(activeTool)&&state.phase==TownPhase.Planning;
             if(projectStatsAccepted)recipe=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId);
             else if(recipe==null&&proposal!=null&&proposal.actionId!=AnnualPlayerRules.CancelAction&&string.IsNullOrEmpty(activeTool))
@@ -120,7 +120,7 @@ namespace Terra.UI
             else if(projectStatsCatalog)recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
             projectStatsQueued=recipe!=null&&proposal?.actionId==recipe.actionId&&(string.IsNullOrEmpty(activeTool)||activeTool==recipe.actionId);
             projectFactsVisible=recipe?.services!=null&&recipe.actionId!=AnnualPlayerRules.CancelAction&&mode=="place"
-                &&(projectStatsAccepted||projectStatsCatalog||((rejection==null||projectStatsQueued)));
+                &&(projectStatsAccepted||projectStatsCatalog||(rejection==null||projectStatsQueued));
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
             inspectedRecipe=recipe;tooltip.SetActive(true);
@@ -136,7 +136,7 @@ namespace Terra.UI
             long upfront=recipe.upfrontPublicCostCents+(converting?(annualTown?.ConversionCost(site.id)??0):0);
             int construction=recipe.constructionYears+(projectStatsAccepted?asset.conversionDelayYears:converting?Math.Max(0,1-recipe.constructionYears):0);
             long maxCost=annualRules.actions.Max(a=>a.upfrontPublicCostCents),maxUpkeep=annualRules.actions.Max(a=>a.annualPublicOperatingCents);
-            SetProjectStat(0,projectStatsAccepted?"Base upfront":converting?"Upfront + change":"Upfront","coin",maxCost==0?0:(double)upfront/maxCost,StatMoney(upfront),projectCostColor);
+            SetProjectStat(0,projectStatsAccepted?"Base upfront":"Upfront","coin",maxCost==0?0:(double)upfront/maxCost,StatMoney(upfront),projectCostColor);
             SetProjectStat(1,"Yearly cost","coin",maxUpkeep==0?0:(double)recipe.annualPublicOperatingCents/maxUpkeep,StatMoney(recipe.annualPublicOperatingCents),projectCostColor);
             int start=projectStatsAccepted?asset.startedYear:state.year,opens=start+construction;
             int full=opens+recipe.establishmentYears-1;
@@ -193,6 +193,7 @@ namespace Terra.UI
             long reserve=upfront+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
             projectReserve.text=projectStatsAccepted?"Upkeep term · "+recipe.operatingYears+" operating years":Money(reserve)+" lifetime public cost";
             if(recipe.annualPublicPaymentCents>0)projectReserve.text+="\n"+StatMoney(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
+            else if(converting)projectReserve.text+="\nIncludes "+StatMoney(annualTown?.ConversionCost(site.id)??0)+" change cost";
             else if(!projectStatsAccepted)projectReserve.text+="\nIncludes "+recipe.operatingYears+" yr upkeep";
             recipeDetails.gameObject.SetActive(true);SetButtonText(recipeDetails,"Details & assumptions");previewAction.gameObject.SetActive(false);
             if(projectStatsCatalog)confirmEditButton.gameObject.SetActive(false);

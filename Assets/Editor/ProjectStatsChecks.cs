@@ -128,6 +128,12 @@ public static class ProjectStatsChecks
         Check(Field<TextMeshProUGUI>(hud,"fieldNotesBody").text.Contains("not revenue"),"Missing plain-language meaning");
         hud.CloseModal();
         AnnualTownDemo.Finish(town,new AuthoredAnnualConsequenceProvider());Inspect(data,false);Layout(1024,576);Validate();Check(!Field<Button>(hud,"confirmEditButton").gameObject.activeSelf,"Year 10 exposes cancellation");
+        town=new AnnualTown(d,"ui-conversion");town.QueueAction(data.siteId,data.actionId,town.Revision);
+        AnnualTownDemo.Advance(town,"convert-y1",new AuthoredAnnualConsequenceProvider());town.ContinuePlanning(town.Revision);
+        Inspect(replacement);Layout(1024,576);Validate();Check(Text().Contains("SCORE IMPACT · Y"),"Conversion preview lacks score comparison");
+        Check(Text().Contains("change cost"),"Conversion cost not disclosed");
+        town.QueueAction(replacement.siteId,replacement.actionId,town.Revision);Inspect(replacement,false);Layout(1024,576);Validate();
+        Check(Field<TextMeshProUGUI>(hud,"previewTitle").text==replacement.title&&Text().Contains("SCORE IMPACT · Y"),"Queued conversion shows old accepted use");Capture("queued-conversion");
         camera.targetTexture.Release();UnityEngine.Object.DestroyImmediate(camera.targetTexture);UnityEngine.Object.DestroyImmediate(root.gameObject);UnityEngine.Object.DestroyImmediate(events);UnityEngine.Object.DestroyImmediate(camera.gameObject);
     }
 }
