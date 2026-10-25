@@ -1,0 +1,21 @@
+// Actual Unity camera + Canvas render for composition iteration only. Chrome remains release proof.
+var atlas=Terra.Gameplay.WorldAtlas.Instance;
+if(atlas==null||!atlas.Visible)throw new System.Exception("Atlas must be visible in Play Mode");
+var flags=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance;
+var type=atlas.GetType();
+var camera=(UnityEngine.Camera)type.GetField("globeCamera",flags).GetValue(atlas);
+var canvas=(UnityEngine.Canvas)type.GetField("canvas",flags).GetValue(atlas);
+var earth=(UnityEngine.Transform)type.GetField("earth",flags).GetValue(atlas);
+var pins=(UnityEngine.RectTransform[])type.GetField("pins",flags).GetValue(atlas);
+var places=(UnityEngine.Vector2[])type.GetField("places",flags).GetValue(atlas);
+var ui=(UnityEngine.RectTransform)canvas.transform;
+var target=new UnityEngine.RenderTexture(1440,900,24);target.Create();
+var oldTarget=camera.targetTexture;var oldActive=UnityEngine.RenderTexture.active;var oldMode=canvas.renderMode;var oldCamera=canvas.worldCamera;var oldPosition=camera.transform.localPosition;var oldAspect=camera.aspect;var oldMask=camera.cullingMask;
+var texture=new UnityEngine.Texture2D(1440,900,UnityEngine.TextureFormat.RGB24,false);
+try {
+ camera.targetTexture=target;camera.aspect=1.6f;camera.cullingMask|=1;camera.transform.localPosition=new UnityEngine.Vector3(-4.65f*1.6f*.105f,-.23f,-4.65f);
+ canvas.renderMode=UnityEngine.RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=.3f;UnityEngine.Canvas.ForceUpdateCanvases();
+ for(int i=0;i<3;i++) {var geo=(UnityEngine.Vector3)type.GetMethod("Geo",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{places[i]});var world=earth.TransformPoint(geo*1.012f);var screen=camera.WorldToViewportPoint(world);pins[i].anchoredPosition=new UnityEngine.Vector2((screen.x-.5f)*ui.rect.width,(screen.y-.5f)*ui.rect.height);}
+ UnityEngine.Canvas.ForceUpdateCanvases();camera.Render();UnityEngine.RenderTexture.active=target;texture.ReadPixels(new UnityEngine.Rect(0,0,1440,900),0,0);texture.Apply();
+ var path=System.IO.Path.GetFullPath("docs/evidence/myterrain-combined-release-oct25/editor-atlas.png");System.IO.File.WriteAllBytes(path,texture.EncodeToPNG());return new{path,atlas.Diagnostic,width=ui.rect.width,height=ui.rect.height};
+}finally{camera.targetTexture=oldTarget;camera.aspect=oldAspect;camera.cullingMask=oldMask;camera.transform.localPosition=oldPosition;canvas.renderMode=oldMode;canvas.worldCamera=oldCamera;UnityEngine.RenderTexture.active=oldActive;target.Release();UnityEngine.Object.DestroyImmediate(target);UnityEngine.Object.DestroyImmediate(texture);}

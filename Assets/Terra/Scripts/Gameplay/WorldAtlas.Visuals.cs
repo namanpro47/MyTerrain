@@ -61,7 +61,9 @@ namespace Terra.Gameplay
                 var pin=Button(panel,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(46,46),()=>Select(index));pin.image.sprite=circle;pin.image.type=UnityEngine.UI.Image.Type.Simple;pins[i]=(RectTransform)pin.transform;
                 var dot=Box(pin.transform,"Destination",new Vector2(.5f,.5f),Vector2.zero,new Vector2(28,28));var im=dot.gameObject.AddComponent<UnityEngine.UI.Image>();im.sprite=circle;im.color=Gold;im.raycastTarget=false;
                 Text(pin.transform,(i+1).ToString(),Vector2.one*.5f,Vector2.zero,new Vector2(30,30),16,Navy,TextAlignmentOptions.Center).fontStyle=FontStyles.Bold;
-                pinLabels[i]=Text(pin.transform,new[]{"MEADOWBROOK","POINT REYES","SUUSAMYR"}[i],new Vector2(0,.5f),new Vector2(53,0),new Vector2(190,32),14,Cream);
+                var pennant=Box(pin.transform,"Selected destination",new Vector2(0,.5f),new Vector2(53,0),new Vector2(174,34));
+                var paper=pennant.gameObject.AddComponent<UnityEngine.UI.Image>();paper.sprite=rounded;paper.type=UnityEngine.UI.Image.Type.Sliced;paper.color=Cream;paper.raycastTarget=false;
+                pinLabels[i]=Text(pennant,new[]{"MEADOWBROOK","POINT REYES","SUUSAMYR"}[i],Vector2.one*.5f,Vector2.zero,new Vector2(164,30),13,Navy,TextAlignmentOptions.Center);pinLabels[i].fontStyle=FontStyles.Bold;
                 choices[i]=Button(panel,"",new Vector2(.5f,0),new Vector2(-320+i*320,82),new Vector2(302,112),()=>Select(index));
                 AddLandscapeStamp(choices[i].transform,i);
                 Text(choices[i].transform,$"0{i+1}  /  "+new[]{"WISCONSIN","CALIFORNIA","KYRGYZSTAN"}[i],new Vector2(0,1),new Vector2(112,-19),new Vector2(182,22),11,Gold);
