@@ -32,3 +32,11 @@ The first frozen export is `Builds/Verified/8b60b15`, served separately on port 
 [Opening](trial-opening.png) shows the new hierarchy (720×498 at 1440×900, approximately 28% of the screen); the approved play-first HUD is the surrounding reference. [Compact guide](trial-guide-1024-larger.png) and [story](trial-story-1280-larger.png) retain body size instead of scaling down.
 
 The [trial budget](trial-budget.png) exposed the old single-button anchor overriding the new footer; `8f44645` removes that override and adds a placement assertion. The final source also makes the dialog opaque so underlying HUD lines cannot compete with prose, adds the short fiction disclosure to arrival, and scales its resource labels with larger text. Trial captures are **not** evidence of those final corrections. The annual-feedback owner requested the source freeze before wiring its separately authorized controls and will run combined checks; final browser verification must use that exact combined export.
+
+## Final source validation and handoff
+
+The presentation source `cb78b65` and first Chrome evidence `10a6762` are handed to the annual-feedback integration owner. Combined source **`d32915851fdbb657876f9050131c0f12333f4e6e`** passes **1,106 HUD/session assertions + 16 chapter assertions**, including the final opacity/footer and reader tests. [Native receipt and exact scope](final-native-handoff.json).
+
+The integration also labels arrival **Choose your run** because the next action now opens the separately requested duration setup. Review found and fixed destroyed setup-button references and retained explicit selected-state text. These were shared-reader integration checks, not a second redesign.
+
+The downstream owner is responsible for its combined Web export, final Chrome regression and main/release reconciliation. Its final export was running at handoff; no final combined browser or deployment success is claimed here. Required remaining UI checks were handed over explicitly: clickable single-primary budget footer, opaque surface, compact larger-text scrolling, repeated duration selection and truthful arrival navigation. No duplicate heavy build or desktop session remains in this task. The first preview server on port49841 is retained as labelled trial evidence, not the final release.
