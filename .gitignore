@@ -56,3 +56,7 @@ __pycache__/
 !/tests/consequences/ConsequencesChecks.csproj
 /tests/consequences/bin/
 /tests/consequences/obj/
+
+# Standalone .NET verification outputs
+/tests/**/bin/
+/tests/**/obj/
