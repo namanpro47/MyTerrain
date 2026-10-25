@@ -57,6 +57,7 @@ namespace Terra.Core
                 // response determine realized output. This field is a declared capacity only.
             }
             d.rubric.version="full-rubric-numeric-v4";
+            d.rubric.explanation="Numeric v4: existing Economic/Environmental service rubric; Social 40% occupied housing, 40% service needs, 20% mean time-weighted site condition as an authored continuity proxy. Any recorded rain impact remains visible; tiny impacts do not imply a full year of lost service. Not measured welfare.";
             AnnualTown.ValidateDefinition(d);
             return d;
         }

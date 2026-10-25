@@ -266,3 +266,161 @@ Directory.CreateDirectory("Builds/AnnualSimulation");
 File.WriteAllText("Builds/AnnualSimulation/sensitivity.json",JsonSerializer.Serialize(sensitivityEvidence,new JsonSerializerOptions(options){WriteIndented=true}));
 File.WriteAllText("Builds/AnnualSimulation/six-data-centers.json",JsonSerializer.Serialize(industrialEvidence,new JsonSerializerOptions(options){WriteIndented=true}));
 Console.WriteLine("Numeric financed industrial and sensitivity checks passed: "+count);
+
+// Zero-drain and full-drain bounds use verified historical events, not a production
+// injection seam. Unfunded capacity must release carried water without protection.
+var waterEvidence=new List<object>();
+foreach(double drain in new[]{0d,1d})
+{
+ var rules=CopyRules();rules.simulation.dailyStorageRecoveryFraction=drain;
+ rules.startingCashCents=13000000;rules.appropriationsCents=new long[10];
+ rules.simulation.publicResponsibilities.Single(r=>r.actionId=="water-swale").repairCentsPerConditionUnit=1000000000;
+ var swale=rules.actions.First(a=>a.actionId=="water-swale");
+ var run=new AnnualTown(rules,"storage-boundary/"+drain);run.QueueAction(swale.siteId,swale.actionId,0);
+ AnnualTownDemo.Finish(run,provider);
+ string group=rules.simulation.sites.Single(s=>s.siteId==swale.siteId).connectionGroupId;
+ foreach(var report in run.History)
+ {
+  AnnualSimulation.ValidateReport(rules,report);
+  var rows=report.simulation.storage.Where(x=>x.connectionGroupId==group).ToArray();
+  if(drain==0)Check(rows.All(x=>x.recoveredM3==0),"Zero drain magically recovered storage");
+  int priorDay=0;
+  foreach(var row in rows)
+  {
+   int day=report.simulation.driver.events.Single(e=>e.recordId==row.eventId).dayOfYear;
+   double expectedDrain=Math.Min(row.openingStoredM3,row.capacityM3*drain*(day-priorDay));
+   Check(Math.Abs(row.recoveredM3-expectedDrain)<1e-9,"Storage drainage differs from capacity-per-day rule");
+   Check(Math.Abs(row.capacityLossReleaseM3-Math.Max(0,row.openingStoredM3-expectedDrain-row.capacityM3))<1e-9,"Capacity-loss release differs from declared policy");
+   priorDay=day;
+  }
+  foreach(var other in report.simulation.storage.Where(x=>x.connectionGroupId!=group))Check(other.capturedM3==0,"Remote group reused the swale");
+  var site=report.outcomes.sites.Single(s=>s.siteId==swale.siteId);
+  if(site.phase==TownAssetPhase.Building||site.phase==TownAssetPhase.Suspended)
+    Check(rows.All(x=>x.capacityM3==0&&x.capturedM3==0),"Building/unfunded swale protected a site");
+  Check(report.simulation.impacts.Where(i=>i.connectionGroupId==group).All(i=>i.upstreamHazard==Math.Max(0,report.simulation.driver.events.Single(e=>e.recordId==i.eventId).precipTenthsMm/10d-rules.simulation.upstreamRainThresholdMm)*rules.simulation.upstreamDamagePerMm),"Storage suppressed upstream hazard");
+ }
+ Check(run.History.Any(r=>r.outcomes.sites.Single(s=>s.siteId==swale.siteId).phase==TownAssetPhase.Suspended),"Fixture never removed swale upkeep");
+ if(drain==0)Check(run.History.SelectMany(r=>r.simulation.storage).Any(x=>x.capacityLossReleaseM3>0),"Disabled/capacity-lost stored water disappeared without release");
+ Check(JsonSerializer.Serialize(AnnualTown.Restore(rules,run.Snapshot()).Snapshot(),options)==JsonSerializer.Serialize(run.Snapshot(),options),"Storage carryover changed on reload");
+ waterEvidence.Add(new{drain,history=run.History.Select(r=>new{r.year,r.ledger,storage=r.simulation.storage.Where(x=>x.connectionGroupId==group),closing=r.simulation.closingState.sites.Single(s=>s.siteId==swale.siteId)})});
+}
+// A newly built asset must inherit the already damaged baseline site's condition.
+var inherited=new AnnualTown(numericRules,"condition-inheritance");
+TownActionDefinition farmOffer=null;double previousCondition=1;
+while(inherited.Year<10&&farmOffer==null)
+{
+ AnnualTownDemo.Advance(inherited,"inherit/y"+inherited.Year,provider);inherited.ContinuePlanning(inherited.Revision);
+ var state=inherited.Snapshot().simulation;
+ farmOffer=numericRules.actions.FirstOrDefault(a=>a.actionId=="cultivate-standard"&&state.sites.Single(s=>s.siteId==a.siteId).condition<.99);
+ if(farmOffer!=null)previousCondition=state.sites.Single(s=>s.siteId==farmOffer.siteId).condition;
+}
+Check(farmOffer!=null&&previousCondition<1,"Inheritance fixture has no baseline damage");
+inherited.QueueAction(farmOffer!.siteId,farmOffer.actionId,inherited.Revision);
+var inheritedReport=AnnualTownDemo.Advance(inherited,"inherit/y"+inherited.Year,provider);
+Check(inheritedReport.simulation.crops.Single(c=>c.siteId==farmOffer.siteId).openingCondition==previousCondition,"New asset reset old site damage");
+// Repeat fast-forward with a failing resolver at each year, then reload and retry.
+var fullRun=new AnnualTown(numericRules,"retry-equality");AnnualTownDemo.Finish(fullRun,provider);
+for(int stop=1;stop<=10;stop++)
+{
+ var run=new AnnualTown(numericRules,"retry-equality");
+ string requestId=fullRun.History[stop-1].acceptedRequest.requestId;
+ for(int year=1;year<stop;year++)
+ {
+  AnnualTownDemo.Advance(run,fullRun.History[year-1].acceptedRequest.requestId,provider);
+  run.ContinuePlanning(run.Revision);
+ }
+ run.BeginResolution(requestId,run.Revision);
+ var frozen=JsonSerializer.Serialize(run.PendingRequest,options);
+ run=AnnualTown.Restore(numericRules,Read<AnnualTownSnapshot>(JsonSerializer.Serialize(run.Snapshot(),options)));
+ Check(frozen==JsonSerializer.Serialize(run.PendingRequest,options),"Pending driver/request changed on reload");
+ AnnualTownDemo.Finish(run,provider);
+ Check(JsonSerializer.Serialize(run.Snapshot(),options)==JsonSerializer.Serialize(fullRun.Snapshot(),options),"Manual/pending/reload differs from fast-forward at year"+stop);
+}
+File.WriteAllText("Builds/AnnualSimulation/storage-boundaries.json",JsonSerializer.Serialize(waterEvidence,new JsonSerializerOptions(options){WriteIndented=true}));
+Console.WriteLine("Numeric storage, baseline inheritance and pending retry checks passed: "+count);
+
+// Cross-runtime fixtures are generated by .NET, then independently restored with
+// Unity JsonUtility/Mono; no test driver injection or runtime activation.
+foreach(var fixture in new[]{(name:"baseline",rules:numericRules,run:numeric),(name:"public-repair",rules:parkRules,run:publicRun),(name:"repair-debt",rules:debtRules,run:debtRun),(name:"six-centers",rules:industrialRules,run:industrial)})
+{
+ string directory=Path.Combine("Builds/AnnualSimulation/UnityVectors",fixture.name);Directory.CreateDirectory(directory);
+ File.WriteAllText(Path.Combine(directory,"definition.json"),JsonSerializer.Serialize(fixture.rules,options));
+ File.WriteAllText(Path.Combine(directory,"snapshot.json"),JsonSerializer.Serialize(fixture.run.Snapshot(),options));
+}
+var strategies=new List<object>();
+foreach(var strategy in new[]{(name:"community",actions:new[]{"high-density-housing","conservation-rotation","public-park","village-center","solar","wastewater-upgrade","restore-grass"}),
+ (name:"land",actions:new[]{"wind","agricultural-storage","conservation-rotation","conservation-rotation","restore-grass","high-density-housing","wastewater-upgrade","public-park"})})
+{
+ var town=new AnnualTown(numericRules,"numeric-strategy/"+strategy.name);var remaining=strategy.actions.ToList();
+ for(int year=1;year<=10;year++)
+ {
+  if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+  foreach(string id in remaining.ToArray())
+  {
+   var offer=numericRules.actions.Where(a=>a.actionId==id&&!town.Assets.Any(s=>s.siteId==a.siteId)&&!town.Queue.Any(s=>s.siteId==a.siteId))
+    .OrderBy(a=>numericRules.actions.Count(b=>b.siteId==a.siteId)).FirstOrDefault(a=>town.Preview(a.siteId,id)>=0);
+   if(offer==null)continue;
+   town.QueueAction(offer.siteId,id,town.Revision);remaining.Remove(id);
+  }
+  var report=AnnualTownDemo.Advance(town,town.RunId+"/year-"+year,provider);
+  Check(report.ledger.closingArrearsCents==0&&town.AvailableCents>=0,"Numeric strategy violated reserved affordability");
+ }
+ Check(remaining.Count==0,"Numeric strategy could not finish planned catalog choices: "+strategy.name);
+ var ending=town.History.Last().outcomes;
+ File.WriteAllText("Builds/AnnualSimulation/strategy-"+strategy.name+".json",JsonSerializer.Serialize(town.Snapshot(),options));
+ strategies.Add(new {strategy.name,scores=new[]{ending.economicScore,ending.socialScore,ending.environmentalScore},town.CashCents,town.CommittedCents,history=town.History.Select(r=>new{r.year,r.acceptedRequest.actions,r.ledger})});
+}
+File.WriteAllText("Builds/AnnualSimulation/strategies.json",JsonSerializer.Serialize(strategies,new JsonSerializerOptions(options){WriteIndented=true}));
+Console.WriteLine("Numeric complete strategies and runtime vectors passed: "+count);
+
+var quietRules=CopyRules();quietRules.simulation.localRainDamagePerMm=0;quietRules.simulation.upstreamDamagePerMm=0;
+var slightRules=Read<AnnualTownDefinition>(JsonSerializer.Serialize(quietRules,options));slightRules.simulation.localRainDamagePerMm=1e-10;
+var quiet=new AnnualTown(quietRules,"quiet");var slight=new AnnualTown(slightRules,"slight");
+var quietYear=AnnualTownDemo.Advance(quiet,"quiet/y1",provider);var slightYear=AnnualTownDemo.Advance(slight,"slight/y1",provider);
+Check(slightYear.simulation.impacts.Length>0&&quietYear.simulation.impacts.Length==0,"Continuity fixture does not distinguish minor impact");
+Check(Math.Abs(quietYear.outcomes.socialScore-slightYear.outcomes.socialScore)<.001,"Tiny impact applies whole-year binary social penalty");
+Console.WriteLine("Numeric continuity severity checks passed: "+count);
+if(args.Contains("--explore-balance"))
+{
+ var candidates=new[]{
+ new[]{"village-center","wind","conservation-rotation","conservation-rotation","restore-grass","restore-grass","high-density-housing","wastewater-upgrade","public-park"},
+ new[]{"high-density-housing","village-center","wind","cover-crop","cover-crop","cover-crop","restore-grass","restore-grass","wastewater-upgrade","public-park"},
+ new[]{"wind","village-center","high-density-housing","wastewater-upgrade","public-park","restore-grass","restore-grass","restore-grass","cultivate-margin","cultivate-margin","cover-crop","cover-crop"},
+ new[]{"high-density-housing","wind","agricultural-storage","village-center","wastewater-upgrade","public-park","cover-crop","cover-crop","restore-grass","restore-grass"},
+ new[]{"solar","village-center","high-density-housing","wastewater-upgrade","public-park","restore-grass","restore-grass","restore-grass","conservation-rotation","conservation-rotation"}
+ };
+ var exploration=new List<object>();
+ for(int c=0;c<candidates.Length;c++)
+ {
+  var town=new AnnualTown(numericRules,"adaptation-candidate-"+c);var remaining=candidates[c].ToList();
+  for(int year=1;year<=10;year++)
+  {
+   if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+   foreach(string id in remaining.ToArray())
+   {
+    var offer=numericRules.actions.Where(a=>a.actionId==id&&!town.Assets.Any(s=>s.siteId==a.siteId)&&!town.Queue.Any(s=>s.siteId==a.siteId))
+     .OrderBy(a=>numericRules.actions.Count(b=>b.siteId==a.siteId)).FirstOrDefault(a=>town.Preview(a.siteId,id)>=0);
+    if(offer==null)continue;
+    town.QueueAction(offer.siteId,id,town.Revision);remaining.Remove(id);
+   }
+   AnnualTownDemo.Advance(town,town.RunId+"/year-"+year,provider);
+  }
+  var result=town.History.Last().outcomes;
+  exploration.Add(new{candidate=c,remaining,scores=new[]{result.economicScore,result.socialScore,result.environmentalScore},town.CashCents,town.CommittedCents,town.AvailableCents,assets=town.Assets,economy=result.economy});
+ }
+ File.WriteAllText("Builds/AnnualSimulation/balance-exploration.json",JsonSerializer.Serialize(exploration,new JsonSerializerOptions(options){WriteIndented=true}));
+}
+
+var originalCulture=System.Globalization.CultureInfo.CurrentCulture;
+try
+{
+ string expected=JsonSerializer.Serialize(fullRun.Snapshot(),options);
+ foreach(string culture in new[]{"fr-FR","ar-SA","tr-TR"})
+ {
+  System.Globalization.CultureInfo.CurrentCulture=System.Globalization.CultureInfo.GetCultureInfo(culture);
+  var run=new AnnualTown(numericRules,"retry-equality");AnnualTownDemo.Finish(run,provider);
+  Check(JsonSerializer.Serialize(run.Snapshot(),options)==expected,"Numeric report/history depends on system locale: "+culture);
+ }
+}
+finally{System.Globalization.CultureInfo.CurrentCulture=originalCulture;}
+Console.WriteLine("Numeric cross-locale transition checks passed: "+count);

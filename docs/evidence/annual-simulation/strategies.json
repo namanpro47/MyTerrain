@@ -1,0 +1,551 @@
+[
+  {
+    "name": "community",
+    "scores": [
+      69.62383063608829,
+      76.72203616605677,
+      47.450201421713864
+    ],
+    "CashCents": 460774083,
+    "CommittedCents": 79700000,
+    "history": [
+      {
+        "year": 1,
+        "actions": [
+          {
+            "siteId": "south-01",
+            "actionId": "high-density-housing"
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation"
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "public-park"
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "solar"
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "restore-grass"
+          }
+        ],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 1000000000,
+          "upfrontPaidCents": 828500000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 520000,
+          "operatingPaidCents": 520000,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 270980000,
+          "futureCommitmentsCents": 91680000
+        }
+      },
+      {
+        "year": 2,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 270980000,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 3220000,
+          "operatingPaidCents": 3220000,
+          "repairDueCents": 418530,
+          "repairPaidCents": 418530,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 367341470,
+          "futureCommitmentsCents": 88460000
+        }
+      },
+      {
+        "year": 3,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 367341470,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 9220000,
+          "operatingPaidCents": 9220000,
+          "repairDueCents": 419515,
+          "repairPaidCents": 419515,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 11349230,
+          "closingCashCents": 469051185,
+          "futureCommitmentsCents": 79240000
+        }
+      },
+      {
+        "year": 4,
+        "actions": [
+          {
+            "siteId": "south-03",
+            "actionId": "wastewater-upgrade"
+          }
+        ],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 469051185,
+          "upfrontPaidCents": 250000000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 9220000,
+          "operatingPaidCents": 9220000,
+          "repairDueCents": 248397,
+          "repairPaidCents": 248397,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 10502067,
+          "closingCashCents": 320084855,
+          "futureCommitmentsCents": 110020000
+        }
+      },
+      {
+        "year": 5,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 320084855,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 9220000,
+          "operatingPaidCents": 9220000,
+          "repairDueCents": 244731,
+          "repairPaidCents": 244731,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 10162774,
+          "closingCashCents": 420782898,
+          "futureCommitmentsCents": 100800000
+        }
+      },
+      {
+        "year": 6,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 420782898,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 13220000,
+          "operatingPaidCents": 13220000,
+          "repairDueCents": 3254777,
+          "repairPaidCents": 3254777,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 10003237,
+          "closingCashCents": 514311358,
+          "futureCommitmentsCents": 87580000
+        }
+      },
+      {
+        "year": 7,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 514311358,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 13220000,
+          "operatingPaidCents": 13220000,
+          "repairDueCents": 14936501,
+          "repairPaidCents": 14936501,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 8946384,
+          "closingCashCents": 595101241,
+          "futureCommitmentsCents": 74360000
+        }
+      },
+      {
+        "year": 8,
+        "actions": [
+          {
+            "siteId": "south-04",
+            "actionId": "village-center"
+          }
+        ],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 595101241,
+          "upfrontPaidCents": 400000000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 13220000,
+          "operatingPaidCents": 13220000,
+          "repairDueCents": 3465026,
+          "repairPaidCents": 3465026,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 7565209,
+          "closingCashCents": 285981424,
+          "futureCommitmentsCents": 111140000
+        }
+      },
+      {
+        "year": 9,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 285981424,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 13220000,
+          "operatingPaidCents": 13220000,
+          "repairDueCents": 2407431,
+          "repairPaidCents": 2407431,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 8271381,
+          "closingCashCents": 378625374,
+          "futureCommitmentsCents": 97920000
+        }
+      },
+      {
+        "year": 10,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 378625374,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 18220000,
+          "operatingPaidCents": 18220000,
+          "repairDueCents": 8215013,
+          "repairPaidCents": 8215013,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 8583722,
+          "closingCashCents": 460774083,
+          "futureCommitmentsCents": 79700000
+        }
+      }
+    ]
+  },
+  {
+    "name": "land",
+    "scores": [
+      68.57629114739268,
+      72.56381392226245,
+      57.44579712164239
+    ],
+    "CashCents": 547210265,
+    "CommittedCents": 61200000,
+    "history": [
+      {
+        "year": 1,
+        "actions": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind"
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage"
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation"
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation"
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass"
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade"
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park"
+          }
+        ],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 1000000000,
+          "upfrontPaidCents": 794500000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 840000,
+          "operatingPaidCents": 840000,
+          "repairDueCents": 0,
+          "repairPaidCents": 0,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 304660000,
+          "futureCommitmentsCents": 119560000
+        }
+      },
+      {
+        "year": 2,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 304660000,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 4040000,
+          "operatingPaidCents": 4040000,
+          "repairDueCents": 541633,
+          "repairPaidCents": 541633,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 400078367,
+          "futureCommitmentsCents": 115520000
+        }
+      },
+      {
+        "year": 3,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 400078367,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 12040000,
+          "operatingPaidCents": 12040000,
+          "repairDueCents": 9983581,
+          "repairPaidCents": 9983581,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 478054786,
+          "futureCommitmentsCents": 103480000
+        }
+      },
+      {
+        "year": 4,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 478054786,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 12040000,
+          "operatingPaidCents": 12040000,
+          "repairDueCents": 6602738,
+          "repairPaidCents": 6602738,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 559412048,
+          "futureCommitmentsCents": 91440000
+        }
+      },
+      {
+        "year": 5,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 559412048,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 12040000,
+          "operatingPaidCents": 12040000,
+          "repairDueCents": 7235127,
+          "repairPaidCents": 7235127,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 640136921,
+          "futureCommitmentsCents": 79400000
+        }
+      },
+      {
+        "year": 6,
+        "actions": [
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing"
+          }
+        ],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 640136921,
+          "upfrontPaidCents": 500000000,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 12040000,
+          "operatingPaidCents": 12040000,
+          "repairDueCents": 4661650,
+          "repairPaidCents": 4661650,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 223435271,
+          "futureCommitmentsCents": 127360000
+        }
+      },
+      {
+        "year": 7,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 223435271,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 12040000,
+          "operatingPaidCents": 12040000,
+          "repairDueCents": 19250061,
+          "repairPaidCents": 19250061,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 0,
+          "closingCashCents": 292145210,
+          "futureCommitmentsCents": 115320000
+        }
+      },
+      {
+        "year": 8,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 292145210,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 18040000,
+          "operatingPaidCents": 18040000,
+          "repairDueCents": 4092153,
+          "repairPaidCents": 4092153,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 7505404,
+          "closingCashCents": 377518461,
+          "futureCommitmentsCents": 97280000
+        }
+      },
+      {
+        "year": 9,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 377518461,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 18040000,
+          "operatingPaidCents": 18040000,
+          "repairDueCents": 2618926,
+          "repairPaidCents": 2618926,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 8214783,
+          "closingCashCents": 465074318,
+          "futureCommitmentsCents": 79240000
+        }
+      },
+      {
+        "year": 10,
+        "actions": [],
+        "ledger": {
+          "currency": "USD",
+          "priceYear": 2026,
+          "openingCashCents": 465074318,
+          "upfrontPaidCents": 0,
+          "programDueCents": 0,
+          "programPaidCents": 0,
+          "operatingDueCents": 18040000,
+          "operatingPaidCents": 18040000,
+          "repairDueCents": 8355803,
+          "repairPaidCents": 8355803,
+          "openingArrearsCents": 0,
+          "arrearsPaidCents": 0,
+          "closingArrearsCents": 0,
+          "appropriationCents": 100000000,
+          "publicReceiptsCents": 8531750,
+          "closingCashCents": 547210265,
+          "futureCommitmentsCents": 61200000
+        }
+      }
+    ]
+  }
+]
