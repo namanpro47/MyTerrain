@@ -1,4 +1,12 @@
-# Take it local — isolated implementation candidate
+# Take it local — implementation and verification
+
+## Main delivery — 2026-10-25
+
+Peter tested the local Unity implementation and approved delivery to main after the missing-icon fix. Status, toggle, back and external-link icons now use native `HudGlyph` geometry rather than unsupported TMP characters. The local Unity recompile after the icon fix reported 0 errors and 0 warnings. Visual acceptance belongs to Peter's local QA; no live WebGL acceptance or public deployment is claimed.
+
+The approved feature and icon commits were integrated onto refreshed main `8b988fc4d29d6bca92613c932fb9c841f3b8e5ac`. Fresh integration checks passed: 13 plan assertions, 7 browser-bridge assertions, 1,019 full-game assertions, and runtime WebGL source compilation with 0 errors / 11 existing warnings. The earlier candidate-stage limitations below are retained as historical evidence.
+
+## Initial candidate record
 
 Base: refreshed `origin/main` at `83a03d972e0e0ca64faeb3d15b86a3a2234e53a5`.
 Branch: `codex/local-followup`. No public deployment.
