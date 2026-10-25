@@ -22,8 +22,9 @@ public static class TerraBuild
         if (scenes.Length == 0)
             throw new BuildFailedException("Add an enabled scene to File > Build Profiles first.");
 
-        // The fallback lets a plain local/static web server serve the build.
-        PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+        // Lossless Brotli reduces arrival bytes without changing textures or game code.
+        // Keep the fallback so the same export works on a plain local/static server.
+        PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;
         PlayerSettings.WebGL.decompressionFallback = true;
         // Avoid mixing cached data/framework/wasm across static-site deployments.
         PlayerSettings.WebGL.nameFilesAsHashes = true;

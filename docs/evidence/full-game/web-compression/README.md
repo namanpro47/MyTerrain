@@ -1,0 +1,13 @@
+# Lossless Web compression — October 25, 2026
+
+The integrated terrain candidate `987d440` exceeded the initial-response budget at 52,557,275 bytes. A lossless comparison of its actual gzip data/framework/WASM payloads against Brotli quality 11 saved **7,300,089 bytes**; every recompressed payload decompressed to exactly the original bytes. This projects about 45.26 MB before the changed Unity loader overhead. It is an estimate, not a rebuilt-candidate receipt. Exact sizes and timings are in `candidate-recompression.json`.
+
+This change switches the existing one-click `Terra/Build Web` export from Gzip to Brotli and retains decompression fallback for plain local/static HTTP servers. It does not lower art quality, change assets, strip more code, remove exception handling or change frame pacing. The actual runtime frame-time failure remains separate.
+
+Preflight on Unity 6000.6.6f1 / CLI 1.0.0-beta.14: WebGL, Gzip, fallback true, engine stripping true, managed stripping Minimal, IL2CPP OptimizeSpeed, API NET_Standard_2_0, explicitly thrown exceptions, 256 MiB initial / 2048 MiB max heap, geometric growth, caching on, debug off, targetFrameRate -1, vSync 0, RuntimeSpeedLTO. Only compression changes. Project settings were applied through the Editor API, saved, refreshed and read back as Brotli; disk field changed from 1 to 0. No new Unity package is installed (Pipeline remains 0.9.1-exp.1).
+
+`verify-web.py` still verifies exact anonymous response bytes and hashes, and decodes both old gzip and new Brotli `.unityweb` exports before checking WASM headers. Brotli verification uses Node's built-in zlib decoder, not export-supplied code. `python3 tests/deployment/verify_compression.py`: four checks pass, including malformed and truncated Brotli rejection. Unity recompile: zero errors/warnings (`compile.json`).
+
+The initial detached GUI launch exited before connecting. A detached batch launch reached ready then disappeared. Keeping `unity open --wait` attached provided a persistent Editor for API verification, which was closed gracefully afterwards. No other owner's Editor was driven or closed.
+
+Documentation reviewed for this decision: Unity 6000.6 [Deploy a Web application](https://docs.unity3d.com/6000.6/Documentation/Manual/webgl-deploying.html) (`webgl-deploying.html`) and [Distribution size and code stripping](https://docs.unity3d.com/6000.6/Documentation/Manual/webgl-distributionsize-codestripping.html) (`webgl-distributionsize-codestripping.html`). Fallback keeps the same serving contract: no Content-Encoding header on the already compressed `.unityweb` bodies. A rebuilt export and actual Chrome arrivals are required before promoting this change to main.
