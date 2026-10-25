@@ -40,6 +40,12 @@ namespace Terra.Core
         public static SimulationOutput Water(AnnualTownDefinition definition, TownYearOutcomes outcomes)
         {
             var input = TownCopies.Copy(definition.economy.referenceStorm);
+            if(AnnualPlayerRules.Enabled(definition))
+                foreach(var cleared in outcomes.sites.Where(r=>r.actionId==null&&r.phase==TownAssetPhase.Retired))
+                {
+                    var ground=input.sites.First(s=>s.siteId==cleared.siteId);
+                    ground.curveNumber=Math.Max(ground.curveNumber,86);ground.retentionCapacityM3=0;
+                }
             foreach (var row in outcomes.sites.Where(r => !string.IsNullOrEmpty(r.actionId)))
             {
                 var recipe = definition.actions.First(a => a.siteId == row.siteId && a.actionId == row.actionId);
@@ -73,7 +79,8 @@ namespace Terra.Core
                 { row.disrupted=true; row.explanation=driver.description+"; production follows the saved growing condition."; }
             outcomes.disruptedSites=outcomes.sites.Count(r=>r.disrupted);
             double power = Met(v.energySupplied,v.energyDemand), water = Met(v.waterSupplied,v.waterDemand);
-            v.resourceFraction = Math.Min(power,water);
+            bool playerRules=AnnualPlayerRules.Enabled(definition);
+            v.resourceFraction = playerRules?1:Math.Min(power,water);
             // Scarcity proportionally curtails served work and occupied homes. Capacity is not delivered service.
             v.occupiedHomes = Math.Min(e.householdDemand,v.homesBuilt)*v.resourceFraction;
             v.jobs *= v.resourceFraction; v.localServices *= v.resourceFraction;
@@ -100,11 +107,23 @@ namespace Terra.Core
                 :outcomes.sites.Average(row=>Cap(row.condition));
             outcomes.socialScore=100*(.4*Cap(v.occupiedHomes/e.householdDemand)+.4*v.serviceFraction+.2*continuity);
             outcomes.environmentalScore=100*(.4*Cap(outcomes.vegetatedAreaM2/outcomes.managedAreaM2/e.coverTargetFraction)+.25*runoffScore+.2*clean+.15*waterPressure);
+            if(playerRules)
+            {
+                // Each occupied industrial site retains its land-use pressure during construction
+                // and operation. Duplicating a project cannot hide behind capped service benefits.
+                double pressure=outcomes.sites.Where(r=>r.actionId!=null).Sum(r=>AnnualPlayerRules.IndustrialPressure(r.actionId));
+                outcomes.environmentalScore=Math.Max(-100,outcomes.environmentalScore-pressure);
+            }
             outcomes.economicExplanation="40% output need + 30% sustained jobs + 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.";
             outcomes.socialExplanation="40% occupied housing + 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) + 20% "
                 +(definition.simulation==null?"undisrupted sites.":"mean time-weighted site condition (authored service continuity proxy).")+" Resources limit occupied homes.";
             outcomes.environmentalExplanation="40% cover/condition + 25% same-storm discharge reduction + 20% low-emissions supply + 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.";
-            var culture=definition.simulation==null?System.Globalization.CultureInfo.CurrentCulture:System.Globalization.CultureInfo.InvariantCulture;
+            if(playerRules)
+            {
+                outcomes.socialExplanation=outcomes.socialExplanation.Replace("Resources limit occupied homes.","Utilities are indicators; public upkeep funds operation without a second rationing rule.");
+                outcomes.environmentalExplanation+=" Subtract 18 points per data center, 30 per fossil power project and 6 per agricultural storage site; floor -100. These are authored game trade-offs, not measured damage.";
+            }
+            var culture=definition.simulation==null&&!playerRules?System.Globalization.CultureInfo.CurrentCulture:System.Globalization.CultureInfo.InvariantCulture;
             string Number(double value,string format="0.0")=>value.ToString(format,culture);
             v.reasons=new[]{"Homes occupied "+Number(v.occupiedHomes)+" / "+Number(e.householdDemand,"G")+"; resources supplied "+Number(100*v.resourceFraction,"0")+"%.","Sustained jobs "+Number(v.jobs)+" / "+Number(e.jobsTarget,"G")+"; obligations funded "+Number(100*v.fundedFraction,"0")+"%.","Reference-storm discharge "+Number(v.dischargedM3,"0")+" m³; wastewater treated "+Number(v.wastewaterTreated)+" / "+Number(v.wastewaterLoad)+" scenario units."};
             outcomes.economy=v;

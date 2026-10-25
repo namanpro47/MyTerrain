@@ -1,3 +1,4 @@
+using Terra.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -132,7 +133,8 @@ namespace Terra.UI
         {
             var row=Rect(fieldNotesContent,label+" progress",new Vector2(0,1),Vector2.zero,new Vector2(736,96));
             row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=96;fieldNotesRows.Add(row.gameObject);fieldNotesLayoutDirty=true;
-            Label(row,label+"  / 100",new Vector2(0,1),Vector2.zero,new Vector2(640,24),18,Paper,FontStyles.Bold);
+            bool signed=label=="Environmental"&&AnnualPlayerRules.Enabled(annualRules);
+            Label(row,label+(signed?"  −100 to 100":"  / 100"),new Vector2(0,1),Vector2.zero,new Vector2(640,24),18,Paper,FontStyles.Bold);
             string[] names={"Before","Now"};double[] values={before,after};
             for(int i=0;i<2;i++)
             {
@@ -141,8 +143,13 @@ namespace Terra.UI
                 track.anchorMax=new Vector2(1,1);track.offsetMax=new Vector2(-64,track.offsetMax.y);
                 track.gameObject.AddComponent<UnityEngine.UI.Image>().color=Raised;
                 var fill=Rect(track,names[i]+" score bar",Vector2.zero,Vector2.zero,Vector2.zero);
-                fill.anchorMax=new Vector2(Mathf.Clamp01((float)values[i]/100),1);fill.offsetMin=fill.offsetMax=Vector2.zero;
+                fill.anchorMax=new Vector2(Mathf.Clamp01((float)(values[i]+(signed?100:0))/(signed?200:100)),1);fill.offsetMin=fill.offsetMax=Vector2.zero;
                 fill.gameObject.AddComponent<UnityEngine.UI.Image>().color=i==0?new Color(.42f,.49f,.47f):color;
+                if(signed)
+                {
+                    var zero=Rect(track,"Zero",new Vector2(.5f,0),Vector2.zero,new Vector2(1,16));
+                    zero.gameObject.AddComponent<UnityEngine.UI.Image>().color=Paper;
+                }
                 Label(row,values[i].ToString("0.0"),new Vector2(1,1),new Vector2(0,-30-i*30),new Vector2(54,24),16,Soft);
             }
             foreach(var text in row.GetComponentsInChildren<TextMeshProUGUI>())text.fontSize=sizes[text]*(LargeText?1.12f:1);
@@ -199,13 +206,15 @@ namespace Terra.UI
             Cost("Repairs",ledger.repairPaidCents);Cost("Earlier unpaid bills",ledger.arrearsPaidCents);
             long total=ledger.upfrontPaidCents+ledger.operatingPaidCents+ledger.programPaidCents+ledger.repairPaidCents+ledger.arrearsPaidCents;
             string body="<b>Your plan</b>\n"+string.Join("\n",rows)+"\n\n<b>Pay now   "+NotesMoney(total)+"</b>"+
+                (ledger.capitalRefundCents>0?"\nCapital refund to collect   +"+NotesMoney(ledger.capitalRefundCents):"")+
                 "\nTax receipts to collect   +"+NotesMoney(ledger.publicReceiptsCents)+
                 "\nAnnual public funding   +"+NotesMoney(ledger.appropriationCents)+
-                "\n\n"+NotesMoney(ledger.openingCashCents)+" − "+NotesMoney(total)+" + "+NotesMoney(ledger.publicReceiptsCents)+" + "+NotesMoney(ledger.appropriationCents)+
+                "\n\n"+NotesMoney(ledger.openingCashCents)+" + "+NotesMoney(ledger.capitalRefundCents)+" − "+NotesMoney(total)+" + "+NotesMoney(ledger.publicReceiptsCents)+" + "+NotesMoney(ledger.appropriationCents)+
                 "\n<b>Balance after this year   "+NotesMoney(ledger.closingCashCents)+"</b>"+
                 "\n\nFuture obligations   "+NotesMoney(ledger.futureCommitmentsCents)+
                 (ledger.closingArrearsCents>0?"\nUnpaid bills carried forward   "+NotesMoney(ledger.closingArrearsCents):"")+
-                "\nFuture income helps pay these costs; shortfalls become unpaid bills.\n\n"+mode+" · game estimates. Ending the year commits this plan.";
+                "\n\n"+mode+" · game estimates. Ending the year commits this plan."+
+                (AnnualPlayerRules.Enabled(annualRules)?" Regional hazards use inferred chances, not forecasts. Unexpected repairs may change this estimate. A negative balance blocks new construction. Results save before AI explanation; if AI fails, a local summary uses those same values.":"");
             FieldNotes("Review year "+state.year,body,"End Year",accept);
         }
     }

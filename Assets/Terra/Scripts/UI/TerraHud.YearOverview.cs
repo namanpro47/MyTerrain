@@ -41,7 +41,7 @@ namespace Terra.UI
             overviewNext=Button(yearOverviewActions,"",Vector2.zero,new Vector2(362,6),new Vector2(372,36),()=>overviewContinue?.Invoke(),16);
             yearOverview.gameObject.SetActive(false);
         }
-        public void AnnualOverview(AnnualTown town,Action continuePlanning,Action story,Action ledger,Action<string> focusSite)
+        public void AnnualOverview(AnnualTown town,Action continuePlanning,Action story,Action ledger,Action<string> focusSite,string storySource=null)
         {
             if(yearOverview==null)CreateYearOverview();
             // Close the pending/chapter modal before making this nonmodal map view visible.
@@ -49,6 +49,7 @@ namespace Terra.UI
             yearOverview.gameObject.SetActive(true);catalogKeyboard=false;selectedHighlight=null;
             overviewContinue=continuePlanning;overviewReadStory=story;overviewReadLedger=ledger;
             overviewStory.gameObject.SetActive(story!=null);
+            SetButtonText(overviewStory,storySource??"Year story");
             var history=town.History;var report=history.Last();
             var cards=AnnualHighlights.Create(annualRules,report,history.Length>1?history[history.Length-2]:null);
             var before=history.Length>1?history[history.Length-2].outcomes:AnnualGameplay.Baseline(annualRules);

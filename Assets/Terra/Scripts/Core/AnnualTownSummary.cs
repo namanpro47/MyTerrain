@@ -33,17 +33,18 @@ namespace Terra.Core
             var previous = index == 0 ? null : history[index - 1];
             var outcome = report.outcomes;
             var ledger = TownCopies.Copy(report.ledger);
-            int added = report.acceptedRequest.actions.Length;
+            int cancelled=report.acceptedRequest.actions.Count(a=>a.actionId==AnnualPlayerRules.CancelAction);
+            int added = report.acceptedRequest.actions.Length-cancelled;
             return new AnnualTownSummary {
                 year = report.year, finalYear = report.year == definition.years,
-                newProjects = added, continuingProjects = report.acceptedRequest.assets.Length,
-                headline = added == 0 ? "No new projects. Existing land and commitments still advanced."
+                newProjects = added, continuingProjects = report.acceptedRequest.assets.Count(a=>a.cancelledYear==0)-cancelled,
+                headline = cancelled>0 ? cancelled+" project(s) cancelled; "+added+" new project(s) committed." : added == 0 ? "No new projects. Existing land and commitments still advanced."
                     : added + (added == 1 ? " new project committed." : " new projects committed."),
                 scenario = report.acceptedRequest.driver.description + " (" + report.acceptedRequest.driver.evidenceLevel + ").",
                 simulationNotice = PlaceholderNotice,
                 ledger = ledger,
                 spentCents = checked(ledger.upfrontPaidCents + ledger.programPaidCents + ledger.operatingPaidCents + ledger.repairPaidCents + ledger.arrearsPaidCents),
-                receivedCents = checked(ledger.appropriationCents + ledger.publicReceiptsCents),
+                receivedCents = checked(ledger.appropriationCents + ledger.publicReceiptsCents + ledger.capitalRefundCents),
                 cashChangeCents = checked(ledger.closingCashCents - ledger.openingCashCents),
                 freeAfterCommitmentsCents = checked(ledger.closingCashCents - ledger.futureCommitmentsCents),
                 economic = Metric("Economic", outcome.economicScore, previous?.outcomes.economicScore,

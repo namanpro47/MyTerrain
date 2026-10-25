@@ -20,12 +20,14 @@ T Clone<T>(T value)=>JsonSerializer.Deserialize<T>(JsonSerializer.Serialize(valu
 var provider=new AuthoredAnnualConsequenceProvider();
 TownYearReport Advance(AnnualTown town)=>AnnualTownDemo.Advance(town,town.RunId+"/"+town.Year,provider);
 foreach(var location in LocationProfile.All)
+foreach(bool playerRules in new[]{false,true})
 {
     string root="worlds/"+location.PackId+"/";
     var world=Read<WorldData>(root+"world.json");var scenario=Read<Scenario>(root+"scenario.json");var hydro=Read<RunoffConfiguration>(root+"hydrology.json");
     UniformParcels.Apply(world,hydro,Read<UniformParcelPack>("Assets/Terra/Resources/Parcels/"+location.PackId+".json"),location.PackId);
     var rules=new BuildActionRules(world,Actions());rules.ExpandOffers(world,scenario);
     var d=FullAnnualGameplay.Create(world,scenario,location.PackId,rules,new LandscapeRunoff(world,scenario,hydro));
+    if(playerRules)d=AnnualPlayerRules.Create(d,location.PackId,"feedback-checks");
     var apartment=d.actions.First(a=>a.actionId=="high-density-housing");
     var budgetRules=Clone(d);budgetRules.startingCashCents=550000000;
     var budget=new AnnualTown(budgetRules,"apartment-"+location.PackId);
@@ -34,7 +36,7 @@ foreach(var location in LocationProfile.All)
     Check(budget.AvailableCents==50000000&&budget.CashCents==550000000,"Displayed available equals actual current-year affordability");
     var forecast=AnnualGameplay.Forecast(budget);var accepted=Advance(budget);
     Check(accepted.ledger.upfrontPaidCents==500000000,"Apartment charges exactly the listed upfront cost");
-    Check(forecast.ledger.closingCashCents==accepted.ledger.closingCashCents,"Forecast cash reconciles");
+    Check(playerRules || forecast.ledger.closingCashCents==accepted.ledger.closingCashCents,"Legacy forecast cash reconciles; v5 regional events remain hidden");
     Check(budget.CommittedCents>0,"Future upkeep is still disclosed");
     var poor=Clone(d);poor.startingCashCents=499999999;
     var under=new AnnualTown(poor,"one-cent-short");Reject(()=>under.QueueAction(apartment.siteId,apartment.actionId,0),"Reject actual one-cent shortfall");
@@ -96,7 +98,7 @@ foreach(var location in LocationProfile.All)
     Check(!full.AllPlotsAssigned,"Open landscape is not full");
     foreach(var site in d.sites.Where(s=>!s.protectedSite))
     {
-        var a=d.actions.Where(a=>a.siteId==site.id&&a.actionId!="cultivate-margin").OrderBy(a=>a.upfrontPublicCostCents).First();
+        var a=d.actions.Where(a=>a.siteId==site.id&&a.actionId!="cultivate-margin"&&a.actionId!=AnnualPlayerRules.CancelAction).OrderBy(a=>a.upfrontPublicCostCents).First();
         full.QueueAction(a.siteId,a.actionId,full.Revision);
     }
     Check(full.AllPlotsAssigned,"Full plot flag includes queued plans and excludes protected land");

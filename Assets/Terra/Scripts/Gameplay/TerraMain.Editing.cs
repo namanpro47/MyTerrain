@@ -57,6 +57,7 @@ namespace Terra.Gameplay
             if(site==null)return "Choose a field on the map or use Tab to inspect.";
             if(editMode=="remove")return QueuedAt(site.id)==null?"Only queued projects can be removed.":null;
             if(string.IsNullOrEmpty(treatmentId))return "Choose an action to propose here.";
+            if(annual.Engine.BuildingBlockedByDebt)return "Repay the negative public budget before new construction. Cancel projects or wait for funding.";
             if(annual.Engine.DecisionsFinished)return "The decision years are complete. Review the ten-year future.";
             if(treatmentId=="cultivate-margin")return "This option is no longer offered. Choose another land use.";
             if(!FullAnnualGameplay.Supported.Contains(treatmentId))return "This asset's annual recipe is not ready for play yet.";
@@ -95,7 +96,7 @@ namespace Terra.Gameplay
             if(site!=null&&editMode=="remove"&&reason==null)landscape.PreviewBaseline(site);
             bool water=treatmentId=="water-swale"&&site!=null&&site.allowedTreatments.Contains("water-swale");
             landscape.ShowRunoffConnections(water?runoff.ConnectedSites(site.id):Array.Empty<string>());
-            hud.AnnualPreview(site,recipe,annual.State,editMode,reason,ConfirmEdit,QueuedAt(site?.id)!=null);
+            hud.AnnualPreview(site,recipe,annual.State,editMode,reason,ConfirmEdit,QueuedAt(site?.id)!=null,site==null?null:(Action)(()=>ReviewProjectCancellation(site.id)));
             PresentPlacement(site,recipe,state,reason);
             performance.Preview(timer.Elapsed.TotalMilliseconds);
         }
@@ -107,7 +108,7 @@ namespace Terra.Gameplay
             {selectedId=hoverId??selectedId;UpdatePreview();return;}
             // Replacing a proposal is deliberate; a land click opens the existing Replace control.
             string prior=QueuedAt(PreviewSiteId);
-            if(editMode=="place"&&prior!=null&&prior!=treatmentId&&!annual.State.assets.Any(a=>a.siteId==PreviewSiteId))
+            if(editMode=="place"&&prior!=null&&prior!=treatmentId&&!annual.State.assets.Any(a=>a.siteId==PreviewSiteId&&a.cancelledYear==0))
             {ReviewPlacementReplacement();return;}
             ConfirmEdit();
         }
@@ -118,7 +119,7 @@ namespace Terra.Gameplay
             if(!ConsumePlacementIntent()){Toast("The target or plan changed. Preview it again before queueing.");UpdatePreview();return;}
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);string reason=Rejection(site);
             if(reason!=null){Toast(reason);BlockedCue();return;}
-            if(!conversionConfirmed&&editMode=="place"&&annual.State.assets.Any(a=>a.siteId==site.id))
+            if(!conversionConfirmed&&editMode=="place"&&annual.State.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0))
             { ReviewLandUseChange(site); return; }
             var timer=System.Diagnostics.Stopwatch.StartNew();int revision=annual.State.revision;
             string actionTitle=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==treatmentId)?.title;
@@ -164,8 +165,10 @@ namespace Terra.Gameplay
                 if(displayedAnnual.TryGetValue(site.id,out var previous)&&previous==visualKey)continue;
                 displayedAnnual[site.id]=visualKey;
                 // Proposals show intended planting; accepted vegetation follows the saved annual outcome.
-                landscape.Apply(site,queued?.actionId??asset?.actionId,queued!=null?1:(float)(result?.maturity??1));
-                landscape.AnnualStage(site,queued!=null?"PROPOSED":asset==null?null:result?.phase.ToString().ToUpperInvariant(),result?.maturity??0);
+                bool cancelling=queued?.actionId==AnnualPlayerRules.CancelAction;
+                if(asset?.cancelledYear>0&&queued==null)landscape.ApplyClearedProject(site);
+                else landscape.Apply(site,queued?.actionId==AnnualPlayerRules.CancelAction?asset?.actionId:queued?.actionId??asset?.actionId,queued!=null&&!cancelling?1:(float)(result?.maturity??1));
+                landscape.AnnualStage(site,cancelling?result?.phase.ToString().ToUpperInvariant():queued!=null?"PROPOSED":asset==null?null:result?.phase.ToString().ToUpperInvariant(),result?.maturity??0);
                 landscape.MarkQueued(site,queued?.actionId);
             }
         }
@@ -186,8 +189,13 @@ namespace Terra.Gameplay
             treatmentId=""; // Arrival always starts in Browse, including restored plans.
             if(parcelPack==null)PlacementArrivalView();
             annualDefinition=FullAnnualGameplay.Create(world,scenario,packId,buildActionRules,runoff);
-            annualBaseline=AnnualGameplay.Baseline(annualDefinition);
+            annualRegionId=packId;
             annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey=UniformParcels.Applied(world)?location.ParcelAnnualSaveKey:location.IsWisconsin?"terra.meadowbrook.annual-full.v3.2":location.AnnualSaveKey;
+            annual.saveKey+=".player-rules-v5";
+            string seed=PlayerPrefs.GetString(annual.saveKey+".seed",Guid.NewGuid().ToString("N"));
+            PlayerPrefs.SetString(annual.saveKey+".seed",seed);PlayerPrefs.Save();
+            annualDefinition=AnnualPlayerRules.Create(annualDefinition,packId,seed);
+            annualBaseline=AnnualGameplay.Baseline(annualDefinition);
             string recovery=null;introPending=!PlayerPrefs.HasKey(annual.saveKey);
             try{annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"),true);}
             catch(Exception e)
@@ -222,16 +230,30 @@ namespace Terra.Gameplay
             landscape.ClearGhost();landscape.Highlight(null,null,true);landscape.ShowRunoffConnections(Array.Empty<string>());
             hud.AnnualOverview(annual.Engine,ContinueAfterChapter,chapter==null?null:(Action)(()=>hud.AnnualChapterReport(annual.Engine,chapter,ContinueAfterChapter,ShowAnnualLedger)),ShowAnnualLedger,id=>{
                 selectedId=hoverId=id;landscape.Highlight(id,id,true);FocusSite();
-            });
+            },chapters.Busy?"Local summary · AI pending":chapter?.mode=="gemini"?"AI explanation":"Local summary · no AI");
         }
         void NewRun()
         {
             if(fastForwarding)return;
             hud.AnnualDialog("Start a new run?","This replaces this browser's current run. Accepted years cannot be undone. A copy of this run will be kept locally.","Start new run",()=>{
+                try
+                {
+                    // Compact the live keys first; archive the complete run before changing it.
+                    annual.Save();chapters.Save();
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous",annual.ExportSave());
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous.seed",annualDefinition.playerRules.scenarioSeed);
+                    AnnualTownSession.WriteStored(annual.saveKey+".previous.definition",JsonUtility.ToJson(annualDefinition));
+                    AnnualTownSession.WriteStored(chapters.saveKey+".previous",chapters.ExportSave());
+                    PlayerPrefs.Save();
+                }
+                catch(Exception error)
+                {
+                    Debug.LogWarning("Run backup failed: "+error.Message);
+                    hud.AnnualDialog("Your current run is safe", "There is not enough browser storage to keep a backup and start another run. Your current landscape and accepted years are still available. Free storage outside this game's saves, then try again.", "Return to current run", hud.CloseModal);
+                    return;
+                }
                 hud.CloseAnnualOverview();comparisonTown=null;comparisonMap=false;hud.MapView(null);introPending=true;
-                PlayerPrefs.SetString(annual.saveKey+".previous",annual.ExportSave());
-                PlayerPrefs.SetString(chapters.saveKey+".previous",chapters.ExportSave());
-                chapters.StateChanged-=ChapterChanged;chapters.StopRequest();annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));
+                chapters.StateChanged-=ChapterChanged;chapters.StopRequest();RenewPlayerScenario();annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));
                 chapters.ResetForRun();chapters.StateChanged+=ChapterChanged;
                 hud.CloseModal();selectedId=hoverId=null;treatmentId="";editMode="place";hud.Selected("");SaveAnnual();RefreshLandscape();Refresh();BeginAnnualArrival();BrowserPerformance.Memory("new-run");
             });

@@ -58,7 +58,7 @@ namespace Terra.UI
             projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued);
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
-            var previous=state.assets.FirstOrDefault(a=>a.siteId==site.id);
+            var previous=state.assets.FirstOrDefault(a=>a.siteId==site.id&&a.cancelledYear==0);
             bool converting=previous!=null&&previous.actionId!=recipe.actionId;
             long conversion=converting?(annualTown?.ConversionCost(site.id)??0):0;
             int opening=state.year+Math.Max(converting?1:0,recipe.constructionYears);

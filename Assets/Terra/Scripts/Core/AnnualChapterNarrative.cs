@@ -10,22 +10,27 @@ namespace Terra.Core
         public static AnnualChapterText Create(AnnualTownDefinition definition, TownYearReport report)
         {
             var sites = report.outcomes.sites;
-            int added = report.acceptedRequest.actions.Length;
+            int cancelled=report.acceptedRequest.actions.Count(a=>a.actionId==AnnualPlayerRules.CancelAction);
+            int added = report.acceptedRequest.actions.Length-cancelled;
             int building = sites.Count(s => s.actionId != null && s.phase == TownAssetPhase.Building);
             int growing = sites.Count(s => s.actionId != null && s.phase == TownAssetPhase.Establishing);
             var economy = report.outcomes.economy;
             string opening = added == 0
                 ? "This year, you gave the existing landscape time. No new projects were added, but the community's needs and the costs of caring for earlier choices continued."
                 : "Your plan became part of the landscape this year. " + added + (added == 1 ? " new project is" : " new projects are") + " now committed, and their costs and consequences will carry into the years ahead.";
+            if(cancelled>0)opening+=" "+cancelled+" project(s) were cancelled. Unfinished public capital was returned and the cleared sites remain disturbed.";
             if(added>0)
             {
-                var titles=report.acceptedRequest.actions.Select(q=>definition.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title).Distinct().Take(2);
+                var titles=report.acceptedRequest.actions.Where(q=>q.actionId!=AnnualPlayerRules.CancelAction).Select(q=>definition.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title).Distinct().Take(2);
                 opening+=" Your commitments include "+string.Join(" and ",titles)+".";
             }
+            if(cancelled>0)opening+=" You also ended "+cancelled+(cancelled==1?" project":" projects")+"; their services and future upkeep stop, leaving disturbed ground for another choice.";
             string pace = building > 0 ? "Some projects are still under construction. Their promised services must wait until they open."
                 : growing > 0 ? "Some projects are still establishing. Their benefits will develop over time rather than arriving all at once."
                 : "The year's results reflect the land and services already in use.";
-            string budget = report.ledger.closingArrearsCents > 0
+            string budget = report.ledger.closingCashCents < 0
+                ? "The public balance is negative. Upkeep is charged to that balance, and new construction is paused until funding or eligible receipts repay it. You can cancel projects or advance the year."
+                : report.ledger.closingArrearsCents > 0
                 ? "The year closes with unpaid bills. Those commitments follow you into the next plan, so restoring reliable funding matters before making new promises."
                 : "The year's bills have been paid. The balance left in the public budget is your starting point for what comes next; some of it is already promised to ongoing projects.";
             budget += report.ledger.publicReceiptsCents > 0
@@ -59,9 +64,10 @@ namespace Terra.Core
         {
             if (history == null || history.Length == 0) return "The landscape is waiting for its first decisions.";
             var end = history.Last();
-            var choices = history.SelectMany(r => r.acceptedRequest.actions).ToArray();
+            var choices = history.SelectMany(r => r.acceptedRequest.actions).Where(q=>q.actionId!=AnnualPlayerRules.CancelAction).ToArray();
+            int cancelled = history.Sum(r=>r.acceptedRequest.actions.Count(q=>q.actionId==AnnualPlayerRules.CancelAction));
             var changed = choices.Select(q => q.siteId).Distinct().Count();
-            var conversions = choices.Length - changed;
+            var conversions = history.Sum(r=>r.acceptedRequest.actions.Count(q=>q.actionId!=AnnualPlayerRules.CancelAction && r.acceptedRequest.assets.Any(a=>a.siteId==q.siteId&&a.cancelledYear==0)));
             var groups = choices.GroupBy(q => q.actionId).OrderByDescending(g => g.Count()).Take(3)
                 .Select(g => definition.actions.First(a => a.actionId == g.Key).title.ToLowerInvariant()).ToArray();
             string story = choices.Length == 0
@@ -69,6 +75,7 @@ namespace Terra.Core
                 : "Over ten years, you reshaped " + changed + (changed == 1 ? " plot" : " plots") + " through " + string.Join(", ", groups) + ". "
                   + (conversions > 0 ? "You also changed direction on " + conversions + (conversions == 1 ? " occasion" : " occasions") + ", paying to replace earlier uses and allowing the new landscape time to establish. " : "")
                   + "Those choices changed how the community uses its limited land.";
+            if(cancelled>0)story+=" You also cancelled "+cancelled+(cancelled==1?" project":" projects")+", ending its services and upkeep and leaving land to be reconsidered.";
             story += "\n\n";
             var e = end.outcomes.economy;
             if (e != null)
@@ -86,7 +93,9 @@ namespace Terra.Core
                     ? " Some vegetated land has given way to other uses, leaving a lasting trade-off for land and water management." : " The overall vegetated area remains close to its starting extent.";
             if (end.outcomes.sites.Any(s => s.actionId != null && (s.phase == TownAssetPhase.Building || s.phase == TownAssetPhase.Establishing)))
                 story += " Some late choices are still building or establishing; their full effects lie beyond this review.";
-            story += end.ledger.closingArrearsCents > 0
+            story += end.ledger.closingCashCents < 0
+                ? " The public budget ends in debt, so future funding must repay it before more construction begins."
+                : end.ledger.closingArrearsCents > 0
                 ? " Unpaid bills also carry forward, so the community's next choices start with a financial constraint."
                 : " Keeping these benefits requires continuing to fund the services and care they depend on.";
             return story + " These are possible consequences within this game, not a forecast for the real community.";

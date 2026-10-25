@@ -18,3 +18,10 @@ The user's nine requirements are the acceptance checklist: full-plot skip to Yea
 - Chapter service: 50 checks pass, including old Unity serialized pending requests and hashes; no real provider called.
 
 UI integration is implemented on presentation handoff `cb78b65`: pre-play duration selection, conversion review, current-year budget with future obligations, full-landscape shortcut, persistent selected-tool facts and whole-decade introduction. The shared scrollable reader and footer layout are preserved. Unity/browser tests and final main delivery remain pending. Do not treat model checks as visual acceptance. Patterns TN-05/06/08, CS-01/02/04 and AX-01 apply. This is bounded gameplay/UI work, not scenery/Phase 2A acceptance.
+
+
+## Current-main reconciliation
+
+Merged refreshed `1330dc9`, preserving v5 cancellation/refunds, negative public cash, seeded regional events and save-first optional narration. Direct conversion remains a distinct paid transition; cancelled plots can be rebuilt without being charged a conversion again. Planning guidance retains incoming cancellation/debt guards. Future upkeep no longer prevents an otherwise affordable current project in either legacy or v5 rules.
+
+Combined model checks: **472** across all three dense landscapes and both rule versions; v5 regression **81**; save-first session adapter **24** (stub transport/Unity, no live provider). The replay storage follow-up uses lossless compression for full histories/chapters and preserves the current run if backup fails. Legacy JSON remains readable. Native and Chrome verification of this combined source remain pending. The obsolete d329158 export was intentionally stopped after its native1106+16 checks passed; it is not a final build.

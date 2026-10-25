@@ -42,7 +42,7 @@ public static class AnnualFeedbackWaveChecks
         foreach(bool large in new[]{false,true})
         {
             if(large)Invoke("ToggleText");
-            foreach(var offer in definition.actions.Where(a=>a.actionId!="cultivate-margin").GroupBy(a=>a.actionId).Select(g=>g.First()))
+            foreach(var offer in definition.actions.Where(a=>a.actionId!="cultivate-margin"&&a.actionId!=AnnualPlayerRules.CancelAction).GroupBy(a=>a.actionId).Select(g=>g.First()))
             {
                 hud.HideAnnualPreview();hud.HidePlacementFeedback();hud.Selected(offer.actionId);Invoke("Focus",new object[]{null});Invoke("UpdateToolHint");
                 Check((bool)typeof(TerraHud).GetMethod("ShowingToolHint",Private).Invoke(hud,null),"Selected tool has no details before placement: "+offer.actionId);
@@ -79,7 +79,7 @@ public static class AnnualFeedbackWaveChecks
         bool future=false;hud.ConfigureFuture(()=>future=true);
         foreach(var site in fullDefinition.sites.Where(s=>!s.protectedSite))
         {
-            var cheapest=fullDefinition.actions.Where(a=>a.siteId==site.id&&a.actionId!="cultivate-margin").OrderBy(a=>a.upfrontPublicCostCents).FirstOrDefault();
+            var cheapest=fullDefinition.actions.Where(a=>a.siteId==site.id&&a.actionId!="cultivate-margin"&&a.actionId!=AnnualPlayerRules.CancelAction).OrderBy(a=>a.upfrontPublicCostCents).FirstOrDefault();
             if(cheapest!=null)full.QueueAction(site.id,cheapest.actionId,full.Revision);
         }
         hud.FullLandscapeOption(full);Check(Field<Button>("fullLandscapeFuture").gameObject.activeSelf,"Full landscape has no Year 10 option.");

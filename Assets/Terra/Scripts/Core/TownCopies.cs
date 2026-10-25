@@ -25,7 +25,7 @@ namespace Terra.Core
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance))
             {
                 var fieldValue = field.GetValue(value);
-                field.SetValue(result, field.Name == "simulation" && EmptyExtension(fieldValue) ? null : CopyObject(fieldValue));
+                field.SetValue(result, (field.Name == "simulation" || field.Name == "playerRules") && EmptyExtension(fieldValue) ? null : CopyObject(fieldValue));
             }
             return result;
         }
@@ -33,7 +33,7 @@ namespace Terra.Core
         // Unity's inline serializer can expand an absent optional DTO into zero/empty
         // fields. Only a wholly empty extension is equivalent to absence; partial or
         // nonzero content remains fingerprinted and must pass normal validation.
-        static bool EmptyExtension(object value)
+        internal static bool EmptyExtension(object value)
         {
             if(value == null) return true;
             if(value is string text) return string.IsNullOrEmpty(text);
@@ -74,7 +74,10 @@ namespace Terra.Core
                     || (field.Name == "conversionOpeningVegetation" && (double)fieldValue == 0))) continue;
                 // Numeric-v4 additions are absent on all previously published definitions,
                 // requests/reports and snapshots. Preserve their exact legacy fingerprints.
-                if (field.Name == "simulation" && EmptyExtension(fieldValue)) continue;
+                if ((field.Name == "simulation" || field.Name == "playerRules") && EmptyExtension(fieldValue)) continue;
+                if (value is TownYearDriver && field.Name == "regionalEvents" && (fieldValue == null || ((Array)fieldValue).Length == 0)) continue;
+                if (value is TownAsset && ((field.Name == "cancelledYear" && (int)fieldValue == 0) || (field.Name == "clearedVegetatedFraction" && (double)fieldValue == 0))) continue;
+                if (value is TownYearLedger && field.Name == "capitalRefundCents" && (long)fieldValue == 0) continue;
                 // Optional schema-2 DTOs do not change any legacy definition/report fingerprints.
                 if (fieldValue == null && (field.Name == "economy" || field.Name == "services")) continue;
                 // Optional ending targets were added after schema-2 3.0 saves shipped.

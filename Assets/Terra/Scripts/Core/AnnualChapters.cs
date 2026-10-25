@@ -12,6 +12,23 @@ namespace Terra.Core
         public const string RulesVersion = "annual-chapter-v1";
         public const string Notice = "Illustrative annual scenario, not a forecast. AI explains the saved results; authored rules determine outcomes.";
 
+        // Rebuild the original frozen request from accepted evidence, for an optional
+        // explanation after fast-forward/reload. This never reopens the live year.
+        public static AnnualChapterRequest AcceptedRequest(AnnualTown town)
+        {
+            Require(town.PlayerRulesActive&&town.History.Length>0,"An accepted player-rules year is required.");
+            var report=town.History.Last();
+            var snapshot=town.Snapshot();
+            snapshot.history=snapshot.history.Take(snapshot.history.Length-1).ToArray();
+            snapshot.year=report.year;snapshot.revision=report.acceptedRequest.revision;snapshot.phase=TownPhase.Resolving;
+            snapshot.cashCents=report.ledger.openingCashCents;snapshot.arrearsCents=report.ledger.openingArrearsCents;
+            snapshot.assets=TownCopies.Copy(report.acceptedRequest.assets);snapshot.queue=TownCopies.Copy(report.acceptedRequest.actions);
+            snapshot.undo=Array.Empty<TownPlanSnapshot>();snapshot.redo=Array.Empty<TownPlanSnapshot>();
+            snapshot.pendingRequest=TownCopies.Copy(report.acceptedRequest);
+            AnnualTown.Restore(town.Definition,snapshot);
+            return new AnnualChapterRequest {definition=town.Definition,snapshot=snapshot};
+        }
+
         public static AnnualTown Preview(AnnualChapterRequest input)
         {
             Require(input != null && input.schemaVersion == 1 && input.definition != null && input.snapshot != null,
@@ -35,10 +52,19 @@ namespace Terra.Core
                 Fact("social", Score(summary.social) + summary.social.evidence + " " + summary.social.rubric),
                 Fact("environmental", Score(summary.environmental) + summary.environmental.evidence + " " + summary.environmental.rubric),
                 Fact("budget", "USD: spent " + Dollars(summary.spentCents) + "; received " + Dollars(summary.receivedCents)
-                    + "; closing cash " + Dollars(summary.ledger.closingCashCents) + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + "."),
+                    + "; closing cash " + Dollars(summary.ledger.closingCashCents) + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + "."
+                    +(town.PlayerRulesActive?" Unfinished capital refunded "+Dollars(summary.ledger.capitalRefundCents)+". Negative cash blocks new construction until repaid; public funding and eligible receipts repay it automatically. Cancellation frees land next year without restoring its cover.":"")),
                 Fact("limits", Notice + " " + town.Definition.assumptions)
             };
             var rows = town.History.Last().outcomes.sites;
+            if(town.PlayerRulesActive)
+            {
+                var history=summary.finalYear?town.History:town.History.Skip(Math.Max(0,town.History.Length-3)).ToArray();
+                facts[0].text+=" Accepted history "+(summary.finalYear?"(all ten years)":"(latest three years)")+": "+string.Join("; ",history.Select(r=>
+                    "Y"+r.year+" choices "+(r.acceptedRequest.actions.Length==0?"wait":string.Join(",",r.acceptedRequest.actions.GroupBy(a=>a.actionId).Take(3).Select(g=>g.Key+" x"+g.Count())))
+                    +"; cash "+Dollars(r.ledger.closingCashCents)+"; E/S/Env "+r.outcomes.economicScore.ToString("0.0",System.Globalization.CultureInfo.InvariantCulture)+"/"+r.outcomes.socialScore.ToString("0.0",System.Globalization.CultureInfo.InvariantCulture)+"/"+r.outcomes.environmentalScore.ToString("0.0",System.Globalization.CultureInfo.InvariantCulture)))+". Choice groups are abbreviated to three per year; complete history is saved.";
+                facts[1].text+=" Potential regional disruptions (inferred annual game chances, not measured disaster or site-damage probabilities): "+string.Join("; ",town.Definition.playerRules.hazards.Select(h=>h.title+" "+(h.annualChance*100).ToString("0.#",System.Globalization.CultureInfo.InvariantCulture)+"%"))+". Only the saved events above occurred this year.";
+            }
             for (int i = 0; i < rows.Length; i++) facts.Add(Fact("site:" + rows[i].siteId, summary.siteChanges[i]));
             return facts.ToArray();
         }
@@ -93,9 +119,10 @@ namespace Terra.Core
             return selected;
         }
 
-        public static AnnualChapterReceipt Offline(AnnualChapterRequest input)
+        public static AnnualChapterReceipt Offline(AnnualChapterRequest input) => OfflineAccepted(Preview(input));
+
+        public static AnnualChapterReceipt OfflineAccepted(AnnualTown town)
         {
-            var town = Preview(input);
             var summary = AnnualTownSummary.Latest(town);
             return new AnnualChapterReceipt {
                 rulesVersion = RulesVersion, mode = "offline", model = "authored-offline-v2",
@@ -106,7 +133,8 @@ namespace Terra.Core
                     cards = new[] {
                         Card("Public budget", "Spent " + Dollars(summary.spentCents) + "; received " + Dollars(summary.receivedCents)
                             + " including the annual appropriation. Closing cash " + Dollars(summary.ledger.closingCashCents)
-                            + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + ". Accepted payments cannot be undone.", "budget"),
+                            + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + "."
+                            +(town.PlayerRulesActive?" Unfinished capital refunded "+Dollars(summary.ledger.capitalRefundCents)+". Negative cash blocks new construction until funding repays it.":" Accepted payments cannot be undone."), "budget"),
                         Card("People and livelihoods", Score(summary.economic) + summary.economic.evidence + "\n\n"
                             + Score(summary.social) + summary.social.evidence, "economic", "social"),
                         Card("The land and this year's conditions", Score(summary.environmental) + summary.environmental.evidence
