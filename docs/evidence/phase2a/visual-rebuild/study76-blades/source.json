@@ -1,0 +1,33 @@
+{
+  "revision": "f8fbea9cc6dd69cf74a56c2fc41b0ba6c3362265",
+  "source": "https://github.com/gdquest-demos/godot-shaders/tree/1.0.0",
+  "files": [
+    {
+      "source": "LICENSE",
+      "import": "Assets/Terra/Art/FieldBladeStudy/GDQuest/LICENSE.txt",
+      "sha256": "571ec1d87f266565d599dbeff1ba59ad24416b6c2703fe8cd70f867e4ce4dc8a"
+    },
+    {
+      "source": "godot/Demos/WindGrass/grass_triangle.obj",
+      "import": "Assets/Terra/Art/FieldBladeStudy/GDQuest/grass_triangle.obj",
+      "sha256": "e23d5b1a8934efd6cc6195a6e98c7c136a014eb02f5c0d181e604c160b9f8b35"
+    },
+    {
+      "source": "godot/Shaders/wind_grass.shader",
+      "import": "Assets/Terra/Art/FieldBladeStudy/GDQuest/wind_grass.godot.txt",
+      "sha256": "88128391dad05e3e2e1bdbcf0b5cd1fe9d7055ac38c27c21c74ce1c4fb298496"
+    },
+    {
+      "source": "godot/Demos/WindGrass/wind_grass.tres",
+      "import": "Assets/Terra/Art/FieldBladeStudy/GDQuest/wind_grass.material.txt",
+      "sha256": "473801bbbce2df687fe1fa65aadac245629e4a93a588e339195a22a8186f3357"
+    }
+  ],
+  "credit": "GDQuest and contributors (https://www.gdquest.com/)",
+  "codeLicense": "MIT",
+  "artLicense": "CC BY4.0",
+  "nativeTriangles": 7,
+  "nativeVertices": 9,
+  "nativeHeightMeters": 2.013708,
+  "rendered": false
+}

@@ -1,0 +1,35 @@
+{
+  "sourceRevision": "f8fbea9cc6dd69cf74a56c2fc41b0ba6c3362265",
+  "levels": [
+    {
+      "level": 0,
+      "vertices": 9,
+      "triangles": 7,
+      "height": 1.2,
+      "width": 0.304009885,
+      "root": 0.0,
+      "windBoundsHeight": 1.47
+    },
+    {
+      "level": 1,
+      "vertices": 5,
+      "triangles": 3,
+      "height": 1.2,
+      "width": 0.304009885,
+      "root": 0.0,
+      "windBoundsHeight": 1.47
+    },
+    {
+      "level": 2,
+      "vertices": 3,
+      "triangles": 1,
+      "height": 1.2,
+      "width": 0.304009885,
+      "root": 0.0,
+      "windBoundsHeight": 1.47
+    }
+  ],
+  "shaderMessages": [],
+  "sceneUnchanged": true,
+  "scope": "Isolated source-derived geometry and URP gradient/wind adaptation; not rendered scene acceptance."
+}

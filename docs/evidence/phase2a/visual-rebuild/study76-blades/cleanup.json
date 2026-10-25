@@ -1,0 +1,14 @@
+{
+  "restoredOnlyOwnImportSideEffects": [
+    "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+    "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+    "Assets/Settings/UniversalRenderPipelineGlobalSettings.asset"
+  ],
+  "backupPatchSha256": "9a8ca593107e88acbfb805aead137ae7cee44e52f71d119b5bdd626d1c2435fa",
+  "backupPatchPath": "Builds/ArtResearch/Study76/import-side-effects.patch",
+  "trackedRuntimeDiffAfterCleanup": [],
+  "importBatchEnded": true,
+  "warmEditorOrPlayStarted": false,
+  "captureReservation139": "cancelled after bounded wait for submission checks",
+  "goalAcceptance": "not achieved; compiled but unrendered isolated study"
+}
