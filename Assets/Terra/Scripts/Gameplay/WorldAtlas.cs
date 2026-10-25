@@ -71,6 +71,7 @@ namespace Terra.Gameplay
         }
         public void Select(int index,bool snap=false)
         {
+            if(notes!=null&&notes.activeSelf)return;
             Selected=(index+3)%3;var place=LocationProfile.At(Selected);region.text=regions[Selected];nameLabel.text=place.Name;description.text=descriptions[Selected];
             var p=places[Selected];coordinates.text=$"{p.x:0.00}° N    {Mathf.Abs(p.y):0.00}° {(p.y<0?"W":"E")}";
             for(int i=0;i<3;i++){choices[i].image.color=i==Selected?new Color(.17f,.29f,.29f):new Color(.065f,.13f,.16f);}
@@ -142,7 +143,7 @@ namespace Terra.Gameplay
             ReducedMotion=reduced;PlayerPrefs.SetInt("myterrain.reduced-motion",reduced?1:0);PlayerPrefs.Save();
             motion.GetComponentInChildren<TextMeshProUGUI>().text=reduced?"Motion: reduced":"Motion: full";
         }
-        public void Zoom(float amount){if(!Traveling)targetDistance=Mathf.Clamp(targetDistance+amount*.25f,2.5f,5.5f);}
+        public void Zoom(float amount){if(!Traveling&&!notes.activeSelf)targetDistance=Mathf.Clamp(targetDistance+amount*.25f,2.5f,5.5f);}
         UnityEngine.UI.Button ButtonAt(Vector2 point)
         {
             if(EventSystem.current==null)return null;var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=point},hits);
@@ -155,12 +156,12 @@ namespace Terra.Gameplay
             if(kind==1){if(pointerHeld&&!pointerOverUI&&pressedButton==null&&!Traveling){var delta=point-last;if((point-down).magnitude>5)dragged=true;if(dragged){focusing=false;var rotation=new Vector2(-delta.x,-delta.y)*180/Screen.height;velocity=Vector2.ClampMagnitude(rotation/Mathf.Max(Time.unscaledDeltaTime,.008f),150);longitude+=rotation.x;latitude+=rotation.y;}}last=point;return;}
             if(kind==2){
 #if UNITY_WEBGL && !UNITY_EDITOR
-                if(pointerHeld&&!dragged&&pressedButton!=null&&pressedButton==ButtonAt(point)&&pressedButton.IsInteractable())pressedButton.onClick.Invoke();
+                if(pointerHeld&&!dragged&&(point-down).sqrMagnitude<36&&pressedButton!=null&&pressedButton==ButtonAt(point)&&pressedButton.IsInteractable())pressedButton.onClick.Invoke();
 #endif
                 pointerHeld=false;pressedButton=null;
             }
         }
-        void ApplyGlobe(){earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(0,-.10f,-distance);globeCamera.transform.localRotation=Quaternion.identity;}
+        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(0,-.10f,-distance);globeCamera.transform.localRotation=Quaternion.identity;}
         static Vector3 Geo(Vector2 p){float a=p.x*Mathf.Deg2Rad,b=p.y*Mathf.Deg2Rad;return new Vector3(-Mathf.Cos(a)*Mathf.Sin(b),Mathf.Sin(a),Mathf.Cos(a)*Mathf.Cos(b));}
         void PositionPins()
         {
