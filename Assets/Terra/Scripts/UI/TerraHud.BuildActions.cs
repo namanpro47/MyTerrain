@@ -21,6 +21,12 @@ namespace Terra.UI
         TextMeshProUGUI actionSummary;
         string activeCategory="Farming";
         bool catalogKeyboard;
+        int? highlightedFieldCount;
+
+        public void BuildAvailability(int? count)
+        {
+            highlightedFieldCount=count;UpdateActionSummary();
+        }
 
         void CreateActionDock(Action<string> choose)
         {
@@ -71,6 +77,11 @@ namespace Terra.UI
                 actionSummary.text=recipe==null?"Queue actions → review budget → End Year → adapt. All 12 action families · use ‹ / › to browse variants.":recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nFull term reserved now. Three indicators update when the year is accepted.";
                 var profile=ActionProfiles.ForAction(activeTool);
                 if(recipe!=null&&profile!=null)actionSummary.text=recipe.title+" · "+Money(recipe.upfrontPublicCostCents)+" upfront + "+Money(recipe.annualPublicOperatingCents)+" annual upkeep\nDesign intent /5: Economic "+profile.economic+" · Social "+profile.social+" · Environment "+profile.environmental+" (not meter points)";
+                if(highlightedFieldCount.HasValue)
+                {
+                    string hint=highlightedFieldCount.Value==0?"No fields available for this action. Inspect a field for the reason.":"<color=#59FFE0>"+highlightedFieldCount.Value+" available field"+(highlightedFieldCount.Value==1?"":"s")+" outlined in teal</color> · Choose a highlighted field.";
+                    actionSummary.text=actionSummary.text.Split('\n')[0]+"\n"+hint;
+                }
                 return;
             }
 
