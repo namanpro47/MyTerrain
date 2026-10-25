@@ -19,21 +19,22 @@ namespace Terra.UI
             string nextYear=town.Phase==TownPhase.Completed?"See ten-year future":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan";
             if(page==0)
             {
-                FieldNotes("Year "+report.year+" · "+(receipt.mode=="gemini"?"AI chapter":"local summary"),
-                    "<b>"+chapter.title+"</b>\n\n"+chapter.introduction+"\n\n<b>Cash  "+Money(report.ledger.closingCashCents)+"</b>\nReserved for later years  "+Money(report.ledger.futureCommitmentsCents)+"\n\nIllustrative game outcomes · not a forecast.",
+                FieldNotes(chapter.title,
+                    chapter.introduction+"\n\n<b>Cash  "+Money(report.ledger.closingCashCents)+"</b>\nReserved for later years  "+Money(report.ledger.futureCommitmentsCents)+"\n\nIllustrative game outcomes · not a forecast.",
                     "Read chapter →",()=>AnnualChapterReport(town,receipt,continuePlanning,ledger,1));
             }
             else
             {
                 var card=chapter.cards[page-1];
-                FieldNotes("Year "+receipt.consequences.year+" · "+(receipt.mode=="gemini"?"AI chapter":"local summary")+" · "+page+" / "+count,
-                    "<b>"+card.title+"</b>\n\n"+card.explanation+"\n\n"+(receipt.mode=="gemini"?"AI-written from this year's accepted game results.":"Local summary from saved game results. No AI was used."),
+                FieldNotes(card.title,
+                    card.explanation+"\n\n"+(receipt.mode=="gemini"?"AI-written from this year's accepted game results.":"Local summary from saved game results. No AI was used."),
                     page<count?"Next card →":nextYear,page<count?(Action)(()=>AnnualChapterReport(town,receipt,continuePlanning,ledger,page+1)):continuePlanning);
                 var before=town.History.LastOrDefault(r=>r.year==report.year-1)?.outcomes??AnnualGameplay.Baseline(town.Definition);
-                if(card.factIds.Contains("economic"))FieldNotesMeter("Economic",before.economicScore,report.outcomes.economicScore,new Color(.57f,.38f,.10f));
-                if(card.factIds.Contains("social"))FieldNotesMeter("Social",before.socialScore,report.outcomes.socialScore,new Color(.18f,.40f,.62f));
-                if(card.factIds.Contains("environmental"))FieldNotesMeter("Environmental",before.environmentalScore,report.outcomes.environmentalScore,new Color(.16f,.47f,.32f));
+                if(card.factIds.Contains("economic"))FieldNotesMeter("Economic",before.economicScore,report.outcomes.economicScore,new Color(.94f,.76f,.43f));
+                if(card.factIds.Contains("social"))FieldNotesMeter("Social",before.socialScore,report.outcomes.socialScore,new Color(.50f,.76f,.93f));
+                if(card.factIds.Contains("environmental"))FieldNotesMeter("Environmental",before.environmentalScore,report.outcomes.environmentalScore,Accent);
             }
+            modalEyebrow.text="YEAR "+report.year+"  /  "+(receipt.mode=="gemini"?"AI chapter":"local summary")+(page==0?"":"  ·  "+page+" / "+count);
             AnnualSecondary("Budget & meters",ledger);
         }
         public void AnnualChapterWaiting(int year,Action stop)
