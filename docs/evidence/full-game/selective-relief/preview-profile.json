@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/docs/evidence/full-game/selective-relief/preview-profile.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "results": [
+          {
+            "id": "south-07",
+            "ghostMs": 89.8717,
+            "groundMs": 40.4041,
+            "surfaceAndGroundMs": 41.5155,
+            "cancelMs": 1.1299
+          },
+          {
+            "id": "south-02",
+            "ghostMs": 163.0752,
+            "groundMs": 57.7745,
+            "surfaceAndGroundMs": 63.1236,
+            "cancelMs": 1.1426
+          },
+          {
+            "id": "south-08",
+            "ghostMs": 149.8179,
+            "groundMs": 60.6274,
+            "surfaceAndGroundMs": 57.9723,
+            "cancelMs": 1.283
+          }
+        ],
+        "frame": 27040
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
