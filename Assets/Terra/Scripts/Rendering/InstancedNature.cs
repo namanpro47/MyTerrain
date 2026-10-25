@@ -57,18 +57,8 @@ namespace Terra.Rendering
                 for(int sub=0;sub<filter.sharedMesh.subMeshCount;sub++)
                 {
                     var sourceMaterial=materials[Mathf.Min(sub,materials.Length-1)];
-                    var material=new Material(softGroundCover?Resources.Load<Material>("Nature/Groundcover"):sourceMaterial);
-                    if(softGroundCover)
-                    {
-                        material.SetTexture("_BaseMap",sourceMaterial.mainTexture);
-                        material.SetColor("_BaseColor",tint);
-                        material.SetFloat("_Cutoff",.5f);
-                        var plantBounds=filter.sharedMesh.bounds;
-                        material.SetVector("_PlantBounds",new Vector4(plantBounds.min.y,plantBounds.max.y,0,0));
-                    }
-                    material.enableInstancing=true;
-                    if(tint!=Color.white&&prefab.name.StartsWith("Grass"))material.color=tint;
-                    ownedMaterials.Add(material);
+                    var material=BorrowMaterial(sourceMaterial,tint,softGroundCover,filter.sharedMesh.bounds,
+                        tint!=Color.white&&prefab.name.StartsWith("Grass"));
                     var mediumMaterial=material;var distantMaterial=material;
                     if(lods!=null&&lods.Length>1)
                     {
@@ -77,7 +67,7 @@ namespace Terra.Rendering
                         {
                             var source=lods[level].renderers[part].sharedMaterials[sub];
                             if(source==sourceMaterial)return material;
-                            var copy=new Material(source){enableInstancing=true};ownedMaterials.Add(copy);return copy;
+                            return BorrowMaterial(source,Color.white,false,default,false);
                         }
                         mediumMaterial=LevelMaterial(1);
                         if(lods.Length>2)distantMaterial=LevelMaterial(2);
@@ -171,6 +161,11 @@ namespace Terra.Rendering
             }
             if(revealStarted>=0&&Time.unscaledTime-revealStarted>revealDuration+.2f)revealStarted=-1;
         }
-        void OnDestroy(){foreach(var material in ownedMaterials)Destroy(material);}
+        void OnDestroy()
+        {
+            foreach(var entry in borrowedMaterials.Values)ReleaseMaterial(entry);
+            borrowedMaterials.Clear();
+            foreach(var material in ownedMaterials)Destroy(material);
+        }
     }
 }
