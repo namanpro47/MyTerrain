@@ -4,7 +4,7 @@
 
 The user's HUD/gap follow-up replaces the sprawling annual overlay with compact navy status panels, a strong USD balance, three equal indicators, pictorial priced project cards and a bottom command strip. Eight southern scenario parcels now share ten edges; surface treatments and planting meet across them. The source geography and metric building footprints stay intact. Definition 3.2 uses separate save keys so old committed histories are retained rather than recalculated.
 
-Connected and legacy full-game suites each pass **608 assertions**; annual core/gameplay **94 + 15** pass. The actual Editor HUD passes **679** repeated-reflow/visible-label/preview checks at 1440×900, 1280×720 and 1024×576 with both text settings. [Reference decisions, geometry, Chrome evidence and export identity](evidence/hud-connected/README.md). This bounded change does not certify the broader Phase 2A scenery gate or deploy a public build.
+Connected and legacy full-game suites each pass **608 assertions**; annual core/gameplay **94 + 15** pass. The actual Editor HUD passes **682** repeated-reflow/visible-label/preview checks at 1440×900, 1280×720 and 1024×576 with both text settings. [Reference decisions, geometry, Chrome evidence and export identity](evidence/hud-connected/README.md). This bounded change does not certify the broader Phase 2A scenery gate or deploy a public build.
 
 ## Living Atlas — October 25, 2026
 

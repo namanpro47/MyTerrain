@@ -56,4 +56,15 @@ foreach(bool large in new[]{false,true})
         cases.Add(new{width=size.x,height=size.y,large,compact});
     }
 }
+// A returning 3.1 player sees the retained-save notice with the new arrival text.
+var arrivalSource=System.IO.File.ReadAllText("Assets/Terra/Scripts/Gameplay/TerraMain.Future.cs");
+var arrivalLiteral=System.Text.RegularExpressions.Regex.Match(arrivalSource,@"""You have \$10M[^""]*""").Value.Trim('"');
+var arrival=System.Text.RegularExpressions.Regex.Unescape(arrivalLiteral);
+Check(arrival.StartsWith("You have $10M")&&arrival.Length>400,"Arrival text extraction failed");
+foreach(bool large in new[]{false,true})
+{
+    hud.AnnualDialog("Ten years in Meadowbrook Valley","Connected fields use a new run. Your previous-layout save is retained locally.\n\n"+arrival,"Explore the landscape",()=>{});
+    var text=(TMPro.TextMeshProUGUI)ui.GetField("modalText",flags).GetValue(hud);text.fontSize=20*(large?1.12f:1);text.ForceMeshUpdate(true,true);
+    Check(text.preferredHeight<=text.rectTransform.rect.height+.1f,"Retained-save arrival overflows larger="+large+" needs "+text.preferredHeight+" has "+text.rectTransform.rect.height);
+}
 return new{checks,failures,cases};
