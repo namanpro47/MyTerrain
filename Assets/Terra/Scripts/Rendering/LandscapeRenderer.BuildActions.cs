@@ -11,7 +11,30 @@ namespace Terra.Rendering
     {
         BuildActionCatalog buildCatalog;
         BuildActionRules buildRules;
+        Material projectGrassMaterial,projectPathMaterial;
         public void ConfigureBuildActions(BuildActionCatalog catalog,BuildActionRules rules){buildCatalog=catalog;buildRules=rules;}
+
+        Material ProjectGround(bool path)
+        {
+            var material=path?projectPathMaterial:projectGrassMaterial;
+            if(material!=null)return material;
+            material=new Material(Resources.Load<Shader>("TerraProjectGround")){name=path?"Project earth paths":"Project meadow ground"};
+            material.SetFloat("_GroundKind",path?1:0);
+            material.SetTexture("_MeadowPaint",Resources.Load<Texture2D>("JulioGround/MeadowColor"));
+            material.SetTexture("_MeadowRelief",Resources.Load<Texture2D>("JulioGround/MeadowNormal"));
+            material.SetTexture("_EarthPaint",Resources.Load<Texture2D>("JulioGround/EarthColor"));
+            material.SetTexture("_EarthRelief",Resources.Load<Texture2D>("JulioGround/EarthNormal"));
+            if(path)projectPathMaterial=material;else projectGrassMaterial=material;
+            return material;
+        }
+
+        void AdaptProjectGround(GameObject instance)
+        {
+            // Catalog ground parts share the landscape's licensed paint family.
+            // Assign instance renderers only; metric prefab meshes and source materials stay intact.
+            foreach(var renderer in instance.GetComponentsInChildren<MeshRenderer>())
+                if(renderer.name=="grass"||renderer.name=="path")renderer.sharedMaterial=ProjectGround(renderer.name=="path");
+        }
 
         bool BuildCatalogAction(Site site,string id,Transform parent,bool preview)
         {
@@ -23,12 +46,13 @@ namespace Terra.Rendering
             var instance=Object.Instantiate(entry.prefab,parent);instance.name=entry.title+(preview?" preview":"");
             instance.transform.localPosition=new Vector3(layout.x,action.landscape?0:layout.groundY,layout.z);
             instance.transform.localRotation=Quaternion.Euler(0,layout.yaw,0);instance.transform.localScale=Vector3.one;
+            AdaptProjectGround(instance);
             if(id=="wind")
             {
                 var oldPath=instance.transform.Find("path");if(oldPath!=null)oldPath.gameObject.SetActive(false);
                 var pad=new Geometry();var corners=layout.foundation;
                 Wall(pad,new Vector3(corners[0].x,layout.groundY+.07f,corners[0].z),new Vector3(corners[3].x,layout.groundY+.07f,corners[3].z),new Vector3(corners[2].x,layout.groundY+.07f,corners[2].z),new Vector3(corners[1].x,layout.groundY+.07f,corners[1].z));
-                MeshObject("Wind pad",pad,Mat(new Color(.57f,.54f,.43f)),parent);
+                MeshObject("Wind pad",pad,ProjectGround(true),parent);
             }
             {
                 // A level foundation with terrain-following sides fills the bounded gap. Existing
