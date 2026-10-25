@@ -17,6 +17,8 @@ Retain the Phase 2A worker's scenery, assets, camera, lighting, and current sour
 
 Source paths above are under `Assets/Terra/Scripts/` unless stated otherwise. Preserve `.meta` files. No scene, package manifest, global render setting, geography, or scenario balance change is needed.
 
+[Completed editing audit and evidence](PHASE_3_AUDIT.md): 1,924 Unity checks, 34 geography checks and the final Chrome editing matrix pass. The inherited browser scene measured 9.75 FPS in one development-machine sample; performance acceptance remains open. Runtime checkpoint `b91b568`; use the branch tip for complete evidence and restored incidental Editor settings.
+
 ## Verification after integration
 
 Run the three editor checks (`Phase1Checks.Run()`, `Phase2Checks.Run()`, `Phase3Checks.Run()`) in the integrated checkout's own Unity instance. Rebuild with `TerraBuild.BuildWeb()`, then test in Chrome:

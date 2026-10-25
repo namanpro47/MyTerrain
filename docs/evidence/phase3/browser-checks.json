@@ -1,0 +1,84 @@
+{
+  "browser": "Chrome",
+  "url": "http://127.0.0.1:8083/",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "runtimeCommit": "b91b568",
+  "consoleErrors": 0,
+  "warnings": [
+    "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute."
+  ],
+  "observedChecks": [
+    "Middle click, Shift-click and camera drag do not commit; left click does.",
+    "West cultivation: 17 units / 36 credits; living margin replacement: 14 / 30.",
+    "Removal preview restores original cover without committing; right-click cancellation restores proposal.",
+    "Removal returns 6 / 60; undo returns 14 / 30.",
+    "West cultivation move to Meadow edge: 18 / 36; undo 17 / 36; Shift-Z redo 18 / 36.",
+    "Occupied and protected move targets leave both proposals unchanged at 29 / 12.",
+    "Ineligible swale move preserves source and 6 / 32.",
+    "Restoration replaces swale at 6 / 42; move to West gives 5 / 42; undo and redo exactly restore these totals.",
+    "Overspend preview rejects with unchanged totals.",
+    "Clear returns 6 / 60; one undo restores whole design; redo returns baseline.",
+    "Guide captures V, X, Z and 1; no world edit occurs.",
+    "Undo then new cultivation reaches 17 / 18; Y cannot revive abandoned redo branch.",
+    "Larger text and reduced motion enabled; 1280 help/clear and 1440 clear labels have no height overflow."
+  ],
+  "performance": {
+    "seconds": 30.0570068359375,
+    "averageFps": 9.748143196105957,
+    "frameP50Ms": 98.0,
+    "frameP95Ms": 129.0,
+    "frameP99Ms": 148.0,
+    "maxFrameMs": 157.0,
+    "maxPreviewCpuMs": 1.2000000476837158,
+    "maxPlacementCpuMs": 1.899999976158142,
+    "frames": 293,
+    "framesOver33Ms": 293,
+    "framesOver200Ms": 0,
+    "previewEvents": 5,
+    "placementEvents": 1,
+    "cameraEvents": 0,
+    "unfocusedFrames": 0
+  },
+  "inputLatency": {
+    "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+    "samples": [
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 91.69999998807907
+      },
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 90.59999999403954
+      },
+      {
+        "kind": "placement",
+        "source": "keyboard",
+        "milliseconds": 82.5
+      },
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 101.90000000596046
+      },
+      {
+        "kind": "preview",
+        "source": "keyboard",
+        "milliseconds": 94.59999999403954
+      }
+    ],
+    "discardedStale": 0
+  },
+  "performanceAssessment": "Below the project frame-rate target. Inherited scene on a busy development machine, not a controlled regression comparison. Reprofile after Phase 2A integration. Editing correctness passes; performance/visual acceptance is not claimed.",
+  "humanNoviceReview": "Not performed; actual browser actions were agent-operated."
+}
