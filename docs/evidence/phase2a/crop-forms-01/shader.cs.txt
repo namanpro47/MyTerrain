@@ -1,0 +1,1 @@
+System.IO.File.Copy("docs/evidence/phase2a/visual-rebuild/study59-CultivatedSoil.shader.txt","Assets/Editor/CropDiagnostic/CultivatedSoil.shader",true);UnityEditor.AssetDatabase.ImportAsset("Assets/Editor/CropDiagnostic/CultivatedSoil.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);return true;
