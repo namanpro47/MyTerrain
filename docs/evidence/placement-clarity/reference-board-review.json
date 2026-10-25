@@ -1,0 +1,62 @@
+{
+  "browser": "Chrome",
+  "artifact": "Reference schematic only, not the rendered Unity game",
+  "states": [
+    {
+      "state": "browse",
+      "capture": "reference-browse.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    },
+    {
+      "state": "tool",
+      "capture": "reference-tool.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    },
+    {
+      "state": "preview",
+      "capture": "reference-preview.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    },
+    {
+      "state": "blocked",
+      "capture": "reference-blocked.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    },
+    {
+      "state": "queued",
+      "capture": "reference-queued.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    },
+    {
+      "state": "replace",
+      "capture": "reference-replace.png",
+      "imageSize": [
+        65536,
+        4292542531
+      ]
+    }
+  ],
+  "visuallyReviewed": true,
+  "fixes": [
+    "Separated site-slot annotation from instruction",
+    "Blocked preview says Nothing reserved / No land reserved",
+    "Uncommitted preview says Reserve instead of reserved",
+    "Replacement highlights Homes instead of Park"
+  ],
+  "gameplayAcceptance": false
+}

@@ -22,7 +22,7 @@ Native validation is complete: **2,839 assertions passed**, including788 existin
 
 ## Plan traceability
 
-P0: `docs/TERRA_NIL_INTERACTION_PLAN.md` and `docs/evidence/ux-reference-2026-10-25/index.html` contain six state layouts and direct supplied/video references (TN-03/04/05/06, CS-02/03/04, AX-01). The research HTML itself still needs a final browser layout check.
+P0: `docs/TERRA_NIL_INTERACTION_PLAN.md` and `docs/evidence/ux-reference-2026-10-25/index.html` contain six state layouts and direct supplied/video references (TN-03/04/05/06, CS-02/03/04, AX-01). The research HTML six-state Chrome review is now complete; see reference-board-review.json and reference-*.png. This is schematic evidence, separate from actual game acceptance.
 
 P1/P2/P3: active code in Main.Editing/Placement, HUD.BuildActions/AnnualLayout/PlayFirst/Placement, HudPlacementAnchor and LandscapeRenderer/Placement. P3 input glue is connected and native guard checks pass; actual browser verification remains pending.
 
