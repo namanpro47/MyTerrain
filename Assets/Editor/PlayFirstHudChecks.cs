@@ -25,12 +25,12 @@ public static class PlayFirstHudChecks
         {
             if(large)typeof(TerraHud).GetMethod("ToggleText",flags).Invoke(hud,null);
             foreach(bool compact in new[]{false,true})
-            foreach(var offer in definition.actions.GroupBy(a=>a.actionId).Select(g=>g.First()))
+            foreach(var offer in definition.actions.Where(a=>a.actionId!=AnnualPlayerRules.CancelAction).GroupBy(a=>a.actionId).Select(g=>g.First()))
             {
                 hud.AnnualPreview(world.sites.First(s=>s.id==offer.siteId),offer,town.Snapshot(),"place",null,()=>{},false);
                 typeof(TerraHud).GetMethod("LayoutAnnual",flags).Invoke(hud,new object[]{compact?1024f:1440f,compact?576f:900f,compact});
                 var text=Text();
-                Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents)),"Missing upfront cost for "+offer.actionId);
+                Check(text.Contains((string)typeof(TerraHud).GetMethod("StatMoney",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{offer.upfrontPublicCostCents})),"Missing upfront cost for "+offer.actionId);
                 Check(text.Contains("Opens Y"+(town.Year+offer.constructionYears)),"Opening year hidden for "+offer.actionId);
                 Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents+offer.annualPublicOperatingCents*offer.operatingYears+offer.annualPublicPaymentCents*offer.paymentYears)+" total reserved"),"Full commitment hidden for "+offer.actionId);
                 Check(text.Contains(offer.operatingYears+" yr"),"Upkeep term hidden");

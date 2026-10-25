@@ -51,66 +51,11 @@ namespace Terra.UI
             projectTiming=Row("calendar",256,out timingGlyph);
             projectReserve=Label(projectFacts,"",new Vector2(0,1),new Vector2(18,-286),new Vector2(268,24),14,Soft);
             projectFacts.gameObject.SetActive(false);
-            ConfigurePlacementFeedback();
+            ConfigurePlacementFeedback();ConfigureProjectStats();
         }
         void UpdateProjectFacts(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,bool queued)
-        {
-            projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued)&&!state.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0);
-            projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
-            if(!projectFactsVisible)return;
-            bool replacing=queued&&rejection==null&&state.queue.Any(q=>q.siteId==site.id&&q.actionId!=recipe.actionId);
-            previewTitle.text=recipe.title;previewKind.text=(replacing?"REPLACE Y"+state.year:queued?"QUEUED":"PLAN Y"+state.year)+" · "+site.name;
-            var card=actionButtons.FirstOrDefault(p=>p.Value==recipe.actionId).Key;
-            projectArt.sprite=card?.transform.Find("Model icon")?.GetComponent<Image>().sprite;projectArt.enabled=projectArt.sprite!=null;
-            projectCost.text=Money(recipe.upfrontPublicCostCents)+"\n<size=80%>Upfront · Opens Y"+(state.year+recipe.constructionYears)+"</size>";
-            projectUpkeep.text=Money(recipe.annualPublicOperatingCents)+"/yr upkeep · "+recipe.operatingYears+" yr";
-            if(recipe.annualPublicPaymentCents>0)projectUpkeep.text+="\n"+Money(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
-            var s=recipe.services;string benefit,icon;
-            if(recipe.actionId=="stewardship-agreement"){benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
-            else if(s!=null&&(recipe.actionId=="data-center"||recipe.actionId=="agricultural-storage")){benefit=s.jobs.ToString("0.#")+" jobs at capacity";icon="work";}
-            else if(s!=null&&s.homes>0){benefit=s.homes.ToString("0.#")+" home capacity";icon="home";}
-            else if(s!=null&&s.cleanEnergySupply>0){benefit=s.cleanEnergySupply.ToString("0.#")+" clean energy units";icon="energy";}
-            else if(s!=null&&s.energySupply>0){benefit=s.energySupply.ToString("0.#")+" energy units";icon="energy";}
-            else if(s!=null&&s.wastewaterCapacity>0){benefit=s.wastewaterCapacity.ToString("0.#")+" treatment units";icon="water";}
-            else if(s!=null&&s.recreation>0){benefit=s.recreation.ToString("0.#")+" recreation units";icon="people";}
-            else if(s!=null&&s.localServices>0){benefit=s.localServices.ToString("0.#")+" local service units";icon="people";}
-            else if(recipe.retentionCapacityM3>0){benefit=recipe.retentionCapacityM3.ToString("0.#")+" m³ retention capacity";icon="water";}
-            else if(recipe.productionUnits>0){benefit=recipe.productionUnits.ToString("0.#")+" production capacity units";icon="work";}
-            else{benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
-            projectBenefit.text=PlacementPurpose(recipe.actionId);benefitGlyph.symbol=icon;benefitGlyph.SetVerticesDirty();
-            if(s!=null&&(s.energyDemand>0||s.waterDemand>0))
-            {projectTradeoff.text=s.energyDemand>0&&s.waterDemand>0?"Needs energy and water; adds upkeep":s.energyDemand>0?"Needs energy; adds upkeep":"Needs water; adds upkeep";tradeoffGlyph.symbol="energy";}
-            else
-            {
-                var baseline=annualRules.sites.First(a=>a.id==site.id);
-                double loss=baseline.baselineProductionUnits-recipe.productionUnits;
-                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Cancel later; completed capital returns $0";tradeoffGlyph.symbol="warning";
-            }
-            tradeoffGlyph.SetVerticesDirty();
-            projectTiming.text="Opens Y"+(state.year+recipe.constructionYears)+" · grows for "+recipe.establishmentYears+" yr";
-            long reserve=recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
-            projectReserve.text=Money(reserve)+" total reserved";
-            recipeDetails.gameObject.SetActive(recipe.services!=null);SetButtonText(recipeDetails,"Details & assumptions");previewAction.gameObject.SetActive(false);
-        }
-        void LayoutPlayFirstInspector()
-        {
-            if(!projectFactsVisible)return;
-            float paymentSpace=inspectedRecipe?.annualPublicPaymentCents>0?0:20;
-            ((RectTransform)tooltip.transform).sizeDelta=new Vector2(304,400-paymentSpace);
-            projectBenefit.rectTransform.anchoredPosition=new Vector2(48,-180+paymentSpace);benefitGlyph.rectTransform.anchoredPosition=new Vector2(18,-180+paymentSpace);
-            projectTradeoff.rectTransform.anchoredPosition=new Vector2(48,-218+paymentSpace);tradeoffGlyph.rectTransform.anchoredPosition=new Vector2(18,-218+paymentSpace);
-            projectTiming.rectTransform.anchoredPosition=new Vector2(48,-256+paymentSpace);timingGlyph.rectTransform.anchoredPosition=new Vector2(18,-256+paymentSpace);
-            projectReserve.rectTransform.anchoredPosition=new Vector2(18,-286+paymentSpace);
-            previewTitle.rectTransform.anchoredPosition=new Vector2(18,-34);previewTitle.rectTransform.sizeDelta=new Vector2(268,28);
-            previewKind.rectTransform.anchoredPosition=new Vector2(18,-12);previewKind.rectTransform.sizeDelta=new Vector2(268,18);
-            previewKind.fontSize=14;previewKind.enableAutoSizing=false;previewKind.textWrappingMode=TextWrappingModes.NoWrap;
-            foreach(var text in new[]{projectUpkeep,projectBenefit,projectTradeoff,projectTiming,projectReserve})text.fontSize=LargeText?15.5f:14;
-            foreach(var text in new[]{projectBenefit,projectTradeoff})text.rectTransform.sizeDelta=new Vector2(238,38);
-            recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,53);recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(268,28);
-            foreach(var button in new[]{confirmEditButton,moveButton,removeButton})
-            {var rect=button.GetComponent<RectTransform>();rect.anchoredPosition=new Vector2(rect.anchoredPosition.x,10);rect.sizeDelta=new Vector2(rect.sizeDelta.x,36);}
-            LayoutPlacementFacts();
-        }
+            => UpdateVisualProjectStats(site,recipe,state,mode,rejection,queued);
+        void LayoutPlayFirstInspector() => LayoutVisualProjectStats();
         void ReflowPlanningDock()
         {
             if(annualRules==null)return;

@@ -115,6 +115,7 @@ namespace Terra.UI
         {
             var state=town.Snapshot();var current=state.history.LastOrDefault()?.outcomes??baseline;
             acceptedOutcomes=current;
+            UpdateTownNeeds(current);
             var guidance=AnnualPlanningGuidance.Create(town,current);
             var suggested=actionRules?.Find(guidance.actionId);
             annualPlanningHint=suggested==null?guidance.message:guidance.need+" · inspect "+ShortTitle(suggested);
@@ -155,9 +156,8 @@ namespace Terra.UI
             var existing=state.queue.FirstOrDefault(q=>q.siteId==site?.id);
             bool replacing=mode=="place"&&existing!=null&&recipe!=null&&existing.actionId!=recipe.actionId&&rejection==null;
             // A blocked replacement still exposes Move/Remove for the real queued project.
-            if(mode=="place"&&queued&&rejection!=null&&existing!=null)recipe=annualRules.actions.First(a=>a.siteId==existing.siteId&&a.actionId==existing.actionId);
             inspectedRecipe=recipe;recipeDetails.gameObject.SetActive(recipe?.services!=null&&rejection==null&&mode=="place");
-            tooltip.SetActive(site!=null||mode=="reset"||mode=="move");
+            tooltip.SetActive(site!=null||mode=="reset"||mode=="move"||(mode=="place"&&!string.IsNullOrEmpty(activeTool)&&state.phase==TownPhase.Planning));
             if(!tooltip.activeSelf){ReflowPlanningDock();return;}
             previewTitle.text=mode=="reset"?"Clear this year's plan":site?.name??"Choose a destination";
             var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id&&a.cancelledYear==0);
@@ -218,7 +218,8 @@ namespace Terra.UI
             if(a?.services==null)return;var s=a.services;
             string body=effects?"<b>When operating and funded</b>\nProductive output "+a.productionUnits.ToString("0.0")+" units · sustained jobs "+s.jobs+"\nHomes "+s.homes+" · recreation "+s.recreation+" · local services "+s.localServices+"\nEnergy generated "+s.energySupply+" (clean "+s.cleanEnergySupply+") · energy used "+s.energyDemand+"\nWater used "+s.waterDemand+" · wastewater "+s.wastewaterLoad+"\nWastewater treatment "+s.wastewaterCapacity+" · connected runoff capacity "+a.retentionCapacityM3+" m³\nEmissions pressure "+s.emissionsPressure+" scenario units\n\n<b>Trade-offs</b>"+"\nOccupies "+s.occupiedAreaM2.ToString("N0")+" m²; previous production on that land is displaced. Useful services cap at unmet need. Public upkeep is charged even if cash becomes negative; saved regional events can change output. New construction stops until the balance is repaid. These are scenario units, not forecasts."
                 :a.fundedUnit+"\n\nUpfront "+Money(a.upfrontPublicCostCents)+"\nOperating cost "+Money(a.annualPublicOperatingCents)+" / yr for "+a.operatingYears+" operating years\nProgram payment "+Money(a.annualPublicPaymentCents)+" / yr for "+a.paymentYears+" years\nEligible receipt "+Money(a.annualPublicReceiptsCents)+" / yr; housing needs occupied, supplied homes\nConstruction "+a.constructionYears+" years · establishment "+a.establishmentYears+" years\n\n"+a.ownerOperator+". Fictional consent/access are scenario prerequisites. Total project cost is unknown; this is the public contribution. Cancellation returns the unfinished fraction of public capital; completed capital and spent upkeep return $0.";
-            AnnualDialog(a.title,"<size=86%>"+body+"</size>",effects?"Costs & agreement":"Services & trade-offs",()=>AnnualProjectDetails(a,!effects));
+            body+="\n\nPlain-language labels: Working at is the usable share of full operational capacity in the last completed year. Local jobs support Economic, not treasury income. Green land is the fraction of the field with vegetation, contributing to Environment. Raw productive output is an authored farm/business activity index that contributes to Economic; it is not revenue. Homes ready and local jobs show current capacity / full capacity; green land shows the percentage of this field covered by vegetation.\n\nOverlay bars: costs share catalog-wide scales (upfront / maximum upfront; upkeep / maximum upkeep). Time ticks are years. ESE bars show signed points with a common -25 to +25 visual scale; exact numbers remain visible beyond that scale. Potential compares the selected plan with and without this project, or against the queued project being replaced, in its full-effect year (capped at Year 10). All projects follow their actual age and current condition, with funded upkeep and normal conditions. It is not an earned score or a weather/budget forecast.";
+            FieldNotes(a.title,"<size=86%>"+body+"</size>",effects?"Costs & agreement":"Services & trade-offs",()=>AnnualProjectDetails(a,!effects));
             AnnualSecondary("Return to plan",CloseModal);
         }
         public void AnnualSecondary(string caption,Action callback)
