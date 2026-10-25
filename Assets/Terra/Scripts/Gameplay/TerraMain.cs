@@ -27,6 +27,7 @@ namespace Terra.Gameplay
         bool perspective=true;float focusHeightOffset;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing,panGesture;Vector2 down,last;float toastUntil;
+        int ignorePlacementThroughFrame=-1;
         readonly BrowserPerformance performance=new BrowserPerformance();
         float shownYaw=-32,shownPitch=42,shownZoom=58;Vector3 shownTarget=new Vector3(-115,30,10);
         public int Revision=>annual?.State.revision??-1;
@@ -152,11 +153,11 @@ namespace Terra.Gameplay
                 var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 var up=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
                 var button=uiDown;uiDown=null;pressed=false;
-                if(up==button&&button.IsInteractable())button.onClick.Invoke();return;
+                if(up==button&&button.IsInteractable()){SuppressMapPointer();button.onClick.Invoke();}return;
             }
 #endif
             if(kind==3){pressed=false;return;}
-            if(kind==0){pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen;return;}
+            if(kind==0){pressed=true;dragged=false;panGesture=panning;down=last=position;overUi=UiAt(position)||hud.ModalOpen||Time.frameCount<=ignorePlacementThroughFrame;return;}
             if(!ready)return;
             if(kind==1)
             {
@@ -174,6 +175,7 @@ namespace Terra.Gameplay
         }
         public void Scroll(float amount){if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
+        void SuppressMapPointer(){pressed=false;dragged=false;uiDown=null;overUi=true;ignorePlacementThroughFrame=Time.frameCount+2;}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
         {
