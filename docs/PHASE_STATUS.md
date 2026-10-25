@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Isolated terrain integration and overlay optimization — October 25, 2026
+
+Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle,349display and394project checks. Sharing interior overlay vertices reduces observed Ghost construction from28–159ms to7–26ms in the Editor. An old/new reference comparison covers167,282triangles on both fine/source grids, with explicit floating-point-sliver tolerances. Code `a03d0d8` is retained on `codex/relief-validation` for the visual owner; **main contains evidence only**, not the unaccepted terrain candidate. [Exact source, fixtures, measurements and limitations](evidence/full-game/relief-validation/README.md). The owner is revising the terrain shape beyond this tested6m-band checkpoint; these results must not be relabelled as validation of that revision. Final combined Chrome, visual and release gates remain open.
+
 **Study45 full-scene review:** Continuous canopy and distance meshes now run across Wisconsin; a premature crop fade was corrected after a matched control. 209 rendering lifecycle assertions and atlas/save checks pass. Meadow/surface quality still fails the visual bar; Chrome review is next. [Captures, controls and scope limitations](evidence/phase2a/visual-rebuild/study45-findings.md).
 
 **Study45 unfinished integration checkpoint:** Wisconsin now uses the clustered woodland candidate with three distance levels per tree. Compilation and 96 asset checks passed; full-scene, annual and Chrome validation remain pending. [Saved work and evidence](evidence/phase2a/visual-rebuild/study45-checkpoint.md). Phase 2A remains open.
