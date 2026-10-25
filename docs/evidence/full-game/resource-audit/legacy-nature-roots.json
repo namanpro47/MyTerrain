@@ -1,0 +1,123 @@
+{
+  "sourceCommit": "50411131469148db218c2272c0ecd196346d0995",
+  "scope": "Read-only candidate-root reference inventory; no assets moved. Moving roots preserves GUID references but literal Editor paths need adjustment. This is not a measured build saving.",
+  "candidates": [
+    {
+      "path": "Assets/Terra/Resources/Nature/ArtistWheat.prefab",
+      "guid": "9b7925d6d0e2042c08034f55162fb7f1",
+      "serializedReferences": [],
+      "codeReferences": [
+        "Assets/Editor/VisualRebuildAssets.cs"
+      ]
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/Bush_Common.prefab",
+      "guid": "d1fdbaae4db6d4a64a121111fc3f53ab",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/CommonTree_1.prefab",
+      "guid": "76bce37ae319646d998a0e0806527008",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/CommonTree_2.prefab",
+      "guid": "ad1c1344160ed4d9296573f2e376284a",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/CommonTree_3.prefab",
+      "guid": "192bff1d4102a490f874629fa36acc87",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceCrown01.mat",
+      "guid": "0d905927c30884b43815b86e627dbee1",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/ErceTree01.prefab"
+      ],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceCrown02.mat",
+      "guid": "d9fccf9dc597d42e5b3bc4dc1db5284e",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/ErceTree02.prefab"
+      ],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceCrown03.mat",
+      "guid": "2be71264be4cd4531a0e6d9bb3be882b",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/ErceTree03.prefab"
+      ],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceCrown05.mat",
+      "guid": "eb2809936fa604c0c9614fb7b3818837",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/ErceTree05.prefab"
+      ],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceT_Trunk.mat",
+      "guid": "a66220f12e2ca4e43b0cbb46bf62a34b",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/ErceTree05.prefab",
+        "Assets/Terra/Resources/Nature/ErceTree03.prefab",
+        "Assets/Terra/Resources/Nature/ErceTree01.prefab",
+        "Assets/Terra/Resources/Nature/ErceTree02.prefab"
+      ],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceTree01.prefab",
+      "guid": "8eacc7a800a144ee0acfee418b844120",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceTree02.prefab",
+      "guid": "8cd64f097c9914e7da2c2fe4036e3dee",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceTree03.prefab",
+      "guid": "8553c65b011c147b0b8c920dd53c7006",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/ErceTree05.prefab",
+      "guid": "51753d0417f07446d97ddd9fbb8d900e",
+      "serializedReferences": [],
+      "codeReferences": []
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/GeometricWheat.prefab",
+      "guid": "0593cab6a6571412184d75c5a464fd8e",
+      "serializedReferences": [],
+      "codeReferences": [
+        "Assets/Editor/VisualRebuildAssets.cs"
+      ]
+    },
+    {
+      "path": "Assets/Terra/Resources/Nature/FieldWheat.mat",
+      "guid": "daaecae8f73fb48748c0517bd08ad7ac",
+      "serializedReferences": [
+        "Assets/Terra/Resources/Nature/GeometricWheat.prefab"
+      ],
+      "codeReferences": [
+        "Assets/Editor/VisualRebuildAssets.cs"
+      ]
+    }
+  ]
+}
