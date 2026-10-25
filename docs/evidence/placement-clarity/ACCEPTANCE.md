@@ -42,3 +42,7 @@ The opening capture's large blank map-edge wedge was also handed to that owner a
 Queued identity currently uses a named world label and dashed boundary. The plan's miniature/check pin is not implemented and must not be claimed as delivered. Both this visual detail and the P4 composition need a coordinated follow-through; the frozen release is not being modified during its verification.
 
 Final Chrome request123 follows short dialog/numeric checks and the community build. It reserves desktop plus heavy-work exclusion for two30-second F9 samples. No timing result is inferred from native assertions or from a busy-machine walkthrough.
+
+### Queued pin candidate
+
+Commit `d9df021` completes the miniature/check pin in source, on top of merged origin/main19e7eae. It reuses the catalog sprite shown by the tool, inherits the existing status label's billboard/scale/lifetime, draws a check without a font-glyph dependency, and adds no raycaster or command behavior. Repeated marker refresh updates the existing miniature; missing art retains the named ground boundary. `git diff --check` passes. Unity compilation and actual Chrome rendering are pending; this is not in the frozen19e7eae export. The next presentation owner has been offered the one-file candidate for coordinated validation. Final frozen-export verification is now request125 under `placement-pin-final-20261025`.
