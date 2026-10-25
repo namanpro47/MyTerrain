@@ -2,6 +2,8 @@
 
 Prepared implementation; import/build and actual visual comparison pending. Fresh isolated `codex/visual-field76`, base `19e7eae835ed4c06a21d42887a9a53ed28cc4fc2`, fetched October25. No Library copied/shared. This keeps the combined native selector, inherited settlements, dense parcels, current HUD and annual loop intact.
 
+[Visible comparison brief](comparison.md): inspected Terra Nil frames beside the historical Chrome field, with the specific appearance this study must improve.
+
 The preceding [study75 evidence](https://github.com/namanpro47/Terra/tree/22e3741/docs/evidence/phase2a/visual-rebuild/study75-distance) rejects detailed wheat plus a distant surface: fine noise, representation mismatch and11.52M selected plant triangles in one normal view. Its color fade also did not match the shadow pass. Do not repeat that implementation or infer that a cleaner compile means a finished field.
 
 ## Substantially different construction
