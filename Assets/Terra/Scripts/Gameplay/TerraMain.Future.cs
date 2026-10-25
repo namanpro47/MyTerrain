@@ -29,9 +29,19 @@ namespace Terra.Gameplay
         {
             if(fastForwarding)return;
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
-            var forecast=AnnualGameplay.Forecast(annual.Engine);
-            hud.AnnualDialog("See my ten-year future?","Submit the current reviewed plan, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\n"+
-                "Current plan: "+annual.State.queue.Length+" projects; expected next closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
+            var forecastTown=annual.Engine;
+            bool reviewing=annual.State.phase==TownPhase.Reviewing;
+            if(reviewing)
+            {
+                // The shared HUD forecast deliberately returns the accepted report during review.
+                // This confirmation needs the next year, without advancing the saved live run.
+                forecastTown=AnnualTown.Restore(annual.Definition,annual.State);
+                forecastTown.ContinuePlanning(forecastTown.Revision);
+            }
+            var forecast=AnnualGameplay.Forecast(forecastTown);
+            string start=reviewing?"Continue from accepted Year "+annual.State.year+", then advance the remaining years without new projects.":"Submit the current reviewed plan, then advance the remaining years without new projects.";
+            hud.AnnualDialog("See my ten-year future?",start+" Existing projects still age, need upkeep and encounter the same saved conditions.\n\n"+
+                "Current plan: "+annual.State.queue.Length+" projects; expected Year "+forecast.year+" closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
         }
         IEnumerator FinishYears()
         {
