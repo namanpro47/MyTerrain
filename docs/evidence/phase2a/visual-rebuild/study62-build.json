@@ -1,0 +1,10 @@
+{
+  "source": "6e1b3cb4e27c479c6ef3c53728c4381518f3958e",
+  "job": "9b68f1c7d5654944b6be934e0ad38355",
+  "status": "succeeded",
+  "build": "Builds/Web62",
+  "url": "http://127.0.0.1:49673",
+  "verifiedFiles": 31,
+  "verifiedBytes": 48135243,
+  "scope": "Local diagnostic export. Same six tracked editor-generated differences and imported/ignored inputs as study60; not clean Git-only or public release evidence. Documentation-only fast-forward to855cec8 happened after export."
+}

@@ -7,7 +7,7 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed partial class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh,medium,distant;public Material material,mediumMaterial,distantMaterial;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight,highDetailPixels=42,mediumDetailPixels=18;public bool crop,groundcover,distantEmpty,bakedGrass; }
+        sealed class Batch { public Mesh mesh,medium,distant;public Material material,mediumMaterial,distantMaterial;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight,detailExtent,cullPixels=2,highDetailPixels=42,mediumDetailPixels=18;public bool crop,groundcover,distantEmpty,bakedGrass; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
         static int cameraFrame=-1;static bool cameraValid,orthographic;
@@ -28,6 +28,7 @@ namespace Terra.Rendering
         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
         {
             if(prefab==null||transforms.Count==0)return;
+            var profile=prefab.GetComponent<NatureLodProfile>();
             var lodGroup=prefab.GetComponent<LODGroup>();
             var lods=lodGroup!=null?lodGroup.GetLODs():null;
             var filters=lods!=null&&lods.Length>0?System.Array.ConvertAll(lods[0].renderers,r=>r.GetComponent<MeshFilter>()):prefab.GetComponentsInChildren<MeshFilter>(true);
@@ -84,7 +85,16 @@ namespace Terra.Rendering
                         if(medium!=null)localBounds.Encapsulate(medium.bounds);if(distant!=null)localBounds.Encapsulate(distant.bounds);
                         var bounds=TransformBounds(localBounds,matrices[0]);float maxHeight=bounds.size.y;
                         for(int i=1;i<matrices.Length;i++){var plantBounds=TransformBounds(localBounds,matrices[i]);bounds.Encapsulate(plantBounds);maxHeight=Mathf.Max(maxHeight,plantBounds.size.y);}
-                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,mediumMaterial=mediumMaterial,distantMaterial=distantMaterial,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster",groundcover=softGroundCover,bakedGrass=grassLods,highDetailPixels=grassLods?20:lods!=null?120:42,mediumDetailPixels=grassLods?8:lods!=null?50:18,distantEmpty=distant!=null&&distant.GetIndexCount(sub)==0});
+                        float detailExtent=maxHeight;
+                        if(profile!=null&&profile.includeWidth)
+                        {
+                            foreach(var matrix in matrices)
+                            {
+                                var scale=matrix.lossyScale;
+                                detailExtent=Mathf.Max(detailExtent,localBounds.size.x*Mathf.Abs(scale.x),localBounds.size.z*Mathf.Abs(scale.z));
+                            }
+                        }
+                        batches.Add(new Batch{detailExtent=detailExtent,cullPixels=profile!=null?profile.cullPixels:2,mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,mediumMaterial=mediumMaterial,distantMaterial=distantMaterial,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster",groundcover=softGroundCover,bakedGrass=grassLods,highDetailPixels=profile!=null?profile.nearPixels:grassLods?20:lods!=null?120:42,mediumDetailPixels=profile!=null?profile.farPixels:grassLods?8:lods!=null?50:18,distantEmpty=distant!=null&&distant.GetIndexCount(sub)==0});
                     }
                 }
             }
@@ -135,9 +145,9 @@ namespace Terra.Rendering
                     // RenderMeshInstanced retains its native bounds/frustum and shadow culling.
                     // Use the nearest part of a spatial batch, retaining detail conservatively at its near edge.
                     float depth=Mathf.Max(1,Vector3.Dot(b.bounds.center-cameraPosition,cameraForward)-b.bounds.extents.magnitude);
-                    pixels=b.maxHeight*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
+                    pixels=b.detailExtent*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
                     // The crop shader fades individual stalks before this conservative batch cutoff.
-                    if(b.crop&&pixels<=.6f||b.groundcover&&pixels<=1.5f||b.medium!=null&&!b.bakedGrass&&pixels<2)continue;
+                    if(b.crop&&pixels<=.6f||b.groundcover&&pixels<=1.5f||b.medium!=null&&!b.bakedGrass&&pixels<b.cullPixels)continue;
                 }
                 bool far=pixels<b.mediumDetailPixels&&b.distant!=null,mid=!far&&pixels<b.highDetailPixels&&b.medium!=null;
                 if(far&&b.distantEmpty)continue;

@@ -94,7 +94,7 @@ namespace Terra.Rendering
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
         Material GroundMat(Color color)
-        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_IllustrativeRelief",clusteredWoodland?1:0);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_IllustrativeRelief",clusteredWoodland?1:0);material.SetFloat("_CultivatedBeds",clusteredWoodland?1:0);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
