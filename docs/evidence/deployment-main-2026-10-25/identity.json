@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-25",
+  "sourceCommit": "913c79fcfae6da89142762e747550fa8aa2cc240",
+  "reconciledMain": "7e95434fc2b6fa00846acf0f1a79d28dea3a8f13",
+  "runtimeInputsUnchangedThroughReconciledMain": true,
+  "frozenExport": "Builds/Verified/913c79f",
+  "worktree": "/Users/naman/.codex/worktrees/publish-main-oct25/Terra",
+  "deploymentId": "dpl_DvwrgFpEd8YyYUevRgbyqLXqbR1Z",
+  "productionUrl": "https://terra-browser.vercel.app/",
+  "deploymentUrl": "https://terra-browser-2kei6avih-namanpro47s-projects.vercel.app",
+  "state": "READY",
+  "publishedLocalTime": "2026-10-25 08:49 America/Los_Angeles",
+  "runtimeFiles": 31,
+  "runtimeBytes": 39997384,
+  "buildSucceeded": true,
+  "editorErrors": [],
+  "browser": "Chrome",
+  "localChecks": [
+    "Atlas and Wisconsin entry",
+    "Landscape and HUD render",
+    "Traditional farmland queued on West field: available funds $9,880,000, cash $10,000,000, plan reserve $120,000",
+    "Undo restores $10,000,000 available and zero plan reserve",
+    "No error-level console logs"
+  ],
+  "publicChecks": [
+    "Anonymous HTTP 200 and exact byte equality for all runtime files",
+    "Brotli decoding and WASM header checks",
+    "Atlas and Wisconsin entry",
+    "Updated connected-field onboarding preserves previous-layout save",
+    "Landscape, current HUD, placement and undo",
+    "No error-level console logs"
+  ],
+  "limits": [
+    "Publication refresh, not Phase 2A visual acceptance",
+    "No fresh performance benchmark or full ten-year public rehearsal",
+    "Optional Gemini service remains local; no credentials deployed",
+    "Unfinished visual/runtime branches and original checkout Editor setting left untouched"
+  ]
+}

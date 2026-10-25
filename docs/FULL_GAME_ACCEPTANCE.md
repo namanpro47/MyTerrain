@@ -54,4 +54,6 @@ Expected Year10: **94.2 / 91.0 / 61.5**, $612,000 future obligations, no arrears
 
 ## Explicit coverage limits
 
+The [October 25 annual stress audit](evidence/annual-completion/README.md) adds 51 repeated-family/site-order routes and failure/reload recovery at every Year 1–10 on both current and legacy layouts (2,399 assertions per layout). No tested repeated family meets all three targets. Late commitments and both recoverable and still-indebted endings remain explicit. It changes no runtime balance or visuals and does not replace final browser checks. The user explicitly requested continuing with human playtesting recorded as unavailable. The annual-completion chat owns the final public manual run and two timed rehearsals after visual acceptance; rendering/performance stays with the existing implementation owner.
+
 No novice participants, low-end device test or physical listening assessment is claimed. Chrome is the required browser; historical Safari receipts are not current coverage. The available frame-time observations describe this Mac and the named export, not arbitrary hardware. AI narration is optional and must not block authored offline consequences. Scenery acceptance and final public/rehearsal evidence cannot be replaced by these limitations.

@@ -1,0 +1,82 @@
+[
+  {
+    "path": "comparison.jpg",
+    "bytes": 143242,
+    "sha256": "f5bd90933f1c611ebcfb86e7fd5b920e0aaec611d30139759fd05c66db1132e0"
+  },
+  {
+    "path": "comparison.json",
+    "bytes": 68710,
+    "sha256": "d9a5d4bf624af35c8e01ab6b3ebb944265877f9c4561cc64c1a007c12ac97d3d"
+  },
+  {
+    "path": "editing-moving.json",
+    "bytes": 45929,
+    "sha256": "764f68036f43acddf5911cdbea669400bf00dfe3eb5fdb461c73995d89e8306b"
+  },
+  {
+    "path": "editing.json",
+    "bytes": 22463,
+    "sha256": "a61adfa19a13f15a4576d3ad9624750f4722a537cdbc7aca0b1cc9b6476474ea"
+  },
+  {
+    "path": "ending.jpg",
+    "bytes": 97694,
+    "sha256": "8a6a543be186b2829a49829739d127957cead45fd6810d78d033b75711ef55b8"
+  },
+  {
+    "path": "opening.jpg",
+    "bytes": 141918,
+    "sha256": "5cdfbd383ad7240c29b97f005d29e7d7ed9af017e15e6943f66e44f70b5267c0"
+  },
+  {
+    "path": "opening.json",
+    "bytes": 20186,
+    "sha256": "d38e586149f23e80d79829cdc59d35729a03e74f90d8621c82d708f260cea956"
+  },
+  {
+    "path": "owner-verified.json",
+    "bytes": 9354,
+    "sha256": "dacd943e76606e94f79d390fc2a24fc2f8c479ec1c195125da73c1e5a8df7c4f"
+  },
+  {
+    "path": "queued.jpg",
+    "bytes": 138499,
+    "sha256": "f38082cb903243465c67da3484c869582507f30becac3b34936541e9ef234d64"
+  },
+  {
+    "path": "reloaded.jpg",
+    "bytes": 98158,
+    "sha256": "1d65aeb3d5843f2c23719662df10e76c8779447b51f54696fdcdee00b44a9f13"
+  },
+  {
+    "path": "reloaded.json",
+    "bytes": 93579,
+    "sha256": "9a767a6afd2a3ebaecc4b6078726ba511667da9443d310b9cdf32fe6d678e7ee"
+  },
+  {
+    "path": "replay.jpg",
+    "bytes": 98305,
+    "sha256": "de8b86a92c180735ac1dc30239381c8f34a7da457139cf9f08805a0d31b6eebf"
+  },
+  {
+    "path": "replay.json",
+    "bytes": 99044,
+    "sha256": "f9754c92e07b633bb50877e4880e23e22cb7023d19b8dc1455a0134e18dc34eb"
+  },
+  {
+    "path": "summary.json",
+    "bytes": 5645,
+    "sha256": "b961555ddfd720569e89c60074981aa5cf4157ec5a5a9cf59ef892b3fa463ad7"
+  },
+  {
+    "path": "verified.json",
+    "bytes": 9354,
+    "sha256": "eda5835214f56fb14737bb4355ada4213172428e702fe36241140abfc4d814b7"
+  },
+  {
+    "path": "year10-camera.json",
+    "bytes": 57415,
+    "sha256": "cea5d2a8c7f6222d4d42aa921dc615889fc71afe18816639bd69b890e9ca5bae"
+  }
+]

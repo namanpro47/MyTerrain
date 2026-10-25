@@ -1,5 +1,27 @@
 # Terra — phase status and evidence
 
+## Crop grouping browser comparison — October 25, 2026
+
+[Focused Chrome comparison](evidence/phase2a/crop-spatial-browser-01/README.md) freezes clean-source `d4ae4f2` at 31 byte-verified runtime files / 48.09 MB. Control opening p95 is 18 ms; candidate opening/editing/Year10 are **22 / 39 / 26 ms**, all visible/focused. Editing still fails the 33.3 ms fallback; no browser speedup is established. Actual queue/undo/redo and confirmed two-project Year10 preserve $19.605M and 51.0/58.0/47.5, with zero browser errors. Single fresh-entry observations (18.653 s control / 15.675 s candidate) also miss 15 s. Main receives evidence only. Candidate art/runtime and final visual/performance/public-run/rehearsal/recording gates remain unaccepted.
+
+## Main production refresh — October 25, 2026
+
+Published clean-source `913c79f`, with runtime/build inputs matching reconciled main `7e95434`, to [terra-browser.vercel.app](https://terra-browser.vercel.app/). Deployment `dpl_DvwrgFpEd8YyYUevRgbyqLXqbR1Z` is Ready; 31 files / 39,997,384 bytes match the frozen export publicly. Fresh Unity build and 804 automated checks passed. Local/public Chrome atlas, landscape, current HUD, placement and undo smoke checks passed with no error-level logs. [Exact identity, files, captures and limits](evidence/deployment-main-2026-10-25/README.md). This refresh does not merge unfinished visual candidates or accept Phase 2A; full public rehearsals and final performance acceptance remain open.
+
+## Phase 5/6 annual stress and recovery — October 25, 2026
+
+The annual-completion chat independently extends the existing full-game suite: **2,399 assertions pass on both current connected and legacy Wisconsin layouts**. New coverage includes 51 repeated-family/site-order routes per layout, exact interrupted-future recovery at every Year 1–10, mismatched/duplicate response safety, same-condition comparison drivers, late construction with $600K beyond-horizon obligations, debt-preserving shortfall endings, and a recoverable repair with a useful Year 4 park investment. No production rule, price, save, HUD or scenery changes. [Reproduction, exact inputs, results and limitations](evidence/annual-completion/README.md).
+
+The user explicitly chose to continue with **human playtesting unavailable**; no novice comprehension or duration claim is made. The existing implementation chat retains rendering/performance and integration; this chat owns the final public manual run and two rehearsals after the accepted visual export. These model checks do not close Phase 2A, final Chrome/release gates or certify a deployment.
+
+## Crop spatial grouping — isolated candidate, October 25, 2026
+
+[Candidate `d4ae4f2`](evidence/phase2a/crop-spatial-01/README.md) groups existing crop plants into 32m source cells before unchanged culling/LOD selection. Exact plant/soil content fingerprints and all three crop lifecycles pass. Normal/close selected leaf triangles fall 2.76M→1.60M and 5.34M→2.28M; total nature draws fall 499→452 and 295→261. Expected LOD silhouette differences are documented in matched captures. Chrome timing remains pending; **main contains evidence only**, not this runtime/art candidate.
+
+## Combined crop browser regression — October 25, 2026
+
+[Frozen Web64, reported source `e3f4905`](evidence/phase2a/combined-crops-browser-01/README.md) has 31 byte-verified files /48,126,445 bytes. Actual focused Chrome 1280×720 opening, moving-editing and bounded Year 10 samples fail the stable-30 frame-time limit at 37/41/34ms p95. Preview/placement feedback passes; two-project fast-forward, read-only comparison, reload and replay preserve or reset state correctly. This does not replace a manual ten-year run or final performance/visual/public acceptance. Main/runtime promotion remains deferred while the combined rendering cost is investigated.
+
 ## Larger nature groups and crop integration — October 25, 2026
 
 [Candidate `d620ff2`](evidence/phase2a/submission-cells-01/README.md) changes nature aggregation from 96m to 192m after existing source culling/LOD selection. Exact matrix/bounds/capacity checks and paired camera captures pass. In one sequential focused Chrome comparison at 1280×720, conifer control p95 is 39ms and candidate p95 is 30ms; queue/undo preserve cash and accepted history. These bounded results do not replace three final combined paths. The frozen candidate has 31 byte-verified files /48,086,076 bytes. Source/import and benchmark limits are explicit in the receipt.

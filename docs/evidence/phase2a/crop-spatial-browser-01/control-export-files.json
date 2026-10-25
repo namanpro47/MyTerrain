@@ -1,0 +1,157 @@
+[
+  {
+    "file": "Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb",
+    "bytes": 67750,
+    "sha256": "fafe8a5b9f214039b6ff084a0318126f83b2c3fdeed7865996508484568fadd8"
+  },
+  {
+    "file": "Build/3ca08203ce6c6acd633abf69ce493ec3.data.unityweb",
+    "bytes": 35422839,
+    "sha256": "70c29ba3f93038e8861b8e31cc1476eb0a2fcd298e2ab4a31efb22c8c8323015"
+  },
+  {
+    "file": "Build/599ced86da1bc05736d3c3b90ce80565.loader.js",
+    "bytes": 118806,
+    "sha256": "cf84252608b0e67837345d3e8ab95e6265fd0e151165625579b81a183dfffac7"
+  },
+  {
+    "file": "Build/7c74b7a487f58c41a885ca29245357ca.wasm.unityweb",
+    "bytes": 7963601,
+    "sha256": "1326abe6fb0b42e0ed626e28eeeac3202ebb6bbe03fbc0e501f3e519d8b7d643"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+    "bytes": 2205,
+    "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+    "bytes": 3215,
+    "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+    "bytes": 2260,
+    "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+    "bytes": 947918,
+    "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+    "bytes": 2002,
+    "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+    "bytes": 2171,
+    "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+    "bytes": 2261,
+    "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+    "bytes": 259502,
+    "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+    "bytes": 1805,
+    "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+    "bytes": 2161,
+    "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+    "bytes": 2252,
+    "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+  },
+  {
+    "file": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+    "bytes": 268061,
+    "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+  },
+  {
+    "file": "atlas/CREDITS.md",
+    "bytes": 1605,
+    "sha256": "2b5d2910ce9402610324118a24d627290cf2dbfd2182e5833fd2d08282053468"
+  },
+  {
+    "file": "atlas/atlas.css",
+    "bytes": 16653,
+    "sha256": "64340f1daf095bdc26cac3ecf69d628ba54fafd89f95cd07dc7e247e74097a3d"
+  },
+  {
+    "file": "atlas/atlas.js",
+    "bytes": 7769,
+    "sha256": "4a21f20fdd2a92fd1a50b82f9a1a3c642340afc82764c5f100103914481705bf"
+  },
+  {
+    "file": "atlas/globe.js",
+    "bytes": 10494,
+    "sha256": "1d07c1a023c2e81fc67e5d196aa8d72b18eb8826577df7be81b559603d0b9a72"
+  },
+  {
+    "file": "atlas/images/earth.jpg",
+    "bytes": 2308798,
+    "sha256": "4f4240673a3a1b173d61b92ca4b07bac5fd17059ea5f725ba6da5a9c5386b7ba"
+  },
+  {
+    "file": "atlas/images/favicon.svg",
+    "bytes": 208,
+    "sha256": "ddababfab172f532756f1689d013d62730d8b578677c506d094a386803d2039a"
+  },
+  {
+    "file": "atlas/images/point-reyes.svg",
+    "bytes": 1319,
+    "sha256": "f282e3145d5be1ee96fe245113fa0deda4461b22776211e54a1e0b78167748e0"
+  },
+  {
+    "file": "atlas/images/suusamyr.svg",
+    "bytes": 1217,
+    "sha256": "7cd0226718fec9cfe921eead070265c2ebd7a93883fa36217f2edce52756406a"
+  },
+  {
+    "file": "atlas/images/wisconsin.svg",
+    "bytes": 1562,
+    "sha256": "9d0e5cf192d6b1b45cc61a7337b7d7a8d7e3e5ba42f1e05446fd3838972025c5"
+  },
+  {
+    "file": "atlas/locations.js",
+    "bytes": 1851,
+    "sha256": "25e4d66fab66683c6a23e30046a2a945730c4c0c8344780bd96119cfdb1d00fd"
+  },
+  {
+    "file": "atlas/player.js",
+    "bytes": 5211,
+    "sha256": "40556ed8570f5dc83d0559f487d451d6b4eeb62a7c9ab5827a58fd0746960d14"
+  },
+  {
+    "file": "atlas/vendor/THREE-LICENSE.txt",
+    "bytes": 1081,
+    "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454"
+  },
+  {
+    "file": "atlas/vendor/WATER-LICENSE.txt",
+    "bytes": 1066,
+    "sha256": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87"
+  },
+  {
+    "file": "atlas/vendor/three.module.min.js",
+    "bytes": 691648,
+    "sha256": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7"
+  },
+  {
+    "file": "index.html",
+    "bytes": 7154,
+    "sha256": "295ee4fbd70d04628f20dd7c346ecf87d66a9755a6292063291a95dcb2af9b3f"
+  }
+]

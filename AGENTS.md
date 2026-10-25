@@ -8,6 +8,14 @@
 
 Before each new implementation task, inspect local status, run `git fetch --prune origin`, and record the latest `origin/main` commit. Create a fresh isolated worktree from that refreshed ref unless Peter explicitly chooses another base. Do not reset, overwrite or pull over an existing worktree's uncommitted work. For continuing feature work, fetch and review incoming changes before integrating them. Never force-push or deploy as part of this synchronization instruction.
 
+## Parallel tasks and shared tools
+
+Read [docs/WORK_COORDINATION.md](docs/WORK_COORDINATION.md) before parallel implementation or Unity/browser testing. Use `python3 scripts/terra-work.py status`, then register a unique task with its owned paths in its isolated worktree. Preserve existing assignments; resolve overlapping claims before editing. The shared local board is outside Git; do not create per-worktree copies or separate databases for real work.
+
+Acquire the relevant reservation before shared operations: `editor` for the task's Unity project, `desktop` for foreground Chrome/Unity/computer use, `unity-heavy` for builds/imports/batch tests (also with `desktop` for performance measurements), and `integration` for reconciliation/push to main or an already-authorized release. Request all needed resources together. Busy means continue independent work, not bypass the reservation. Release after the actual job/session finishes; never steal reservations based on time alone.
+
+Unity MCP may target the original checkout even when this chat uses a worktree. Verify its binding; otherwise use `terra-work.py unity` with a held editor reservation, which pins the absolute project path. Never operate another task's editor, change its branch/files, close its tabs or kill its jobs to make room. Keep each worktree's Library/Temp/build outputs, server ports and browser tabs separate. The board is cooperative: existing chats must adopt it; an empty board does not prove existing jobs are idle. This rule does not authorize messaging chats, deployment, or expanded gameplay scope.
+
 ## Authorized annual foundation
 
 Peter's project-specific delivery instruction: merge validated work directly into the current default branch (`main`); do not create pull requests. Fetch first, work in a fresh isolated worktree, preserve teammate changes, and use normal fast-forward pushes (never force-push). On October 24 he also authorized an isolated annual playtest/end-year summary and placeholder simulation while the teammate overhauls the main UI. Keep this test harness separate from TerraMain/TerraHud/scenes; leave integration comments for the owner.

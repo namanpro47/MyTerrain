@@ -9,6 +9,12 @@ var scenario=JsonSerializer.Deserialize<Scenario>(File.ReadAllText("worlds/meado
 var hydro=JsonSerializer.Deserialize<RunoffConfiguration>(File.ReadAllText("worlds/meadowbrook-v1/hydrology.json"),options);
 bool connected=args.Contains("--connected");
 string evidence=connected?"docs/evidence/hud-connected":"docs/evidence/full-game";
+int evidenceArg=Array.IndexOf(args,"--evidence");
+if(evidenceArg>=0)
+{
+ if(evidenceArg+1>=args.Length||args[evidenceArg+1].StartsWith("--"))throw new ArgumentException("--evidence requires an output directory");
+ evidence=args[evidenceArg+1];
+}
 if(connected)
 {
  var before=world.sites.Sum(s=>(double)s.analysisAreaM2)+hydro.context.Sum(c=>(double)c.areaM2);
@@ -111,5 +117,6 @@ for(int year=1;year<=10;year++)
  manual=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(manual.Snapshot(),options),options));
 }
 Check(JsonSerializer.Serialize(manual.Snapshot(),options)==JsonSerializer.Serialize(automatic.Snapshot(),options),"Fast-forward and manual transitions identical, including reload each year");
+if(args.Contains("--stress"))checks+=AnnualStressChecks.Run(d,evidence);
 File.WriteAllText(evidence+"/checks.json",JsonSerializer.Serialize(new {assertions=checks,variants=FullAnnualGameplay.Supported.Length,offers=d.actions.Length,legacyWorldUnchanged=true,manualFastForwardEquivalent=true},options));
 Console.WriteLine("Full ten-year checks passed; total assertions: "+checks);
