@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(!UnityEditor.EditorApplication.isPlaying||main==null)throw new System.Exception(\"Initialized game required\");return new {frame=UnityEngine.Time.frameCount,state=main.Diagnostic,atlas=AtlasLocationChecks.Run(),lifecycle=FullAnnualGameChecks.Run()};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 1649,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "atlas": "Atlas locations: 678 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection.",
+        "lifecycle": "Full annual game: 34 Unity lifecycle/JSON checks; 127 eligible offers, 17 variants / 12 source families."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
