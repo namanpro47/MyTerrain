@@ -44,6 +44,11 @@ AnnualTownDefinition Rules(string seed="repeatable",string region="meadowbrook-v
 TownYearReport End(AnnualTown t)=>AnnualTownDemo.Advance(t,t.RunId+"/"+t.Year,provider);
 AnnualTown Reload(AnnualTown t)=>AnnualTown.Restore(t.Definition,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(t.Snapshot(),options),options));
 var playerRules=Rules();
+var freshGuidanceTown=new AnnualTown(playerRules,"fresh-guidance");
+var initialGuidance=AnnualPlanningGuidance.Create(freshGuidanceTown,AnnualGameplay.Baseline(playerRules));
+Check(!string.IsNullOrWhiteSpace(initialGuidance.message)&&initialGuidance.actionId!=AnnualPlayerRules.CancelAction,"fresh-run HUD guidance ignores cancellation offers on empty sites");
+Check(freshGuidanceTown.Queue.Length==0&&freshGuidanceTown.History.Length==0,"guidance does not mutate opening state");
+
 Check(TownCopies.Hash(playerRules)==TownCopies.Hash(Rules()),"same seed, identical definition and event schedule");
 Check(TownCopies.Hash(playerRules.drivers)!=TownCopies.Hash(Rules("another").drivers),"another seed changes saved schedule");
 foreach(var region in new[]{"meadowbrook-v1","point-reyes-v1","suusamyr-v1"})
@@ -76,6 +81,11 @@ Check(AnnualTownSummary.Latest(cancelling).receivedCents==removed.ledger.appropr
 Check(cancelling.CompleteResolution(removed.acceptedConsequences).ledger.closingCashCents==removed.ledger.closingCashCents,"duplicate callback no second refund");
 cancelling=Reload(cancelling);cancelling.ContinuePlanning(cancelling.Revision);
 Reject(()=>cancelling.QueueCancellation(a.siteId,cancelling.Revision),"already cancelled cannot refund again");
+
+var reopenedRules=TownCopies.Copy(cancellationRules);reopenedRules.actions=reopenedRules.actions.Where(x=>x.siteId==a.siteId&&(x.actionId==a.actionId||x.actionId==AnnualPlayerRules.CancelAction)).ToArray();
+var reopened=new AnnualTown(reopenedRules,"reopened-guidance");reopened.QueueAction(a.siteId,a.actionId,0);End(reopened);reopened.ContinuePlanning(reopened.Revision);reopened.QueueCancellation(a.siteId,reopened.Revision);End(reopened);reopened.ContinuePlanning(reopened.Revision);
+var reopenedGuidance=AnnualPlanningGuidance.Create(reopened,reopened.History.Last().outcomes);
+Check(reopenedGuidance.siteId==a.siteId&&reopenedGuidance.actionId==a.actionId,"cancelled site and removed capacity are available to guidance again");
 cancelling.QueueAction(a.siteId,a.actionId,cancelling.Revision);End(cancelling);
 Check(cancelling.Assets.Single(s=>s.siteId==a.siteId).cancelledYear==0,"rebuild replaces cleared marker next year");
 var finished=new AnnualTown(cancellationRules,"completed");finished.QueueAction(a.siteId,a.actionId,0);for(int y=1;y<=4;y++){End(finished);finished.ContinuePlanning(finished.Revision);}
@@ -86,6 +96,9 @@ var paid=debtRules.actions.First(x=>x.actionId=="low-density-housing");paid.annu
 debtRules.startingCashCents=500000;debtRules.drivers[0].unexpectedPublicRepairCents=1000000;debtRules.appropriationsCents[2]=3000000;
 var debt=new AnnualTown(debtRules,"debt");debt.QueueAction(paid.siteId,paid.actionId,0);End(debt);debt.ContinuePlanning(debt.Revision);
 Check(debt.CashCents<0&&debt.ArrearsCents==0&&debt.DebtCents==-debt.CashCents,"negative cash records debt once");
+var debtGuidance=AnnualPlanningGuidance.Create(debt,debt.History.Last().outcomes);
+Check(debtGuidance.actionId==null&&debtGuidance.message.Contains("negative"),"debt produces guidance rather than pricing blocked construction");
+
 var free=debtRules.actions.First(x=>x.siteId!=paid.siteId&&x.actionId!=AnnualPlayerRules.CancelAction);
 Reject(()=>debt.QueueAction(free.siteId,free.actionId,debt.Revision),"debt blocks new construction");
 var debt2=End(debt);Check(debt2.ledger.operatingPaidCents==10000,"upkeep charged in debt");Check(debt2.ledger.closingCashCents<debt2.ledger.openingCashCents,"upkeep deepens debt");

@@ -16,10 +16,12 @@ namespace Terra.Core
             if (town.Phase == TownPhase.Resolving) return Say("Year pending · retry or choose the offline result.");
             if (town.Phase == TownPhase.Reviewing) return Say("Read what changed, then plan next year.");
             if (town.Queue.Length > 0) return Say("Reserved, not paid · Undo edits; End Year reviews.");
+            if (town.BuildingBlockedByDebt) return Say("Public balance is negative · cancel projects or wait for funding before new construction.");
 
             var definition = town.Definition;
-            var occupied = town.Assets.Select(a => a.siteId).ToArray();
-            var vacant = definition.actions.Where(a => !occupied.Contains(a.siteId)).ToArray();
+            var occupied = town.Assets.Where(a=>a.cancelledYear==0).Select(a => a.siteId).ToArray();
+            // Cancellation is an accepted-asset command, never a vacant-site build offer.
+            var vacant = definition.actions.Where(a => a.actionId!=AnnualPlayerRules.CancelAction&&!occupied.Contains(a.siteId)).ToArray();
             if (vacant.Length == 0) return Say("All sites are committed · End Year advances projects.");
             var affordable = vacant.Where(a => town.Preview(a.siteId, a.actionId) >= 0).ToArray();
             if (affordable.Length == 0) return Say("No project fits · End Year waits; upkeep and debt remain.");
@@ -33,7 +35,7 @@ namespace Terra.Core
             var candidates = affordable.Where(a => a.services != null && town.Year + a.constructionYears <= definition.years).ToArray();
             // Count already funded capacity that has not opened yet. Do not recommend another
             // home/park simply because its predecessor is still under construction/establishment.
-            var committed = town.Assets.Select(asset => new { asset, recipe = definition.actions.First(a => a.siteId == asset.siteId && a.actionId == asset.actionId) })
+            var committed = town.Assets.Where(asset=>asset.cancelledYear==0).Select(asset => new { asset, recipe = definition.actions.First(a => a.siteId == asset.siteId && a.actionId == asset.actionId) })
                 .Where(x => x.recipe.services != null && town.Year < x.asset.startedYear + x.recipe.constructionYears + x.recipe.operatingYears).ToArray();
             double Capacity(Func<TownProjectServices,double> value) => committed.Sum(x => value(x.recipe.services) * x.asset.condition);
             AnnualPlanningGuidance Option(string need, Func<TownActionDefinition, bool> meetsNeed)

@@ -1,0 +1,39 @@
+{
+  "checks": 81,
+  "industry": -69.06032665488212,
+  "refund": 200000,
+  "debt": -820000,
+  "profiles": [
+    {
+      "id": "flood",
+      "title": "Heavy-rain / flood disruption",
+      "sourceUrl": "https://www.weather.gov/arx/aug2818",
+      "evidence": "Inferred game estimate; regional source supports hazard identity, not these exact probabilities or loss coefficients.",
+      "annualChance": 0.2,
+      "outputFactor": 0.75,
+      "conditionLoss": 0.1,
+      "affectedSiteChance": 0.35
+    },
+    {
+      "id": "drought",
+      "title": "Dry growing season",
+      "sourceUrl": "https://cms8.revize.com/revize/vernoncountywi/Vernon%20County%20HMP%20-%20WEM-%20FEMA%20Approved%20v2-%20FINAL.pdf",
+      "evidence": "Inferred game estimate; regional source supports hazard identity, not these exact probabilities or loss coefficients.",
+      "annualChance": 0.15,
+      "outputFactor": 0.8,
+      "conditionLoss": 0.04,
+      "affectedSiteChance": 0.7
+    },
+    {
+      "id": "storm",
+      "title": "Severe storm / hail",
+      "sourceUrl": "https://www.weather.gov/arx/vernon",
+      "evidence": "Inferred game estimate; regional source supports hazard identity, not these exact probabilities or loss coefficients.",
+      "annualChance": 0.25,
+      "outputFactor": 0.9,
+      "conditionLoss": 0.05,
+      "affectedSiteChance": 0.25
+    }
+  ],
+  "scope": "Pure engine checks; no rendered UI acceptance"
+}
