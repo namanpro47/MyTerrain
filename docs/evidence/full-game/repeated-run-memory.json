@@ -1,0 +1,20 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":116299390,\"reservedBytes\":214106112,\"managedBytes\":143425536,\"meshes\":292,\"materials\":749}\n",
+    "timestamp": "2026-10-25T03:21:09.686Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"new-run\",\"allocatedBytes\":122721962,\"reservedBytes\":222232576,\"managedBytes\":23678976,\"meshes\":296,\"materials\":751}\n",
+    "timestamp": "2026-10-25T03:23:33.622Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":122197674,\"reservedBytes\":222232576,\"managedBytes\":29372416,\"meshes\":293,\"materials\":737}\n",
+    "timestamp": "2026-10-25T03:25:51.903Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  }
+]

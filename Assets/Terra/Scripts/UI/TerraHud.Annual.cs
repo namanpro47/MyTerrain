@@ -139,21 +139,21 @@ namespace Terra.UI
             previewTitle.text=mode=="reset"?"Clear this year's plan":site?.name??"Choose a destination";
             var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id);
             var outcome=state.history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==site?.id);
-            previewKind.text=asset!=null?"ACCEPTED · "+outcome?.phase.ToString().ToUpperInvariant():queued?"QUEUED · NOT YET PAID":"YEAR "+state.year+" PROPOSAL";
+            previewKind.text=asset!=null?"ACCEPTED · "+outcome?.phase.ToString().ToUpperInvariant():queued?"QUEUED · NOT YET PAID":state.phase==TownPhase.Completed?"YEAR 10 · READ-ONLY":"YEAR "+state.year+" PROPOSAL";
             previewKind.color=rejection==null?Accent:Soft;
             if(mode=="remove"||mode=="reset")previewBody.text="Release this year's reservation and restore the previous cover. Accepted projects and completed years stay in place.";
             else if(recipe!=null&&asset==null)
                 previewBody.text="<b>"+recipe.title+"</b>\n"+Money(recipe.upfrontPublicCostCents)+" upfront\n"+Money(recipe.annualPublicOperatingCents)+" / yr × "+recipe.operatingYears+"\nReserve "+Money(recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears)+"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr\n"+(recipe.services==null?Bundle(recipe):(recipe.services.occupiedAreaM2/10000).ToString("0.00")+" ha · "+recipe.services.energyDemand.ToString("0.#")+" energy / "+recipe.services.waterDemand.ToString("0.#")+" water units");
 
             else if(asset!=null)
-                previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\nPermanent this run. Use another field.";
-            else previewBody.text=site?.protectedSite==true?"Protected by the scenario. No construction or conversion here.":"Choose an annual action. Eligible footprints use Peter's metric models.";
+                previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\n"+(state.phase==TownPhase.Completed?"Final accepted project.":"Permanent this run. Use another field.");
+            else previewBody.text=site?.protectedSite==true?"Protected by the scenario. No construction or conversion here.":"Choose an annual action. Projects must fit at their real size.";
             bool canEdit=queued&&state.phase==TownPhase.Planning&&mode=="place"&&rejection!=null;
             moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
-            confirmEditButton.gameObject.SetActive(!canEdit);confirmEditButton.interactable=rejection==null;
+            confirmEditButton.gameObject.SetActive(!canEdit&&state.phase==TownPhase.Planning);confirmEditButton.interactable=rejection==null;
             SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":"Queue · Enter");
             if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
-            previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Accepted projects stay in place.":queued?"Queued · V to move · Delete to remove":"Choose an action and eligible field.";
+            previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Accepted projects stay in place.":queued?"Queued · V to move · Delete to remove":state.phase==TownPhase.Completed?"Future · compare, learn or replay.":"Choose an action and eligible field.";
             previewAction.gameObject.SetActive(!recipeDetails.gameObject.activeSelf);
             previewAction.fontSize=sizes[previewAction]*(LargeText?1.12f:1);previewAction.rectTransform.anchoredPosition=new Vector2(18,68);previewAction.rectTransform.sizeDelta=new Vector2(256,35);
             previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);

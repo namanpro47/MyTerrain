@@ -1,0 +1,18 @@
+{
+  "frames": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.020004272460938,\"averageFps\":33.74416732788086,\"frameP50Ms\":28.0,\"frameP95Ms\":48.0,\"frameP99Ms\":62.0,\"maxFrameMs\":117.0,\"maxPreviewCpuMs\":2.0999999046325684,\"maxPlacementCpuMs\":14.699999809265137,\"frames\":1013,\"framesOver33Ms\":261,\"framesOver200Ms\":0,\"previewEvents\":25,\"placementEvents\":2,\"cameraEvents\":2,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T03:27:55.803Z",
+      "url": "blob:http://127.0.0.1:8779/68222b7b-e7bb-489b-bdf9-559c27e70a66"
+    }
+  ],
+  "latency": [
+    {
+      "level": "info",
+      "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[{\"kind\":\"preview\",\"source\":\"pointer\",\"milliseconds\":16.299999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":117.40000000596046},{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":34.69999998807907},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":35.60000002384186},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":23.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":30.700000017881393},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":56.19999998807907},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":24},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":38.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":19.299999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":27.899999976158142},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":22.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":28.299999982118607},{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":30.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":34.20000001788139},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.899999976158142},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":49.69999998807907},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.099999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":28.299999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":34.099999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":31.299999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":23.69999998807907}],\"discardedStale\":0}",
+      "timestamp": "2026-10-25T03:27:55.836Z",
+      "url": "blob:http://127.0.0.1:8779/68222b7b-e7bb-489b-bdf9-559c27e70a66"
+    }
+  ]
+}

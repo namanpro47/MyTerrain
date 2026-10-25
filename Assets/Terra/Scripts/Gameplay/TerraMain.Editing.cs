@@ -17,7 +17,7 @@ namespace Terra.Gameplay
         string QueuedAt(string siteId)=>annual?.State.queue.FirstOrDefault(q=>q.siteId==siteId)?.actionId;
         void Choose(string id)
         {
-            if(!ready)return;editMode="place";moveSourceId=null;treatmentId=id;hud.Selected(id);UpdatePreview();
+            if(!ready)return;editMode="place";moveSourceId=null;treatmentId=id;hud.Selected(id);UpdatePreview();BrowserPerformance.Feedback(0);
         }
         void Cancel()
         {
@@ -26,7 +26,7 @@ namespace Terra.Gameplay
             pressed=false;uiDown=null;editMode="place";moveSourceId=null;treatmentId="";hoverId=null;
             landscape.ClearGhost();hud.Selected("");UpdatePreview();
         }
-        void SetHover(Site site){string id=site?.id;if(id==hoverId)return;hoverId=id;UpdatePreview();}
+        void SetHover(Site site){string id=site?.id;if(id==hoverId)return;hoverId=id;UpdatePreview();BrowserPerformance.Feedback(0);}
         bool SelectEditableProposal()
         {
             if(hoverId!=null&&QueuedAt(hoverId)!=null)selectedId=hoverId;
@@ -46,6 +46,7 @@ namespace Terra.Gameplay
         string Rejection(Site site)
         {
             if(fastForwarding)return "Years are advancing; wait for the accepted future.";
+            if(annual.State.phase==TownPhase.Completed)return "Year 10 is complete. Inspect your future or start a new run.";
             if(annual.State.phase!=TownPhase.Planning)return "Review the accepted year, then continue planning.";
             if(editMode=="reset")return annual.State.queue.Length==0?"No queued projects to clear.":null;
             if(site==null)return "Choose a field on the map or use Tab to inspect.";
