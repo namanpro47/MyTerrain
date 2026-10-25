@@ -1,9 +1,12 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
 import assert from 'node:assert/strict';
 import { IDBFactory } from 'fake-indexeddb';
-const directorySource=fs.readFileSync('Assets/Plugins/WebGL/TerraNumericDirectory.jslib','utf8');
-const runSource=fs.readFileSync('Assets/Plugins/WebGL/TerraNumericStorage.jslib','utf8');
+const directorySource=fs.readFileSync(path.join(root,'Assets/Plugins/WebGL/TerraNumericDirectory.jslib'),'utf8');
+const runSource=fs.readFileSync(path.join(root,'Assets/Plugins/WebGL/TerraNumericStorage.jslib'),'utf8');
 let checks=0, serial=0;
 function check(value,message){assert.ok(value,message);checks++;}
 const H=n=>n.toString(16).padStart(64,'0');
@@ -43,7 +46,7 @@ function harness(){
   fn('receiver',JSON.stringify({operationId,key:scope,worldPackId:world,...data}));
  });}
  async function direct(store,key,value,version=2){const req=idb.open('MyTerrainNumericSavesV1',version);const db=await new Promise((resolve,reject)=>{req.onupgradeneeded=()=>{for(const s of version===1?['runs']:['runs','definitions','directories'])if(!req.result.objectStoreNames.contains(s))req.result.createObjectStore(s);};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});
-  const tx=db.transaction(store,value===undefined?'readonly':'readwrite');const r=value===undefined?tx.objectStore(store).get(key):tx.objectStore(store).put(value,key);
+  const tx=db.transaction(store,value===undefined?'readonly':'readwrite');const r=value===undefined?tx.objectStore(store).get(key):value===null?tx.objectStore(store).delete(key):tx.objectStore(store).put(value,key);
   const result=await new Promise((resolve,reject)=>{tx.oncomplete=()=>resolve(r.result);tx.onabort=()=>reject(tx.error);});db.close();return result;
  }
  const read=()=>call({operation:'read'});
@@ -90,4 +93,18 @@ let runReply=await h.call({operation:'read',key:oldRun},true);check(runReply.ok&
 h=harness();runReply=await h.call({operation:'write',key:oldRun,value:save('v1')},true);check(runReply.ok,'Per-run bridge can create v2 first');check((await h.read()).ok,'Directory stores exist after per-run-first upgrade');
 h=harness();a=next(null,'immutable');await h.create(a);b=next(a,'replay');check((await h.create(b,a,definition.replace('0.024625792811839322','0.02462579281183932'))).error==='definition-conflict','Immutable definition cannot be replaced under same hash');
 check(JSON.parse((await h.read()).directoryJson).activeRunId==='immutable','Definition conflict preserves pointer');
+for(const kind of ['definition','run']){
+ h=harness();a=next(null,'missing');await h.create(a);
+ await h.direct(kind==='definition'?'definitions':'runs',kind==='definition'?definitionKey(H(1)):runKey(a.activeRunId),null);
+ check(!(await h.read()).ok,'Missing '+kind+' is an error, never absence');
+}
+h=harness();a=next(null,'orphan');await h.direct('runs',runKey(a.activeRunId),{hash:H(10),json:save(a.activeRunId)});
+check((await h.create(a)).error==='run-already-exists','Create cannot overwrite an orphaned pre-existing run');
+check((await h.read()).directoryJson==='','Rejected overwrite does not create a directory');
+h=harness();a=next(null,'keep');await h.create(a);b=next(a,'second');await h.create(b,a);
+let bad=next(b,'second',false);bad.runs=bad.runs.slice(1);check((await h.select(bad,b)).error==='invalid-transition','Selection cannot remove prior entries');
+bad=next(b,'second',false);bad.runs=bad.runs.map(r=>({...r,definitionHash:H(999)}));check((await h.select(bad,b)).error==='invalid-transition','Selection cannot replace retained rules');
+bad=next(b,'third');bad.sequence++;check((await h.create(bad,b)).error==='invalid-transition','Directory sequence cannot skip');
+bad=next(b,'third');bad.worldPackId='other';check((await h.create(bad,b)).error==='invalid-request','Directory cannot cross bound world');
+check((await h.read()).directoryJson===JSON.stringify(b),'Rejected transitions preserve the previous exact directory');
 console.log(`PASS ${checks} IndexedDB model assertions; fake-indexeddb6.2.6, not actual-browser acceptance.`);
