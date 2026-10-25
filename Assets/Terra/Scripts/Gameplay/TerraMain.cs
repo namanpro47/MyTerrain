@@ -201,7 +201,7 @@ namespace Terra.Gameplay
             zoom=Mathf.Max(72,height*.85f+(art!=null?art.siteSizeMetres.y*.25f:0));
             ApplyView();Toast("Focused site · Scroll to zoom · R returns to the valley");
         }
-        void OnDestroy(){landscape?.Dispose();}
+        void OnDestroy(){if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }

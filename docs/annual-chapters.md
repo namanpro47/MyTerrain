@@ -6,7 +6,11 @@ Peter requested the next-chapter mechanism and a cheapest/free LLM connection on
 
 Each chapter is one year in the existing Meadowbrook Valley run: queue actions → conclude year → read up to three cards → continue planning. Waiting advances the same saved scenario and obligations. **See my ten-year future** confirms the current plan, then continues without adding new interventions. Year 10 ends the run. No additional map or level is created.
 
-`AnnualChapterSession` wraps the existing annual session. The developer window **Terra → Annual Town → Playtest Year Loop** offers offline chapters, optional Gemini chapters, retry, stop waiting, explicit offline fallback, next year, ten-year continuation, export/import and autosave restore. The engine owner can bind the same component to the main game; TerraMain, TerraHud, renderer and scenes are unchanged.
+`AnnualChapterSession` wraps the existing annual session and is connected to the main game's **Review year → End year** flow. Local Web builds request Gemini chapters through the loopback backend; public static builds with the default local endpoint use labelled offline chapters. The accepted story opens before planning resumes, with **Budget & meters** available from every page. Pending and accepted chapters restore after reload. Existing bare annual saves migrate into the chapter envelope when next saved. **New run** archives the previous town and chapter envelope locally and clears the new run's chapter history.
+
+The developer window **Terra → Annual Town → Playtest Year Loop** still offers offline chapters, optional Gemini chapters, retry, stop waiting, explicit offline fallback, next year, ten-year continuation, export/import and autosave restore.
+
+The main game's **See my ten-year future** explicitly completes remaining years with offline chapters, preserving its same-conditions comparison, timeline and replay. A normal Year 10 chapter links to the ending. The reconciled 3.1 rules use their own chapter save key, matching the main game's versioned annual save; prior 3.0 saves remain stored locally. The backend can still replay published 3.0 chapter requests, whose definition predates final assessment targets. Modern 3.1 definitions continue to require those targets.
 
 The existing annual ledger, lifecycle and saved drivers compute the outcome. The server replays that same C# code in a detached town, sends a compact set of computed facts to Gemini, validates the response, then returns the narrative and exact engine consequences. Unity validates the receipt before committing. Gemini cannot inject even an otherwise in-range numeric effect.
 
@@ -24,8 +28,8 @@ Requires .NET 8 SDK; no additional NuGet packages. On this Windows workstation U
    ```
 
 3. Read `http://127.0.0.1:8787/health`. `configured: true` only confirms a key exists; a successful chapter is the actual provider check.
-4. Open **Terra → Annual Town → Playtest Year Loop**, start a run and enable **AI chapter (Gemini service)**. The default endpoint is `http://127.0.0.1:8787/chapter`.
-5. Queue actions, conclude a year, inspect the chapter and ledger, and continue. If no key/quota is available, the year stays pending; retry or choose **Use labelled offline chapter**.
+4. Build the main game with **Terra → Build Web**, serve only `Builds/Web` on localhost port 8080, and open it in Chrome. The default backend endpoint is `http://127.0.0.1:8787/chapter`. For another frontend port, include its exact origin in `TERRA_ALLOWED_ORIGINS` before starting the backend.
+5. Queue actions, select **Review year → End year**, inspect the chapter and **Budget & meters**, then select **Plan year 2** on the last card. If no key/quota is available, the year stays pending; choose **Retry chapter**, **Use offline chapter**, or **Edit this year's plan**. The editor fixture remains available for developer checks.
 
 Optional server variables: `GEMINI_MODEL` (default `gemini-3.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). Existing process variables take priority over `.env`. The reader supports plain or quoted values, comments and an optional `export` prefix, without executing shell commands or expanding variables. It reads only the four supported chapter settings. On Vercel it skips local-file loading entirely.
 
@@ -56,11 +60,11 @@ Official documentation checked October 24, 2026:
 - At most one initial model request and two schema/validation repairs, within a **30-second server deadline**. Quota, refusal and truncated output fail explicitly. Unity allows 35 seconds for transport. The PRD's proposed ten-second latency target is not yet measured.
 - The server saves the first validated receipt before responding and reuses it after retry/restart. Same run/request ID with different input is rejected. A single service process serializes generation. It is a local prototype, not a distributed store.
 - The client autosaves the frozen request before networking, then the accepted year/chapter. Reload restores a pending request or completed chapters without regenerating them. Stopping a request leaves the plan frozen. Explicit offline fallback aborts the pending client transport and uses the same deterministic outcome.
-- The server preserves Unity/Mono's existing numeric hash formatting rather than modern .NET's shorter `R` representation. The captured Unity request in `tests/chapters/fixtures/unity-pending-year.json` checks interoperability without changing existing Unity save hashes.
+- The server preserves Unity/Mono's existing numeric hash formatting rather than modern .NET's shorter `R` representation, including Mono's midpoint rounding. The captured requests in `tests/chapters/fixtures/unity-pending-year.json` and `unity-full-pending-year.json` check both legacy and full schema-2 interoperability without changing existing Unity save hashes.
 - Chapter export/import uses its own versioned envelope, including town history and chapter receipts. It does **not** accept legacy bare-town JSON. Existing `AnnualTownSession` bare-town import/export remains available separately. PlayerPrefs is local unencrypted storage, not cloud backup or tamper-proof accounting.
 - If fast-forward fails, accepted earlier years remain saved and the failed year remains pending. Retry that year, then resume the remaining years. No speculative Year 11 is created.
-- The service listens only on **127.0.0.1:8787**, rejects unknown Host/Origin headers and limits request bodies to 256 KiB. Public deployment is separate work: add authentication, per-user quotas, durable shared storage, same-origin HTTPS routing and provider spending controls. A public static Unity build cannot use this local server as its hosted backend.
-- The teammate owns final main-game integration and presentation. Use **TN-03** (compact outcome groups), **TN-08** (inspect the result before continuing) and **CS-01** (details on request). The editor fixture does not certify Phase 2A or production browser layout.
+- The service listens only on **127.0.0.1:8787**, rejects unknown Host/Origin headers and limits request bodies to 1 MiB, accommodating the full 17-action definition and ten-year history. Public deployment is separate work: add authentication, per-user quotas, durable shared storage, same-origin HTTPS routing and provider spending controls. A public static Unity build cannot use this local server as its hosted backend.
+- Main-game presentation uses **TN-06** (short field-note pages), **TN-08** (inspect the result before continuing) and **CS-01** (details on request). This bounded chapter integration does not certify Phase 2A or broader visual acceptance.
 
 ## Checks
 
@@ -71,8 +75,10 @@ Official documentation checked October 24, 2026:
 
 Unity: **Terra → Annual Town → Run Chapter Checks**, or batch `-executeMethod AnnualChapterChecks.RunBatch`. The chapter tests cover the real map adapter, Unity JSON, pending/accepted/completed restore, PlayerPrefs, exact-once acceptance, explicit offline chapters and Year 10.
 
+Main-game UI checks: batch `-executeMethod MainGameChapterChecks.RunBatch`; `MainGameChapterChecks.BuildVerifiedWeb` runs the checks and builds WebGL. These checks exercise the actual HUD buttons, full annual catalog, chapter/ledger navigation, pending recovery and run reset. They also export `Logs/AnnualTown/main-game-chapter-request.json` for the .NET check runner's `--unity-fixture` option.
+
 See [the verification receipt](evidence/annual-town/chapter-verification.json) for actual completed checks and remaining limits.
 
 ## Next implementation gaps
 
-Bind the annual controller and scaled build catalog into the engine owner's main UI; author an approved causal pack if AI-proposed effects are desired; add the paired same-weather no-action comparison; then complete ending presentation and browser/novice checks. These are separate from this chapter connection. The wider catalog is not automatically a validated annual price/effect book.
+Author an approved causal pack if AI-proposed effects are desired; add the paired same-weather no-action comparison; then refine ending presentation and complete broader browser/novice checks. These are separate from this chapter connection. The wider catalog is not automatically a validated annual price/effect book.

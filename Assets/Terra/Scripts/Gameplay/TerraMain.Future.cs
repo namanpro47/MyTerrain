@@ -19,6 +19,7 @@ namespace Terra.Gameplay
         }
         void BeginAnnualArrival()
         {
+            if(annual.State.phase==TownPhase.Resolving){ShowPendingChapter();return;}
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             if(annual.State.phase==TownPhase.Reviewing){ShowAcceptedReport();return;}
             if(!introPending)return;introPending=false;
@@ -30,7 +31,7 @@ namespace Terra.Gameplay
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             var forecast=AnnualGameplay.Forecast(annual.Engine);
             hud.AnnualDialog("See my ten-year future?","Submit the current reviewed plan, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\n"+
-                "Current plan: "+annual.State.queue.Length+" projects; expected next closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nThis cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();StartCoroutine(FinishYears());});
+                "Current plan: "+annual.State.queue.Length+" projects; expected next closing cash "+Terra.UI.TerraHud.Money(forecast.ledger.closingCashCents)+".\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.","Confirm · advance to Year 10",()=>{hud.CloseModal();chapters.StopRequest();StartCoroutine(FinishYears());});
         }
         IEnumerator FinishYears()
         {
@@ -43,10 +44,8 @@ namespace Terra.Gameplay
                 string error=null;
                 try
                 {
-                    if(annual.State.phase==TownPhase.Reviewing)annual.ContinueYear(annual.State.revision);
-                    string id=annual.State.pendingRequest?.requestId??annual.State.runId+"/finish-year-"+annual.State.year;
-                    annual.BeginYear(id,annual.State.revision);SaveAnnual();
-                    annual.EndYearOffline(id);SaveAnnual();
+                    if(annual.State.phase==TownPhase.Reviewing)chapters.Continue();
+                    chapters.ResolveOffline();SaveAnnual();
                 }
                 catch(Exception e){error=e.Message;}
                 if(error!=null)
