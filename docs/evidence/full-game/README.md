@@ -195,3 +195,8 @@ Three sequential first arrivals at separate no-store local origins reached the a
 
 
 The current export is frozen unchanged at `Builds/Verified/e25c5d3`: **10 files / 41,415,454 bytes**, each compared byte-for-byte to the tested build and recorded in `e25-checkpoint-identity.json`. The earlier `589b655` export and explicitly non-final recording remain intact. No new public deployment occurred. Final scenery review, the two release rehearsals, complete public run and matching final recorded fallback remain open.
+
+
+### Concurrent Peter synchronization reconciled
+
+Before pushing the backup receipt, refreshed main advanced to `de7f83b` with Peter's synchronization, including the study32 perspective opening and calibrated 42-degree Focus angle. Merged it without conflicts and preserved all its source/evidence. `git diff origin/main HEAD -- Assets Packages ProjectSettings scripts` was empty after integration: executable source matches that incoming validated checkpoint exactly. Its [final export and Chrome verification](../peter-sync/README.md#concurrent-final-remote-update) cover the perspective/compact combination. Our earlier performance and frozen-export receipts retain their original source hashes; they are not relabelled as measurements of the new camera. No force-push, public deployment or visual-gate acceptance.
