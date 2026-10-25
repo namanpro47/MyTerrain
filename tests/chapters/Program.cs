@@ -4,6 +4,21 @@ using Terra.Chapters;
 using Terra.Contracts;
 using Terra.Core;
 
+if (args.Length == 3 && args[0] == "--export-narration") {
+    var request = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
+    Directory.CreateDirectory(args[2]);
+    await File.WriteAllTextAsync(Path.Combine(args[2], "request.json"), ChapterJson.Write(AnnualChapters.NarrationRequest(request)));
+    await File.WriteAllTextAsync(Path.Combine(args[2], "chapter.json"), ChapterJson.Write(AnnualChapters.Offline(request).chapter));
+    Console.WriteLine("Exported engine-validated JavaScript narration fixture.");
+    return;
+}
+if (args.Length == 3 && args[0] == "--check-narration-receipt") {
+    var request = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
+    var receipt = ChapterJson.Read<AnnualChapterReceipt>(await File.ReadAllTextAsync(args[2]));
+    AnnualChapters.ValidateReceipt(request, receipt);
+    Console.WriteLine("JavaScript receipt matches the original Unity request and exact engine outcomes.");
+    return;
+}
 if (args.Length == 2 && args[0] == "--unity-fixture") {
     var unityInput = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(args[1]));
     AnnualChapters.Preview(unityInput);
@@ -13,6 +28,17 @@ if (args.Length == 2 && args[0] == "--unity-fixture") {
 
 int checks = 0;
 void Check(bool condition, string message) { if (!condition) throw new Exception(message); checks++; }
+var manyFacts = new[] { "year", "weather", "economic", "social", "environmental", "budget", "limits" }
+    .Concat(Enumerable.Range(0, 340).Select(i => "site:plot-" + i))
+    .Select(id => new AnnualChapterFact { id = id, text = "Engine fact " + id }).ToArray();
+var compact = AnnualChapters.NarrationFacts(manyFacts, new TownYearRequest {
+    actions = new[] { new TownPlannedAction { siteId = "plot-339", actionId = "public-park" } },
+    assets = new[] { new TownAsset { siteId = "plot-338", actionId = "public-park", startedYear = 1 } }
+});
+Check(compact.Length == 64 && compact.Select(f => f.id).Distinct().Count() == 64, "Large map narration exceeded the distinct fact budget.");
+Check(compact.Take(7).Select(f => f.id).SequenceEqual(manyFacts.Take(7).Select(f => f.id)), "Large map lost aggregate facts.");
+Check(compact[7].id == "site:plot-339" && compact[8].id == "site:plot-338", "Current choices and prior projects must precede empty plots.");
+Check(compact.First(f => f.id == "limits").text.Contains("Aggregate totals include every site.") && manyFacts[6].text == "Engine fact limits", "Subset disclosure missing or original facts mutated.");
 async Task Reject(Func<Task> action, string message) {
     bool rejected = false;
     try { await action(); } catch { rejected = true; }
@@ -60,6 +86,11 @@ var preview = AnnualChapters.Preview(input);
 Check(preview.CashCents == 902500 && preview.History.Length == 1, "Preview must use the real public ledger.");
 Check(ChapterJson.Write(input) == original && town.CashCents == 1000000 && town.Phase == TownPhase.Resolving, "Preview mutated live input.");
 var offline = AnnualChapters.Offline(input);
+var narration = AnnualChapters.NarrationRequest(input);
+Check(narration.protocol == "terra-narration-v1" && narration.clientFingerprint == AnnualChapters.Fingerprint(input), "JavaScript envelope must bind the frozen input without changing legacy hashes.");
+Check(ChapterJson.Write(narration.consequences) == ChapterJson.Write(offline.consequences), "JavaScript request cannot propose different numeric consequences.");
+Check(ChapterJson.Write(narration.facts) == ChapterJson.Write(AnnualChapters.Facts(preview)), "JavaScript facts must come from validated engine results.");
+Check(ChapterJson.Write(input) == original, "Narration transport must not mutate the live/frozen input.");
 AnnualChapters.ValidateReceipt(input, offline);
 Check(offline.mode == "offline" && offline.chapter.cards.Length == 3, "Offline path must be labelled.");
 Check(offline.chapter.cards[0].explanation.Contains("$9,025.00"), "Offline budget must show the accepted closing cash.");
