@@ -126,3 +126,11 @@ AnnualChapters.ValidateText(AnnualChapters.OfflineAccepted(historyTown).chapter,
 Directory.CreateDirectory("docs/evidence/annual-player-rules");
 File.WriteAllText("docs/evidence/annual-player-rules/checks.json",JsonSerializer.Serialize(new{checks,industry=industrial.outcomes.environmentalScore,refund=removed.ledger.capitalRefundCents,debt=debt2.ledger.closingCashCents,profiles=playerRules.playerRules.hazards,scope="Pure engine checks; no rendered UI acceptance"},options));
 Console.WriteLine("Player rules checks passed: "+checks);
+
+if(args.Contains("--export-llm-fixtures"))
+{
+ var path="Builds/LocalLlmReadiness";Directory.CreateDirectory(path);
+ var demo=new AnnualTown(Rules("local-readiness"),"local-readiness");var first=d.actions.First(a=>a.actionId=="low-density-housing");demo.QueueAction(first.siteId,first.actionId,0);End(demo);
+ File.WriteAllText(path+"/year1-request.json",JsonSerializer.Serialize(AnnualChapters.AcceptedRequest(demo),options));
+ AnnualTownDemo.Finish(demo,provider);File.WriteAllText(path+"/year10-request.json",JsonSerializer.Serialize(AnnualChapters.AcceptedRequest(demo),options));
+}

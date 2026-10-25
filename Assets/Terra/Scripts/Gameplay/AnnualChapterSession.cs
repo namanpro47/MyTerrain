@@ -35,6 +35,8 @@ namespace Terra.Gameplay
         double guestExpiresAt;
         bool requestingSession, refreshedSession;
         bool readyForFallback;
+        public static bool UsesHostedProtocol(string address)
+            => Uri.TryCreate(address,UriKind.Absolute,out var uri)&&!uri.IsLoopback;
 
         public void ResolveOnline()
         {
@@ -89,7 +91,8 @@ namespace Terra.Gameplay
         {
             if (town == null || !town.Initialized) throw new InvalidOperationException("Initialize the annual town first.");
             var state = town.State;
-            if (state.phase == TownPhase.Reviewing || state.phase == TownPhase.Completed) return null;
+            if (state.phase == TownPhase.Reviewing || state.phase == TownPhase.Completed)
+                return town.Engine.PlayerRulesActive?AnnualChapters.AcceptedRequest(town.Engine):null;
             if (state.phase == TownPhase.Planning)
                 town.BeginYear(state.runId + "/chapter-" + state.year + "-r" + state.revision, state.revision);
             return new AnnualChapterRequest { definition = town.Definition, snapshot = town.State };
