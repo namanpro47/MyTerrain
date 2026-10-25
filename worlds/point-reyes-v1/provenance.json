@@ -1,0 +1,41 @@
+{
+  "name": "Point Reyes",
+  "command": "python3 worldgen/build-regions.py",
+  "elevationTiles": [
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/2602/6315.png",
+      "sha256": "be4cf97d85a9b04b3e6ed70605e3789108ece02a5b608fd355804e29b94cdd59"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/2602/6316.png",
+      "sha256": "5f091d2c556e5d277bbdfcc8f4998df92531ed2b798eea3c6446223e857106c4"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/2603/6315.png",
+      "sha256": "229116d86a70dd8aca8e75ac468058eb0f53bfb3c853869da1dfcf9c46aa9739"
+    },
+    {
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/14/2603/6316.png",
+      "sha256": "e8466dd4c9ecede9451b23148988ec66217e8422585d82826aad674767bf2ab0"
+    }
+  ],
+  "elevationRangeM": [
+    0.34643159364460174,
+    35.95019368430241
+  ],
+  "siteReliefM": [
+    0.569,
+    0.766,
+    1.098,
+    1.278,
+    2.596,
+    3.674,
+    3.737,
+    4.622,
+    5.63,
+    7.196
+  ],
+  "evidence": "Real elevation only. All cover/sites/gameplay parameters authored. No observed water/road/parcel data, no local policy or suitability claim. USD 2026 values are shared game rules, including in Kyrgyzstan.",
+  "attribution": "Mapzen / AWS Terrain Tiles. United States 3DEP and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey.",
+  "attributionUrl": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md"
+}

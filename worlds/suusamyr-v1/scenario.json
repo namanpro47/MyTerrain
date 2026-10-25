@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "budget": 60,
+  "id": "suusamyr-v1-annual",
+  "packId": "suusamyr-v1",
+  "introId": "suusamyr-v1-intro",
+  "learningId": "regional-land-use",
+  "assumptionsId": "scenario-assumptions-v1",
+  "treatments": [
+    {
+      "id": "cultivate-standard",
+      "family": "cultivate",
+      "title": "Open plot",
+      "description": "More productive area; less continuous vegetation.",
+      "visualRecipeId": "cultivate-standard",
+      "modelParameterId": "cn-b-crop-78",
+      "productiveFraction": 1,
+      "cover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "id": "cultivate-margin",
+      "family": "cultivate",
+      "title": "Living margin",
+      "description": "Keep a quarter of the plot vegetated; use more credits.",
+      "visualRecipeId": "cultivate-margin",
+      "modelParameterId": "cn-b-margin-73-75",
+      "productiveFraction": 0.75,
+      "cover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.75
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.25
+        }
+      ]
+    },
+    {
+      "id": "restore-grass",
+      "family": "restore",
+      "title": "Restore meadow",
+      "description": "Give productive space back to continuous grass cover.",
+      "visualRecipeId": "restore-grass",
+      "modelParameterId": "cn-b-grass-61",
+      "productiveFraction": 0,
+      "cover": [
+        {
+          "coverId": "grass",
+          "fraction": 1
+        }
+      ]
+    },
+    {
+      "id": "water-swale",
+      "family": "water",
+      "title": "Vegetated swale",
+      "description": "Reserve this connected site for a small water feature.",
+      "visualRecipeId": "water-swale",
+      "modelParameterId": "cn-b-grass-61",
+      "productiveFraction": 0,
+      "cover": [
+        {
+          "coverId": "grass",
+          "fraction": 1
+        }
+      ]
+    }
+  ],
+  "storm": {
+    "id": "storm-example-50mm",
+    "soilGroup": "B",
+    "antecedentCondition": "average; educational assumption",
+    "sourceId": "scenario-assumptions-v1",
+    "rainfallMm": 50,
+    "initialAbstractionRatio": 0.2
+  },
+  "objectives": {
+    "productionMin": 20,
+    "dischargeMaxM3": 0,
+    "runoffEnabled": false
+  }
+}

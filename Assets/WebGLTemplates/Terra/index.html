@@ -1,29 +1,56 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Terra · Shape your world</title><link rel="icon" href="data:,"><style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#d6e0c4;font-family:system-ui;color:#243d33}canvas{width:100%;height:100%;display:block;outline:none;touch-action:none}#loading{position:fixed;inset:0;display:grid;place-content:center;text-align:center;background:#e6ead8;font-size:18px;line-height:1.7}#loading[hidden]{display:none}h1{font-size:48px;letter-spacing:.2em;margin:0 0 16px}small{display:block;margin-top:14px;color:#52654e}button{font:inherit;padding:10px 22px;border-radius:12px;border:0;background:#284936;color:#fff;margin:auto}#accessible-controls{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-</style></head><body>
-<canvas id="unity-canvas" tabindex="0" aria-label="Meadowbrook Valley real landscape. B opens keyboard navigation through Land and Nature, Homes and Community, and Work and Utilities. Tab or arrows browse the menu; Enter selects. On the map, Tab cycles sites; Enter queues; Z undoes queued edits; Y redoes; Escape cancels. Drag or arrow keys to pan; scroll to zoom; F focuses a site; R resets view." aria-describedby="accessible-controls"></canvas>
-<p id="accessible-controls">Meadowbrook Valley is a fictional game name. Real Wisconsin terrain and mapped cover; hypothetical management sites and decorative vegetation. Queue funded actions, review the public budget, then End Year to request an annual chapter and pay once when accepted. Local play uses AI narration; a failed request stays pending for retry, labelled offline completion or plan editing. Three indicators use authored annual rules, not forecasts. All twelve action families and seventeen variants use the source table prices and explicit scenario service rules. E reviews the year, L opens the last report, T opens the ten-year future and I explains the three indicators. Fixed-storm runoff compares cover and operational storage, not flood risk. Accepted projects persist; undo only edits the current plan. Progress and accepted chapters save in this browser. Swales are allowed at Meadow edge and Brye-side field only. Protected zones cannot be edited. Buildings must fit their parcel at real scale. Question mark opens controls and motion/sound/text settings. G opens the field guide. In a guide, Tab cycles buttons and Enter activates them.</p>
-<div id="loading" role="status"><h1>TERRA</h1><span id="progress">Preparing your landscape…</span><small>Real geography · hypothetical choices</small><button id="retry" hidden onclick="location.reload()">Try again</button></div>
-<script>
-const canvas=document.getElementById('unity-canvas'),loading=document.getElementById('loading'),progress=document.getElementById('progress');let player,dragId=null;
-function pointer(kind,e){if(!player)return;window.terraInputPending={at:performance.now(),source:'pointer'};const b=canvas.getBoundingClientRect();player.SendMessage('TerraMain','PointerMessage',[kind,(e.clientX-b.left)/b.width,(e.clientY-b.top)/b.height,e.shiftKey||e.button===1?1:0].join(','));}
-canvas.addEventListener('pointerdown',e=>{if(e.button!==0&&e.button!==1)return;e.preventDefault();canvas.focus();dragId=e.pointerId;canvas.setPointerCapture(e.pointerId);pointer(0,e)});
-canvas.addEventListener('pointermove',e=>pointer(1,e));canvas.addEventListener('pointerup',e=>{pointer(2,e);dragId=null});
-function cancel(){dragId=null;player?.SendMessage('TerraMain','LoseFocus','');}
-canvas.addEventListener('pointercancel',cancel);canvas.addEventListener('lostpointercapture',cancel);window.addEventListener('blur',cancel);document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel()});
-canvas.addEventListener('wheel',e=>{e.preventDefault();player?.SendMessage('TerraMain','Scroll',e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1)/100)},{passive:false});
-canvas.addEventListener('contextmenu',e=>{e.preventDefault();player?.SendMessage('TerraMain','Cancel')});canvas.addEventListener('keydown',e=>{window.terraInputPending={at:performance.now(),source:'keyboard'};if(['Tab',' ','ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))e.preventDefault()});
-// Opt-in evidence capture of actual canvas frames, never a staged sequence.
-if(new URLSearchParams(location.search).has('capture'))canvas.addEventListener('keydown',e=>{
- if(e.key!=='F8'||window.terraRecording)return;e.preventDefault();
- const stream=canvas.captureStream(30),chunks=[];
- const recorder=new MediaRecorder(stream,{mimeType:'video/webm;codecs=vp9',videoBitsPerSecond:6000000});window.terraRecording=true;
- recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
- recorder.onstop=()=>{stream.getTracks().forEach(t=>t.stop());const link=document.createElement('a');link.href=URL.createObjectURL(new Blob(chunks,{type:'video/webm'}));link.download='terra-phase2a-interaction.webm';link.textContent='Download the 60-second interaction recording';link.style='position:fixed;top:0;left:0;padding:12px;background:#fff;color:#123;z-index:100';document.body.appendChild(link);window.terraRecording=false;console.info('TERRA_RECORDING_COMPLETE')};
- recorder.start(1000);console.info('TERRA_RECORDING_STARTED');setTimeout(()=>recorder.stop(),60000);
-});
-function failed(message){loading.hidden=false;progress.textContent=message;document.getElementById('retry').hidden=false;}
-const script=document.createElement('script');script.src='Build/{{{ LOADER_FILENAME }}}';script.onerror=()=>failed('The game could not download. Check your connection and try again.');
-script.onload=()=>createUnityInstance(canvas,{dataUrl:'Build/{{{ DATA_FILENAME }}}',frameworkUrl:'Build/{{{ FRAMEWORK_FILENAME }}}',codeUrl:'Build/{{{ CODE_FILENAME }}}',streamingAssetsUrl:'StreamingAssets',companyName:{{{ JSON.stringify(COMPANY_NAME) }}},productName:{{{ JSON.stringify(PRODUCT_NAME) }}},productVersion:{{{ JSON.stringify(PRODUCT_VERSION) }}},showBanner:(m,t)=>{console[t==='error'?'error':'warn'](m);if(t==='error')failed(m)}},p=>progress.textContent='Preparing your landscape… '+Math.round(p*100)+'%').then(instance=>{player=instance;loading.hidden=true;canvas.focus();console.info('TERRA_WEB_READY',Math.round(performance.now())+'ms')}).catch(e=>{failed('The game could not start. Try again.');console.error(e)});document.body.appendChild(script);
-</script></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eef0e6"><title>Terra · A world of possibilities</title>
+<link rel="icon" href="atlas/images/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="atlas/atlas.css">
+<link rel="preload" href="atlas/images/earth.jpg" as="image">
+</head>
+<body>
+<div id="atlas">
+  <header class="masthead">
+    <a class="wordmark" href="./" aria-label="Terra home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 29V18L20 7l15 11v11M5 29l15-11 15 11M12 24v10m16-10v10"/></svg>TERRA<span>SHAPE YOUR WORLD</span></a>
+    <div class="chapter"><span class="chapter-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+    <button id="about" class="quiet-button" aria-label="About Terra and map sources">About this world <span aria-hidden="true">↗</span></button>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="intro-title">
+      <div class="intro">
+        <p class="eyebrow"><span></span> A LITTLE PLACE. A BIGGER FUTURE.</p>
+        <h1 id="intro-title">One planet.<br>A world of<br><em>possibilities.</em></h1>
+        <p class="intro-copy">Every landscape has a story. <br>Choose a place. Shape what comes next.</p>
+        <div class="destination" aria-live="polite" aria-atomic="true">
+          <p id="destination-region" class="eyebrow"></p>
+          <h2 id="destination-name"></h2>
+          <p id="destination-summary"></p>
+        </div>
+        <button id="enter" class="primary-button">Explore this landscape <span aria-hidden="true">↗</span></button>
+        <p class="journey-note">10 years. Your choices. A different future.</p>
+      </div>
+      <div class="world-stage">
+        <div class="atlas-caption"><span>THE LIVING ATLAS</span><span>01 / 03</span></div>
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="globe-shadow"></div>
+        <canvas id="globe" tabindex="0" role="img" aria-label="Interactive Earth. Drag to rotate, scroll to zoom, or use arrow keys. Choose a location with the cards below." aria-describedby="globe-help"></canvas>
+        <div id="pins"></div>
+        <div id="globe-fallback" hidden><p>The interactive globe is unavailable on this device.</p><p>You can still choose any landscape below.</p></div>
+        <div class="compass" aria-hidden="true"><span>N</span><svg viewBox="0 0 32 32"><path d="M16 3L22 25l-6-5-6 5Z"/></svg></div>
+        <div class="globe-toolbar"><p id="globe-help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13V6a2 2 0 014 0v6-8a2 2 0 014 0v8-5a2 2 0 014 0v7c0 5-3 7-7 7s-5-3-7-6l-2-3a2 2 0 013-2l1 1"/></svg>Drag to explore <span>·</span> Scroll to zoom</p><div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-globe" aria-label="Return globe to selected location">⌖</button><button id="zoom-in" aria-label="Zoom in">+</button></div></div>
+      </div>
+    </section>
+    <section class="landscapes" aria-labelledby="landscapes-title">
+      <div class="section-heading"><h2 id="landscapes-title">Find your corner of the world</h2><p>THREE LANDSCAPES. ENDLESS POSSIBILITIES.</p></div>
+      <div id="location-cards" class="cards" role="group" aria-label="Choose your landscape"></div>
+    </section>
+  </main>
+  <footer><span class="footer-motto"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 15C1 7 8 2 17 3c0 9-5 15-13 12ZM4 16l8-8"/></svg> A better world starts somewhere.</span><span>Real places <i>·</i> Thoughtful choices <i>·</i> Shared futures</span><button id="motion" class="quiet-button" aria-pressed="false">Motion: full</button></footer>
+</div>
+<div id="journey" hidden role="status" aria-live="polite"><div class="journey-inner"><p class="eyebrow">YOUR NEXT CHAPTER</p><h2 id="journey-title"></h2><p id="journey-caption"></p><div class="progress-track"><span id="progress-bar"></span></div><p id="progress">Finding your place in the world…</p><button id="cancel-journey" class="quiet-button">← Back to the globe</button><button id="retry" class="primary-button" hidden>Try again</button></div></div>
+<div id="game" hidden><canvas id="unity-canvas" tabindex="0" aria-label="Terra annual land-use game. B opens the project catalog; Tab cycles sites; Enter queues; Z undoes; E reviews the year; Escape goes back. Drag to pan; scroll to zoom." aria-describedby="accessible-controls"></canvas><button id="return-atlas" aria-label="Return to location selection">← <span>World atlas</span></button></div>
+<p id="accessible-controls" class="sr-only">Plan and budget, then End Year to accept consequences. Undo changes only the current plan. Progress saves separately for each location. Real elevation; hypothetical projects and outcomes. Press question mark in the game for controls and accessibility settings.</p>
+<dialog id="about-dialog"><button id="close-about" class="dialog-close" aria-label="Close about">×</button><p class="eyebrow">TERRA / FIELD NOTES</p><h2>Real places.<br>Possible futures.</h2><p>Explore the choices that shape land, livelihoods and community over ten years. Plan projects, balance a public budget and see the consequences.</p><p id="place-evidence"></p><p>New regional scenarios share illustrative USD budgets and educational rules. They are not forecasts, local cost estimates, ownership claims or permission to build.</p><details><summary>Map sources & credits</summary><p>Earth: NASA Blue Marble Next Generation, July 2004, Reto Stöckli / NASA Earth Observatory. Colour treatment for this atlas; not live imagery. <a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/" target="_blank" rel="noreferrer">NASA source ↗</a></p><p>Wisconsin: USGS 3DEP, NLCD and National Map. New regional elevation: Mapzen / AWS Terrain Tiles, USGS 3DEP and SRTM. Cover and sites in those scenarios are authored. <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md" target="_blank" rel="noreferrer">Terrain credits ↗</a></p><p>Landscape card illustrations: original Terra SVG artwork. Three.js: MIT license. NASA and source providers do not endorse Terra.</p></details><button id="about-done" class="primary-button">Back to exploring <span>↗</span></button></dialog>
+<noscript><p class="noscript">Terra needs JavaScript to explore the globe and play. Please enable it and reload.</p></noscript>
+<script>window.TERRA_BUILD={loader:'Build/{{{ LOADER_FILENAME }}}',data:'Build/{{{ DATA_FILENAME }}}',framework:'Build/{{{ FRAMEWORK_FILENAME }}}',code:'Build/{{{ CODE_FILENAME }}}'};</script>
+<script type="module" src="atlas/atlas.js"></script>
+</body></html>

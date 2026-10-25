@@ -6,7 +6,7 @@
 
 **Annual town foundation:** [runtime, API and engine handoff](docs/annual-town-runtime.md) · [Peter's updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). The annual engine is now the playable scene’s sole financial authority; editing changes the current-year proposal queue.
 
-A browser-based rural land-use game in development, set on one real Wisconsin landscape.
+A browser-based rural land-use game with a draggable globe and three selectable landscapes: Wisconsin, Point Reyes and Suusamyr Valley. The new regional scenarios use real terrain with authored cover and opportunities. [Atlas controls, sources and verification](docs/ATLAS_SELECTION.md).
 
 The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); implementation status and acceptance evidence are separate.
 
@@ -20,7 +20,7 @@ The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA
 
 [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) is the project's north star and primary reference for product vision, gameplay, scope, priorities, and design constraints. Consult it when planning features or making implementation decisions, and update it when the team explicitly agrees to change the vision.
 
-**Current focus: one excellent rural location across the full game scope.** **Meadowbrook Valley** is the game name for the selected Wisconsin location; refine its gameplay, simulation, UI/UX, learning, and replay together. Additional locations, city levels, and live world generation are deferred until this experience is complete and a separate expansion decision is made.
+**Location selection (October 25):** The user authorized three rural locations through the Living Atlas. Each run remains in one place for ten years. **Wisconsin remains the original full-game reference.** **Meadowbrook Valley** is the game name for the selected Wisconsin location; refine its gameplay, simulation, UI/UX, learning, and replay together. Locations beyond the authorized three, city levels and live world generation remain outside scope.
 
 The spec describes the intended product; it is not a record of completed features. This README covers running and building the current project, and [SETUP.md](SETUP.md) records setup and verification status.
 
@@ -30,7 +30,7 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 
 1. Open **Unity Hub → Projects → Terra**.
 2. Use **Unity 6.6, 6000.6.6f1, Apple Silicon**. Keep this version aligned with the team.
-3. Run `python3 scripts/prepare-world.py` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
+3. Run `python3 scripts/prepare-world.py --pack all` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
 The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to queue a proposal, Z to undo; B opens the keyboard build catalog, Tab cycles sites and Enter queues. Review the reserved USD budget, then End Year to accept consequences; accepted years cannot be undone. Drag or arrow keys pan, scroll zooms, F fits the selected site and its project between the HUD panels, and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. The live fixed-storm adapter reports generated, retained and discharged water without claiming flood-risk prediction. [Source data, reproducible export and geographic limits](docs/geography.md).

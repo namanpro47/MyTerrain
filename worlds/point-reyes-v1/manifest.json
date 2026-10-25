@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "packId": "point-reyes-v1",
+  "fixtureVersion": "1.0.0",
+  "geographyKind": "real-geography",
+  "selectedLocationId": "point-reyes-v1",
+  "sourceCrs": "WGS84 / local equirectangular metre approximation at origin latitude",
+  "elevationDatum": "USGS source elevation via Mapzen; vertical datum varies by source. No engineering datum claim.",
+  "boundsWgs84": [
+    -122.81684603656282,
+    38.060610108295286,
+    -122.80315396343718,
+    38.07138989170472
+  ],
+  "originWgs84": [
+    -122.81,
+    38.066
+  ],
+  "originElevationM": 0,
+  "editableBounds": [
+    -500,
+    -500,
+    500,
+    500
+  ],
+  "contextBounds": [
+    -600,
+    -600,
+    600,
+    600
+  ],
+  "worldDataPath": "world.json",
+  "scenarioPath": "scenario.json",
+  "rasterRows": "south-to-north",
+  "winding": "counterclockwise-xz",
+  "layers": [
+    {
+      "id": "terrain",
+      "path": "world.json",
+      "availability": "observed"
+    },
+    {
+      "id": "cover",
+      "path": "world.json",
+      "availability": "authored"
+    },
+    {
+      "id": "sites",
+      "path": "world.json",
+      "availability": "authored"
+    },
+    {
+      "id": "water",
+      "path": "",
+      "availability": "unavailable"
+    },
+    {
+      "id": "paths",
+      "path": "",
+      "availability": "unavailable"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mapzen-terrain",
+      "title": "Mapzen / AWS Terrain Tiles; USGS 3DEP and global SRTM/GMTED2010",
+      "url": "https://registry.opendata.aws/terrain-tiles/",
+      "date": "Retrieved 2026-10-25; source acquisition dates vary, not determined per tile",
+      "license": "USGS public domain; Mapzen attribution retained",
+      "role": "Terrarium z14 elevation sampled to a 10 m display grid. Effective resolution may be coarser; no added observed detail."
+    },
+    {
+      "id": "scenario-assumptions-v1",
+      "title": "Terra authored regional scenario",
+      "url": "",
+      "date": "2026-10-25",
+      "license": "project-original",
+      "role": "Every cover patch, management site, baseline production, consent, service connection, budget, rule and runoff connection is hypothetical; not observed land use."
+    }
+  ]
+}

@@ -63,7 +63,7 @@ namespace Terra.Core
             if(site.id=="annual-wind-13" && id!="wind") return "This fictional opportunity is reserved for a wind agreement; other projects use the existing fields.";
             var action = Find(id); if (action == null) return "Choose an action from the build catalog.";
             if (id == "water-swale" && !swaleSites.Contains(site.id))
-                return "Swales are enabled only at Meadow edge and Brye-side field in this scenario. This is an authored connection rule, not a terrain calculation.";
+                return "Swales are enabled only on sites with an authored runoff connection. This is a scenario rule, not a terrain calculation.";
             return Layout(site, action).rejection;
         }
         public BuildActionLayout Layout(Site site, BuildActionRule action)
