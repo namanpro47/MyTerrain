@@ -1,0 +1,52 @@
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using Terra.Core;
+using Terra.Contracts;
+
+var options=new JsonSerializerOptions{IncludeFields=true,WriteIndented=true};
+int checks=0;
+void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
+T Read<T>(string path)=>JsonSerializer.Deserialize<T>(File.ReadAllText(path),options);
+var yaml=File.ReadAllText("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
+BuildActionRule[] Actions()=>Regex.Split(yaml,"  - actionId: ").Skip(1).Select(part=>{
+ string art=part.Split('\n')[0].Trim();string id=art switch {"cultivation"=>"cultivate-standard","living-margin"=>"cultivate-margin","ground-cover-restoration"=>"restore-grass","vegetated-swale"=>"water-swale",_=>art};
+ var dim=Regex.Match(part,@"siteSizeMetres: \{x: ([\d.]+), y: ([\d.]+)\}");
+ string category=new[]{"cultivate-standard","cultivate-margin","cover-crop","conservation-rotation"}.Contains(id)?"Farming":id.Contains("housing")?"Residential":id=="public-park"||id=="village-center"?"Community":id=="restore-grass"||id=="stewardship-agreement"?"Nature":"Utilities";
+ return new BuildActionRule{id=id,artId=art,title=Regex.Match(part,"title: (.+)").Groups[1].Value.Trim(),category=category,width=float.Parse(dim.Groups[1].Value,System.Globalization.CultureInfo.InvariantCulture),depth=float.Parse(dim.Groups[2].Value,System.Globalization.CultureInfo.InvariantCulture),landscape=part.Contains("landscapeSample: 1"),cost=30};
+}).ToArray();
+
+
+var routes=new List<object>();
+foreach(var location in LocationProfile.All)
+{
+ string pack=location.PackId, root="worlds/"+pack+"/";
+ var world=Read<WorldData>(root+"world.json");var scenario=Read<Scenario>(root+"scenario.json");var hydro=Read<RunoffConfiguration>(root+"hydrology.json");
+ UniformParcels.Apply(world,hydro,Read<UniformParcelPack>("Builds/DenseModelSpike/Parcels/"+pack+".json"),pack);
+ var rules=new BuildActionRules(world,Actions());rules.ExpandOffers(world,scenario);
+ var definition=FullAnnualGameplay.Create(world,scenario,pack,rules,new LandscapeRunoff(world,scenario,hydro));
+ foreach(var strategy in new[]{
+  new{name="community-and-services",priorities=new[]{"high-density-housing","conservation-rotation","public-park","village-center","solar","wastewater-upgrade","restore-grass"}},
+  new{name="land-and-livelihoods",priorities=new[]{"wind","agricultural-storage","conservation-rotation","conservation-rotation","restore-grass","high-density-housing","wastewater-upgrade","public-park"}}
+ })
+ {
+  var town=new AnnualTown(definition,"dense-route/"+pack+"/"+strategy.name);var remaining=strategy.priorities.ToList();var years=new List<object>();
+  for(int year=1;year<=10;year++)
+  {
+   if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+   foreach(string id in remaining.ToArray())
+   {
+    var offer=definition.actions.Where(a=>a.actionId==id&&!town.Assets.Any(s=>s.siteId==a.siteId)&&!town.Queue.Any(s=>s.siteId==a.siteId)).OrderBy(a=>definition.actions.Count(b=>b.siteId==a.siteId)).FirstOrDefault(a=>town.Preview(a.siteId,id)>=0);
+    if(offer==null)continue;town.QueueAction(offer.siteId,id,town.Revision);remaining.Remove(id);
+   }
+   var commands=town.Queue.Select(q=>new{q.siteId,q.actionId,site=world.sites.Single(s=>s.id==q.siteId).name}).ToArray();
+   var report=AnnualTownDemo.Advance(town,town.RunId+"/year"+year,new AuthoredAnnualConsequenceProvider());
+   Check(town.ArrearsCents==0,"Strategy incurred debt");
+   years.Add(new{year,commands,town.CashCents,town.CommittedCents,scores=new[]{report.outcomes.economicScore,report.outcomes.socialScore,report.outcomes.environmentalScore}});
+  }
+  var restored=AnnualTown.Restore(definition,town.Snapshot());Check(restored.CashCents==town.CashCents,"Replay differs");
+  Check(remaining.Count==0,"Projects remained unbuilt: "+pack+" "+strategy.name+" "+string.Join(",",remaining));
+  routes.Add(new{pack,strategy.name,schema=definition.schemaVersion,version=definition.version,town.DefinitionHash,years});
+  Console.WriteLine(pack+" "+strategy.name+" completed");
+ }
+}
+File.WriteAllText("Builds/DenseReleaseRoutes/routes.json",JsonSerializer.Serialize(new{checks,source="denseea37af0+frozen632supportingmodel",routes},options));
