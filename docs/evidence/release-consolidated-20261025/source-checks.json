@@ -8,11 +8,14 @@
     "numericClient": 40,
     "numericTransactions": 78,
     "numericBridge": 33,
-    "narrationNodeTests": 9
+    "narrationNodeTests": 9,
+    "communityImportTests": 5
   },
   "notes": [
     "Pure source checks; native build and combined Chrome pending",
     "Numeric schema 3 has no active TerraMain initialization call; dense WebGL OOM remains an activation blocker",
     "Visual study76 remains outside production Resources/scenes, visual gate open"
-  ]
+  ],
+  "communityStaging": "2 prepared communities checksum-verified",
+  "communityInterpreter": "/Users/naman/Documents/GitHub/Terra/.venv-worldgen/bin/python"
 }
