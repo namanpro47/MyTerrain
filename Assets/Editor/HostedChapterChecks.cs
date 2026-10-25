@@ -38,8 +38,12 @@ public static class HostedChapterChecks
                 var flags = BindingFlags.Instance | BindingFlags.NonPublic;
                 var frozen = typeof(AnnualChapterSession).GetField("frozen", flags);
                 var fail = typeof(AnnualChapterSession).GetMethod("Fail", flags);
+                var readyForFallback = typeof(AnnualChapterSession).GetField("readyForFallback", flags);
                 var expected = AnnualChapters.Preview(input).Snapshot();
                 frozen.SetValue(chapters, input);
+                fail.Invoke(chapters, new object[] { "Synthetic save failure before networking" });
+                Check(town.State.phase == TownPhase.Resolving && town.State.history.Length == 0, "A pre-network save failure advanced the year.");
+                frozen.SetValue(chapters, input); readyForFallback.SetValue(chapters, true);
                 fail.Invoke(chapters, new object[] { "Synthetic provider quota reached" });
                 Check(town.State.phase == TownPhase.Reviewing && town.State.history.Length == 1, "Fallback must accept exactly one year.");
                 Check(town.State.cashCents == expected.cashCents, "Fallback changed the reconciled cash.");
@@ -52,12 +56,12 @@ public static class HostedChapterChecks
                 chapters.ImportSave(saved);
                 Check(chapters.ExportSave() == saved, "Fallback receipt did not survive save/reload exactly.");
                 chapters.ImportSave(JsonUtility.ToJson(new AnnualChapterSave { town = input.snapshot, chapters = Array.Empty<AnnualChapterReceipt>() }));
-                chapters.fallbackWhenUnavailable = false; frozen.SetValue(chapters, input);
+                chapters.fallbackWhenUnavailable = false; frozen.SetValue(chapters, input); readyForFallback.SetValue(chapters, true);
                 fail.Invoke(chapters, new object[] { "Synthetic transport failure" });
                 Check(town.State.phase == TownPhase.Resolving && town.State.history.Length == 0, "Disabled fallback advanced the year.");
                 Check(!string.IsNullOrEmpty(chapters.Error), "Disabled fallback lost recovery information.");
                 chapters.fallbackWhenUnavailable = true;
-                frozen.SetValue(chapters, input); fail.Invoke(chapters, new object[] { "Synthetic timeout" });
+                frozen.SetValue(chapters, input); readyForFallback.SetValue(chapters, true); fail.Invoke(chapters, new object[] { "Synthetic timeout" });
                 Check(town.State.history.Length == 1 && town.State.cashCents == expected.cashCents, "Retry rerolled the pending year.");
             }
             finally { UnityEngine.Object.DestroyImmediate(go); }

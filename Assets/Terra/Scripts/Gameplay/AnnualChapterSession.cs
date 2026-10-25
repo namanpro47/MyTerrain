@@ -34,11 +34,13 @@ namespace Terra.Gameplay
         string guestToken;
         double guestExpiresAt;
         bool requestingSession, refreshedSession;
+        bool readyForFallback;
 
         public void ResolveOnline()
         {
             if (Busy) return; // Duplicate button clicks must not issue another request.
             Error = null;
+            readyForFallback = false;
             try
             {
                 if (!Uri.TryCreate(endpoint, UriKind.Absolute, out var uri)
@@ -48,6 +50,7 @@ namespace Terra.Gameplay
                 frozen = Freeze();
                 if (frozen == null) return; // Already reviewing/completed: never reroll.
                 Persist(); // Save frozen request before the first network request.
+                readyForFallback = true;
                 refreshedSession = false;
                 SendChapterOrSession();
             }
@@ -187,12 +190,12 @@ namespace Terra.Gameplay
             }
         }
         public void StopRequest() { ClearRequest(); Publish(); }
-        void ClearRequest() { Finishing = false; ReleaseRequest(); frozen = null; }
+        void ClearRequest() { Finishing = false; ReleaseRequest(); frozen = null; readyForFallback = false; }
         void ReleaseRequest() { operation = null; if (request != null) { request.Abort(); request.Dispose(); request = null; } }
         void Fail(string message)
         {
             ReleaseRequest();
-            if (fallbackWhenUnavailable && frozen != null)
+            if (fallbackWhenUnavailable && readyForFallback && frozen != null)
             {
                 try
                 {
