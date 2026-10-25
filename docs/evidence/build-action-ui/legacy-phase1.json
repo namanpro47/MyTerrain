@@ -1,0 +1,33 @@
+{
+    "date": "2026-10-25T00:59:23.6386159Z",
+    "count": 27,
+    "checks": [
+        "valid tiny pack accepted",
+        "JsonUtility round-trip preserves arrays, IDs, fractions and offers",
+        "reject area-mismatch.json",
+        "reject bad-cover.json",
+        "reject duplicate-site.json",
+        "reject missing-terrain.json",
+        "reject negative-cost.json",
+        "reject outside-context.json",
+        "reject overlapping-sites.json",
+        "reject unknown-source.json",
+        "reject unknown-version.json",
+        "baseline includes existing production",
+        "margin preview deducts displaced baseline production",
+        "mutating returned preview does not mutate stored state",
+        "preview leaves state/history unchanged",
+        "preview equals committed accounting",
+        "stale revision rejected without mutation",
+        "protected site rejected",
+        "second site committed",
+        "overspend rejected atomically",
+        "replace recomputes final costs and lost production",
+        "cover area conserved",
+        "unintegrated runoff explicitly unavailable",
+        "undo returns previous proposal list",
+        "undo to exact baseline accounting",
+        "baseline remains immutable through edit/undo sequence",
+        "simulation I/O fixture deserializes independently of scene"
+    ]
+}

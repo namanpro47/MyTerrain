@@ -1,0 +1,479 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 23,
+      "minGlyphCssPx": 23,
+      "preferredHeight": 25.700000762939453,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "PRODUCTIVE CAPACITY",
+      "rect": {
+        "x": 874,
+        "y": 38,
+        "width": 235,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "6 <size=64%>illustrative units</size>",
+      "rect": {
+        "x": 874,
+        "y": 59,
+        "width": 230,
+        "height": 32
+      },
+      "bodyCssPx": 25,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 27.93000030517578,
+      "availableHeight": 32
+    },
+    {
+      "text": "Runoff: not modeled yet",
+      "rect": {
+        "x": 874,
+        "y": 93,
+        "width": 250,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "CREDITS",
+      "rect": {
+        "x": 1138,
+        "y": 38,
+        "width": 104,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "60",
+      "rect": {
+        "x": 1138,
+        "y": 63,
+        "width": 96,
+        "height": 36
+      },
+      "bodyCssPx": 29,
+      "minGlyphCssPx": 29,
+      "preferredHeight": 32.400001525878906,
+      "availableHeight": 36
+    },
+    {
+      "text": "Farming",
+      "rect": {
+        "x": 278,
+        "y": 488,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Residential",
+      "rect": {
+        "x": 426,
+        "y": 488,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Community",
+      "rect": {
+        "x": 574,
+        "y": 488,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Utilities",
+      "rect": {
+        "x": 722,
+        "y": 488,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Nature",
+      "rect": {
+        "x": 870,
+        "y": 488,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Swale · 32 × 10 m sample · 2 eligible fields\nPrototype costs · effects beyond farmland are not modeled",
+      "rect": {
+        "x": 276,
+        "y": 656,
+        "width": 728,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 31.739999771118164,
+      "availableHeight": 38
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 32,
+        "y": 646,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 32,
+        "y": 582,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 1116,
+        "y": 646,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 1116,
+        "y": 582,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "UNAVAILABLE",
+      "rect": {
+        "x": 982,
+        "y": 148,
+        "width": 256,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "West field",
+      "rect": {
+        "x": 982,
+        "y": 177,
+        "width": 256,
+        "height": 52
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 22,
+      "preferredHeight": 24.579999923706055,
+      "availableHeight": 52
+    },
+    {
+      "text": "Swales are enabled only at Meadow edge and Brye-side field in this scenario. This is an authored connection rule, not a terrain calculation.",
+      "rect": {
+        "x": 982,
+        "y": 237,
+        "width": 256,
+        "height": 160
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 97.19000244140625,
+      "availableHeight": 160
+    },
+    {
+      "text": "Try another site or treatment",
+      "rect": {
+        "x": 982,
+        "y": 409,
+        "width": 256,
+        "height": 30
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 30
+    },
+    {
+      "text": "Swale",
+      "rect": {
+        "x": 273,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "2 eligible fields",
+      "rect": {
+        "x": 273,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Farm storage",
+      "rect": {
+        "x": 377.5714416503906,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 31.739999771118164,
+      "availableHeight": 36
+    },
+    {
+      "text": "8 eligible fields",
+      "rect": {
+        "x": 377.5714416503906,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Data center",
+      "rect": {
+        "x": 482.14288330078125,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "6 eligible fields",
+      "rect": {
+        "x": 482.14288330078125,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Gas power",
+      "rect": {
+        "x": 586.7142944335938,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "6 eligible fields",
+      "rect": {
+        "x": 586.7142944335938,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Solar array",
+      "rect": {
+        "x": 691.2857055664062,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "6 eligible fields",
+      "rect": {
+        "x": 691.2857055664062,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Wind turbine",
+      "rect": {
+        "x": 795.8571166992188,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "No fitting parcel",
+      "rect": {
+        "x": 795.8571166992188,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Wastewater",
+      "rect": {
+        "x": 900.4285888671875,
+        "y": 595,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "6 eligible fields",
+      "rect": {
+        "x": 900.4285888671875,
+        "y": 634,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    }
+  ]
+}

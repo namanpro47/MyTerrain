@@ -1,0 +1,323 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 23,
+      "minGlyphCssPx": 23,
+      "preferredHeight": 25.700000762939453,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "PRODUCTIVE CAPACITY",
+      "rect": {
+        "x": 1034,
+        "y": 38,
+        "width": 235,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "5 <size=64%>illustrative units</size>",
+      "rect": {
+        "x": 1034,
+        "y": 59,
+        "width": 230,
+        "height": 32
+      },
+      "bodyCssPx": 25,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 27.93000030517578,
+      "availableHeight": 32
+    },
+    {
+      "text": "Runoff: not modeled yet",
+      "rect": {
+        "x": 1034,
+        "y": 93,
+        "width": 250,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "CREDITS",
+      "rect": {
+        "x": 1298,
+        "y": 38,
+        "width": 104,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "38",
+      "rect": {
+        "x": 1298,
+        "y": 63,
+        "width": 96,
+        "height": 36
+      },
+      "bodyCssPx": 29,
+      "minGlyphCssPx": 29,
+      "preferredHeight": 32.400001525878906,
+      "availableHeight": 36
+    },
+    {
+      "text": "Farming",
+      "rect": {
+        "x": 358,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Residential",
+      "rect": {
+        "x": 506,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Community",
+      "rect": {
+        "x": 654,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Utilities",
+      "rect": {
+        "x": 802,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Nature",
+      "rect": {
+        "x": 950,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Public park · 48 × 40 m site · 8 eligible fields\nPrototype costs · effects beyond farmland are not modeled",
+      "rect": {
+        "x": 356,
+        "y": 836,
+        "width": 728,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 31.739999771118164,
+      "availableHeight": 38
+    },
+    {
+      "text": "Tab: inspect · Enter: place\nF: focus · Esc: cancel",
+      "rect": {
+        "x": 36,
+        "y": 130,
+        "width": 286,
+        "height": 48
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 36.279998779296875,
+      "availableHeight": 48
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 32,
+        "y": 826,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 32,
+        "y": 762,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 1276,
+        "y": 826,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 1276,
+        "y": 762,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Central field: -1 illustrative units · 22 credits",
+      "rect": {
+        "x": 451,
+        "y": 135,
+        "width": 538,
+        "height": 46
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 46
+    },
+    {
+      "text": "Public park",
+      "rect": {
+        "x": 353,
+        "y": 775,
+        "width": 171,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "8 eligible fields",
+      "rect": {
+        "x": 353,
+        "y": 814,
+        "width": 171,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Village center",
+      "rect": {
+        "x": 536,
+        "y": 775,
+        "width": 171,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "6 eligible fields",
+      "rect": {
+        "x": 536,
+        "y": 814,
+        "width": 171,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    }
+  ]
+}

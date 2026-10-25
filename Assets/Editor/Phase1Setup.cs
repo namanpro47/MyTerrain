@@ -10,6 +10,7 @@ public static class Phase1Setup
         Directory.CreateDirectory("Assets/Terra/Scenes");
         var scene=EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects,NewSceneMode.Single);
         var main=new GameObject("TerraMain").AddComponent<TerraMain>();
+        main.buildActionCatalog=AssetDatabase.LoadAssetAtPath<Terra.Art.BuildActionCatalog>("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
         main.terrainMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/Resources/Phase0Material.mat");
         main.treePrefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Toolkit/Prefabs/tree_oak.prefab");
         main.cropPrefab=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Toolkit/Prefabs/crops_wheatStageB.prefab");
