@@ -19,8 +19,8 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=42,zoom=58;Vector3 target=new Vector3(-115,30,10);
-        bool perspective=false;
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=34,zoom=105;Vector3 target=new Vector3(-90,30,-70);
+        bool perspective=true;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
@@ -146,8 +146,8 @@ namespace Terra.Gameplay
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
         {
-            // Deliberate illustrated camera: pan and zoom keep painted forms and light coherent.
-            yaw=-32;pitch=42;zoom=Mathf.Clamp(zoom,32,1000);
+            // Keep the selected composition while panning; the overview has its own steeper pitch.
+            yaw=-32;pitch=Mathf.Clamp(pitch,30,58);zoom=Mathf.Clamp(zoom,32,1000);
             target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
             if(ready)
             {
@@ -171,7 +171,7 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){perspective=false;yaw=-32;pitch=42;zoom=58;target=new Vector3(-115,30,10);ApplyView();}
+        void ResetView(){perspective=true;yaw=-32;pitch=34;zoom=105;target=new Vector3(-90,30,-70);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}
