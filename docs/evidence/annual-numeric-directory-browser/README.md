@@ -17,3 +17,11 @@ node tests/annual-numeric-client/storage-checks.mjs
 ```
 
 The annual owner implements and validates the pure directory controller separately. A Unity adapter, actual v2 Chrome checks and combined integration still follow. No Main/HUD/scenes or public release change is included here.
+
+## Deadline handoff — October 25
+
+The pure directory controller from `8b33cc9` is merged with the exact numeric codec and frame-checkpoint candidate. The additive `AnnualNumericRunDirectoryBrowserStore` now implements its acknowledged store interface with explicit GameObject lifetime, exact definition/save strings, validated directory identity, request correlation, timeout/cancellation recovery, and no automatic gameplay attachment. An optional checkpoint passes through directory content validation into the numeric transaction validator; WebGL integration must supply a main-thread next-frame callback.
+
+Validation after reconciliation with main337dbf2: **149 pure directory assertions**, **81 modeled IndexedDB assertions**, **33 per-run bridge fault assertions**, and the actual installed Unity6000.6.6f1 WebGL API compilation (**0 warnings/errors**) pass. The new checks verify checkpoint propagation and cancellation without writing or changing accepted history.
+
+**Unfinished:** actual v2 browser/IL2CPP callback and reload tests, dense memory-fix player acceptance, production Main/HUD wiring and a combined public run. These changes remain inactive on a pushed integration branch. Do not enable them or upgrade a submission build's database without the linked tests and shipping both v2 bridges together. The public schema-2/v5 game and this schema-3 numeric-v4 module intentionally remain separate.

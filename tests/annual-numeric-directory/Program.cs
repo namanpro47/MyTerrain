@@ -48,6 +48,20 @@ await directory.CreateAndActivate(alternate, "run-b", "create-b", directory.Dire
 Check(db.Definitions.Count == 2 && directory.Selection.directory.runs.Length == 3, "Different seed is retained in same place/model directory");
 Check(directory.Selection.directory.runs[0].definitionHash != directory.Selection.directory.runs[2].definitionHash, "Directory binds each run to its exact rules");
 Check(Json.Text(await aStore.Read(default)) == acceptedA, "Replay creation preserves previous accepted history and narration");
+int checkpoints = 0; int writesBeforeCheckpoint = store.Writes;
+var checkpointDirectory = await AnnualNumericRunDirectoryTransactions.Open(world, store,
+    checkpoint: token => { token.ThrowIfCancellationRequested(); checkpoints++; return Task.CompletedTask; });
+Check(checkpoints > 0 && checkpointDirectory.DirectoryHash == directory.DirectoryHash,
+    "Directory validation forwards frame checkpoints without changing selection");
+Check(store.Writes == writesBeforeCheckpoint, "Checkpointed read validation cannot write a retained run");
+using (var cancelledCheckpoint = new CancellationTokenSource())
+{
+    await Reject<OperationCanceledException>(() => AnnualNumericRunDirectoryTransactions.Open(world, store,
+        cancelledCheckpoint.Token, token => { cancelledCheckpoint.Cancel(); token.ThrowIfCancellationRequested(); return Task.CompletedTask; }),
+        "Cancelled directory checkpoint aborts validation");
+}
+Check(store.Writes == writesBeforeCheckpoint && Json.Text(await aStore.Read(default)) == acceptedA,
+    "Cancelled validation preserves all accepted run contents");
 var bHash = directory.DirectoryHash; store.ResetBlock(); store.BlockAck = true;
 var selecting = directory.Select("run-a", "select-a", bHash);
 await store.Blocked.Task.WaitAsync(TimeSpan.FromSeconds(10));

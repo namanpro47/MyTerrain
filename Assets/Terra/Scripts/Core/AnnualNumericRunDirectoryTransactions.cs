@@ -31,6 +31,7 @@ namespace Terra.Core
         const long MaximumSequence = 9007199254740991L; // Exact in the browser bridge.
         readonly string worldPackId;
         readonly IAnnualNumericRunDirectoryStore store;
+        readonly Func<CancellationToken, Task> checkpoint;
         readonly SemaphoreSlim gate = new SemaphoreSlim(1, 1);
         AnnualNumericRunSelection saved;
         bool recoveryRequired;
@@ -41,10 +42,10 @@ namespace Terra.Core
         public AnnualNumericRunSelection Selection => TownCopies.Copy(saved);
         public event Action<AnnualNumericRunSelection> Changed;
 
-        AnnualNumericRunDirectoryTransactions(string world, IAnnualNumericRunDirectoryStore persistence)
+        AnnualNumericRunDirectoryTransactions(string world, IAnnualNumericRunDirectoryStore persistence, Func<CancellationToken, Task> checkpoint)
         {
             Require(Text(world) && persistence != null, "A location and bound directory store are required.");
-            worldPackId = world; store = persistence;
+            worldPackId = world; store = persistence; this.checkpoint = checkpoint;
         }
         public static string KeyFor(string worldPackId)
         {
@@ -52,9 +53,9 @@ namespace Terra.Core
             return "myterrain.numeric-directory.v1/" + Uri.EscapeDataString(worldPackId) + "/schema-3/" + ModelFamily;
         }
         public static async Task<AnnualNumericRunDirectoryTransactions> Open(string worldPackId,
-            IAnnualNumericRunDirectoryStore store, CancellationToken cancellation = default)
+            IAnnualNumericRunDirectoryStore store, CancellationToken cancellation = default, Func<CancellationToken, Task> checkpoint = null)
         {
-            var directory = new AnnualNumericRunDirectoryTransactions(worldPackId, store);
+            var directory = new AnnualNumericRunDirectoryTransactions(worldPackId, store, checkpoint);
             await directory.Load(cancellation);
             return directory; // Opening an absent directory performs no write.
         }
@@ -149,7 +150,7 @@ namespace Terra.Core
                 "Indexed run and exact definition do not match.");
             // Reuse all envelope, ledger, replay and narration checks. This read-only
             // adapter cannot create a missing save or modify the selected run.
-            var verified = await AnnualNumericTransactions.Open(content.definition, entry.runId, new ExistingSnapshot(content.save), cancellation);
+            var verified = await AnnualNumericTransactions.Open(content.definition, entry.runId, new ExistingSnapshot(content.save), cancellation, checkpoint);
             content.save = verified.SaveState;
             if (saved?.save.town.runId == entry.runId && saved.save.town.definitionHash == entry.definitionHash)
                 Require(content.save.sequence > saved.save.sequence ||
