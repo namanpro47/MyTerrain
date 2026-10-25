@@ -1,0 +1,752 @@
+[
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: br\" response header when serving \"Build/85c92d0c825f3e6a17bba1376a28a995.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T17:37:35.554Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: br\" response header when serving \"Build/4bbf71b7ae7a37508fc65168703d9753.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T17:37:35.564Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: br\" response header when serving \"Build/7cd99bbb89a52364a019484cb856a179.data.unityweb\" file.",
+    "timestamp": "2026-10-25T17:37:43.627Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'https://terra-browser.vercel.app/Build/7cd99bbb89a52364a019484cb856a179.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-25T17:37:43.884Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T17:37:49.966Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T17:37:49.976Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T17:37:49.977Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T17:37:50.171Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T17:37:50.185Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T17:37:50.194Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T17:37:50.194Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T17:37:50.205Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T17:37:50.254Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T17:37:50.254Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T17:37:50.267Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T17:37:50.300Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T17:37:50.300Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T17:37:50.300Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T17:37:50.300Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T17:37:50.301Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T17:37:50.301Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T17:37:50.317Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T17:37:50.383Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T17:37:50.428Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T17:37:50.448Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T17:37:50.448Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T17:37:50.449Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.799999 ms\n",
+    "timestamp": "2026-10-25T17:37:50.500Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+    "timestamp": "2026-10-25T17:37:52.895Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T17:37:53.166Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/GaussianDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldGaussianPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T17:37:53.166Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/BokehDepthOfField' is not supported or has been stripped from the build (in 'DepthOfFieldBokehPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T17:37:53.171Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T17:37:53.177Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T17:37:53.177Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 13.202 seconds.",
+    "timestamp": "2026-10-25T17:38:03.560Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:10.343Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:10.374Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:10.411Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:10.455Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_STREAM_SURFACE: normal=SurfaceNormal; size=1024; cameraCopies=0; worldSpaceNormals=true\n",
+    "timestamp": "2026-10-25T17:38:10.701Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1058; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T17:38:11.582Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+    "timestamp": "2026-10-25T17:38:11.725Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 36728",
+    "timestamp": "2026-10-25T17:38:11.726Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+    "timestamp": "2026-10-25T17:38:12.111Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":30.0,\"y\":23.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":30.0,\"y\":46.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":388.0,\"y\":683.0,\"width\":213.33331298828125,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":613.3333129882813,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":838.6666259765625,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Choose an outlined field · 10 available\",\"rect\":{\"x\":390.0,\"y\":808.0,\"width\":660.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0},{\"text\":\"Undo\",\"rect\":{\"x\":256.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"View\",\"rect\":{\"x\":484.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Guide\",\"rect\":{\"x\":598.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Settings\",\"rect\":{\"x\":712.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Redo\",\"rect\":{\"x\":370.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"World atlas\",\"rect\":{\"x\":24.0,\"y\":754.0,\"width\":100.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":415.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$100K\",\"rect\":{\"x\":501.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":570.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$120K\",\"rect\":{\"x\":656.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":725.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$160K\",\"rect\":{\"x\":811.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Living margin\",\"rect\":{\"x\":880.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$125K\",\"rect\":{\"x\":966.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"‹\",\"rect\":{\"x\":384.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"›\",\"rect\":{\"x\":1032.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":974.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"42.3 <size=50%>/100</size>\\n<size=50%>Year-end  41.9</size>\",\"rect\":{\"x\":950.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1134.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"58.0 <size=50%>/100</size>\\n<size=50%>Year-end  58.0</size>\",\"rect\":{\"x\":1110.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1294.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"38.9 <size=50%>/100</size>\\n<size=50%>Year-end  38.9</size>\",\"rect\":{\"x\":1270.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":30.0,\"y\":88.0,\"width\":190.0,\"height\":22.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":22.0},{\"text\":\"$3,160,000 <size=45%>available</size>\",\"rect\":{\"x\":62.0,\"y\":110.0,\"width\":250.0,\"height\":38.0},\"bodyCssPx\":28.0,\"minGlyphCssPx\":12.600000381469727,\"preferredHeight\":31.290000915527344,\"availableHeight\":38.0},{\"text\":\"End Year · 4  →\",\"rect\":{\"x\":1051.0,\"y\":850.0,\"width\":158.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"More\",\"rect\":{\"x\":826.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Budget\",\"rect\":{\"x\":242.0,\"y\":88.0,\"width\":66.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":609.3333129882813,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":834.6666259765625,\"y\":682.0,\"width\":221.3333740234375,\"height\":30.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":226.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":454.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":568.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":682.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":340.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button World atlas\",\"enabled\":true,\"rect\":{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":412.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":567.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":877.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1032.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1046.0,\"y\":848.0,\"width\":168.0,\"height\":36.0}},{\"name\":\"Button More\",\"enabled\":true,\"rect\":{\"x\":796.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Budget\",\"enabled\":true,\"rect\":{\"x\":234.0,\"y\":86.0,\"width\":82.0,\"height\":24.0}}],\"panels\":[{\"x\":16.0,\"y\":16.0,\"width\":310.0,\"height\":54.0",
+    "timestamp": "2026-10-25T17:38:26.167Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":30.0,\"y\":23.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":30.0,\"y\":46.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":388.0,\"y\":683.0,\"width\":213.33331298828125,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":613.3333129882813,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":838.6666259765625,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Choose an outlined field · 10 available\",\"rect\":{\"x\":390.0,\"y\":808.0,\"width\":660.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0},{\"text\":\"Undo\",\"rect\":{\"x\":256.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"View\",\"rect\":{\"x\":484.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Guide\",\"rect\":{\"x\":598.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Settings\",\"rect\":{\"x\":712.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Redo\",\"rect\":{\"x\":370.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"World atlas\",\"rect\":{\"x\":24.0,\"y\":754.0,\"width\":100.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":415.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$100K\",\"rect\":{\"x\":501.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":570.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$120K\",\"rect\":{\"x\":656.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":725.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$160K\",\"rect\":{\"x\":811.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Living margin\",\"rect\":{\"x\":880.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$125K\",\"rect\":{\"x\":966.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"‹\",\"rect\":{\"x\":384.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"›\",\"rect\":{\"x\":1032.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\n",
+    "timestamp": "2026-10-25T17:38:26.168Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: \":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":974.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"42.3 <size=50%>/100</size>\\n<size=50%>Year-end  41.9</size>\",\"rect\":{\"x\":950.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1134.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"58.0 <size=50%>/100</size>\\n<size=50%>Year-end  58.0</size>\",\"rect\":{\"x\":1110.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1294.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"38.9 <size=50%>/100</size>\\n<size=50%>Year-end  38.9</size>\",\"rect\":{\"x\":1270.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":30.0,\"y\":88.0,\"width\":190.0,\"height\":22.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":22.0},{\"text\":\"$3,160,000 <size=45%>available</size>\",\"rect\":{\"x\":62.0,\"y\":110.0,\"width\":250.0,\"height\":38.0},\"bodyCssPx\":28.0,\"minGlyphCssPx\":12.600000381469727,\"preferredHeight\":31.290000915527344,\"availableHeight\":38.0},{\"text\":\"End Year · 4  →\",\"rect\":{\"x\":1051.0,\"y\":850.0,\"width\":158.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"More\",\"rect\":{\"x\":826.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Budget\",\"rect\":{\"x\":242.0,\"y\":88.0,\"width\":66.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":609.3333129882813,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":834.6666259765625,\"y\":682.0,\"width\":221.3333740234375,\"height\":30.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":226.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":454.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":568.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":682.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":340.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button World atlas\",\"enabled\":true,\"rect\":{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":412.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":567.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":877.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1032.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1046.0,\"y\":848.0,\"width\":168.0,\"height\":36.0}},{\"name\":\"Button More\",\"enabled\":true,\"rect\":{\"x\":796.0,\"y\":848.0,\"width\":112.0,\"height\":\n",
+    "timestamp": "2026-10-25T17:38:26.168Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: 36.0}},{\"name\":\"Button Budget\",\"enabled\":true,\"rect\":{\"x\":234.0,\"y\":86.0,\"width\":82.0,\"height\":24.0}}],\"panels\":[{\"x\":16.0,\"y\":16.0,\"width\":310.0,\"height\":54.0},{\"x\":376.0,\"y\":676.0,\"width\":688.0,\"height\":158.0},{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0},{\"x\":220.0,\"y\":842.0,\"width\":1000.0,\"height\":48.0},{\"x\":16.0,\"y\":78.0,\"width\":310.0,\"height\":86.0},{\"x\":936.0,\"y\":16.0,\"width\":488.0,\"height\":94.0}]}\n",
+    "timestamp": "2026-10-25T17:38:26.168Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+    "timestamp": "2026-10-25T17:38:26.168Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 16.500000 ms\n",
+    "timestamp": "2026-10-25T17:38:36.012Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 5 Unused Serialized files (Serialized files now loaded: 0)\n",
+    "timestamp": "2026-10-25T17:38:36.057Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 795 unused Assets to reduce memory usage. Loaded Objects now: 2827.\n",
+    "timestamp": "2026-10-25T17:38:36.109Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Total: 52.000000 ms (FindLiveObjects: 1.000000 ms CreateObjectMapping: 0.200000 ms MarkObjects: 41.399999 ms  DeleteObjects: 9.400001 ms)\n\n",
+    "timestamp": "2026-10-25T17:38:36.110Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:36.150Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:36.188Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:36.216Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:36.242Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=358; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T17:38:36.638Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: point-reyes-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T17:38:36.750Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 61753",
+    "timestamp": "2026-10-25T17:38:36.750Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "MYTERRAIN_ARRIVAL: point-reyes-v1\n",
+    "timestamp": "2026-10-25T17:38:37.914Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.399999 ms\n",
+    "timestamp": "2026-10-25T17:38:52.148Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 1 Unused Serialized files (Serialized files now loaded: 0)\n",
+    "timestamp": "2026-10-25T17:38:52.152Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 420 unused Assets to reduce memory usage. Loaded Objects now: 2761.\n",
+    "timestamp": "2026-10-25T17:38:52.166Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Total: 13.099999 ms (FindLiveObjects: 0.200000 ms CreateObjectMapping: 0.099999 ms MarkObjects: 11.500000 ms  DeleteObjects: 1.200001 ms)\n\n",
+    "timestamp": "2026-10-25T17:38:52.166Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:52.284Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:52.319Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:52.348Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:38:52.379Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=237; meshes=171; vertices=664809; materials=2\n",
+    "timestamp": "2026-10-25T17:38:52.666Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: suusamyr-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T17:38:52.728Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 77730",
+    "timestamp": "2026-10-25T17:38:52.728Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "MYTERRAIN_ARRIVAL: suusamyr-v1\n",
+    "timestamp": "2026-10-25T17:38:54.023Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.600001 ms\n",
+    "timestamp": "2026-10-25T17:39:16.416Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 1 Unused Serialized files (Serialized files now loaded: 0)\n",
+    "timestamp": "2026-10-25T17:39:16.425Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Unloading 395 unused Assets to reduce memory usage. Loaded Objects now: 2716.\n",
+    "timestamp": "2026-10-25T17:39:16.441Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "Total: 15.700000 ms (FindLiveObjects: 0.099999 ms CreateObjectMapping: 0.100000 ms MarkObjects: 14.000000 ms  DeleteObjects: 1.200000 ms)\n\n",
+    "timestamp": "2026-10-25T17:39:16.441Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:39:16.471Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:39:16.489Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:39:16.527Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T17:39:16.564Z",
+    "url": "https://terra-browser.vercel.app/Build/48ce9d91da74de84341b084ab9fc62ca.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_STREAM_SURFACE: normal=SurfaceNormal; size=1024; cameraCopies=0; worldSpaceNormals=true\n",
+    "timestamp": "2026-10-25T17:39:16.730Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=773; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T17:39:17.388Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+    "timestamp": "2026-10-25T17:39:17.500Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 102503",
+    "timestamp": "2026-10-25T17:39:17.500Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+    "timestamp": "2026-10-25T17:39:18.197Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":30.0,\"y\":23.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":30.0,\"y\":46.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":388.0,\"y\":683.0,\"width\":213.33331298828125,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":613.3333129882813,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":838.6666259765625,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Choose an outlined field · 10 available\",\"rect\":{\"x\":390.0,\"y\":808.0,\"width\":660.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0},{\"text\":\"Undo\",\"rect\":{\"x\":256.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"View\",\"rect\":{\"x\":484.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Guide\",\"rect\":{\"x\":598.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Settings\",\"rect\":{\"x\":712.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Redo\",\"rect\":{\"x\":370.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"World atlas\",\"rect\":{\"x\":24.0,\"y\":754.0,\"width\":100.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":415.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$100K\",\"rect\":{\"x\":501.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":570.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$120K\",\"rect\":{\"x\":656.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":725.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$160K\",\"rect\":{\"x\":811.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Living margin\",\"rect\":{\"x\":880.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$125K\",\"rect\":{\"x\":966.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"‹\",\"rect\":{\"x\":384.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"›\",\"rect\":{\"x\":1032.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":974.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"42.3 <size=50%>/100</size>\\n<size=50%>Year-end  41.9</size>\",\"rect\":{\"x\":950.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1134.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"58.0 <size=50%>/100</size>\\n<size=50%>Year-end  58.0</size>\",\"rect\":{\"x\":1110.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1294.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"38.9 <size=50%>/100</size>\\n<size=50%>Year-end  38.9</size>\",\"rect\":{\"x\":1270.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":30.0,\"y\":88.0,\"width\":190.0,\"height\":22.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":22.0},{\"text\":\"$3,160,000 <size=45%>available</size>\",\"rect\":{\"x\":62.0,\"y\":110.0,\"width\":250.0,\"height\":38.0},\"bodyCssPx\":28.0,\"minGlyphCssPx\":12.600000381469727,\"preferredHeight\":31.290000915527344,\"availableHeight\":38.0},{\"text\":\"End Year · 4  →\",\"rect\":{\"x\":1051.0,\"y\":850.0,\"width\":158.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"More\",\"rect\":{\"x\":826.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Budget\",\"rect\":{\"x\":242.0,\"y\":88.0,\"width\":66.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":609.3333129882813,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":834.6666259765625,\"y\":682.0,\"width\":221.3333740234375,\"height\":30.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":226.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":454.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":568.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":682.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":340.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button World atlas\",\"enabled\":true,\"rect\":{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":412.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":567.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":877.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1032.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1046.0,\"y\":848.0,\"width\":168.0,\"height\":36.0}},{\"name\":\"Button More\",\"enabled\":true,\"rect\":{\"x\":796.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Budget\",\"enabled\":true,\"rect\":{\"x\":234.0,\"y\":86.0,\"width\":82.0,\"height\":24.0}}],\"panels\":[{\"x\":16.0,\"y\":16.0,\"width\":310.0,\"height\":54.0",
+    "timestamp": "2026-10-25T17:39:24.779Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":30.0,\"y\":23.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":20.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":30.0,\"y\":46.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":24.0},{\"text\":\"Land & Nature\",\"rect\":{\"x\":388.0,\"y\":683.0,\"width\":213.33331298828125,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Homes & Community\",\"rect\":{\"x\":613.3333129882813,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Work & Utilities\",\"rect\":{\"x\":838.6666259765625,\"y\":683.0,\"width\":213.3333740234375,\"height\":28.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":28.0},{\"text\":\"Choose an outlined field · 10 available\",\"rect\":{\"x\":390.0,\"y\":808.0,\"width\":660.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0},{\"text\":\"Undo\",\"rect\":{\"x\":256.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"View\",\"rect\":{\"x\":484.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Guide\",\"rect\":{\"x\":598.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Settings\",\"rect\":{\"x\":712.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Redo\",\"rect\":{\"x\":370.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"World atlas\",\"rect\":{\"x\":24.0,\"y\":754.0,\"width\":100.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":415.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$100K\",\"rect\":{\"x\":501.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Cover crop\",\"rect\":{\"x\":570.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$120K\",\"rect\":{\"x\":656.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":725.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$160K\",\"rect\":{\"x\":811.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"Living margin\",\"rect\":{\"x\":880.0,\"y\":779.0,\"width\":143.0,\"height\":24.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":24.0},{\"text\":\"$125K\",\"rect\":{\"x\":966.0,\"y\":739.0,\"width\":54.0,\"height\":25.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":25.0},{\"text\":\"‹\",\"rect\":{\"x\":384.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"›\",\"rect\":{\"x\":1032.0,\"y\":720.0,\"width\":24.0,\"height\":82.0},\"bodyCssPx\n",
+    "timestamp": "2026-10-25T17:39:24.781Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: \":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":82.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":974.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"42.3 <size=50%>/100</size>\\n<size=50%>Year-end  41.9</size>\",\"rect\":{\"x\":950.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1134.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"58.0 <size=50%>/100</size>\\n<size=50%>Year-end  58.0</size>\",\"rect\":{\"x\":1110.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1294.0,\"y\":27.0,\"width\":124.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"38.9 <size=50%>/100</size>\\n<size=50%>Year-end  38.9</size>\",\"rect\":{\"x\":1270.0,\"y\":46.0,\"width\":150.0,\"height\":56.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":47.54999923706055,\"availableHeight\":56.0},{\"text\":\"YEAR 1/10 · PLANNING\",\"rect\":{\"x\":30.0,\"y\":88.0,\"width\":190.0,\"height\":22.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":22.0},{\"text\":\"$3,160,000 <size=45%>available</size>\",\"rect\":{\"x\":62.0,\"y\":110.0,\"width\":250.0,\"height\":38.0},\"bodyCssPx\":28.0,\"minGlyphCssPx\":12.600000381469727,\"preferredHeight\":31.290000915527344,\"availableHeight\":38.0},{\"text\":\"End Year · 4  →\",\"rect\":{\"x\":1051.0,\"y\":850.0,\"width\":158.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"More\",\"rect\":{\"x\":826.0,\"y\":850.0,\"width\":76.0,\"height\":32.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":32.0},{\"text\":\"Budget\",\"rect\":{\"x\":242.0,\"y\":88.0,\"width\":66.0,\"height\":20.0},\"bodyCssPx\":12.0,\"minGlyphCssPx\":12.0,\"preferredHeight\":13.40999984741211,\"availableHeight\":20.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":609.3333129882813,\"y\":682.0,\"width\":221.33331298828125,\"height\":30.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":834.6666259765625,\"y\":682.0,\"width\":221.3333740234375,\"height\":30.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":226.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":454.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":568.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":682.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":340.0,\"y\":848.0,\"width\":112.0,\"height\":36.0}},{\"name\":\"Button World atlas\",\"enabled\":true,\"rect\":{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":412.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Cover crop\",\"enabled\":true,\"rect\":{\"x\":567.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":722.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":877.0,\"y\":718.0,\"width\":149.0,\"height\":86.0}},{\"name\":\"Button ‹\",\"enabled\":true,\"rect\":{\"x\":384.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button ›\",\"enabled\":true,\"rect\":{\"x\":1032.0,\"y\":718.0,\"width\":24.0,\"height\":86.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1046.0,\"y\":848.0,\"width\":168.0,\"height\":36.0}},{\"name\":\"Button More\",\"enabled\":true,\"rect\":{\"x\":796.0,\"y\":848.0,\"width\":112.0,\"height\":\n",
+    "timestamp": "2026-10-25T17:39:24.781Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: 36.0}},{\"name\":\"Button Budget\",\"enabled\":true,\"rect\":{\"x\":234.0,\"y\":86.0,\"width\":82.0,\"height\":24.0}}],\"panels\":[{\"x\":16.0,\"y\":16.0,\"width\":310.0,\"height\":54.0},{\"x\":376.0,\"y\":676.0,\"width\":688.0,\"height\":158.0},{\"x\":16.0,\"y\":752.0,\"width\":116.0,\"height\":36.0},{\"x\":220.0,\"y\":842.0,\"width\":1000.0,\"height\":48.0},{\"x\":16.0,\"y\":78.0,\"width\":310.0,\"height\":86.0},{\"x\":936.0,\"y\":16.0,\"width\":488.0,\"height\":94.0}]}\n",
+    "timestamp": "2026-10-25T17:39:24.781Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+    "timestamp": "2026-10-25T17:39:24.781Z",
+    "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+  }
+]

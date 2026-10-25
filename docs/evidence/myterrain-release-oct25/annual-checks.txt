@@ -1,0 +1,2 @@
+Terra annual town checks passed: 94
+Annual gameplay checks passed: 15

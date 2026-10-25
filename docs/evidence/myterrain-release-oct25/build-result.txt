@@ -1,0 +1,3 @@
+Build Finished, Result: Success.
+Terra Web build succeeded: /Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Builds/Web (1501530 bytes)
+CLI exit 0, success true, no editorErrors.
