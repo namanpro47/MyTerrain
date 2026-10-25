@@ -20,10 +20,71 @@ public static class Study76Scene
     static Material material;
     static readonly HashSet<Material> renderedMaterials = new HashSet<Material>();
     static Transform baseline;
-    static string sourceBefore, annualBefore;
+    static string sourceBefore, annualBefore, annualSnapshotBefore;
     static TerraMain main;
     static WorldData world;
     static LandscapeRenderer landscape;
+    static RenderTexture captureTarget;
+
+    // Call only while holding desktop as well as this worktree's Editor reservation.
+    // These are scenery diagnostics; screen-space HUD and real-time performance are excluded.
+    public static object View(float zoom, float x=-30, float z=-210)
+    {
+        Connect();
+        if(zoom<32||zoom>300)throw new ArgumentOutOfRangeException(nameof(zoom));
+        if(WorldAtlas.Instance.Visible||WorldAtlas.Instance.Traveling)
+            throw new InvalidOperationException("Wait for actual atlas arrival before setting a study view.");
+        var camera=Camera.main;
+        if(captureTarget==null)captureTarget=new RenderTexture(1280,720,24){name="Study76 diagnostic target"};
+        camera.targetTexture=captureTarget;camera.aspect=1280f/720;
+        main.enabled=false;
+        foreach(var name in new[]{"zoom","shownZoom"})main.GetType().GetField(name,Fields).SetValue(main,zoom);
+        foreach(var name in new[]{"pitch","shownPitch"})main.GetType().GetField(name,Fields).SetValue(main,55f);
+        foreach(var name in new[]{"yaw","shownYaw"})main.GetType().GetField(name,Fields).SetValue(main,-32f);
+        foreach(var name in new[]{"target","shownTarget"})main.GetType().GetField(name,Fields).SetValue(main,new Vector3(x,landscape.Height(x,z),z));
+        main.GetType().GetField("perspective",Fields).SetValue(main,true);
+        main.GetType().GetMethod("RenderView",Fields).Invoke(main,null);
+        InstancedNature.DisplayPixelRatio=1;landscape.ViewScale(2*zoom/720);
+        return new{frame=Time.frameCount,zoom,camera=camera.transform.position.ToString(),scope="Offscreen scenery diagnostic"};
+    }
+
+    public static object Capture(string name)
+    {
+        if(string.IsNullOrEmpty(name)||name.Any(c=>!char.IsLetterOrDigit(c)&&c!='-'))
+            throw new ArgumentException("Use a short capture name with letters, numbers and hyphens.");
+        if(captureTarget==null||Camera.main.targetTexture!=captureTarget)
+            throw new InvalidOperationException("Prepare a study view and wait for frames to advance first.");
+        if(root!=null)Check();
+        var previous=RenderTexture.active;
+        var image=new Texture2D(1280,720,TextureFormat.RGB24,false);
+        try
+        {
+            Camera.main.Render();RenderTexture.active=captureTarget;
+            image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();
+            var bytes=image.EncodeToPNG();Directory.CreateDirectory(Output);
+            File.WriteAllBytes(Output+name+".png",bytes);
+            string hash;using(var sha=System.Security.Cryptography.SHA256.Create())
+                hash=BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-","").ToLowerInvariant();
+            var receipt=new{name,sha256=hash,width=1280,height=720,frame=Time.frameCount,
+                annual=main.Diagnostic,studyApplied=root!=null,materials=renderedMaterials.Select(m=>new{
+                    root=m.GetColor("_RootColor").ToString(),middle=m.GetColor("_MidColor").ToString(),
+                    tip=m.GetColor("_TipColor").ToString(),windTime=m.GetFloat("_StudyTime")}).ToArray(),
+                scope="Actual Editor camera render; excludes screen-space HUD; not browser or performance acceptance."};
+            File.WriteAllText(Output+name+".json",Newtonsoft.Json.JsonConvert.SerializeObject(receipt,Newtonsoft.Json.Formatting.Indented));
+            return receipt;
+        }
+        finally{RenderTexture.active=previous;Object.DestroyImmediate(image);}
+    }
+
+    public static void RestoreView()
+    {
+        if(captureTarget!=null)
+        {
+            if(Camera.main!=null&&Camera.main.targetTexture==captureTarget)Camera.main.targetTexture=null;
+            captureTarget.Release();Object.DestroyImmediate(captureTarget);captureTarget=null;
+        }
+        if(main!=null){main.enabled=true;main.GetType().GetMethod("ResetView",Fields).Invoke(main,null);}
+    }
 
     public static object Inspect()
     {
@@ -42,7 +103,7 @@ public static class Study76Scene
         if(spacing < .25f || spacing > 1)throw new ArgumentOutOfRangeException(nameof(spacing));
         var site = world.sites.Single(s => s.id == siteId);
         if(site.protectedSite)throw new InvalidOperationException("Protected site cannot be replaced.");
-        sourceBefore = JsonUtility.ToJson(world); annualBefore = main.Diagnostic;
+        sourceBefore = JsonUtility.ToJson(world); annualBefore = main.Diagnostic;annualSnapshotBefore=AnnualSnapshot();
         var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(Assets + "FieldCluster.prefab");
         if(prefab == null)throw new InvalidOperationException("Build the study assets first.");
         template = Object.Instantiate(prefab); template.name = "FieldCluster"; template.SetActive(false);
@@ -122,9 +183,12 @@ public static class Study76Scene
 
     public static void Check()
     {
-        if(sourceBefore!=JsonUtility.ToJson(world)||annualBefore!=main.Diagnostic)
+        if(sourceBefore!=JsonUtility.ToJson(world)||annualBefore!=main.Diagnostic||annualSnapshotBefore!=AnnualSnapshot())
             throw new InvalidOperationException("Source world or annual state changed during the study.");
     }
+
+    static string AnnualSnapshot()=>Newtonsoft.Json.JsonConvert.SerializeObject(
+        ((AnnualTownSession)main.GetType().GetField("annual",Fields).GetValue(main)).State);
 
     public static void Remove()
     {
