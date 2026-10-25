@@ -51,6 +51,7 @@ namespace Terra.UI
             projectTiming=Row("calendar",256,out timingGlyph);
             projectReserve=Label(projectFacts,"",new Vector2(0,1),new Vector2(18,-286),new Vector2(268,24),14,Soft);
             projectFacts.gameObject.SetActive(false);
+            ConfigurePlacementFeedback();
         }
         void UpdateProjectFacts(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,bool queued)
         {
@@ -76,14 +77,14 @@ namespace Terra.UI
             else if(recipe.retentionCapacityM3>0){benefit=recipe.retentionCapacityM3.ToString("0.#")+" m³ retention capacity";icon="water";}
             else if(recipe.productionUnits>0){benefit=recipe.productionUnits.ToString("0.#")+" production capacity units";icon="work";}
             else{benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
-            projectBenefit.text=benefit;benefitGlyph.symbol=icon;benefitGlyph.SetVerticesDirty();
+            projectBenefit.text=PlacementPurpose(recipe.actionId);benefitGlyph.symbol=icon;benefitGlyph.SetVerticesDirty();
             if(s!=null&&(s.energyDemand>0||s.waterDemand>0))
-            {projectTradeoff.text=s.energyDemand.ToString("0.#")+" energy · "+s.waterDemand.ToString("0.#")+" water / yr";tradeoffGlyph.symbol="energy";}
+            {projectTradeoff.text=s.energyDemand>0&&s.waterDemand>0?"Needs energy and water; adds upkeep":s.energyDemand>0?"Needs energy; adds upkeep":"Needs water; adds upkeep";tradeoffGlyph.symbol="energy";}
             else
             {
                 var baseline=annualRules.sites.First(a=>a.id==site.id);
                 double loss=baseline.baselineProductionUnits-recipe.productionUnits;
-                projectTradeoff.text=loss>0?loss.ToString("0.#")+" fewer production capacity units":"Locks this field for the run";tradeoffGlyph.symbol="warning";
+                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Reserves this field for the run";tradeoffGlyph.symbol="warning";
             }
             tradeoffGlyph.SetVerticesDirty();
             projectTiming.text="Opens Y"+(state.year+recipe.constructionYears)+" · grows for "+recipe.establishmentYears+" yr";
@@ -108,13 +109,15 @@ namespace Terra.UI
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,53);recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(268,28);
             foreach(var button in new[]{confirmEditButton,moveButton,removeButton})
             {var rect=button.GetComponent<RectTransform>();rect.anchoredPosition=new Vector2(rect.anchoredPosition.x,10);rect.sizeDelta=new Vector2(rect.sizeDelta.x,36);}
+            LayoutPlacementFacts();
         }
         void ReflowPlanningDock()
         {
             if(annualRules==null)return;
             float width=annualLayoutWidth>0?annualLayoutWidth:Screen.width/PixelRatio;
             // The HTML World atlas control owns the bottom-left 146px. Keep it clear too.
-            float left=156,right=tooltip.activeSelf?width-336:width-16;
+            // Reserve the inspector lane in every state. Hover must never move a tool.
+            float left=156,right=width-336;
             int columns=right-left<688?3:4;
             if(columns!=catalogColumns)
             {
@@ -128,7 +131,7 @@ namespace Terra.UI
             actionDock.localScale=Vector3.one*scale;
             void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
             {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
-            float center=tooltip.activeSelf?(left+right)/2:width/2;
+            float center=(left+right)/2;
             Position(actionDock,new Vector2(.5f,0),new Vector2(center-width/2,66),new Vector2(dockWidth,annualCompact?140:158));
             actionSummary.rectTransform.sizeDelta=new Vector2(dockWidth-28,20);
             int ci=0;float tabWidth=(dockWidth-24)/3;

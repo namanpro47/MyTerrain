@@ -45,7 +45,7 @@ namespace Terra.UI
             identityLabels[0].gameObject.SetActive(false);
             identityLabels[1].rectTransform.anchoredPosition=new Vector2(14,-7);identityLabels[1].fontSize=20;
             placeSubtitle.rectTransform.anchoredPosition=new Vector2(14,-30);placeSubtitle.fontSize=12;placeSubtitle.enableAutoSizing=true;placeSubtitle.fontSizeMin=10.5f;placeSubtitle.fontSizeMax=12;placeSubtitle.textWrappingMode=TextWrappingModes.NoWrap;
-            Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,86));
+            Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,100));
             annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=13;annualYear.rectTransform.sizeDelta=new Vector2(190,22);
             annualAvailable.rectTransform.anchoredPosition=new Vector2(46,-32);annualAvailable.rectTransform.sizeDelta=new Vector2(250,38);annualAvailable.fontSize=28*(LargeText?1.12f:1);
             annualAvailable.enableAutoSizing=true;annualAvailable.fontSizeMin=24;annualAvailable.fontSizeMax=28*(LargeText?1.12f:1);annualAvailable.textWrappingMode=TextWrappingModes.NoWrap;
@@ -103,6 +103,7 @@ namespace Terra.UI
                     if(icon!=null)Position(icon,new Vector2(0,1),new Vector2(7,-3),new Vector2(84,compact?42:58));
                     foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>(true))
                     {
+                        if(label.name=="Selected tool badge"){label.gameObject.SetActive(pair.Value==activeTool);continue;}
                         bool price=label.name=="Action price";
                         label.gameObject.SetActive(!string.IsNullOrEmpty(label.text));
                         if(price){Position(label.transform,new Vector2(1,1),new Vector2(-6,-21),new Vector2(54,25));label.alignment=TextAlignmentOptions.Right;label.fontSize=12;}
@@ -122,12 +123,12 @@ namespace Terra.UI
             if(recipeDetails==null)return;
             // Reflow existing inspection text too: resizing need not move the pointer.
             if(annualPreviewBody!=null)previewBody.text=annualPreviewBody;
-            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?280:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-114);
+            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(304,400);r.anchoredPosition=new Vector2(-16,-114);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);
             previewTitle.enableAutoSizing=true;previewTitle.fontSizeMin=15;previewTitle.fontSizeMax=previewTitle.fontSize;previewTitle.textWrappingMode=TextWrappingModes.NoWrap;
-            previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?124:LargeText?152:120);
+            previewBody.rectTransform.anchoredPosition=new Vector2(18,-95);previewBody.rectTransform.sizeDelta=new Vector2(268,190);
             previewBody.fontSize=(annualCompact?13:16)*(LargeText?1.12f:1);
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,annualCompact?49:68);
             recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(256,annualCompact?28:34);
