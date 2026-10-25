@@ -19,6 +19,12 @@ half3 StudyMeadowColor(float2 worldXZ)
 (output/'MeadowSurface.hlsl').write_text(shared)
 terrain = Path('Assets/Terra/Resources/TerraGround.shader').read_text()
 terrain = terrain.replace('Shader "Terra/Illustrated Ground"', 'Shader "Study69/Shared Meadow Ground"', 1)
+# Keep the far-distance texture shortcut, but use one initialized return value.
+# The original early return produces a Metal uninitialized-function warning.
+terrain = terrain.replace('                [branch] if(distant>.999)return average;',
+    '                half4 filtered=average;\n                [branch] if(distant<=.999)\n                {', 1)
+terrain = terrain.replace('                return lerp(paint,average,distant);',
+    '                filtered=lerp(paint,average,distant);\n                }\n                return filtered;', 1)
 start = terrain.index('                    half3 living=lerp(grassPaint,edgePaint,edgeWeight);')
 end = terrain.index('                    living*=lerp(1,.70,cover.r);', start)
 terrain = terrain[:start] + '''                    half3 living=StudyMeadowColor(p);

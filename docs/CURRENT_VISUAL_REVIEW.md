@@ -14,7 +14,7 @@
 
 ![Rejected study68 — native grass shader and geometry in the actual retained landscape](evidence/phase2a/visual-rebuild/study68-environment/terra-native-grass-normal.png)
 
-**Latest material investigation: [study69](evidence/phase2a/visual-rebuild/study69-surface/README.md).** Shared world-space artist paint reduces detached grass contrast and improves close ground detail with the original planting layout. The initial cloudy texture treatment and an additional 15,874 low plants are rejected. The corrected material remains a limited candidate, with a shader compiler warning to resolve before promotion. Actual normal/close/wide Editor captures are recorded; no Chrome or visual-gate acceptance. Production scenery remains the study65 candidate above.
+**Latest material investigation: [study69](evidence/phase2a/visual-rebuild/study69-surface/README.md).** Shared world-space artist paint reduces detached grass contrast and improves close ground detail with the original planting layout. The initial cloudy texture treatment and an additional 15,874 low plants are rejected. The corrected material remains a limited candidate, with its inherited Metal shader warning now resolved in the isolated experiment. Actual normal/close/wide Editor captures are recorded; no Chrome or visual-gate acceptance. Production scenery remains the study65 candidate above.
 
 ![Study69 shared ground and vegetation — limited candidate, not accepted scenery](evidence/phase2a/visual-rebuild/study69-surface/connected-normal.png)
 
