@@ -56,12 +56,12 @@ namespace Terra.UI
             placementAnchor.obstacles=new[]{(RectTransform)budgetPanel,(RectTransform)annualIndicators,(RectTransform)tooltip.transform,(RectTransform)actionDock,(RectTransform)commandBar};
             placementAnchor.show=()=>!ModalOpen&&!AnnualOverviewOpen&&!ShowingToolHint();
             placementCapsule.gameObject.SetActive(false);
-            toolHint=Panel(root,"Project tool explanation",new Vector2(1,1),new Vector2(-16,-114),new Vector2(304,330),Ink);
+            toolHint=Panel(root,"Project tool explanation",new Vector2(1,1),new Vector2(-16,-114),new Vector2(304,348),Ink);
             toolHint.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             var hintGroup=toolHint.gameObject.AddComponent<CanvasGroup>();hintGroup.blocksRaycasts=false;hintGroup.interactable=false;hintGroup.alpha=0;
-            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-14),new Vector2(276,34),18,Paper,FontStyles.Bold);
-            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-54),new Vector2(276,44),16,Paper);
-            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-108),new Vector2(276,204),16,Soft);
+            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-14),new Vector2(276,48),18,Paper,FontStyles.Bold);
+            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-70),new Vector2(276,44),16,Paper);
+            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-124),new Vector2(276,204),16,Soft);
             var hintAnchor=toolHint.gameObject.AddComponent<HudPlacementAnchor>();hintAnchor.show=ShowingToolHint;hintAnchor.tick=UpdateToolHint;
         }
 
