@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace the fine mapped scatter, using the existing free source model.20,770 roots pass cover/road/site/ground checks; actual normal/close/wide Editor comparisons are preserved. Browser, treatment consistency and the whole-scene visual gate remain open. [Findings](evidence/phase2a/visual-rebuild/study54-findings.md).
+
 **Latest visual checkpoint, study53:** Wisconsin paths gain subdued wear and grass shoulders from a free artist texture, with visible attribution. All1,048,576 outer-mask pixels match the prior renderer; credits fit both text sizes. [Candidate, controls and limitations](evidence/phase2a/visual-rebuild/study53-findings.md). The crop-canopy trial is rejected; meadow/field quality and browser gates remain open.
 
 **Latest research checkpoint, study51:** Meadow distribution and crop/ground material experiments are preserved with final shader snapshots and Editor captures. They are not adopted in production or accepted visually; Chrome verification remains open. [Findings and replay evidence](evidence/phase2a/visual-rebuild/study51-findings.md).
