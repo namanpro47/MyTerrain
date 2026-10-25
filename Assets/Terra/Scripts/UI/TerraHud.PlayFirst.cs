@@ -34,7 +34,7 @@ namespace Terra.UI
             resetProposalsButton.onClick.AddListener(()=>moreMenu.gameObject.SetActive(false));
             moreButton=Button(commandBar,"More",Vector2.zero,Vector2.zero,new Vector2(94,36),()=>{catalogKeyboard=false;moreMenu.gameObject.SetActive(!moreMenu.gameObject.activeSelf);Focus(moreMenu.gameObject.activeSelf?new[]{reportButton,futureButton,resetProposalsButton,restartButton}.FirstOrDefault(b=>b!=null&&b.gameObject.activeInHierarchy&&b.IsInteractable()):moreButton);},14);
             foreach(var pair in new[]{(undoButton,"undo"),(redoButton,"redo"),(viewButton,"map"),(guideButton,"guide"),(controlsButton,"settings"),(moreButton,"more")})ButtonGlyph(pair.Item1,pair.Item2);
-            budgetButton=Button(budgetPanel,"Budget",new Vector2(1,1),new Vector2(-10,-8),new Vector2(82,24),()=>AnnualDialog("Public budget",annualBudget.text+"\n\nAvailable = cash minus accepted commitments and this year's reserved plan.\n\nQueueing reserves the full public term. End Year pays this year's bills.","Back to landscape",CloseModal),12);
+            budgetButton=Button(budgetPanel,"Budget",new Vector2(1,1),new Vector2(-10,-8),new Vector2(82,24),ShowPublicBudget,12);
             Glyph(budgetPanel,"coin",new Vector2(0,1),new Vector2(14,-36),24,Accent);
             for(int i=0;i<3;i++)Glyph(annualIndicators,new[]{"work","people","leaf"}[i],new Vector2(0,1),new Vector2(12+i*160,-11),18,new[]{new Color(.94f,.76f,.43f),new Color(.50f,.76f,.93f),Accent}[i]);
             projectFacts=Rect(tooltip.transform,"Project at a glance",new Vector2(0,1),Vector2.zero,new Vector2(304,340));

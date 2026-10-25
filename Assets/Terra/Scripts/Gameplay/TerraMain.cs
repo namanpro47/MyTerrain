@@ -81,7 +81,7 @@ namespace Terra.Gameplay
         }
         void Update()
         {
-            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
+            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();hud.TickChangeFeedback(Time.unscaledDeltaTime);var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
             {
@@ -245,7 +245,7 @@ namespace Terra.Gameplay
             focusHeightOffset=target.y-landscape.Height(target.x,target.z)-8;
             ApplyView();Toast("Focused site · Scroll to zoom · R returns to the valley");
         }
-        void OnDestroy(){if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
+        void OnDestroy(){DisposeFeedbackAudio();if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }
