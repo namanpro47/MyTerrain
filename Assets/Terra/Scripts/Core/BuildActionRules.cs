@@ -59,7 +59,7 @@ namespace Terra.Core
         public BuildActionRule Find(string id) => actions.FirstOrDefault(a => a.id == id);
         public string Rejection(Site site, string id)
         {
-            if (site.protectedSite) return site.name + " is a protected scenario zone. No construction or land changes are allowed.";
+            if (site.protectedSite) return site.sourceId==UniformParcels.SourceId?site.name+": existing community asset. Redevelopment is outside this game.":site.name + " is a protected scenario zone. No construction or land changes are allowed.";
             if(site.id=="annual-wind-13" && id!="wind") return "This fictional opportunity is reserved for a wind agreement; other projects use the existing fields.";
             var action = Find(id); if (action == null) return "Choose an action from the build catalog.";
             if (id == "water-swale" && !swaleSites.Contains(site.id))

@@ -8,6 +8,8 @@ namespace Terra.Core
         public string Subtitle => Region + (IsWisconsin ? " · real geography" : " · real terrain / authored cover");
         public string AnnualSaveKey => IsWisconsin ? "terra.meadowbrook.annual-full.v3.1" : "terra." + PackId + ".annual-full.v3.1";
         public string ChapterSaveKey => IsWisconsin ? "terra.meadowbrook.annual-full.chapters.v3.1" : "terra." + PackId + ".annual-full.chapters.v3.1";
+        public string ParcelAnnualSaveKey => "terra." + PackId + ".annual-parcels.v4.0";
+        public string ParcelChapterSaveKey => "terra." + PackId + ".annual-parcels.chapters.v4.0";
         LocationProfile(string id,string name,string region){PackId=id;Name=name;Region=region;}
         public static readonly LocationProfile[] All = {
             new LocationProfile("meadowbrook-v1","Meadowbrook Valley","Wisconsin"),

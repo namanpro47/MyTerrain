@@ -21,6 +21,7 @@ namespace Terra.Gameplay
         public Terra.Art.BuildActionCatalog buildActionCatalog;
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
+        UniformParcelPack parcelPack;
         Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=34,zoom=105;Vector3 target=new Vector3(-90,30,-70);
         bool perspective=true;float focusHeightOffset;
@@ -61,11 +62,10 @@ namespace Terra.Gameplay
             hud.Progress("Shaping the terrain and woodland…");yield return null;
             try
             {
-                if(location.IsWisconsin)
-                {
-                    AnnualSpatialOpportunities.ConnectFields(w,runoffConfiguration,JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("ConnectedFields").text).sites);
-                    AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);
-                }
+                var parcelResource=Resources.Load<TextAsset>("Parcels/"+location.PackId);
+                if(parcelResource==null)throw new InvalidOperationException("Missing open-land parcel layout for "+location.Name);
+                parcelPack=JsonUtility.FromJson<UniformParcelPack>(parcelResource.text);
+                UniformParcels.Apply(w,runoffConfiguration,parcelPack,location.PackId);
                 buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);
             }
             catch(Exception e){Error(e.Message);yield break;}
@@ -74,9 +74,9 @@ namespace Terra.Gameplay
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
             var scenery=new GameObject(location.Name+" landscape").transform;
-            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
+            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();landscape.BuildStartingSettlement(parcelPack);}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            InitializeAnnual(m.packId);ConfigureAtlasMotion();ready=true;ResetView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();WorldAtlas.Instance.LandscapeReady();
         }
         void Update()
@@ -202,7 +202,18 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
+        void ResetView()
+        {
+            focusHeightOffset=0;perspective=true;yaw=-32;
+            if(parcelPack!=null)
+            {
+                var occupied=parcelPack.initialBuildings.Select(b=>world.sites.First(s=>s.id==b.siteId)).ToArray();
+                pitch=48;zoom=190;
+                target=new Vector3(occupied.Average(s=>s.polygon.Average(p=>p.x)),30,occupied.Average(s=>s.polygon.Average(p=>p.z)));
+            }
+            else{pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);}
+            ApplyView();
+        }
         void FocusSite()
         {
             // Preserve the annual full-footprint framing geometry at its calibrated pitch.
