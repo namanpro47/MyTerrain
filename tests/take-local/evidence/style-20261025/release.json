@@ -1,0 +1,145 @@
+{
+  "sourceCommit": "34e3c59298022fd17695c4084a0d3e7ec4aba7b8",
+  "baseExport": "/Users/naman/.codex/worktrees/narration-concise/Terra/Builds/NarrationConcise",
+  "preservedNarrationCommit": "3b0c2d8",
+  "changedExistingFiles": [
+    "take-local-link.js",
+    "take-local/index.html",
+    "take-local/style.css",
+    "take-local/app.js"
+  ],
+  "unchangedFiles": 31,
+  "hashes": {
+    "index.html": "d517af6b93c7cd10faa7f9e0973ceed42b5a6fabbf05fd21f6d5c2424ee78a8e",
+    "vercel.json": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6",
+    "loading-landscape.webp": "a6fe9be86678a3356660de99fcb58c695db6ca7c6ee87e08fa1406b0f8aef028",
+    "take-local-link.js": "875594fcbf3184c67ea6e19b3ed658411db674c6ef7fbd8c4444692e0395dfee",
+    ".gitignore": "56537ebe03160a28fdb6e59ae18f408d6f8aba609df73c45917c9358fd3bad52",
+    "narration.js": "a321c5a5913468b16856026abe5994040d17b2481f4a0e5a92a71aadd5aee1f7",
+    "player.js": "ee7551ce05b15678a669209ec3ce6432f0eccf718c75d352f462bd53baa59062",
+    "licenses/LILITA-OFL.txt": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1",
+    "licenses/fflate-0.8.2.txt": "8dcf4a3bc3be12bc2ebbaf50f9982adc8d681b81560a091945bb208194761fe1",
+    "licenses/WATER-LICENSE.txt": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87",
+    "StreamingAssets/Communities/catalog.json": "4ad15a506b22186e96c01a50772dada28fd4ab2e056a68a52fa9e73b1481d234",
+    "StreamingAssets/Communities/tomales-community-v1/imagery.jpg": "c05237cbb94321df6f15eb1593b2c62c1fff2cbbab20595cf72f4d88377b5faa",
+    "StreamingAssets/Communities/tomales-community-v1/community.json": "39895789c0dedd7035241c9a9ba08237b1956150054f0fc77fd3b8849b306770",
+    "StreamingAssets/Communities/coon-valley-community-v1/imagery.jpg": "4d3822da0c3c6db17a8246b86ec099330496498bff0488df519c7202c5a30cd2",
+    "StreamingAssets/Communities/coon-valley-community-v1/community.json": "8750991c7cbbd6db9f5da8ac56055cdebcdad8c72369718a8e24147602ff8f7f",
+    "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+    "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+    "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+    "StreamingAssets/WorldPacks/suusamyr-v1/world.json": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+    "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+    "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+    "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+    "StreamingAssets/WorldPacks/point-reyes-v1/world.json": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+    "StreamingAssets/WorldPacks/meadowbrook-v1/world.json": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+    "api/narration.js": "415afc4ccd5a180cb33fbcdac6343f9e95cf2dfd6c23ca32da41f6d219d7c91e",
+    "Build/6b29c95b88dc8f84978b7c37607f9227.loader.js": "401d4850efa06aa449198d00793305d98511728489c42babcf182f31b132d74a",
+    "Build/a5b41dc55aa09d9aba3500a99216f910.data.unityweb": "50e08f54390f8c8cc6570a0705220d0b7504bbbbe4c477d33a83417d9a0025ad",
+    "Build/5f64f3c283450fa5c12f7f2c154b1033.wasm.unityweb": "7b117c70b2b0f65c50a8b08b3a56dcfeaa940ae5fd6a0492f05277fa1c9248bd",
+    "Build/bfe83b66f3a9156b0069b5940dc987cb.framework.js.unityweb": "d99296ae20df49d87a0539256a956d07ef7d0cdfad1188dffd38aea45f4cc70f",
+    "take-local/index.html": "2ccd395cc12d950ae28c5ad52b1bd3b2e50109ad66b6d2c4e421635444543b30",
+    "take-local/LilitaOne-Regular.ttf": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59",
+    "take-local/OFL.txt": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1",
+    "take-local/style.css": "e0f29216ccea1acbd3b3f430fe41d8a7f06f8300efaec03d0a07ead3a41a64bf",
+    "take-local/app.js": "cc5a3e93c1dbc9a609e34c1db19e7b22b570e7ef936c41bcab379bb71d20828e"
+  },
+  "integratedOver": "027bdf1",
+  "deploymentUrl": "https://terra-browser-pgj5n2ea1-namanpro47s-projects.vercel.app",
+  "publicChecks": [
+    {
+      "url": "https://www.myterrain.io/",
+      "sha256": "d517af6b93c7cd10faa7f9e0973ceed42b5a6fabbf05fd21f6d5c2424ee78a8e",
+      "bytes": 4128
+    },
+    {
+      "url": "https://www.myterrain.io/take-local-link.js",
+      "sha256": "875594fcbf3184c67ea6e19b3ed658411db674c6ef7fbd8c4444692e0395dfee",
+      "bytes": 1223
+    },
+    {
+      "url": "https://www.myterrain.io/take-local/index.html",
+      "sha256": "2ccd395cc12d950ae28c5ad52b1bd3b2e50109ad66b6d2c4e421635444543b30",
+      "bytes": 1056
+    },
+    {
+      "url": "https://www.myterrain.io/take-local/app.js",
+      "sha256": "cc5a3e93c1dbc9a609e34c1db19e7b22b570e7ef936c41bcab379bb71d20828e",
+      "bytes": 23530
+    },
+    {
+      "url": "https://www.myterrain.io/take-local/style.css",
+      "sha256": "e0f29216ccea1acbd3b3f430fe41d8a7f06f8300efaec03d0a07ead3a41a64bf",
+      "bytes": 8588
+    },
+    {
+      "url": "https://www.myterrain.io/take-local/LilitaOne-Regular.ttf",
+      "sha256": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59",
+      "bytes": 28092
+    },
+    {
+      "url": "https://www.myterrain.io/take-local/OFL.txt",
+      "sha256": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1",
+      "bytes": 4392
+    },
+    {
+      "url": "https://www.myterrain.io/narration.js",
+      "sha256": "a321c5a5913468b16856026abe5994040d17b2481f4a0e5a92a71aadd5aee1f7",
+      "bytes": 7012
+    },
+    {
+      "url": "https://www.myterrain.io/player.js",
+      "sha256": "ee7551ce05b15678a669209ec3ce6432f0eccf718c75d352f462bd53baa59062",
+      "bytes": 4041
+    },
+    {
+      "url": "https://terra-browser.vercel.app/",
+      "sha256": "d517af6b93c7cd10faa7f9e0973ceed42b5a6fabbf05fd21f6d5c2424ee78a8e",
+      "bytes": 4128
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local-link.js",
+      "sha256": "875594fcbf3184c67ea6e19b3ed658411db674c6ef7fbd8c4444692e0395dfee",
+      "bytes": 1223
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local/index.html",
+      "sha256": "2ccd395cc12d950ae28c5ad52b1bd3b2e50109ad66b6d2c4e421635444543b30",
+      "bytes": 1056
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local/app.js",
+      "sha256": "cc5a3e93c1dbc9a609e34c1db19e7b22b570e7ef936c41bcab379bb71d20828e",
+      "bytes": 23530
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local/style.css",
+      "sha256": "e0f29216ccea1acbd3b3f430fe41d8a7f06f8300efaec03d0a07ead3a41a64bf",
+      "bytes": 8588
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local/LilitaOne-Regular.ttf",
+      "sha256": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59",
+      "bytes": 28092
+    },
+    {
+      "url": "https://terra-browser.vercel.app/take-local/OFL.txt",
+      "sha256": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1",
+      "bytes": 4392
+    },
+    {
+      "url": "https://terra-browser.vercel.app/narration.js",
+      "sha256": "a321c5a5913468b16856026abe5994040d17b2481f4a0e5a92a71aadd5aee1f7",
+      "bytes": 7012
+    },
+    {
+      "url": "https://terra-browser.vercel.app/player.js",
+      "sha256": "ee7551ce05b15678a669209ec3ce6432f0eccf718c75d352f462bd53baa59062",
+      "bytes": 4041
+    }
+  ]
+}
