@@ -74,8 +74,8 @@ namespace Terra.UI
             if(annualRules!=null)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
-                actionSummary.text=recipe==null?"Choose a project, then a field.  ‹ / › More projects":recipe.title+" · "+Money(recipe.annualPublicOperatingCents)+" / year upkeep";
-                if(highlightedFieldCount.HasValue)actionSummary.text+=" · "+highlightedFieldCount.Value+" available fields";
+                actionSummary.text=recipe==null?"Choose a project · B to browse":highlightedFieldCount==0?"No available field · choose another project":"Choose an outlined field";
+                if(highlightedFieldCount>0)actionSummary.text+=" · "+highlightedFieldCount.Value+" available";
                 return;
             }
 

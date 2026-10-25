@@ -1,0 +1,60 @@
+using System;
+using System.Linq;
+using System.Reflection;
+using Terra.Contracts;
+using Terra.Core;
+using Terra.UI;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public static class PlayFirstHudChecks
+{
+    public static int Run(TerraHud hud,AnnualTownDefinition definition,WorldData world)
+    {
+        int checks=0;
+        void Check(bool valid,string message){checks++;if(!valid)throw new Exception("Play-first HUD: "+message);}
+        var town=new AnnualTown(definition,"play-first-ui-checks");var baseline=AnnualGameplay.Baseline(definition);
+        var flags=BindingFlags.Instance|BindingFlags.NonPublic;
+        string Text()=>string.Join("\n",UnityEngine.Object.FindObjectsByType<TextMeshProUGUI>().Where(t=>t.gameObject.activeInHierarchy).Select(t=>t.text));
+        void Click(string caption)=>UnityEngine.Object.FindObjectsByType<Button>().Single(b=>b.gameObject.activeInHierarchy&&b.GetComponentInChildren<TextMeshProUGUI>()?.text==caption).onClick.Invoke();
+        hud.Ready();hud.AnnualState(town,baseline,AnnualGameplay.Forecast(town).outcomes);
+        foreach(bool large in new[]{false,true})
+        {
+            if(large)typeof(TerraHud).GetMethod("ToggleText",flags).Invoke(hud,null);
+            foreach(bool compact in new[]{false,true})
+            foreach(var offer in definition.actions.GroupBy(a=>a.actionId).Select(g=>g.First()))
+            {
+                hud.AnnualPreview(world.sites.First(s=>s.id==offer.siteId),offer,town.Snapshot(),"place",null,()=>{},false);
+                typeof(TerraHud).GetMethod("LayoutAnnual",flags).Invoke(hud,new object[]{compact?1024f:1440f,compact?576f:900f,compact});
+                var text=Text();
+                Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents)),"Missing upfront cost for "+offer.actionId);
+                Check(text.Contains("Opens Y"+(town.Year+offer.constructionYears)),"Opening year hidden for "+offer.actionId);
+                Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents+offer.annualPublicOperatingCents*offer.operatingYears+offer.annualPublicPaymentCents*offer.paymentYears)+" total reserved"),"Full commitment hidden for "+offer.actionId);
+                Check(text.Contains(offer.operatingYears+" yr"),"Upkeep term hidden");
+            }
+        }
+        typeof(TerraHud).GetMethod("ToggleText",flags).Invoke(hud,null);
+        Check(town.History.Length==0&&town.CashCents==definition.startingCashCents,"Inspecting projects changed the ledger");
+        var park=definition.actions.First(a=>a.actionId=="public-park");town.QueueAction(park.siteId,park.actionId,town.Revision);
+        var first=AnnualTownDemo.Advance(town,"play-first-year1",new AuthoredAnnualConsequenceProvider());
+        var cards=AnnualHighlights.Create(definition,first,null);
+        Check(cards.Length<=3&&cards.Any(c=>c.siteId==park.siteId&&c.detail.Contains("Building")),"New construction highlight missing");
+        var saved=JsonUtility.ToJson(town.Snapshot());string focused=null;bool continued=false;
+        hud.AnnualOverview(town,()=>continued=true,()=>{},()=>{},id=>focused=id);
+        Check(hud.AnnualOverviewOpen&&!hud.ModalOpen,"Year overview obscures the landscape with a modal");
+        UnityEngine.Object.FindObjectsByType<Button>().Single(b=>b.name=="Year highlight 1"&&b.gameObject.activeInHierarchy).onClick.Invoke();
+        Check(focused==park.siteId&&saved==JsonUtility.ToJson(town.Snapshot()),"Highlight did not focus the accepted site without changing state");
+        Click("Plan year 2 →");Check(continued,"Continue requires reading the chapter");
+        hud.CloseAnnualOverview();
+        town.ContinuePlanning(town.Revision);
+        var second=AnnualTownDemo.Advance(town,"play-first-year2",new AuthoredAnnualConsequenceProvider());
+        Check(AnnualHighlights.Create(definition,second,first).Any(c=>c.siteId==park.siteId&&c.detail.Contains("Operating")),"Opening project highlight missing");
+        var empty=new AnnualTown(definition,"quiet-year");var quiet=AnnualTownDemo.Advance(empty,"quiet",new AuthoredAnnualConsequenceProvider());
+        Check(AnnualHighlights.Create(definition,quiet,null).All(c=>c.siteId==null),"Quiet year fabricated a project");
+        var problem=JsonUtility.FromJson<TownYearReport>(JsonUtility.ToJson(second));problem.ledger.closingArrearsCents=100;
+        Check(AnnualHighlights.Create(definition,problem,first)[0].title=="Unpaid commitments","Unpaid commitments did not take priority");
+        hud.HideAnnualPreview();hud.AnnualState(new AnnualTown(definition,"reset-ui"),baseline,baseline);
+        Debug.Log("PLAY_FIRST_HUD_CHECKS_PASSED: "+checks);return checks;
+    }
+}

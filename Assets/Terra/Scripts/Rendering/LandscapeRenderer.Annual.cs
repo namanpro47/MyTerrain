@@ -42,7 +42,7 @@ namespace Terra.Rendering
             var go=new GameObject("Annual status");go.transform.SetParent(holder,false);
             go.transform.position=new Vector3(x,Height(x,z)+12,z);go.transform.rotation=Quaternion.Euler(37,-32,0);
             var text=go.AddComponent<TextMeshPro>();text.font=TMP_Settings.defaultFontAsset;
-            text.text=stage=="ESTABLISHING"?"ESTABLISHING "+(maturity*100).ToString("0")+"%":stage;
+            text.text=stage=="ESTABLISHING"?"Growing "+(maturity*100).ToString("0")+"%":stage=="PROPOSED"?"Queued":stage=="BUILDING"?"Building":stage=="SUSPENDED"?"Paused":stage=="OPERATING"?"Operating":stage;
             text.fontSize=140;annualLabels[site.id]=text;text.alignment=TextAlignmentOptions.Center;text.color=stage=="PROPOSED"?new Color(1,.86f,.46f):Color.white;
             text.rectTransform.sizeDelta=new Vector2(800,180);text.renderer.sortingOrder=5;
         }

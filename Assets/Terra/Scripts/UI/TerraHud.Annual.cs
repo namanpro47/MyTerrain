@@ -22,7 +22,7 @@ namespace Terra.UI
         Transform budgetPanel;
         bool annualCompact,annualCompleted;
         public void MapView(string title){placeSubtitle.text=title??location.Subtitle;if(title!=null)annualYear.text="YOUR SAVED YEAR 10";}
-        public void HideAnnualPreview()=>tooltip.SetActive(false);
+        public void HideAnnualPreview(){tooltip.SetActive(false);ReflowPlanningDock();}
         TownActionDefinition inspectedRecipe;
         string annualPreviewBody,annualPreviewTimeline;
         Action annualPrimaryAction;
@@ -66,7 +66,7 @@ namespace Terra.UI
                 var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>().Last();
                 caption.text=recipe==null?"—":CompactMoney(recipe.upfrontPublicCostCents);
             }
-            UpdateActionSummary();
+            ConfigurePlayFirst();UpdateActionSummary();
         }
         int catalogPage;
         readonly System.Collections.Generic.List<Button> catalogPageButtons=new System.Collections.Generic.List<Button>();
@@ -128,8 +128,8 @@ namespace Terra.UI
             double[] next={forecast.economicScore,forecast.socialScore,forecast.environmentalScore};
             for(int i=0;i<3;i++)
             {
-                annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Last year  "+Signed(values[i]-before[i]))+"</size>";
-                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.54f,5);
+                annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Change  "+Signed(values[i]-before[i]))+"</size>";
+                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.40f,5);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());
             annualAvailable.text=Money(town.AvailableCents)+" <size=45%>available</size>";
@@ -149,7 +149,7 @@ namespace Terra.UI
             confirmEdit=confirm;tip.transform.parent.gameObject.SetActive(false);
             inspectedRecipe=recipe;recipeDetails.gameObject.SetActive(recipe?.services!=null&&rejection==null&&mode=="place");
             tooltip.SetActive(site!=null||mode=="reset"||mode=="move");
-            if(!tooltip.activeSelf)return;
+            if(!tooltip.activeSelf){ReflowPlanningDock();return;}
             previewTitle.text=mode=="reset"?"Clear this year's plan":site?.name??"Choose a destination";
             var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id);
             var outcome=state.history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==site?.id);
@@ -175,7 +175,8 @@ namespace Terra.UI
             previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);
             annualPreviewBody=previewBody.text;
             annualPreviewTimeline=recipe==null?null:"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr";
-            LayoutAnnualPreview();Paint();
+            UpdateProjectFacts(site,recipe,state,mode,rejection,queued);
+            LayoutAnnualPreview();ReflowPlanningDock();Paint();
         }
         static string Bundle(TownActionDefinition recipe)=>recipe.services!=null?recipe.fundedUnit:recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
         public void AnnualDialog(string title,string body,string action,Action callback)
