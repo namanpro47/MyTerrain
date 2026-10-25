@@ -1,5 +1,5 @@
 {
-  "README.md": "61c19a86bf5f482edf422a927098a472676efef5f1d7ccfc4f7ad4e2b345591e",
+  "README.md": "c366f227082f4d1976983cb697f71941c699cbad881eee63f5a5da989f149211",
   "build-result.json": "66fa4ae4f650e557872527ec19dd64b72020aad2aae1e11848420f1af517f4d0",
   "build-source.json": "e971d8dd9b144ee6602c6e2c74058b6298ea38cf53d999732344aaa650164470",
   "candidate-close.jpg": "a9df12e29efc8f58614fd00ae9e0c9d9e3b57befb3f114e26039e00a0839d76e",
@@ -20,6 +20,6 @@
   "generated-input.diff": "2f2981b15ea09b73756052de27ece4276f7cda3a0ca4efa48ef2216ea1ca2c57",
   "ignored-input-changes.json": "63932b0b757af2a4750e8ecb7549756f768d01b134469cf12f1de6eeba24ecb8",
   "post-build-status.txt": "9013fbfea568f031a0f5b98c4b2c3491badb0e99ce7a0b4c8962c068ebc6d192",
-  "summary.json": "cd0d63176e0f8a3281d65e81d8edb5c0019e940eb7b63a628dbf1687a505ee4a",
+  "summary.json": "9d900112ca6aa8a998cf7d01f593eca99467bac782aa014b76060bcc0080f281",
   "verified.json": "eb377e69917224a87ce29dfdb187558a8bacef2cab96bddaba8761b38b070f4f"
 }

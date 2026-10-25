@@ -25,6 +25,8 @@ Chrome 155.0.8059.85, 1280×720, DPR1. Shared reservation 4 held desktop + unity
 
 **Do not infer a browser speedup.** The control opening is faster than the candidate in this sequential observation. The 32m groups reduce selected geometry in the Editor, but have not demonstrated faster browser frames. Candidate editing p95 39 ms exceeds 33.3 ms, so the three-path performance gate fails. The previously recorded Web64 37/41/34 ms paths remain valid historical observations; this quieter opening at 18 ms shows substantial path/environment variability. Do not replace earlier failures or average them into a pass.
 
+End-of-window actual render counters report total nature draws **497 control opening; 454 candidate opening; 466 candidate editing; 470 candidate Year10** (submitted source batches minus collector sources plus collector draws). These are one-frame counters at each route endpoint, not route-wide maxima or GPU timings. They show no large editing-only draw-count increase. Per-component annual tint copies remain a possible small cost, but this evidence does not justify rewriting material ownership. No production material change was made; a proposed Editor diagnostic was cancelled before launch. A matched control editing route is the next discriminator.
+
 Fresh-player Explore-to-visible-focused-game observations were 18.653 s control and 15.675 s candidate. Both exceed 15 s, and these are one observation each, not the required three fresh arrivals. Initial transfer remains below 50 MB. Final arrival acceptance is open.
 
 ## Functional and appearance checks

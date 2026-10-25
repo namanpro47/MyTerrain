@@ -30,7 +30,17 @@
         "blurEvents": 0
       }
     },
-    "errorCount": 0
+    "errorCount": 0,
+    "lastFrameRenderCounters": {
+      "submitted": 1043,
+      "culled": 1300,
+      "groundcoverCulled": 276,
+      "groups": 432,
+      "sourceBatches": 894,
+      "drawCalls": 348,
+      "savedDrawCalls": 546,
+      "totalNatureDraws": 497
+    }
   },
   "candidate-opening": {
     "performance": {
@@ -63,7 +73,17 @@
         "blurEvents": 0
       }
     },
-    "errorCount": 0
+    "errorCount": 0,
+    "lastFrameRenderCounters": {
+      "submitted": 1095,
+      "culled": 1657,
+      "groundcoverCulled": 278,
+      "groups": 432,
+      "sourceBatches": 1008,
+      "drawCalls": 367,
+      "savedDrawCalls": 641,
+      "totalNatureDraws": 454
+    }
   },
   "candidate-editing": {
     "performance": {
@@ -117,7 +137,17 @@
         "blurEvents": 0
       }
     },
-    "errorCount": 0
+    "errorCount": 0,
+    "lastFrameRenderCounters": {
+      "submitted": 1097,
+      "culled": 1654,
+      "groundcoverCulled": 282,
+      "groups": 436,
+      "sourceBatches": 997,
+      "drawCalls": 366,
+      "savedDrawCalls": 631,
+      "totalNatureDraws": 466
+    }
   },
   "candidate-year10": {
     "performance": {
@@ -150,6 +180,16 @@
         "blurEvents": 0
       }
     },
-    "errorCount": 0
+    "errorCount": 0,
+    "lastFrameRenderCounters": {
+      "submitted": 1105,
+      "culled": 1645,
+      "groundcoverCulled": 278,
+      "groups": 436,
+      "sourceBatches": 1005,
+      "drawCalls": 370,
+      "savedDrawCalls": 635,
+      "totalNatureDraws": 470
+    }
   }
 }
