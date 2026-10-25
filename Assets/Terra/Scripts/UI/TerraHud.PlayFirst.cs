@@ -13,7 +13,7 @@ namespace Terra.UI
         Transform projectFacts,moreMenu;
         Image projectArt;
         TextMeshProUGUI projectCost,projectUpkeep,projectBenefit,projectTradeoff,projectTiming,projectReserve;
-        HudGlyph benefitGlyph,tradeoffGlyph;
+        HudGlyph benefitGlyph,tradeoffGlyph,timingGlyph;
         Button moreButton,budgetButton;
         bool projectFactsVisible;float annualLayoutWidth;
 
@@ -32,7 +32,7 @@ namespace Terra.UI
             moreMenu=Panel(root,"More planning tools",Vector2.zero,new Vector2(16,62),new Vector2(250,202),PanelColor);
             moreMenu.SetSiblingIndex(modalShade.transform.GetSiblingIndex());moreMenu.gameObject.SetActive(false);
             resetProposalsButton.onClick.AddListener(()=>moreMenu.gameObject.SetActive(false));
-            moreButton=Button(commandBar,"More",Vector2.zero,Vector2.zero,new Vector2(94,36),()=>{moreMenu.gameObject.SetActive(!moreMenu.gameObject.activeSelf);Focus(moreMenu.gameObject.activeSelf?reportButton:moreButton);},14);
+            moreButton=Button(commandBar,"More",Vector2.zero,Vector2.zero,new Vector2(94,36),()=>{catalogKeyboard=false;moreMenu.gameObject.SetActive(!moreMenu.gameObject.activeSelf);Focus(moreMenu.gameObject.activeSelf?new[]{reportButton,futureButton,resetProposalsButton,restartButton}.FirstOrDefault(b=>b!=null&&b.gameObject.activeInHierarchy&&b.IsInteractable()):moreButton);},14);
             foreach(var pair in new[]{(undoButton,"undo"),(redoButton,"redo"),(viewButton,"map"),(guideButton,"guide"),(controlsButton,"settings"),(moreButton,"more")})ButtonGlyph(pair.Item1,pair.Item2);
             budgetButton=Button(budgetPanel,"Budget",new Vector2(1,1),new Vector2(-10,-8),new Vector2(82,24),()=>AnnualDialog("Public budget",annualBudget.text+"\n\nAvailable = cash minus accepted commitments and this year's reserved plan.\n\nQueueing reserves the full public term. End Year pays this year's bills.","Back to landscape",CloseModal),12);
             Glyph(budgetPanel,"coin",new Vector2(0,1),new Vector2(14,-36),24,Accent);
@@ -48,7 +48,7 @@ namespace Terra.UI
             projectUpkeep=Row("coin",126,out _);
             projectBenefit=Row("leaf",180,out benefitGlyph);
             projectTradeoff=Row("warning",218,out tradeoffGlyph);
-            projectTiming=Row("calendar",256,out _);
+            projectTiming=Row("calendar",256,out timingGlyph);
             projectReserve=Label(projectFacts,"",new Vector2(0,1),new Vector2(18,-286),new Vector2(268,24),14,Soft);
             projectFacts.gameObject.SetActive(false);
         }
@@ -57,14 +57,17 @@ namespace Terra.UI
             projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued)&&!state.assets.Any(a=>a.siteId==site.id);
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
-            previewTitle.text=recipe.title;previewKind.text=(queued?"QUEUED":"PLAN Y"+state.year)+" · "+site.name;
+            bool replacing=queued&&rejection==null&&state.queue.Any(q=>q.siteId==site.id&&q.actionId!=recipe.actionId);
+            previewTitle.text=recipe.title;previewKind.text=(replacing?"REPLACE Y"+state.year:queued?"QUEUED":"PLAN Y"+state.year)+" · "+site.name;
             var card=actionButtons.FirstOrDefault(p=>p.Value==recipe.actionId).Key;
             projectArt.sprite=card?.transform.Find("Model icon")?.GetComponent<Image>().sprite;projectArt.enabled=projectArt.sprite!=null;
             projectCost.text=Money(recipe.upfrontPublicCostCents)+"\n<size=72%>public upfront</size>";
             projectUpkeep.text=Money(recipe.annualPublicOperatingCents)+"/yr upkeep · "+recipe.operatingYears+" yr";
             if(recipe.annualPublicPaymentCents>0)projectUpkeep.text+="\n"+Money(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
             var s=recipe.services;string benefit,icon;
-            if(s!=null&&s.homes>0){benefit=s.homes.ToString("0.#")+" home capacity";icon="home";}
+            if(recipe.actionId=="stewardship-agreement"){benefit=(recipe.vegetatedFraction*100).ToString("0")+"% target vegetation";icon="leaf";}
+            else if(s!=null&&(recipe.actionId=="data-center"||recipe.actionId=="agricultural-storage")){benefit=s.jobs.ToString("0.#")+" jobs at capacity";icon="work";}
+            else if(s!=null&&s.homes>0){benefit=s.homes.ToString("0.#")+" home capacity";icon="home";}
             else if(s!=null&&s.cleanEnergySupply>0){benefit=s.cleanEnergySupply.ToString("0.#")+" clean energy units";icon="energy";}
             else if(s!=null&&s.energySupply>0){benefit=s.energySupply.ToString("0.#")+" energy units";icon="energy";}
             else if(s!=null&&s.wastewaterCapacity>0){benefit=s.wastewaterCapacity.ToString("0.#")+" treatment units";icon="water";}
@@ -91,7 +94,12 @@ namespace Terra.UI
         void LayoutPlayFirstInspector()
         {
             if(!projectFactsVisible)return;
-            ((RectTransform)tooltip.transform).sizeDelta=new Vector2(304,LargeText?410:400);
+            float paymentSpace=inspectedRecipe?.annualPublicPaymentCents>0?0:20;
+            ((RectTransform)tooltip.transform).sizeDelta=new Vector2(304,400-paymentSpace);
+            projectBenefit.rectTransform.anchoredPosition=new Vector2(48,-180+paymentSpace);benefitGlyph.rectTransform.anchoredPosition=new Vector2(18,-180+paymentSpace);
+            projectTradeoff.rectTransform.anchoredPosition=new Vector2(48,-218+paymentSpace);tradeoffGlyph.rectTransform.anchoredPosition=new Vector2(18,-218+paymentSpace);
+            projectTiming.rectTransform.anchoredPosition=new Vector2(48,-256+paymentSpace);timingGlyph.rectTransform.anchoredPosition=new Vector2(18,-256+paymentSpace);
+            projectReserve.rectTransform.anchoredPosition=new Vector2(18,-286+paymentSpace);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,-34);previewTitle.rectTransform.sizeDelta=new Vector2(268,28);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,-12);previewKind.rectTransform.sizeDelta=new Vector2(268,18);
             previewKind.fontSize=12;previewKind.enableAutoSizing=true;previewKind.fontSizeMin=10;previewKind.fontSizeMax=12;previewKind.textWrappingMode=TextWrappingModes.NoWrap;

@@ -148,6 +148,10 @@ namespace Terra.UI
         public void AnnualPreview(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,Action confirm,bool queued)
         {
             confirmEdit=confirm;tip.transform.parent.gameObject.SetActive(false);
+            var existing=state.queue.FirstOrDefault(q=>q.siteId==site?.id);
+            bool replacing=mode=="place"&&existing!=null&&recipe!=null&&existing.actionId!=recipe.actionId&&rejection==null;
+            // A blocked replacement still exposes Move/Remove for the real queued project.
+            if(mode=="place"&&queued&&rejection!=null&&existing!=null)recipe=annualRules.actions.First(a=>a.siteId==existing.siteId&&a.actionId==existing.actionId);
             inspectedRecipe=recipe;recipeDetails.gameObject.SetActive(recipe?.services!=null&&rejection==null&&mode=="place");
             tooltip.SetActive(site!=null||mode=="reset"||mode=="move");
             if(!tooltip.activeSelf){ReflowPlanningDock();return;}
@@ -166,7 +170,7 @@ namespace Terra.UI
             bool canEdit=queued&&state.phase==TownPhase.Planning&&mode=="place"&&rejection!=null;
             moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
             confirmEditButton.gameObject.SetActive(!canEdit&&state.phase==TownPhase.Planning);confirmEditButton.interactable=rejection==null;
-            SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":"Queue · Enter");
+            SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":replacing?"Replace · Enter":"Queue · Enter");
             if(state.phase==TownPhase.Completed&&asset==null)
                 previewBody.text=site?.protectedSite==true?"Protected scenario area. No project was accepted here.":"Existing land use. No new project was accepted here.\n\nInspect other sites, compare the landscape or start a new run.";
             else if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;

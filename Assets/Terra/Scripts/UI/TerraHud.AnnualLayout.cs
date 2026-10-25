@@ -51,11 +51,11 @@ namespace Terra.UI
             annualAvailable.enableAutoSizing=true;annualAvailable.fontSizeMin=24;annualAvailable.fontSizeMax=28*(LargeText?1.12f:1);annualAvailable.textWrappingMode=TextWrappingModes.NoWrap;
             annualBudget.rectTransform.anchoredPosition=new Vector2(14,-77);annualBudget.rectTransform.sizeDelta=new Vector2(286,40);annualBudget.fontSize=12*(LargeText?1.12f:1);
             annualBudget.gameObject.SetActive(false);annualWater.gameObject.SetActive(false); // Full storm facts remain in Meter details.
-            Position(annualIndicators,new Vector2(1,1),new Vector2(-16,-16),new Vector2(488,86));
+            Position(annualIndicators,new Vector2(1,1),new Vector2(-16,-16),new Vector2(488,94));
             for(int i=0;i<3;i++)
             {
                 annualScores[i].rectTransform.anchoredPosition=new Vector2(14+i*160,-30);
-                annualScores[i].rectTransform.sizeDelta=new Vector2(150,48);annualScores[i].fontSize=22*(LargeText?1.12f:1);
+                annualScores[i].rectTransform.sizeDelta=new Vector2(150,56);annualScores[i].fontSize=22*(LargeText?1.12f:1);
                 ((RectTransform)annualBars[i].transform.parent).anchoredPosition=new Vector2(14+i*160,7);
                 annualBars[i].color=new[]{new Color(.94f,.76f,.43f),new Color(.50f,.76f,.93f),Accent}[i];
             }
@@ -122,7 +122,7 @@ namespace Terra.UI
             if(recipeDetails==null)return;
             // Reflow existing inspection text too: resizing need not move the pointer.
             if(annualPreviewBody!=null)previewBody.text=annualPreviewBody;
-            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?280:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-104);
+            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?280:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-114);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);

@@ -149,7 +149,7 @@ namespace Terra.UI
             if(k==null)return ModalOpen;
             if(loading.activeSelf){if(loadFailed&&k.enterKey.wasPressedThisFrame)retryLoad();return true;}
             if(OverviewKeyboard(k))return true;
-            if(!ModalOpen&&!AnnualOverviewOpen&&BuildMenuKeyboard(k))return true;
+            if(!ModalOpen&&!AnnualOverviewOpen&&!(moreMenu?.gameObject.activeSelf??false)&&BuildMenuKeyboard(k))return true;
             if(!ModalOpen && annualRules!=null)
             {
                 if(k.oKey.wasPressedThisFrame&&!AnnualOverviewOpen){moreButton.onClick.Invoke();return true;}
@@ -163,7 +163,8 @@ namespace Terra.UI
                 if(k.escapeKey.wasPressedThisFrame){moreMenu.gameObject.SetActive(false);Focus(moreButton);return true;}
                 var choices=buttons.Where(b=>b.gameObject.activeInHierarchy&&b.IsInteractable()&&b.transform.IsChildOf(moreMenu)).ToArray();
                 if(k.tabKey.wasPressedThisFrame){int index=Array.IndexOf(choices,focus),step=k.shiftKey.isPressed?-1:1;Focus(choices[(index+step+choices.Length)%choices.Length]);return true;}
-                if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&choices.Contains(focus)){focus.onClick.Invoke();return true;}
+                if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&choices.Contains(focus))focus.onClick.Invoke();
+                return true; // A menu key never falls through to a world edit.
             }
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
             if(!ModalOpen){if(k.gKey.wasPressedThisFrame){dataPage=0;ShowData();return true;}if(k.slashKey.wasPressedThisFrame){ShowHelp();return true;}return false;}
@@ -184,9 +185,10 @@ namespace Terra.UI
         void Paint()
         {
             foreach(var b in buttons){bool selected=CatalogSelected(b)||b==selectedHighlight;
-                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):b==endYearButton?new Color(.20f,.39f,.32f):Raised;
+                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):(b==endYearButton||b==overviewNext||b==confirmEditButton)?new Color(.20f,.39f,.32f):Raised;
                 var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
                 foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
+                foreach(var glyph in b.GetComponentsInChildren<HudGlyph>())glyph.canvasRenderer.SetAlpha(b.IsInteractable()?1:.48f);
             }
         }
         public void SetReducedMotion(bool value){ReducedMotion=value;SetButtonText(motionButton,value?"Motion: reduced":"Motion: full");}

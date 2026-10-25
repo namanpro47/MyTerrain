@@ -13,7 +13,7 @@ Peter approved the three-screen icon-led mockup on October 25, 2026: Cities: Sky
 
 Use the existing project miniature and original vector icons, with short labels beside every unfamiliar symbol. The inspector shows actual public upfront cost, operating upkeep and term, separate recurring program payment where applicable, one capacity, one resource/land trade-off, opening year, establishment period and full-term reservation. Capacities are authored game units, not guaranteed useful services or claimed meter increments. Details retains ownership, receipts, costs, all services, assumptions and scientific limits.
 
-Blocking reasons, protected fields, accepted-project permanence, move/remove, and unavailable actions retain explicit text. Icons do not replace these explanations. Existing save keys, simulation inputs, prices, receipts, construction delays and transactional approval stay unchanged.
+Blocking reasons, protected fields, accepted-project permanence, move/remove, and unavailable actions retain explicit text. A valid replacement is labelled REPLACE and requires Replace; blocked replacements show the real queued project for Move/Remove. The More menu focuses an enabled action and consumes keyboard input. Completed operating projects have no repeated map label; construction, growth and warnings retain short status labels. Icons do not replace these explanations. Existing save keys, simulation inputs, prices, receipts, construction delays and transactional approval stay unchanged.
 
 ## See the accepted year
 

@@ -13,7 +13,11 @@ namespace Terra.Rendering
         { foreach(var label in annualLabels.Values)if(label!=null){label.transform.localScale=Vector3.one*worldPerCssPixel;if(Camera.main!=null)label.transform.rotation=Camera.main.transform.rotation;} }
         public void AnnualStage(Site site,string stage,double maturity)
         {
+            if(annualLabels.TryGetValue(site.id,out var previous)&&previous!=null)
+            {if(Application.isPlaying)Object.Destroy(previous.gameObject);else Object.DestroyImmediate(previous.gameObject);}
             annualLabels.Remove(site.id);
+            // Finished projects speak through their models; only transitional/warning labels stay on the map.
+            if(stage=="OPERATING")return;
             if(stage==null||!proposals.TryGetValue(site.id,out var holder))return;
             // Construction hides the finished model while retaining its accurately sized foundation.
             if(stage=="BUILDING")
