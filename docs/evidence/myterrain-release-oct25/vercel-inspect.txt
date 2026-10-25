@@ -1,0 +1,24 @@
+Fetching deployment "terra-browser.vercel.app" in namanpro47s-projects
+> Fetched deployment "terra-browser-ka1cm4kq8-namanpro47s-projects.vercel.app" in namanpro47s-projects [259ms]
+
+  General
+
+    id		dpl_3wg8P1goPxRPsVREjysW3iHh1eaZ
+    name	terra-browser
+    target	production
+    status	● Ready
+    url		https://terra-browser-ka1cm4kq8-namanpro47s-projects.vercel.app
+    created	Sun Oct 25 2026 10:32:04 GMT-0700 (Pacific Daylight Time) [7m ago]
+
+
+  Aliases
+
+    ╶ https://terra-browser.vercel.app
+    ╶ https://terra-browser-namanpro47s-projects.vercel.app
+    
+
+  Builds
+
+    ╶ .        [0ms]
+    
+
