@@ -1,6 +1,6 @@
 # Terra — parallel engineer handoffs
 
-**Status:** Phase 2/package A is implemented and integrated locally by the primary engineer. No package has been delegated. Phase 2A is active under the primary engineer; packages B/C/D remain undelegated and require separate authorization. This handoff does not start them.
+**Status — October 24, 2026:** Phase 2/package A is implemented and integrated locally. The user has now authorized implementation-ready parallel work: **B (simulation), D (learning/content), and C3 (audio only) are complete, tested together in Unity, and merged into the primary checkout**; see the [integration evidence](PARALLEL_INTEGRATION.md). Phase 2A remains with its existing visual owner; a separately authorized worker already owns Phase 3 editing. C1/C2 visual assets await the changing art contract and remain with the visual owner. See [the current assignment register](PARALLEL_KICKOFF.md) for paths, boundaries, dependencies, and delivery status. Historical handoff statements below describe their original checkpoints, not current assignment status.
 
 Read the [north star](../TERRA_PROJECT_SPEC.md) and [implementation plan](../IMPLEMENTATION_PLAN.md). The primary engineer owns the running game. These packages let another engineer work in a separate checkout without touching the main scene, UI, or integration state. **Every package improves the same selected rural location across its full game scope.** Do not create additional levels, city assets, or a live location generator as parallel work.
 
