@@ -1,5 +1,7 @@
 # Current visual review — Phase 2A remains open
 
+**Study44 canopy construction:** Corrected free tree imports, continuous woodland and clustered leaf shading produce a stronger bounded forest study. Three metric prefabs and their shader are saved; production rendering and the Phase 2A gate remain unchanged. [Captures, comparisons, replay and next integration step](evidence/phase2a/visual-rebuild/study44-findings.md).
+
 **Study43 unfinished checkpoint:** Current atlas/HUD main is merged; connected-meadow scripts and Editor captures are saved for review. No production adoption, new Chrome verification or visual acceptance. [Checkpoint and replay](evidence/phase2a/visual-rebuild/study43-checkpoint.md).
 
 **Studies41–42 rejected:** A layered sward reduces scatter but looks like a fuzzy carpet; an older CC0 Quaternius grass family remains noisy after correcting its FBX wrapper and adapting lighting. [Sward evidence](evidence/phase2a/visual-rebuild/study41-findings.md) · [asset trial and next construction decision](evidence/phase2a/visual-rebuild/study42-findings.md). These are Editor-only experiments, with no production adoption or Phase2A acceptance.

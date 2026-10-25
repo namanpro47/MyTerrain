@@ -1,0 +1,18 @@
+{
+  "source": "cf45ef42c49bdd95fd37b558d626716e62c4d854",
+  "mainBase": "18016cf5f67d30972a8f241087cab29a52c12611",
+  "observed": "2026-10-25",
+  "checks": [
+    {
+      "call": "AtlasLocationChecks.Run()",
+      "assertions": 678,
+      "result": "passed"
+    },
+    {
+      "call": "FullAnnualGameChecks.Run()",
+      "checks": 34,
+      "result": "passed"
+    }
+  ],
+  "scope": "Observed Unity command results, transcribed for this evidence index. No new Chrome export or performance check."
+}
