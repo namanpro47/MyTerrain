@@ -1,5 +1,7 @@
 # Terra — implementation plan: ten years in one rural place
 
+**October 25 approved UI slice:** Implement the accepted play-first mockups: quieter planning controls, an illustrated icon-led project inspector with real commitments and opening dates, and optional map-linked annual highlights with immediate continuation. [HUD contract and verification](docs/PLAY_FIRST_HUD.md). Preserve the ledger, provider contract and saves; this does not close the scenery gate.
+
 **October 25 bounded addition:** The user explicitly authorized the three-location Living Atlas: draggable globe, cinematic entry, Wisconsin / Point Reyes / rural Suusamyr selection, distinct packs and save isolation. See [ATLAS_SELECTION.md](docs/ATLAS_SELECTION.md). This supersedes older one-location/no-selector limits for these three destinations only; it does not close Phase 2A.
 
 **Revised October 24, 2026 by explicit user direction.** The [canonical spec](TERRA_PROJECT_SPEC.md) now makes annual public-budget decisions and economic/social/environmental outcomes the core game. [ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) preserves all twelve chart rows and specifies required behavior. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is the source proposal, with an adoption note. [PHASE_STATUS.md](docs/PHASE_STATUS.md) records what is actually implemented.
