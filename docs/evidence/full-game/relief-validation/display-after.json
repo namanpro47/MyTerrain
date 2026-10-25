@@ -1,0 +1,858 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/docs/evidence/full-game/relief-validation/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 349,
+        "samples": 112627,
+        "sourceError": 0,
+        "layoutShift": 2.27132034,
+        "overlayError": 0.00005504489,
+        "results": [
+          {
+            "kind": "layout",
+            "site": "south-01",
+            "action": "low-density-housing",
+            "sourceY": 13.25195,
+            "displayY": 12.04,
+            "sourceRelief": 0.814864159,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.9617
+          },
+          {
+            "kind": "layout",
+            "site": "south-01",
+            "action": "high-density-housing",
+            "sourceY": 13.26515,
+            "displayY": 12.04,
+            "sourceRelief": 2.005848,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3724
+          },
+          {
+            "kind": "layout",
+            "site": "south-01",
+            "action": "public-park",
+            "sourceY": 13.2695494,
+            "displayY": 12.04,
+            "sourceRelief": 2.242299,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4092
+          },
+          {
+            "kind": "layout",
+            "site": "south-01",
+            "action": "agricultural-storage",
+            "sourceY": 13.2695494,
+            "displayY": 12.04,
+            "sourceRelief": 2.41555119,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.455
+          },
+          {
+            "kind": "overlay",
+            "site": "south-01",
+            "vertices": 7203,
+            "triangles": 10873,
+            "maxHeightError": 0.00004836917,
+            "milliseconds": 17.3582
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "low-density-housing",
+            "sourceY": 13.3252878,
+            "displayY": 12.04,
+            "sourceRelief": 0.185587883,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.2134
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "high-density-housing",
+            "sourceY": 13.4645748,
+            "displayY": 12.04,
+            "sourceRelief": 0.326674461,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3811
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "public-park",
+            "sourceY": 13.4930754,
+            "displayY": 12.04,
+            "sourceRelief": 0.355774879,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4002
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "agricultural-storage",
+            "sourceY": 13.508975,
+            "displayY": 12.04,
+            "sourceRelief": 0.371674538,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4233
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "data-center",
+            "sourceY": 13.7845755,
+            "displayY": 12.04,
+            "sourceRelief": 0.649675369,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.9740000000000002
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "village-center",
+            "sourceY": 13.6182375,
+            "displayY": 12.04,
+            "sourceRelief": 0.481537819,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6545000000000001
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "non-renewable-power",
+            "sourceY": 13.7089748,
+            "displayY": 12.04,
+            "sourceRelief": 0.5734749,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.8382
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "solar",
+            "sourceY": 13.5948372,
+            "displayY": 12.04,
+            "sourceRelief": 0.4575367,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6318
+          },
+          {
+            "kind": "layout",
+            "site": "south-02",
+            "action": "wastewater-upgrade",
+            "sourceY": 13.6182375,
+            "displayY": 12.04,
+            "sourceRelief": 0.481537819,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6887
+          },
+          {
+            "kind": "overlay",
+            "site": "south-02",
+            "vertices": 8337,
+            "triangles": 12903,
+            "maxHeightError": 0.000005990267,
+            "milliseconds": 18.5097
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "low-density-housing",
+            "sourceY": 14.1965,
+            "displayY": 12.04,
+            "sourceRelief": 0.419300079,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.1998
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "high-density-housing",
+            "sourceY": 14.0358248,
+            "displayY": 12.04,
+            "sourceRelief": 0.5911627,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3717
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "public-park",
+            "sourceY": 14.0571251,
+            "displayY": 12.04,
+            "sourceRelief": 0.6256628,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4163
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "agricultural-storage",
+            "sourceY": 14.0784254,
+            "displayY": 12.04,
+            "sourceRelief": 0.653912544,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4205
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "data-center",
+            "sourceY": 14.3114376,
+            "displayY": 12.0401173,
+            "sourceRelief": 1.03172493,
+            "displayRelief": 0.000117301941,
+            "sampledFill": 0.0401172638,
+            "milliseconds": 0.9751
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "village-center",
+            "sourceY": 14.1842508,
+            "displayY": 12.04,
+            "sourceRelief": 0.8655138,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.664
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "non-renewable-power",
+            "sourceY": 14.26825,
+            "displayY": 12.04,
+            "sourceRelief": 0.9754381,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.8268000000000002
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "solar",
+            "sourceY": 14.14225,
+            "displayY": 12.04,
+            "sourceRelief": 0.8106127,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6188
+          },
+          {
+            "kind": "layout",
+            "site": "south-03",
+            "action": "wastewater-upgrade",
+            "sourceY": 14.1842508,
+            "displayY": 12.04,
+            "sourceRelief": 0.8655138,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6797000000000001
+          },
+          {
+            "kind": "overlay",
+            "site": "south-03",
+            "vertices": 7203,
+            "triangles": 10873,
+            "maxHeightError": 0.00000885129,
+            "milliseconds": 16.235200000000003
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "low-density-housing",
+            "sourceY": 12.89295,
+            "displayY": 12.04,
+            "sourceRelief": 0.158349991,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.1995
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "high-density-housing",
+            "sourceY": 12.95985,
+            "displayY": 12.04,
+            "sourceRelief": 0.3008499,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3554
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "public-park",
+            "sourceY": 12.9807005,
+            "displayY": 12.04,
+            "sourceRelief": 0.330700874,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4062
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "agricultural-storage",
+            "sourceY": 12.98495,
+            "displayY": 12.04,
+            "sourceRelief": 0.343950272,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4275000000000001
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "data-center",
+            "sourceY": 13.1760006,
+            "displayY": 12.04,
+            "sourceRelief": 0.7332506,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 1.0498
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "village-center",
+            "sourceY": 13.10425,
+            "displayY": 12.04,
+            "sourceRelief": 0.5258999,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6638000000000001
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "non-renewable-power",
+            "sourceY": 13.1576,
+            "displayY": 12.04,
+            "sourceRelief": 0.669850349,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.8987
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "solar",
+            "sourceY": 13.0949507,
+            "displayY": 12.04,
+            "sourceRelief": 0.4809513,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6118
+          },
+          {
+            "kind": "layout",
+            "site": "south-04",
+            "action": "wastewater-upgrade",
+            "sourceY": 13.10425,
+            "displayY": 12.04,
+            "sourceRelief": 0.5258999,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6473
+          },
+          {
+            "kind": "overlay",
+            "site": "south-04",
+            "vertices": 8594,
+            "triangles": 12294,
+            "maxHeightError": 0.0000403225422,
+            "milliseconds": 19.5193
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "low-density-housing",
+            "sourceY": 12.2121506,
+            "displayY": 12.04,
+            "sourceRelief": 0.283201218,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.2113
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "high-density-housing",
+            "sourceY": 12.5641508,
+            "displayY": 12.04,
+            "sourceRelief": 0.658350945,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3743
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "public-park",
+            "sourceY": 12.7000494,
+            "displayY": 12.04,
+            "sourceRelief": 0.801049232,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4358
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "agricultural-storage",
+            "sourceY": 12.7450495,
+            "displayY": 12.04,
+            "sourceRelief": 0.846849442,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4344
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "data-center",
+            "sourceY": 13.75545,
+            "displayY": 12.04,
+            "sourceRelief": 1.66985035,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.9364
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "village-center",
+            "sourceY": 13.3209009,
+            "displayY": 12.04,
+            "sourceRelief": 1.46860123,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6935
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "non-renewable-power",
+            "sourceY": 13.75475,
+            "displayY": 12.04,
+            "sourceRelief": 1.6420002,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.8311
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "solar",
+            "sourceY": 13.243001,
+            "displayY": 12.04,
+            "sourceRelief": 1.38225079,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6746
+          },
+          {
+            "kind": "layout",
+            "site": "south-05",
+            "action": "wastewater-upgrade",
+            "sourceY": 13.3209009,
+            "displayY": 12.04,
+            "sourceRelief": 1.46860123,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.7147
+          },
+          {
+            "kind": "overlay",
+            "site": "south-05",
+            "vertices": 9966,
+            "triangles": 14590,
+            "maxHeightError": 2.682209e-7,
+            "milliseconds": 21.7242
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "low-density-housing",
+            "sourceY": 12.7155619,
+            "displayY": 12.04,
+            "sourceRelief": 0.274124146,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.1936
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "high-density-housing",
+            "sourceY": 12.8454752,
+            "displayY": 12.04,
+            "sourceRelief": 0.437950134,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.3446
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "public-park",
+            "sourceY": 12.9925,
+            "displayY": 12.04,
+            "sourceRelief": 0.472125053,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.403
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "agricultural-storage",
+            "sourceY": 13.0032,
+            "displayY": 12.04,
+            "sourceRelief": 0.490924835,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4234
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "data-center",
+            "sourceY": 13.2076254,
+            "displayY": 12.04,
+            "sourceRelief": 0.9122257,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.9812
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "village-center",
+            "sourceY": 12.9713621,
+            "displayY": 12.04,
+            "sourceRelief": 0.675962448,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6653
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "non-renewable-power",
+            "sourceY": 13.1365623,
+            "displayY": 12.04,
+            "sourceRelief": 0.8195629,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.8481
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "solar",
+            "sourceY": 12.9409618,
+            "displayY": 12.04,
+            "sourceRelief": 0.6455622,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6132000000000001
+          },
+          {
+            "kind": "layout",
+            "site": "south-06",
+            "action": "wastewater-upgrade",
+            "sourceY": 12.9713621,
+            "displayY": 12.04,
+            "sourceRelief": 0.675962448,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.6655
+          },
+          {
+            "kind": "overlay",
+            "site": "south-06",
+            "vertices": 5810,
+            "triangles": 8564,
+            "maxHeightError": 2.682209e-7,
+            "milliseconds": 12.6908
+          },
+          {
+            "kind": "layout",
+            "site": "south-07",
+            "action": "low-density-housing",
+            "sourceY": 9.0638895,
+            "displayY": 9.189711,
+            "sourceRelief": 2.04888964,
+            "displayRelief": 3.14971066,
+            "sampledFill": 3.18971062,
+            "milliseconds": 0.2042
+          },
+          {
+            "kind": "overlay",
+            "site": "south-07",
+            "vertices": 5569,
+            "triangles": 7364,
+            "maxHeightError": 0.0000260174274,
+            "milliseconds": 12.7282
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "low-density-housing",
+            "sourceY": 7.4128747,
+            "displayY": 6.04,
+            "sourceRelief": 0.250349522,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.1994
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "high-density-housing",
+            "sourceY": 7.509887,
+            "displayY": 6.04,
+            "sourceRelief": 0.49588728,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4014
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "public-park",
+            "sourceY": 7.565051,
+            "displayY": 6.04,
+            "sourceRelief": 0.55105114,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4142
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "agricultural-storage",
+            "sourceY": 7.63955069,
+            "displayY": 6.04,
+            "sourceRelief": 0.625550747,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.4286
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "village-center",
+            "sourceY": 9.357136,
+            "displayY": 10.6690426,
+            "sourceRelief": 2.34313583,
+            "displayRelief": 4.62904263,
+            "sampledFill": 4.66904259,
+            "milliseconds": 0.6748000000000001
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "solar",
+            "sourceY": 8.483238,
+            "displayY": 6.511897,
+            "sourceRelief": 1.46923828,
+            "displayRelief": 0.471897125,
+            "sampledFill": 0.5118971,
+            "milliseconds": 0.642
+          },
+          {
+            "kind": "layout",
+            "site": "south-08",
+            "action": "wastewater-upgrade",
+            "sourceY": 9.357136,
+            "displayY": 10.6690426,
+            "sourceRelief": 2.34313583,
+            "displayRelief": 4.62904263,
+            "sampledFill": 4.66904259,
+            "milliseconds": 0.7336
+          },
+          {
+            "kind": "overlay",
+            "site": "south-08",
+            "vertices": 8391,
+            "triangles": 11920,
+            "maxHeightError": 0.00005504489,
+            "milliseconds": 22.0635
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "low-density-housing",
+            "sourceY": 15.4754,
+            "displayY": 17.42646,
+            "sourceRelief": 0.39425087,
+            "displayRelief": 2.13885784,
+            "sampledFill": 2.17885876,
+            "milliseconds": 0.2346
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "high-density-housing",
+            "sourceY": 15.5012007,
+            "displayY": 17.5253716,
+            "sourceRelief": 0.584051132,
+            "displayRelief": 3.236967,
+            "sampledFill": 3.276968,
+            "milliseconds": 0.4184
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "public-park",
+            "sourceY": 15.5055,
+            "displayY": 17.541357,
+            "sourceRelief": 0.640174866,
+            "displayRelief": 3.5714674,
+            "sampledFill": 3.61146832,
+            "milliseconds": 0.4758
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "agricultural-storage",
+            "sourceY": 15.5098,
+            "displayY": 17.5567188,
+            "sourceRelief": 0.66277504,
+            "displayRelief": 3.69372082,
+            "sampledFill": 3.73372173,
+            "milliseconds": 0.4957
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "data-center",
+            "sourceY": 15.59375,
+            "displayY": 17.8162766,
+            "sourceRelief": 1.35355,
+            "displayRelief": 5.77627563,
+            "sampledFill": 5.81627655,
+            "milliseconds": 1.1457000000000002
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "village-center",
+            "sourceY": 15.53145,
+            "displayY": 17.6319313,
+            "sourceRelief": 0.9021511,
+            "displayRelief": 4.87996864,
+            "sampledFill": 4.91996956,
+            "milliseconds": 0.7716
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "non-renewable-power",
+            "sourceY": 15.5759506,
+            "displayY": 17.7685661,
+            "sourceRelief": 1.2062006,
+            "displayRelief": 5.704911,
+            "sampledFill": 5.744912,
+            "milliseconds": 1.0143
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "solar",
+            "sourceY": 15.5227,
+            "displayY": 17.6022739,
+            "sourceRelief": 0.8677511,
+            "displayRelief": 4.73915958,
+            "sampledFill": 4.7791605,
+            "milliseconds": 0.754
+          },
+          {
+            "kind": "layout",
+            "site": "east-09",
+            "action": "wastewater-upgrade",
+            "sourceY": 15.53145,
+            "displayY": 17.6319313,
+            "sourceRelief": 0.9021511,
+            "displayRelief": 4.87996864,
+            "sampledFill": 4.91996956,
+            "milliseconds": 0.7659
+          },
+          {
+            "kind": "overlay",
+            "site": "east-09",
+            "vertices": 4440,
+            "triangles": 5576,
+            "maxHeightError": 0.0000117123127,
+            "milliseconds": 11.0638
+          },
+          {
+            "kind": "overlay",
+            "site": "west-10",
+            "vertices": 2879,
+            "triangles": 3791,
+            "maxHeightError": 0.0000540912151,
+            "milliseconds": 6.5665
+          },
+          {
+            "kind": "layout",
+            "site": "annual-wind-13",
+            "action": "wind",
+            "sourceY": 12.4632006,
+            "displayY": 12.04,
+            "sourceRelief": 0.0326004028,
+            "displayRelief": 0,
+            "sampledFill": 0.03999996,
+            "milliseconds": 0.0809
+          },
+          {
+            "kind": "overlay",
+            "site": "annual-wind-13",
+            "vertices": 11900,
+            "triangles": 20400,
+            "maxHeightError": 0.0000178515911,
+            "milliseconds": 25.8856
+          }
+        ],
+        "frame": 17084,
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
