@@ -1,0 +1,59 @@
+{
+  "source": "f78e416",
+  "checkpoint": "Builds/Verified/f78e416",
+  "files": [
+    {
+      "file": "index.html",
+      "bytes": 6520,
+      "sha256": "1e25d5e7f2da29c1f3359d08baecbe72e510d43d546dfb727f23f4c67811aff7"
+    },
+    {
+      "file": "Build/2c0202597da713ffe231fc15d305f7be.wasm.unityweb",
+      "bytes": 11135671,
+      "sha256": "72a8c5c63ec8a495f8a4b2db12ee599a2f5f64fb9aad49769192c89a7ecd0592"
+    },
+    {
+      "file": "Build/72b73d1b3b8b816cf7fe4ed8ee8b05d5.data.unityweb",
+      "bytes": 29208014,
+      "sha256": "29289a42c74b72c8bf58c0531b9db44820b2e53b609dc8fa5faf86297cae984b"
+    },
+    {
+      "file": "Build/d00de4918d3ec101c527c2a21e4eea45.loader.js",
+      "bytes": 48779,
+      "sha256": "510421449ea2c0c9ee87ceebce9b679ef4d2d33ff803fa9f6fd17fbf89076d67"
+    },
+    {
+      "file": "Build/f56dab0555e4a81232e0a01761880dc1.framework.js.unityweb",
+      "bytes": 76563,
+      "sha256": "f66e65a8b90af68e0cfcd555309907c7daf3635d33b7039ee81182b6e3592abf"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "file": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6",
+      "verification": "local configuration; not an HTTP payload"
+    }
+  ],
+  "bytes": 41431393,
+  "purpose": "Verified project-material checkpoint; edge-grading and final scenery/release gates pending."
+}
