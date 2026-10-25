@@ -20,3 +20,17 @@ Actual captures: `game-browse-1728.png`, `game-blocked-1728.png`, `game-preview-
 3. Opening framing exposes a large pale area beyond the map right edge. P4 world presentation remains unaccepted; do not certify the scene based on the functional checks. The independent scenery work continues.
 
 This bounded walkthrough is not the full acceptance matrix. Actual successful move, replacement, remove, whole-field/swale, responsive sizes,125% zoom, accessibility and quiet timing remain to be verified. The single existing stripped EASU shader warning was observed on load; this is not proof of a new placement failure. Human comprehension and broader Phase2A remain open.
+
+## Second bounded pass (desktop107)
+
+On the same frozen770d4c0 export, successfully moved the park to Open plot17·4 with unchanged$70K reservation. Opened replacement with Homes: explicit Public park→Low-density housing review and$1.03M additional reservation; Escape kept the park and revision4. Reopened and confirmed; available funds became$8.9M. Remove entered a separate review state; confirmation returned available funds to$10M.
+
+Traditional farmland showed full-field dashed preview and$120K reservation. Vegetated swale showed full-field preview,$130K reservation, selected card continuity on its catalog page, and a queued terrain treatment after Enter. Queued swale readout: revision7, cash1000000000, queued1, assets0. Placement help reopened via the dock question mark and explained choose→preview→queue and undo.
+
+Chrome DevTools responsive viewport screenshots were captured at1280×720,1440×900 and1920×1080. Viewport values were confirmed in native accessibility controls and PNG dimensions. These show the known pre-fix dock overlap; they do not certify the rebuilt dock. Candidate capsule and inspector stayed on screen. Keyboard Tab/Enter enabled reduced motion and larger text; U opened sound, and keyboard navigation activated mute (Unmute all sound label confirmed).
+
+A later DevTools input attempt appended digits instead of replacing the width/height, producing an invalid enormous viewport and GL errors. That is an automation error, not a valid product test condition. Device emulation was switched off, DevTools closed, and the owned tab reloaded then closed; the subsequent larger-text compact test is **not** claimed. Two CDP coordinate clicks timed out while DevTools was open; keyboard continued to work. Final-build responsive/accessibility confirmation will use a new clean tab.
+
+Additional captures: game-move-preview,game-moved,game-replacement-review,game-replaced,game-removed,game-whole-field,game-swale-preview,game-placement-help (1728), the three resolution-named previews, game-accessibility-settings and game-muted-settings. Timing was not measured under this desktop-only reservation.
+
+The combined owner reported4,115 native assertions passed with56e1940 and9b5e14a integrated; it also fixed test-fixture cleanup in19e7eae because the previously surviving HUD/EventSystem caused subsequent combined tests to see duplicate buttons. Runtime semantics were unchanged by that cleanup.
