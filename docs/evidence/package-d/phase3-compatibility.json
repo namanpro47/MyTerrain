@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python3",
+    "tests/education/validate_content.py",
+    "--core-source",
+    "/Users/naman/.codex/worktrees/phase2-completion/Terra/Assets/Terra/Scripts/Core/WorldStateStore.cs"
+  ],
+  "coreSourceSha256": "1687e9162eac3095a5f122d494fda09792dec972d21e178d021ea54c487e9c84",
+  "sourceUnchanged": true,
+  "result": {
+    "status": "pass",
+    "entries": 50,
+    "authoredEntries": 49,
+    "questions": 2,
+    "hints": 5,
+    "placeholders": 8,
+    "dtoSource": "Assets/Terra/Scripts/Contracts/WorldContracts.cs"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "id": "reason-action",
+  "title": "Choose an editing action",
+  "body": "Choose an available action, then preview the change before applying it.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

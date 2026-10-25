@@ -46,7 +46,13 @@
     "meadowbrook-v1/ending-reflect.json",
     "meadowbrook-v1/ending-continue.json",
     "meadowbrook-v1/ending-retry.json",
-    "meadowbrook-v1/ending-return.json"
+    "meadowbrook-v1/ending-return.json",
+    "meadowbrook-v1/reason-action.json",
+    "meadowbrook-v1/reason-clear-empty.json",
+    "meadowbrook-v1/reason-destination.json",
+    "meadowbrook-v1/reason-same-destination.json",
+    "meadowbrook-v1/reason-destination-occupied.json",
+    "meadowbrook-v1/reason-budget-edit.json"
   ],
   "legacyEntries": [
     "fixture-intro.json"
@@ -139,7 +145,15 @@
     "This site already has a proposal.": "reason-occupied",
     "There is no proposal to replace.": "reason-missing",
     "This proposal is already placed.": "reason-unchanged",
-    "Not enough credits. Undo a proposal to try this one.": "reason-budget"
+    "Not enough credits. Undo a proposal to try this one.": "reason-budget",
+    "Choose an editing action.": "reason-action",
+    "Unknown editing action.": "reason-action",
+    "There are no proposals to clear.": "reason-clear-empty",
+    "There is no proposal to edit at this site.": "reason-missing",
+    "Choose a destination site.": "reason-destination",
+    "Choose a different destination site.": "reason-same-destination",
+    "The destination already has a proposal. Remove it or choose another site.": "reason-destination-occupied",
+    "Not enough credits. Remove or undo a proposal to try this one.": "reason-budget-edit"
   },
   "unknownReasonId": "reason-unknown",
   "choiceTargets": {

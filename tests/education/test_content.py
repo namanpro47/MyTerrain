@@ -95,6 +95,27 @@ class EducationContentTests(unittest.TestCase):
         self.assertTrue(all(not c['correct'] for c in choices))
         self.assertEqual(len(choices), len(self.bindings['choiceTargets']))
 
+    def test_read_only_alternate_core_source_supports_phase3_and_rejects_unknown(self):
+        phase3_reasons = [
+            'Choose an editing action.', 'Unknown editing action.',
+            'There are no proposals to clear.', 'There is no proposal to edit at this site.',
+            'Choose a destination site.', 'Choose a different destination site.',
+            'The destination already has a proposal. Remove it or choose another site.',
+            'Not enough credits. Remove or undo a proposal to try this one.'
+        ]
+        baseline = (ROOT/'Assets/Terra/Scripts/Core/WorldStateStore.cs').read_text()
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp)/'WorldStateStore.cs'
+            path.write_text(baseline + '\n' + '\n'.join('Invalid(' + json.dumps(r) + ');' for r in phase3_reasons))
+            before = path.read_bytes()
+            entries, bindings = validate_package(core_source=path)
+            self.assertEqual(before, path.read_bytes())
+            for reason in phase3_reasons:
+                self.assertIn(bindings['reasonBindings'][reason], entries)
+            path.write_text(path.read_text() + '\nInvalid("A future unmapped reason.");')
+            with self.assertRaisesRegex(ValueError, 'Runtime reasons changed'):
+                validate_package(core_source=path)
+
     def test_package_reference_and_question_failures(self):
         def missing_fallback(root):
             self.change_bindings(root, lambda b:b['fallbacks'].pop('ending-water'))
@@ -113,7 +134,18 @@ class EducationContentTests(unittest.TestCase):
         def new_reason(root):
             path=root/'Assets/Terra/Scripts/Core/WorldStateStore.cs'
             path.write_text(path.read_text()+'\n// fixture: Invalid("A new reason needs a mapping.")\n')
-        for mutation, message in [(missing_fallback,'lacks whole-entry fallback'),(bad_path,'Unknown DTO'),
+        def unsafe_runoff_guard(root):
+            self.change_bindings(root, lambda b:b['placeholders']['dischargedM3'].update(guard='currentResultAvailable'))
+        def wrong_baseline_instance(root):
+            self.change_bindings(root, lambda b:b['placeholders']['baselineDischargedM3'].update(instance='current'))
+        def wrong_runoff_field(root):
+            self.change_bindings(root, lambda b:b['placeholders']['dischargedM3'].update(path='WorldResult.generatedM3'))
+        def missing_current_instance(root):
+            self.change_bindings(root, lambda b:b['placeholders']['dischargedM3'].pop('instance'))
+        for mutation, message in [(unsafe_runoff_guard,'Runoff placeholder'),
+                                  (wrong_baseline_instance,'Runoff placeholder'),
+                                  (wrong_runoff_field,'Runoff placeholder'),
+                                  (missing_current_instance,'Runoff placeholder'),(missing_fallback,'lacks whole-entry fallback'),(bad_path,'Unknown DTO'),
                                   (dangling_card,'Unknown Take It Home'),(missing_intro,'Scenario content'),
                                   (two_correct,'one reasoned best answer'),(duplicate_entry,'Duplicate entry path'),
                                   (new_reason,'Runtime reasons changed')]:

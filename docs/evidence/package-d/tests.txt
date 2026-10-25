@@ -8,9 +8,10 @@ test_malformed_entry_fixtures (test_content.EducationContentTests) ... ok
 test_one_missing_or_bad_number_uses_complete_fallback (test_content.EducationContentTests) ... ok
 test_package_reference_and_question_failures (test_content.EducationContentTests) ... ok
 test_pending_zero_never_becomes_runoff_measurement (test_content.EducationContentTests) ... ok
+test_read_only_alternate_core_source_supports_phase3_and_rejects_unknown (test_content.EducationContentTests) ... ok
 test_unmet_goals_do_not_show_success_or_unsupported_actions (test_content.EducationContentTests) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.519s
+Ran 12 tests in 0.569s
 
 OK

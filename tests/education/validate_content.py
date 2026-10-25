@@ -114,7 +114,7 @@ def render_body(entry_id, entries, bindings, values, guards):
     return body
 
 
-def validate_package(root=ROOT):
+def validate_package(root=ROOT, core_source=None):
     folder = root / 'content/education'
     bindings = read_json(folder / 'bindings.json')
     require(bindings['packageVersion'] == 1 and bindings['contract'] == 'ContentEntry v1', 'Unsupported content package version')
@@ -137,6 +137,11 @@ def validate_package(root=ROOT):
             require(field in fields_by_name, f'Unknown DTO placeholder path: {spec["path"]}')
             cls = fields_by_name[field]
         require(cls in {'int', 'float'}, 'Placeholder must reference a numeric DTO field')
+    for token, instance in [('baselineDischargedM3', 'baseline'), ('dischargedM3', 'current')]:
+        expected = {'path': 'WorldResult.dischargedM3', 'format': 'volume',
+                    'guard': 'matchedRunoffAvailable', 'instance': instance}
+        require(bindings['placeholders'].get(token) == expected,
+                f'Runoff placeholder {token} must preserve matched availability and {instance} provenance')
     files = bindings['entries'] + bindings['legacyEntries']
     require(len(files) == len(set(files)), 'Duplicate entry path')
     require(set(files) == {str(p.relative_to(folder)) for p in folder.rglob('*.json') if p.name != 'bindings.json'}, 'Entry files/index differ')
@@ -174,7 +179,8 @@ def validate_package(root=ROOT):
             require(id in bindings['fallbacks'], 'Placeholder entry lacks whole-entry fallback')
     require(all(id in entries for id in bindings['reasonBindings'].values()), 'Unknown reason content')
     require(bindings['unknownReasonId'] in entries, 'Missing unknown-reason fallback')
-    core = (root/'Assets/Terra/Scripts/Core/WorldStateStore.cs').read_text()
+    core_path = Path(core_source) if core_source is not None else root/'Assets/Terra/Scripts/Core/WorldStateStore.cs'
+    core = core_path.read_text()
     literal_reasons = set(re.findall(r'Invalid\("([^"]+)"\)', core))
     world = read_json(root/'worlds/meadowbrook-v1/world.json')
     literal_reasons |= {s['protectionReason'] for s in world['sites'] if s['protectedSite']}
@@ -189,9 +195,10 @@ def validate_package(root=ROOT):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=ROOT)
+    parser.add_argument('--core-source', type=Path, help='Read-only alternate WorldStateStore.cs for integration reason compatibility; defaults to --root Core')
     args = parser.parse_args()
     try:
-        entries, bindings = validate_package(args.root.resolve())
+        entries, bindings = validate_package(args.root.resolve(), args.core_source)
         print(json.dumps({'status':'pass','entries':len(entries), 'authoredEntries':len(bindings['entries']),
                           'questions':len(bindings['questionIds']), 'hints':len(bindings['hintIds']),
                           'placeholders':len(bindings['placeholders']), 'dtoSource':'Assets/Terra/Scripts/Contracts/WorldContracts.cs'}, indent=2))

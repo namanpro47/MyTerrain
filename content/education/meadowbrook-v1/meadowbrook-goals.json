@@ -1,7 +1,7 @@
 {
   "id": "meadowbrook-goals",
   "title": "Your planning challenge",
-  "body": "Meet {productionTarget} illustrative production units within {budgetCredits} credits. Check the water goal when estimates are available. These are game targets, not local needs.",
+  "body": "Meet {productionTarget} illustrative production units within {budgetCredits} credits. Compare water estimates when available. These are game targets, not local needs.",
   "choices": [],
   "sourceIds": [
     "scenario-assumptions-v1"

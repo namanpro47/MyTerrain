@@ -1,6 +1,6 @@
 # Meadowbrook Valley learning content — package D v1
 
-Package D is a ready-to-bind **content delivery**, not an integrated mission or ending. It adds 43 `ContentEntry` files for the one selected AOI, keeps the fixture intro unchanged, and supplies a data-only binding index and executable checks. No scene, UI, mission logic, scientific coefficients, scenario balance, shared contract, or build packaging is changed.
+Package D is a ready-to-bind **content delivery**, not an integrated mission or ending. It adds 49 `ContentEntry` files for the one selected AOI, keeps the fixture intro unchanged, and supplies a data-only binding index and executable checks. No scene, UI, mission logic, scientific coefficients, scenario balance, shared contract, or build packaging is changed.
 
 The baseline is `08092a1f19ceb064ab21c11c6f97dd221693d410`. Geography stays `meadowbrook-v1` / `coon-valley-brye-v1`, WGS84 `[-91.043,43.697,-91.031,43.706]`. Meadowbrook Valley is the fictional display name. The community-garden transfer prompt is a hypothetical text question, **not another authored location or level**.
 
@@ -35,7 +35,7 @@ The current scenario already names `meadowbrook-intro` and `runoff-transfer-v1`;
 | Takeaway | `take-home-choice` → matching `take-home-*` card | These are preferences, not a quiz. All three choices have `correct:false`; do not score this entry. Copy the selected card's text. |
 | Return/replay | `ending-continue`, `ending-return`, `ending-retry` | Continue/return preserve the existing proposal. Retry text must appear before the destructive reset, with a back/cancel route. |
 
-The five hints teach gestures, not a winning script. The 43 entries are alternatives, optional information, states and fallbacks; they are **not** 43 consecutive screens. Character budgets are 48 title, 300 body, 130 choice, 220 feedback, and 380 rendered body characters. These are copy budgets, not evidence of browser fit; wrapping, font size, truncation, viewport and input behavior remain integration checks.
+The five hints teach gestures, not a winning script. The 49 entries are alternatives, optional information, states and fallbacks; they are **not** 43 consecutive screens. Character budgets are 48 title, 300 body, 130 choice, 220 feedback, and 380 rendered body characters. These are copy budgets, not evidence of browser fit; wrapping, font size, truncation, viewport and input behavior remain integration checks.
 
 ## Thin integration adapter
 
@@ -46,7 +46,7 @@ The primary engineer owns this adapter in Phases 5–6. No dependency on the old
 3. Use `{name}` as the package's sole supported placeholder syntax. Runtime substitution is **not already implemented**. The index maps every token to an existing numeric DTO field. The test renderer is a reference for the adapter, not runtime code or a model evaluator.
 4. Read numbers from one consistent state revision. Never substitute a missing/nonfinite value with zero. Check guards **before** formatting; if any token is unavailable use the entire fallback entry. Do not show half a comparison with a fictional other half.
 5. Format illustrative units with one decimal, signed unit change with an explicit sign except zero, credits as integers, volumes with one decimal and the label “estimated.” Locale-aware separators may replace the oracle's separators. Display rounding conveys no measurement precision. Numeric limits/wrapping remain the integration owner's responsibility.
-6. Route exact frozen reason strings using `reasonBindings`. For protected sites, the binding currently matches the canonical scenario reason only. Do not replace a future specific legal/source reason with generic scenario protection. Unknown reasons use `reason-unknown`; preserve the raw diagnostic for debugging. Phase 3 may add reasons: update this mapping/test intentionally when integrating that revision; do not silently classify new failures by substring.
+6. Route exact frozen reason strings using `reasonBindings`. For protected sites, the binding currently matches the canonical scenario reason only. Do not replace a future specific legal/source reason with generic scenario protection. Unknown reasons use `reason-unknown`; preserve the raw diagnostic for debugging. The eight current Phase 3 reasons are included, alongside the original baseline aliases. Future Core reasons must update this mapping/test intentionally; do not silently classify new failures by substring.
 7. Score only `questionIds`. Each has one best reasoning answer and individual explanations. Ignore `correct` for `preferenceIds`; use `choiceTargets` for the takeaway card. An incorrect answer receives explanation, not a punishment or loss of design.
 8. Hide capability-guarded text/actions when unsupported unless a fallback is supplied. A data file cannot grant an unimplemented operation or declare success. The formatter returns `None` for such hidden entries, and a complete fallback body for unavailable measurements.
 
@@ -134,3 +134,24 @@ After merge, the primary engineer must test actual Unity deserialization/build p
 | `ending-retry` | Try another strategy |
 | `ending-return` | Back to your plan |
 | `fixture-intro` | Make space. Keep balance. |
+
+### Phase 3 compatibility follow-up
+
+Six additional reason entries cover action selection, empty clearing, missing/same/occupied destinations and the remove-or-undo budget recovery. Eight exact Phase 3 reasons map to these or existing appropriate copy. All original baseline mappings remain valid. Validate another checkout without modifying it:
+
+```sh
+python3 tests/education/validate_content.py --core-source /path/to/phase3/Assets/Terra/Scripts/Core/WorldStateStore.cs
+```
+
+The option changes only the read-only source of Core reason strings; package data, DTOs, scenario, geography and content still come from the selected `--root` (the current repository by default). No host-specific default is embedded. Phase 3 copy remains data awaiting presenter binding.
+
+| Added ID | Title |
+|---|---|
+| `reason-action` | Choose an editing action |
+| `reason-clear-empty` | No proposals to clear |
+| `reason-destination` | Choose where to move |
+| `reason-same-destination` | Choose a different site |
+| `reason-destination-occupied` | Destination already in use |
+| `reason-budget-edit` | Not enough credits |
+
+Runoff placeholder provenance is a fixed validator invariant: both tokens must read `WorldResult.dischargedM3` with `matchedRunoffAvailable`, while their instances must remain `baseline` and `current` respectively. A generic accounting guard or reading the same result twice is rejected even though those field names are individually valid. Goal copy invites comparison of available water estimates without activating a water objective.

@@ -1,0 +1,9 @@
+{
+  "id": "reason-same-destination",
+  "title": "Choose a different site",
+  "body": "The proposal is already at this site. Choose another destination, or cancel the move.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}
