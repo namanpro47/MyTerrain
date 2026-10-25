@@ -59,3 +59,5 @@ The linked-player harness records definition parsing, opening, reload and total 
 ## Actual Unity Editor result
 
 The disposable Unity6000.6.6f1 project passed **23 assertions** against source `ec39e38`: full sparse and340-site dense ten-year saves replay with exact envelope/report hashes; existing saves are not rewritten; fresh initial/planning writes acknowledge; optional projection failure retains the accepted numeric year; later local narration survives reload; legacy saving remains guarded. The package installer exited0 and UPM resolved the direct Newtonsoft3.2.2 pin. [Editor result](unity-checks.json) and [project/package/source identity](unity-project-identity.json). This check used injected JSON storage and did not touch PlayerPrefs or production scenes. The linked WebGL build/actual browser checks are still pending.
+
+The isolated IL2CPP/WebGL export then completed with exit0: five files,24,997,736 bytes uncompressed, including both fixtures. [Exact export identity](webgl-build-identity.json). This is a minimal test scene, not a production size/load/performance result. Chrome functional verification is queued separately.

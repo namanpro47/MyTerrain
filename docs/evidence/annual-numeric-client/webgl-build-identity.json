@@ -1,0 +1,35 @@
+{
+  "sourceCommit": "ec39e38",
+  "unity": "6000.6.6f1",
+  "exitCode": 0,
+  "compression": "disabled",
+  "purpose": "isolated linked storage/codec fixture; not production gameplay",
+  "files": [
+    {
+      "path": "Build/Build.data",
+      "bytes": 6953057,
+      "sha256": "194ce4849cdbd8a9bbb91ccc5a2d5e79cfedc2adb993feba061481bdbec11ffc"
+    },
+    {
+      "path": "Build/Build.framework.js",
+      "bytes": 302957,
+      "sha256": "9d4357801b52dde044eb085951b2a471973f075462355ae639276c03bf4ec5cc"
+    },
+    {
+      "path": "Build/Build.loader.js",
+      "bytes": 27914,
+      "sha256": "46937c33022585ead6f53ae73dd58a12d2a91c11241b587d40952f1b6bd7be29"
+    },
+    {
+      "path": "Build/Build.wasm",
+      "bytes": 17712431,
+      "sha256": "19da89a2728588d9ba5285cd5b93b7ccf13e4bb921b2d75339ddee77abb67aa1"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1377,
+      "sha256": "cabdb0fb54784a83678a0a7c0535fcf90d484efb260eaac0faf1998eb5c7a8c3"
+    }
+  ],
+  "totalBytes": 24997736
+}
