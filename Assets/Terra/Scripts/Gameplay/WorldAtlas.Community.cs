@@ -13,6 +13,8 @@ namespace Terra.Gameplay
         CommunityCatalog communityCatalog;CommunityPlace currentCommunity;
         int communityPage;
         RectTransform communityOptions;
+        UnityEngine.UI.Button previousCommunity,nextCommunity;
+        bool communityCatalogLoading;
 
         // Separate partial keeps the existing globe, journey and annual save path owned by the atlas.
         public void InstallCommunityBrowser(CommunityTerrain companion)
@@ -37,8 +39,9 @@ namespace Terra.Gameplay
             Text(panel,"2  Review the real place",new Vector2(0,1),new Vector2(32,-368),new Vector2(310,32),23,Cream);
             Text(panel,"Try these prepared communities",new Vector2(0,1),new Vector2(32,-410),new Vector2(310,28),16,Mint);
             communityList=Box(panel,"Prepared communities",new Vector2(0,1),new Vector2(32,-452),new Vector2(304,142));
-            Button(panel,"Previous",new Vector2(0,1),new Vector2(32,-560),new Vector2(146,36),()=>CommunityPage(-1));
-            Button(panel,"Next",new Vector2(0,1),new Vector2(190,-560),new Vector2(146,36),()=>CommunityPage(1));
+            previousCommunity=Button(panel,"Previous",new Vector2(0,1),new Vector2(32,-560),new Vector2(146,36),()=>CommunityPage(-1));
+            nextCommunity=Button(panel,"Next",new Vector2(0,1),new Vector2(190,-560),new Vector2(146,36),()=>CommunityPage(1));
+            previousCommunity.interactable=nextCommunity.interactable=false;
             Text(panel,"3  Shape its future",new Vector2(0,1),new Vector2(32,-618),new Vector2(310,32),23,Cream);
             Text(panel,"Terrain exploration is ready. Editable objects and annual scenarios still need authoring.",new Vector2(0,1),new Vector2(32,-661),new Vector2(304,72),16,Muted);
             var viewport=Box(panel,"Source-aligned preview",new Vector2(1,1),new Vector2(-28,-142),new Vector2(840,485));
@@ -55,16 +58,23 @@ namespace Terra.Gameplay
             Button(controls,"+",new Vector2(0,.5f),new Vector2(586,0),new Vector2(48,36),()=>community.Zoom(-.15f));
             communitySource=Text(panel,"Photo surfaces preserve the source layout. Buildings and trees are not reconstructed in 3D.",new Vector2(1,0),new Vector2(-32,28),new Vector2(830,42),15,Muted,TextAlignmentOptions.Center);
             communityPanel.SetActive(false);
+            LoadCommunityCatalog();
+        }
+        void LoadCommunityCatalog()
+        {
+            if(communityCatalogLoading)return;communityCatalogLoading=true;
             StartCoroutine(community.ReadCatalog(catalog=>
             {
-                communityCatalog=catalog;CommunityPage(0);
+                communityCatalogLoading=false;communityCatalog=catalog;CommunityPage(0);
                 if(communityWasOpen&&catalog.places.Length>0)LoadCommunity(catalog.places[0]);
-            },message=>communityStatus.text=message));
+            },message=>{communityCatalogLoading=false;communityStatus.text=message;}));
         }
         void CommunityPage(int direction)
         {
-            if(communityCatalog==null||communityCatalog.places.Length==0)return;
+            if(communityCatalog==null)return;
+            if(communityCatalog.places.Length==0){communityStatus.text="No prepared communities are included in this build.";return;}
             int pages=(communityCatalog.places.Length+1)/2;communityPage=(communityPage+direction+pages)%pages;
+            previousCommunity.interactable=nextCommunity.interactable=pages>1;
             foreach(Transform child in communityList){child.gameObject.SetActive(false);Destroy(child.gameObject);}
             for(int i=0;i<2;i++)
             {
@@ -80,6 +90,7 @@ namespace Terra.Gameplay
             notes.SetActive(true);communityPanel.SetActive(true);communityWasOpen=true;
             if(currentCommunity!=null)LoadCommunity(currentCommunity);
             else if(communityCatalog!=null&&communityCatalog.places.Length>0)LoadCommunity(communityCatalog.places[0]);
+            else if(communityCatalog==null)LoadCommunityCatalog();
             EventSystemSelect(communityPanel.GetComponentInChildren<UnityEngine.UI.Button>());
         }
         static void EventSystemSelect(UnityEngine.UI.Button button)
