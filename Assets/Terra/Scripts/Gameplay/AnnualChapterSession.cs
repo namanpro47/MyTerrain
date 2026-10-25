@@ -143,10 +143,13 @@ namespace Terra.Gameplay
                 ResolveOffline();
             }
         }
-        public void StopRequest() { Finishing = false; ReleaseRequest(); frozen = null; Publish(); }
+        public void StopRequest() { ClearRequest(); Publish(); }
+        void ClearRequest() { Finishing = false; ReleaseRequest(); frozen = null; }
         void ReleaseRequest() { operation = null; if (request != null) { request.Abort(); request.Dispose(); request = null; } }
         void Fail(string message) { Error = message; StopRequest(); }
-        void OnDisable() { StopRequest(); }
+        // Scene teardown may have already destroyed subscribers' HUD objects.
+        // Cancel transport silently; the town's frozen request remains retryable.
+        void OnDisable() { ClearRequest(); }
 
         public string ExportSave() => JsonUtility.ToJson(new AnnualChapterSave { town = town.State, chapters = receipts.ToArray() }, true);
         public void ImportSave(string json)
