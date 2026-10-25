@@ -222,6 +222,32 @@ var final = await AnnualNumericTransactions.Open(rules, "transaction-main", stor
 Check(final.State.history.Length == 10 && final.State.phase == TownPhase.Completed && final.SaveState.narration.All(n => n.status == "visible"), "Complete ten-year state and all visible modes reopen exactly");
 Check(Text(final.SaveState) == Text(session.SaveState), "Final envelope is unchanged by reload");
 await Reject<InvalidOperationException>(() => final.Continue(final.State.revision), "No Year 11 transaction");
+// Frame checkpoints may suspend validation but never weaken accepted replay or
+// publish a candidate early. Pure stores remain independent of Unity's scheduler.
+int checkpointCalls = 0;
+var frameChecked = await AnnualNumericTransactions.Open(rules, "transaction-main", store,
+    checkpoint: token => { token.ThrowIfCancellationRequested(); checkpointCalls++; return Task.CompletedTask; });
+Check(checkpointCalls >= final.State.history.Length && Text(frameChecked.SaveState) == Text(final.SaveState),
+    "Checkpointed decade still verifies and preserves every accepted result");
+var cancelledStore = new FakeStore(); using var checkpointCancellation = new CancellationTokenSource();
+await Reject<OperationCanceledException>(() => AnnualNumericTransactions.Open(rules, "cancelled-checkpoint", cancelledStore,
+    checkpointCancellation.Token, token => { checkpointCancellation.Cancel(); token.ThrowIfCancellationRequested(); return Task.CompletedTask; }),
+    "Cancellation at a validation checkpoint aborts opening");
+Check(cancelledStore.Writes == 0 && cancelledStore.Value == null, "Cancelled validation never creates a run");
+var checkpointStore = new FakeStore(); bool blockCheckpoint = false;
+var arrivedAtCheckpoint = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+var releaseCheckpoint = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+var checkpointSession = await AnnualNumericTransactions.Open(rules, "paused-checkpoint", checkpointStore,
+    checkpoint: async token => { if (blockCheckpoint) { arrivedAtCheckpoint.TrySetResult(); await releaseCheckpoint.Task.WaitAsync(token); } });
+int checkpointWrites = checkpointStore.Writes; string checkpointHash = checkpointSession.SaveState.saveHash;
+blockCheckpoint = true;
+var checkpointPlan = checkpointSession.QueueAction(park.siteId, park.actionId, checkpointSession.State.revision);
+await arrivedAtCheckpoint.Task;
+Check(checkpointStore.Writes == checkpointWrites && checkpointSession.SaveState.saveHash == checkpointHash,
+    "Suspended validation leaves saved and visible state unchanged");
+blockCheckpoint = false; releaseCheckpoint.SetResult(); await checkpointPlan;
+Check(checkpointSession.State.queue.Length == 1 && checkpointStore.Writes == checkpointWrites + 1,
+    "Resuming the checkpoint publishes only after the acknowledged write");
 if (args.Contains("--write-evidence"))
 {
     Directory.CreateDirectory("docs/evidence/annual-numeric-transactions");

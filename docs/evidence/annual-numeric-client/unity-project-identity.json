@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "ec39e3893a5bd8914d073c7f187554928b492f77",
+  "unity": "6000.6.6f1",
+  "unityCli": "1.0.0-beta.14",
+  "packageInstallerExitCode": 0,
+  "method": "NumericPackageInstaller.Install via UnityEditor.PackageManager.Client.AddAndRemove",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2",
+    "com.unity.modules.jsonserialize": "1.0.0"
+  },
+  "recordedUtc": "2026-10-25T19:35:03.358016+00:00",
+  "sha256": {
+    "Packages/manifest.json": "4259fe57b21b3d6a3f9637a205670a091ebbd04b89ffe73e658357ba55b2b325",
+    "Packages/packages-lock.json": "171d8084b1fe9ec052b0f137d9924452f249f6a18de0055d55c5dba418a49488",
+    "source-manifest.json": "9ff6572d81b431c895548d1ae21a0f2146490a34bfe83de9158b4ff993aa30e6",
+    "Assets/Plugins/WebGL/NumericCheckResult.jslib": "5784b3aac2492f3e9b8d89d1cbc4b1305613b26a06e39bbcc18235b336558beb"
+  },
+  "prepareScriptSha256": "849468d06ac57cd5bfcb0d446b19729de8935d8fbc0229719046e184ff0b656d"
+}
