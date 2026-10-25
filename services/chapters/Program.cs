@@ -5,7 +5,9 @@ using Terra.Contracts;
 var builder = WebApplication.CreateBuilder(args);
 LocalEnvironment.LoadForProject(builder.Environment.ContentRootPath);
 // Local prototype only. Public hosting needs authentication, per-user quotas and shared storage.
-builder.WebHost.UseUrls("http://127.0.0.1:8787");
+var portText = Environment.GetEnvironmentVariable("TERRA_CHAPTER_PORT") ?? "8787";
+if (!int.TryParse(portText, out var port) || port < 1024 || port > 65535) throw new InvalidOperationException("TERRA_CHAPTER_PORT must be 1024–65535.");
+builder.WebHost.UseUrls("http://127.0.0.1:" + port);
 // The full annual catalog plus ten saved reports can exceed the old 256 KiB demo limit.
 builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 1024 * 1024);
 builder.Logging.ClearProviders(); // No prompt, save data, or credential-bearing HTTP logs.
@@ -17,6 +19,7 @@ var origins = (Environment.GetEnvironmentVariable("TERRA_ALLOWED_ORIGINS") ?? "h
     .Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
 using var http = new HttpClient { Timeout = TimeSpan.FromSeconds(25) };
 var service = new ChapterService(new GeminiNarrator(http, apiKey, model), cache);
+var reports = new ReportNarrationService(new ReportGeminiNarrator(http, apiKey, model), cache);
 app.Use(async (context, next) => {
     // Reject DNS rebinding and cross-origin requests before they can consume provider quota.
     if (context.Request.Host.Host is not ("127.0.0.1" or "localhost")) { context.Response.StatusCode = 403; return; }
@@ -47,5 +50,17 @@ app.MapPost("/chapter", async (HttpContext context) => {
     }
     catch { return Results.Json(new { error = "Chapter service unavailable. The year remains pending." }, statusCode: 503); }
 });
-Console.WriteLine("Terra chapter service: http://127.0.0.1:8787 (Gemini " + (string.IsNullOrWhiteSpace(apiKey) ? "key missing" : "configured") + ")");
+app.MapPost("/report-chapter", async (HttpContext context) => {
+    try {
+        var input = await JsonSerializer.DeserializeAsync<ReportNarrationRequest>(context.Request.Body, ChapterJson.Options, context.RequestAborted);
+        return Results.Text(ChapterJson.Write(await reports.Resolve(input, context.RequestAborted)), "application/json");
+    }
+    catch (ReportNarrationConflictException) { return Results.Json(new { error = "Saved report identity conflicts with a prior explanation.", reasonCode = "request-conflict" }, statusCode: 409); }
+    catch (OperationCanceledException) { return Results.StatusCode(499); }
+    catch (Exception error) when (error is ArgumentException || error is JsonException || error is OverflowException) {
+        return Results.Json(new { error = "Invalid accepted-report projection. Use the matching saved numeric report.", reasonCode = "invalid-projection" }, statusCode: 422);
+    }
+    catch { return Results.Json(new { error = "Explanation service unavailable. Use a local summary of the matching saved report.", reasonCode = "service-unavailable" }, statusCode: 503); }
+});
+Console.WriteLine("Terra chapter service: http://127.0.0.1:" + port + " (Gemini " + (string.IsNullOrWhiteSpace(apiKey) ? "key missing" : "configured") + ")");
 await app.RunAsync();
