@@ -1,0 +1,85 @@
+{
+  "checks": [
+    "Frozen real-geography v1 contract",
+    "Selected editable WGS84 bounds preserved",
+    "Golden origin EPSG:26915 control point within 1 mm numerical tolerance",
+    "Reference point round trips within 1 mm numerical tolerance; not a source-accuracy claim",
+    "Every render cover is valid, convex, CCW and nonzero",
+    "Rounded rendered cover conserves context area within 2 m\u00b2",
+    "Analysis units partition the entire context without double counting (0.1 m\u00b2 tolerance)",
+    "Analysis geometry areas match their declared metric areas",
+    "All sites lie within exact projected WGS84 AOI, not just its bounding rectangle",
+    "Editable sites preserve mapped woodland/wetland and scenario road/stream buffers",
+    "water.geojson: exported lines within 1.01 m of projected source",
+    "roads.geojson: exported lines within 1.01 m of projected source",
+    "connecting-roads.geojson: exported lines within 1.01 m of projected source",
+    "highways.geojson: exported lines within 1.01 m of projected source",
+    "Every independent terrain probe has source coverage",
+    "Terrain simplification errors below 1 m mean, 2 m p95 and 10 m maximum",
+    "Pinned source hash: x65y484.tif",
+    "Pinned source hash: x65y485.tif",
+    "Pinned source hash: nlcd-2021.tif",
+    "Pinned source hash: water.geojson",
+    "Pinned source hash: roads.geojson",
+    "Pinned source hash: connecting-roads.geojson",
+    "Pinned source hash: highways.geojson",
+    "Pinned source hash: elevation-metadata.json",
+    "Deterministic normalized export: analysis-units.geojson",
+    "Deterministic normalized export: control-points.json",
+    "Deterministic normalized export: cover-classes.json",
+    "Deterministic normalized export: manifest.json",
+    "Deterministic normalized export: provenance.json",
+    "Deterministic normalized export: scenario.seed.json",
+    "Deterministic normalized export: site-clearances.json",
+    "Deterministic normalized export: source-features.json",
+    "Deterministic normalized export: world.json",
+    "Regeneration preserves the primary-owned scenario.json"
+  ],
+  "count": 34,
+  "metrics": {
+    "controlPoints": [
+      {
+        "id": "origin",
+        "longitude": -91.037,
+        "latitude": 43.7015,
+        "localX": 0.0,
+        "localZ": 0.0,
+        "roundTripM": 0.0
+      },
+      {
+        "id": "western-stream-junction",
+        "longitude": -91.04136251631216,
+        "latitude": 43.70247288083808,
+        "localX": -354.072,
+        "localZ": 99.738,
+        "roundTripM": 9.385703304198744e-10
+      },
+      {
+        "id": "hwy162-brye-junction",
+        "longitude": -91.03213094478438,
+        "latitude": 43.702001949420364,
+        "localX": 391.011,
+        "localZ": 65.051,
+        "roundTripM": 0.0
+      }
+    ],
+    "coverGapM2": 0.0,
+    "coverOverlapM2": -4.656612873077393e-10,
+    "analysisGapM2": 0.0,
+    "analysisOverlapM2": -4.656612873077393e-10,
+    "vectorHausdorffM": {
+      "water.geojson": 0.9821768884056118,
+      "roads.geojson": 0.6315650657954748,
+      "connecting-roads.geojson": 0.7432053984853493,
+      "highways.geojson": 0.5895063670366919
+    },
+    "terrainProbes": {
+      "count": 1638,
+      "meanAbsM": 0.216810049799918,
+      "p95AbsM": 0.8078030639648345,
+      "maxAbsM": 2.3294395751952948,
+      "method": "5 m offset probes; source nearest 1 m sample vs runtime 10 m triangle interpolation"
+    }
+  },
+  "scope": "Offline geography evidence; browser rendering/performance are separate gates."
+}

@@ -19,6 +19,12 @@
 | 7 — Polish | Planned | Visual/interaction review and measured performance required |
 | 8 — Release/refinement | Planned | Full single-location build, rehearsed demo, and focused refinement backlog |
 
+## Phase 3 isolated editing work — October 24, 2026
+
+The user explicitly clarified this chat's goal to **Phase 3 editing alongside the other worker's Phase 2A rebuild**, in a separate worktree. Branch `codex/phase3-editing` starts at `08092a1`. This is an authorized ordering exception for the editing slice, not Phase 2A visual acceptance or permission to begin Phase 4. The original checkout, other worker's uncommitted changes, and production deployment remain outside this worktree's mutations.
+
+Transaction implementation is complete; browser verification is in progress. The new checks pass alongside the existing Phase 1/2 suites. [Integration handoff](PHASE_3_HANDOFF.md) records the narrow hooks to carry into the rebuilt presentation. Phase 2A visuals and external novice usability remain unverified by this work.
+
 ## Hosting refresh — October 24, 2026
 
 At the user's request, republished the latest completed `Builds/Web` export (15:41 local) to the existing `terra-browser` Vercel project. Production: [terra-browser.vercel.app](https://terra-browser.vercel.app/), deployment `dpl_FQ2Yv3sQyZ7M6VPDEfPaUDpYWVxW`. [Identity](evidence/deployment-2026-10-24/identity.json) · [anonymous asset verification](evidence/deployment-2026-10-24/public-assets.json) · [Chrome capture](evidence/deployment-2026-10-24/chrome-live.png).

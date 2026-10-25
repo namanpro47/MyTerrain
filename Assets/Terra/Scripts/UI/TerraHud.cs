@@ -11,7 +11,7 @@ using UnityEngine.InputSystem.UI;
 namespace Terra.UI
 {
     // TN-03/04/05/06, CS-01/04, AX-01. One visual language for the entire slice.
-    public sealed class TerraHud
+    public sealed partial class TerraHud
     {
         readonly Transform root;readonly UnityEngine.UI.CanvasScaler scaler;
         UnityEngine.UI.Button viewButton,controlsButton;
@@ -48,7 +48,7 @@ namespace Terra.UI
             Label(identity,"Meadowbrook Valley",new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
             Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
-            Label(stats,"PRODUCTIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
+            Label(stats,"ILLUSTRATIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(18,-35),new Vector2(230,32),25,Paper,FontStyles.Bold);
             Label(stats,"Runoff: not modeled yet",new Vector2(0,1),new Vector2(18,-69),new Vector2(250,22),14,Soft);
             Label(stats,"CREDITS",new Vector2(0,1),new Vector2(282,-14),new Vector2(104,22),14,Soft);
@@ -72,7 +72,7 @@ namespace Terra.UI
             viewButton=Button(root,"Valley view  R",new Vector2(0,0),new Vector2(24,84),new Vector2(130,56),reset,16);
             guideButton=Button(root,"Field guide  G",new Vector2(1,0),new Vector2(-24,20),new Vector2(148,56),()=>{dataPage=0;ShowData();},16);
             controlsButton=Button(root,"Controls  ?",new Vector2(1,0),new Vector2(-24,84),new Vector2(148,56),ShowHelp,16);
-            tooltip=Panel(root,"Site preview",new Vector2(1,.5f),new Vector2(-24,-10),new Vector2(292,288),PanelColor).gameObject;
+            tooltip=Panel(root,"Site preview",new Vector2(1,.5f),new Vector2(-24,-10),new Vector2(292,374),PanelColor).gameObject;
             previewKind=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-16),new Vector2(256,24),14,Accent);
             previewTitle=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-45),new Vector2(256,52),22,Paper,FontStyles.Bold);
             previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-105),new Vector2(256,133),17,Paper);
@@ -128,7 +128,7 @@ namespace Terra.UI
         public void Ready()=>loading.SetActive(false);
         public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
         public void Error(string message){loadFailed=true;loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
-        public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;}
+        public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>units ("+(r.netProduction>=0?"+":"")+r.netProduction.ToString("0.#")+")</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;Paint();}
         public void Selected(string id){activeTool=id;int index=id.StartsWith("cultivate")?0:id=="restore-grass"?1:id=="water-swale"?2:-1;variants.SetActive(index==0);tip.text=index<0?"Choose a treatment\nto shape a proposal":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
         public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
         {
@@ -139,14 +139,15 @@ namespace Terra.UI
             previewKind.color=Accent;
             float delta=result.result.production-current.production;int cost=result.result.spentCredits-current.spentCredits;
             previewBody.text=treatment.title+"\n\n<size=141%><b>"+cost+"</b></size> credits  ·  <size=141%><b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b></size> units\n<size=82%>Illustrative productive capacity</size>\n<size=82%>Runoff estimate: not available</size>";
-            previewAction.text="Click / Enter to place   ·   Esc";
+            previewAction.text=result.reason=="Ready to replace"?"Click / Enter to replace · Esc":"Click / Enter to place · Esc";
+            if(result.reason=="Ready to replace")previewKind.text="REPLACE PROPOSAL";
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(null);resume?.Invoke();}
-        public void ShowHelp()=>ShowModal("Make room for a better balance",
-            "<b>01   Choose → inspect → place</b>\nUse the three treatments to explore a proposal. Inspect a site to see its exact cost and productive change. All production units are illustrative game accounting.\n\n"+
-            "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Experiment freely</b>\n1 / 2 / 3: tools · M: living margin · Tab: next site\nEnter: place · Z: undo · Escape: cancel or close\nG: field guide · ?: controls");
+        public void ShowHelp()=>ShowModal("Shape, compare, revise",
+            "<b>01   Choose → preview → place</b>\n1 / 2 / 3: treatments · M: living margin\nTab / Shift+Tab: inspect sites · Enter: confirm\n\n"+
+            "<b>02   Revise a proposal</b>\nV: move · Delete: remove · X: clear proposals\nZ: undo · Y / Shift+Z: redo · Esc / right-click: cancel\n\n"+
+            "<b>03   Explore the valley</b>\nDrag / arrows: pan · Scroll / + / −: zoom · F: focus\nR: valley view · G: field guide\n\nProduction units and credits are illustrative; runoff is not modeled.");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
         public bool KeyboardInput(Keyboard k)
         {
