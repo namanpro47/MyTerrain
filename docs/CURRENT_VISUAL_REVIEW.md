@@ -2,6 +2,8 @@
 
 **Latest candidate: study55, source `5139ba3`, October 25, 2026.** This page presents the current rendered game; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study55-findings.md).
 
+[Latest unfinished investigation: study59 cultivated soil beds](evidence/phase2a/visual-rebuild/study59-findings.md). Saved for continuity; it does not replace the retained candidate below.
+
 ## The actual playable result
 
 ![Chrome operating restoration at parcel focus](evidence/phase2a/visual-rebuild/study55-chrome-year3-focus.jpg)

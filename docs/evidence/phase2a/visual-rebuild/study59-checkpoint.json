@@ -1,0 +1,17 @@
+{
+  "status": "unfinished Editor-only research; not adopted into production",
+  "source_commit": "09cead6",
+  "files_sha256": {
+    "study59-beds.cs.txt": "3515e166e390ced52559acc5306c36e23b7e3566c2e52ab6672c65434674470e",
+    "study59-beds.json": "7dabf45025543cdb2cc1754ea6c6c454abfee791fe257710ebb76466b856de68",
+    "study59-soil-mask.cs.txt": "87d2b2d5d94e9b2a90e526c3484a6e2c1a62058bc829653ba423cc5269844125",
+    "study59-soil-mask.json": "f58e73d7e2cb102b449fe5df91e75a806733c18099c0a28ffa110ed6a63153c3",
+    "study59-normal.cs.txt": "322df588a1b8362a5057c3a29c55aa3c300f1e3fbb10f0860d281ccc998a34fb",
+    "study59-close.cs.txt": "93fdd7032f39d13a4ae6f55d67804a64cb2d5474006a466023d56c800873ef99",
+    "study59-capture.cs.txt": "cf94633d498f875245aba7a157bfeab9634d1bb84a3e0e1507d38def184a46d9",
+    "study59-initial-normal.png": "ffe4bfc12b16791ff13c75e7763d54602f7b7245d096c956561076c13ed949ef",
+    "study59-initial-close.png": "6f92d52e02aca4e23494be7b3dbf8811e40ac0d7ee6cee0055de513fede068ee",
+    "study59-corrected-soil-close.png": "31650c96d12f1551b2854499b97a7dd6d3725d8681e634343de40efd51727fa0",
+    "study59-CultivatedSoil.shader.txt": "cce508b9ef9794536d5a486a8c8676ba00d37d95b6e7ab104f14205f63f8bf07"
+  }
+}
