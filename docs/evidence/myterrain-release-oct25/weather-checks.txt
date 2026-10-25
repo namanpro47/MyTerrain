@@ -1,0 +1,24 @@
+test_analysis_window_dry_spell_heat_and_trace_boundaries (test_weather.DerivationChecks) ... ok
+test_event_timing_units_and_cross_year_antecedent (test_weather.DerivationChecks) ... ok
+test_missing_day_rejects_entire_year (test_weather.DerivationChecks) ... ok
+test_missing_warmup_rejected_instead_of_assumed_zero (test_weather.DerivationChecks) ... ok
+test_temperature_inconsistency_rejected (test_weather.DerivationChecks) ... ok
+test_windows_do_not_wrap_or_bridge_missing_year (test_weather.DerivationChecks) ... ok
+test_leap_day_and_padding (test_weather.ParserChecks) ... ok
+test_malformed_and_duplicate_rows_rejected (test_weather.ParserChecks) ... ok
+test_missing_quality_and_presumed_zero_are_not_dry_weather (test_weather.ParserChecks) ... ok
+test_complete_calendar_and_quality_audit (test_weather.PinnedDataChecks) ... ok
+test_daily_companion_hash_calendar_and_warmup (test_weather.PinnedDataChecks) ... ok
+test_daily_companion_keeps_post_harvest_date_and_original_flags (test_weather.PinnedDataChecks) ... ok
+test_different_scenarios_can_select_each_existing_window (test_weather.PinnedDataChecks) ... ok
+test_independent_observed_event_regression (test_weather.PinnedDataChecks) ... ok
+test_invalid_seed_rejected (test_weather.PinnedDataChecks) ... ok
+test_noncontiguous_or_duplicate_schedule_rejected (test_weather.PinnedDataChecks) ... ok
+test_rebuild_is_byte_exact (test_weather.PinnedDataChecks) ... ok
+test_schedule_golden_identity_and_saved_records (test_weather.PinnedDataChecks) ... ok
+test_source_tamper_fails_before_derivation (test_weather.PinnedDataChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.695s
+
+OK

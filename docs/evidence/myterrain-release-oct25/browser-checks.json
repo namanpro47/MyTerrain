@@ -1,0 +1,62 @@
+{
+  "verifiedUTC": "2026-10-25T17:39:48.151409+00:00",
+  "browser": "Chrome",
+  "url": "https://terra-browser.vercel.app/",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    "MyTerrain browser title and native globe",
+    "Pointer drag visibly rotates globe",
+    "Animated Wisconsin entry",
+    "Updated play-first HUD and selected-project inspector",
+    "Point Reyes entry",
+    "Suusamyr entry and MyTerrain field notes",
+    "Return to Wisconsin preserves year1 revision22 cash1000000000cents and4queued proposals"
+  ],
+  "arrivalLogs": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+      "timestamp": "2026-10-25T17:38:12.111Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: point-reyes-v1\n",
+      "timestamp": "2026-10-25T17:38:37.914Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: suusamyr-v1\n",
+      "timestamp": "2026-10-25T17:38:54.023Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: meadowbrook-v1\n",
+      "timestamp": "2026-10-25T17:39:18.197Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    }
+  ],
+  "stateLogs": [
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+      "timestamp": "2026-10-25T17:38:26.168Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=22; cash=1000000000; queued=4; assets=0\n",
+      "timestamp": "2026-10-25T17:39:24.781Z",
+      "url": "blob:https://terra-browser.vercel.app/57d40c2a-ad56-4d88-92d9-32864b17bdf7"
+    }
+  ],
+  "consoleErrors": [],
+  "warnings": "Known existing URP FSR shader warning; no production runtime errors.",
+  "scope": "Production smoke only; no plans queued, years submitted or saves reset. Not a performance benchmark or Phase2A visual certification.",
+  "cleanup": "Agent Chrome tab closed; viewport reset."
+}
