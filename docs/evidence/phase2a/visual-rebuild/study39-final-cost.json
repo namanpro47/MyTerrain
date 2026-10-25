@@ -1,0 +1,130 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study38-cost.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "camera": "(51.97, 203.57, -297.20)",
+        "frame": 2740,
+        "rows": [
+          {
+            "mesh": "Grass_Common_Short-lod2",
+            "batches": 71,
+            "instances": 21196,
+            "candidateTriangles": 2119600
+          },
+          {
+            "mesh": "ForestSapling-part0-lod2",
+            "batches": 17,
+            "instances": 1025,
+            "candidateTriangles": 1371450
+          },
+          {
+            "mesh": "ForestOak-part0-lod1",
+            "batches": 7,
+            "instances": 293,
+            "candidateTriangles": 1177274
+          },
+          {
+            "mesh": "Grass_Wispy_Short-lod2",
+            "batches": 57,
+            "instances": 3340,
+            "candidateTriangles": 1058780
+          },
+          {
+            "mesh": "ForestOak-part1-lod1",
+            "batches": 5,
+            "instances": 215,
+            "candidateTriangles": 983410
+          },
+          {
+            "mesh": "ForestSapling-part1-lod2",
+            "batches": 17,
+            "instances": 1025,
+            "candidateTriangles": 725700
+          },
+          {
+            "mesh": "FieldCluster",
+            "batches": 74,
+            "instances": 35065,
+            "candidateTriangles": 631170
+          },
+          {
+            "mesh": "Grass_Common_Short-lod1",
+            "batches": 17,
+            "instances": 3934,
+            "candidateTriangles": 507486
+          },
+          {
+            "mesh": "ForestOak-part1-lod2",
+            "batches": 10,
+            "instances": 225,
+            "candidateTriangles": 504450
+          },
+          {
+            "mesh": "Flower_3_Group",
+            "batches": 18,
+            "instances": 1020,
+            "candidateTriangles": 385050
+          },
+          {
+            "mesh": "ForestOak-part0-lod2",
+            "batches": 8,
+            "instances": 147,
+            "candidateTriangles": 288855
+          },
+          {
+            "mesh": "Rock_Medium_2",
+            "batches": 4,
+            "instances": 322,
+            "candidateTriangles": 78568
+          },
+          {
+            "mesh": "Grass_Common_Tall-lod1",
+            "batches": 2,
+            "instances": 256,
+            "candidateTriangles": 54272
+          },
+          {
+            "mesh": "Grass_Common_Tall-lod2",
+            "batches": 4,
+            "instances": 382,
+            "candidateTriangles": 43166
+          },
+          {
+            "mesh": "Grass_Wispy_Short-lod1",
+            "batches": 3,
+            "instances": 111,
+            "candidateTriangles": 35631
+          },
+          {
+            "mesh": "Rock_Medium_1",
+            "batches": 13,
+            "instances": 38,
+            "candidateTriangles": 12996
+          },
+          {
+            "mesh": "ForestOak-part2-lod2",
+            "batches": 15,
+            "instances": 440,
+            "candidateTriangles": 0
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
