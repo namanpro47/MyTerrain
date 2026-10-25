@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup><TargetFramework>netstandard2.1</TargetFramework><EnableDefaultCompileItems>false</EnableDefaultCompileItems><LangVersion>latest</LangVersion><AllowUnsafeBlocks>true</AllowUnsafeBlocks><DefineConstants>UNITY_WEBGL</DefineConstants><UnityRoot Condition="'$(UnityRoot)' == ''">C:/Program Files/Unity/Hub/Editor/6000.6.6f1/Editor</UnityRoot><PackageAssemblies Condition="'$(PackageAssemblies)' == ''">C:/Users/Peter/Terra-Unity/Library/ScriptAssemblies</PackageAssemblies></PropertyGroup>
+<ItemGroup><Compile Include="../../Assets/Terra/**/*.cs" Exclude="../../Assets/Terra/**/Editor/**/*.cs"/>
+<Reference Include="$(UnityRoot)/Data/PlaybackEngines/WebGLSupport/Variations/il2cpp/Managed/UnityEngine*.dll" />
+<Reference Include="$(PackageAssemblies)/Unity.TextMeshPro.dll"/>
+<Reference Include="$(PackageAssemblies)/UnityEngine.UI.dll"/>
+<Reference Include="$(PackageAssemblies)/Unity.InputSystem.dll"/>
+<Reference Include="$(PackageAssemblies)/Unity.RenderPipelines.Core.Runtime.dll"/>
+<Reference Include="$(PackageAssemblies)/Unity.RenderPipelines.Universal.Runtime.dll"/>
+<Reference Include="../../Assets/Plugins/Demigiant/DOTween/DOTween.dll"/>
+</ItemGroup></Project>
