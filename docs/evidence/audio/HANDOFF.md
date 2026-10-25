@@ -1,35 +1,46 @@
-# Audio checkpoint for the combined release
+# Sound implementation and release handoff
 
-Source candidate: **442278b** on **codex/terra-sound**, based on refreshed main **67c01417906b74a8f024ae9975158cb1dda6979d**. The release chat asked for a feature-branch handoff and will own combined main promotion/deployment; this audio chat will not independently deploy or promote main.
+Runtime candidate: **e8ac9eb** on **codex/terra-sound**, based on refreshed main **67c01417906b74a8f024ae9975158cb1dda6979d**. Remote main13a15a4 was inspected during continuation; the combined release owner integrates newer main/atlas/guidance work. This chat does not independently promote main or deploy.
 
-## Current validation
+## Verified checkpoint
 
-- Encoded-bank checks pass: 79 valid clips; all 17 actual action IDs map to distinct material families with three separate takes; all literal runtime cue references resolve; source/output hashes, CC0 licenses, signal headroom, DC offsets and nature loop boundaries verified. Bank is 7,827,093 bytes.
-- Unity import, compile and Web export are running in the owned isolated worktree under reservation 40. Chrome/runtime verification is pending. **Do not treat this source-only checkpoint as release-ready until the final receipt below is updated.**
+- 79 encoded clips, 7,827,093 bytes: 17 placement families with three separate takes, 23 interface/gameplay gestures, three nature beds and two music tracks. All sources are free CC0 with source/output hashes and processing in the bank manifest.
+- Bank tests pass all four suites: all supported actions, distinct recorded takes, decodable finite signals/headroom/DC/loop seams, runtime cue references and provenance.
+- Unity6000.6.6f1 imported and compiled source04549ad, passed **380 checks**, and completed a Web export. `unity-import.json` records the checks. `served-assets.json` records exact locally served export bytes and decoded sizes at http://127.0.0.1:8916.
+- Chrome155.0.8059.85 background functional tests used the real exported game, regular user input and the real Web Audio destination. No autoplay bypass or game-state injection was used. A request abort exercises the actual offline recovery path. `chrome-receipts.json` contains read-only runtime snapshots plus measured audio output.
+- All17 actual project placements produced their respective cues. Repeated farm placements cycled0→1→2→0. Undo, redo, move, remove, clear, invalid placement, camera reset, atlas travel/arrival, year submit, failed chapter, offline report, continue, decade completion and new run were exercised.
+- No sound before first gesture. Mute measured zero output and persisted on reload; overall volume persisted. Music/nature at0 with effects enabled measured silent background; all buses at0 also measured zero. Normal playing output was nonzero; sampled peak during the walkthrough was0.203, below clipping. This is bounded sampling, not a peak measurement of every possible mix.
+- Music automatically transitioned from Mystical Piano to Vaporware during gameplay. Ending fast-forward produced one ending cue instead of a cascade of yearly cues. Sound settings Enter/Escape left the pending town revision/cash/queue unchanged.
+- No JavaScript exceptions. Unity emits startup metadata warnings while deferred audio loads; playback and later transitions succeed. These bounded load warnings are recorded separately, not concealed as clean logs.
 
-## Atlas ownership handoff
+**Audio feature signoff:** passed. Foreground Chrome focus loss measured zero output; return resumed at24.46→25.46seconds after roughly one second, with fade-in. Disable Playwright focus emulation before this check; its default reports every tab focused and cannot test actual focus behavior. Pointer volume/mute/Done controls passed. Settings were visually inspected at1440×900,1280×720 and1280×720 at deviceScaleFactor1.25, with readable labels and unobstructed controls. See chrome-headed.json and settings-*.png.
 
-The audio hooks in `WorldAtlas.cs` and `WorldAtlas.Visuals.cs` are frozen at 442278b. No further visual/layout edits are planned here. Preserve these hooks when replacing the selector UI:
+The combined release owner confirmed e8ac9eb compiles and passes380audio checks alongside HUD809, chapters16, atlas678, annual34 and community35 checks. No sound runtime changes were needed after the browser walkthrough. The standalone browser export is source04549ad; e8ac9eb adds native/rebound callback coverage and modal drag cleanup. The release owner owns the final combined-export smoke, main promotion and deployment; this handoff does not claim that production is already updated.
 
-- All atlas button callbacks call `TerraAudio.Ensure().Click()` before the existing action.
-- Selection change requests `atlas-select`; StartJourney requests `travel`; successful descent requests `arrival`; LoadFailed requests `blocked`.
-- Atlas Update returns while `TerraAudioPanel.ConsumedInput` so settings keys cannot operate the globe behind it.
-- The visible Sound settings button opens `TerraAudioPanel.Show` (U also works from the main input path).
+## Ownership and integration
 
-These calls require the complete additive `Assets/Terra/Scripts/Audio` runtime and Resources/Audio bank from the same commit. Main bootstrap now starts the persistent director before attaching the atlas. Its own mute/focus policy works while the atlas pauses the legacy scene listener.
+Both atlas files, TerraMain.cs, TerraMain.Editing.cs and TerraHud.cs are frozen for this audio feature and explicitly released to their current owners. The combined release chat has integrated e8ac9eb. Preserve these narrow hooks while integrating newer visual and UI work:
 
-**Atlas ownership is released.** The first cold import ended; `terra-sound-full-20261025` is finished and the narrower `terra-sound-verify-20261025` explicitly excludes both atlas files. The release chat can claim and redesign them now. Runtime scripts compiled; the first validation helper used a removed GetInstanceID API, corrected in the next commit before repeat validation.
+- Initialize the persistent audio director before atlas attachment. Keep AudioTick before the atlas early return, lifecycle subscription cleanup, and the browser `AudioVisibility` bridge.
+- Atlas selection/travel/arrival/failure request their semantic cues; buttons request common clicks. Keep a visible sound settings entry and the U shortcut.
+- Sound settings consume pointer/keyboard/wheel input before atlas/game handling, including the frame they close, and clear a held map drag. Field Notes wheel forwarding belongs after this guard.
+- Successful edits request placement/move/remove/clear sounds after the actual accepted plan operation. Undo/redo/failure keep separate gestures. Annual cues observe `AnnualTownSession.Changed`; they never mutate the model or use gameplay randomness.
+- TerraAudioButton supports native clicks even when dialogs replace onClick callbacks; Web and custom keyboard dispatch also request common feedback. The director coalesces duplicates by priority.
+- Field Notes owner may add ResetFieldNotes/LayoutFieldNotes/wheel hooks. No scenes, source rendering, financial rules or save schema are changed by audio.
 
-## Integration steps
+Run `TerraAudioChecks.Run()` on the combined source, then test the actual combined Chrome export. No paid asset, account, API credential, plugin or package is required. This sound verification does not certify the separate Phase2A scenery gate.
 
-1. Integrate the complete verified feature branch, retaining newer annual and visual work. Audio never changes annual arithmetic, saved rules or scene data.
-2. Keep narrow callbacks in `TerraMain.Editing.cs` (success after a plan edit, undo/redo, invalid actions). `TerraMain.Audio.cs` observes accepted phase changes through `AnnualTownSession.Changed`.
-3. Preserve main input guards for sound settings and the `player.js` browser focus bridge.
-4. Run `TerraAudioChecks.Run()` on the combined source and Chrome smoke the actual combined export. A scene-only confirmation is insufficient for browser audio.
-5. No new external account, API key, paid asset, plugin or package is needed. The source bank and license material ship in the repository.
+## Reproduce browser checks
 
-## Shared HUD / main handoff
+Use a fresh Chrome context and unique local origin. Install `tests/audio/chrome-instrumentation.js` before page load to observe the existing destination without adding audible output. `AudioAudit` on TerraMain emits a read-only JSON snapshot; F10 emits chunked UI rectangles and annual state. Parse `TERRA_UI_PART` chunks when the full log exceeds the browser log limit.
 
-The final shared-file hooks add native click feedback that survives callback rebinding and common Web/keyboard activation feedback. They also clear a held map gesture while sound settings are open. `TerraHud.cs`, `TerraMain.cs` and `TerraMain.Editing.cs` are now frozen for this sound pass and will be excluded from the new validation task claim. The Field Notes owner may add its `ResetFieldNotes()`, `LayoutFieldNotes()` and wheel bridge. Keep the Sound settings consumed-input guard at the beginning of `Scroll` ahead of Field Notes handling; sound settings must remain modal. Preserve the audio constructor/teardown, button feedback component and keyboard dispatch hooks.
+1. Before input, inspect `AudioAudit` and destination samples. Press U, test labelled controls with Tab/Enter and pointer; wait between key presses so each reaches a Unity frame. Test mute, all bus controls and reload persistence.
+2. Enter Wisconsin, dismiss the introduction, choose each catalog project, Tab to an eligible field, Enter to queue, then Z to release the reservation. Test all17 projects across all three categories/pages, plus Y, V, Delete/Enter, X/Enter, R and invalid targets. Three repetitions verify alternate takes.
+3. Review E, submit, test a failed chapter and actual offline recovery, continue, T/confirm the future, and start a new run. Confirm appropriate actual-state cues and one ending cue.
+4. Leave/return to the owned tab in headed Chrome; verify zero output while unfocused and resumed music position. Capture the settings at desktop and compact viewports. Keep separate evidence for any final combined export.
 
-Initial source04549ad passed380 Unity import checks and completed the browser export. The later shared click-feedback completion still needs the final incremental build and Chrome receipt; this is not yet a final release-ready assertion.
+References: TN-07 quiet responsiveness, TN-08 appreciation, AX-01 sound-independent information. See docs/AUDIO.md for the design, coverage, controls, licenses and reproduction.
+
+## Delivery status
+
+All audio-owned implementation and functional verification is complete. Desktop67 and heavy50 were released after their actual jobs finished; owned browser sessions are closed. Runtime is frozen at e8ac9eb. Evidence-only follow-up commits may be merged without rebuilding. Preserve the combined release owner’s final export identity rather than replacing it with the standalone test export.
