@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "job wait",
+  "data": {
+    "jobId": "ed796c8781d446ae83b5a145e870be36",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": {
+        "succeeded": true,
+        "seconds": 668.2794835,
+        "output": "/Users/naman/.codex/worktrees/annual-guidance/Terra/Builds/Web"
+      },
+      "executionTimeMs": 668326,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T16:20:19.384967Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}

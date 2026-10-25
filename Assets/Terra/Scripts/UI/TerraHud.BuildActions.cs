@@ -22,6 +22,7 @@ namespace Terra.UI
         string activeCategory="Farming";
         bool catalogKeyboard;
         int? highlightedFieldCount;
+        string annualPlanningHint;
 
         public void BuildAvailability(int? count)
         {
@@ -74,8 +75,8 @@ namespace Terra.UI
             if(annualRules!=null)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
-                actionSummary.text=recipe==null?"Choose a project · B to browse":highlightedFieldCount==0?"No available field · choose another project":"Choose an outlined field";
-                if(highlightedFieldCount>0)actionSummary.text+=" · "+highlightedFieldCount.Value+" available";
+                actionSummary.text=recipe==null?(annualPlanningHint??"Choose a project · B to browse"):highlightedFieldCount==0?"No available field · choose another project":"Choose an outlined field";
+                if(recipe!=null&&highlightedFieldCount>0)actionSummary.text+=" · "+highlightedFieldCount.Value+" available";
                 return;
             }
 
