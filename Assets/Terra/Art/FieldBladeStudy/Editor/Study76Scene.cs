@@ -18,6 +18,7 @@ public static class Study76Scene
     const BindingFlags Fields = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
     static GameObject root, template;
     static Material material;
+    static readonly HashSet<Material> renderedMaterials = new HashSet<Material>();
     static Transform baseline;
     static string sourceBefore, annualBefore;
     static TerraMain main;
@@ -84,7 +85,11 @@ public static class Study76Scene
         foreach(var cell in cells)
         {
             var go=new GameObject("Study76 cell "+cell.Key);go.transform.SetParent(root.transform,false);
-            go.AddComponent<InstancedNature>().Add(template,cell.Value,Color.white);
+            var nature=go.AddComponent<InstancedNature>();nature.Add(template,cell.Value,Color.white);
+            // InstancedNature leases a material clone; update that actual renderer material
+            // during the palette/wind comparison, not only the source template.
+            foreach(var batch in (System.Collections.IEnumerable)typeof(InstancedNature).GetField("batches",Fields).GetValue(nature))
+                renderedMaterials.Add((Material)batch.GetType().GetField("material",Fields).GetValue(batch));
         }
         baseline=((Dictionary<string,Transform>)landscape.GetType().GetField("baselines",Fields).GetValue(landscape))[siteId];
         baseline.gameObject.SetActive(false);
@@ -100,16 +105,19 @@ public static class Study76Scene
     public static void Palette(bool native)
     {
         if(material==null)throw new InvalidOperationException("Apply the study first.");
-        material.SetColor("_RootColor",native?new Color(.054902f,.556863f,.439216f):new Color(.24f,.29f,.06f));
-        material.SetColor("_MidColor",native?new Color(.321569f,.890196f,.341176f):new Color(.53f,.59f,.16f));
-        material.SetColor("_TipColor",native?new Color(.4991f,.92f,.3588f):new Color(.70f,.74f,.30f));
+        foreach(var target in renderedMaterials)
+        {
+            target.SetColor("_RootColor",native?new Color(.054902f,.556863f,.439216f):new Color(.24f,.29f,.06f));
+            target.SetColor("_MidColor",native?new Color(.321569f,.890196f,.341176f):new Color(.53f,.59f,.16f));
+            target.SetColor("_TipColor",native?new Color(.4991f,.92f,.3588f):new Color(.70f,.74f,.30f));
+        }
         Check();
     }
 
     public static void Wind(bool running)
     {
         if(material==null)throw new InvalidOperationException("Apply the study first.");
-        material.SetFloat("_StudyTime",running?-1:0);
+        foreach(var target in renderedMaterials)target.SetFloat("_StudyTime",running?-1:0);
     }
 
     public static void Check()
@@ -126,6 +134,7 @@ public static class Study76Scene
         if(template!=null)Object.DestroyImmediate(template);
         if(material!=null)Object.DestroyImmediate(material);
         root=null;template=null;material=null;baseline=null;
+        renderedMaterials.Clear();
     }
 
     static void Connect()

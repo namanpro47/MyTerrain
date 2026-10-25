@@ -40,6 +40,7 @@ public static class Study76Builder
         }
         noise.SetPixels(pixels);noise.Apply();noise=Save(noise,"WindNoise.asset");
         var material=new Material(shader){name="Study76 native gradient",enableInstancing=true};material.SetTexture("_WindNoise",noise);material.SetFloat("_StudyTime",0);material=Save(material,"NativeGradient.mat");
+        float bladeHalfWidth=original.bounds.size.x*.5f;
         var root=new GameObject("FieldCluster");var lods=new LOD[3];var metrics=new List<object>();
         try
         {
@@ -48,15 +49,20 @@ public static class Study76Builder
                 Mesh mesh=level==0?original:new Mesh();
                 if(level>0)
                 {
-                    float width=original.bounds.size.x*.5f;
+                    float width=bladeHalfWidth;
                     mesh.vertices=level==1?new[]{new Vector3(-width,0,0),new Vector3(width,0,0),new Vector3(-width*.5f,.6f,0),new Vector3(width*.5f,.6f,0),new Vector3(0,1.2f,0)}:new[]{new Vector3(-width,0,0),new Vector3(width,0,0),new Vector3(0,1.2f,0)};
                     mesh.triangles=level==1?new[]{0,1,2,1,3,2,2,3,4}:new[]{0,1,2};
                     mesh.uv=mesh.vertices.Select(v=>new Vector2(v.x/(width*2)+.5f,v.y/1.2f)).ToArray();mesh.RecalculateNormals();mesh.RecalculateBounds();
                 }
+                var geometricBounds=mesh.bounds;
+                // Maximum default wind displacement: ±0.6m horizontally, +0.27m vertically.
+                // GPU displacement must remain inside the bounds used for native instancing.
+                var windBounds=geometricBounds;windBounds.center+=Vector3.up*.135f;
+                windBounds.Expand(new Vector3(1.2f,.27f,1.2f));mesh.bounds=windBounds;
                 mesh.name="Study76 blade LOD"+level;mesh=Save(mesh,"Blade-lod"+level+".asset");
                 var go=new GameObject("LOD"+level);go.transform.SetParent(root.transform,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.AddComponent<MeshRenderer>();renderer.sharedMaterial=material;
                 lods[level]=new LOD(level==0?.5f:level==1?.2f:.001f,new Renderer[]{renderer});
-                metrics.Add(new{level,vertices=mesh.vertexCount,triangles=mesh.triangles.Length/3,height=mesh.bounds.size.y,width=mesh.bounds.size.x,root=mesh.bounds.min.y});
+                metrics.Add(new{level,vertices=mesh.vertexCount,triangles=mesh.triangles.Length/3,height=geometricBounds.size.y,width=geometricBounds.size.x,root=geometricBounds.min.y,windBoundsHeight=mesh.bounds.size.y});
             }
             root.AddComponent<LODGroup>().SetLODs(lods);root.GetComponent<LODGroup>().RecalculateBounds();var profile=root.AddComponent<Terra.Rendering.NatureLodProfile>();profile.nearPixels=12;profile.farPixels=4;profile.cullPixels=.5f;profile.includeWidth=false;
             PrefabUtility.SaveAsPrefabAsset(root,Root+"FieldCluster.prefab");AssetDatabase.SaveAssets();
