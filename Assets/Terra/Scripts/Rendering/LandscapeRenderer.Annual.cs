@@ -20,6 +20,8 @@ namespace Terra.Rendering
                 foreach(Transform child in holder)child.gameObject.SetActive(child.name=="Level foundation");
             if(stage=="PROPOSED"||stage=="SUSPENDED"||stage=="ESTABLISHING")
             {
+                Color statusTint=stage=="PROPOSED"?new Color(.66f,.85f,.86f):stage=="SUSPENDED"?Color.gray:new Color(.55f,.46f,.28f);
+                float tintStrength=stage=="PROPOSED"?.65f:stage=="SUSPENDED"?.75f:1-Mathf.Clamp01((float)maturity);
                 foreach(var renderer in holder.GetComponentsInChildren<Renderer>())
                 {
                     var block=new MaterialPropertyBlock();
@@ -27,6 +29,13 @@ namespace Terra.Rendering
                     Color tint=stage=="PROPOSED"?Color.Lerp(original,new Color(.66f,.85f,.86f),.65f):stage=="SUSPENDED"?Color.Lerp(original,Color.gray,.75f):Color.Lerp(new Color(.55f,.46f,.28f),original,(float)maturity);
                     block.SetColor("_BaseColor",tint);renderer.SetPropertyBlock(block);
                 }
+                // Only agreement vegetation changes status. The source cover remaining around
+                // a building is not part of that investment and keeps its original appearance.
+                surfaceTreatments.TryGetValue(site.id,out var treatment);
+                var vegetation=buildRules?.Find(treatment)?.landscape==true?holder:
+                    treatment=="wind"?holder.Find("Wind agreement meadow"):null;
+                if(vegetation!=null)
+                    foreach(var nature in vegetation.GetComponentsInChildren<InstancedNature>())nature.SetTint(statusTint,tintStrength);
             }
             float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);
             var go=new GameObject("Annual status");go.transform.SetParent(holder,false);
