@@ -1,0 +1,64 @@
+{
+  "source": "45a87481f01bf5360de169ee502e92697b5b68e4",
+  "unity": "6000.6.6f1",
+  "dotnetSdk": "10.0.402",
+  "rollForward": "Major",
+  "fixtureGenerator": "chapter-replay.cs",
+  "requests": [
+    {
+      "file": "atlas-request-meadowbrook-v1.json",
+      "sha256": "6533cd5d085eabf536e3f60f350076b31b35273a6be601060b1fc36dda29e889",
+      "bytes": 317737,
+      "year": 2,
+      "phase": 1,
+      "historyYears": 1,
+      "result": "Unity-to-server serialized request replay passed."
+    },
+    {
+      "file": "atlas-request-point-reyes-v1.json",
+      "sha256": "19dfa187c898301f357fcfef14cabd12b378f37415335bf8cf836dd499728515",
+      "bytes": 380130,
+      "year": 2,
+      "phase": 1,
+      "historyYears": 1,
+      "result": "Unity-to-server serialized request replay passed."
+    },
+    {
+      "file": "atlas-request-suusamyr-v1.json",
+      "sha256": "0aa4b2ad480f40afee4f82d53c560fba501db8bb43fb6ff4d0ad43c2dae37d2a",
+      "bytes": 390500,
+      "year": 2,
+      "phase": 1,
+      "historyYears": 1,
+      "result": "Unity-to-server serialized request replay passed."
+    },
+    {
+      "file": "atlas-request-year10-meadowbrook-v1.json",
+      "sha256": "dbb4923382b71a8e5a6af915cd3dd949752d377663463cbc3b2151a173d1017a",
+      "bytes": 240924,
+      "year": 10,
+      "phase": 1,
+      "historyYears": 9,
+      "result": "Unity-to-server serialized request replay passed."
+    },
+    {
+      "file": "atlas-request-year10-point-reyes-v1.json",
+      "sha256": "820ef484dbdafaa0b5de8ba9d77a95e4fecc9010cbe9146a994089ced156ae86",
+      "bytes": 273177,
+      "year": 10,
+      "phase": 1,
+      "historyYears": 9,
+      "result": "Unity-to-server serialized request replay passed."
+    },
+    {
+      "file": "atlas-request-year10-suusamyr-v1.json",
+      "sha256": "e93243d88a9885f31770604fb0bb866702ec4a9008b54711a4f08b2d7d10fddc",
+      "bytes": 279442,
+      "year": 10,
+      "phase": 1,
+      "historyYears": 9,
+      "result": "Unity-to-server serialized request replay passed."
+    }
+  ],
+  "liveProviderTested": false
+}

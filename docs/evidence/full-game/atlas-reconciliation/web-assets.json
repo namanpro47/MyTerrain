@@ -1,0 +1,279 @@
+{
+  "url": "http://127.0.0.1:65251",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 6969,
+      "sha256": "2fde2b084f78e3b5f5ff14d7fb24d3c230acd8a40f2ebb7a713f1143d56880c4",
+      "contentType": "text/html",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb",
+      "status": 200,
+      "bytes": 76732,
+      "sha256": "7c0dce883e3d7a2dea534bf2e94f88779aefd93b4c4c95da55a8fe4741838264",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 331329
+    },
+    {
+      "file": "Build/85589f5aa5901630d8c60d987fcb06ea.loader.js",
+      "status": 200,
+      "bytes": 48779,
+      "sha256": "645829e5c9ab542184f0a12d9fa02ec43ebb64de634281228fff9469ad8a2fcb",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/8e63f27e0299a3a3d60f4a007d62f9cf.wasm.unityweb",
+      "status": 200,
+      "bytes": 11119840,
+      "sha256": "43c6e86e27cb250efabcdb31ddf8592b19187b02882c2f7615ccefe696f72e4c",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 40347565
+    },
+    {
+      "file": "Build/9576790e790b0c492f70d64ad354f353.data.unityweb",
+      "status": 200,
+      "bytes": 29208451,
+      "sha256": "7c18da449590cd03486afd4e3f0243ead59f7c5e26dac45687800b9986d4b762",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 39965219
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "status": 200,
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "status": 200,
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "status": 200,
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "status": 200,
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "status": 200,
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "status": 200,
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "status": 200,
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/CREDITS.md",
+      "status": 200,
+      "bytes": 1318,
+      "sha256": "ebc0030343611548672f924f8c769c717e9d7468632fca4c5df61631bc83334c",
+      "contentType": "application/octet-stream",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/atlas.css",
+      "status": 200,
+      "bytes": 16357,
+      "sha256": "f7ceb1f2ee2a8d78de2531c903dd629eed5fff5e8bb5a593c4f15f7b9c9788b5",
+      "contentType": "text/css",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/atlas.js",
+      "status": 200,
+      "bytes": 7307,
+      "sha256": "7be6db092f3c12b0e0a0208ebe0315475ca2acc5f1c81d3bf9e62f11ce97c7f8",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/globe.js",
+      "status": 200,
+      "bytes": 10494,
+      "sha256": "1d07c1a023c2e81fc67e5d196aa8d72b18eb8826577df7be81b559603d0b9a72",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/images/earth.jpg",
+      "status": 200,
+      "bytes": 2308798,
+      "sha256": "4f4240673a3a1b173d61b92ca4b07bac5fd17059ea5f725ba6da5a9c5386b7ba",
+      "contentType": "image/jpeg",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/images/favicon.svg",
+      "status": 200,
+      "bytes": 208,
+      "sha256": "ddababfab172f532756f1689d013d62730d8b578677c506d094a386803d2039a",
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/images/point-reyes.svg",
+      "status": 200,
+      "bytes": 1319,
+      "sha256": "f282e3145d5be1ee96fe245113fa0deda4461b22776211e54a1e0b78167748e0",
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/images/suusamyr.svg",
+      "status": 200,
+      "bytes": 1217,
+      "sha256": "7cd0226718fec9cfe921eead070265c2ebd7a93883fa36217f2edce52756406a",
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/images/wisconsin.svg",
+      "status": 200,
+      "bytes": 1562,
+      "sha256": "9d0e5cf192d6b1b45cc61a7337b7d7a8d7e3e5ba42f1e05446fd3838972025c5",
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/locations.js",
+      "status": 200,
+      "bytes": 1851,
+      "sha256": "25e4d66fab66683c6a23e30046a2a945730c4c0c8344780bd96119cfdb1d00fd",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/player.js",
+      "status": 200,
+      "bytes": 5211,
+      "sha256": "40556ed8570f5dc83d0559f487d451d6b4eeb62a7c9ab5827a58fd0746960d14",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/vendor/THREE-LICENSE.txt",
+      "status": 200,
+      "bytes": 1081,
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "contentType": "text/plain",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "atlas/vendor/three.module.min.js",
+      "status": 200,
+      "bytes": 691648,
+      "sha256": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    }
+  ]
+}
