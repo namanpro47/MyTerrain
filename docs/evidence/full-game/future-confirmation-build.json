@@ -1,0 +1,44 @@
+{
+  "source": "144e3c5",
+  "jobId": "e3175898b96c459baa8be91fe3cdc462",
+  "success": true,
+  "durationMs": 484474,
+  "completedAt": "2026-10-25T07:40:18.013993Z",
+  "browser": "Chrome 155",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "url": "http://localhost:65250/",
+  "servedBytes": 41414549,
+  "servedFiles": 9,
+  "evidence": "future-confirmation-web-assets.json",
+  "checks": {
+    "planningYear1CashCents": 1092300000,
+    "reviewYear1ForecastYear": 2,
+    "reviewYear1ForecastCashCents": 1192100000,
+    "cancelPreserves": {
+      "year": 1,
+      "phase": "Reviewing",
+      "revision": 2,
+      "cashCents": 1092300000,
+      "assets": 1,
+      "queued": 0
+    },
+    "acceptedYear2CashCents": 1192100000,
+    "endingAndReload": {
+      "year": 10,
+      "phase": "Completed",
+      "revision": 20,
+      "cashCents": 1975500000,
+      "assets": 1,
+      "queued": 0
+    },
+    "errorLevelConsoleEntries": 0
+  },
+  "limits": [
+    "Offline chapters verified; local chapter backend unavailable.",
+    "Functional verification, not final visual or performance acceptance.",
+    "No new public deployment."
+  ]
+}

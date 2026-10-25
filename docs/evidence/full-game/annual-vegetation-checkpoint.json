@@ -1,0 +1,56 @@
+{
+  "source": "e5b8658",
+  "directory": "Builds/Verified/e5b8658",
+  "files": [
+    {
+      "file": "Build/9cb95030bc78dc15d32be3d2fadef312.loader.js",
+      "bytes": 48779,
+      "sha256": "7a5dc8a153abaedd60f738084089f2c328a2eef915b715068030b21d72686954"
+    },
+    {
+      "file": "Build/c1163bd33a5a26f69db00ebfdd04368d.wasm.unityweb",
+      "bytes": 11115158,
+      "sha256": "ad8c702ca2e2dc412353413b40f46fbfc19cac85701d3f635e1dd11d80824e02"
+    },
+    {
+      "file": "Build/c18e1933b61b728fdd4278e30bfa97e6.data.unityweb",
+      "bytes": 29207138,
+      "sha256": "4d508257f27b2b567396a4585abb40eb329fe8742f32e27fc074a9c6e1ec989e"
+    },
+    {
+      "file": "Build/f56dab0555e4a81232e0a01761880dc1.framework.js.unityweb",
+      "bytes": 76563,
+      "sha256": "dd4a8e995cd2f6d5d40aba1d59e159a42a8e704a1d307295c1fc3d9fab9501b6"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "file": "index.html",
+      "bytes": 6520,
+      "sha256": "e75bae92e46afea408f9ba3424a8e8a50576f6aaf79b531407078e618af1a30c"
+    },
+    {
+      "file": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ]
+}

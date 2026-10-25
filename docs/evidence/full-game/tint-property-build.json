@@ -1,0 +1,27 @@
+{
+  "sourceCommit": "3ce7df9ee2c713a8a928295c7772086eddf67370",
+  "jobId": "48ba3e3201ab431e8b3b075e3b859594",
+  "completedAt": "2026-10-25T07:24:23.839495Z",
+  "executionTimeMs": 415126,
+  "note": "Build began immediately before the source commit; the two runtime source files below match that commit exactly. Generated TMP fallback state is recorded separately.",
+  "runtimeSource": [
+    {
+      "path": "Assets/Terra/Scripts/Rendering/InstancedNature.Appearance.cs",
+      "sha256": "1c38c6efdc5f065db3d58aad63ae5e80a6b76616daee2be82159882a206da9b4"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Annual.cs",
+      "sha256": "8558f4d82e688c031cf6f4d4a6d47e56be00c26561d3ee0e048441759c96827d"
+    }
+  ],
+  "generatedInput": {
+    "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+    "sha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52"
+  },
+  "browser": "Chrome 155",
+  "viewport": [
+    1440,
+    900
+  ],
+  "acceptance": "Functional lifecycle regression only; native bark is not imported in this export. No performance or Phase2A claim."
+}
