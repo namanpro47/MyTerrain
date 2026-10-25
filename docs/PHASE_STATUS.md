@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Integrated terrain browser diagnostic — October 25, 2026
+
+The isolated `987d440` export now has [actual Chrome camera/editing and catalog undo/redo evidence](evidence/full-game/relief-browser/README.md). Previews ≤43.8 ms and placement feedback 43.4 ms pass the bounded input checks. Candidate p95 frame times 39/41 ms fail stable 30 FPS; sequential control `67f867e` measured 30 ms with matching viewport and focused telemetry. Actual initial Wisconsin responses total 52,557,275 bytes, above the 50 MB budget. Evidence is on main; candidate scenery remains isolated and unaccepted. Final quality/public release/rehearsal gates remain open.
+
 ## Swale preview query optimization — October 25, 2026
 
 Narrow fix `ed2055b` skips distant basin samples and avoids repeated route square roots without changing depth, footprint, density or annual rules.78,000 sampled comparisons preserve the profile within0.00000024m; actual ground/undo/Year10/save/comparison checks pass on both current main and the isolated selective-terrain candidate. Candidate ground refresh drops40–61→8–9ms in single Editor samples. Main preview+flush still measures111ms; Chrome and the broader performance gate remain open. [Source identities, before/after measurements and validation](evidence/full-game/selective-relief/README.md). No unaccepted scenery was merged or deployed.

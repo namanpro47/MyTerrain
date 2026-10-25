@@ -1,6 +1,6 @@
 # Full-game acceptance index
 
-Current engineering checkpoint includes the [catalog input routing fix](evidence/full-game/catalog-input/README.md); latest verified water export remains `67f867e`. The [isolated terrain/overlay verification](evidence/full-game/relief-validation/README.md) applies to candidate `1bd75c2` plus optimization `a03d0d8`, not to later visual revisions or a public release. This index distinguishes implemented behavior from final acceptance. The implementation plan remains authoritative. Historical receipts remain valid for their named versions; they are not silently relabelled as checks of the final release.
+Current engineering checkpoint includes the [catalog input routing fix](evidence/full-game/catalog-input/README.md); latest verified water export remains `67f867e`. The [isolated terrain/overlay verification](evidence/full-game/relief-validation/README.md) applies to candidate `1bd75c2` plus optimization `a03d0d8`, not to later visual revisions or a public release. The later [integrated Chrome diagnostic](evidence/full-game/relief-browser/README.md) verifies catalog keyboard/pointer undo and redo on isolated `987d440`, but fails frame-time and download-size gates. This index distinguishes implemented behavior from final acceptance. The implementation plan remains authoritative. Historical receipts remain valid for their named versions; they are not silently relabelled as checks of the final release.
 
 | Plan area | Evidence already established | Required final follow-through |
 |---|---|---|
