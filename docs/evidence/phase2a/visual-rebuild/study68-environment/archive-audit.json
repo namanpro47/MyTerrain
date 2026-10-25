@@ -60,5 +60,8 @@
       "value": 0.10000000149011612
     }
   ],
-  "state": "archive inspected; import and rendered evaluation pending"
+  "state": "Imported into isolated RGPolyStudy directory; 34 discovered materials supported; native rendered evaluation pending",
+  "editorVersion": "6000.6.6f1",
+  "importReservation": 20,
+  "nativeCaptureReservation": 25
 }
