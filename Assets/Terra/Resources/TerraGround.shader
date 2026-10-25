@@ -11,6 +11,7 @@ Shader "Terra/Illustrated Ground"
         _SurfaceKind("Decorative surface",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
         _RiverMap("Illustrative bank distance",2D)="white"{}
+        _PathMap("Mapped route union",2D)="white"{}
         _LandBounds("World bounds",Vector)=(-590,-630,1180,1260)
     }
     SubShader
@@ -40,6 +41,7 @@ Shader "Terra/Illustrated Ground"
             TEXTURE2D(_GrassNormal); SAMPLER(sampler_GrassNormal);
             TEXTURE2D(_EarthNormal); SAMPLER(sampler_EarthNormal);
             TEXTURE2D(_RiverMap); SAMPLER(sampler_RiverMap);
+            TEXTURE2D(_PathMap); SAMPLER(sampler_PathMap);
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; };
             struct V { float4 positionCS:SV_POSITION; float3 positionWS:TEXCOORD0; half3 normalWS:TEXCOORD1; };
             V Vert(A input){V o;o.positionWS=TransformObjectToWorld(input.positionOS.xyz);o.positionCS=TransformWorldToHClip(o.positionWS);o.normalWS=TransformObjectToWorldNormal(input.normalOS);return o;}
@@ -109,6 +111,15 @@ Shader "Terra/Illustrated Ground"
                     half3 grassRelief=UnpackNormal(SAMPLE_TEXTURE2D(_GrassNormal,sampler_GrassNormal,p/48));
                     half3 earthRelief=UnpackNormal(SAMPLE_TEXTURE2D(_EarthNormal,sampler_EarthNormal,p/lerp(30,9,bank)));
                     surfaceNormal=normalize(lerp(half3(0,0,1),lerp(grassRelief,earthRelief,earthWeight),.55*fade));
+                    float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
+                    [branch] if(pathDistance<.75)
+                    {
+                        float road=1-smoothstep(.28,.72,pathDistance+(Noise(p*.7)-.5)*.04);
+                        float roadPaint=dot(SAMPLE_TEXTURE2D(_BankMap,sampler_BankMap,p/8).rgb,half3(.2126,.7152,.0722));
+                        half3 roadColor=SRGBToLinear(lerp(half3(.55,.52,.42),half3(.64,.60,.48),Noise(p*.13)))*clamp(roadPaint/.16,.82,1.18);
+                        albedo=lerp(albedo,roadColor,road);
+                        surfaceNormal=normalize(lerp(surfaceNormal,lerp(half3(0,0,1),earthRelief,.25*fade),road));
+                    }
                 }
                 half3 normal=normalize(input.normalWS);
                 half3 tangent=normalize(half3(normal.y,-normal.x,0));

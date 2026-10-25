@@ -8,6 +8,36 @@ namespace Terra.Rendering
 {
     public sealed partial class LandscapeRenderer
     {
+        // One union of mapped route footprints avoids overlapping translucent road strips at junctions.
+        // This is a decorative finish; source routes, widths and land-use queries are unchanged.
+        void BuildPathMask(Material ground)
+        {
+            const int size=1024;
+            float dx=(xmax-xmin)/(size-1),dz=(zmax-zmin)/(size-1);
+            var distance=new float[size*size];System.Array.Fill(distance,4);
+            foreach(var route in world.features.Where(f=>f.kind=="path"))
+            for(int i=1;i<route.points.Length;i++)
+            {
+                var a=new Vector2(route.points[i-1].x,route.points[i-1].z);
+                var b=new Vector2(route.points[i].x,route.points[i].z);var segment=b-a;
+                float radius=route.widthM*.5f+3;
+                int x0=Mathf.Max(0,Mathf.FloorToInt((Mathf.Min(a.x,b.x)-radius-xmin)/dx));
+                int x1=Mathf.Min(size-1,Mathf.CeilToInt((Mathf.Max(a.x,b.x)+radius-xmin)/dx));
+                int z0=Mathf.Max(0,Mathf.FloorToInt((Mathf.Min(a.y,b.y)-radius-zmin)/dz));
+                int z1=Mathf.Min(size-1,Mathf.CeilToInt((Mathf.Max(a.y,b.y)+radius-zmin)/dz));
+                for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
+                {
+                    var p=new Vector2(xmin+x*dx,zmin+z*dz);
+                    float t=segment.sqrMagnitude>0?Mathf.Clamp01(Vector2.Dot(p-a,segment)/segment.sqrMagnitude):0;
+                    int index=z*size+x;
+                    distance[index]=Mathf.Min(distance[index],Vector2.Distance(p,a+segment*t)-route.widthM*.5f);
+                }
+            }
+            var pixels=new Color32[distance.Length];
+            for(int i=0;i<pixels.Length;i++){byte value=(byte)(Mathf.Clamp01((distance[i]+2)/4)*255);pixels[i]=new Color32(value,value,value,255);}
+            pathMask=new Texture2D(size,size,TextureFormat.RGBA32,true,true){name="Mapped route union",wrapMode=TextureWrapMode.Clamp,filterMode=FilterMode.Trilinear};
+            pathMask.SetPixels32(pixels);pathMask.Apply();ground.SetTexture("_PathMap",pathMask);
+        }
         // Crossings are illustrative construction at mapped route intersections, not surveyed bridge designs.
         void BuildCrossings()
         {
@@ -32,6 +62,8 @@ namespace Terra.Rendering
                 var forward=u.normalized;var side=new Vector2(-forward.y,forward.x);
                 float angle=Mathf.Max(.35f,Mathf.Abs(forward.x*v.normalized.y-forward.y*v.normalized.x));
                 float length=(water.widthM+11)/angle,half=road.widthM*.5f+.65f;
+                var approach=center-forward*length*.5f;var exit=center+forward*length*.5f;
+                BuildPath(new[]{new Point(approach.x,approach.y),new Point(exit.x,exit.y)},road.widthM);
                 var masonry=new Geometry();var rails=new Geometry();
                 // Follow the mapped road's grade; deck walls give the route real thickness over the cut channel.
                 System.Func<float,float,float,Vector3> point=(along,across,lift)=>{
@@ -97,7 +129,7 @@ namespace Terra.Rendering
                 {int k=((i-1)*(across-1)+side)*6,v=(i-1)*across+side;indices[k]=v;indices[k+1]=v+1;indices[k+2]=v+across;indices[k+3]=v+1;indices[k+4]=v+across+1;indices[k+5]=v+across;}
             }
             var mesh=new Mesh{name="Mapped path with soft surface edges",indexFormat=IndexFormat.UInt32};mesh.vertices=vertices;mesh.normals=normals;mesh.uv=uv;mesh.triangles=indices;mesh.RecalculateBounds();meshes.Add(mesh);
-            if(pathMaterial==null)pathMaterial=new Material(Resources.Load<Shader>("TerraPath"));
+            if(pathMaterial==null){pathMaterial=new Material(Resources.Load<Shader>("TerraPath"));pathMaterial.SetTexture("_BankMap",Resources.Load<Texture2D>("ArtistDirtGround"));}
             var go=new GameObject("Mapped route · illustrative surface");go.transform.SetParent(root,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=pathMaterial;
         }
     }

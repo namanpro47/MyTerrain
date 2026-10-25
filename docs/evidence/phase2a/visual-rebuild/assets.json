@@ -334,14 +334,38 @@
       "archiveBytes": 3507066,
       "sha256": "8a31224a099bb928973f3c715e965647fdd37cf66d84b896f76502c2246079c3",
       "license": "Creator page permits import/use; no separate license file. Not CC0.",
-      "status": "Downloaded and inventoried only; not imported or selected",
+      "status": "Study20 imported/evaluated in isolated visual Editor; rejected after correcting saved-prefab-position normalization. Source bush renders as dark speckles beside sculpted canopy. Imported pack and Resource wrappers removed; original archive retained. No Chrome selection.",
       "contents": {
         "fbx": 5,
         "prefabs": 5,
         "scripts": 0,
         "demoScenes": 0
       },
-      "inventory": "Builds/ArtResearch/AustinniForest/inventory.json"
+      "inventory": "Builds/ArtResearch/AustinniForest/inventory.json",
+      "evaluatedAsset": "P_Bush01: 450 vertices; supplied URP Lit, alpha clipping 0.1, cull off, metallic/smoothness 0; wrapper height 2.4m; source pixels unchanged.",
+      "comparison": "study20-editor-bush-comparison.png: enlarged source bush beside existing Quaternius Bush_Common, diagnostic only. Neither adopted."
+    }
+  ],
+  "researchExclusions": [
+    {
+      "name": "JustCreate3D Stylized Low Poly Nature Lite",
+      "source": "https://justcreate3d.itch.io/stylized-low-poly-nature-lite",
+      "checked": "2026-10-24",
+      "status": "Not downloaded or imported. Current Lite license restricts supplying assets as inputs to AI programs; excluded from this workflow. Studio website license explicitly applies only to earlier direct purchases, so it is not the governing download license."
+    },
+    {
+      "name": "EmaceArt Meadow & Forest / NatureForge",
+      "source": "https://emaceart.itch.io/poly-meadows",
+      "checked": "2026-10-24",
+      "status": "Current creator listing is paid ($33), despite historical free announcements. Excluded under free-only constraint."
+    }
+  ],
+  "researchPending": [
+    {
+      "name": "AssetQuest Stylized Forest Kit FREE DEMO",
+      "source": "https://assetquest.itch.io/stylized-forest-kit",
+      "license": "Creator lists CC0",
+      "status": "Free 3.3MB demo download requested in Chrome; file acquisition not verified. Full $3 kit excluded. No import or quality claim."
     }
   ]
 }

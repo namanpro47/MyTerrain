@@ -1,18 +1,18 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Historical checks retained; current source/export correction in progress. No global diff hygiene claim for concurrent user work.",
+  "documentation": "Study20 isolated source/export and Chrome evidence recorded. Prior studies retained; no art/performance acceptance.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
     "One repeated solid crown shape; insufficient vegetation layering",
     "Mechanical sparse crop rows and unconvincing field grouping",
-    "Surface texture now visible; road junction seams and schematic treatment boundaries remain. Stream layering improved but still illustrative/simple.",
-    "Dense dark shadows and weak colour separation",
+    "Mechanical field surfaces and schematic treatment boundaries; terrain-road junction seams resolved in study20, bridge decks remain illustrative.",
+    "Similar greens and broad smooth land; shadows more readable in study20",
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
-  "nextDecision": "Keep corrected displayed-pixel detail as candidate; overview regression resolved, moving route still fails. Next representative-scene work must address forest edge layering, harsh shadows and road seams together, using existing/free artist resources. No parity claim.",
+  "nextDecision": "Build coherent planted bank/meadow masses and defined soil contact; revise forest edges and treatment boundaries. Road/lighting improvements alone are insufficient.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -87,6 +87,93 @@
     "visualAcceptance": false
   },
   "latestStudy": {
+    "study": "20",
+    "build": "success",
+    "job": "26ad6dcba3db4e80ab33aa302f289913",
+    "executionTimeMs": 363625,
+    "browser": "Chrome",
+    "cssViewport": [
+      1728,
+      996
+    ],
+    "renderBuffer": [
+      3456,
+      1992
+    ],
+    "normalCapture": "study20-default.jpg",
+    "overviewCapture": "study20-overview.jpg",
+    "closeCapture": "study20-creek-close.jpg",
+    "cropCapture": "study20-cultivation.jpg",
+    "transformationCapture": "study20-restored.jpg",
+    "exportCheck": "study20-export-check.json",
+    "visualAcceptance": false,
+    "performanceAcceptance": false
+  },
+  "historicalStudy19FirstChecks": {
+    "scope": "Study19 first export normal/overview only; current source correction not verified",
+    "overviewP95Ms": 253,
+    "normalP95Ms": 31,
+    "overviewFramesOver200Ms": 60,
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "currentBrowserChecks": {
+    "scope": "20 normal/close/overview, cultivate/restore/undo, one contention-sensitive diagnostic",
+    "p95Ms": 92,
+    "p99Ms": 115,
+    "maxMs": 136,
+    "unfocusedFrames": 0,
+    "cultivate": [
+      17,
+      36
+    ],
+    "restore": [
+      5,
+      42
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 4,
+    "startup": "No error-level messages on two loads; prior early-input issue not specifically retested or fixed",
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "study20": {
+    "buildJob": "26ad6dcba3db4e80ab33aa302f289913",
+    "buildMs": 363625,
+    "branch": "codex/visual-study20",
+    "preview": "http://127.0.0.1:49658/",
+    "cssViewport": [
+      1728,
+      996
+    ],
+    "exportCheck": "study20-export-check.json",
+    "browserLog": "study20-browser-log.json",
+    "cultivate": [
+      17,
+      36
+    ],
+    "restore": [
+      5,
+      42
+    ],
+    "finalUndo": [
+      6,
+      60
+    ],
+    "finalRevision": 4,
+    "diagnostic": {
+      "p95Ms": 92,
+      "p99Ms": 115,
+      "maxMs": 136,
+      "framesOver200Ms": 0,
+      "unfocusedFrames": 0,
+      "note": "Concurrent builds near diagnostic window; not a clean causal comparison. Failed budget retained."
+    },
+    "visualAcceptance": false,
+    "publicDeployment": false
+  },
+  "historicalStudy19b": {
     "study": "19b",
     "build": "success",
     "firstJob": "6a9436709343401b8055aad58a21c682",
@@ -111,14 +198,7 @@
     "cropCapture": "study19b-cultivation.jpg",
     "transformationCapture": "study19b-restored.jpg"
   },
-  "historicalStudy19FirstChecks": {
-    "scope": "Study19 first export normal/overview only; current source correction not verified",
-    "overviewP95Ms": 253,
-    "normalP95Ms": 31,
-    "overviewFramesOver200Ms": 60,
-    "fullInteractionPerformanceAcceptance": false
-  },
-  "currentBrowserChecks": {
+  "historicalStudy19bChecks": {
     "scope": "19b normal/close/overview, cultivate/restore/undo, three diagnostics (not formal acceptance routes)",
     "openingP95Ms": 28,
     "overviewP95Ms": 19,

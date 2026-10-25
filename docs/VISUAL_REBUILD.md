@@ -6,7 +6,7 @@
 
 ## The intended visual experience
 
-**Current comparison focus — after study19b:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) keeps the reference beside the current landscape. Creek layering and visible artist ground textures help; corrected displayed-pixel LOD resolves the severe overview slowdown. Moving placement still fails performance, and repeated crowns, harsh shadows, mechanical fields and road seams remain visually substantial. Next test a coherent forest-edge/lighting/route treatment in the representative scene; do not equate performance recovery with visual acceptance.
+**Current comparison focus — after study20:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) keeps the reference beside the current landscape. Union roads and more readable shadows are retained candidate improvements. Next rebuild the bank/meadow as coherent planted surface masses with defined soil contact, then address forest edges and treatment boundaries. Sparse tufts, repeated crowns and mechanical fields remain substantial failures; no art or performance acceptance. [Isolated visual worktree](VISUAL_WORK_HANDOFF.md).
 
 An inviting, painterly rural landscape that is worth looking around before touching a tool. Woodland has soft, varied crowns and layered edges; fields read as cultivated land with convincing surface rhythms; water has a distinct bed, bank, surface, and relationship to surrounding vegetation. Warm sunlight and cool depth separate forms without washing everything into the same sage color. Interventions visibly belong to this world and improve or change its character.
 

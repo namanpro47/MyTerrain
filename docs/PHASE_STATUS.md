@@ -30,9 +30,9 @@
 - **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
 - **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
 
-## Current Phase 2A checkpoint — study19b
+## Current Phase 2A checkpoint — study20
 
-[Current visual review](CURRENT_VISUAL_REVIEW.md) shows actual Chrome output beside the primary reference. Study17's creek and study18's visible artist ground treatment remain partial improvements. Study19b corrects the first distance-detail regression: overview p95=19ms; moving placement p95=41ms still fails. Cultivate/Restore/undo work. One startup exception with early input remains untriaged; the next reload did not reproduce it. The visual gate **still fails** on crown variety, field appearance, lighting, roads and whole-scene richness. No current public deployment. [Exact builds, captures and diagnostics](evidence/phase2a/visual-rebuild/checkpoint.json).
+[Current visual review](CURRENT_VISUAL_REVIEW.md) shows actual Chrome output beside the primary reference. Study20 removes terrain-road intersection seams and softens heavy shadows; Cultivate/Restore/undo verified, no error-level messages in these loads. The free bush trial was rejected. The visual gate still fails on vegetation layering, field appearance, treatment edges and whole-scene richness. One30s diagnostic p95=92ms fails; other builds near the window make causality uncertain. Study19b remains a historical technical checkpoint, not art acceptance. No current public deployment. [Build/capture evidence](evidence/phase2a/visual-rebuild/README.md#study-20--continuous-routes-and-readable-lighting-chrome-verified-visual-gate-still-failed) · [isolated worktree handoff](VISUAL_WORK_HANDOFF.md).
 
 ## Fresh-build publication — October 24, 2026, 18:12 local
 

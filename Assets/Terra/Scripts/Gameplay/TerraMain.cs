@@ -32,8 +32,8 @@ namespace Terra.Gameplay
             gameObject.name="TerraMain";Application.runInBackground=true;
             view=Camera.main;view.orthographic=false;view.fieldOfView=36;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.41f,.49f,.57f);RenderSettings.ambientEquatorColor=new Color(.30f,.37f,.32f);RenderSettings.ambientGroundColor=new Color(.18f,.23f,.18f);
-            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.20f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(38,-105,0);}
+            RenderSettings.ambientSkyColor=new Color(.50f,.61f,.72f);RenderSettings.ambientEquatorColor=new Color(.38f,.46f,.40f);RenderSettings.ambientGroundColor=new Color(.22f,.28f,.22f);
+            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.10f;sun.shadowStrength=.72f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(52,-100,0);}
             hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;
 #if UNITY_WEBGL && !UNITY_EDITOR

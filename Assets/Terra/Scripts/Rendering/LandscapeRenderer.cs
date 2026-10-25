@@ -20,7 +20,7 @@ namespace Terra.Rendering
         readonly Dictionary<Color,Material> materials=new Dictionary<Color,Material>();
         readonly Dictionary<Color,Material> groundMaterials=new Dictionary<Color,Material>();
         readonly List<Mesh> meshes=new List<Mesh>();
-        Texture2D visualCover,riverMask;Material streamMaterial,swaleMaterial,pathMaterial;
+        Texture2D visualCover,riverMask,pathMask;Material streamMaterial,swaleMaterial,pathMaterial;
         readonly List<CoverPatch>[,] coverIndex; readonly float xmin,zmin,xmax,zmax,cell;
         GameObject meshCanopy;
         Transform ghost;string ghostSiteId;Material glintMaterial;LineRenderer settlingOutline;float settleStarted;
@@ -64,8 +64,6 @@ namespace Terra.Rendering
             BuildEdge();
             foreach(var f in world.features.Where(f=>f.kind=="water"))
             {Ribbon(RoundedWaterRoute(f.points),f.widthM+5.2f,new Color(.13f,.48f,.49f),-.9f,root,"Mapped stream centreline");}
-            foreach(var f in world.features.Where(f=>f.kind=="path"))
-            {BuildPath(f.points,f.widthM);}
             BuildCrossings();
             BuildVegetation();
             BuildStreamsidePlants();
@@ -136,6 +134,7 @@ namespace Terra.Rendering
             material.SetTexture("_GrassNormal",Resources.Load<Texture2D>("ArtistGrassNormal"));
             material.SetTexture("_EarthNormal",Resources.Load<Texture2D>("ArtistDirtNormal"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
+            BuildPathMask(material);
             BuildChannelTerrain(material);
         }
         bool VisualCropAt(float x,float z)
@@ -398,6 +397,6 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>()){meshes.Remove(f.sharedMesh);Object.Destroy(f.sharedMesh);}Object.Destroy(group.gameObject);}
-        public void Dispose(){if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        public void Dispose(){if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMask!=null)Object.Destroy(pathMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
     }
 }
