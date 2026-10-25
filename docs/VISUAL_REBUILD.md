@@ -134,3 +134,7 @@ Free MIT [UnityMeshSimplifier](https://github.com/Whinarn/UnityMeshSimplifier), 
 ### Free hand-painted ground research — studies50–53
 
 [Atapataco’s grass/ground pack](https://atapataco.itch.io/handpainted-grass-ground-textures) contains24 original PNGs; creator comments permit commercial use with credit. No CC0 or standalone source redistribution claim. Meadow/crop experiments remain unadopted; the Wisconsin road candidate uses original dirt paint with adapted shader tint and tiling, credited beside the imported asset and in the game. [Source hashes/license context](evidence/phase2a/visual-rebuild/study50-atapataco-source.json) · [retained road/control comparisons](evidence/phase2a/visual-rebuild/study53-findings.md). The [raised crop-canopy experiment](evidence/phase2a/visual-rebuild/study52-findings.md) was rejected for artificial sheet edges. Whole-scene quality remains below the gate; no new image generation or paid resources.
+
+## Study54 — connected grassland candidate
+
+[Source-backed comparisons and verification](evidence/phase2a/visual-rebuild/study54-findings.md) retain overlapping swaths after rejecting isolated grass islands. Existing Quaternius geometry/materials are reused; no generated image or new resource. Wisconsin mapped context only: annual treatment consistency, Chrome performance and broader ground/field quality remain unresolved. This is not visual acceptance.

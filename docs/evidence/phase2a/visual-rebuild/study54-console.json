@@ -1,0 +1,132 @@
+{
+  "success": true,
+  "command": "command console get",
+  "data": {
+    "command": "console get",
+    "parameters": {
+      "tail": "10",
+      "level": "error"
+    },
+    "result": {
+      "entries": [
+        {
+          "seq": 4367538,
+          "timestampUtc": "2026-10-25T11:26:53.200729Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367539,
+          "timestampUtc": "2026-10-25T11:26:53.200801Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367540,
+          "timestampUtc": "2026-10-25T11:26:53.200876Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367541,
+          "timestampUtc": "2026-10-25T11:26:53.200951Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367542,
+          "timestampUtc": "2026-10-25T11:26:53.201033Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367543,
+          "timestampUtc": "2026-10-25T11:26:53.201118Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367544,
+          "timestampUtc": "2026-10-25T11:26:53.201269Z",
+          "level": "error",
+          "logType": "Assert",
+          "message": "Property offset falls outside of range for type in GetPropertyData.",
+          "stackTrace": "UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal (UnityEngine.Rendering.RenderPipelineAsset,intptr,object,Unity.Collections.LowLevel.Unsafe.AtomicSafetyHandle)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367545,
+          "timestampUtc": "2026-10-25T11:26:53.268738Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.LineRenderer' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.Renderer.SetMaterial (UnityEngine.Material m) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nUnityEngine.Renderer.set_sharedMaterial (UnityEngine.Material value) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Graphics/GraphicsRenderers.bindings.cs:185)\nTerra.Rendering.LandscapeRenderer.Highlight (System.String hover, System.String selected, System.Boolean valid, System.Collections.Generic.IEnumerable`1[T] available) (at Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs:322)\nTerra.Gameplay.TerraMain.UpdatePreview () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:86)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:149)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367565,
+          "timestampUtc": "2026-10-25T11:34:43.93978Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.RectTransform' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.RectTransform.set_sizeDelta (UnityEngine.Vector2 value) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nTerra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) (at Assets/Terra/Scripts/UI/TerraHud.Annual.cs:132)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:147)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        },
+        {
+          "seq": 4367578,
+          "timestampUtc": "2026-10-25T11:49:33.063153Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "MissingReferenceException: The object of type 'UnityEngine.RectTransform' has been destroyed but you are still trying to access it.\nYour script should either check if it is null or you should not destroy the object.",
+          "stackTrace": "UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/UnityEngineObject.bindings.cs:1171)\nUnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) (at /Users/bokken/build/output/unity/unity/Runtime/Export/Scripting/BindingsHelpers.cs:21)\nUnityEngine.RectTransform.set_sizeDelta (UnityEngine.Vector2 value) (at <96f8d63efb624ec38a97de0dc4a4387a>:0)\nTerra.UI.TerraHud.AnnualState (Terra.Core.AnnualTown town, Terra.Contracts.TownYearOutcomes baseline, Terra.Contracts.TownYearOutcomes forecast) (at Assets/Terra/Scripts/UI/TerraHud.Annual.cs:132)\nTerra.Gameplay.TerraMain.Refresh () (at Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs:147)\nTerra.Gameplay.TerraMain.ChapterChanged () (at Assets/Terra/Scripts/Gameplay/TerraMain.Chapters.cs:37)\nTerra.Gameplay.AnnualChapterSession.Publish () (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nUnityEngine.Debug:LogException(Exception, Object)\nTerra.Gameplay.AnnualChapterSession:Publish() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:197)\nTerra.Gameplay.AnnualChapterSession:StopRequest() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:146)\nTerra.Gameplay.AnnualChapterSession:OnDisable() (at Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs:149)\n",
+          "seeded": false
+        }
+      ],
+      "cursor": 4367589,
+      "session": "2cfcdd50e3714eeea3ff553f7188f790",
+      "returned": 10,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 1958,
+        "warn": 22,
+        "log": 20
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-10-25T11:51:31.778419Z",
+        "ageMs": 222,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 4,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

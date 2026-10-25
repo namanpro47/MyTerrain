@@ -488,3 +488,5 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 ### Study33 result — import complete, foliage trials rejected
 
 [Findings and render comparisons](study33-findings.md) supersede the pending trust-dialog state above. Native and adapted foliage ran in the annual scene; no candidate met the visual bar. Captures, prefab inspection and replay scripts are preserved. No production source change or new Chrome export. The imported asset library stays local pending selection.
+
+- [Study54 connected grassland](study54-findings.md): larger overlapping swaths replace fine scatter in the Wisconsin candidate; source-backed normal/close/wide captures and placement checks. Browser and visual acceptance remain open.
