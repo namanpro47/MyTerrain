@@ -1,6 +1,13 @@
 # Current visual review — Phase 2A remains open
 
-**Latest actual comparison: [study74 — continuous canopy and native edges](evidence/phase2a/visual-rebuild/study74-canopy/README.md), evidence `df8adce`. Rejected.** Normal zoom gains a continuous field, but close views reveal a flat patterned surface lined with taller plants. Edge geometry alone adds5.21M triangles to one parcel. Six matched actual Editor captures, source/state preservation and clean shader/cleanup checks are recorded; no runtime adoption, Chrome/performance pass or visual acceptance. The next version must provide convincing near-field structure with an economical distant representation and a tested transition, not another surface/tint adjustment.
+**Latest actual comparison: [study75 — near plants and distant field](evidence/phase2a/visual-rebuild/study75-distance/README.md), evidence `22e3741`. Rejected.** Close interiors now contain plants, but fine speckling and the distant flat surface remain conspicuous across a60-sample zoom sequence. Reduced single-material meshes still submit an estimated11.52M plant triangles at normal zoom; this is geometry accounting, not measured frame time. The custom color fade also lacks a matching shadow fade. No runtime adoption or visual/browser/performance pass. The next substantial construction uses an acquired free GDQuest blade/gradient demo; its source is inspected, not yet ported or accepted.
+
+![Study75 close field — rejected fine speckling](evidence/phase2a/visual-rebuild/study75-distance/distance-close.png)
+
+[Open the diagnostic zoom sequence](evidence/phase2a/visual-rebuild/study75-distance/zoom-diagnostic.mp4). Sampled Editor renders, not real-time Chrome performance or the final motion gate.
+
+
+**Previous actual comparison: [study74 — continuous canopy and native edges](evidence/phase2a/visual-rebuild/study74-canopy/README.md), evidence `df8adce`. Rejected.** Normal zoom gains a continuous field, but close views reveal a flat patterned surface lined with taller plants. Edge geometry alone adds5.21M triangles to one parcel. Six matched actual Editor captures, source/state preservation and clean shader/cleanup checks are recorded; no runtime adoption, Chrome/performance pass or visual acceptance. The next version must provide convincing near-field structure with an economical distant representation and a tested transition, not another surface/tint adjustment.
 
 ![Study74 normal — readable field mass, rejected close structure](evidence/phase2a/visual-rebuild/study74-canopy/canopy-normal.png)
 

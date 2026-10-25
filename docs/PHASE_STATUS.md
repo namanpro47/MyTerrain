@@ -1,5 +1,8 @@
 # Terra — phase status and evidence
 
+**Latest actual comparison: [study75 — near plants and distant field](evidence/phase2a/visual-rebuild/study75-distance/README.md), evidence `22e3741`. Rejected.** Close interiors now contain plants, but fine speckling and the distant flat surface remain conspicuous across a60-sample zoom sequence. Reduced single-material meshes still submit an estimated11.52M plant triangles at normal zoom; this is geometry accounting, not measured frame time. The custom color fade also lacks a matching shadow fade. No runtime adoption or visual/browser/performance pass. The next substantial construction uses an acquired free GDQuest blade/gradient demo; its source is inspected, not yet ported or accepted.
+
+
 **Latest isolated visual comparison, study74:** continuous crop canopy plus native edge plants is rejected after six matched normal/close/detail Editor captures. The field gains broad shape but remains a patterned floor up close;3,119 edge plants add5.21M triangles. [Evidence and next decision](evidence/phase2a/visual-rebuild/study74-canopy/README.md), checkpoint `df8adce`. No production/Chrome/performance acceptance. [Visible comparison](CURRENT_VISUAL_REVIEW.md). Desktop and owned Editor released for the combined release review.
 
 
