@@ -29,6 +29,13 @@ namespace Terra.UI
         void LayoutAnnual(float width,float height,bool compact)
         {
             annualCompact=compact;actionDock.gameObject.SetActive(!annualCompleted);actionSummary.gameObject.SetActive(!compact);
+            // Feedback belongs between the side panels, not on top of a site title.
+            float feedbackWidth=Mathf.Clamp(width-700,260,570);
+            var feedback=(RectTransform)toastPanel.transform;
+            feedback.sizeDelta=new Vector2(feedbackWidth,compact?76:52);
+            feedback.anchoredPosition=new Vector2(9,-132);
+            toast.rectTransform.sizeDelta=new Vector2(feedbackWidth-24,compact?70:46);
+            toast.fontSize=(compact?14:16)*(LargeText?1.12f:1);
             ((RectTransform)actionDock).sizeDelta=new Vector2(760,compact?160:222);
             void Place(Button button,Transform parent,Vector2 anchor,Vector2 position,Vector2 size)
             {

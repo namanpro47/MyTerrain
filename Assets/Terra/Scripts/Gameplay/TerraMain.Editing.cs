@@ -83,7 +83,7 @@ namespace Terra.Gameplay
             if(comparisonMap){landscape.ClearGhost();landscape.Highlight(null,null,true);hud.HideAnnualPreview();return;}
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);
             string reason=Rejection(site);var recipe=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==(string.IsNullOrEmpty(treatmentId)?QueuedAt(site?.id):treatmentId));
-            landscape.ClearGhost();landscape.Highlight(site?.id,selectedId,reason==null||string.IsNullOrEmpty(treatmentId),availableFieldIds);
+            landscape.ClearGhost();landscape.Highlight(site?.id,selectedId,state.phase==TownPhase.Completed||reason==null||string.IsNullOrEmpty(treatmentId),availableFieldIds);
             if(site!=null&&(editMode=="place"||editMode=="move")&&reason==null)landscape.Ghost(site,true,treatmentId);
             if(site!=null&&editMode=="remove"&&reason==null)landscape.PreviewBaseline(site);
             bool water=treatmentId=="water-swale"&&site!=null&&site.allowedTreatments.Contains("water-swale");
