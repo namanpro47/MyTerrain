@@ -77,8 +77,13 @@ public static class PlacementClarityChecks
                         hud.AnnualPreview(site,offer,town.Snapshot(),"place",reason,()=>{},false);
                         var rule=rules.Find(offer.actionId);
                         string space=rule.landscape?"Treats this whole field":$"{rule.width:0} × {rule.depth:0} m footprint · reserves this field's project slot";
+                        hud.HidePlacementFeedback();hud.Toast("Focused site");
+                        Check(Field<GameObject>(hud,"toastPanel").activeSelf,"Ordinary feedback is hidden outside placement");
                         hud.PlacementFeedback(reason==null?"PREVIEW":"BLOCKED",offer.title,site.name,
                             reason??"Reserve $70,000 · Click to queue",space,reason,7000000,993000000,Array.Empty<Vector3>(),null);
+                        Check(!Field<GameObject>(hud,"toastPanel").activeSelf,"Existing toast covers candidate guidance");
+                        hud.Toast("Choose an empty destination");
+                        Check(!Field<GameObject>(hud,"toastPanel").activeSelf,"New toast covers candidate guidance");
                         Check(position==dock.anchoredPosition&&dimensions==dock.sizeDelta&&scale==dock.localScale,"Hover moved the dock for "+offer.actionId+" at "+size);
                         Check(!Field<Transform>(hud,"placementCapsule").GetComponent<CanvasGroup>().blocksRaycasts,"Feedback intercepts placement clicks");
                         Canvas.ForceUpdateCanvases();
