@@ -4,7 +4,7 @@
 
 Peter tested the local Unity implementation and approved delivery to main after the missing-icon fix. Status, toggle, back and external-link icons now use native `HudGlyph` geometry rather than unsupported TMP characters. The local Unity recompile after the icon fix reported 0 errors and 0 warnings. Visual acceptance belongs to Peter's local QA; no live WebGL acceptance or public deployment is claimed.
 
-The approved feature and icon commits were integrated onto refreshed main `8b988fc4d29d6bca92613c932fb9c841f3b8e5ac`. Fresh integration checks passed: 13 plan assertions, 7 browser-bridge assertions, 1,019 full-game assertions, and runtime WebGL source compilation with 0 errors / 11 existing warnings. The earlier candidate-stage limitations below are retained as historical evidence.
+The approved feature and icon commits were integrated onto refreshed main `b9c668613a78735414e3aadd927716b62859e29c`. Fresh integration checks passed: 13 plan assertions, 7 browser-bridge assertions, 1,019 full-game assertions, and runtime WebGL source compilation with 0 errors / 12 existing warnings. The incoming start nudge was preserved alongside the expanded follow-up menu. The compile harness now references the Unity Newtonsoft assembly required by the incoming save codec. The earlier candidate-stage limitations below are retained as historical evidence.
 
 ## Initial candidate record
 

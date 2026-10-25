@@ -3,6 +3,7 @@
 <ItemGroup><Compile Include="../../Assets/Terra/**/*.cs" Exclude="../../Assets/Terra/**/Editor/**/*.cs"/>
 <Reference Include="$(UnityRoot)/Data/PlaybackEngines/WebGLSupport/Variations/il2cpp/Managed/UnityEngine*.dll" />
 <Reference Include="$(PackageAssemblies)/Unity.TextMeshPro.dll"/>
+<Reference Include="$(PackageAssemblies)/../PackageCache/com.unity.nuget.newtonsoft-json*/Runtime/AOT/Newtonsoft.Json.dll"/>
 <Reference Include="$(PackageAssemblies)/UnityEngine.UI.dll"/>
 <Reference Include="$(PackageAssemblies)/Unity.InputSystem.dll"/>
 <Reference Include="$(PackageAssemblies)/Unity.RenderPipelines.Core.Runtime.dll"/>
