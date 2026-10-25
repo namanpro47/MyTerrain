@@ -1,18 +1,18 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Study22 source/export and actual Chrome canopy evidence recorded. Visual gate remains failed; one moving-placement performance route meets stable-30 fallback, full suite pending.",
+  "documentation": "Studies23/24 rejected, study25 source/export and Chrome evidence recorded. Visual and performance gates remain failed.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
     "Leaf structure and hierarchy improved; thin upper-right conifer cohort and repeated broadleaf clusters still need composition judgment.",
     "Mechanical sparse crop rows and unconvincing field grouping",
-    "Mechanical field surfaces and schematic treatment boundaries; terrain-road junction seams resolved in study20, bridge decks remain illustrative.",
+    "Mechanical field surfaces and schematic treatment boundaries; fine meadow surface remains too uniform, source class transitions need composition.",
     "Similar greens and broad smooth land; shadows more readable in study20",
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
-  "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
-  "nextDecision": "Replace the broad grass/field surface treatment and mechanical row construction with coherent artist-ground and planting masses; avoid another canopy tint-only pass.",
+  "temporarySettings": "Own Unity Play stopped, background override off; auto-tick prior setting retained. Browser viewport reset after captures; current local tab retained.",
+  "nextDecision": "Materially change scene composition and real-scale plant hierarchy at the forest/field/water junction; replace mechanical field/treatment construction. Do not keep cycling meadow tint/texture variants while the whole scene remains weak. Profile failed browser route.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -28,7 +28,7 @@
     "console": "No errors returned; existing FSR warning"
   },
   "stateChecksNote": "139 real-pack checks passed at study12; not rerun for rendering-only edits. Study14 Chrome cultivation/restoration/undo verified; transformed batch bounds checked with zero corner failures.",
-  "resourceCandidate": "Free erces tree family replaces repeated Symphonie crowns in candidate22. Source meshes/textures unchanged, normalized wrappers and volume-normal leaf shader. KayKit free family evaluated and rejected. No purchases or image generation.",
+  "resourceCandidate": "rubberduck CC0 grass02 paint+matching normal, unchanged pixels; runtime exposure/saturation. PamNawi CC0 paint rejected. Erces tree family retained. Grass palette mip bleed corrected; no paid or generated assets.",
   "historicalStudy17BrowserChecks": {
     "scope": "Study17 normal, creek close, overview, settled cultivation/restoration/swale and undo",
     "cultivateCommit": {
@@ -87,24 +87,24 @@
     "visualAcceptance": false
   },
   "latestStudy": {
-    "study": "22",
+    "study": "25",
     "build": "success",
-    "job": "742e013349ee400799bb946038782792",
-    "executionTimeMs": 63510,
+    "job": "7cd5bae3a448464fb2571f3a619f2a09",
+    "executionTimeMs": 70784,
     "browser": "Chrome",
     "cssViewport": [
-      3440,
-      1352
+      1280,
+      720
     ],
     "renderBuffer": [
-      3440,
-      1352
+      1600,
+      900
     ],
-    "normalCapture": "study22-default.jpg",
-    "closeCapture": "study22-creek-close.jpg",
-    "overviewCapture": "study22-overview.jpg",
-    "transformationCapture": "study22-restored.jpg",
-    "exportCheck": "study22-export-check.json",
+    "normalCapture": "study25-default.jpg",
+    "closeCapture": "study25-close.jpg",
+    "overviewCapture": "study25-overview.jpg",
+    "transformationCapture": "study25-restored.jpg",
+    "exportCheck": "study25-export-check.json",
     "visualAcceptance": false,
     "performanceAcceptance": false
   },
@@ -116,18 +116,41 @@
     "fullInteractionPerformanceAcceptance": false
   },
   "currentBrowserChecks": {
-    "scope": "22 opening/close/overview, Restore/undo and one moving-placement diagnostic",
-    "seconds": 30.012,
-    "averageFps": 59.943,
-    "p95Ms": 18,
-    "p99Ms": 18,
-    "maxMs": 26,
-    "framesOver33Ms": 0,
-    "framesOver200Ms": 0,
-    "unfocusedFrames": 0,
-    "previewEvents": 2,
-    "placementEvents": 1,
-    "cameraEvents": 573,
+    "scope": "25 opening/close/overview, Restore/undo twice, two moving-placement diagnostics",
+    "firstDiagnosticWithDuplicateGameTab": {
+      "seconds": 30.040000915527344,
+      "averageFps": 19.27429962158203,
+      "frameP50Ms": 52.0,
+      "frameP95Ms": 75.00000762939453,
+      "frameP99Ms": 84.0,
+      "maxFrameMs": 328.0,
+      "maxPreviewCpuMs": 0.20000000298023224,
+      "maxPlacementCpuMs": 3.299999952316284,
+      "frames": 579,
+      "framesOver33Ms": 516,
+      "framesOver200Ms": 1,
+      "previewEvents": 2,
+      "placementEvents": 1,
+      "cameraEvents": 215,
+      "unfocusedFrames": 0
+    },
+    "repeatAfterClosingDuplicate": {
+      "seconds": 30.03899383544922,
+      "averageFps": 40.08123779296875,
+      "frameP50Ms": 21.0,
+      "frameP95Ms": 41.0,
+      "frameP99Ms": 45.0,
+      "maxFrameMs": 82.0,
+      "maxPreviewCpuMs": 0.10000000149011612,
+      "maxPlacementCpuMs": 1.899999976158142,
+      "frames": 1204,
+      "framesOver33Ms": 214,
+      "framesOver200Ms": 0,
+      "previewEvents": 2,
+      "placementEvents": 1,
+      "cameraEvents": 424,
+      "unfocusedFrames": 0
+    },
     "restore": [
       5,
       42
@@ -136,16 +159,9 @@
       6,
       60
     ],
-    "finalRevision": 2,
-    "previewCpuMaxMs": 0.1,
-    "placementCpuMaxMs": 4,
-    "presentationOpportunityPreviewMs": 17.5,
-    "presentationOpportunityPlacement": "No placement sample emitted; do not infer from CPU time",
-    "playerReadyMs": 1652,
-    "interactiveMs": 4441,
-    "startup": "No error-level messages returned; historical early-input issue not specifically retested or fixed",
-    "comparisonLimitation": "Same3440x1352 CSS/buffer as21d, but route/workload not controlled; no causal performance improvement claim",
-    "fullInteractionPerformanceAcceptance": false
+    "fullInteractionPerformanceAcceptance": false,
+    "errorLevelMessages": 0,
+    "comparisonLimitation": "CSS1280x720 / buffer1600x900 differs from22; routes and concurrent workload not controlled. Both timing failures retained."
   },
   "study20": {
     "buildJob": "26ad6dcba3db4e80ab33aa302f289913",
@@ -323,5 +339,60 @@
     "startup": "No error-level messages returned; historical early-input exception not specifically retested or fixed",
     "comparisonLimitation": "3440x1352 CSS/buffer differs from21c; no causal performance improvement claim",
     "fullInteractionPerformanceAcceptance": false
-  }
+  },
+  "historicalStudy22": {
+    "study": "22",
+    "build": "success",
+    "job": "742e013349ee400799bb946038782792",
+    "executionTimeMs": 63510,
+    "browser": "Chrome",
+    "cssViewport": [
+      3440,
+      1352
+    ],
+    "renderBuffer": [
+      3440,
+      1352
+    ],
+    "normalCapture": "study22-default.jpg",
+    "closeCapture": "study22-creek-close.jpg",
+    "overviewCapture": "study22-overview.jpg",
+    "transformationCapture": "study22-restored.jpg",
+    "exportCheck": "study22-export-check.json",
+    "visualAcceptance": false,
+    "performanceAcceptance": false
+  },
+  "historicalStudy22Checks": {
+    "scope": "22 opening/close/overview, Restore/undo and one moving-placement diagnostic",
+    "seconds": 30.012,
+    "averageFps": 59.943,
+    "p95Ms": 18,
+    "p99Ms": 18,
+    "maxMs": 26,
+    "framesOver33Ms": 0,
+    "framesOver200Ms": 0,
+    "unfocusedFrames": 0,
+    "previewEvents": 2,
+    "placementEvents": 1,
+    "cameraEvents": 573,
+    "restore": [
+      5,
+      42
+    ],
+    "undo": [
+      6,
+      60
+    ],
+    "finalRevision": 2,
+    "previewCpuMaxMs": 0.1,
+    "placementCpuMaxMs": 4,
+    "presentationOpportunityPreviewMs": 17.5,
+    "presentationOpportunityPlacement": "No placement sample emitted; do not infer from CPU time",
+    "playerReadyMs": 1652,
+    "interactiveMs": 4441,
+    "startup": "No error-level messages returned; historical early-input issue not specifically retested or fixed",
+    "comparisonLimitation": "Same3440x1352 CSS/buffer as21d, but route/workload not controlled; no causal performance improvement claim",
+    "fullInteractionPerformanceAcceptance": false
+  },
+  "previousGoalTurnClassification": "progress: committed22, added tested alternatives23/24/25 and source provenance; rejected weaker results; fixed visible palette mip bleed."
 }

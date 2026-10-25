@@ -5,6 +5,8 @@ Shader "Terra/Illustrated Ground"
         [MainColor] _BaseColor("Land colour", Color) = (0.5,0.6,0.3,1)
         _BaseMap("Base",2D)="white"{}
         _BankMap("Artist earth surface",2D)="white"{}
+        _MeadowPaint("Painted meadow",2D)="white"{}
+        _MeadowRelief("Matching painted meadow relief",2D)="bump"{}
         _GrassNormal("Artist grass relief",2D)="bump"{}
         _EarthNormal("Artist earth relief",2D)="bump"{}
         _Cutoff("Cutoff",Range(0,1))=0.5
@@ -38,6 +40,8 @@ Shader "Terra/Illustrated Ground"
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BankMap); SAMPLER(sampler_BankMap);
+            TEXTURE2D(_MeadowPaint); SAMPLER(sampler_MeadowPaint);
+            TEXTURE2D(_MeadowRelief); SAMPLER(sampler_MeadowRelief);
             TEXTURE2D(_GrassNormal); SAMPLER(sampler_GrassNormal);
             TEXTURE2D(_EarthNormal); SAMPLER(sampler_EarthNormal);
             TEXTURE2D(_RiverMap); SAMPLER(sampler_RiverMap);
@@ -80,7 +84,7 @@ Shader "Terra/Illustrated Ground"
                     cover/=dot(cover,half4(1,1,1,1));
                     float patches=Noise(p*.025+offset)*.6+Noise(p*.10)*.4;
                     half3 woodland=lerp(half3(.22,.35,.12),half3(.37,.47,.18),patches);
-                    half3 meadow=lerp(half3(.40,.57,.19),half3(.61,.68,.30),patches);
+                    half3 meadow=half3(.45,.60,.32);
                     half3 field=lerp(half3(.61,.53,.28),half3(.76,.65,.36),patches);
                     float row=(.5+.5*sin(p.x*2.617994));
                     float footprint=max(length(ddx(p)),length(ddy(p)));
@@ -102,15 +106,23 @@ Shader "Terra/Illustrated Ground"
                     albedo=lerp(albedo,bankGrass,livingBank*.85);
                     albedo=lerp(albedo,bankColor,bank);
                     albedo=SRGBToLinear(albedo);
+                    // The artist painting supplies fine meadow color variation instead of a noise wash.
+                    half3 meadowPaint=SAMPLE_TEXTURE2D(_MeadowPaint,sampler_MeadowPaint,p/48).rgb;
+                    half paintedLuma=dot(meadowPaint,half3(.2126,.7152,.0722));
+                    half3 paintedMeadow=lerp(meadowPaint,paintedLuma.xxx,.4)*half3(3.0,3.1,2.3);
+                    albedo=lerp(albedo,paintedMeadow,saturate(cover.b+cover.a)*(1-livingBank)*(1-bank));
                     half3 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/48).rgb;
                     float paintValue=dot(painted,half3(.2126,.7152,.0722));
-                    albedo*=lerp(clamp(paintValue/.18,.65,1.35),1,saturate(cover.g*.75+cover.a*.25+bank)*(1-livingBank));
+                    albedo*=lerp(clamp(paintValue/.18,.65,1.35),1,saturate(cover.b+cover.a+cover.g*.75+bank)*(1-livingBank));
                     float earth=dot(SAMPLE_TEXTURE2D(_BankMap,sampler_BankMap,p/lerp(30,9,bank)).rgb,half3(.2126,.7152,.0722));
                     float earthWeight=saturate(bank+cover.g*.55*(1-livingBank));
                     albedo*=lerp(1,clamp(earth/.16,.65,1.4),earthWeight);
                     half3 grassRelief=UnpackNormal(SAMPLE_TEXTURE2D(_GrassNormal,sampler_GrassNormal,p/48));
                     half3 earthRelief=UnpackNormal(SAMPLE_TEXTURE2D(_EarthNormal,sampler_EarthNormal,p/lerp(30,9,bank)));
-                    surfaceNormal=normalize(lerp(half3(0,0,1),lerp(grassRelief,earthRelief,earthWeight),.55*fade));
+                    surfaceNormal=normalize(lerp(half3(0,0,1),lerp(grassRelief,earthRelief,earthWeight),.55*fade*(1-saturate(cover.b+cover.a)*(1-livingBank)*(1-bank))));
+                    half meadowWeight=saturate(cover.b+cover.a)*(1-livingBank)*(1-bank);
+                    half3 meadowRelief=UnpackNormal(SAMPLE_TEXTURE2D(_MeadowRelief,sampler_MeadowRelief,p/48));
+                    surfaceNormal=normalize(lerp(surfaceNormal,normalize(lerp(half3(0,0,1),meadowRelief,.3*fade)),meadowWeight));
                     float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
                     [branch] if(pathDistance<.75)
                     {

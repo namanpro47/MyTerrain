@@ -125,7 +125,8 @@
           "sha256": "23248cebe28a24e78add32db3c2ee2f4d7b9219e9d2467279722f0197a7b6bd5"
         }
       ],
-      "study21": "Existing short/tall grass and Rock_Medium_2 reused unchanged for illustrative bank masses. Dedicated Terra/Soft Groundcover shader preserves source palette with upward-biased diffuse normals and displayed-pixel fade. Serialized instancing-enabled Resources/Nature/Groundcover.mat required: runtime-only shader swap lost instancing variants in21b;21c/21d visibility verified in Chrome. Wider patches improve contact but do not close visual gap. No new acquisition or paid shader used."
+      "study21": "Existing short/tall grass and Rock_Medium_2 reused unchanged for illustrative bank masses. Dedicated Terra/Soft Groundcover shader preserves source palette with upward-biased diffuse normals and displayed-pixel fade. Serialized instancing-enabled Resources/Nature/Groundcover.mat required: runtime-only shader swap lost instancing variants in21b;21c/21d visibility verified in Chrome. Wider patches improve contact but do not close visual gap. No new acquisition or paid shader used.",
+      "study24": "Grass.png source pixels unchanged. Disable mipmaps on this narrow color palette via TextureImporter; distant white unused-atlas bleed observed in23. Soft Groundcover also explicitly samples LOD0. Source files are not repainted."
     },
     {
       "name": "Original painted meadow texture",
@@ -411,6 +412,40 @@
         "03": 1005,
         "05": 986
       }
+    },
+    {
+      "name": "Hand Painted Grass",
+      "creator": "PamNawi",
+      "source": "https://opengameart.org/content/hand-painted-grass",
+      "license": "CC0 as declared on creator upload page",
+      "download": "https://opengameart.org/sites/default/files/grass_49.png",
+      "archive": "Builds/ArtResearch/PaintedMeadow/pamnawi-grass.png",
+      "bytes": 1328276,
+      "sha256": "a75dd51e1b86a1092373d5ea33551cfe4cb2c2072cdb6979b16e53702ae6cc9c",
+      "status": "Rejected after24/24b Editor and Chrome inspection: large directional brush marks read as waves rather than meadow at playable scale. Removed from runtime; original unchanged file retained in research. No art acceptance."
+    },
+    {
+      "name": "handpainted grass texture pack",
+      "creator": "rubberduck, derived from drummyfish CC0 grass",
+      "source": "https://opengameart.org/content/handpainted-grass-texture-pack",
+      "license": "CC0 as declared on creator upload page",
+      "download": "https://opengameart.org/sites/default/files/handpainted_grass_texture_pack.zip",
+      "archive": "Builds/ArtResearch/PaintedMeadow/rubberduck-grass.zip",
+      "bytes": 20642485,
+      "sha256": "09d16b9ae091e7117638c281749f6b8d450077de9461793f26fbf082627cf228",
+      "contents": "19 PNG files: grass variants, normal/height/roughness maps",
+      "status": "Study25 tests grass_02 color and matching normal map; original pixels unchanged. Runtime exposure/saturation adapted to scene. Full package not imported; no source scripts. Not accepted art.",
+      "sourceNote": "Assets/Terra/Resources/MeadowPaint-SOURCE.md",
+      "imported": [
+        {
+          "path": "Assets/Terra/Resources/MeadowPaint.png",
+          "sha256": "01fafde98a9b0317a6b760380db76b96c0b5b97184bd7349fd4021feae31bb24"
+        },
+        {
+          "path": "Assets/Terra/Resources/MeadowRelief.png",
+          "sha256": "85757a664fe95a0d3fb334c6fa7970b95e89ae674b56fbd78506e429aa8cdcc6"
+        }
+      ]
     }
   ],
   "researchExclusions": [

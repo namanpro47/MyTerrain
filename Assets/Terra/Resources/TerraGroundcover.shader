@@ -45,7 +45,9 @@ Shader "Terra/Soft Groundcover"
             }
             half4 Frag(V input):SV_Target
             {
-                half4 paint=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,input.uv)*_BaseColor;
+                // This source is a narrow color palette with unused white atlas space.
+                // Mip averaging crosses palette bands; sample its original colors explicitly.
+                half4 paint=SAMPLE_TEXTURE2D_LOD(_BaseMap,sampler_BaseMap,input.uv,0)*_BaseColor;
                 half coverage=saturate((paint.a-_Cutoff)/max(fwidth(paint.a),.001)+.5);
                 // Retain the painted bank surface when individual blades become subpixel.
                 coverage*=smoothstep(1.5,3.0,input.plantPixels);clip(coverage-.001);

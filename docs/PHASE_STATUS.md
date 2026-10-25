@@ -30,9 +30,9 @@
 - **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
 - **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
 
-## Current Phase 2A checkpoint — study22
+## Current Phase 2A checkpoint — study25
 
-[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Four free erces tree models, unchanged source textures, volume-normal leaf shading and smaller woodland edges replace the repeated crown family. KayKit's free family was evaluated and rejected. Export and opening/close/overview/Restore/undo verified at3440×1352. Restore5/42 → undo6/60 passed; no error-level messages returned. One30.012s foreground moving/placement route has p95/p99=18ms,max26ms,zero frames>33ms and zero unfocused frames: stable-30 fallback met for this route, full suite pending. Broad meadow surfaces, thin-tree cohorts, mechanical fields and treatment edges still fail the visual gate. No public deployment or annual-gameplay claim. [Full evidence](evidence/phase2a/visual-rebuild/README.md) · [isolated handoff](VISUAL_WORK_HANDOFF.md).
+[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Studies23/24 were rejected;25 tests finer free CC0 meadow paint with its matching relief, retains22’s canopy, and corrects distant grass-palette white bleed. Source pixels and analytical cover/accounting are unchanged. Opening/close/overview and Restore/undo twice verified at1280×720 CSS /1600×900 buffer. First moving route p95=75ms with a duplicate game tab; repeat after closing it p95=41ms. Both fail. No error-level messages returned. Broad scene composition, plant scale, mechanical fields and treatment boundaries still fail the visual gate. No public deployment or annual-gameplay claim. [Full evidence](evidence/phase2a/visual-rebuild/README.md) · [isolated handoff](VISUAL_WORK_HANDOFF.md).
 
 ## Fresh-build publication — October 24, 2026, 18:12 local
 

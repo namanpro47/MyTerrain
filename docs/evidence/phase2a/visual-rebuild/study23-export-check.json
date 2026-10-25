@@ -1,0 +1,81 @@
+{
+  "url": "http://127.0.0.1:49658/",
+  "anonymous": true,
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "bytes": 5589,
+      "sha256": "394fa8c8429e55846bd4aa28a839ef75fd42a8fc70f239f12862eda091fb1e7b",
+      "contentType": "text/html",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+      "status": 200,
+      "bytes": 76877,
+      "sha256": "53b839ab7dff6e3ecdfebd50c26f87d79780c23ad6497e95c24a021980cad94d",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 339104
+    },
+    {
+      "file": "Build/bc1d1d3206431e48f900031a60d79abf.loader.js",
+      "status": 200,
+      "bytes": 48779,
+      "sha256": "fbcade78fd12dad8aa15a07afb37f896c71022064a275cfebe01f10fc511249e",
+      "contentType": "text/javascript",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "Build/dd4935b3e90b45c136edc2c97406c024.wasm.unityweb",
+      "status": 200,
+      "bytes": 9586717,
+      "sha256": "a3ae031cc9fd6c004d236f0d4e36c054876394a38a6605ce42dbaf5131622a07",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 35831286
+    },
+    {
+      "file": "Build/eefbad2892468003355312ccd586d574.data.unityweb",
+      "status": 200,
+      "bytes": 24806337,
+      "sha256": "343821c476884d4d39524cf7b7d204cb43d55a8268f91ecb0b0db55bcd53ad56",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 33835024
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": null
+    }
+  ]
+}

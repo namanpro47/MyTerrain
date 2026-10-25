@@ -6,7 +6,7 @@
 
 ## The intended visual experience
 
-**Current comparison focus — after study22:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) pairs Terra with the reference. A free artist tree family now provides distinct branching forms and smaller woodland edges; keep source textures and serialized instancing materials. KayKit was evaluated and rejected. Broad ground surfaces and mechanical crop/treatment construction now need a substantial alternative. Visual gate remains failed; one moving/placement route p95=18ms meets the stable-30 fallback, full performance suite pending. [Isolated visual worktree](VISUAL_WORK_HANDOFF.md).
+**Current comparison focus — after study25:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) pairs the current candidate with Terra Nil. Fine artist meadow color/normal replaces the broad color wash; grass-palette white bleed fixed. Low-sward/crop trial23 and broad-brush texture24 rejected. The whole image is still too uniform and planting/fields/treatments need substantial composition work. Next change framing and plant-scale hierarchy materially, not another texture/tint iteration. Visual gate and performance gate remain failed (repeat moving p95=41ms). [Isolated worktree](VISUAL_WORK_HANDOFF.md).
 
 An inviting, painterly rural landscape that is worth looking around before touching a tool. Woodland has soft, varied crowns and layered edges; fields read as cultivated land with convincing surface rhythms; water has a distinct bed, bank, surface, and relationship to surrounding vegetation. Warm sunlight and cool depth separate forms without washing everything into the same sage color. Interventions visibly belong to this world and improve or change its character.
 

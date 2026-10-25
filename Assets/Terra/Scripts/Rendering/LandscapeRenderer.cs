@@ -133,6 +133,8 @@ namespace Terra.Rendering
             material.SetTexture("_BankMap",Resources.Load<Texture2D>("ArtistDirtGround"));
             material.SetTexture("_GrassNormal",Resources.Load<Texture2D>("ArtistGrassNormal"));
             material.SetTexture("_EarthNormal",Resources.Load<Texture2D>("ArtistDirtNormal"));
+            material.SetTexture("_MeadowPaint",Resources.Load<Texture2D>("MeadowPaint"));
+            material.SetTexture("_MeadowRelief",Resources.Load<Texture2D>("MeadowRelief"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
             BuildPathMask(material);
             BuildChannelTerrain(material);

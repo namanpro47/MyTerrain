@@ -1,0 +1,128 @@
+diff --git a/Assets/Terra/Resources/TerraGround.shader b/Assets/Terra/Resources/TerraGround.shader
+index 5905938..20b983f 100644
+--- a/Assets/Terra/Resources/TerraGround.shader
++++ b/Assets/Terra/Resources/TerraGround.shader
+@@ -80,7 +80,7 @@ Shader "Terra/Illustrated Ground"
+                     cover/=dot(cover,half4(1,1,1,1));
+                     float patches=Noise(p*.025+offset)*.6+Noise(p*.10)*.4;
+                     half3 woodland=lerp(half3(.22,.35,.12),half3(.37,.47,.18),patches);
+-                    half3 meadow=lerp(half3(.40,.57,.19),half3(.61,.68,.30),patches);
++                    half3 meadow=lerp(half3(.35,.49,.25),half3(.52,.62,.34),patches);
+                     half3 field=lerp(half3(.61,.53,.28),half3(.76,.65,.36),patches);
+                     float row=(.5+.5*sin(p.x*2.617994));
+                     float footprint=max(length(ddx(p)),length(ddy(p)));
+@@ -102,13 +102,14 @@ Shader "Terra/Illustrated Ground"
+                     albedo=lerp(albedo,bankGrass,livingBank*.85);
+                     albedo=lerp(albedo,bankColor,bank);
+                     albedo=SRGBToLinear(albedo);
+-                    half3 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/48).rgb;
++                    // Source brush detail belongs at plant scale; a second scale prevents one giant texture wash.
++                    half3 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/24).rgb*.85+SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,(p+31)/64).rgb*.15;
+                     float paintValue=dot(painted,half3(.2126,.7152,.0722));
+                     albedo*=lerp(clamp(paintValue/.18,.65,1.35),1,saturate(cover.g*.75+cover.a*.25+bank)*(1-livingBank));
+                     float earth=dot(SAMPLE_TEXTURE2D(_BankMap,sampler_BankMap,p/lerp(30,9,bank)).rgb,half3(.2126,.7152,.0722));
+                     float earthWeight=saturate(bank+cover.g*.55*(1-livingBank));
+                     albedo*=lerp(1,clamp(earth/.16,.65,1.4),earthWeight);
+-                    half3 grassRelief=UnpackNormal(SAMPLE_TEXTURE2D(_GrassNormal,sampler_GrassNormal,p/48));
++                    half3 grassRelief=UnpackNormal(SAMPLE_TEXTURE2D(_GrassNormal,sampler_GrassNormal,p/24));
+                     half3 earthRelief=UnpackNormal(SAMPLE_TEXTURE2D(_EarthNormal,sampler_EarthNormal,p/lerp(30,9,bank)));
+                     surfaceNormal=normalize(lerp(half3(0,0,1),lerp(grassRelief,earthRelief,earthWeight),.55*fade));
+                     float pathDistance=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
+diff --git a/Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs b/Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs
+index 568d47d..b6c0659 100644
+--- a/Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs
++++ b/Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs
+@@ -93,7 +93,7 @@ namespace Terra.Rendering
+                 {
+                     if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x))continue;
+                     float size=.9f+(float)rng.NextDouble()*.2f;
+-                    plants.Add(PlantMatrix(grain,x+((float)rng.NextDouble()-.5f)*.2f,z,size,(float)rng.NextDouble()*12-6));
++                    plants.Add(GrainMatrix(x+((float)rng.NextDouble()-.5f)*.25f,z,size,(float)rng.NextDouble()*12-6));
+                 }
+             }
+             parent.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
+@@ -113,11 +113,18 @@ namespace Terra.Rendering
+                 {
+                     if(!VisualCropAt(x,z)||FieldTrackAt(x)||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
+                     float variation=Mathf.PerlinNoise(x*.12f+500,z*.12f+500);
+-                    plants.Add(PlantMatrix(grain,x,z,.9f+variation*.2f,variation*12-6));
++                    plants.Add(GrainMatrix(x,z,.9f+variation*.2f,variation*12-6));
+                 }
+                 root.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
+             }
+         }
++        Matrix4x4 GrainMatrix(float x,float z,float variation,float yaw)
++        {
++            // Broad overlapping artist clusters read as a standing crop surface, not oversize isolated stalks.
++            // The source mesh/paint is unchanged; these illustrative dimensions are not measured crop data.
++            return Matrix4x4.TRS(new Vector3(x,Height(x,z),z),Quaternion.Euler(0,yaw,0),
++                new Vector3(2.5f*variation,.58f*variation,.95f*variation));
++        }
+         // Illustrative access lanes, aligned across baseline and proposed planting, not surveyed tracks.
+         static bool FieldTrackAt(float x)=>((Mathf.RoundToInt(x/2.4f)%16)+16)%16==0;
+     }
+diff --git a/Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs b/Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs
+index 8c8a04a..7a2cd4e 100644
+--- a/Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs
++++ b/Assets/Terra/Scripts/Rendering/LandscapeRenderer.cs
+@@ -66,6 +66,7 @@ namespace Terra.Rendering
+             {Ribbon(RoundedWaterRoute(f.points),f.widthM+5.2f,new Color(.13f,.48f,.49f),-.9f,root,"Mapped stream centreline");}
+             BuildCrossings();
+             BuildVegetation();
++            BuildMeadowSward();
+             BuildStreamsidePlants();
+             BuildCultivatedContext();
+             foreach(var site in world.sites)
+@@ -190,13 +191,9 @@ namespace Terra.Rendering
+                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
+                     {
+                         if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
+-                        for(int i=0;i<4;i++)
+-                        {
+-                            float gx=px+Range(-6,6),gz=pz+Range(-6,6);
+-                            grasses.Add(PlantMatrix(tuft,gx,gz,Range(1.4f,2.8f),Range(0,360)));
+-                        }
+-                        if(random.NextDouble()<.3)fine.Add(PlantMatrix(wispy,px,pz,Range(2,3),Range(0,360)));
+-                        if(grouping>.55f && random.NextDouble()<.25)flowers.Add(PlantMatrix(flower,px,pz,Range(1.5f,2.8f),Range(0,360)));
++                        // Low connected sward is built separately; isolated tall tufts are accents only.
++                        if(grouping>.54f && random.NextDouble()<.18)fine.Add(PlantMatrix(wispy,px,pz,Range(.8f,1.3f),Range(0,360)));
++                        if(grouping>.63f && random.NextDouble()<.10)flowers.Add(PlantMatrix(flower,px,pz,Range(.7f,1.1f),Range(0,360)));
+                         if(grouping<.30f && random.NextDouble()<.18)rocks.Add(PlantMatrix(stone,px,pz,Range(1.1f,2.2f),Range(0,360)));
+                     }
+                 }
+@@ -209,6 +206,35 @@ namespace Terra.Rendering
+                 nature.Add(wispy,fine,Color.white);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
+             }
+         }
++        void BuildMeadowSward()
++        {
++            // Artist grass meshes form low interlocking patches, rather than isolated giant tufts.
++            // Patch shape, species and mowing-like gaps are decorative, not an observed land condition.
++            var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
++            var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
++            var rng=new System.Random(230418);
++            float J(float a,float b)=>Mathf.Lerp(a,b,(float)rng.NextDouble());
++            for(float cz=zmin;cz<zmax;cz+=100)for(float cx=xmin;cx<xmax;cx+=100)
++            {
++                var low=new List<Matrix4x4>();var tips=new List<Matrix4x4>();
++                for(float z=cz+1;z<Mathf.Min(cz+100,zmax-2);z+=2.4f)
++                for(float x=cx+1;x<Mathf.Min(cx+100,xmax-2);x+=2.4f)
++                {
++                    float px=x+J(-.9f,.9f),pz=z+J(-.9f,.9f);
++                    float mass=Mathf.PerlinNoise((px+430)*.023f,(pz+720)*.023f);
++                    float rim=Mathf.PerlinNoise(px*.16f+70,pz*.16f+90);
++                    if(mass+rim*.12f<.56f||CoverAt(px,pz)!="grass"||NearLine(px,pz,5))continue;
++                    if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
++                    float breadth=J(3.0f,4.6f),height=J(.48f,.80f);
++                    low.Add(Matrix4x4.TRS(new Vector3(px,Height(px,pz),pz),Quaternion.Euler(0,J(0,360),0),new Vector3(breadth,height,breadth)));
++                    if(mass>.65f&&rng.NextDouble()<.06)
++                        tips.Add(PlantMatrix(wispy,px,pz,J(.8f,1.25f),J(0,360)));
++                }
++                var nature=root.gameObject.AddComponent<InstancedNature>();
++                nature.Add(tuft,low,new Color(.86f,.94f,.86f),true);
++                nature.Add(wispy,tips,new Color(.86f,.94f,.86f),true);
++            }
++        }
+         bool NearLine(float x,float z,float margin)
+         {
+             var p=new Vector2(x,z);
