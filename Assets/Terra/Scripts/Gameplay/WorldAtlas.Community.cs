@@ -103,11 +103,17 @@ namespace Terra.Gameplay
             communityStatus.text="Choose a prepared community to explore its terrain.";
         }
         System.Collections.IEnumerator CloseCommunityNotes()
-        {yield return null;if(!communityWasOpen)notes.SetActive(false);}
+        {
+            yield return null;if(communityWasOpen)yield break;notes.SetActive(false);
+            var gear=selection.transform.Find("Atlas settings");
+            if(gear!=null)EventSystemSelect(gear.GetComponent<UnityEngine.UI.Button>());
+            else foreach(var button in selection.GetComponentsInChildren<UnityEngine.UI.Button>())
+                if(button.name.Contains("Field notes")){EventSystemSelect(button);break;}
+        }
         public void LoadCommunity(CommunityPlace place)
         {
             currentCommunity=place;
-            communitySource.text=place.region+" · imagery "+place.imageYear+"\nUSDA NAIP / USGS · public domain · 3DEP elevation · not a local forecast";
+            communitySource.text=place.region+" · aerial imagery "+place.imageYear+"\nUSDA NAIP / USGS · Photo surface; buildings and trees are not 3D objects.";
             community.Load(place,communityImage,communityStatus);
         }
         public void TickCommunityBrowser()

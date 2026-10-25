@@ -1,0 +1,11 @@
+{
+  "runtimeSourceCommit": "daab19c",
+  "base": "ea37af047f4d8d167f88b802e76827c82a6c8183",
+  "unity": "6000.6.6f1",
+  "result": "Succeeded",
+  "filesVerified": 22,
+  "servedBytes": 41726475,
+  "url": "http://127.0.0.1:49923",
+  "scope": "Initial modal/terrain smoke only. Gear routing and input recovery changes were made after this export compiled; final selector compatibility verification is separate.",
+  "jobReceipt": "Detached job was pruned by post-build domain reload; completion confirmed by TerraBuild success log, complete export, and anonymous byte verification."
+}
