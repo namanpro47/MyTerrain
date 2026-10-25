@@ -159,7 +159,9 @@ namespace Terra.UI
             moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
             confirmEditButton.gameObject.SetActive(!canEdit&&state.phase==TownPhase.Planning);confirmEditButton.interactable=rejection==null;
             SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":"Queue · Enter");
-            if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
+            if(state.phase==TownPhase.Completed&&asset==null)
+                previewBody.text=site?.protectedSite==true?"Protected scenario area. No project was accepted here.":"Existing land use. No new project was accepted here.\n\nInspect other sites, compare the landscape or start a new run.";
+            else if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
             previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Accepted projects stay in place.":queued?"Queued · V to move · Delete to remove":state.phase==TownPhase.Completed?"Future · compare, learn or replay.":"Choose an action and eligible field.";
             previewAction.gameObject.SetActive(!recipeDetails.gameObject.activeSelf);
             previewAction.fontSize=sizes[previewAction]*(LargeText?1.12f:1);previewAction.rectTransform.anchoredPosition=new Vector2(18,68);previewAction.rectTransform.sizeDelta=new Vector2(256,35);
