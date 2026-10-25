@@ -162,6 +162,11 @@
       "path": "docs/evidence/full-game/submission-consolidation/submission-profile.cs.txt",
       "bytes": 4182,
       "sha256": "46143b984c59d792f147afb71f2ed20ce9c9ae0e98b4f660ead6aa8d8df2e233"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/combined-study55-verify.cs.txt",
+      "bytes": 4927,
+      "sha256": "327bf213ebcf9eff3452321f1d7639ff98f88993f4f8a09c30d29dc7703123fd"
     }
   ]
 }

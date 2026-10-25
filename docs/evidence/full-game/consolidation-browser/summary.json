@@ -1,0 +1,142 @@
+{
+  "source": "2f8543dd2734172942f92c1e3395b695174395e9",
+  "viewport": [
+    1280,
+    720
+  ],
+  "routeOrder": [
+    "opening-camera",
+    "editing",
+    "year10-camera"
+  ],
+  "performance": [
+    {
+      "seconds": 30.027999877929688,
+      "averageFps": 48.65459060668945,
+      "frameP50Ms": 18.0,
+      "frameP95Ms": 33.0,
+      "frameP99Ms": 47.0,
+      "maxFrameMs": 71.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1461,
+      "framesOver33Ms": 65,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1117,
+      "unfocusedFrames": 0
+    },
+    {
+      "seconds": 30.035003662109375,
+      "averageFps": 54.86931228637695,
+      "frameP50Ms": 16.0000057220459,
+      "frameP95Ms": 31.0,
+      "frameP99Ms": 45.0,
+      "maxFrameMs": 57.999996185302734,
+      "maxPreviewCpuMs": 0.8999999761581421,
+      "maxPlacementCpuMs": 19.600000381469727,
+      "frames": 1648,
+      "framesOver33Ms": 51,
+      "framesOver200Ms": 0,
+      "previewEvents": 7,
+      "placementEvents": 1,
+      "cameraEvents": 0,
+      "unfocusedFrames": 0
+    },
+    {
+      "seconds": 30.001007080078125,
+      "averageFps": 54.631500244140625,
+      "frameP50Ms": 16.0000057220459,
+      "frameP95Ms": 29.0,
+      "frameP99Ms": 44.0,
+      "maxFrameMs": 66.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1639,
+      "framesOver33Ms": 47,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1274,
+      "unfocusedFrames": 0
+    }
+  ],
+  "inputLatency": [
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "placement",
+          "source": "pointer",
+          "milliseconds": 39.80000001192093
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 14.800000011920929
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 22.599999964237213
+        },
+        {
+          "kind": "preview",
+          "source": "pointer",
+          "milliseconds": 16.30000001192093
+        }
+      ],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    }
+  ],
+  "submissions": [
+    "TERRA_RENDER_SUBMISSIONS: submitted=828; culled=1122; groundcoverCulled=267; groups=414",
+    "TERRA_RENDER_CONSOLIDATION: sourceBatches=603; drawCalls=455; savedDrawCalls=148",
+    "TERRA_RENDER_SUBMISSIONS: submitted=789; culled=1156; groundcoverCulled=258; groups=417",
+    "TERRA_RENDER_CONSOLIDATION: sourceBatches=598; drawCalls=455; savedDrawCalls=143",
+    "TERRA_RENDER_SUBMISSIONS: submitted=819; culled=1127; groundcoverCulled=268; groups=417",
+    "TERRA_RENDER_CONSOLIDATION: sourceBatches=603; drawCalls=457; savedDrawCalls=146"
+  ],
+  "errors": [],
+  "limitations": [
+    "One sample per route on this Mac; existing unrelated Editors remain open. Own and visual-study Editors closed.",
+    "Editing route includes7preview events/1placement/undo-redo and no camera events inside its30swindow; attempted camera movement occurred after window.",
+    "Not a single-variable causal comparison with previous16691f2 export (study55 is also integrated).",
+    "Strict p95<=16.7ms not met."
+  ]
+}

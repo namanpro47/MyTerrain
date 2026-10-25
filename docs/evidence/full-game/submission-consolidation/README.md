@@ -1,6 +1,6 @@
 # Nearby vegetation submission consolidation — October 25, 2026
 
-Candidate based on `b21dc5c` (study55 meadow + shared materials + main `7f5b292`). **Editor correctness and comparison checks pass; browser performance is pending.** No Phase 2A acceptance or public export is claimed. The previous real Chrome paths still fail the p95 gate in [material-browser](../material-browser/README.md).
+Candidate based on `b21dc5c` (study55 meadow + shared materials + main `7f5b292`). **Editor correctness and comparison checks pass. [Subsequent actual Chrome verification](../consolidation-browser/README.md) meets the documented stable-30 fallback and three fresh-entry load checks.** No Phase 2A acceptance or public export is claimed. The previous real Chrome paths still fail the p95 gate in [material-browser](../material-browser/README.md).
 
 ## Measured problem and bounded change
 
@@ -16,8 +16,8 @@ Combining bounds can change native culling efficiency. Fewer API calls are not p
 
 - [15 collector/lifecycle checks](consolidation-checks.json): exact matrix ordering/scale, union bounds, negative/positive spatial separation, material/mesh/submesh/shadow isolation, capacity rollover, pooled reuse, stale frame clearing and disable cleanup. [Replay](consolidation-checks.cs.txt).
 - [678 Atlas assertions](consolidation-model-checks.json), including the three existing packs, catalog, ten-year outcomes and isolated saves.
-- [42 meadow lifecycle checks](combined-study55-verify.json): growth, fixed roots, reload, undo/redo, preview cancellation and unchanged live session/source; uses the [study55 fixture](../../phase2a/visual-rebuild/study55-verify.cs.txt).
-- [28 material lifecycle checks](consolidation-material-lifecycle.json): shared leases, independent status colors, LOD remapping and cleanup; existing [fixture](../material-sharing/lifecycle.cs.txt).
+- [42 meadow lifecycle checks](combined-study55-verify.json): growth, fixed roots, reload, undo/redo, preview cancellation and unchanged live session/source; uses the [study55 fixture](combined-study55-verify.cs.txt).
+- [28 material lifecycle checks](consolidation-material-lifecycle.json): shared leases, independent status colors, LOD remapping and cleanup; existing [fixture](../material-sharing/lifecycle.cs).
 - Compilation succeeded after replacing an obsolete Unity API in the initial prototype. The final Play session initialized and closed gracefully; [log scan](final-session-log-check.json) has no matching runtime errors. A console-status query was not captured because its redirected path was wrong; this log scan is explicitly narrower evidence.
 
 ## Matched rendered comparisons
