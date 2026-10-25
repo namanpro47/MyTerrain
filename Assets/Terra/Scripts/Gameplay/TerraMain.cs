@@ -82,7 +82,7 @@ namespace Terra.Gameplay
         void Update()
         {
             AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();return;}
-            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();var k=Keyboard.current;
+            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();hud.TickChangeFeedback(Time.unscaledDeltaTime);var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
             {

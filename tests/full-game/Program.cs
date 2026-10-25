@@ -36,7 +36,7 @@ rules.ExpandOffers(world,scenario);
 var runoff=new LandscapeRunoff(world,scenario,hydro);
 Console.WriteLine(string.Join("\n",rules.actions.Select(a=>a.id+": "+world.sites.Count(s=>rules.Rejection(s,a.id)==null)+" fitting fields")));
 var d=FullAnnualGameplay.Create(world,scenario,"meadowbrook-v1",rules,runoff);
-int checks=0;
+int checks=AnnualFeedbackChecks.Run(d);
 void Check(bool ok,string why){checks++;if(!ok)throw new Exception(why);}
 var provider=new AuthoredAnnualConsequenceProvider();
 foreach(var id in FullAnnualGameplay.Supported)

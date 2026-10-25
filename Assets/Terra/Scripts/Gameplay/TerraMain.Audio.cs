@@ -83,6 +83,13 @@ namespace Terra.Gameplay
             else if (clip == blockedSound) BlockedCue();
             else TerraAudio.Ensure().Request("ui-confirm", 4);
         }
+        void ChangeCue(Terra.Core.AnnualFeedbackTone tone)
+        {
+            // Model notifications never unlock audio; category cues keep priority.
+            string cue=tone==Terra.Core.AnnualFeedbackTone.Decline||tone==Terra.Core.AnnualFeedbackTone.Mixed?"year-attention":
+                tone==Terra.Core.AnnualFeedbackTone.Outcome?"year-report":tone==Terra.Core.AnnualFeedbackTone.Release?"undo":"ui-confirm";
+            TerraAudio.Ensure().Request(cue,1);
+        }
         void BlockedCue() { TerraAudio.Ensure().Request("blocked", 9); }
         void PlacementCue(string action, string mode, Site site)
         {

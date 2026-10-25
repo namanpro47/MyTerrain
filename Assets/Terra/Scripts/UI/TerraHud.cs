@@ -146,7 +146,7 @@ namespace Terra.UI
             previewBody.text=treatment.title+"\n"+(action==null?"":$"{action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+"\n")+"<b>"+cost+"</b> credits · <b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b> farm units\n<size=82%>Other benefits: not modeled</size>";
             previewAction.text="Click / Enter to place   ·   Esc";
         }
-        public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
+        public void Toast(string text){if(!string.IsNullOrEmpty(text))DismissChange();toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(returnFocus!=null&&returnFocus.gameObject.activeInHierarchy&&returnFocus.IsInteractable()?returnFocus:null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Plan → End Year → adapt</b>\nQueue projects and reserve their public costs. End Year pays once and advances them. Accepted years stay in history. Three categories contain all twelve families; arrows show more options.\n\n"+
