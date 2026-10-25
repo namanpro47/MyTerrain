@@ -1,0 +1,49 @@
+{
+  "sourceCommit": "f88b6f65181b8e091958bcee2b6d05871f2dd014",
+  "sourceNote": "Tracked source plus pre-existing local generated Editor settings/TMP fallback changes; not a clean-worktree build claim. Only curated forest dependencies are runtime inputs; full native gallery import remains local.",
+  "buildJob": "f6454efa1e2a4c8eb90944ea4b72ef5f",
+  "buildMilliseconds": 247495,
+  "buildCompletedAt": "2026-10-25T06:34:41.113452Z",
+  "compressedBytes": 47811775,
+  "files": 9,
+  "chromeCSS": [
+    1280,
+    720
+  ],
+  "canvas": [
+    1280,
+    720
+  ],
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.01199722290039,\"averageFps\":59.94269561767578,\"frameP50Ms\":17.0,\"frameP95Ms\":19.0,\"frameP99Ms\":19.0,\"maxFrameMs\":36.0,\"maxPreviewCpuMs\":5.5,\"maxPlacementCpuMs\":20.600000381469727,\"frames\":1799,\"framesOver33Ms\":1,\"framesOver200Ms\":0,\"previewEvents\":5,\"placementEvents\":1,\"cameraEvents\":484,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T06:36:28.584Z",
+      "url": "blob:http://127.0.0.1:59134/6bcade14-8487-442e-82ae-6a75ed8ce9b2"
+    }
+  ],
+  "limitations": [
+    "One 30-second path, not the required three-path acceptance suite",
+    "Fresh-load timing and public export not measured",
+    "Overview remains sparse and repetitive despite recovered leaf coverage",
+    "Phase 2A visual gate unaccepted"
+  ],
+  "captures": [
+    {
+      "file": "study34b-chrome-close.png",
+      "sha256": "890ed499e49461d9eb450b34544e001dc3b3dd02fbb622db5012e02ed0bec9a0"
+    },
+    {
+      "file": "study34b-chrome-opening.png",
+      "sha256": "3a2167596ecf138e86d715b27f0fc4e30001f1e77f79cb7feca76440cef938e1"
+    },
+    {
+      "file": "study34b-chrome-overview.png",
+      "sha256": "6252c4332ee2be78e18763e8410aeccefef7cb475ec9074f7d248492096d5fd3"
+    },
+    {
+      "file": "study34b-chrome-queued.png",
+      "sha256": "39eab0cee4f418034d5d1089c066a110be72f65706f41a1492518e1e7c0a967d"
+    }
+  ]
+}

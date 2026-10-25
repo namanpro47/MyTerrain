@@ -41,3 +41,19 @@ The distant canopy loses coverage and exposes conspicuous brown forest-floor mar
 Compilation is not failed and the Editor is idle with zero current console errors. This does not establish visual, download-size or performance acceptance for the corrected source. No broad quality settings changed. The original first-export manifests remain historical. The next export must verify opening, close and overview canopy, exact transferred bytes, and foreground frame timing before promoting this candidate.
 
 Integration note: AnnualStage currently tints child Renderers, while InstancedNature submits graphics batches directly. Annual project foliage therefore does not inherit that lifecycle tint. Labels/footprints still distinguish stages; exposing lifecycle tint to instanced vegetation remains a separate integration gap, not a claim this forest checkpoint resolves.
+
+## Follow-up export and next construction test
+
+Remote main `f4f148d` was fetched and merged cleanly in `f88b6f6`, retaining the graded annual project edges. The corrected export runs from this merged source. No input assets or runtime source are changed during export.
+
+The current groundcover branch contains an unreachable woodland path: woodland requires grouping <0.4 to enter, then >0.44 to place plants. A representative understory trial should repair that condition and compare the native TriForge forest plant material with the existing scenery, using source cover and road/stream exclusions. Native plant size and footprint must be inspected before placement. This is intended to establish the missing lower vegetation layer, not merely scatter extra objects. No result is claimed until rendered.
+
+## Corrected Chrome export: study34b
+
+The [exact export record](study34b-build.json) and [served bytes](study34b-served-assets.json) identify merged source `f88b6f6`; export succeeded in 247.495s. Nine anonymous files match at **47,811,775 bytes**, under 50 MB. Original first-export data remain intact.
+
+Chrome at 1280×720 CSS/canvas: [opening](study34b-chrome-opening.png), [close](study34b-chrome-close.png), [overview](study34b-chrome-overview.png), [queued restoration](study34b-chrome-queued.png). Distant leaf coverage is visibly recovered, but the overview still reads as small repeated crowns over conspicuous floor footprints. It remains below the visual gate. Close crowns repeat and lower vegetation is weak.
+
+One 30.012s foreground route: **59.94 fps average, p50 17ms, p95/p99 19ms, max 36ms**, 1 of 1,799 frames above 33ms, zero above 200ms and zero unfocused frames. Five previews (max CPU 5.5ms), one placement (20.6ms max CPU), 484 camera events. This route passes the stable-30 fallback; it is not the full three-path acceptance suite and CPU timings are not presentation latency. No active build was running during this route. No error-level browser logs returned. Queue/undo: Year 1 Planning, revision 3→4, queued 1→0, cash 1,000,000,000 cents unchanged, no assets, no year submitted. [Browser log](study34b-browser-log.json).
+
+The browser tab was confirmed closed after capture; closing produced a session-detach notification after the evidence file had been saved. Subsequent scene/material experiments are Editor-only [study35](study35-findings.md), not this export. Later main lifecycle changes are not part of these Chrome results.

@@ -1,10 +1,20 @@
 # Current visual review — Phase 2A remains open
 
-**Visual checkpoint: study34, still unaccepted.** The free TriForge family is integrated as a clustered-foliage candidate. Its first Chrome export exposed distant canopy loss, 51.2 MB transfer and p95 35ms on one diagnostic route. LOD/material matching and alpha-coverage/compression corrections are verified in the Editor but still need a fresh Web export. [Findings, actual captures and verification limits](evidence/phase2a/visual-rebuild/study34-findings.md). Phase 2A remains open; no dimension is certified at 4.5/5. Main through `763ef9b` was reconciled before the first export; `f4f148d` is the refreshed remote checkpoint to reconcile. No purchase or image generation.
+**Visual checkpoint: study34b, still unaccepted.** Corrected forest export `f88b6f6` passed exact local byte verification at **47.8 MB**. One foreground Chrome route measured **19ms p95/p99**; queue/undo preserved cash, with no error-level browser logs. Distant foliage is recovered, but overview repetition, bare lower layers and the broad flat grass surface remain substantial gaps. [Actual Chrome evidence](evidence/phase2a/visual-rebuild/study34b-build.json) · [rejected understory/material/composition trials and next direction](evidence/phase2a/visual-rebuild/study35-findings.md). Phase 2A remains open. No dimension is certified at 4.5/5; no purchase or image generation.
 
 **Current main update:** Peter’s synchronization through `de7f83b` includes the study32 perspective opening and calibrated full-project Focus. Its [actual Chrome opening](evidence/peter-sync/opening.png), [village focus](evidence/peter-sync/village-focus.png) and [verification](evidence/peter-sync/README.md) supersede study31b for the current opening camera. The study31b comparisons below remain historical material/vegetation evidence. Neither integration closes the six-dimension visual gate, and the old-camera performance receipts are not measurements of the new perspective view.
 
 **Historical material candidate: study31b, October 24, 2026.** Connected meadow growth and ground-related grass shading improve continuity. Visual and full performance gates remain unaccepted. Read the [persistent reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md) and [study ledger](evidence/phase2a/visual-rebuild/README.md#study31--continuous-meadow-and-shared-grass-lighting-chrome-verified-gate-open).
+
+## Current candidate: study34b
+
+![Study34 actual Chrome opening](evidence/phase2a/visual-rebuild/study34b-chrome-opening.png)
+
+The artist-authored branching and clustered foliage provide fuller masses, but repeated crowns, thin edge trees, bare understory and weak grass–bank transitions remain substantial gaps. This corrected export includes mip-coverage/LOD corrections and main’s graded project edges through f4f148d. Compare with the official references below; this is not an accepted baseline.
+
+![Study34 actual Chrome overview — visual gate still open](evidence/phase2a/visual-rebuild/study34b-chrome-overview.png)
+
+Distant foliage is recovered, but the overview still consists of small repeated crowns and conspicuous floor footprints. Coverage repair is not visual acceptance. [Study34 findings and exact evidence](evidence/phase2a/visual-rebuild/study34-findings.md).
 
 ## Historical study31b: normal play
 
