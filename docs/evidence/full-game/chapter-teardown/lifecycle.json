@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/MaterialSharing/chapter-teardown.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "count": 13,
+        "checks": [
+          "Local in-flight request exists",
+          "Year is frozen before transport cancellation",
+          "Disable releases transport and finishing state",
+          "Disable does not publish into teardown subscribers",
+          "Disable preserves exact pending request and budget",
+          "Re-enabled session accepts same year offline exactly once",
+          "Repeated resolution cannot accept or charge the year twice",
+          "Explicit player stop still publishes",
+          "Next-year transport starts normally",
+          "GameObject deactivation silently releases transport",
+          "Deactivation preserves next-year pending request",
+          "Live game and ledger remain unchanged",
+          "Destroying disabled session publishes no callback"
+        ],
+        "events": 7,
+        "frame": 9274,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
