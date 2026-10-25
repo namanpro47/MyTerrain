@@ -10,6 +10,12 @@
 
 [Study66 rendered asset comparison](evidence/phase2a/visual-rebuild/study66-findings.md): the approved free BigRookGames family was inspected in its supplied URP demo and in Wisconsin. Native and adapted leaf materials yield fuller crowns, but dense repeated rounded layers and weak edge structure remain. The swap is not adopted; production scenery is unchanged.
 
+**Latest structural and asset comparisons: studies67–68, both rejected.** [Study67](evidence/phase2a/visual-rebuild/study67-rendered/README.md) tests fewer mature trees, actual low shrubs and larger glades using the coherent BigRook family. Repeated layered crowns and disconnected shrubs remain. [Study68](evidence/phase2a/visual-rebuild/study68-environment/README.md) evaluates the free RG Poly environment in its native scene and substitutes its supplied grass geometry/material in Terra. At play distance it becomes separated green marks; the replacement is not adopted. These are actual Editor camera renders, not Chrome acceptance.
+
+![Rejected study68 — native grass shader and geometry in the actual retained landscape](evidence/phase2a/visual-rebuild/study68-environment/terra-native-grass-normal.png)
+
+**Next investigation: shared ground and vegetation construction.** The persistent failure is the whole field–meadow surface, not the lack of another plant model. Test coordinated artist paint on terrain and plant roots plus a lower continuous vegetation layer. It must improve the full image at ordinary play distance and close up; another tint/density-only patch or a successful close-detail demo is insufficient. Production scenery remains the study65 candidate above until an actual stronger result is demonstrated.
+
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
 
