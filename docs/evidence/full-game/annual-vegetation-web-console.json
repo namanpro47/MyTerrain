@@ -1,0 +1,518 @@
+[
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/f56dab0555e4a81232e0a01761880dc1.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T06:49:19.929Z",
+    "url": "http://127.0.0.1:65250/Build/9cb95030bc78dc15d32be3d2fadef312.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/c1163bd33a5a26f69db00ebfdd04368d.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T06:49:20.014Z",
+    "url": "http://127.0.0.1:65250/Build/9cb95030bc78dc15d32be3d2fadef312.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/c18e1933b61b728fdd4278e30bfa97e6.data.unityweb\" file.",
+    "timestamp": "2026-10-25T06:49:20.100Z",
+    "url": "http://127.0.0.1:65250/Build/9cb95030bc78dc15d32be3d2fadef312.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:65250/Build/c18e1933b61b728fdd4278e30bfa97e6.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-25T06:49:20.755Z",
+    "url": "http://127.0.0.1:65250/Build/9cb95030bc78dc15d32be3d2fadef312.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T06:49:23.328Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T06:49:23.332Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T06:49:23.333Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T06:49:23.333Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T06:49:23.333Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T06:49:23.333Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T06:49:23.333Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T06:49:23.334Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T06:49:23.335Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T06:49:23.490Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T06:49:23.505Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T06:49:23.513Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T06:49:23.513Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T06:49:23.517Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T06:49:23.547Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T06:49:23.548Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T06:49:23.553Z",
+    "url": "http://127.0.0.1:65250/Build/9cb95030bc78dc15d32be3d2fadef312.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T06:49:23.691Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T06:49:23.691Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T06:49:23.691Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T06:49:23.691Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T06:49:23.692Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T06:49:23.693Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T06:49:23.716Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T06:49:23.783Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T06:49:23.783Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T06:49:23.783Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T06:49:23.783Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T06:49:23.783Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T06:49:23.784Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T06:49:23.826Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T06:49:23.848Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T06:49:23.848Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T06:49:23.848Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T06:49:23.849Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T06:49:23.849Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T06:49:23.849Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T06:49:23.849Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T06:49:23.849Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 2.099999 ms\n",
+    "timestamp": "2026-10-25T06:49:23.901Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 4339ms",
+    "timestamp": "2026-10-25T06:49:23.927Z",
+    "url": "http://127.0.0.1:65250/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T06:49:26.130Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T06:49:26.131Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1056; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T06:49:27.603Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T06:49:27.665Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 8076",
+    "timestamp": "2026-10-25T06:49:27.665Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T06:49:41.621Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 18.029 seconds.",
+    "timestamp": "2026-10-25T06:49:41.786Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 1 accepted in 47.5 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:50:42.224Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 2 accepted in 31.0 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:36.860Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 3 accepted in 35.3 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:36.917Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 4 accepted in 36.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:36.977Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 5 accepted in 38.8 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.046Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 6 accepted in 41.0 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.113Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 7 accepted in 43.8 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.187Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 8 accepted in 46.5 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.267Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 9 accepted in 49.1 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.350Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 10 accepted in 51.3 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T06:51:37.437Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":121313044,\"reservedBytes\":196280320,\"managedBytes\":80154624,\"meshes\":450,\"materials\":870}\n",
+    "timestamp": "2026-10-25T06:51:37.548Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: fast-forward from year 2 completed in 724.2 ms including yielding and final world refresh\n",
+    "timestamp": "2026-10-25T06:51:37.548Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"ACCEPTED · OPERATING\",\"rect\":{\"x\":1142.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1142.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Cover crop\\nStarted year 1\\nEstablishment 100%\\n\\nFinal accepted project.\",\"rect\":{\"x\":1142.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Accepted projects stay in place.\",\"rect\":{\"x\":1142.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.8 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"43.1 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 10/10 · COMPLETE\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,669 m³\\nYear-end cover: 9,669 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $19,700,000\\nExisting obligations  $0\\nQueued reserve  $0\\n<b>Available  $19,700,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0}},{\"name\":\"Button Ten-year future\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":1124.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}]}\n",
+    "timestamp": "2026-10-25T06:51:58.556Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/2: {\"cssWidth\":1440.0,\"cssHeight\":900.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":762.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1276.0,\"y\":826.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1276.0,\"y\":762.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"ACCEPTED · OPERATING\",\"rect\":{\"x\":1142.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1142.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Cover crop\\nStarted year 1\\nEstablishment 100%\\n\\nFinal accepted project.\",\"rect\":{\"x\":1142.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Accepted projects stay in place.\",\"rect\":{\"x\":1142.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":782.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"53.8 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":782.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":994.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"58.0 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":994.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1206.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"43.1 <size=65%>/100 · last yr 0.0</size>\",\"rect\":{\"x\":1206.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 10/10 · COMPLETE\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,669 m³\\nYear-end cover: 9,669 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $19,700,000\\nExisting obligations  $0\\nQueued reserve  $0\\n<b>Available  $19,700,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Last report\",\"rect\":{\"x\":1276.0,\"y\":634.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availabl\n",
+    "timestamp": "2026-10-25T06:51:58.556Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/2: eHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":582.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":530.0,\"width\":148.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0}},{\"name\":\"Button Ten-year future\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":1124.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":766.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":24.0,\"y\":580.0,\"width\":130.0,\"height\":44.0},{\"x\":24.0,\"y\":528.0,\"width\":164.0,\"height\":44.0},{\"x\":24.0,\"y\":760.0,\"width\":130.0,\"height\":56.0},{\"x\":1268.0,\"y\":824.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":760.0,\"width\":148.0,\"height\":56.0},{\"x\":1268.0,\"y\":632.0,\"width\":148.0,\"height\":56.0}]}\n",
+    "timestamp": "2026-10-25T06:51:58.556Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=22; cash=1970000000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T06:51:58.562Z",
+    "url": "blob:http://127.0.0.1:65250/9a42b85f-9073-485d-9b58-f138d4aa8aaa"
+  }
+]
