@@ -1,0 +1,10 @@
+{
+  "main": "b9c668613a78735414e3aadd927716b62859e29c",
+  "initialRefsNotInMain": [
+    {
+      "ref": "codex/community-locations",
+      "sha": "6660a9b11bc920a616cd89f8b127a43d521d59f0",
+      "missingCommits": 5
+    }
+  ]
+}
