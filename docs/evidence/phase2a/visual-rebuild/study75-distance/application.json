@@ -1,0 +1,13 @@
+{
+  "site": "south-01",
+  "canopyVertices": 21460,
+  "canopyTriangles": 39258,
+  "plants": 49333,
+  "nearTrianglesPerPlant": 508,
+  "mediumTrianglesPerPlant": 242,
+  "distantTrianglesPerPlant": 0,
+  "cells": 56,
+  "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "sourceUnchanged": true,
+  "scope": "Play-only full parcel near-plant and distant-canopy representation; no browser or performance acceptance."
+}

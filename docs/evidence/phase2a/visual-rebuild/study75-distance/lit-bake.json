@@ -1,0 +1,9 @@
+{
+  "instances": 961,
+  "tileMeters": 12,
+  "resolution": 512,
+  "sourceTriangles": 1672,
+  "sourceMaterials": 7,
+  "path": "Assets/Terra/Art/FieldMassStudy/Dglopez/Study75LitSurface.png",
+  "scope": "Offline render of licensed source geometry/colors, no image generation. Source direct/ambient light baked once for comparison; runtime surface must not relight it."
+}

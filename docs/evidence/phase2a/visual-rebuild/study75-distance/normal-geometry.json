@@ -1,0 +1,14 @@
+{
+  "frame": 2051,
+  "camera": "(51.97, 203.55, -297.20)",
+  "objects": 56,
+  "near": 0,
+  "medium": 392,
+  "empty": 0,
+  "offscreen": 16,
+  "observedSubmittedBatches": 392,
+  "estimatedSelectedPlantTriangles": 11515812,
+  "selectedPlants": 47586,
+  "canopyTriangles": 39258,
+  "scope": "Conservative CPU batch geometry accounting, before per-plant shader fade and hardware culling. Not frame-time/performance evidence."
+}
