@@ -1,0 +1,32 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 4548",
+    "timestamp": "2026-10-25T04:07:56.255Z",
+    "url": "blob:http://127.0.0.1:8779/a9a7f2ce-2689-486a-a61e-609bd7b21fcd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":116364926,\"reservedBytes\":214106112,\"managedBytes\":142987264,\"meshes\":287,\"materials\":721}\n",
+    "timestamp": "2026-10-25T04:07:56.308Z",
+    "url": "blob:http://127.0.0.1:8779/a9a7f2ce-2689-486a-a61e-609bd7b21fcd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T04:08:03.083Z",
+    "url": "blob:http://127.0.0.1:8779/a9a7f2ce-2689-486a-a61e-609bd7b21fcd"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.014999389648438,\"averageFps\":57.771114349365234,\"frameP50Ms\":17.0,\"frameP95Ms\":21.0,\"frameP99Ms\":23.0,\"maxFrameMs\":30.0,\"maxPreviewCpuMs\":-1.0,\"maxPlacementCpuMs\":-1.0,\"frames\":1734,\"framesOver33Ms\":0,\"framesOver200Ms\":0,\"previewEvents\":0,\"placementEvents\":0,\"cameraEvents\":1616,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T04:08:33.103Z",
+    "url": "blob:http://127.0.0.1:8779/a9a7f2ce-2689-486a-a61e-609bd7b21fcd"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T04:08:33.114Z",
+    "url": "blob:http://127.0.0.1:8779/a9a7f2ce-2689-486a-a61e-609bd7b21fcd"
+  }
+]

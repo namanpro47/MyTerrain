@@ -1,0 +1,135 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 34.41229248046875,
+        "width": 610.953857421875,
+        "height": 20.086181640625
+      },
+      "bodyCssPx": 13.12297248840332,
+      "minGlyphCssPx": 13.12297248840332,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Landscape art & acknowledgements</b></size>\n\n<b>JulioVII · Stylized Grass & Dirt</b>\nCC-BY (version unspecified by creator)\njuliovii.itch.io/ftpgrass-dirt\nAdapted tiling, tint, relief and blending.\n\n<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use. Adapted scale, materials and instancing.\n\n<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 67.05230712890625,
+        "width": 615.975341796875,
+        "height": 368.24615478515625
+      },
+      "bodyCssPx": 18.7470760345459,
+      "minGlyphCssPx": 18.7470760345459,
+      "preferredHeight": 369.8900146484375,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 393.15692138671875,
+        "y": 496.3938293457031,
+        "width": 237.6861572265625,
+        "height": 43.52000427246094
+      },
+      "bodyCssPx": 15.935018539428711,
+      "minGlyphCssPx": 15.935018539428711,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Plants & sound →",
+      "rect": {
+        "x": 388.9723205566406,
+        "y": 442.83074951171875,
+        "width": 246.05538940429688,
+        "height": 43.519996643066406
+      },
+      "bodyCssPx": 15.935014724731445,
+      "minGlyphCssPx": 15.935014724731445,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 386.4615478515625,
+        "y": 494.7200012207031,
+        "width": 251.076904296875,
+        "height": 46.86769104003906
+      }
+    },
+    {
+      "name": "Button Sources & limits →",
+      "enabled": true,
+      "rect": {
+        "x": 382.27691650390625,
+        "y": 441.15692138671875,
+        "width": 259.4461669921875,
+        "height": 46.86769104003906
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 132,
+      "y": 396,
+      "width": 760,
+      "height": 160
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 350,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 200,
+      "y": 330,
+      "width": 130,
+      "height": 38
+    },
+    {
+      "x": 24,
+      "y": 330,
+      "width": 164,
+      "height": 38
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 177.23077392578125,
+      "y": 16,
+      "width": 669.5384521484375,
+      "height": 544
+    }
+  ]
+}

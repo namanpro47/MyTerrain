@@ -16,6 +16,11 @@ namespace Terra.Gameplay
         [DllImport("__Internal")] static extern void TerraMetricsEnd();
         [DllImport("__Internal")] static extern void TerraFeedbackReady(int kind);
 #endif
+        public static void Memory(string checkpoint)
+        {
+            Debug.Log("TERRA_MEMORY: "+JsonUtility.ToJson(new MemorySample{checkpoint=checkpoint,allocatedBytes=UnityEngine.Profiling.Profiler.GetTotalAllocatedMemoryLong(),reservedBytes=UnityEngine.Profiling.Profiler.GetTotalReservedMemoryLong(),managedBytes=GC.GetTotalMemory(false),meshes=Resources.FindObjectsOfTypeAll<Mesh>().Length,materials=Resources.FindObjectsOfTypeAll<Material>().Length}));
+        }
+        [Serializable] sealed class MemorySample{public string checkpoint;public long allocatedBytes,reservedBytes,managedBytes;public int meshes,materials;}
         public static void Ready(){
 #if UNITY_WEBGL && !UNITY_EDITOR
             TerraLandscapeReady();

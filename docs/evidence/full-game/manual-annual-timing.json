@@ -1,0 +1,62 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 1 accepted in 23.1 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:24:35.904Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 2 accepted in 26.5 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:24:42.632Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 3 accepted in 33.3 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:24:44.524Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 4 accepted in 31.4 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:04.149Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 5 accepted in 35.0 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:09.091Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 6 accepted in 39.8 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:11.033Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 7 accepted in 43.7 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:12.772Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 8 accepted in 48.3 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:32.019Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 9 accepted in 48.5 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:40.578Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: year 10 accepted in 54.4 ms including world/report refresh\n",
+    "timestamp": "2026-10-25T03:25:42.270Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  }
+]

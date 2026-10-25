@@ -1,0 +1,233 @@
+{
+    "checksPassed": 952,
+    "maximumFoundationReliefMetres": 3.0,
+    "availability": [
+        {
+            "id": "cultivate-standard",
+            "category": "Farming",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "cover-crop",
+            "category": "Farming",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "conservation-rotation",
+            "category": "Farming",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "cultivate-margin",
+            "category": "Farming",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "restore-grass",
+            "category": "Nature",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "water-swale",
+            "category": "Utilities",
+            "sites": [
+                "Meadow edge",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "low-density-housing",
+            "category": "Residential",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "high-density-housing",
+            "category": "Residential",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "public-park",
+            "category": "Community",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Southern field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "agricultural-storage",
+            "category": "Utilities",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Southern field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "data-center",
+            "category": "Utilities",
+            "sites": [
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "village-center",
+            "category": "Community",
+            "sites": [
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "non-renewable-power",
+            "category": "Utilities",
+            "sites": [
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "solar",
+            "category": "Utilities",
+            "sites": [
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Brye-side field"
+            ]
+        },
+        {
+            "id": "wind",
+            "category": "Utilities",
+            "sites": []
+        },
+        {
+            "id": "stewardship-agreement",
+            "category": "Nature",
+            "sites": [
+                "West field",
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Meadow edge",
+                "Southern field",
+                "Brye-side field",
+                "Western terrace"
+            ]
+        },
+        {
+            "id": "wastewater-upgrade",
+            "category": "Utilities",
+            "sites": [
+                "Central field",
+                "East field",
+                "Lower west field",
+                "Lower central field",
+                "Lower east field",
+                "Brye-side field"
+            ]
+        }
+    ]
+}

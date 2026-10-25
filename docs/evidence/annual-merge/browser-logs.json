@@ -1,0 +1,920 @@
+[
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T01:49:45.401Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9022a018ecb5118b600e68c2b6b5c361.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T01:49:45.535Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/7378e65aa85d859a8c9a1d442c4f6a9a.data.unityweb\" file.",
+    "timestamp": "2026-10-25T01:49:45.673Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:8094/Build/7378e65aa85d859a8c9a1d442c4f6a9a.data.unityweb' successfully downloaded and stored in the browser cache",
+    "timestamp": "2026-10-25T01:49:45.883Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T01:49:48.299Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T01:49:48.299Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T01:49:48.299Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:49:48.299Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T01:49:48.300Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:49:48.301Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:49:48.301Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T01:49:48.301Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:49:48.301Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:49:48.301Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T01:49:48.302Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T01:49:48.481Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T01:49:48.496Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T01:49:48.505Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T01:49:48.505Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T01:49:48.511Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T01:49:48.542Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T01:49:48.542Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T01:49:48.548Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T01:49:49.503Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T01:49:49.503Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T01:49:49.503Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T01:49:49.509Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T01:49:49.509Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T01:49:49.510Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T01:49:50.677Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T01:49:50.780Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T01:49:50.780Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T01:49:50.780Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T01:49:50.781Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T01:49:50.781Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T01:49:50.781Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T01:49:50.831Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 1.900000 ms\n",
+    "timestamp": "2026-10-25T01:49:51.097Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 6304ms",
+    "timestamp": "2026-10-25T01:49:51.126Z",
+    "url": "http://127.0.0.1:8094/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:49:53.396Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:49:53.396Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=866; meshes=31; vertices=728538; materials=4\n",
+    "timestamp": "2026-10-25T01:49:54.975Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T01:49:55.007Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 10184",
+    "timestamp": "2026-10-25T01:49:55.007Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 9.679 seconds.",
+    "timestamp": "2026-10-25T01:50:00.431Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T01:50:05.030Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get length of sound which is not loaded yet.",
+    "timestamp": "2026-10-25T01:50:05.042Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "Trying to get metadata of sound which is not loaded.",
+    "timestamp": "2026-10-25T01:50:05.042Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\nUpfront $100,000\\nUpkeep $2,000 / yr × 10\\nOpens Y1 · matures 1 yr\\n0.68 ha management agreement\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Plan updated. Money reserved; payment happens at End Year.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1572.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\"",
+    "timestamp": "2026-10-25T01:50:05.097Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\nUpfront $100,000\\nUpkeep $2,000 / yr × 10\\nOpens Y1 · matures 1 yr\\n0.68 ha management agreement\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Plan updated. Money reserved; payment happens at End Year.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1572.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.\n",
+    "timestamp": "2026-10-25T01:50:05.098Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: 5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556\n",
+    "timestamp": "2026-10-25T01:50:05.098Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: .0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Move  V\",\"enabled\":true,\"rect\":{\"x\":1430.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Button Remove\",\"enabled\":true,\"rect\":{\"x\":1564.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":false,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":1412.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":579.0,\"y\":132.0,\"width\":570.0,\"height\":52.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}]}\n",
+    "timestamp": "2026-10-25T01:50:05.099Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T01:50:05.099Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"YEAR 1 PROPOSAL\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Choose an action to propose here.\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":120.0},{\"text\":\"Choose an action and eligible field.\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued edit undone. Accepted years unchanged.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Queue · Enter\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":240.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 32.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 26.7</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $0\\n<b>Available  $10,000,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Confirm\",\"enabled\":false,\"rect\":{\"x\":1430.0,\"y\":388.0,\"width\":256.0,\"height\"",
+    "timestamp": "2026-10-25T01:50:08.194Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"YEAR 1 PROPOSAL\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Choose an action to propose here.\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":120.0},{\"text\":\"Choose an action and eligible field.\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued edit undone. Accepted years unchanged.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Queue · Enter\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":240.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeigh\n",
+    "timestamp": "2026-10-25T01:50:08.195Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: t\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 32.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 26.7</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $0\\n<b>Available  $10,000,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\n",
+    "timestamp": "2026-10-25T01:50:08.195Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: \":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Confirm\",\"enabled\":false,\"rect\":{\"x\":1430.0,\"y\":388.0,\"width\":256.0,\"height\":48.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":false,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":1412.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":579.0,\"y\":132.0,\"width\":570.0,\"height\":52.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}]}\n",
+    "timestamp": "2026-10-25T01:50:08.195Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=2; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T01:50:08.195Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\nUpfront $100,000\\nUpkeep $2,000 / yr × 10\\nOpens Y1 · matures 1 yr\\n0.68 ha management agreement\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued plan restored.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1572.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"re",
+    "timestamp": "2026-10-25T01:50:11.390Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"QUEUED · NOT YET PAID\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"<b>Traditional farmland</b>\\nUpfront $100,000\\nUpkeep $2,000 / yr × 10\\nOpens Y1 · matures 1 yr\\n0.68 ha management agreement\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":91.47000122070313,\"availableHeight\":120.0},{\"text\":\"Queued · V to move · Delete to remove\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued plan restored.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Move  V\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Remove\",\"rect\":{\"x\":1572.0,\"y\":390.0,\"width\":106.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36\n",
+    "timestamp": "2026-10-25T01:50:11.390Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: .0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"32.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"26.7 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 1 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,000,000\\nExisting obligations  $0\\nQueued reserve  $120,000\\n<b>Available  $9,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Review year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":5\n",
+    "timestamp": "2026-10-25T01:50:11.390Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: 6.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Move  V\",\"enabled\":true,\"rect\":{\"x\":1430.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Button Remove\",\"enabled\":true,\"rect\":{\"x\":1564.0,\"y\":388.0,\"width\":122.0,\"height\":48.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":false,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":1412.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":579.0,\"y\":132.0,\"width\":570.0,\"height\":52.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}]}\n",
+    "timestamp": "2026-10-25T01:50:11.390Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=3; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T01:50:11.390Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":496.0,\"y\":167.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · accepted</b></size>\\n\\n<size=88%>Reference growing year\\n1 operating\\n\\nCash  $10,000,000 → <b>$10,898,000</b>\\nProjects $100,000 · upkeep $2,000\\nAppropriation $1,000,000 · receipts $0\\nFuture obligations $18,000 · arrears $0\\n\\n<b>Economic 54.0 (+22.0)</b> · output 17.0 / 40 + upkeep funded\\n<b>Social 38.9 (+12.2)</b> · food / home / recreation services 4.3 / 18\\n<b>Environment 27.4 (0.0)</b> · cover 34% + storage 0 m³\\n\\n<size=82%>Starter rubric v2: 80/20 weights, capped 0–100. Authored effects, not yield, wellbeing or flood forecasts. Adapt on uncommitted fields.</size></size>\",\"rect\":{\"x\":496.0,\"y\":206.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":16.399999618530273,\"preferredHeight\":336.0400085449219,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":722.0,\"y\":719.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Plan year 2\",\"rect\":{\"x\":657.0,\"y\":655.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":714.0,\"y\":717.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":649.0,\"y\":653.0,\"width\":430.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1728.0,\"height\":940.0},{\"x\":464.0,\"y\":145.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T01:50:16.120Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/1: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":true,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A   /   FIELD NOTES\",\"rect\":{\"x\":496.0,\"y\":167.0,\"width\":730.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"<size=140%><b>Year 1 · accepted</b></size>\\n\\n<size=88%>Reference growing year\\n1 operating\\n\\nCash  $10,000,000 → <b>$10,898,000</b>\\nProjects $100,000 · upkeep $2,000\\nAppropriation $1,000,000 · receipts $0\\nFuture obligations $18,000 · arrears $0\\n\\n<b>Economic 54.0 (+22.0)</b> · output 17.0 / 40 + upkeep funded\\n<b>Social 38.9 (+12.2)</b> · food / home / recreation services 4.3 / 18\\n<b>Environment 27.4 (0.0)</b> · cover 34% + storage 0 m³\\n\\n<size=82%>Starter rubric v2: 80/20 weights, capped 0–100. Authored effects, not yield, wellbeing or flood forecasts. Adapt on uncommitted fields.</size></size>\",\"rect\":{\"x\":496.0,\"y\":206.0,\"width\":736.0,\"height\":440.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":16.399999618530273,\"preferredHeight\":336.0400085449219,\"availableHeight\":440.0},{\"text\":\"Return to landscape  Esc\",\"rect\":{\"x\":722.0,\"y\":719.0,\"width\":284.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0},{\"text\":\"Plan year 2\",\"rect\":{\"x\":657.0,\"y\":655.0,\"width\":414.0,\"height\":52.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":52.0}],\"controls\":[{\"name\":\"Button Return to landscape  Esc\",\"enabled\":true,\"rect\":{\"x\":714.0,\"y\":717.0,\"width\":300.0,\"height\":56.0}},{\"name\":\"Button \",\"enabled\":true,\"rect\":{\"x\":649.0,\"y\":653.0,\"width\":430.0,\"height\":56.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0},{\"x\":0.0,\"y\":0.0,\"width\":1728.0,\"height\":940.0},{\"x\":464.0,\"y\":145.0,\"width\":800.0,\"height\":650.0}]}\n",
+    "timestamp": "2026-10-25T01:50:16.120Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1089800000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T01:50:16.120Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"ACCEPTED · OPERATING\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\\nStarted year 1\\nEstablishment 100%\\n\\nAccepted projects remain for this run. Plan on another field.\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":109.87000274658203,\"availableHeight\":120.0},{\"text\":\"Accepted projects stay in place.\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued edit undone. Accepted years unchanged.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Queue · Enter\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":240.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"54.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"38.9 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 2 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,898,000\\nExisting obligations  $18,000\\nQueued reserve  $0\\n<b>Available  $10,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":5",
+    "timestamp": "2026-10-25T01:50:20.009Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"ACCEPTED · OPERATING\",\"rect\":{\"x\":1430.0,\"y\":148.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":24.0},{\"text\":\"West field\",\"rect\":{\"x\":1430.0,\"y\":177.0,\"width\":256.0,\"height\":52.0},\"bodyCssPx\":22.0,\"minGlyphCssPx\":22.0,\"preferredHeight\":24.579999923706055,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\\nStarted year 1\\nEstablishment 100%\\n\\nAccepted projects remain for this run. Plan on another field.\",\"rect\":{\"x\":1430.0,\"y\":227.0,\"width\":256.0,\"height\":120.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":109.87000274658203,\"availableHeight\":120.0},{\"text\":\"Accepted projects stay in place.\",\"rect\":{\"x\":1430.0,\"y\":349.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":35.0},{\"text\":\"Queued edit undone. Accepted years unchanged.\",\"rect\":{\"x\":595.0,\"y\":135.0,\"width\":538.0,\"height\":46.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":46.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Queue · Enter\",\"rect\":{\"x\":1438.0,\"y\":390.0,\"width\":240.0,\"height\":44.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":44.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"\n",
+    "timestamp": "2026-10-25T01:50:20.009Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"54.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"38.9 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 2 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,898,000\\nExisting obligations  $18,000\\nQueued reserve  $0\\n<b>Available  $10,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":fals\n",
+    "timestamp": "2026-10-25T01:50:20.009Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: e,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Confirm\",\"enabled\":false,\"rect\":{\"x\":1430.0,\"y\":388.0,\"width\":256.0,\"height\":48.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":1412.0,\"y\":132.0,\"width\":292.0,\"height\":320.0},{\"x\":579.0,\"y\":132.0,\"width\":570.0,\"height\":52.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}]}\n",
+    "timestamp": "2026-10-25T01:50:20.009Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=5; cash=1089800000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T01:50:20.009Z",
+    "url": "blob:http://127.0.0.1:8094/4996f26d-5c50-4f43-ae25-dbec67a8bb30"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb\" file.",
+    "timestamp": "2026-10-25T01:50:24.500Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/9022a018ecb5118b600e68c2b6b5c361.wasm.unityweb\" file.",
+    "timestamp": "2026-10-25T01:50:24.513Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityCache] 'http://127.0.0.1:8094/Build/7378e65aa85d859a8c9a1d442c4f6a9a.data.unityweb' successfully revalidated and served from the browser cache",
+    "timestamp": "2026-10-25T01:50:24.554Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "You can reduce startup time if you configure your web server to add \"Content-Encoding: gzip\" response header when serving \"Build/7378e65aa85d859a8c9a1d442c4f6a9a.data.unityweb\" file.",
+    "timestamp": "2026-10-25T01:50:24.571Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "[UnityMemory] Configuration Parameters - Can be set up in boot.config\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:50:27.911Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:50:27.914Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-main-allocator-mimalloc-enabled=1\"\n",
+    "timestamp": "2026-10-25T01:50:27.914Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-main-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:50:27.914Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-gfx-thread-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-cache-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-typetree-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-granularity=16\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-bucket-count=8\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-size=4194304\"\n",
+    "timestamp": "2026-10-25T01:50:27.915Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-bucket-allocator-block-count=1\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-allocator-block-size=16777216\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-profiler-editor-allocator-block-size=1048576\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-main=4194304\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size=2097152\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-block-size-background=1048576\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-job-temp-allocator-reduction-small-platforms=262144\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-background-worker=32768\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-main=262144\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-allocator-temp-initial-block-size-worker=262144\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-temp-allocator-size-audio-worker=65536\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "    \"memorysetup-remapper-allocator-initial-capacity=32768\"\n",
+    "timestamp": "2026-10-25T01:50:27.919Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "CodeReloadManager initialized\n",
+    "timestamp": "2026-10-25T01:50:28.337Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Input System module state changed to: Initialized.\n",
+    "timestamp": "2026-10-25T01:50:28.339Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Initialized fallback backend.\n",
+    "timestamp": "2026-10-25T01:50:28.343Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xdecafbad\n",
+    "timestamp": "2026-10-25T01:50:28.343Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Loading player data from data.unity3d\n",
+    "timestamp": "2026-10-25T01:50:28.343Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Initialize engine version: 6000.6.6f1 (d20c9ac777da)\n",
+    "timestamp": "2026-10-25T01:50:28.351Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[EntityIdStore] init: page-table path, blockCount=1048576, entitiesPerBlock=256, top-level=8388608 bytes, sizeof(Block)=4128 (lazily allocated per committed block)\n",
+    "timestamp": "2026-10-25T01:50:28.352Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Creating WebGL 2.0 context.",
+    "timestamp": "2026-10-25T01:50:28.352Z",
+    "url": "http://127.0.0.1:8094/Build/f8901f30eccd19e55507a9b9095c5572.loader.js"
+  },
+  {
+    "level": "log",
+    "message": "Renderer: WebKit WebGL\n",
+    "timestamp": "2026-10-25T01:50:29.286Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Vendor:   WebKit\n",
+    "timestamp": "2026-10-25T01:50:29.287Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Version:  OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium))\n",
+    "timestamp": "2026-10-25T01:50:29.287Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "GLES:     3\n",
+    "timestamp": "2026-10-25T01:50:29.287Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": " EXT_clip_control EXT_color_buffer_float EXT_color_buffer_half_float EXT_conservative_depth EXT_depth_clamp EXT_disjoint_timer_query_webgl2 EXT_float_blend EXT_polygon_offset_clamp EXT_texture_compression_bptc EXT_texture_compression_rgtc EXT_texture_filter_anisotropic EXT_texture_norm16 KHR_parallel_shader_compile NV_shader_noperspective_interpolation OES_texture_float_linear WEBGL_blend_func_extended WEBGL_clip_cull_distance WEBGL_compressed_texture_astc WEBGL_compressed_texture_etc WEBGL_compressed_texture_etc1 WEBGL_compressed_texture_s3tc WEBGL_compressed_texture_s3tc_srgb WEBGL_debug_renderer_info WEBGL_debug_shaders WEBGL_lose_context WEBGL_multi_draw WEBGL_polygon_mode GL_EXT_clip_control GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_conservative_depth GL_EXT_depth_clamp GL_EXT_disjoint_timer_query_webgl2 GL_EXT_float_blend GL_EXT_polygon_offset_clamp GL_EXT_texture_compression_bptc GL_EXT_texture_compression_rgtc GL_EXT_texture_filter_anisotropic GL_EXT_texture_norm16 GL_KHR_parall\n",
+    "timestamp": "2026-10-25T01:50:29.287Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "el_shader_compile GL_NV_shader_noperspective_interpolation GL_OES_texture_float_linear GL_WEBGL_blend_func_extended GL_WEBGL_clip_cull_distance GL_WEBGL_compressed_texture_astc GL_WEBGL_compressed_texture_etc GL_WEBGL_compressed_texture_etc1 GL_WEBGL_compressed_texture_s3tc GL_WEBGL_compressed_texture_s3tc_srgb GL_WEBGL_debug_renderer_info GL_WEBGL_debug_shaders GL_WEBGL_lose_context GL_WEBGL_multi_draw GL_WEBGL_polygon_mode\n",
+    "timestamp": "2026-10-25T01:50:29.287Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "OPENGL LOG: Creating OpenGL ES 3.0 graphics device ; Context level  <OpenGL ES 3.0> ; Context handle 1\n",
+    "timestamp": "2026-10-25T01:50:30.412Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Selected backend (deferred post-plugins).\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Name: PhysX\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Id: 0xf2b8ea05\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] SDK Version: 4.1.2\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Integration Version: 1.0.0\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "[Physics::Module] Threading Mode: Single-Threaded\n",
+    "timestamp": "2026-10-25T01:50:30.454Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Input System initialize...\n",
+    "timestamp": "2026-10-25T01:50:30.502Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "UnloadTime: 2.000000 ms\n",
+    "timestamp": "2026-10-25T01:50:30.769Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 6631ms",
+    "timestamp": "2026-10-25T01:50:30.787Z",
+    "url": "http://127.0.0.1:8094/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:50:33.170Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T01:50:33.171Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1624; meshes=31; vertices=728538; materials=4\n",
+    "timestamp": "2026-10-25T01:50:35.837Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=2; phase=Planning; revision=5; cash=1089800000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T01:50:35.885Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 11732",
+    "timestamp": "2026-10-25T01:50:35.885Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_AUDIT: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Traditional farmland · $100,000 upfront + $2,000 annual upkeep\\nDesign intent /5: Economic 3 · Social 3 · Environment 2 (not meter points)\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":31.739999771118164,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"54.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"38.9 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 2 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,898,000\\nExisting obligations  $18,000\\nQueued reserve  $0\\n<b>Available  $10,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0",
+    "timestamp": "2026-10-25T01:50:37.963Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 0/3: {\"cssWidth\":1728.0,\"cssHeight\":940.0,\"pixelRatio\":2.0,\"modal\":false,\"largeText\":false,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":23.0,\"minGlyphCssPx\":23.0,\"preferredHeight\":25.700000762939453,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":24.0},{\"text\":\"Farming\",\"rect\":{\"x\":550.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Nature & water\",\"rect\":{\"x\":798.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Community\",\"rect\":{\"x\":1046.0,\"y\":708.0,\"width\":128.0,\"height\":34.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":34.0},{\"text\":\"Traditional farmland · $100,000 upfront + $2,000 annual upkeep\\nDesign intent /5: Economic 3 · Social 3 · Environment 2 (not meter points)\",\"rect\":{\"x\":500.0,\"y\":876.0,\"width\":728.0,\"height\":38.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":31.739999771118164,\"availableHeight\":38.0},{\"text\":\"Undo  Z\",\"rect\":{\"x\":32.0,\"y\":866.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":802.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":1564.0,\"y\":866.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":1564.0,\"y\":802.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Redo  Y\",\"rect\":{\"x\":32.0,\"y\":738.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Clear all  X\",\"rect\":{\"x\":32.0,\"y\":674.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Traditional farmland\",\"rect\":{\"x\":527.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":527.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Crop rotation\",\"rect\":{\"x\":771.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":771.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"Living margin\",\"rect\":{\"x\":1015.5,\"y\":815.0,\"width\":171.0,\"height\":36.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":36.0},{\"text\":\"10 eligible fields\",\"rect\":{\"x\":1015.5,\"y\":854.0,\"width\":171.0,\"height\":18.0},\"bodyCssPx\":11.0,\"minGlyphCssPx\":11.0,\"preferredHeight\":12.289999961853027,\"availableHeight\":18.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":1070.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"54.0 <size=65%>/100 · year-end 54.0</size>\",\"rect\":{\"x\":1070.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHei\n",
+    "timestamp": "2026-10-25T01:50:37.963Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 1/3: ght\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":1282.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"38.9 <size=65%>/100 · year-end 38.9</size>\",\"rect\":{\"x\":1282.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":1494.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":14.529999732971191,\"availableHeight\":18.0},{\"text\":\"27.4 <size=65%>/100 · year-end 27.4</size>\",\"rect\":{\"x\":1494.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":20.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":22.350000381469727,\"availableHeight\":28.0},{\"text\":\"YEAR 2 / 10  ·  PLANNING\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":17.0,\"minGlyphCssPx\":17.0,\"preferredHeight\":19.0,\"availableHeight\":22.0},{\"text\":\"Fixed storm · discharged 9,702 m³\\nYear-end cover: 9,702 m³ · not flood risk\",\"rect\":{\"x\":40.0,\"y\":272.0,\"width\":278.0,\"height\":42.0},\"bodyCssPx\":13.0,\"minGlyphCssPx\":13.0,\"preferredHeight\":29.479999542236328,\"availableHeight\":42.0},{\"text\":\"Cash  $10,898,000\\nExisting obligations  $18,000\\nQueued reserve  $0\\n<b>Available  $10,880,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":73.08000183105469,\"availableHeight\":96.0},{\"text\":\"Wait one year →\",\"rect\":{\"x\":1564.0,\"y\":738.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"Last report\",\"rect\":{\"x\":1564.0,\"y\":674.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":16.0,\"minGlyphCssPx\":16.0,\"preferredHeight\":17.8799991607666,\"availableHeight\":52.0},{\"text\":\"New run\",\"rect\":{\"x\":32.0,\"y\":622.0,\"width\":114.0,\"height\":40.0},\"bodyCssPx\":14.0,\"minGlyphCssPx\":14.0,\"preferredHeight\":15.649999618530273,\"availableHeight\":40.0}],\"controls\":[{\"name\":\"Button Farming\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Residential\",\"enabled\":true,\"rect\":{\"x\":742.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Community\",\"enabled\":true,\"rect\":{\"x\":990.0,\"y\":706.0,\"width\":240.0,\"height\":38.0}},{\"name\":\"Button Undo  Z\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Redo  Y\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Clear all  X\",\"enabled\":false,\"rect\":{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Build Traditional farmland\",\"enabled\":true,\"rect\":{\"x\":494.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Conservation rotation\",\"enabled\":true,\"rect\":{\"x\":738.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Build Living margin\",\"enabled\":true,\"rect\":{\"x\":982.0,\"y\":751.0,\"width\":238.0,\"height\":124.0}},{\"name\":\"Button Review year →\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":484.0,\"y\":698.0,\"width\":760.0,\"height\":222.0},{\"x\":24.0,\"y\":864.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":800.0,\"width\":130.0,\"height\":56.0},{\"x\":1556.0,\"y\":864.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":800.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":736.0,\"width\":130.0,\"height\":56.0},{\"x\":24.0,\"y\":672.0,\"width\":130.0,\"height\":56.0},{\"x\n",
+    "timestamp": "2026-10-25T01:50:37.965Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_UI_PART 2/3: \":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":1054.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":1556.0,\"y\":736.0,\"width\":148.0,\"height\":56.0},{\"x\":1556.0,\"y\":672.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":620.0,\"width\":130.0,\"height\":44.0}]}\n",
+    "timestamp": "2026-10-25T01:50:37.965Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=5; cash=1089800000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T01:50:37.965Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 7.696 seconds.",
+    "timestamp": "2026-10-25T01:50:38.181Z",
+    "url": "blob:http://127.0.0.1:8094/027b40ca-e898-4058-87fe-8f63a8fb0ef9"
+  }
+]

@@ -1,0 +1,180 @@
+{
+    "sourceCommit": "ba88fdff479a6841adb7e3adaab2a17c44b9afcb",
+    "unityVersion": "6000.6.6f1",
+    "scope": "Current baseline forest, same world, prefab transforms and custom batch LOD math as production. Fresh run; no projects or game saves changed.",
+    "importedMeshes": [
+        {
+            "name": "M_Oak01_LOD0",
+            "vertices": 2833,
+            "submeshes": 1,
+            "triangles": 4908
+        },
+        {
+            "name": "M_Oak01_LOD1",
+            "vertices": 1524,
+            "submeshes": 1,
+            "triangles": 2454
+        },
+        {
+            "name": "M_Oak01_LOD2",
+            "vertices": 842,
+            "submeshes": 1,
+            "triangles": 1226
+        }
+    ],
+    "prefabs": [
+        {
+            "name": "SolidOak01",
+            "lodGroups": 0,
+            "meshFilters": [
+                "M_Oak01_LOD0 -> M_Oak01_LOD0",
+                "M_Oak01_LOD1 -> M_Oak01_LOD1",
+                "M_Oak01_LOD2 -> M_Oak01_LOD2"
+            ]
+        },
+        {
+            "name": "SolidOak02",
+            "lodGroups": 0,
+            "meshFilters": [
+                "M_Oak01_LOD0 -> M_Oak01_LOD0",
+                "M_Oak01_LOD1 -> M_Oak01_LOD1",
+                "M_Oak01_LOD2 -> M_Oak01_LOD2"
+            ]
+        },
+        {
+            "name": "SolidOak03",
+            "lodGroups": 0,
+            "meshFilters": [
+                "M_Oak01_LOD0 -> M_Oak01_LOD0",
+                "M_Oak01_LOD1 -> M_Oak01_LOD1",
+                "M_Oak01_LOD2 -> M_Oak01_LOD2"
+            ]
+        },
+        {
+            "name": "SolidOak04",
+            "lodGroups": 0,
+            "meshFilters": [
+                "M_Oak01_LOD0 -> M_Oak01_LOD0",
+                "M_Oak01_LOD1 -> M_Oak01_LOD1",
+                "M_Oak01_LOD2 -> M_Oak01_LOD2"
+            ]
+        }
+    ],
+    "forestInstances": 2255,
+    "forestBatches": 264,
+    "forestMaterials": 264,
+    "forestSubmeshes": 1,
+    "allForestLod0Triangles": 11067540,
+    "cameras": [
+        {
+            "name": "Opening view",
+            "zoom": 115.0,
+            "position": {
+                "x": -43.21092224121094,
+                "y": 236.65792846679688,
+                "z": -282.7126159667969
+            },
+            "visibleBatches": 58,
+            "submittedInstances": 504,
+            "offscreenInstancesInVisibleBatches": 296,
+            "selectedLodInstances": [
+                376,
+                82,
+                46
+            ],
+            "perTreeLodInstances": [
+                361,
+                26,
+                117
+            ],
+            "batchSelectedTriangles": 2103032,
+            "perTreeLodTriangles": 1979034,
+            "depthClampedToOneBatches": 0,
+            "averageBatchDiameter": 153.44749450683594
+        },
+        {
+            "name": "Close view",
+            "zoom": 72.0,
+            "position": {
+                "x": -99.21900939941406,
+                "y": 157.01351928710938,
+                "z": -193.08094787597656
+            },
+            "visibleBatches": 34,
+            "submittedInstances": 224,
+            "offscreenInstancesInVisibleBatches": 157,
+            "selectedLodInstances": [
+                176,
+                47,
+                1
+            ],
+            "perTreeLodInstances": [
+                155,
+                41,
+                28
+            ],
+            "batchSelectedTriangles": 980372,
+            "perTreeLodTriangles": 895682,
+            "depthClampedToOneBatches": 0,
+            "averageBatchDiameter": 135.846923828125
+        },
+        {
+            "name": "Wide view",
+            "zoom": 580.0,
+            "position": {
+                "x": 755.4579467773438,
+                "y": 1104.421630859375,
+                "z": -1208.9853515625
+            },
+            "visibleBatches": 256,
+            "submittedInstances": 2206,
+            "offscreenInstancesInVisibleBatches": 11,
+            "selectedLodInstances": [
+                0,
+                1397,
+                809
+            ],
+            "perTreeLodInstances": [
+                0,
+                653,
+                1553
+            ],
+            "batchSelectedTriangles": 4420072,
+            "perTreeLodTriangles": 3506440,
+            "depthClampedToOneBatches": 0,
+            "averageBatchDiameter": 157.44024658203125
+        },
+        {
+            "name": "Maximum zoom out",
+            "zoom": 1000.0,
+            "position": {
+                "x": 1302.5137939453125,
+                "y": 1882.3441162109375,
+                "z": -2084.45751953125
+            },
+            "visibleBatches": 264,
+            "submittedInstances": 2255,
+            "offscreenInstancesInVisibleBatches": 0,
+            "selectedLodInstances": [
+                0,
+                31,
+                2224
+            ],
+            "perTreeLodInstances": [
+                0,
+                7,
+                2248
+            ],
+            "batchSelectedTriangles": 2802698,
+            "perTreeLodTriangles": 2773226,
+            "depthClampedToOneBatches": 0,
+            "averageBatchDiameter": 156.39068603515625
+        }
+    ],
+    "limits": [
+        "Triangle counts are color-pass candidate submissions from batch/frustum tests, not a captured GPU command stream or final on-screen triangles.",
+        "Per-tree estimate applies the same screen-pixel LOD thresholds to each individual tree. It does not reduce tree count or change source meshes.",
+        "Real-time shadow passes can add work beyond these totals. No FPS improvement or causal tree attribution is claimed by this census.",
+        "Meshes are imported Unity buffers. FBX control-point counts differ where import splits normals/UVs. Sizes are CPU vertex counts, not unique shaded screen pixels."
+    ]
+}

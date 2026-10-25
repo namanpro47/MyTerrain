@@ -1,0 +1,14 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T03:22:22.699Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.01599884033203,\"averageFps\":50.53971481323242,\"frameP50Ms\":17.0,\"frameP95Ms\":31.0,\"frameP99Ms\":41.0,\"maxFrameMs\":51.0,\"maxPreviewCpuMs\":18.899999618530273,\"maxPlacementCpuMs\":-1.0,\"frames\":1517,\"framesOver33Ms\":47,\"framesOver200Ms\":0,\"previewEvents\":1,\"placementEvents\":0,\"cameraEvents\":559,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T03:22:52.718Z",
+    "url": "blob:http://127.0.0.1:8779/3c4c8e49-09e3-4ec9-906f-1899a3fe8205"
+  }
+]

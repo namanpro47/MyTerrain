@@ -1,10 +1,14 @@
 # Terra
 
-**Updated product direction (October 24):** Terra is being built around **plan → budget → End Year → consequences → adapt**, through ten years in Meadowbrook Valley. The [revised implementation plan](IMPLEMENTATION_PLAN.md) stages a playable three-year loop, the full [12-action budget/effects catalog and three meters](docs/ACTIONS_AND_EFFECTS.md), ten-year balance, and comparison/replay. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is retained with its adoption decision. This is intended behavior; the current live placement UI has not yet been replaced by the annual loop. The visual rebuild remains an unmet gate.
+**Updated product direction (October 24):** Terra is being built around **plan → budget → End Year → consequences → adapt**, through ten years in Meadowbrook Valley. The [revised implementation plan](IMPLEMENTATION_PLAN.md) stages a playable three-year loop, the full [12-action budget/effects catalog and three meters](docs/ACTIONS_AND_EFFECTS.md), ten-year balance, and comparison/replay. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is retained with its adoption decision. The current source implements all twelve action families / seventeen variants, annual USD planning, accepted chapter reports, three meters, local save/restore, the ten-year comparison and replay. Three complete Chrome strategies and measured performance are recorded in [full-game evidence](docs/evidence/full-game/README.md). The active Phase 2A visual rebuild and final release gates remain incomplete; implemented gameplay is not visual acceptance.
 
-A browser-based rural land-use game in development. Phase 2 delivers the real Meadowbrook Valley landscape on the frozen v1 interaction foundation.
+**Annual chapters:** [run the local Gemini service and chapter playtest](docs/annual-chapters.md). The main HUD includes persistent yearly chapters, retry and explicit offline fallback. Offline cards report accepted money and all three outcomes. Gemini is optional and remains a local service; public static play uses labelled offline chapters.
 
-The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); this setup does not implement those gameplay features.
+**Annual town foundation:** [runtime, API and engine handoff](docs/annual-town-runtime.md) · [Peter's updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). The annual engine is now the playable scene’s sole financial authority; editing changes the current-year proposal queue.
+
+A browser-based rural land-use game in development, set on one real Wisconsin landscape.
+
+The intended product and roadmap are documented in [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md); implementation status and acceptance evidence are separate.
 
 ## Project vision — start here
 
@@ -29,9 +33,9 @@ Follow [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the ordered build ph
 3. Run `python3 scripts/prepare-world.py` from this folder, then open `Assets/Terra/Scenes/TerraMain.unity` and press **Play**.
 4. Double-click a C# script to edit it in VS Code. Use **Attach to Unity** (F5) in VS Code to debug the running editor.
 
-The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to place, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter commits. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. The pure runoff package exists locally; its live-game adapter and presentation are not yet accepted. [Source data, reproducible export and geographic limits](docs/geography.md).
+The project uses URP, Input System, uGUI and TextMeshPro. TerraMain loads the real `meadowbrook-v1` JSON pack: hover a hypothetical site, click to queue a proposal, Z to undo; 1/2/3 choose tools, Tab cycles sites and Enter queues. Review the reserved USD budget, then End Year to accept consequences; accepted years cannot be undone. Drag orbits, scroll zooms, F focuses a site and R returns to the valley. The original `SampleScene` and tiny synthetic pack remain technical test fixtures. The live fixed-storm adapter reports generated, retained and discharged water without claiming flood-risk prediction. [Source data, reproducible export and geographic limits](docs/geography.md).
 
-The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A is being reset around a first-principles visual rebuild; no new visual acceptance is claimed. Later gameplay integration remains unaccepted; separately prepared editing work and Peter’s remote annual/art packages are tracked in the revised plan and status ledger.
+The latest verified public build is at [terra-browser.vercel.app](https://terra-browser.vercel.app/). It contains the real Phase 2 landscape with ten editable hypothetical sites and two protected scenario zones. See [deployment instructions](docs/deployment.md), [phase evidence](docs/PHASE_STATUS.md), and the [Phase 2 audit](docs/PHASE_2_AUDIT.md). Phases 0–2 are complete. Phase 2A is being reset around a first-principles visual rebuild; no new visual acceptance is claimed. The local source now includes the full annual gameplay implementation and Peter’s chapters; it has not yet been published as the final release. The public site and current local source can therefore differ. [Ten-year demo and rehearsal instructions](docs/full-game-demo.md).
 
 ## Build for the browser
 

@@ -1,4 +1,6 @@
 <linker>
+  <!-- Annual save DTOs are cloned/hashed by public-field reflection in the pure Core module. -->
+  <assembly fullname="Terra.Contracts" preserve="all" />
   <!-- CreatePrimitive adds these through native code, invisible to managed stripping. -->
   <assembly fullname="UnityEngine.PhysicsModule">
     <type fullname="UnityEngine.SphereCollider" preserve="all" />

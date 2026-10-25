@@ -1,0 +1,20 @@
+{
+  "build": "b7554282467b478bbc2a2246937b62dc",
+  "method": "Sequential first visit to three no-store localhost origins, one WebGL player, 1440x900 Chrome; local delivery, not public network",
+  "samples": [
+    {
+      "origin": "8854",
+      "interactiveMs": 4416
+    },
+    {
+      "origin": "8855",
+      "interactiveMs": 4145
+    },
+    {
+      "level": "info",
+      "message": "TERRA_INTERACTIVE_MS 4059",
+      "timestamp": "2026-10-25T04:07:44.828Z",
+      "url": "blob:http://127.0.0.1:8856/953f85fa-1c6c-4408-9cfe-4ac9c4fa01b8"
+    }
+  ]
+}

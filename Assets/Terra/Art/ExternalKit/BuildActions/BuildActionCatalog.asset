@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418d1b45c7632c640af3421716cd66b1, type: 3}
+  m_Name: BuildActionCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Terra.Art.BuildActionCatalog
+  entries:
+  - actionId: cultivation
+    title: Traditional farmland
+    prdSection: A
+    dimensionNotes: 40 x 40 m illustrative field sample; clip/repeat to actual site. Crop rows 0.75 m apart.
+    prefab: {fileID: 2083656823954866365, guid: 622e1b2d6f2663c4e820118d9c724e3b, type: 3}
+    icon: {fileID: 21300000, guid: c40fabc3e51e8a64bbc01058cd6b8319, type: 3}
+    siteSizeMetres: {x: 40, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.4875, z: 0}
+      m_Extent: {x: 20, y: 0.4875, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 624
+  - actionId: cover-crop
+    title: Cover crop
+    prdSection: B
+    dimensionNotes: 40 x 40 m seasonal cover sample; no permanent loss of cropped area implied.
+    prefab: {fileID: 1090940779308922925, guid: 03e4277006760854da6375fa4dcd6471, type: 3}
+    icon: {fileID: 21300000, guid: 02b5dd4594939a84dba7467dc8000dcf, type: 3}
+    siteSizeMetres: {x: 40, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.29, z: 0}
+      m_Extent: {x: 20, y: 0.29, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 1584
+  - actionId: conservation-rotation
+    title: Conservation rotation
+    prdSection: B
+    dimensionNotes: 40 x 40 m illustrative crop strips; depicts a practice, not simultaneous annual yields.
+    prefab: {fileID: 7089786792986945366, guid: 632baedd5d30cb347aca025fc8cbeacc, type: 3}
+    icon: {fileID: 21300000, guid: 3b36ef142e6f978409592b5c1c6e546e, type: 3}
+    siteSizeMetres: {x: 40, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.4875, z: 0}
+      m_Extent: {x: 20, y: 0.4875, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 636
+  - actionId: living-margin
+    title: Living margin
+    prdSection: B
+    dimensionNotes: 40 x 40 m sample with a 10 m reserved vegetated strip (25 percent); clip to site.
+    prefab: {fileID: 207023932405460333, guid: d51f968f7c5c9d0499ffbff4ffe50b85, type: 3}
+    icon: {fileID: 21300000, guid: a657db2ba8f929c41a88c0517b85adc3, type: 3}
+    siteSizeMetres: {x: 40, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.62, z: 0}
+      m_Extent: {x: 20, y: 0.62, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 10620
+  - actionId: ground-cover-restoration
+    title: Ground-cover restoration
+    prdSection: C
+    dimensionNotes: 40 x 40 m native meadow sample, scattered shrubs; does not prescribe woodland everywhere.
+    prefab: {fileID: 3728023590066144922, guid: d6935cf85b5a17343b7baa096ed5d6ce, type: 3}
+    icon: {fileID: 21300000, guid: 6011d3333ac8e694a9da96f48b89d9bf, type: 3}
+    siteSizeMetres: {x: 40, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.70000005, z: 0}
+      m_Extent: {x: 20, y: 0.70000005, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 27804
+  - actionId: vegetated-swale
+    title: Vegetated swale
+    prdSection: D
+    dimensionNotes: 30 m long, 2 m flat bottom, 0.6 m illustrative depth, 4H:1V vegetated sides; separate terrain excavation needed.
+    prefab: {fileID: 5820951623947801373, guid: 9d664a694384eb94fa70b5c593ec89f3, type: 3}
+    icon: {fileID: 21300000, guid: 010b95774283c314e945f36a185b7c11, type: 3}
+    siteSizeMetres: {x: 32, y: 10}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 0.71, z: 0}
+      m_Extent: {x: 16, y: 0.59, z: 5}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 262
+  - actionId: low-density-housing
+    title: Low-density housing
+    prdSection: Wider catalog
+    dimensionNotes: One 12 x 9 m house, 3 m eaves, 5.8 m ridge; 26 x 32 m lot includes access and yard.
+    prefab: {fileID: 6247819435807153231, guid: 4a449a7a3366acc48bac59720a49c3d6, type: 3}
+    icon: {fileID: 21300000, guid: e3a58afc44255e24f9786e99521b983f, type: 3}
+    siteSizeMetres: {x: 26, y: 32}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 3.1125178, z: 0}
+      m_Extent: {x: 13, y: 3.1125178, z: 16}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 3394
+  - actionId: high-density-housing
+    title: High-density housing
+    prdSection: Wider catalog
+    dimensionNotes: 32 x 18 m apartment block, four 3 m storeys, 13.2 m parapet; 44 x 38 m site.
+    prefab: {fileID: 4230566461583172158, guid: 0693ba3e25bf81045968cb52ba18a96b, type: 3}
+    icon: {fileID: 21300000, guid: 7d392099377e55d428a1c082f78a1637, type: 3}
+    siteSizeMetres: {x: 44, y: 38}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 6.65, z: 0}
+      m_Extent: {x: 22, y: 6.65, z: 19}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 6216
+  - actionId: public-park
+    title: Public park
+    prdSection: Wider catalog
+    dimensionNotes: 48 x 40 m park; 8 x 6 m shelter, 2 m paths, benches and planted areas.
+    prefab: {fileID: 420659858932165342, guid: 614dd93380d6b9d4faab2ecf59ba2c83, type: 3}
+    icon: {fileID: 21300000, guid: 6d77e03f9267161438e5427434c69fdd, type: 3}
+    siteSizeMetres: {x: 48, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 3.5, z: 0}
+      m_Extent: {x: 24, y: 3.5, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 11486
+  - actionId: agricultural-storage
+    title: Agricultural storage
+    prdSection: Wider catalog
+    dimensionNotes: 30 x 18 m agricultural shed, 6 m eaves, 8.5 m ridge; two 5 m diameter grain bins. Not a distribution warehouse.
+    prefab: {fileID: 3565646169345702182, guid: 1951ba6f0a4d66d4ea899b178e34220b, type: 3}
+    icon: {fileID: 21300000, guid: a4d8d57f45660274b9dbfc5310bff2b0, type: 3}
+    siteSizeMetres: {x: 48, y: 42}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 4.4317884, z: 0}
+      m_Extent: {x: 24, y: 4.4317884, z: 21}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 730
+  - actionId: data-center
+    title: Data center
+    prdSection: Wider catalog
+    dimensionNotes: 54 x 32 m single-storey data hall, 7 m roof; cooling and utility yard. No computing/electrical capacity inferred.
+    prefab: {fileID: 5689604930675188521, guid: 9e27c46ed7494c04f91672e816f0c44f, type: 3}
+    icon: {fileID: 21300000, guid: 23e254b87fba9b44082b58493f595cfc, type: 3}
+    siteSizeMetres: {x: 80, y: 64}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 4.4300003, z: 0}
+      m_Extent: {x: 40, y: 4.4300003, z: 32}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 1428
+  - actionId: village-center
+    title: Village center
+    prdSection: Wider catalog
+    dimensionNotes: Three two-storey shops with 3.2 m storeys, public square and access; representative village cluster.
+    prefab: {fileID: 5991721763858252532, guid: daf8f4934bf1b4f40a201e1f84bc4883, type: 3}
+    icon: {fileID: 21300000, guid: a0c1239fb050c7b4383147aba9becf9b, type: 3}
+    siteSizeMetres: {x: 64, y: 52}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 4.3915567, z: 0}
+      m_Extent: {x: 32, y: 4.3915567, z: 26}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 5714
+  - actionId: non-renewable-power
+    title: Gas power facility
+    prdSection: Wider catalog
+    dimensionNotes: 'Authored small gas-engine facility: 32 x 20 x 9 m hall, 22 m exhaust stacks; no capacity or emissions claim.'
+    prefab: {fileID: 7284450267843861180, guid: f29de7c98591afb4f901c800a848c8e4, type: 3}
+    icon: {fileID: 21300000, guid: 9867ba5927cdeee408a168994d1ca3f5, type: 3}
+    siteSizeMetres: {x: 72, y: 60}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 11.175, z: 0}
+      m_Extent: {x: 36, y: 11.175, z: 30}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 852
+  - actionId: solar
+    title: Solar array
+    prdSection: Wider catalog
+    dimensionNotes: 60 fixed-tilt tables, each 4.4 x 4.2 m, tilted 25 degrees; 7 m row spacing. No MW rating assigned.
+    prefab: {fileID: 8427306873592035905, guid: 4937a209bd7b7b648a15fae719bc50ca, type: 3}
+    icon: {fileID: 21300000, guid: 509840c0512fff14799f0d979d8959a7, type: 3}
+    siteSizeMetres: {x: 64, y: 48}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 1.4357545, z: 0}
+      m_Extent: {x: 32, y: 1.4357545, z: 24}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 4356
+  - actionId: wind
+    title: Wind turbine
+    prdSection: Wider catalog
+    dimensionNotes: 100 m hub, 130 m rotor, 165 m maximum tip; 16 x 16 m pad. 65 m rotor envelope is not a legal setback or wind-farm spacing rule.
+    prefab: {fileID: 5261198988288633407, guid: 672c45d39a2a89546add26858782dd51, type: 3}
+    icon: {fileID: 21300000, guid: 69e59fdac3b41b94e90caa660a81b7b5, type: 3}
+    siteSizeMetres: {x: 150, y: 150}
+    meshBoundsMetres:
+      m_Center: {x: -0.049995422, y: 82.5, z: 33.5}
+      m_Extent: {x: 56.291656, y: 82.5, z: 41.5}
+    clearanceRadiusMetres: 65
+    landscapeSample: 0
+    triangles: 940
+  - actionId: stewardship-agreement
+    title: Conservation / stewardship
+    prdSection: Wider catalog
+    dimensionNotes: 48 x 40 m landscape sample with restoration and a modest interpretation sign; no invented cultural motifs or assumed public access.
+    prefab: {fileID: 2206454167178170380, guid: 28254975ceca2e742a31fceb68246c08, type: 3}
+    icon: {fileID: 21300000, guid: ea8116a963663094b8d2a09fdb96bf20, type: 3}
+    siteSizeMetres: {x: 48, y: 40}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 4, z: 0}
+      m_Extent: {x: 24, y: 4, z: 20}
+    clearanceRadiusMetres: 0
+    landscapeSample: 1
+    triangles: 31072
+  - actionId: wastewater-upgrade
+    title: Wastewater treatment
+    prdSection: Wider catalog
+    dimensionNotes: Two 12 m diameter treatment tanks, 20 x 10 m process building and two 8 x 16 m basins; no flow/capacity inferred.
+    prefab: {fileID: 3207895517429684428, guid: ddc068ba3a573e0428cf48f4c247d385, type: 3}
+    icon: {fileID: 21300000, guid: b117e2555e8b2464cbebd2b863f8d7f3, type: 3}
+    siteSizeMetres: {x: 64, y: 52}
+    meshBoundsMetres:
+      m_Center: {x: 0, y: 2.425, z: 0}
+      m_Extent: {x: 32, y: 2.425, z: 26}
+    clearanceRadiusMetres: 0
+    landscapeSample: 0
+    triangles: 756

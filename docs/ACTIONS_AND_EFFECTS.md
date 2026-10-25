@@ -128,3 +128,23 @@ Acceptance evidence must cover:
 6. Same saved external conditions drive player and no-new-action comparisons. No remote swale protection or water-service category confusion. Invalid effects do not partially apply.
 7. At least two distinct ten-year strategies remain feasible, plus wait-only, overspend, poor maintenance, overbuilding and adverse-event cases. Use actual map geometry and public ledger, not a mocked success card.
 8. Actual Chrome at 1280×720 and 1440×900 shows the table-derived action menu, selected-site preview, budget, three meters, annual report and ending without overwhelming the land. Also check 1920×1080 and 125% zoom for layout. Pattern IDs: **TN-01/03/04/05/08, CS-01/02/04, AX-01**. Compare against the eventual accepted Phase 2A benchmark; current rejected captures cannot pass this gate.
+
+## Starter implementation — October 24, 2026
+
+The integration branch implements `starter-rubric-v2` with seven recipes. All prices/upkeep below are authored gameplay assumptions, not estimates for this real location. Each land agreement covers the named field's explicit managed area for ten operating years. Annual public receipts are explicitly zero except the tentative $20,000 for one completed, occupied low-density home. Private output is never treasury income.
+
+| Recipe | Upfront | Annual upkeep / ten operating years | Construction / establishment | Funded bundle and modeled effect |
+|---|---:|---:|---|---|
+| Traditional cultivation | $100K | $2K | 0 / 1 years | Named field; existing authored offer output and 0.25 food-service units per output unit |
+| Conservation rotation | $160K | $3.2K | 0 / 3 years | Named field; gradual establishment toward 1.2× the field’s configured conventional-cultivation capacity, 0.3 food-service units per output, 30% vegetated cover |
+| Living margin | $125K | $2.5K | 0 / 2 years | Existing margin offer and cover, gradual establishment |
+| Meadow restoration | $75K | $2K | 0 / 3 years | Named field; gradually restored vegetation, no invented crop/recreation service |
+| Connected swale | $100K | $3K | 1 / 1 years | Eligible named field; existing configured storage only after commissioning |
+| Small public park | $50K | $2K | 1 / 1 years | One 48×40 m park; 5 illustrative recreation units; 85% vegetated footprint, remaining field keeps baseline cover |
+| Low-density housing | $1M | $10K | 1 / 1 years | One serviced home on its 26×32 m lot; four illustrative occupied places; 35% vegetated lot, remaining field keeps baseline cover |
+
+Economic: 80% output / 40 (capped) + 20% funded operation. Social: 80% authored service units / 18 (capped) + 20% undisrupted sites. Environmental: 80% management-site vegetated share + 20% operational storage / 100 m³ (capped). Individual indicators are bounded 0–100. These are starter comparison indices, not the full employment, resource, health or biodiversity model. The Year 3 wet-year assumption scales crop output and food services by 0.8; home/recreation services remain independent. All other years currently use reference growing conditions. Source /5 profiles are preserved separately and never added directly to meters.
+
+Fixed-storm runoff uses the existing disjoint catchment/connection groups and TR-55 model. Annual cover follows establishment; building/park conversion is bounded to its real footprint, and unbuilt/operating storage is separated. This compares management states under the same storm, not changing yearly rainfall or hydraulic flood risk. Construction disturbance and crop-specific process calibration are not modeled.
+
+Save key `terra.meadowbrook.annual-playable.v2` separates this rule set from Peter's Editor demo and legacy credits. Invalid/incompatible saves are retained under `.recovery` with visible feedback; a new run preserves the preceding run under `.previous`. There is no silent credit conversion or replay under changed recipe hashes.

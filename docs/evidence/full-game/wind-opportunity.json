@@ -1,0 +1,20 @@
+{
+  "scope": "Same AOI. Authored wind-only opportunity; not surveyed ownership, consent or engineering suitability.",
+  "bounds": [
+    375.0,
+    -495.0,
+    525.0,
+    -345.0
+  ],
+  "areaM2": 22500,
+  "sourceCoverAreaM2": {
+    "woodland": 0,
+    "grass": 222.16962080095254,
+    "sealed": 0,
+    "cultivated": 22277.830379199047
+  },
+  "overlapExistingSites": false,
+  "mappedFeatureBufferClear": true,
+  "sourceResolutionM": 30,
+  "contextAreaRemovedM2": 22500
+}

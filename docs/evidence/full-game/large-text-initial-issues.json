@@ -1,0 +1,229 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": true,
+  "muted": true,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 352,
+        "y": 147,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 15.680000305175781,
+      "minGlyphCssPx": 15.680000305175781,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Make room for a better balance</b></size>\n\n<b>01   Plan → End Year → adapt</b>\nQueue a supported action on a field. Reserve construction and upkeep from the public budget. Review and submit the year to pay once and advance projects. All twelve action families are available; use the category arrows to browse.\n\n<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nE: End Year · L: report · T: future · I: meters\nG: field guide · ?: controls",
+      "rect": {
+        "x": 352,
+        "y": 186,
+        "width": 736,
+        "height": 440
+      },
+      "bodyCssPx": 22.399999618530273,
+      "minGlyphCssPx": 22.399999618530273,
+      "preferredHeight": 472.9200134277344,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 578,
+        "y": 699,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 19.040000915527344,
+      "minGlyphCssPx": 19.040000915527344,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Motion: reduced",
+      "rect": {
+        "x": 360,
+        "y": 635,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Sound: muted",
+      "rect": {
+        "x": 611,
+        "y": 635,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Text: larger",
+      "rect": {
+        "x": 862,
+        "y": 635,
+        "width": 218,
+        "height": 52
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 570,
+        "y": 697,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Motion: full",
+      "enabled": true,
+      "rect": {
+        "x": 352,
+        "y": 633,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Sound: on",
+      "enabled": true,
+      "rect": {
+        "x": 603,
+        "y": 633,
+        "width": 234,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Text: standard",
+      "enabled": true,
+      "rect": {
+        "x": 854,
+        "y": 633,
+        "width": 234,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 340,
+      "y": 658,
+      "width": 760,
+      "height": 222
+    },
+    {
+      "x": 24,
+      "y": 824,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 760,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 824,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 760,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 696,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 632,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 766,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 1268,
+      "y": 696,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 632,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 44
+    },
+    {
+      "x": 24,
+      "y": 528,
+      "width": 164,
+      "height": 44
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 320,
+      "y": 125,
+      "width": 800,
+      "height": 650
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();\nvar flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nvar type=typeof(Terra.Rendering.LandscapeRenderer);\nvar landscape=(Terra.Rendering.LandscapeRenderer)typeof(Terra.Gameplay.TerraMain).GetField(\"landscape\",flags).GetValue(main);\nvar world=(Terra.Contracts.WorldData)typeof(Terra.Gameplay.TerraMain).GetField(\"world\",flags).GetValue(main);\nvar site=world.sites.First(s=>s.id==\"south-07\");\nvar chunks=((System.Collections.IEnumerable)type.GetField(\"groundChunks\",flags).GetValue(landscape)).Cast<object>().ToArray();\nvar meshes=chunks.Select(c=>(UnityEngine.Mesh)c.GetType().GetField(\"mesh\").GetValue(c)).ToArray();\nvar originals=meshes.Select(m=>m.vertices).ToArray();var normals=meshes.Select(m=>m.normals).ToArray();\nvar height=landscape.Height(-30,-395);var cover=landscape.CoverAt(-30,-395);\nvar session=(Terra.Gameplay.AnnualTownSession)typeof(Terra.Gameplay.TerraMain).GetField(\"annual\",flags).GetValue(main);\nvar saved=UnityEngine.JsonUtility.ToJson(session.State);\nvar display=typeof(Terra.Gameplay.TerraMain).GetMethod(\"DisplayAnnual\",flags);\nvar rendered=(System.Collections.Generic.Dictionary<string,string>)typeof(Terra.Gameplay.TerraMain).GetField(\"displayedAnnual\",flags).GetValue(main);\nvar results=new System.Collections.Generic.List<string>();\nvoid Assert(bool value,string label){if(!value)throw new System.Exception(label);results.Add(label);}\nvoid Flush(){landscape.ViewScale(.25f);}\nvoid Baseline(string label){Flush();for(int c=0;c<meshes.Length;c++)if(!meshes[c].vertices.SequenceEqual(originals[c])||!meshes[c].normals.SequenceEqual(normals[c]))throw new System.Exception(label+\" chunk \"+c);results.Add(label);}\nvar contains=type.GetMethod(\"Contains\",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public);\nint CheckCut(string label){Flush();int changed=0;float deepest=0;var edge=new System.Collections.Generic.Dictionary<UnityEngine.Vector2,(UnityEngine.Vector3 point,UnityEngine.Vector3 normal)>();int duplicates=0;\n for(int c=0;c<meshes.Length;c++){var ps=meshes[c].vertices;var ns=meshes[c].normals;\n for(int i=0;i<ps.Length;i++){var p=ps[i];var o=originals[c][i];float cut=o.y-p.y;\n if(cut<-.0001f||cut>1.1501f||p.x!=o.x||p.z!=o.z)throw new System.Exception(label+\" invalid displacement\");\n if(cut>.0001f){changed++;deepest=UnityEngine.Mathf.Max(deepest,cut);if(!(bool)contains.Invoke(null,new object[]{site.polygon,p.x,p.z}))throw new System.Exception(label+\" outside site\");}\n if(p.x<-100||p.x>50||p.z<-470||p.z>-310)continue;\n var key=new UnityEngine.Vector2(p.x,p.z);if(edge.TryGetValue(key,out var prior)){duplicates++;if((prior.point-p).sqrMagnitude>1e-9||(prior.normal-ns[i]).sqrMagnitude>1e-8)throw new System.Exception(label+\" chunk seam\");}else edge.Add(key,(p,ns[i]));\n }}Assert(changed>100&&deepest>1.1f,label+\": \"+changed+\" lowered vertices; deepest \"+deepest+\" m; \"+duplicates+\" shared vertices match\");return changed;}\nBaseline(\"initial ground\");\nvar timer=System.Diagnostics.Stopwatch.StartNew();landscape.Ghost(site,true,\"water-swale\");Flush();timer.Stop();results.Add(\"Editor preview construction plus surface/ground flush: \"+timer.Elapsed.TotalMilliseconds+\" ms (not browser latency)\");\nCheckCut(\"valid preview\");landscape.ClearGhost();Baseline(\"preview cancel restores positions and normals exactly\");\nlandscape.Apply(site,\"water-swale\");CheckCut(\"accepted swale\");\nlandscape.Ghost(site,true,\"restore-grass\");Baseline(\"replacement preview removes depression\");landscape.ClearGhost();CheckCut(\"replacement cancel restores accepted depression\");\nlandscape.Apply(site,null);Baseline(\"undo restores positions and normals exactly\");\nAssert(landscape.Height(-30,-395)==height&&landscape.CoverAt(-30,-395)==cover,\"analytical height and cover unchanged\");\nvar shaderMessages=UnityEditor.ShaderUtil.GetShaderMessages(UnityEngine.Resources.Load<UnityEngine.Shader>(\"TerraGround\"));\nAssert(!shaderMessages.Any(m=>m.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error),\"ground shader has no errors\");\nforeach(var message in shaderMessages)results.Add(\"shader message: \"+message.severity+\" \"+message.message);\n\nvar surface=(UnityEngine.Texture2D)type.GetField(\"treatmentSurface\",flags).GetValue(landscape);\nvar baselinePixels=surface.GetPixels32();\nlandscape.Apply(site,\"water-swale\");CheckCut(\"queued swale before remove preview\");\nlandscape.PreviewBaseline(site);Baseline(\"remove preview restores ground\");\nAssert(surface.GetPixels32().SequenceEqual(baselinePixels),\"remove preview restores surface\");\nlandscape.ClearGhost();CheckCut(\"cancel removal restores queued swale\");\nlandscape.Apply(site,null);Baseline(\"remove queued swale restores baseline\");\nvar buildingSite=world.sites.First(s=>session.Definition.actions.Any(a=>a.siteId==s.id&&a.actionId==\"high-density-housing\"));\nlandscape.Ghost(buildingSite,true,\"high-density-housing\");Flush();\nAssert(surface.GetPixels32().SequenceEqual(baselinePixels),\"building preview preserves outside source cover\");\nlandscape.ClearGhost();landscape.Apply(buildingSite,\"high-density-housing\");Flush();\nAssert(surface.GetPixels32().SequenceEqual(baselinePixels),\"building placement preserves outside source cover\");\nlandscape.Apply(buildingSite,null);Flush();\nlandscape.Apply(site,\"conservation-rotation\");Flush();\nfloat sx=site.polygon.Average(p=>p.x),bottom=site.polygon.Min(p=>p.z),top=site.polygon.Max(p=>p.z);\nvar terrain=world.terrain;\nfor(int band=0;band<3;band++)\n{\n    float zMeadow=UnityEngine.Mathf.Lerp(bottom,top,(band+.15f)/3),zCrop=UnityEngine.Mathf.Lerp(bottom,top,(band+.65f)/3);\n    float u=(sx-terrain.xMin)/((terrain.columns-1)*terrain.cellSizeM);\n    float V(float z)=>(z-terrain.zMin)/((terrain.rows-1)*terrain.cellSizeM);\n    Assert(surface.GetPixelBilinear(u,V(zMeadow)).r<.25f&&surface.GetPixelBilinear(u,V(zCrop)).r>.75f,\"rotation surface matches planted band \"+(band+1));\n}\nvar holders=(System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)type.GetField(\"proposals\",flags).GetValue(landscape);\nvar natureFlags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nint planted=0;\nforeach(var nature in holders[site.id].GetComponents<Terra.Rendering.InstancedNature>())\n    foreach(var batch in (System.Collections.IEnumerable)typeof(Terra.Rendering.InstancedNature).GetField(\"batches\",natureFlags).GetValue(nature))\n        if((bool)batch.GetType().GetField(\"groundcover\").GetValue(batch))planted+=((UnityEngine.Matrix4x4[])batch.GetType().GetField(\"transforms\").GetValue(batch)).Length;\nAssert(planted>0,\"narrow rotation strips contain living groundcover: \"+planted+\" instances\");\nlandscape.Apply(site,null);Flush();\nvar town=new Terra.Core.AnnualTown(session.Definition,\"terrain-integration-fixture\");\nvoid Display(){display.Invoke(main,new object[]{town.Snapshot()});Flush();}\ntown.QueueAction(site.id,\"water-swale\",town.Revision);Display();CheckCut(\"annual queued swale\");\ntown.UndoPlan(town.Revision);Display();Baseline(\"annual undo restores ground\");\ntown.RedoPlan(town.Revision);Display();CheckCut(\"annual redo restores swale\");\nTerra.Core.AnnualTownDemo.Finish(town,new Terra.Core.AuthoredAnnualConsequenceProvider());Display();CheckCut(\"annual operating Year 10 swale\");\nvar acceptedPixels=surface.GetPixels32();var acceptedCash=town.CashCents;\ntown=Terra.Core.AnnualTown.Restore(session.Definition,UnityEngine.JsonUtility.FromJson<Terra.Contracts.AnnualTownSnapshot>(UnityEngine.JsonUtility.ToJson(town.Snapshot())));\nrendered.Clear();Display();CheckCut(\"accepted save replay swale\");\nAssert(town.CashCents==acceptedCash&&surface.GetPixels32().SequenceEqual(acceptedPixels),\"accepted reload preserves ledger and surface\");\ndisplay.Invoke(main,new object[]{new Terra.Core.AnnualTown(session.Definition,\"baseline-comparison\").Snapshot()});Baseline(\"read-only baseline comparison\");\nDisplay();CheckCut(\"return from comparison restores accepted ground\");\nAssert(UnityEngine.JsonUtility.ToJson(session.State)==saved,\"rendering leaves live session and accepted history unchanged\");\nrendered.Clear();display.Invoke(main,new object[]{session.State});Baseline(\"restore actual scene after isolated fixture\");\nreturn results;\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        "initial ground",
+        "Editor preview construction plus surface/ground flush: 47.6968 ms (not browser latency)",
+        "valid preview: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "preview cancel restores positions and normals exactly",
+        "accepted swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "replacement preview removes depression",
+        "replacement cancel restores accepted depression: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "undo restores positions and normals exactly",
+        "analytical height and cover unchanged",
+        "ground shader has no errors",
+        "shader message: Warning use of potentially uninitialized variable (PaintedSample)",
+        "shader message: Warning use of potentially uninitialized variable (PaintedSample)",
+        "queued swale before remove preview: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "remove preview restores ground",
+        "remove preview restores surface",
+        "cancel removal restores queued swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "remove queued swale restores baseline",
+        "building preview preserves outside source cover",
+        "building placement preserves outside source cover",
+        "rotation surface matches planted band 1",
+        "rotation surface matches planted band 2",
+        "rotation surface matches planted band 3",
+        "narrow rotation strips contain living groundcover: 584 instances",
+        "annual queued swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "annual undo restores ground",
+        "annual redo restores swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "annual operating Year 10 swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "accepted save replay swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "accepted reload preserves ledger and surface",
+        "read-only baseline comparison",
+        "return from comparison restores accepted ground: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "rendering leaves live session and accepted history unchanged",
+        "restore actual scene after isolated fixture"
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

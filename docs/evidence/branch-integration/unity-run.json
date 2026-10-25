@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var dir=\"docs/evidence/branch-integration\";System.IO.Directory.CreateDirectory(dir);\nvar historical=new[]{\"docs/evidence/phase4/unity-checks.json\",\"docs/evidence/build-action-ui/rules.json\",\"docs/evidence/build-action-ui/legacy-phase1.json\",\"docs/evidence/build-action-ui/legacy-phase2.json\"};\nvar saved=historical.ToDictionary(p=>p,p=>System.IO.File.ReadAllBytes(p));\ntry {\n System.IO.File.WriteAllText(dir+\"/phase1.json\",Phase1Checks.Run());\n System.IO.File.WriteAllText(dir+\"/phase2.json\",Phase2Checks.Run());\n System.IO.File.WriteAllText(dir+\"/phase3.json\",Phase3Checks.Run());\n var phase4=Phase4Checks.Run();System.IO.File.Copy(historical[0],dir+\"/phase4.json\",true);\n var annual=AnnualTownChecks.Run();\n BuildActionIntegrationChecks.PrepareAndCheck();System.IO.File.Copy(historical[1],dir+\"/catalog.json\",true);\n System.IO.File.WriteAllText(dir+\"/annual.json\",\"{\\\"checksPassed\\\":\"+annual+\"}\");\n return \"All Unity merge checks passed; annual=\"+annual+\"; \"+phase4;\n} finally { foreach(var pair in saved)System.IO.File.WriteAllBytes(pair.Key,pair.Value); }"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "All Unity merge checks passed; annual=94; Phase 4: 98 Unity checks passed"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/Documents/GitHub/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

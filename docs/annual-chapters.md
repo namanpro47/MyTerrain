@@ -1,0 +1,84 @@
+# Annual chapters and the Gemini connection
+
+Peter requested the next-chapter mechanism and a cheapest/free LLM connection on October 24, 2026. This slice starts from refreshed `origin/main` at `e247431`, in the isolated `Terra-chapters` worktree, branch `codex/annual-chapters-llm`.
+
+## What the next chapter does
+
+Each chapter is one year in the existing Meadowbrook Valley run: queue actions → conclude year → read up to three cards → continue planning. Waiting advances the same saved scenario and obligations. **See my ten-year future** confirms the current plan, then continues without adding new interventions. Year 10 ends the run. No additional map or level is created.
+
+`AnnualChapterSession` wraps the existing annual session and is connected to the main game's **Review year → End year** flow. Local Web builds request Gemini chapters through the loopback backend; public static builds with the default local endpoint use labelled offline chapters. The accepted story opens before planning resumes, with **Budget & meters** available from every page. Pending and accepted chapters restore after reload. Existing bare annual saves migrate into the chapter envelope when next saved. **New run** archives the previous town and chapter envelope locally and clears the new run's chapter history.
+
+The developer window **Terra → Annual Town → Playtest Year Loop** still offers offline chapters, optional Gemini chapters, retry, stop waiting, explicit offline fallback, next year, ten-year continuation, export/import and autosave restore.
+
+The main game's **See my ten-year future** explicitly completes remaining years with offline chapters, preserving its same-conditions comparison, timeline and replay. A normal Year 10 chapter links to the ending. The reconciled 3.1 rules use their own chapter save key, matching the main game's versioned annual save; prior 3.0 saves remain stored locally. The backend can still replay published 3.0 chapter requests, whose definition predates final assessment targets. Modern 3.1 definitions continue to require those targets.
+
+The existing annual ledger, lifecycle and saved drivers compute the outcome. The server replays that same C# code in a detached town, sends a compact set of computed facts to Gemini, validates the response, then returns the narrative and exact engine consequences. Unity validates the receipt before committing. Gemini cannot inject even an otherwise in-range numeric effect.
+
+This is deliberately **AI narration over an illustrative annual simulation**, not the complete PRD §7 causal consequence generator. The current repository has no approved causal reference pack, calibrated weather sampler or grounded effect ranges. Arbitrary model-selected numbers would not fill that gap. A future effect pack needs separate authorship and tests before enabling AI-proposed numeric consequences. The existing definition's “No LLM” assumption describes its numeric simulator; the chapter layer may use an LLM for prose.
+
+## Run locally
+
+Requires .NET 8 SDK; no additional NuGet packages. On this Windows workstation Unity bundles a compatible SDK at `C:\Program Files\Unity\Hub\Editor\6000.6.6f1\Editor\Data\DotNetSdk\dotnet.exe`. On another machine use `dotnet` from the installed SDK.
+
+1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey). For zero API spend, use a project on the free tier without enabling paid billing. Copy the repository-root `.env.example` to `.env`, then paste the key after `GEMINI_API_KEY=`. The local chapter server automatically reads this file on startup. It is ignored by Git and excluded by `.vercelignore`. Never put the key in a scene, Unity field, browser code, public export or committed config. Restart the service after editing the file.
+2. From the repository root run:
+
+   ```powershell
+   & 'C:\Program Files\Unity\Hub\Editor\6000.6.6f1\Editor\Data\DotNetSdk\dotnet.exe' run --project services/chapters/Terra.Chapters.csproj
+   ```
+
+3. Read `http://127.0.0.1:8787/health`. `configured: true` only confirms a key exists; a successful chapter is the actual provider check.
+4. Build the main game with **Terra → Build Web**, serve only `Builds/Web` on localhost port 8080, and open it in Chrome. The default backend endpoint is `http://127.0.0.1:8787/chapter`. For another frontend port, include its exact origin in `TERRA_ALLOWED_ORIGINS` before starting the backend.
+5. Queue actions, select **Review year → End year**, inspect the chapter and **Budget & meters**, then select **Plan year 2** on the last card. If no key/quota is available, the year stays pending; choose **Retry chapter**, **Use offline chapter**, or **Edit this year's plan**. The editor fixture remains available for developer checks.
+
+Optional server variables: `GEMINI_MODEL` (default `gemini-3.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). Existing process variables take priority over `.env`. The reader supports plain or quoted values, comments and an optional `export` prefix, without executing shell commands or expanding variables. It reads only the four supported chapter settings. On Vercel it skips local-file loading entirely.
+
+### Keeping the provider key private
+
+The intended public flow is browser → our backend → Gemini. Only the backend reads `GEMINI_API_KEY`; responses contain the chapter or a sanitized error. The local ASP.NET service has no static-file middleware and does not serve `.env`. Keep the root `.env` outside `Assets`, `StreamingAssets`, `Builds/Web` and any public directory. The file is plaintext on this computer; Git/deploy exclusions do not protect it from someone with local filesystem access.
+
+For a hosted backend, add `GEMINI_API_KEY` as a project **Secret** in the relevant Vercel environment, then deploy a new backend version. Vercel encrypts environment values at rest and makes Secret values write-only in its dashboard after saving. Those settings do not prevent application code from leaking a value into a response, log or browser bundle. Never use `NEXT_PUBLIC_`/`VITE_` prefixes or embed the key in the Unity Web build. [Vercel environment variables](https://vercel.com/docs/environment-variables), [Secret variables](https://vercel.com/docs/environment-variables/sensitive-environment-variables).
+
+The current Vercel export contains static Unity files only; adding a Vercel variable alone does not deploy or connect the chapter backend. Public hosting also needs request authorization/session controls, server-side rate and token limits, durable storage and provider quota/spending controls. CORS is a browser policy, not authentication: someone can call a public API directly even when their website origin is rejected. A server compromise or accidental log/response leak can still expose a secret; rotate the key if that happens. This follow-up adds local dotenv loading and exclusions, not public hosting or a complete abuse-prevention system.
+
+## Provider choice and cost
+
+Official documentation checked October 24, 2026:
+
+- [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing): the current default, Gemini 3.5 Flash-Lite, offers free-tier input/output; paid rates are **$0.30 per million input tokens / $2.50 per million output tokens**. For illustration, 3,000 input + 800 output tokens would be **$0.0029 per chapter** on those paid rates, excluding repairs. Actual usage and account billing tier are separate from published pricing; no billing settings were changed by this test. The earlier 2.5 default returned HTTP 404 for this new-user API project, even though model listing included it. Google's response directed this project to 3.5 Flash-Lite.
+- [Gemini rate limits](https://ai.google.dev/gemini-api/docs/rate-limits): check the project's actual limits in AI Studio. Do not promise a fixed daily free allowance. Quota errors do not trigger an automatic paid-provider fallback.
+- Free-tier requests may be used to improve Google's products; send game facts only, not personal player information. This adapter sends neither run IDs nor complete save history to the model.
+- [Groq limits](https://console.groq.com/docs/rate-limits) also show free plans, but this slice implements one provider rather than a routing framework.
+- [Gemini REST generation API](https://ai.google.dev/api/generate-content) supports structured JSON output. The `generateContent`/`responseSchema` adapter was verified with a real 3.5 Flash-Lite request: HTTP 200, three validated cards, 2.01 seconds for that request. Retry returned the identical persisted receipt in 0.055 seconds; after restarting the server, the same receipt returned in 0.107 seconds. These are individual local measurements, not a latency guarantee. [Live connection receipt](evidence/annual-town/gemini-live-verification.json).
+
+**Hosting decision:** Peter chose to keep this local for now. Vercel account access was verified, but no project was created, no provider key was uploaded, and no deployment was made. A future backend can live in Peter's separate Vercel project while the game frontend remains with the teammate; callers would receive the backend URL rather than the Gemini key. The existing local cache needs shared durable storage before a public serverless release.
+
+## Failure, persistence and ownership
+
+- Each request freezes run/year/revision/action input through the existing domain transaction. Planning remains locked while pending. No cash/time is committed on a provider failure.
+- Chapter v1 has a fixed rules version. IDs, facts, card count, field types, text lengths and markup are validated. The engine's exact numerical consequences are enforced on the server and client. Prose quality/causal accuracy still requires live review; valid references do not prove every sentence is faithful.
+- At most one initial model request and two schema/validation repairs, within a **30-second server deadline**. Quota, refusal and truncated output fail explicitly. Unity allows 35 seconds for transport. The PRD's proposed ten-second latency target is not yet measured.
+- The server saves the first validated receipt before responding and reuses it after retry/restart. Same run/request ID with different input is rejected. A single service process serializes generation. It is a local prototype, not a distributed store.
+- The client autosaves the frozen request before networking, then the accepted year/chapter. Reload restores a pending request or completed chapters without regenerating them. Stopping a request leaves the plan frozen. Explicit offline fallback aborts the pending client transport and uses the same deterministic outcome.
+- The server preserves Unity/Mono's existing numeric hash formatting rather than modern .NET's shorter `R` representation, including Mono's midpoint rounding. The captured requests in `tests/chapters/fixtures/unity-pending-year.json` and `unity-full-pending-year.json` check both legacy and full schema-2 interoperability without changing existing Unity save hashes.
+- Chapter export/import uses its own versioned envelope, including town history and chapter receipts. It does **not** accept legacy bare-town JSON. Existing `AnnualTownSession` bare-town import/export remains available separately. PlayerPrefs is local unencrypted storage, not cloud backup or tamper-proof accounting.
+- If fast-forward fails, accepted earlier years remain saved and the failed year remains pending. Retry that year, then resume the remaining years. No speculative Year 11 is created.
+- The service listens only on **127.0.0.1:8787**, rejects unknown Host/Origin headers and limits request bodies to 1 MiB, accommodating the full 17-action definition and ten-year history. Public deployment is separate work: add authentication, per-user quotas, durable shared storage, same-origin HTTPS routing and provider spending controls. A public static Unity build cannot use this local server as its hosted backend.
+- Main-game presentation uses **TN-06** (short field-note pages), **TN-08** (inspect the result before continuing) and **CS-01** (details on request). This bounded chapter integration does not certify Phase 2A or broader visual acceptance.
+
+## Checks
+
+```powershell
+& 'C:\Program Files\Unity\Hub\Editor\6000.6.6f1\Editor\Data\DotNetSdk\dotnet.exe' run --project tests/annual/Terra.AnnualChecks.csproj
+& 'C:\Program Files\Unity\Hub\Editor\6000.6.6f1\Editor\Data\DotNetSdk\dotnet.exe' run --project tests/chapters/Terra.ChapterChecks.csproj
+```
+
+Unity: **Terra → Annual Town → Run Chapter Checks**, or batch `-executeMethod AnnualChapterChecks.RunBatch`. The chapter tests cover the real map adapter, Unity JSON, pending/accepted/completed restore, PlayerPrefs, exact-once acceptance, explicit offline chapters and Year 10.
+
+Main-game UI checks: batch `-executeMethod MainGameChapterChecks.RunBatch`; `MainGameChapterChecks.BuildVerifiedWeb` runs the checks and builds WebGL. These checks exercise the actual HUD buttons, full annual catalog, chapter/ledger navigation, pending recovery and run reset. They also export `Logs/AnnualTown/main-game-chapter-request.json` for the .NET check runner's `--unity-fixture` option.
+
+See [the verification receipt](evidence/annual-town/chapter-verification.json) for actual completed checks and remaining limits.
+
+## Next implementation gaps
+
+Author an approved causal pack if AI-proposed effects are desired; add the paired same-weather no-action comparison; then refine ending presentation and complete broader browser/novice checks. These are separate from this chapter connection. The wider catalog is not automatically a validated annual price/effect book.

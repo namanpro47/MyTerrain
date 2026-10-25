@@ -1,0 +1,64 @@
+{
+  "status": "Verified local gameplay checkpoint; visual and release gates remain open",
+  "sourceCheckpoint": "589b655e4093c191ca08debeee75ef50a5c67ead",
+  "buildJob": "b7554282467b478bbc2a2246937b62dc",
+  "buildSeconds": 276.357,
+  "buildContext": "Built from the working implementation subsequently committed at this source checkpoint. The post-build commit adds documentation/evidence. Final release requires its own clean-source export.",
+  "unity": "6000.6.6f1",
+  "chrome": "155.0.8059.85",
+  "localBackup": "Builds/Verified/589b655",
+  "rules": "3.1.0 / schema 2",
+  "publicDeployment": null,
+  "files": [
+    {
+      "file": "Build/2ec32cbcf396b364dfc21490996fd030.wasm.unityweb",
+      "bytes": 11112213,
+      "sha256": "1a913938ea0c5a24afa80c047541d8d3bc0e90c2a9391327b9377144986170ad"
+    },
+    {
+      "file": "Build/3c9012e6761d7b736efc91fcd6933a64.framework.js.unityweb",
+      "bytes": 76563,
+      "sha256": "9807efc4bc4035fc17e80ec873a18f20864811d36d22e027c3b2f08527b1934a"
+    },
+    {
+      "file": "Build/4339545020df2d46df439aa0a59edbb8.loader.js",
+      "bytes": 48779,
+      "sha256": "dd79924ffc2b364605948d58adb869049bf80c1665df9afad6e2c7af1654ad30"
+    },
+    {
+      "file": "Build/e0f4035726c96b04f17f5189ba87d131.data.unityweb",
+      "bytes": 27419494,
+      "sha256": "ee74a558a8a264d606baedc6ac19abb2cc5ccc7174fed7ed3c581bc6e94e9686"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "file": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "file": "index.html",
+      "bytes": 6520,
+      "sha256": "521113f1f4ce0de403dcded150c002c34dff2f0aea082e0db65aa427c76dadfd"
+    },
+    {
+      "file": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ]
+}

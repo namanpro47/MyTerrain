@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var paths=new[]{\"docs/evidence/annual-gameplay/three-year-run.json\",\"docs/evidence/annual-gameplay/recipes.json\"}; var previous=paths.Select(System.IO.File.ReadAllBytes).ToArray(); try { AnnualGameplayChecks.Run(); System.IO.Directory.CreateDirectory(\"docs/evidence/annual-merge\"); for(int i=0;i<paths.Length;i++) System.IO.File.Copy(paths[i],\"docs/evidence/annual-merge/\"+System.IO.Path.GetFileName(paths[i]),true); var chapter=AnnualChapterChecks.Run();var annual=AnnualTownChecks.Run();return new {chapterChecks=chapter,annualChecks=annual,gameplayChecks=84}; } finally {for(int i=0;i<paths.Length;i++)System.IO.File.WriteAllBytes(paths[i],previous[i]);}"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "chapterChecks": 16,
+        "annualChecks": 94,
+        "gameplayChecks": 84
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7802,
+      "projectPath": "/Users/naman/Documents/GitHub/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

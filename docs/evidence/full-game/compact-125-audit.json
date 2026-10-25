@@ -1,0 +1,689 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1.25,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 23,
+      "minGlyphCssPx": 23,
+      "preferredHeight": 25.700000762939453,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Land & Nature",
+      "rect": {
+        "x": 150,
+        "y": 398,
+        "width": 224,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Homes & Community",
+      "rect": {
+        "x": 398,
+        "y": 398,
+        "width": 224,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Work & Utilities",
+      "rect": {
+        "x": 646,
+        "y": 398,
+        "width": 224,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 157,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 520,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 641,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 762,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "QUEUED · NOT YET PAID",
+      "rect": {
+        "x": 726,
+        "y": 136,
+        "width": 256,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Eastern wind opportunity",
+      "rect": {
+        "x": 726,
+        "y": 160,
+        "width": 256,
+        "height": 28
+      },
+      "bodyCssPx": 19,
+      "minGlyphCssPx": 19,
+      "preferredHeight": 21.229999542236328,
+      "availableHeight": 28
+    },
+    {
+      "text": "<b>Wind turbine</b>\n$3,000,000 upfront\n$40,000 / yr × 10\nReserve $3,400,000\nOpens Y3 · matures 1 yr\n2.25 ha · 0 energy / 0 water units",
+      "rect": {
+        "x": 726,
+        "y": 193,
+        "width": 256,
+        "height": 112
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 96.13999938964844,
+      "availableHeight": 112
+    },
+    {
+      "text": "Queued · V to move · Delete to remove",
+      "rect": {
+        "x": 726,
+        "y": 309,
+        "width": 256,
+        "height": 35
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 35
+    },
+    {
+      "text": "Redo  Y",
+      "rect": {
+        "x": 278,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Clear all  X",
+      "rect": {
+        "x": 399,
+        "y": 522,
+        "width": 100,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Move  V",
+      "rect": {
+        "x": 734,
+        "y": 343,
+        "width": 106,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Remove",
+      "rect": {
+        "x": 868,
+        "y": 343,
+        "width": 106,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Wind turbine",
+      "rect": {
+        "x": 182,
+        "y": 475,
+        "width": 154,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "Sewage works",
+      "rect": {
+        "x": 350,
+        "y": 475,
+        "width": 154,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "‹",
+      "rect": {
+        "x": 150,
+        "y": 416,
+        "width": 14,
+        "height": 120
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 22,
+      "preferredHeight": 24.579999923706055,
+      "availableHeight": 120
+    },
+    {
+      "text": "›",
+      "rect": {
+        "x": 860,
+        "y": 416,
+        "width": 14,
+        "height": 120
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 22,
+      "preferredHeight": 24.579999923706055,
+      "availableHeight": 120
+    },
+    {
+      "text": "ECONOMIC",
+      "rect": {
+        "x": 366,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "42.3 <size=65%>/100 · year-end 39.3</size>",
+      "rect": {
+        "x": 366,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "SOCIAL",
+      "rect": {
+        "x": 578,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "58.0 <size=65%>/100 · year-end 58.0</size>",
+      "rect": {
+        "x": 578,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "ENVIRONMENTAL",
+      "rect": {
+        "x": 790,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "42.0 <size=65%>/100 · year-end 42.0</size>",
+      "rect": {
+        "x": 790,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "YEAR 1 / 10  ·  PLANNING",
+      "rect": {
+        "x": 40,
+        "y": 138,
+        "width": 278,
+        "height": 22
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 22
+    },
+    {
+      "text": "Cash  $10,000,000\nExisting obligations  $0\nQueued reserve  $3,400,000\n<b>Available  $6,600,000</b>",
+      "rect": {
+        "x": 40,
+        "y": 166,
+        "width": 278,
+        "height": 96
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 73.08000183105469,
+      "availableHeight": 96
+    },
+    {
+      "text": "Review year →",
+      "rect": {
+        "x": 48,
+        "y": 278,
+        "width": 118,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Last report",
+      "rect": {
+        "x": 192,
+        "y": 278,
+        "width": 118,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "New run",
+      "rect": {
+        "x": 208,
+        "y": 332,
+        "width": 114,
+        "height": 34
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 34
+    },
+    {
+      "text": "Ten-year future",
+      "rect": {
+        "x": 32,
+        "y": 332,
+        "width": 148,
+        "height": 34
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 34
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Farming",
+      "enabled": true,
+      "rect": {
+        "x": 142,
+        "y": 400,
+        "width": 240,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Residential",
+      "enabled": true,
+      "rect": {
+        "x": 390,
+        "y": 400,
+        "width": 240,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Community",
+      "enabled": true,
+      "rect": {
+        "x": 638,
+        "y": 400,
+        "width": 240,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Undo  Z",
+      "enabled": true,
+      "rect": {
+        "x": 149,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Valley view  R",
+      "enabled": true,
+      "rect": {
+        "x": 512,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Field guide  G",
+      "enabled": true,
+      "rect": {
+        "x": 633,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Controls  ?",
+      "enabled": true,
+      "rect": {
+        "x": 754,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Redo  Y",
+      "enabled": false,
+      "rect": {
+        "x": 270,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Clear all  X",
+      "enabled": true,
+      "rect": {
+        "x": 391,
+        "y": 520,
+        "width": 116,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Move  V",
+      "enabled": true,
+      "rect": {
+        "x": 726,
+        "y": 348,
+        "width": 122,
+        "height": 34
+      }
+    },
+    {
+      "name": "Button Remove",
+      "enabled": true,
+      "rect": {
+        "x": 860,
+        "y": 348,
+        "width": 122,
+        "height": 34
+      }
+    },
+    {
+      "name": "Build Wind turbine",
+      "enabled": true,
+      "rect": {
+        "x": 178,
+        "y": 435,
+        "width": 162,
+        "height": 82
+      }
+    },
+    {
+      "name": "Build Wastewater treatment",
+      "enabled": true,
+      "rect": {
+        "x": 346,
+        "y": 435,
+        "width": 162,
+        "height": 82
+      }
+    },
+    {
+      "name": "Button ‹",
+      "enabled": true,
+      "rect": {
+        "x": 142,
+        "y": 435,
+        "width": 30,
+        "height": 82
+      }
+    },
+    {
+      "name": "Button ›",
+      "enabled": true,
+      "rect": {
+        "x": 852,
+        "y": 435,
+        "width": 30,
+        "height": 82
+      }
+    },
+    {
+      "name": "Button Review year →",
+      "enabled": true,
+      "rect": {
+        "x": 40,
+        "y": 276,
+        "width": 134,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button Last report",
+      "enabled": false,
+      "rect": {
+        "x": 184,
+        "y": 276,
+        "width": 134,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button New run",
+      "enabled": true,
+      "rect": {
+        "x": 200,
+        "y": 330,
+        "width": 130,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button Ten-year future",
+      "enabled": true,
+      "rect": {
+        "x": 24,
+        "y": 330,
+        "width": 164,
+        "height": 38
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 132,
+      "y": 396,
+      "width": 760,
+      "height": 160
+    },
+    {
+      "x": 708,
+      "y": 126,
+      "width": 292,
+      "height": 264
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 350,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 200,
+      "y": 330,
+      "width": 130,
+      "height": 38
+    },
+    {
+      "x": 24,
+      "y": 330,
+      "width": 164,
+      "height": 38
+    }
+  ]
+}

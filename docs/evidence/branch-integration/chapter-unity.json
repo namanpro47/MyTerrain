@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var chapters=AnnualChapterChecks.Run();var annual=AnnualTownChecks.Run();return new {chapterChecks=chapters,annualChecks=annual};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "chapterChecks": 16,
+        "annualChecks": 94
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7802,
+      "projectPath": "/Users/naman/Documents/GitHub/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

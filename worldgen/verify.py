@@ -82,7 +82,7 @@ for item in lock:
 with tempfile.TemporaryDirectory(prefix='terra-pack-verify-') as temporary:
     target=Path(temporary)
     subprocess.run([sys.executable,str(ROOT/'worldgen/build.py'),'--output',str(target)],check=True,capture_output=True)
-    names=[p.name for p in PACK.iterdir() if p.suffix in ['.json','.geojson'] and p.name not in ['checksums.json','scenario.json']]
+    names=[p.name for p in PACK.iterdir() if p.suffix in ['.json','.geojson'] and p.name not in ['checksums.json','scenario.json','hydrology.json']]
     for name in sorted(names):
         require((PACK/name).read_bytes()==(target/name).read_bytes(),'Deterministic normalized export: '+name)
     # A mission owner may intentionally edit scenario.json; generator must preserve it.

@@ -1,0 +1,10 @@
+{
+  "source": "1c223ab",
+  "chapterServiceChecks": 33,
+  "annualChecks": 94,
+  "consequencesChecks": 1372,
+  "providerCalled": false,
+  "dotnetRollForward": "Major",
+  "unityCompileErrors": 0,
+  "unityCompileWarnings": 0
+}

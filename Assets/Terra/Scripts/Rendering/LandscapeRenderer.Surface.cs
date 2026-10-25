@@ -41,12 +41,16 @@ namespace Terra.Rendering
 
         void PaintTreatmentSurface(Site site,string treatment)
         {
+            // Buildings retain source cover outside their bounded occupied footprint.
+            // Keep the ghost ID (even for a building) so it suppresses a prior land preview.
+            if(string.IsNullOrEmpty(treatment)||(buildRules!=null&&buildRules.Find(treatment)?.landscape!=true))return;
             var polygon=site.polygon;
             float left=polygon.Min(p=>p.x),right=polygon.Max(p=>p.x),bottom=polygon.Min(p=>p.z),top=polygon.Max(p=>p.z);
             float dx=(xmax-xmin)/TreatmentResolution,dz=(zmax-zmin)/TreatmentResolution;
             int x0=Mathf.Clamp(Mathf.FloorToInt((left-xmin)/dx),0,TreatmentResolution-1),x1=Mathf.Clamp(Mathf.CeilToInt((right-xmin)/dx),0,TreatmentResolution-1);
             int z0=Mathf.Clamp(Mathf.FloorToInt((bottom-zmin)/dz),0,TreatmentResolution-1),z1=Mathf.Clamp(Mathf.CeilToInt((top-zmin)/dz),0,TreatmentResolution-1);
-            bool cultivated=treatment.StartsWith("cultivate"),margin=treatment=="cultivate-margin";
+            bool rotation=treatment=="conservation-rotation";
+            bool cultivated=treatment.StartsWith("cultivate")||rotation,margin=treatment=="cultivate-margin";
             float marginTop=Mathf.Lerp(bottom,top,.25f);
             var swale=treatment=="water-swale"?SwaleFor(site):null;
             for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
@@ -65,6 +69,14 @@ namespace Terra.Rendering
                 float coverage=Mathf.SmoothStep(0,1,Mathf.Clamp01(edge/3f));
                 float cropWeight=cultivated?1:0;
                 if(margin)cropWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(marginTop-1,marginTop+1,pz));
+                if(rotation)
+                {
+                    // Match the three clipped planting bands in BuildAnnualLand.
+                    float bandHeight=(top-bottom)/3f;
+                    int band=Mathf.Min(2,Mathf.FloorToInt((pz-bottom)/bandHeight));
+                    float split=bottom+(band+.3f)*bandHeight;
+                    cropWeight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(split-1,split+1,pz));
+                }
                 surfacePixels[z*TreatmentResolution+x]=new Color(cropWeight,1-cropWeight,swale==null?0:SwaleCut(swale,px,pz)/SwaleDepth,coverage);
             }
         }

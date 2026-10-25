@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualChapterContracts.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/WorldContracts.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualEconomy.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Simulation/*.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownDemo.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTownSummary.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualChapters.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/TownCopies.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,691 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A",
+      "rect": {
+        "x": 42,
+        "y": 36,
+        "width": 270,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 42,
+        "y": 59,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 23,
+      "minGlyphCssPx": 23,
+      "preferredHeight": 25.700000762939453,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 42,
+        "y": 89,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Farming",
+      "rect": {
+        "x": 406,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Nature & water",
+      "rect": {
+        "x": 654,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Community",
+      "rect": {
+        "x": 902,
+        "y": 668,
+        "width": 128,
+        "height": 34
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 34
+    },
+    {
+      "text": "Queue actions → review budget → End Year → adapt. Seven starter recipes; more assets await rules.",
+      "rect": {
+        "x": 356,
+        "y": 836,
+        "width": 728,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "Undo  Z",
+      "rect": {
+        "x": 32,
+        "y": 826,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Valley view  R",
+      "rect": {
+        "x": 32,
+        "y": 762,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Field guide  G",
+      "rect": {
+        "x": 1276,
+        "y": 826,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Controls  ?",
+      "rect": {
+        "x": 1276,
+        "y": 762,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "ACCEPTED · OPERATING",
+      "rect": {
+        "x": 1142,
+        "y": 148,
+        "width": 256,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "West field",
+      "rect": {
+        "x": 1142,
+        "y": 177,
+        "width": 256,
+        "height": 52
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 22,
+      "preferredHeight": 24.579999923706055,
+      "availableHeight": 52
+    },
+    {
+      "text": "Low-density housing\nStarted year 1\nEstablishment 100%\n\nAccepted projects remain for this run. Plan on another field.",
+      "rect": {
+        "x": 1142,
+        "y": 227,
+        "width": 256,
+        "height": 120
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 109.87000274658203,
+      "availableHeight": 120
+    },
+    {
+      "text": "Accepted projects stay in place.",
+      "rect": {
+        "x": 1142,
+        "y": 349,
+        "width": 256,
+        "height": 35
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 35
+    },
+    {
+      "text": "Redo  Y",
+      "rect": {
+        "x": 32,
+        "y": 698,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Clear all  X",
+      "rect": {
+        "x": 32,
+        "y": 634,
+        "width": 114,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Queue · Enter",
+      "rect": {
+        "x": 1150,
+        "y": 390,
+        "width": 240,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Swale",
+      "rect": {
+        "x": 544.7142944335938,
+        "y": 775,
+        "width": 92.5714111328125,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "2 eligible fields",
+      "rect": {
+        "x": 544.7142944335938,
+        "y": 814,
+        "width": 92.5714111328125,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "Restore meadow",
+      "rect": {
+        "x": 749.5,
+        "y": 775,
+        "width": 171,
+        "height": 36
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 36
+    },
+    {
+      "text": "10 eligible fields",
+      "rect": {
+        "x": 749.5,
+        "y": 814,
+        "width": 171,
+        "height": 18
+      },
+      "bodyCssPx": 11,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 12.289999961853027,
+      "availableHeight": 18
+    },
+    {
+      "text": "ECONOMIC",
+      "rect": {
+        "x": 782,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "47.8 <size=65%>/100 · +2.6</size>",
+      "rect": {
+        "x": 782,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "SOCIAL",
+      "rect": {
+        "x": 994,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "78.0 <size=65%>/100 · +1.9</size>",
+      "rect": {
+        "x": 994,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "ENVIRONMENTAL",
+      "rect": {
+        "x": 1206,
+        "y": 34,
+        "width": 202,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "37.1 <size=65%>/100 · +6.7</size>",
+      "rect": {
+        "x": 1206,
+        "y": 55,
+        "width": 200,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "YEAR 3 / 10  ·  REVIEWING",
+      "rect": {
+        "x": 40,
+        "y": 138,
+        "width": 278,
+        "height": 22
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 22
+    },
+    {
+      "text": "Fixed storm · discharged 9,606 m³\nYear-end cover: 9,606 m³ · not flood risk",
+      "rect": {
+        "x": 40,
+        "y": 272,
+        "width": 278,
+        "height": 42
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 29.479999542236328,
+      "availableHeight": 42
+    },
+    {
+      "text": "Cash  $11,693,400\nExisting obligations  $145,400\nQueued reserve  $0\n<b>Available  $11,548,000</b>",
+      "rect": {
+        "x": 40,
+        "y": 166,
+        "width": 278,
+        "height": 96
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 73.08000183105469,
+      "availableHeight": 96
+    },
+    {
+      "text": "Year report →",
+      "rect": {
+        "x": 1276,
+        "y": 698,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "Last report",
+      "rect": {
+        "x": 1276,
+        "y": 634,
+        "width": 132,
+        "height": 52
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 52
+    },
+    {
+      "text": "New run",
+      "rect": {
+        "x": 32,
+        "y": 582,
+        "width": 114,
+        "height": 40
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 40
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Farming",
+      "enabled": true,
+      "rect": {
+        "x": 350,
+        "y": 666,
+        "width": 240,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button Residential",
+      "enabled": true,
+      "rect": {
+        "x": 598,
+        "y": 666,
+        "width": 240,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button Community",
+      "enabled": true,
+      "rect": {
+        "x": 846,
+        "y": 666,
+        "width": 240,
+        "height": 38
+      }
+    },
+    {
+      "name": "Button Undo  Z",
+      "enabled": false,
+      "rect": {
+        "x": 24,
+        "y": 824,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Valley view  R",
+      "enabled": true,
+      "rect": {
+        "x": 24,
+        "y": 760,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Field guide  G",
+      "enabled": true,
+      "rect": {
+        "x": 1268,
+        "y": 824,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Controls  ?",
+      "enabled": true,
+      "rect": {
+        "x": 1268,
+        "y": 760,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Redo  Y",
+      "enabled": false,
+      "rect": {
+        "x": 24,
+        "y": 696,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Clear all  X",
+      "enabled": false,
+      "rect": {
+        "x": 24,
+        "y": 632,
+        "width": 130,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Confirm",
+      "enabled": false,
+      "rect": {
+        "x": 1142,
+        "y": 388,
+        "width": 256,
+        "height": 48
+      }
+    },
+    {
+      "name": "Build Vegetated swale",
+      "enabled": false,
+      "rect": {
+        "x": 472,
+        "y": 711,
+        "width": 238,
+        "height": 124
+      }
+    },
+    {
+      "name": "Build Ground-cover restoration",
+      "enabled": false,
+      "rect": {
+        "x": 716,
+        "y": 711,
+        "width": 238,
+        "height": 124
+      }
+    },
+    {
+      "name": "Button Review year →",
+      "enabled": true,
+      "rect": {
+        "x": 1268,
+        "y": 696,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button Last report",
+      "enabled": true,
+      "rect": {
+        "x": 1268,
+        "y": 632,
+        "width": 148,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button New run",
+      "enabled": true,
+      "rect": {
+        "x": 24,
+        "y": 580,
+        "width": 130,
+        "height": 44
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 340,
+      "y": 658,
+      "width": 760,
+      "height": 222
+    },
+    {
+      "x": 24,
+      "y": 824,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 760,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 824,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 760,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1124,
+      "y": 132,
+      "width": 292,
+      "height": 320
+    },
+    {
+      "x": 24,
+      "y": 696,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 632,
+      "width": 130,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 766,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 1268,
+      "y": 696,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 1268,
+      "y": 632,
+      "width": 148,
+      "height": 56
+    },
+    {
+      "x": 24,
+      "y": 580,
+      "width": 130,
+      "height": 44
+    }
+  ]
+}

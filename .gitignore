@@ -11,6 +11,19 @@
 /.vs/
 /.idea/
 *.csproj
+!tests/annual/Terra.AnnualChecks.csproj
+!services/chapters/Terra.Chapters.csproj
+!tests/chapters/Terra.ChapterChecks.csproj
+/services/chapters/bin/
+/services/chapters/obj/
+/services/chapters/data/
+/tests/chapters/bin/
+/tests/chapters/obj/
+.env
+.env.*
+!.env.example
+/tests/annual/bin/
+/tests/annual/obj/
 *.sln
 *.slnx
 *.user
@@ -38,3 +51,12 @@
 /.venv-worldgen/
 /worldgen/cache/
 __pycache__/
+
+# Standalone consequence integration checks.
+!/tests/consequences/ConsequencesChecks.csproj
+/tests/consequences/bin/
+/tests/consequences/obj/
+
+# Standalone .NET verification outputs
+/tests/**/bin/
+/tests/**/obj/

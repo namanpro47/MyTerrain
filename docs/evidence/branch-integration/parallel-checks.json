@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "scope": "Combined standalone package verification; Unity import is recorded separately",
+  "commands": [
+    {
+      "command": [
+        "dotnet",
+        "run",
+        "--project",
+        "tests/simulation/SimulationChecks.csproj",
+        "--",
+        "/Users/naman/Documents/GitHub/Terra"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"passed\": true,\n  \"suiteCount\": 19,\n  \"modelVersion\": \"terra-direct-runoff-v1\",\n  \"cases\": [\n    \"Frozen fixture: all aggregate and per-site hydrology fields\",\n    \"Independent unit case: 10 mm \\u00D7 1000 m2 at CN100 = 10 m3, retain 3, discharge 7\",\n    \"Independent USDA published table 2-1, 2 inches/CN80 = 0.56 inches (rounded)\",\n    \"Independent fractional hand case: CN50, P127 mm, S254, Q=17.5846153846154 mm\",\n    \"Initial abstraction below/equal/above boundary: CN80 S63.5 Ia12.7\",\n    \"Zero storm and zero baseline admit finite absolute difference\",\n    \"Zero-area storage-only unit connects explicitly, with no generation of its own\",\n    \"Disconnected capacity cannot capture another group\\u0027s runoff\",\n    \"Multiple devices share generation once; proportional source allocation\",\n    \"Saturated storage caps at group generation, with proportional used/unused device facts\",\n    \"Cover and retention compose once: grass CN61 at 50 mm minus 1 m3 capacity\",\n    \"Repeatability, permutation invariance, input immutability, no output aliasing, restoration\",\n    \"Monotonic rainfall/CN/area/capacity, nonnegative conservation across 1000 combinations\",\n    \"Malformed inputs reject with useful diagnostics\",\n    \"Finite inputs that overflow float outputs fail without a partial result\",\n    \"Scalar formula rejects invalid public arguments and handles CN100, tiny CN\",\n    \"Frozen area-weighted CN mixture is 73.75, distinctly not component runoff aggregation\",\n    \"Cover validation: null, missing, duplicate, invalid fractions/mappings and non-unit sum\",\n    \"Current Meadowbrook recipes use frozen mixtures; unmapped sealed cover fails explicitly\"\n  ],\n  \"numericalToleranceM3\": 0.001,\n  \"engine\": \".NET standalone; no Unity Editor or browser used\"\n}\n"
+    },
+    {
+      "command": [
+        "dotnet",
+        "build",
+        "tests/simulation/UnityApiCompatibility.csproj",
+        "--nologo"
+      ],
+      "exitCode": 0,
+      "output": "  Determining projects to restore...\n  All projects are up-to-date for restore.\n  UnityApiCompatibility -> /Users/naman/Documents/GitHub/Terra/tests/simulation/bin/Debug/netstandard2.1/UnityApiCompatibility.dll\n\nBuild succeeded.\n    0 Warning(s)\n    0 Error(s)\n\nTime Elapsed 00:00:01.09\n"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "scripts/verify-simulation-example.py"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"passed\": true,\n  \"fixtureVersion\": \"1.0.0\",\n  \"generatedM3\": 25.42162632835775,\n  \"retainedM3\": 8.0,\n  \"disconnectedSiteRetainedM3\": 0.0,\n  \"note\": \"Scalar interface fixture check, not an integrated simulator\"\n}\n"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "tests/education/validate_content.py"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"pass\",\n  \"entries\": 50,\n  \"authoredEntries\": 49,\n  \"questions\": 2,\n  \"hints\": 5,\n  \"placeholders\": 8,\n  \"dtoSource\": \"Assets/Terra/Scripts/Contracts/WorldContracts.cs\"\n}\n"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/education",
+        "-v"
+      ],
+      "exitCode": 0,
+      "output": "test_all_take_home_choices_are_unscored_and_have_cards (test_content.EducationContentTests) ... ok\ntest_available_zero_baseline_needs_no_division (test_content.EducationContentTests) ... ok\ntest_changed_result_changes_copy_and_preserves_negative_delta (test_content.EducationContentTests) ... ok\ntest_duplicate_json_keys_rejected (test_content.EducationContentTests) ... ok\ntest_every_template_renders_available_and_unavailable (test_content.EducationContentTests) ... ok\ntest_frozen_fixture_intro_unchanged (test_content.EducationContentTests) ... ok\ntest_malformed_entry_fixtures (test_content.EducationContentTests) ... ok\ntest_one_missing_or_bad_number_uses_complete_fallback (test_content.EducationContentTests) ... ok\ntest_package_reference_and_question_failures (test_content.EducationContentTests) ... ok\ntest_pending_zero_never_becomes_runoff_measurement (test_content.EducationContentTests) ... ok\ntest_read_only_alternate_core_source_supports_phase3_and_rejects_unknown (test_content.EducationContentTests) ... ok\ntest_unmet_goals_do_not_show_success_or_unsupported_actions (test_content.EducationContentTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.568s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "tests/audio-kit/verify_kit.py"
+      ],
+      "exitCode": 0,
+      "output": "{\n  \"status\": \"pass\",\n  \"checks\": 94,\n  \"source_wav_bytes\": 2581526,\n  \"source_size_is_not_web_download_size\": true,\n  \"float32_decoded_bytes_estimate\": 5162476,\n  \"actual_unity_memory_or_build_measurement\": false,\n  \"subjective_listening_review\": false,\n  \"unity_import_tested\": false,\n  \"unity_web_playback_tested\": false,\n  \"clips\": [\n    {\n      \"id\": \"place\",\n      \"bytes\": 4888,\n      \"frames\": 2422,\n      \"seconds\": 0.109841,\n      \"rate_hz\": 22050,\n      \"channels\": 1,\n      \"sample_peak_dbfs\": -14.0,\n      \"sample_headroom_db\": 14.0,\n      \"rms_dbfs\": -31.7,\n      \"dc_offset\": -0.000690576756522244,\n      \"float32_decoded_bytes_estimate\": 9688\n    },\n    {\n      \"id\": \"undo\",\n      \"bytes\": 2862,\n      \"frames\": 1409,\n      \"seconds\": 0.0639,\n      \"rate_hz\": 22050,\n      \"channels\": 1,\n      \"sample_peak_dbfs\": -18.001,\n      \"sample_headroom_db\": 18.001,\n      \"rms_dbfs\": -40.256,\n      \"dc_offset\": -0.00036889665764726755,\n      \"float32_decoded_bytes_estimate\": 5636\n    },\n    {\n      \"id\": \"cancel\",\n      \"bytes\": 6562,\n      \"frames\": 3259,\n      \"seconds\": 0.1478,\n      \"rate_hz\": 22050,\n      \"channels\": 1,\n      \"sample_peak_dbfs\": -19.999,\n      \"sample_headroom_db\": 19.999,\n      \"rms_dbfs\": -32.175,\n      \"dc_offset\": -3.989103492252224e-06,\n      \"float32_decoded_bytes_estimate\": 13036\n    },\n    {\n      \"id\": \"blocked\",\n      \"bytes\": 7302,\n      \"frames\": 3629,\n      \"seconds\": 0.16458,\n      \"rate_hz\": 22050,\n      \"channels\": 1,\n      \"sample_peak_dbfs\": -21.001,\n      \"sample_headroom_db\": 21.001,\n      \"rms_dbfs\": -37.22,\n      \"dc_offset\": -4.995161588936346e-05,\n      \"float32_decoded_bytes_estimate\": 14516\n    },\n    {\n      \"id\": \"ambient-wind\",\n      \"bytes\": 2559912,\n      \"frames\": 1279900,\n      \"seconds\": 58.045351,\n      \"rate_hz\": 22050,\n      \"channels\": 1,\n      \"sample_peak_dbfs\": -19.361,\n      \"sample_headroom_db\": 19.361,\n      \"rms_dbfs\": -36.003,\n      \"dc_offset\": 6.207951121669662e-07,\n      \"float32_decoded_bytes_estimate\": 5119600,\n      \"loop\": {\n        \"count\": 1,\n        \"type\": 0,\n        \"start\": 1024,\n        \"end\": 1279899,\n        \"play_count\": 0\n      },\n      \"loop_seconds\": 57.998912,\n      \"seam_step_dbfs\": -48.871,\n      \"seam_to_adjacent_step_rms_ratio\": 0.966,\n      \"loop_rms_dbfs\": -36.0,\n      \"first_last_second_rms_difference_db\": 1.357\n    }\n  ]\n}\n\n"
+    }
+  ],
+  "alternateCore": null
+}

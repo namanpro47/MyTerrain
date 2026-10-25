@@ -12,6 +12,8 @@ public static class TerraBuild
     [MenuItem("Terra/Build Web")]
     public static void BuildWeb()
     {
+        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.WebGL)
+            throw new BuildFailedException("Switch the active build target to WebGL before exporting; platform-specific assemblies must be imported first.");
         var scenes = EditorBuildSettings.scenes
             .Where(scene => scene.enabled)
             .Select(scene => scene.path)
@@ -25,6 +27,11 @@ public static class TerraBuild
         PlayerSettings.WebGL.decompressionFallback = true;
         // Avoid mixing cached data/framework/wasm across static-site deployments.
         PlayerSettings.WebGL.nameFilesAsHashes = true;
+        // Release exports optimize the player, not the editor's turnaround time.
+        UnityEditor.WebGL.UserBuildSettings.codeOptimization = UnityEditor.WebGL.WasmCodeOptimization.RuntimeSpeedLTO;
+        // Chrome's repeated ten-year runs reserve ~212 MiB. Avoid growing from
+        // the 32 MiB default during arrival; geometric growth remains available.
+        PlayerSettings.WebGL.initialMemorySize = 256;
         bool phase1 = scenes.Any(scene => scene.EndsWith("TerraMain.unity"));
         PlayerSettings.WebGL.template = phase1 ? "PROJECT:Terra" : "PROJECT:Phase0";
         if (phase1) Phase1Setup.PackageFixture();
