@@ -1,0 +1,55 @@
+using System.Text.Json;
+using Terra.Contracts;
+using Terra.Core;
+
+var options = new JsonSerializerOptions { IncludeFields = true };
+T Read<T>(string text) => JsonSerializer.Deserialize<T>(text, options)!;
+int count = 0;
+void Check(bool ok, string why) { count++; if (!ok) throw new Exception(why); }
+void Reject(Action action, string why) { bool rejected = false; try { action(); } catch (ArgumentException) { rejected = true; } Check(rejected, why); }
+var root = Path.GetFullPath("simulation-data/weather/coon-valley-v1");
+var pack = File.ReadAllBytes(Path.Combine(root,"weather-pack.json"));
+var daily = File.ReadAllBytes(Path.Combine(root,"daily-observations.json"));
+var weather = new AnnualSimulationWeather(pack,daily,Read<TownWeatherPack>,Read<TownDailyWeather>);
+using var vectors = JsonDocument.Parse(File.ReadAllText("docs/evidence/weather-reference/schedule-vectors.json"));
+foreach (var vector in vectors.RootElement.GetProperty("vectors").EnumerateArray())
+{
+    string seed = vector.GetProperty("sharedScenarioSeed").GetString()!;
+    var schedule = weather.Select(seed);
+    Check(schedule.startYear == vector.GetProperty("startYear").GetInt32(), "Cross-runtime schedule differs: " + seed);
+    Check(schedule.recordIds.SequenceEqual(vector.GetProperty("recordIds").EnumerateArray().Select(x=>x.GetString())), "Record IDs differ: " + seed);
+    weather.ValidateSchedule(schedule);
+    schedule.recordIds[0] = "changed";
+    Reject(()=>weather.ValidateSchedule(schedule), "Accepted changed saved schedule");
+    Check(weather.Select(seed).recordIds[0] != "changed", "Caller mutated weather reference");
+}
+Reject(()=>weather.Select(""), "Empty seed accepted");
+Reject(()=>weather.Select(new string('é',129)), "Seed UTF-8 limit ignored");
+var changed = pack.ToArray(); changed[0] ^= 1;
+Reject(()=>new AnnualSimulationWeather(changed,daily,Read<TownWeatherPack>,Read<TownDailyWeather>), "Changed pack accepted");
+changed = daily.ToArray(); changed[0] ^= 1;
+Reject(()=>new AnnualSimulationWeather(pack,changed,Read<TownWeatherPack>,Read<TownDailyWeather>), "Changed daily companion accepted");
+var crops = new[] {
+    new TownCropDefinition { id="corn",sowMonth=5,sowDay=1,harvestMonth=10,harvestDay=15 },
+    new TownCropDefinition { id="soy",sowMonth=5,sowDay=10,harvestMonth=10,harvestDay=1 }
+};
+var saved = weather.Select("coon-valley-demo-1");
+var observations = Read<TownDailyWeather>(System.Text.Encoding.UTF8.GetString(daily));
+for (int year=1;year<=10;year++)
+{
+    var driver = weather.Driver(saved,year,crops);
+    Check(driver.recordId == saved.recordIds[year-1] && driver.historicalYear == 2014+year, "Year-to-record mismatch");
+    var days = observations.years.Single(x=>x.year==driver.historicalYear).days;
+    foreach (var summary in driver.crops)
+    {
+        var season = days.Where(d=>d.dayOfYear>=summary.firstDay && d.dayOfYear<=summary.harvestDay).ToArray();
+        Check(summary.precipTenthsMm == season.Sum(d=>d.precipTenthsMm), "Crop rain differs from exact calendar");
+        Check(summary.hotDays == season.Count(d=>d.tmaxTenthsC>=350), "Crop heat differs from exact calendar");
+        Check(summary.longestDrySpellDays>0 && summary.longestDrySpellDays<=season.Length, "Invalid crop dry spell");
+    }
+    Check(driver.solarFactor==1 && driver.windFactor==1 && driver.generationRuleId.Contains("no-irradiance"), "Unsupported renewable driver inferred");
+    string original = JsonSerializer.Serialize(driver,options);
+    driver.events[0].precipTenthsMm = -1;
+    Check(JsonSerializer.Serialize(weather.Driver(saved,year,crops),options)==original, "Mutable driver escaped reference");
+}
+Console.WriteLine("Annual simulation weather checks passed: " + count);
