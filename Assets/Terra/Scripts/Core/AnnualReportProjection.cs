@@ -11,6 +11,7 @@ namespace Terra.Core
     public static class AnnualReportProjection
     {
         public const string Version = "annual-report-projection-v1";
+        public const string DenseVersion = "annual-report-projection-dense-v1";
         static readonly CultureInfo Culture = CultureInfo.InvariantCulture;
 
         public static ReportNarrationRequest Build(AnnualTownDefinition definition, TownYearReport acceptedReport,
@@ -115,16 +116,77 @@ namespace Terra.Core
                 Array.Empty<string>(), new[] { sim.driver.derivationVersion, sim.driver.generationRuleId }));
             facts.Add(Fact("reference", "What this scenario represents", AnnualSimulationWeather.Disclosure,
                 Array.Empty<string>(), new[] { d.simulation.version }));
+            bool dense = facts.Count > 64;
+            if (dense) facts = DenseFacts(d, report, facts);
             var result = new ReportNarrationRequest {
                 year = report.year, acceptedTransitionId = sim.transitionId, acceptedTransitionHash = sim.transitionHash,
-                rulesVersion = d.simulation.version, reportVersion = Version, promptVersion = ReportNarration.PromptVersion,
+                rulesVersion = d.simulation.version, reportVersion = dense ? DenseVersion : Version, promptVersion = ReportNarration.PromptVersion,
                 modelVersion = modelVersion, title = "Year " + report.year.ToString(Culture) + ": saved results",
                 introduction = "Economic " + Score(o.economicScore, sim.economicDelta) + " · Social " + Score(o.socialScore, sim.socialDelta)
                     + " · Environmental " + Score(o.environmentalScore, sim.environmentalDelta) + ". Public cash " + Money(ledger.closingCashCents)
                     + " is saved. Scores are authored indices, rounded to 0.1; other non-money summaries are rounded to 0.001.",
                 facts = facts.ToArray()
             };
-            ReportNarration.ValidateRequest(result); // Fail explicitly, never truncate material facts.
+            ReportNarration.ValidateRequest(result); // Dense summaries preserve totals; selected details are explicitly disclosed.
+            return result;
+        }
+
+        static List<ReportNarrationFact> DenseFacts(AnnualTownDefinition d, TownYearReport report, List<ReportNarrationFact> all)
+        {
+            var sim = report.simulation;
+            // Preserve the established local fallback order, then summarize ALL
+            // parcels before selecting a small, disclosed set of spatial details.
+            var result = new List<ReportNarrationFact> { all.Single(f => f.id == "budget") };
+            var highlighted = all.FirstOrDefault(f => f.siteIds.Length > 0);
+            if (highlighted != null) result.Add(highlighted);
+            result.Add(all.Single(f => f.id == "services"));
+            foreach (var group in sim.crops.GroupBy(c => new { c.cropId, c.units })
+                .OrderBy(g => g.Key.cropId, StringComparer.Ordinal).ThenBy(g => g.Key.units, StringComparer.Ordinal))
+            {
+                var rule = d.simulation.crops.Single(c => c.id == group.Key.cropId);
+                result.Add(Fact("harvest-total:" + group.Key.cropId, "Total harvest · " + group.Key.cropId,
+                    group.Count().ToString(Culture) + " parcels recorded " + Number(group.Sum(c => c.outputUnits)) + " " + group.Key.units
+                    + " from " + Number(group.Sum(c => c.productiveAreaM2) / 10000) + " ha. This total includes every recorded parcel of this crop, including zero output."
+                    + " Parcel weather, practice and harvest condition remain in the saved report. Private harvest is not public income; these are authored responses, not a calibrated yield forecast.",
+                    Array.Empty<string>(), new[] { rule.ruleId, d.simulation.version }));
+            }
+            var areas = d.sites.ToDictionary(site => site.id, site => (double)site.areaM2, StringComparer.Ordinal);
+            double area = areas.Values.Sum();
+            var cropSites = new HashSet<string>(sim.crops.Select(c => c.siteId), StringComparer.Ordinal);
+            result.Add(Fact("disruption-total", "Impacts across all parcels",
+                sim.impacts.Length.ToString(Culture) + " site-event records across " + sim.impacts.Select(i => i.siteId).Distinct().Count().ToString(Culture)
+                + " affected parcels. Area-weighted mean recorded condition loss across the whole map: "
+                + Number(100 * sim.impacts.Sum(i => i.conditionLoss * areas[i.siteId]) / area) + " percentage points. "
+                + sim.impacts.Count(i => i.beforeHarvest).ToString(Culture) + " records occurred by harvest; "
+                + sim.impacts.Count(i => cropSites.Contains(i.siteId) && !i.beforeHarvest).ToString(Culture) + " after harvest; "
+                + sim.impacts.Count(i => !cropSites.Contains(i.siteId)).ToString(Culture) + " on parcels without a recorded crop. After-harvest damage affects carryover, not completed harvest. Illustrative disruption, not flood depth or probability.",
+                Array.Empty<string>(), new[] { d.simulation.eventRuleId, d.simulation.version }));
+            result.Add(Fact("recovery-total", report.year < 10 ? "Total recovery and carryover" : "Total recovery and final condition",
+                "Across all " + sim.closingState.sites.Length.ToString(Culture) + " parcels, area-weighted closing condition is "
+                + Number(100 * sim.closingState.sites.Sum(site => site.condition * areas[site.siteId]) / area) + "%; recorded recovery averages "
+                + Number(100 * sim.closingState.sites.Sum(site => site.recoveredLastYear * areas[site.siteId]) / area) + " percentage points. Public repair paid "
+                + Money(sim.payments.Where(IsRepair).Sum(payment => payment.paidCents)) + "; remaining repair debt "
+                + Money(sim.closingState.repairs.Sum(debt => debt.unpaidCents)) + ". These totals include every parcel and both prior and new repair payments."
+                + (report.year < 10 ? " Closing condition carries into the next year." : " Closing condition remains at the ten-year horizon.")
+                + " Recovery does not revise completed harvest.",
+                Array.Empty<string>(), new[] { d.simulation.recoveryRuleId, d.simulation.version }));
+            // Bounded detail samples retain exact site links. Aggregate facts have
+            // no partial site lists that might imply only eight sites contributed.
+            var details = all.Where(f => f.id.StartsWith("harvest:", StringComparison.Ordinal)).Take(4)
+                .Concat(all.Where(f => f.id.StartsWith("disruption:", StringComparison.Ordinal)).Take(4))
+                .Concat(all.Where(f => f.id.StartsWith("recovery:", StringComparison.Ordinal))
+                    .OrderByDescending(f => sim.closingState.repairs.Where(debt => debt.siteId == f.siteIds[0]).Sum(debt => debt.unpaidCents))
+                    .ThenBy(f => f.id, StringComparer.Ordinal).Take(4));
+            foreach (var fact in details) if (!result.Any(existing => existing.id == fact.id)) result.Add(fact);
+            int shown = result.Count(f => f.siteIds.Length > 0);
+            int total = all.Count(f => f.siteIds.Length > 0);
+            result.Add(Fact("detail-coverage", "How to read this summary",
+                "Whole-map totals cover every recorded crop, impact, condition and public repair. This summary also shows " + shown.ToString(Culture)
+                + " of " + total.ToString(Culture) + " parcel details: highest-output harvests, greatest recorded condition losses and largest remaining repair debts first."
+                + " The complete parcel records remain in the saved numeric report. The three headline scores and all public-budget totals are unchanged.",
+                Array.Empty<string>(), new[] { d.simulation.version }));
+            result.Add(all.Single(f => f.id == "weather-reference"));
+            result.Add(all.Single(f => f.id == "reference"));
             return result;
         }
 
