@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Isolated terrain integration and overlay optimization — October 25, 2026
+
+Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle,349display and394project checks. Sharing interior overlay vertices reduces observed Ghost construction from28–159ms to7–26ms in the Editor. An old/new reference comparison covers167,282triangles on both fine/source grids, with explicit floating-point-sliver tolerances. Code `a03d0d8` is retained on `codex/relief-validation` for the visual owner; **main contains evidence only**, not the unaccepted terrain candidate. [Exact source, fixtures, measurements and limitations](evidence/full-game/relief-validation/README.md). The owner is revising the terrain shape beyond this tested6m-band checkpoint; these results must not be relabelled as validation of that revision. Final combined Chrome, visual and release gates remain open.
+
 ## Lightweight stream surface — October 25, 2026
 
 A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
