@@ -16,9 +16,11 @@ namespace Terra.Gameplay
         public string saveKey = "terra.annual-chapters.v1";
         public bool autoSave = true;
         public AnnualTownSession town;
+        public event Action StateChanged;
         public bool Busy => operation != null;
         public string Error { get; private set; }
         public AnnualChapterReceipt Latest => receipts.Count == 0 ? null : Clone(receipts[receipts.Count - 1]);
+        public AnnualChapterReceipt ForYear(int year) => Clone(receipts.FirstOrDefault(r => r.consequences.year == year));
         public bool Finishing { get; private set; }
         readonly List<AnnualChapterReceipt> receipts = new List<AnnualChapterReceipt>();
         UnityWebRequest request;
@@ -43,6 +45,7 @@ namespace Terra.Gameplay
                 };
                 request.SetRequestHeader("Content-Type", "application/json");
                 operation = request.SendWebRequest();
+                Publish();
             }
             catch (Exception error) { Fail(error.Message); }
         }
@@ -94,6 +97,7 @@ namespace Terra.Gameplay
             receipts.Add(Clone(receipt));
             frozen = null;
             Persist();
+            Publish();
         }
 
         public void ResolveOffline()
@@ -106,12 +110,12 @@ namespace Terra.Gameplay
         public void Continue()
         {
             if (Busy) throw new InvalidOperationException("Wait for the chapter to finish.");
-            town.ContinueYear(town.State.revision); Persist();
+            town.ContinueYear(town.State.revision); Persist(); Publish();
         }
         public void CancelResolution()
         {
-            StopRequest();
-            town.CancelResolution(town.State.revision); Error = null; Persist();
+            Finishing = false; ReleaseRequest(); frozen = null;
+            town.CancelResolution(town.State.revision); Error = null; Persist(); Publish();
         }
         // Bind only after the player confirms no further new interventions.
         public void FinishOnline()
@@ -131,9 +135,9 @@ namespace Terra.Gameplay
                 ResolveOffline();
             }
         }
-        public void StopRequest() { Finishing = false; ReleaseRequest(); frozen = null; }
+        public void StopRequest() { Finishing = false; ReleaseRequest(); frozen = null; Publish(); }
         void ReleaseRequest() { operation = null; if (request != null) { request.Abort(); request.Dispose(); request = null; } }
-        void Fail(string message) { StopRequest(); Error = message; }
+        void Fail(string message) { Error = message; StopRequest(); }
         void OnDisable() { StopRequest(); }
 
         public string ExportSave() => JsonUtility.ToJson(new AnnualChapterSave { town = town.State, chapters = receipts.ToArray() }, true);
@@ -163,7 +167,12 @@ namespace Terra.Gameplay
             }
             town.ImportSave(JsonUtility.ToJson(save.town));
             receipts.Clear(); receipts.AddRange(save.chapters.OrderBy(c => c.consequences.year).Select(Clone));
-            frozen = null; Error = null; Persist();
+            frozen = null; Error = null; Persist(); Publish();
+        }
+        public void ResetForRun()
+        {
+            Finishing = false; ReleaseRequest(); frozen = null; Error = null;
+            receipts.Clear(); Persist(); Publish();
         }
         public void Save()
         {
@@ -172,7 +181,13 @@ namespace Terra.Gameplay
         }
         public void RestoreSaved() { if (PlayerPrefs.HasKey(saveKey)) ImportSave(PlayerPrefs.GetString(saveKey)); }
         void Persist() { if (autoSave) Save(); }
-        static T Clone<T>(T value) => JsonUtility.FromJson<T>(JsonUtility.ToJson(value));
+        static T Clone<T>(T value) => value == null ? default : JsonUtility.FromJson<T>(JsonUtility.ToJson(value));
+        void Publish()
+        {
+            if (StateChanged == null) return;
+            foreach (Action listener in StateChanged.GetInvocationList())
+                try { listener(); } catch (Exception error) { Debug.LogException(error, this); }
+        }
         [Serializable] sealed class ChapterError { public string error; }
     }
 }

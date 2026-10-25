@@ -134,31 +134,34 @@ namespace Terra.Gameplay
                 annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));recovery=e.Message;
             }
             hud.ConfigureAnnual(annualDefinition,ReviewYear,ShowAcceptedReport,NewRun);
+            InitializeChapters(ref recovery);
             if(recovery!=null)Toast("Saved run could not be restored; a recovery copy was kept. "+recovery);
         }
-        void SaveAnnual(){try{annual.Save();}catch(Exception e){Debug.LogWarning("Annual save failed: "+e.Message);Toast("This session is playable, but the browser could not save progress.");}}
+        void SaveAnnual(){try{annual.Save();chapters?.Save();}catch(Exception e){Debug.LogWarning("Annual save failed: "+e.Message);Toast("This session is playable, but the browser could not save progress.");}}
         void ReviewYear()
         {
+            if(annual.State.phase==TownPhase.Resolving){ShowPendingChapter();return;}
             if(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed){ShowAcceptedReport();return;}
-            var state=annual.State;
             hud.AnnualConfirmation(annual.Engine,AnnualGameplay.Forecast(annual.Engine),()=>{
                 hud.CloseModal();
-                try{annual.EndYearOffline(state.pendingRequest?.requestId??state.runId+"/year-"+state.year);SaveAnnual();RefreshLandscape();Refresh();ShowAcceptedReport();}
+                try{if(OnlineChapters)chapters.ResolveOnline();else chapters.ResolveOffline();}
                 catch(Exception e){Toast("Year has not completed: "+e.Message);}
-            });
+            },OnlineChapters);
         }
         void ShowAcceptedReport()
         {
             if(annual.State.history.Length==0)return;
-            hud.AnnualReport(annual.Engine,annualBaseline,()=>{
-                hud.CloseModal();if(annual.State.phase==TownPhase.Reviewing)annual.ContinueYear(annual.State.revision);
-                SaveAnnual();Refresh();
-            });
+            var chapter=chapters.ForYear(annual.State.history.Last().year);
+            if(chapter==null)ShowAnnualLedger();
+            else hud.AnnualChapterReport(annual.Engine,chapter,ContinueAfterChapter,ShowAnnualLedger);
         }
         void NewRun()
         {
             hud.AnnualDialog("Start a new run?","This replaces this browser's current run. Accepted years cannot be undone. A copy of this run will be kept locally.","Start new run",()=>{
-                PlayerPrefs.SetString(annual.saveKey+".previous",annual.ExportSave());annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));
+                PlayerPrefs.SetString(annual.saveKey+".previous",annual.ExportSave());
+                PlayerPrefs.SetString(chapters.saveKey+".previous",chapters.ExportSave());
+                chapters.StateChanged-=ChapterChanged;chapters.StopRequest();annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"));
+                chapters.ResetForRun();chapters.StateChanged+=ChapterChanged;
                 hud.CloseModal();selectedId=hoverId=null;treatmentId="";editMode="place";hud.Selected("");SaveAnnual();RefreshLandscape();Refresh();
             });
         }

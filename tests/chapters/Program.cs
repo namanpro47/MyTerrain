@@ -38,6 +38,8 @@ try {
 } finally { File.Delete(envFixture); }
 var unityFixture = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "fixtures/unity-pending-year.json")));
 Check(AnnualChapters.Preview(unityFixture).History.Length == 1, "Actual Unity JSON/hash could not replay on the server.");
+var fullUnityFixture = ChapterJson.Read<AnnualChapterRequest>(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"fixtures","unity-full-pending-year.json")));
+Check(AnnualChapters.Preview(fullUnityFixture).History.Length == 2, "Full schema-2 Unity JSON/hash could not replay on the server.");
 Check(AnnualChapters.Fingerprint(unityFixture) == "0a83d13d1e36c94930c70555957977b1a7a4cc6059fa910743a1c566b9d63a54", "Existing v1 chapter cache identity changed.");
 var changedServiceRules = Copy(unityFixture);
 changedServiceRules.definition.actions[0].servicesFollowProduction = false;

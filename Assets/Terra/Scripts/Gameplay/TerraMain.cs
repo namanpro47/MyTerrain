@@ -64,7 +64,7 @@ namespace Terra.Gameplay
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
-            InitializeAnnual(m.packId);ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
+            InitializeAnnual(m.packId);ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();RestoreChapterView();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();
         }
         void Update()
@@ -190,7 +190,7 @@ namespace Terra.Gameplay
         }
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
-        void OnDestroy(){landscape?.Dispose();}
+        void OnDestroy(){if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }

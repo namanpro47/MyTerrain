@@ -6,7 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 LocalEnvironment.LoadForProject(builder.Environment.ContentRootPath);
 // Local prototype only. Public hosting needs authentication, per-user quotas and shared storage.
 builder.WebHost.UseUrls("http://127.0.0.1:8787");
-builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 256 * 1024);
+// The full annual catalog plus ten saved reports can exceed the old 256 KiB demo limit.
+builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 1024 * 1024);
 builder.Logging.ClearProviders(); // No prompt, save data, or credential-bearing HTTP logs.
 var app = builder.Build();
 var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");

@@ -7,5 +7,6 @@
     <ProjectReference Include="../../services/chapters/Terra.Chapters.csproj" />
     <Compile Include="../../Assets/Editor/AnnualTownChecks.cs" />
     <None Update="fixtures/unity-pending-year.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="fixtures/unity-full-pending-year.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

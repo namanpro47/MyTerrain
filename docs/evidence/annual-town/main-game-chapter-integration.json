@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-24",
+  "scope": "Main-game annual chapter integration; local only",
+  "baseCommit": "0497c11",
+  "checks": {
+    "mainGameHudSession": 14,
+    "unityChapter": 16,
+    "standaloneChapter": 39,
+    "annualTown": 94,
+    "annualGameplay": 15,
+    "fullUnitySchema2Replay": true,
+    "legacyCacheIdentityPreserved": true
+  },
+  "provider": {
+    "model": "gemini-3.5-flash-lite",
+    "httpStatus": 200,
+    "year": 2,
+    "cards": 3,
+    "seconds": 3.38,
+    "requestBytes": 189966,
+    "note": "Single full-catalog local measurement. Browser walkthrough recorded separately."
+  },
+  "designReferences": [
+    "TN-06",
+    "TN-08",
+    "CS-01"
+  ],
+  "publicDeployment": false,
+  "humanVisualAcceptance": false,
+  "build": {
+    "result": "Success",
+    "seconds": 624.173,
+    "publishedFiles": 10,
+    "publishedBytes": 36672169,
+    "target": "WebGL",
+    "unity": "6000.6.6f1"
+  },
+  "browser": {
+    "name": "Chrome",
+    "url": "http://127.0.0.1:8081/",
+    "cssWidth": 1707.333,
+    "cssHeight": 876,
+    "devicePixelRatio": 1.5,
+    "input": "Pointer and keyboard",
+    "cases": [
+      "Queued West field farmland with unchanged $10M cash and $120K reserve",
+      "Reviewed $102K payment before submission",
+      "Pending year kept cash unchanged",
+      "Accepted live Gemini Year 1 with two validated cards",
+      "Accepted cash $10,898,000 and $18,000 future obligations matched budget review",
+      "Chapter linked to accepted ledger and back",
+      "Reading cards did not advance the year",
+      "Reload reopened same saved chapter without another cache receipt",
+      "Final card reopened Year 2 planning",
+      "Stopped backend deliberately: failed Year 2 stayed pending without payment",
+      "Explicit offline completion labelled Year 2 offline; cash $11,896,000 and obligations $16,000"
+    ],
+    "chapterIntroPreferredHeight": 287.6,
+    "chapterIntroAvailableHeight": 440,
+    "errorsBeforeDeliberateFailure": 0,
+    "knownConsoleWarning": "URP Edge Adaptive Spatial Upsampling shader stripped/unsupported",
+    "limitations": "Single desktop viewport; no novice study or broad layout acceptance. Automation needed held clicks and frame-state observations."
+  }
+}

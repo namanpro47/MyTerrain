@@ -1,5 +1,15 @@
 # Terra — phase status and evidence
 
+## Main-game annual chapters — October 24, 2026
+
+Peter requested the annual chapters in the playable main UI and a local end-year test. **Review year → End year → chapter cards → Plan next year** now uses the same authoritative annual session, full catalog and ledger. Budget/meter details remain available on every story page. Pending requests offer retry, labelled offline completion and return to plan editing. Reload restores pending or accepted chapters; a new run archives the prior envelope locally.
+
+Verified engineering checks: **14** actual HUD/session assertions plus **16** existing Unity chapter assertions; **39** standalone chapter assertions; **94** annual-store plus **15** annual-gameplay assertions. A captured schema-2 Unity request with an accepted prior year now replays on .NET: the server preserves Mono's midpoint rounding as well as its significant-digit formatting. A live full-catalog Gemini request returned HTTP 200, three cards, in **3.38 seconds** (one measurement). The request limit is 1 MiB for the full catalog and history. The key remains in the local backend's ignored environment file; no hosted deployment or Vercel secret upload is part of this work.
+
+Presentation references: **TN-06 / TN-08 / CS-01** — short field-note pages, inspect the accepted result before continuing, ledger details on request. This checkpoint does not accept the separate Phase 2A scenery gate or claim novice testing. See [chapter setup and lifecycle](annual-chapters.md).
+
+Local WebGL export succeeded in **624.173 seconds** (cold worktree build; 10 published files / 36,672,169 bytes). Chrome at 1707 × 876 CSS pixels verified queue → budget → pending → live AI chapter → ledger/back → saved reload → Year 2 planning. Cash moved from $10M to the reviewed $10,898,000 once; reading/reload did not pay again. A deliberately stopped backend left Year 2 pending with unchanged cash; explicit offline completion showed its label and the correct $11,896,000 closing cash. Gemini was restarted afterward. No runtime errors before the deliberate failure; the existing optional URP upscaling shader warning remains. [Machine-readable integration evidence](evidence/annual-town/main-game-chapter-integration.json). Peter owns the wider visual/playtest acceptance.
+
 ## Full-plan implementation — October 24, 2026
 
 Phase 5 engineering follow-through: **608** full-game assertions now include two distinct affordable ten-year strategies, saved adverse conditions, stress cases and exact manual/fast-forward equality with per-year reload. Final meters are 85.4/99.0/54.8 and 94.2/91.0/66.6 respectively. [Reproducible run snapshots](evidence/full-game/README.md#phase-5-balance-and-transition-checkpoint). Human duration/comprehension and live browser acceptance remain pending.
