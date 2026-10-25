@@ -193,7 +193,7 @@ namespace Terra.UI
             long reserve=upfront+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
             projectReserve.text=projectStatsAccepted?"Upkeep term · "+recipe.operatingYears+" operating years":Money(reserve)+" lifetime public cost";
             if(recipe.annualPublicPaymentCents>0)projectReserve.text+="\n"+StatMoney(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
-            else if(converting)projectReserve.text+="\nIncludes "+StatMoney(annualTown?.ConversionCost(site.id)??0)+" change cost";
+            else if(converting)projectReserve.text+="\nChange "+StatMoney(annualTown?.ConversionCost(site.id)??0)+" · no refund";
             else if(!projectStatsAccepted)projectReserve.text+="\nIncludes "+recipe.operatingYears+" yr upkeep";
             recipeDetails.gameObject.SetActive(true);SetButtonText(recipeDetails,"Details & assumptions");previewAction.gameObject.SetActive(false);
             if(projectStatsCatalog)confirmEditButton.gameObject.SetActive(false);

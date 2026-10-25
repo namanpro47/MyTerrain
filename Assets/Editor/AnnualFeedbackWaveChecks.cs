@@ -59,7 +59,7 @@ public static class AnnualFeedbackWaveChecks
         hud.AnnualState(town,baseline,AnnualGameplay.Forecast(town).outcomes);
         hud.AnnualPreview(world.sites.First(s=>s.id==farm.siteId),meadow,town.Snapshot(),"place",null,()=>{},false);
         Check(Visible().Contains("Review change · Enter")&&Visible().Contains("no refund"),"Accepted field does not explain conversion.");
-        Check(Visible().Contains(TerraHud.Money(meadow.upfrontPublicCostCents+town.ConversionCost(farm.siteId))),"Conversion preview omits its extra cost.");
+        Check(Visible().Contains((string)typeof(TerraHud).GetMethod("StatMoney",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{meadow.upfrontPublicCostCents+town.ConversionCost(farm.siteId)})),"Conversion preview omits its extra cost.");
         town.QueueAction(farm.siteId,meadow.actionId,town.Revision);
         hud.AnnualConfirmation(town,AnnualGameplay.Forecast(town),()=>{});
         Check(Visible().Contains("Land-use changes")&&Visible().Contains("Future obligations"),"Budget hides conversion or future costs.");hud.CloseModal();
