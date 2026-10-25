@@ -1,0 +1,10 @@
+{
+  "source": "c3ca4fb",
+  "runtime": ".NET 10.0.13 with DOTNET_ROLL_FORWARD=Major for net8 targets",
+  "results": {
+    "annual": "Terra annual town checks passed: 94\nAnnual gameplay checks passed: 15\n",
+    "chapters": "Terra chapter checks passed: 42; no real provider called. Cache fixtures: /var/folders/s6/43qsm6h11w9bb8qxs7vf5x2m0000gn/T/terra-chapters-check-1d1b5df3dfcd4b4bace8b3d7d8484169\n",
+    "full-game": "cultivate-standard: 10 fitting fields\ncover-crop: 10 fitting fields\nconservation-rotation: 10 fitting fields\ncultivate-margin: 10 fitting fields\nrestore-grass: 10 fitting fields\nwater-swale: 2 fitting fields\nlow-density-housing: 9 fitting fields\nhigh-density-housing: 9 fitting fields\npublic-park: 8 fitting fields\nagricultural-storage: 8 fitting fields\ndata-center: 6 fitting fields\nvillage-center: 6 fitting fields\nnon-renewable-power: 6 fitting fields\nsolar: 6 fitting fields\nwind: 1 fitting fields\nstewardship-agreement: 10 fitting fields\nwastewater-upgrade: 6 fitting fields\nFull-catalog checks passed: 589\nFull-game boundary checks passed; total assertions: 603\ncommunity-and-services: 85.4 / 99.0 / 54.8; cash $5240000\nland-and-livelihoods: 94.2 / 91.0 / 66.6; cash $6163000\nFull ten-year checks passed; total assertions: 608\n",
+    "consequences": "Phase 4: 1372 integration checks passed; baseline discharge 9701.926 m\u00b3.\n"
+  }
+}
