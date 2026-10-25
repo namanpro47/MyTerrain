@@ -54,5 +54,38 @@
       "bytes": 308496
     }
   },
-  "browserRetest": "Not repeated: presentation-text filtering and provider speed only; unchanged Unity, HTML and other assets."
+  "browserRetest": "Not repeated: presentation-text filtering and provider speed only; unchanged Unity, HTML and other assets.",
+  "published": {
+    "deployment": "dpl_5Spkc23S9RbZaNCDSAfYNehkwYAq",
+    "source": "3b0c2d8",
+    "aliases": [
+      {
+        "origin": "https://www.myterrain.io",
+        "narrationScriptSha256": "a321c5a5913468b16856026abe5994040d17b2481f4a0e5a92a71aadd5aee1f7",
+        "config": {
+          "configured": true,
+          "voice": "Matilda",
+          "revision": "9bb9ff43c962d8c6",
+          "speed": 1.1,
+          "maxCharacters": 700
+        }
+      },
+      {
+        "origin": "https://terra-browser.vercel.app",
+        "narrationScriptSha256": "a321c5a5913468b16856026abe5994040d17b2481f4a0e5a92a71aadd5aee1f7",
+        "config": {
+          "configured": true,
+          "voice": "Matilda",
+          "revision": "9bb9ff43c962d8c6",
+          "speed": 1.1,
+          "maxCharacters": 700
+        }
+      }
+    ],
+    "liveAudio": {
+      "status": 200,
+      "contentType": "audio/mpeg",
+      "bytes": 50198
+    }
+  }
 }
