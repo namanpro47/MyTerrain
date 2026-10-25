@@ -1,5 +1,15 @@
 # Terra — phase status and evidence
 
+## Phase 5/6 annual stress and recovery — October 25, 2026
+
+The annual-completion chat independently extends the existing full-game suite: **2,399 assertions pass on both current connected and legacy Wisconsin layouts**. New coverage includes 51 repeated-family/site-order routes per layout, exact interrupted-future recovery at every Year 1–10, mismatched/duplicate response safety, same-condition comparison drivers, late construction with $600K beyond-horizon obligations, debt-preserving shortfall endings, and a recoverable repair with a useful Year 4 park investment. No production rule, price, save, HUD or scenery changes. [Reproduction, exact inputs, results and limitations](evidence/annual-completion/README.md).
+
+The user explicitly chose to continue with **human playtesting unavailable**; no novice comprehension or duration claim is made. The existing implementation chat retains rendering/performance and integration; this chat owns the final public manual run and two rehearsals after the accepted visual export. These model checks do not close Phase 2A, final Chrome/release gates or certify a deployment.
+
+## Crop spatial grouping — isolated candidate, October 25, 2026
+
+[Candidate `d4ae4f2`](evidence/phase2a/crop-spatial-01/README.md) groups existing crop plants into 32m source cells before unchanged culling/LOD selection. Exact plant/soil content fingerprints and all three crop lifecycles pass. Normal/close selected leaf triangles fall 2.76M→1.60M and 5.34M→2.28M; total nature draws fall 499→452 and 295→261. Expected LOD silhouette differences are documented in matched captures. Chrome timing remains pending; **main contains evidence only**, not this runtime/art candidate.
+
 **Current Editor candidate, study64:** Quieter shared soil shading and clearer crop leaves improve the new cultivated beds. Three camera alternatives were compared and not promoted. Compilation/material/render checks pass; new Chrome export remains pending. [Actual captures and limits](evidence/phase2a/visual-rebuild/study64-findings.md). **Latest Chrome opening, study63:** first entry9.61s,31 exact served files; motion and transformation remain pending. [Evidence](evidence/phase2a/visual-rebuild/study63-findings.md). Phase2A stays open.
 
 **Earlier saved work, study62:** Mixed conifer groves are an unfinished checkpoint. Compilation and asset bake pass; integrated scene/LOD and Chrome verification remain pending. Study61 bank-profile tuning was rejected. [Checkpoint, trial captures and next checks](evidence/phase2a/visual-rebuild/study62-findings.md). Phase 2A remains open.
