@@ -81,7 +81,7 @@ namespace Terra.UI
             motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");},16);
             muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
-            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%5;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
+            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%6;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
             var loadingBackdrop=Rect(root,"Loading backdrop",Vector2.zero,Vector2.zero,Vector2.zero);
             loadingBackdrop.anchorMin=Vector2.zero;loadingBackdrop.anchorMax=Vector2.one;loadingBackdrop.offsetMin=loadingBackdrop.offsetMax=Vector2.zero;
             loadingBackdrop.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.84f,.88f,.77f);loadingShade=loadingBackdrop.gameObject;
@@ -192,8 +192,11 @@ namespace Terra.UI
                 "<b>03   Water & roads · USGS National Map</b>\nNHD flowlines and transportation layers 30–32, retrieved October 24, 2026. Feature dates vary; drawn widths are illustrative. Federal source data are public domain.\n\n"+
                 "<b>What is not included</b>\nNo parcel, structure, tree, ownership or local soil survey. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.\n\n"+
                 "<b>Use this game to ask better questions</b>\nThe proposals are educational choices, not recommendations for real farms. Production units are illustrative accounting, not measured yields.");
-            else if(dataPage==3)ShowModal("Art & acknowledgements",
-                "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.\n\n"+
+            else if(dataPage==3)ShowModal("Landscape art & acknowledgements",
+                "<b>JulioVII · Stylized Grass & Dirt</b>\nCC-BY (version unspecified by creator)\njuliovii.itch.io/ftpgrass-dirt\nAdapted tiling, tint, relief and blending.\n\n"+
+                "<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use. Adapted scale, materials and instancing.\n\n"+
+                "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.");
+            else if(dataPage==4)ShowModal("Plants & sound credits",
                 "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nelijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted geometry, palette, materials and instancing.\n\n"+
                 "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com · adapted geometry/materials.\n\n"+
                 "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
@@ -204,7 +207,7 @@ namespace Terra.UI
                 "<size=80%>Source: USDA TR-55 (1986), chapter 2. Tables reproduced by USACE: hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables</size>");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
             guideSummary.SetActive(dataPage==0&&!LargeText);
-            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":dataPage==3?"Runoff & connections →":"← Place & assumptions");
+            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Landscape art →":dataPage==3?"Plants & sound →":dataPage==4?"Runoff & connections →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
         {closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);SetButtonText(closeButton,"Return to landscape  Esc");if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}

@@ -115,7 +115,7 @@ namespace Terra.UI
             double[] next={forecast.economicScore,forecast.socialScore,forecast.environmentalScore};
             for(int i=0;i<3;i++)
             {
-                annualScores[i].text=values[i].ToString("0.0")+" <size=65%>/100 · "+(planning?"year-end "+next[i].ToString("0.0"):Signed(values[i]-before[i]))+"</size>";
+                annualScores[i].text=values[i].ToString("0.0")+" <size=65%>/100 · "+(planning?"year-end "+next[i].ToString("0.0"):"last yr "+Signed(values[i]-before[i]))+"</size>";
                 annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.96f,7);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());

@@ -1,0 +1,52 @@
+{
+  "study": "29c",
+  "buildJob": "17ced72c4ffb4d0c866ffcdfb58d7052",
+  "buildMs": 77150,
+  "browser": "Chrome",
+  "viewport": "1280x720 CSS and render buffer",
+  "rendererFixture": "study29-swale-check.json",
+  "exportCheck": "study29-export-check.json",
+  "browserLog": "study29-browser-log.json",
+  "restore": [
+    5,
+    42
+  ],
+  "swale": [
+    6,
+    32
+  ],
+  "undo": [
+    6,
+    60
+  ],
+  "finalRevision": 6,
+  "performance": {
+    "seconds": 30.001998901367188,
+    "averageFps": 56.49623489379883,
+    "frameP50Ms": 17.0,
+    "frameP95Ms": 31.0,
+    "frameP99Ms": 38.00000762939453,
+    "maxFrameMs": 529.0,
+    "maxPreviewCpuMs": 3.299999952316284,
+    "maxPlacementCpuMs": 4.800000190734863,
+    "frames": 1695,
+    "framesOver33Ms": 51,
+    "framesOver200Ms": 2,
+    "previewEvents": 3,
+    "placementEvents": 1,
+    "cameraEvents": 1054,
+    "unfocusedFrames": 0
+  },
+  "visualAcceptance": false,
+  "fullPerformanceAcceptance": false,
+  "annualLifecycleValidated": false,
+  "publicDeployment": false,
+  "sourceBase": "972bb40",
+  "sourceSha256": {
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Swales.cs": "373d8e7a5a99235170cb6e848ca3ecbf7dfbac175cd03c8c1e262c0fdd97b4f6",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Channels.cs": "adec8957a0c5b974f5af832e23fbfed2c1fd2f2cd00225136ce95ea2c60f129a",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Surface.cs": "8aeaf69e09a0e42b441dcd0a4f4150862f778a6145a3d32c6ef98205d522a333",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Treatments.cs": "cece80804653182349aba4c7d8f155103f2f755062edf3a260f8a9093a7474b8",
+    "Assets/Terra/Resources/TerraGround.shader": "dcb4651203642daaa0af412026752c52eac684e85c5e4c7395b7719557601850"
+  }
+}

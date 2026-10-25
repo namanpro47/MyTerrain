@@ -10,7 +10,7 @@ namespace Terra.Rendering
     {
         readonly Dictionary<string,TextMeshPro> annualLabels=new Dictionary<string,TextMeshPro>();
         public void AnnualViewScale(float worldPerCssPixel)
-        { foreach(var label in annualLabels.Values)if(label!=null)label.transform.localScale=Vector3.one*worldPerCssPixel; }
+        { foreach(var label in annualLabels.Values)if(label!=null){label.transform.localScale=Vector3.one*worldPerCssPixel;if(Camera.main!=null)label.transform.rotation=Camera.main.transform.rotation;} }
         public void AnnualStage(Site site,string stage,double maturity)
         {
             annualLabels.Remove(site.id);

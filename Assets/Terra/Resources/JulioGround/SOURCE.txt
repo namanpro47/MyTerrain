@@ -1,0 +1,9 @@
+Stylized Grass & Dirt — JulioVII (Julio Sillet)
+https://juliovii.itch.io/ftpgrass-dirt
+Downloaded free ZIP 2026-10-24; publication file date March 8, 2026.
+Creator declares CC-BY; commercial use permitted except reselling. No version specified.
+Retain attribution and original link. Source archive SHA256: 706bddc944f28c751a99fccbbd90f8b00cf5f89ea57f534b74aacc469733fd0d
+These JPEG files are unchanged extracts: Grass_02, GrassAndDirt_01, Dirt_01, Stones_02 basecolor and normalogl.
+Runtime materials adapt tint, tiling, blend and normal strength; Unity import limits resolution to 2048.
+Original archive includes nine material sets and Blender file, no license file or Unity shader/demo.
+No paid Substance sources acquired.

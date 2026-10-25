@@ -22,12 +22,12 @@ namespace Terra.Gameplay
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
         Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
-        bool perspective=true;
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=42,zoom=58;Vector3 target=new Vector3(-115,30,10);
+        bool perspective=false;float focusHeightOffset;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing,panGesture;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
-        float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
+        float shownYaw=-32,shownPitch=42,shownZoom=58;Vector3 shownTarget=new Vector3(-115,30,10);
         public int Revision=>annual?.State.revision??-1;
         public string Diagnostic=>annual==null?"loading":$"year={annual.State.year}; phase={annual.State.phase}; revision={Revision}; cash={annual.State.cashCents}; queued={annual.State.queue.Length}; assets={annual.State.assets.Length}";
         void Start()
@@ -35,8 +35,8 @@ namespace Terra.Gameplay
             gameObject.name="TerraMain";Application.runInBackground=true;
             view=Camera.main;view.orthographic=false;view.fieldOfView=36;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.41f,.49f,.57f);RenderSettings.ambientEquatorColor=new Color(.30f,.37f,.32f);RenderSettings.ambientGroundColor=new Color(.18f,.23f,.18f);
-            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.20f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(38,-105,0);}
+            RenderSettings.ambientSkyColor=new Color(.50f,.61f,.72f);RenderSettings.ambientEquatorColor=new Color(.38f,.46f,.40f);RenderSettings.ambientGroundColor=new Color(.22f,.28f,.22f);
+            var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.10f;sun.shadowStrength=.72f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(52,-100,0);}
             hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
             hud.ConfigureEditing(BeginMove,BeginRemove,Redo,BeginReset);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;InitializeAudio();
@@ -166,12 +166,12 @@ namespace Terra.Gameplay
         void ApplyView()
         {
             // Deliberate illustrated camera: pan and zoom keep painted forms and light coherent.
-            yaw=-32;pitch=37;zoom=Mathf.Clamp(zoom,55,1000);
+            yaw=-32;pitch=42;zoom=Mathf.Clamp(zoom,32,1000);
             target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
             if(ready)
             {
-                target.y=landscape.Height(target.x,target.z)+8;
-                var offset=Quaternion.Euler(pitch,yaw,0)*Vector3.forward*(perspective?zoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850);
+                target.y=landscape.Height(target.x,target.z)+8+focusHeightOffset;
+                var offset=Quaternion.Euler(pitch,yaw,0)*Vector3.forward*(zoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad));
                 var position=target-offset;
                 target.y=Mathf.Max(target.y,landscape.Height(position.x,position.z)+35+offset.y);
             }
@@ -182,23 +182,53 @@ namespace Terra.Gameplay
             float t=!ready||hud.ReducedMotion?1:1-Mathf.Exp(-Time.unscaledDeltaTime*16);
             shownYaw=Mathf.LerpAngle(shownYaw,yaw,t);shownPitch=Mathf.Lerp(shownPitch,pitch,t);shownZoom=Mathf.Lerp(shownZoom,zoom,t);shownTarget=Vector3.Lerp(shownTarget,target,t);
             view.orthographic=!perspective;view.orthographicSize=shownZoom;view.transform.rotation=Quaternion.Euler(shownPitch,shownYaw,0);
-            float distance=perspective?shownZoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850;
+            float distance=shownZoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad);
             var position=shownTarget-view.transform.forward*distance;
             // Also protect the interpolated camera while crossing a wooded hillside.
-            if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
+            if(ready)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
             view.transform.position=position;float displayRatio=hud?.PixelRatio??1;
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
+        void ResetView(){focusHeightOffset=0;perspective=false;yaw=-32;pitch=42;zoom=58;target=new Vector3(-115,30,10);ApplyView();}
         void FocusSite()
         {
             var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];
             string action=QueuedAt(site.id)??annual.State.assets.FirstOrDefault(a=>a.siteId==site.id)?.actionId??treatmentId;
-            var art=buildActionCatalog.Find(action);float height=art!=null&&!art.landscapeSample?art.meshBoundsMetres.size.y:0;
-            float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);
-            target=new Vector3(x,landscape.Height(x,z)+Mathf.Max(8,height*.45f),z);
-            zoom=Mathf.Max(72,height*.85f+(art!=null?art.siteSizeMetres.y*.25f:0));
+            var rule=buildActionRules.Find(action);var art=buildActionCatalog.Find(action);
+            var points=new System.Collections.Generic.List<Vector3>();
+            foreach(var p in site.polygon)points.Add(new Vector3(p.x,landscape.Height(p.x,p.z),p.z));
+            if(rule!=null&&!rule.landscape&&art!=null)
+            {
+                var layout=buildActionRules.Layout(site,rule);
+                if(layout.Valid)
+                {
+                    var bounds=art.meshBoundsMetres;var rotation=Quaternion.Euler(0,layout.yaw,0);
+                    foreach(int x in new[]{-1,1})foreach(int y in new[]{-1,1})foreach(int z in new[]{-1,1})
+                        points.Add(new Vector3(layout.x,layout.groundY,layout.z)+rotation*(bounds.center+Vector3.Scale(bounds.extents,new Vector3(x,y,z))));
+                }
+            }
+            var safe=hud.LandscapeFocusViewport();var orientation=Quaternion.Euler(42,-32,0);var inverse=Quaternion.Inverse(orientation);
+            var projected=points.Select(p=>inverse*p).ToArray();var frame=new Bounds(projected[0],Vector3.zero);
+            foreach(var p in projected)frame.Encapsulate(p);
+            var center=orientation*frame.center;float aspect=view.aspect,tangent=Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad);
+            float ox=2*safe.center.x-1,oy=2*safe.center.y-1;zoom=32;
+            foreach(var p in projected.Select(p=>p-frame.center))
+            {
+                float depth=perspective?p.z*tangent:0;
+                zoom=Mathf.Max(zoom,(p.x/aspect-(2*safe.xMax-1)*depth)/safe.width,(-p.x/aspect+(2*safe.xMin-1)*depth)/safe.width,
+                    (p.y-(2*safe.yMax-1)*depth)/safe.height,(-p.y+(2*safe.yMin-1)*depth)/safe.height);
+            }
+            // Preserve the view centre while leaving a little breathing room around the bounds.
+            zoom*=1.04f;
+            for(int i=0;i<24;i++)
+            {
+                target=center-orientation*new Vector3(zoom*aspect*ox,zoom*oy,0);
+                var cameraPosition=target-orientation*Vector3.forward*(zoom/tangent);
+                if(cameraPosition.y>=landscape.Height(cameraPosition.x,cameraPosition.z)+36)break;
+                zoom*=1.1f;
+            }
+            focusHeightOffset=target.y-landscape.Height(target.x,target.z)-8;
             ApplyView();Toast("Focused site · Scroll to zoom · R returns to the valley");
         }
         void OnDestroy(){if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}

@@ -1,0 +1,1808 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();\nvar flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nvar type=main.GetType();\nobject Field(string name)=>type.GetField(name,flags).GetValue(main);\nvoid Set(string name,object value)=>type.GetField(name,flags).SetValue(main,value);\nvar world=(Terra.Contracts.WorldData)Field(\"world\");\nvar rules=(Terra.Core.BuildActionRules)Field(\"buildActionRules\");\nvar session=(Terra.Gameplay.AnnualTownSession)Field(\"annual\");\nvar hud=(Terra.UI.TerraHud)Field(\"hud\");\n// Screen.width in an Editor eval reflects the invoking editor window. Lay out against\n// the actual Game-view canvas, then validate the camera's real viewport projection.\nvar canvas=UnityEngine.Object.FindObjectsByType<UnityEngine.Canvas>(UnityEngine.FindObjectsSortMode.None).First(c=>c.name==\"Terra HUD\");\nfloat width=canvas.pixelRect.width,height=canvas.pixelRect.height;\nvar uiFlags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nvar dock=(UnityEngine.Transform)typeof(Terra.UI.TerraHud).GetField(\"actionDock\",uiFlags).GetValue(hud);\ndock.localScale=UnityEngine.Vector3.one*UnityEngine.Mathf.Min(1,(width-48)/760);\ntypeof(Terra.UI.TerraHud).GetMethod(\"LayoutAnnual\",uiFlags).Invoke(hud,new object[]{width,height,width<1120||height<680});\nvar landscape=(Terra.Rendering.LandscapeRenderer)Field(\"landscape\");\nvar camera=(UnityEngine.Camera)Field(\"view\");\nvar safe=hud.LandscapeFocusViewport();\nif(safe.width<=0||safe.height<=0)throw new System.Exception(\"Test requires a supported game viewport: \"+UnityEngine.Screen.width+\"x\"+UnityEngine.Screen.height);\nvar rows=new System.Collections.Generic.List<object>();\nforeach(bool perspective in new[]{false,true})foreach(var offer in session.Definition.actions)\n{\n    var site=world.sites.First(s=>s.id==offer.siteId);var rule=rules.Find(offer.actionId);\n    Set(\"hoverId\",site.id);Set(\"treatmentId\",offer.actionId);Set(\"perspective\",perspective);\n    type.GetMethod(\"FocusSite\",flags).Invoke(main,null);\n    foreach(var pair in new[]{(\"shownYaw\",\"yaw\"),(\"shownPitch\",\"pitch\"),(\"shownZoom\",\"zoom\"),(\"shownTarget\",\"target\")})Set(pair.Item1,Field(pair.Item2));\n    type.GetMethod(\"RenderView\",flags).Invoke(main,null);\n    var points=site.polygon.Select(p=>new UnityEngine.Vector3(p.x,landscape.Height(p.x,p.z),p.z)).ToList();\n    var art=main.buildActionCatalog.Find(offer.actionId);var layout=rules.Layout(site,rule);\n    if(!rule.landscape&&layout.Valid)\n    {\n        // Independently inspect the actual source renderer bounds rather than its catalog summary.\n        var origin=new UnityEngine.Vector3(layout.x,layout.groundY,layout.z);var rotation=UnityEngine.Quaternion.Euler(0,layout.yaw,0);\n        foreach(var renderer in art.prefab.GetComponentsInChildren<UnityEngine.Renderer>(true))\n        {\n            var b=renderer.bounds;\n            foreach(int x in new[]{-1,1})foreach(int y in new[]{-1,1})foreach(int z in new[]{-1,1})\n                points.Add(origin+rotation*(b.center+UnityEngine.Vector3.Scale(b.extents,new UnityEngine.Vector3(x,y,z))));\n        }\n    }\n    foreach(var point in points)\n    {\n        var p=camera.WorldToViewportPoint(point);\n        if(p.z<=0||p.x<safe.xMin-.001||p.x>safe.xMax+.001||p.y<safe.yMin-.001||p.y>safe.yMax+.001)\n            throw new System.Exception(offer.actionId+\" at \"+site.id+\" perspective=\"+perspective+\" outside clear viewport: \"+p+\" safe \"+safe);\n    }\n    rows.Add(new{offer.actionId,offer.siteId,perspective,zoom=(float)Field(\"zoom\"),checkedPoints=points.Count});\n}\nSet(\"hoverId\",null);Set(\"treatmentId\",\"\");type.GetMethod(\"ResetView\",flags).Invoke(main,null);\nreturn new{width,height,safe=safe.ToString(),cases=rows.Count,rows};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "width": 1440,
+        "height": 900,
+        "safe": "(x:0.24, y:0.29, width:0.53, height:0.49)",
+        "cases": 254,
+        "rows": [
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-01",
+            "perspective": false,
+            "zoom": 75.99932,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 80.43149,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 92.68124,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-02",
+            "perspective": false,
+            "zoom": 78.9760056,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 80.75213,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 88.71065,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-03",
+            "perspective": false,
+            "zoom": 79.5181656,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 80.6021042,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 86.61419,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-04",
+            "perspective": false,
+            "zoom": 76.41556,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 80.20526,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 87.4922,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-05",
+            "perspective": false,
+            "zoom": 79.7117157,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 82.47252,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 88.69007,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-06",
+            "perspective": false,
+            "zoom": 77.02388,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "water-swale",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-07",
+            "perspective": false,
+            "zoom": 76.33365,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-08",
+            "perspective": false,
+            "zoom": 81.7036743,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "water-swale",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 85.04174,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 80.53863,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 94.06535,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "east-09",
+            "perspective": false,
+            "zoom": 79.25045,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "west-10",
+            "perspective": false,
+            "zoom": 60.4906845,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wind",
+            "siteId": "annual-wind-13",
+            "perspective": false,
+            "zoom": 231.776184,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-01",
+            "perspective": true,
+            "zoom": 88.49613,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 92.31167,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 103.930084,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-02",
+            "perspective": true,
+            "zoom": 91.10126,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 92.5246048,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 99.61033,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-03",
+            "perspective": true,
+            "zoom": 91.57571,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 92.97956,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.80955,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 97.36989,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-04",
+            "perspective": true,
+            "zoom": 88.86041,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.76015,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 98.04876,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-05",
+            "perspective": true,
+            "zoom": 91.74513,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 93.4311752,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 98.4907455,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "south-06",
+            "perspective": true,
+            "zoom": 88.3461,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "water-swale",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-07",
+            "perspective": true,
+            "zoom": 87.2186356,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "south-08",
+            "perspective": true,
+            "zoom": 93.4884338,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "water-swale",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "low-density-housing",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "high-density-housing",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 92
+          },
+          {
+            "actionId": "public-park",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "agricultural-storage",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 60
+          },
+          {
+            "actionId": "data-center",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 96.74734,
+            "checkedPoints": 84
+          },
+          {
+            "actionId": "village-center",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 92.52548,
+            "checkedPoints": 100
+          },
+          {
+            "actionId": "non-renewable-power",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 105.176163,
+            "checkedPoints": 76
+          },
+          {
+            "actionId": "solar",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 36
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wastewater-upgrade",
+            "siteId": "east-09",
+            "perspective": true,
+            "zoom": 91.2373047,
+            "checkedPoints": 68
+          },
+          {
+            "actionId": "cultivate-standard",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cultivate-margin",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "restore-grass",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "cover-crop",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "conservation-rotation",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "stewardship-agreement",
+            "siteId": "west-10",
+            "perspective": true,
+            "zoom": 69.68897,
+            "checkedPoints": 4
+          },
+          {
+            "actionId": "wind",
+            "siteId": "annual-wind-13",
+            "perspective": true,
+            "zoom": 243.919937,
+            "checkedPoints": 36
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

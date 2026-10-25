@@ -6,7 +6,7 @@
 
 ## The intended visual experience
 
-**Current comparison focus — after study19b:** TN-02/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) keeps the reference beside the current landscape. Creek layering and visible artist ground textures help; corrected displayed-pixel LOD resolves the severe overview slowdown. Moving placement still fails performance, and repeated crowns, harsh shadows, mechanical fields and road seams remain visually substantial. Next test a coherent forest-edge/lighting/route treatment in the representative scene; do not equate performance recovery with visual acceptance.
+**Current comparison focus — after study29c:** TN-01/02/05/09–12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) pairs the candidate with Terra Nil. Swales now lower rendered terrain rather than adding raised ribbons; restoration uses elongated colonies and quieter ground. These changes resolve specific construction defects, but crop rows, disconnected grass groups, sparse context and overview composition still fail the visual gate. Next materially change field/groundcover construction, not another tint or density trial. Reconcile these renderer changes into the separate annual lifecycle before claiming full-game visual acceptance. [Integration boundary](VISUAL_WORK_HANDOFF.md).
 
 An inviting, painterly rural landscape that is worth looking around before touching a tool. Woodland has soft, varied crowns and layered edges; fields read as cultivated land with convincing surface rhythms; water has a distinct bed, bank, surface, and relationship to surrounding vegetation. Warm sunlight and cool depth separate forms without washing everything into the same sage color. Interventions visibly belong to this world and improve or change its character.
 

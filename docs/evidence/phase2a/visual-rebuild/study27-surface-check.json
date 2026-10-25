@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "docs/evidence/phase2a/visual-rebuild/study27-surface-check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        "initial baseline passed RGBA(0.000, 0.000, 0.000, 0.000)",
+        "restore preview passed RGBA(0.000, 1.000, 0.000, 1.000)",
+        "cancel preview passed RGBA(0.000, 0.000, 0.000, 0.000)",
+        "committed restoration passed RGBA(0.000, 1.000, 0.000, 1.000)",
+        "restoration has no overlay mesh",
+        "replacement preview passed RGBA(1.000, 0.000, 0.000, 1.000)",
+        "cancel restores prior treatment passed RGBA(0.000, 1.000, 0.000, 1.000)",
+        "undo returns original surface passed RGBA(0.000, 0.000, 0.000, 0.000)",
+        "analytical cover unchanged: cultivated"
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

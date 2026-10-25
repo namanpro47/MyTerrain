@@ -14,6 +14,12 @@ Reconciled the concurrently published `358312d` responsive UI / future compariso
 
 Final-build Chrome check: no-new-project Year 1 accepted a Gemini chapter with the reviewed **$11M** closing cash. Confirmed offline fast-forward then reached **Year 10 / Complete**, **$19.85M** closing cash, and the matching **42.3 / 58.0 / 42.0** no-new-action comparison. No runtime errors in the inspected final-build log. The test run was archived through New run, leaving Year 1 for Peter's local test. No public deployment.
 
+## Annual / visual integration — October 24, 2026
+
+The published visual study `663a5ec` is reconciled over main `1fb5ec3` in the isolated full-implementation worktree. Annual land projects now use the continuous ground surface and shallow swale geometry; rotation paint matches all three planted bands. Buildings retain surrounding source cover, and removing a queued treatment previews the restored geometry and surface. Shared art meshes are preserved during teardown. The current annual session, committed history and analytical geography are unchanged.
+
+Compilation and the existing full-game/chapter/annual/consequences suites pass. The [running-Editor integration fixture](evidence/full-game/annual-terrain-integration-check.json) verifies exact swale cancel/undo, queue/redo, accepted Year 10 replay, building cover preservation and read-only comparison restoration. Combined Chrome verifies swale preview/edit/acceptance/reload, unchanged community ending and revised credits/stories. It exposed narrow unplanted rotation strips and partially dock-covered Focus framing; both are corrected in source. The framing suite passes 1,016 actual camera-projection cases across four layouts; corrected Chrome retest remains pending. The incoming visual study remains **unaccepted**; known scenery gaps and the public release/rehearsal gate remain open. [Detailed evidence](evidence/full-game/README.md#visual-study29c--annual-renderer-reconciliation).
+
 ## Full-game quality checkpoint — October 24, 2026
 
 Reconciled Peter's `9da54a5` annual chapters through `ba88fdf`, preserving the shared ledger and saved receipts. Offline chapters now show exact accepted money and all three indicator results; the ending adds saved project stories and site inspection. Chrome verifies pending/retry/reload/offline recovery, unchanged committed cash, complete story pagination, no-project ending, compact 125% larger text, and repeated replays. Full source checks: **608 full-game, 42 chapters, 94 annual + 15 gameplay, 1,372 consequences**; Unity **34 lifecycle, 17 main HUD/session + 16 chapter** assertions.
@@ -115,6 +121,8 @@ The updated public-budget PRD is preserved in [PRD_ANNUAL_GAMEPLAY.md](PRD_ANNUA
 
 **Phase 0 is complete.** Existing Editor/Play-mode/debugger setup evidence was reused. A fresh interactive Web export and actual public Chrome/Safari checks now pass. Phase 1 is complete; Meadowbrook Valley is the game name for the selected Wisconsin AOI. Phase 2 is complete; Phase 2A is now in progress under its separately activated goal; later live-game gates remain unaccepted. Separately prepared editing/packages and remote annual/art work are recorded below; no new runtime work is certified by the planning revision.
 
+**Current isolated visual candidate — study29c:** Shallow rendered swales replace raised ribbons; meadow colonies and quieter ground are in the Chrome build. Renderer reversibility/seam checks, exact serving checks and Restore/swale/undo pass. One moving path p95=31ms but max529ms/two>200ms; performance fails. Whole-scene visual gate still fails and the annual lifecycle path is not covered by these legacy renderer checks. [Current review](CURRENT_VISUAL_REVIEW.md) · [build/source/browser evidence](evidence/phase2a/visual-rebuild/study29-build.json) · [integration boundary](VISUAL_WORK_HANDOFF.md).
+
 | Phase | Status | Evidence / missing gate |
 |---|---|---|
 | 0 — Browser gate | Gate passed | Current-source export, public anonymous access, Chrome/Safari interaction checks, captured evidence and source checkpoint recorded below |
@@ -155,9 +163,9 @@ Transaction implementation and final Chrome verification are complete. All 1,924
 - **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
 - **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
 
-## Current Phase 2A checkpoint — study19b
+## Current Phase 2A checkpoint — study28e
 
-[Current visual review](CURRENT_VISUAL_REVIEW.md) shows actual Chrome output beside the primary reference. Study17's creek and study18's visible artist ground treatment remain partial improvements. Study19b corrects the first distance-detail regression: overview p95=19ms; moving placement p95=41ms still fails. Cultivate/Restore/undo work. One startup exception with early input remains untriaged; the next reload did not reproduce it. The visual gate **still fails** on crown variety, field appearance, lighting, roads and whole-scene richness. No current public deployment. [Exact builds, captures and diagnostics](evidence/phase2a/visual-rebuild/checkpoint.json).
+[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Free JulioVII material family, alpha-safe foliage and matching shadow/depth passes, closer orthographic framing and nonrepeating paint sampling tested in Chrome.28d Restore/undo passes; moving samplep95=123ms initially, then33ms after superseded visual tabs closed; full performance gate pending.28e archives21 unused resources without deleting them; exact checked transfer36.79MB. **Visual gate remains failed:** composition, sparse communities, mechanical cultivation and swale construction are substantial gaps. No4.5 ratings or current public/annual acceptance. [Evidence](evidence/phase2a/visual-rebuild/README.md) · [integration handoff](VISUAL_WORK_HANDOFF.md).
 
 ## Fresh-build publication — October 24, 2026, 18:12 local
 

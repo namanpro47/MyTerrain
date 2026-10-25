@@ -12,8 +12,6 @@ namespace Terra.Rendering
         void BuildAnnualLand(Site site,string id,Transform parent,bool preview)
         {
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
-            bool farm=id=="cultivate-standard"||id=="cultivate-margin"||id=="conservation-rotation";
-            Patch("Managed living ground",p,farm?Field:Meadow,.055f,parent);
             if(id=="cultivate-standard")PlantCultivation(p,parent,false);
             else if(id=="cultivate-margin"||id=="conservation-rotation")
             {
@@ -23,25 +21,16 @@ namespace Terra.Rendering
                     float bottom=Mathf.Lerp(b,t,i/(float)bands),top=Mathf.Lerp(b,t,(i+1f)/bands);
                     float split=Mathf.Lerp(bottom,top,id=="conservation-rotation"?.3f:.25f);
                     var meadow=LandBand(p,bottom,split);var crops=LandBand(p,split,top);
-                    if(meadow.Length>=3){Patch("Living cover strip",meadow,Meadow,.07f,parent);PlantMeadow(meadow,parent,3.1f,true);}
+                    if(meadow.Length>=3){PlantMeadow(p,parent,3.1f,true,(x,z)=>z<bottom||z>split);}
                     if(crops.Length>=3)PlantCultivation(crops,parent,false);
                 }
             }
-            else if(id=="water-swale")
-            {
-                float middle=(b+t)*.5f;
-                var route=new[]{new Point(l+9,middle),new Point(Mathf.Lerp(l,r,.35f),middle+2),new Point(Mathf.Lerp(l,r,.65f),middle+3),new Point(r-9,middle)};
-                Ribbon(route,5,new Color(.35f,.44f,.25f),.085f,parent,"Vegetated swale bank");
-                Ribbon(route,1.7f,new Color(.47f,.42f,.29f),.10f,parent,"Shallow swale bed");
-                // Decorative damp bed, not a water-quality or flood-protection visualization.
-                PlantMeadow(p,parent,3.7f,true,(x,z)=>DistanceToRoute(route,x,z)<2.8f);
-            }
+            else if(id=="water-swale")PlantSwale(site,parent);
             else PlantMeadow(p,parent,id=="cover-crop"?2.8f:2.9f,id!="cover-crop");
         }
         void BuildWindMeadow(Site site,Terra.Core.BuildActionLayout layout,Transform parent)
         {
             var ground=new GameObject("Wind agreement meadow").transform;ground.SetParent(parent,false);
-            Patch("Living clearance ground",site.polygon,Meadow,.055f,ground);
             PlantMeadow(site.polygon,ground,4.5f,false,(x,z)=>Mathf.Abs(x-layout.x)<11&&Mathf.Abs(z-layout.z)<11);
         }
         void BuildRemainingSite(Site site,Terra.Core.BuildActionLayout layout,Transform parent)

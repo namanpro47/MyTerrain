@@ -7,6 +7,23 @@ namespace Terra.UI
 {
     public sealed partial class TerraHud
     {
+        // Fit a focused project into the actual clear space between the panels, including
+        // compact layouts and browser display scaling. Coordinates are camera viewport units.
+        public Rect LandscapeFocusViewport()
+        {
+            Canvas.ForceUpdateCanvases();float padding=16*PixelRatio;var canvas=root.GetComponent<Canvas>().pixelRect;
+            Rect ScreenRect(Transform panel)
+            {
+                var corners=new Vector3[4];((RectTransform)panel).GetWorldCorners(corners);
+                return UnityEngine.Rect.MinMaxRect(corners[0].x,corners[0].y,corners[2].x,corners[2].y);
+            }
+            var left=ScreenRect(budgetPanel);var right=ScreenRect(tooltip.transform);
+            var dock=ScreenRect(actionDock);var feedback=ScreenRect(toastPanel.transform);
+            return UnityEngine.Rect.MinMaxRect(Mathf.Min((left.xMax+padding-canvas.x)/canvas.width,.45f),
+                Mathf.Min((dock.yMax+padding-canvas.y)/canvas.height,.48f),
+                Mathf.Max((right.xMin-padding-canvas.x)/canvas.width,.55f),
+                Mathf.Max((feedback.yMin-padding-canvas.y)/canvas.height,.52f));
+        }
         // At 125% zoom on a 1280×720 display, keep primary controls outside the map preview.
         // Secondary actions share the catalog footer; prices remain in the selected-site panel.
         void LayoutAnnual(float width,float height,bool compact)

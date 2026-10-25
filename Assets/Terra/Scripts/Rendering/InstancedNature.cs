@@ -7,7 +7,7 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh,medium,distant;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight;public bool crop; }
+        sealed class Batch { public Mesh mesh,medium,distant;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight;public bool crop,groundcover; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
         static int cameraFrame=-1;static bool cameraValid,orthographic;
@@ -16,7 +16,7 @@ namespace Terra.Rendering
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
         public void Reveal(float duration){revealStarted=Time.unscaledTime;revealDuration=duration;foreach(var batch in batches)batch.animated=new Matrix4x4[batch.transforms.Length];}
-        public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint)
+        public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
         {
             if(prefab==null||transforms.Count==0)return;
             var filters=prefab.GetComponentsInChildren<MeshFilter>(true);
@@ -30,7 +30,15 @@ namespace Terra.Rendering
                 var local=prefab.transform.worldToLocalMatrix*filter.transform.localToWorldMatrix;
                 for(int sub=0;sub<filter.sharedMesh.subMeshCount;sub++)
                 {
-                    var material=new Material(materials[Mathf.Min(sub,materials.Length-1)]);material.enableInstancing=true;
+                    var sourceMaterial=materials[Mathf.Min(sub,materials.Length-1)];
+                    var material=new Material(softGroundCover?Resources.Load<Material>("Nature/Groundcover"):sourceMaterial);
+                    if(softGroundCover)
+                    {
+                        material.SetTexture("_BaseMap",sourceMaterial.mainTexture);
+                        material.SetColor("_BaseColor",tint);
+                        material.SetFloat("_Cutoff",.5f);
+                    }
+                    material.enableInstancing=true;
                     if(tint!=Color.white&&prefab.name.StartsWith("Grass"))material.color=tint;
                     ownedMaterials.Add(material);
                     // Dense crop clusters use larger batches; woodland retains smaller spatial groups.
@@ -44,7 +52,7 @@ namespace Terra.Rendering
                         if(medium!=null)localBounds.Encapsulate(medium.bounds);if(distant!=null)localBounds.Encapsulate(distant.bounds);
                         var bounds=TransformBounds(localBounds,matrices[0]);float maxHeight=bounds.size.y;
                         for(int i=1;i<matrices.Length;i++){var plantBounds=TransformBounds(localBounds,matrices[i]);bounds.Encapsulate(plantBounds);maxHeight=Mathf.Max(maxHeight,plantBounds.size.y);}
-                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster"});
+                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster",groundcover=softGroundCover});
                     }
                 }
             }
@@ -73,14 +81,14 @@ namespace Terra.Rendering
             foreach(var b in batches)
             {
                 float pixels=float.MaxValue;
-                if(cameraValid&&(b.crop||b.medium!=null))
+                if(cameraValid&&(b.crop||b.groundcover||b.medium!=null))
                 {
                     // RenderMeshInstanced retains its native bounds/frustum and shadow culling.
                     // Use the nearest part of a spatial batch, retaining detail conservatively at its near edge.
                     float depth=Mathf.Max(1,Vector3.Dot(b.bounds.center-cameraPosition,cameraForward)-b.bounds.extents.magnitude);
                     pixels=b.maxHeight*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
                     // The crop shader fades individual stalks before this conservative batch cutoff.
-                    if(b.crop&&pixels<=2.4f)continue;
+                    if(b.crop&&pixels<=2.4f||b.groundcover&&pixels<=1.5f)continue;
                 }
                 var mesh=pixels<18&&b.distant!=null?b.distant:pixels<42&&b.medium!=null?b.medium:b.mesh;
                 var parameters=new RenderParams(b.material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
