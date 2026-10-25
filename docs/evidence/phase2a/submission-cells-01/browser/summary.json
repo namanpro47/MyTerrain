@@ -1,0 +1,74 @@
+{
+  "chromeVersion": "155.0.8059.85",
+  "viewport": [
+    1280,
+    720
+  ],
+  "rows": [
+    {
+      "name": "control",
+      "performance": {
+        "seconds": 30.01700210571289,
+        "averageFps": 41.709693908691406,
+        "frameP50Ms": 20.00000762939453,
+        "frameP95Ms": 39.0,
+        "frameP99Ms": 57.0,
+        "maxFrameMs": 80.0,
+        "maxPreviewCpuMs": -1.0,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1252,
+        "framesOver33Ms": 237,
+        "framesOver200Ms": 0,
+        "previewEvents": 0,
+        "placementEvents": 0,
+        "cameraEvents": 903,
+        "unfocusedFrames": 0
+      },
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      },
+      "errors": [],
+      "warnings": [
+        "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n"
+      ]
+    },
+    {
+      "name": "candidate",
+      "performance": {
+        "seconds": 30.01300048828125,
+        "averageFps": 55.27604675292969,
+        "frameP50Ms": 17.0,
+        "frameP95Ms": 30.0,
+        "frameP99Ms": 43.0,
+        "maxFrameMs": 65.0,
+        "maxPreviewCpuMs": -1.0,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1659,
+        "framesOver33Ms": 48,
+        "framesOver200Ms": 0,
+        "previewEvents": 0,
+        "placementEvents": 0,
+        "cameraEvents": 1097,
+        "unfocusedFrames": 0
+      },
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      },
+      "errors": [],
+      "warnings": [
+        "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n"
+      ]
+    }
+  ],
+  "scope": "One sequential moving-camera sample per frozen export; not final combined acceptance. Candidate loaded initially at default viewport, then resized to1280x720 before timing; no matched-resolution arrival comparison claimed."
+}

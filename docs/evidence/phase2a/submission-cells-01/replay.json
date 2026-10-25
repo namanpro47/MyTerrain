@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/SubmissionCells/replay.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "rows": [
+          {
+            "size": 96,
+            "sourceBatches": 1816,
+            "draws": 1372,
+            "instances": 30558,
+            "uniqueIdentityMatrices": 30558,
+            "missingBounds": 0
+          },
+          {
+            "size": 192,
+            "sourceBatches": 1816,
+            "draws": 659,
+            "instances": 30558,
+            "uniqueIdentityMatrices": 30558,
+            "missingBounds": 0
+          }
+        ],
+        "scope": "All active scene small-batch full-detail collector replay; not visibility/LOD selection or GPU timing. Exact identity/matrix multiplicity, capacity and containing bounds are checked."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

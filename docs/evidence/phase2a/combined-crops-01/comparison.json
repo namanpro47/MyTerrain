@@ -1,0 +1,68 @@
+[
+  {
+    "view": "normal",
+    "control": {
+      "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/normal-96.png",
+      "width": 1280,
+      "height": 720,
+      "frame": 2710,
+      "cellSize": 96,
+      "source": 900,
+      "draws": 680,
+      "submitted": 1047,
+      "culled": 1296
+    },
+    "candidate": {
+      "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/normal-192.png",
+      "width": 1280,
+      "height": 720,
+      "frame": 2735,
+      "cellSize": 192,
+      "source": 900,
+      "draws": 352,
+      "submitted": 1047,
+      "culled": 1296
+    },
+    "changedPixels": 4956,
+    "pixelsAbove2": 315,
+    "maxDelta": 20,
+    "mean": [
+      0.004152560763888889,
+      0.003920355902777777,
+      0.0023860677083333334
+    ]
+  },
+  {
+    "view": "close",
+    "control": {
+      "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/close-96.png",
+      "width": 1280,
+      "height": 720,
+      "frame": 2799,
+      "cellSize": 96,
+      "source": 498,
+      "draws": 370,
+      "submitted": 576,
+      "culled": 1774
+    },
+    "candidate": {
+      "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/close-192.png",
+      "width": 1280,
+      "height": 720,
+      "frame": 2763,
+      "cellSize": 192,
+      "source": 498,
+      "draws": 217,
+      "submitted": 576,
+      "culled": 1774
+    },
+    "changedPixels": 20,
+    "pixelsAbove2": 0,
+    "maxDelta": 1,
+    "mean": [
+      1.4105902777777777e-05,
+      6.510416666666667e-06,
+      1.3020833333333334e-05
+    ]
+  }
+]

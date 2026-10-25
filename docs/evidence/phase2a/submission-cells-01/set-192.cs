@@ -1,0 +1,1 @@
+Terra.Rendering.NatureSubmission.ComparisonCellSize=192;return new{size=192,frame=UnityEngine.Time.frameCount};
