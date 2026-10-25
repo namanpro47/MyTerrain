@@ -20,7 +20,11 @@ namespace Terra.Gameplay
             placementIntentSource=moveSourceId;placementIntentRevision=annual.State.revision;
         }
         void ClearPlacementIntent(){placementIntentPending=false;}
-        void CancelPlacementPress(){pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();}
+        void CancelPlacementPress()
+        {
+            bool interruptedDrag=dragged;pressed=false;dragged=false;uiDown=null;ClearPlacementIntent();
+            if(interruptedDrag&&ready&&!atlasVisible)UpdatePreview();
+        }
         bool ConsumePlacementIntent()
         {
             if(!placementIntentPending)return true;placementIntentPending=false;

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": 2839,
+  "existingPlayFirstChecks": 788,
+  "unity": "6000.6.6f1",
+  "cli": "1.0.0-beta.14",
+  "command": "PlacementClarityChecks.RunBatch",
+  "base": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+  "fieldNotes": "6364b3c",
+  "fixture": "Legacy world plus connected fields and wind, all17recipes; not dense parcel main",
+  "log": "Builds/placement-checks-4.log",
+  "chromeVerified": false,
+  "performanceVerified": false,
+  "noviceVerified": false
+}

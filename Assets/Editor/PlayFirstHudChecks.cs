@@ -50,7 +50,11 @@ public static class PlayFirstHudChecks
         hud.AnnualPreview(world.sites.First(s=>s.id==park.siteId),alternative,town.Snapshot(),"place",null,()=>{},true);
         Check(Text().Contains("REPLACE Y1")&&Text().Contains("Replace · Enter"),"Replacement preview was labelled as queued");
         hud.AnnualPreview(world.sites.First(s=>s.id==park.siteId),alternative,town.Snapshot(),"place","This replacement does not fit.",()=>{},true);
-        Check(Text().Contains(TerraHud.Money(park.upfrontPublicCostCents)+"\n<size=72%>public upfront</size>"),"Blocked replacement hid the real queued cost");
+        hud.PlacementFeedback("BLOCKED",alternative.title,world.sites.First(s=>s.id==park.siteId).name,
+            "Does not fit · choose another field","", "This replacement does not fit.",null,null,Array.Empty<Vector3>(),null);
+        Check(Text().Contains(alternative.title)&&Text().Contains("This replacement does not fit."),"Blocked replacement hid the intended project or its rejection");
+        Check(Text().Contains("Esc keeps your current plan"),"Blocked replacement did not explain recovery");
+        hud.HidePlacementFeedback();
         Check(queued==JsonUtility.ToJson(town.Snapshot()),"Inspecting a replacement mutated the queue");
         var first=AnnualTownDemo.Advance(town,"play-first-year1",new AuthoredAnnualConsequenceProvider());
         var cards=AnnualHighlights.Create(definition,first,null);

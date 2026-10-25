@@ -62,7 +62,7 @@ namespace Terra.UI
             var indicatorLabels=annualIndicators.GetComponentsInChildren<TextMeshProUGUI>();
             for(int i=0;i<3;i++)
             {
-                var title=indicatorLabels[i*2];title.rectTransform.anchoredPosition=new Vector2(38+i*160,-11);title.rectTransform.sizeDelta=new Vector2(124,18);title.fontSize=14;
+                var title=indicatorLabels[i*2];title.text=new[]{"Economic","Social","Environmental"}[i];title.rectTransform.anchoredPosition=new Vector2(38+i*160,-11);title.rectTransform.sizeDelta=new Vector2(124,18);title.fontSize=14;
                 ((RectTransform)annualBars[i].transform.parent).sizeDelta=new Vector2(140,5);
             }
             float barWidth=Mathf.Min(width-32,1000);
