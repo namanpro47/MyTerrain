@@ -15,7 +15,7 @@ Initial remote base: `ea37af047f4d8d167f88b802e76827c82a6c8183`. Isolated worktr
 
 ![Unity overhead render of Tomales](tomales-community-v1-overhead.png)
 
-Chrome interaction/build evidence is pending in this checkpoint; do not interpret the Editor images as browser acceptance.
+Initial WebGL export `daab19c` passed a Chrome interaction smoke at 1728 × 940: both community loads, source photograph, rotation, zoom and close. No browser errors; warnings were the pre-existing stripped FSR shader and unsupported rotation glyphs. Those glyphs were replaced with text labels after this export. [Initial screenshot](initial-chrome-tomales.png), [build receipt](initial-build.json). This older export does not validate the latest gear-menu entry or keyboard recovery changes. Final combined-source Chrome acceptance is still pending.
 
 ## Design and limits
 

@@ -52,10 +52,10 @@ namespace Terra.Gameplay
             Button(controls,"Terrain",new Vector2(0,.5f),Vector2.zero,new Vector2(110,36),()=>community.ShowTerrain());
             Button(controls,"Source photo",new Vector2(0,.5f),new Vector2(118,0),new Vector2(148,36),()=>community.ShowSource());
             Button(controls,"Overhead",new Vector2(0,.5f),new Vector2(274,0),new Vector2(120,36),()=>community.Overhead());
-            Button(controls,"↶",new Vector2(0,.5f),new Vector2(410,0),new Vector2(48,36),()=>community.Rotate(-30));
-            Button(controls,"↷",new Vector2(0,.5f),new Vector2(466,0),new Vector2(48,36),()=>community.Rotate(30));
-            Button(controls,"−",new Vector2(0,.5f),new Vector2(530,0),new Vector2(48,36),()=>community.Zoom(.15f));
-            Button(controls,"+",new Vector2(0,.5f),new Vector2(586,0),new Vector2(48,36),()=>community.Zoom(-.15f));
+            Button(controls,"Turn left",new Vector2(0,.5f),new Vector2(402,0),new Vector2(100,36),()=>community.Rotate(-30));
+            Button(controls,"Turn right",new Vector2(0,.5f),new Vector2(510,0),new Vector2(100,36),()=>community.Rotate(30));
+            Button(controls,"−",new Vector2(0,.5f),new Vector2(618,0),new Vector2(48,36),()=>community.Zoom(.15f));
+            Button(controls,"+",new Vector2(0,.5f),new Vector2(674,0),new Vector2(48,36),()=>community.Zoom(-.15f));
             communitySource=Text(panel,"Photo surfaces preserve the source layout. Buildings and trees are not reconstructed in 3D.",new Vector2(1,0),new Vector2(-32,28),new Vector2(830,42),15,Muted,TextAlignmentOptions.Center);
             communityPanel.SetActive(false);
             LoadCommunityCatalog();
