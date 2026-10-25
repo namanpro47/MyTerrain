@@ -47,6 +47,7 @@ namespace Terra.Rendering
             instance.transform.localPosition=new Vector3(layout.x,action.landscape?0:layout.groundY,layout.z);
             instance.transform.localRotation=Quaternion.Euler(0,layout.yaw,0);instance.transform.localScale=Vector3.one;
             AdaptProjectGround(instance);
+            if(id!="wind")GradeProjectEdges(instance,layout);
             if(id=="wind")
             {
                 var oldPath=instance.transform.Find("path");if(oldPath!=null)oldPath.gameObject.SetActive(false);
@@ -70,6 +71,7 @@ namespace Terra.Rendering
                     }
                 }
                 MeshObject("Level foundation",geometry,Mat(new Color(.52f,.48f,.38f)),parent);
+                if(id!="wind")parent.Find("Level foundation").gameObject.SetActive(false); // Kept for construction.
             }
             if(preview)
             {

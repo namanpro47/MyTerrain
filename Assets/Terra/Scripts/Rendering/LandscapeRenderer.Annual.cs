@@ -17,7 +17,7 @@ namespace Terra.Rendering
             if(stage==null||!proposals.TryGetValue(site.id,out var holder))return;
             // Construction hides the finished model while retaining its accurately sized foundation.
             if(stage=="BUILDING")
-                foreach(Transform child in holder)if(child.name!="Level foundation")child.gameObject.SetActive(false);
+                foreach(Transform child in holder)child.gameObject.SetActive(child.name=="Level foundation");
             if(stage=="PROPOSED"||stage=="SUSPENDED"||stage=="ESTABLISHING")
             {
                 foreach(var renderer in holder.GetComponentsInChildren<Renderer>())
