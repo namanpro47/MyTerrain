@@ -27,7 +27,7 @@ Requires .NET 8 SDK; no additional NuGet packages. On this Windows workstation U
 4. Open **Terra → Annual Town → Playtest Year Loop**, start a run and enable **AI chapter (Gemini service)**. The default endpoint is `http://127.0.0.1:8787/chapter`.
 5. Queue actions, conclude a year, inspect the chapter and ledger, and continue. If no key/quota is available, the year stays pending; retry or choose **Use labelled offline chapter**.
 
-Optional server variables: `GEMINI_MODEL` (default `gemini-2.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). Existing process variables take priority over `.env`. The reader supports plain or quoted values, comments and an optional `export` prefix, without executing shell commands or expanding variables. It reads only the four supported chapter settings. On Vercel it skips local-file loading entirely.
+Optional server variables: `GEMINI_MODEL` (default `gemini-3.5-flash-lite`), `TERRA_CHAPTER_CACHE` (defaults to `services/chapters/data` when launched with this project), and `TERRA_ALLOWED_ORIGINS` (comma-separated exact origins, default localhost/127.0.0.1 port 8080). Existing process variables take priority over `.env`. The reader supports plain or quoted values, comments and an optional `export` prefix, without executing shell commands or expanding variables. It reads only the four supported chapter settings. On Vercel it skips local-file loading entirely.
 
 ### Keeping the provider key private
 
@@ -41,11 +41,13 @@ The current Vercel export contains static Unity files only; adding a Vercel vari
 
 Official documentation checked October 24, 2026:
 
-- [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing): Gemini 2.5 Flash-Lite lists free text input/output on the free tier; paid text rates are **$0.10 per million input tokens / $0.40 per million output tokens**. This is a practical free starting option, not a claim that every provider/model was compared. For illustration, 3,000 input + 800 output tokens would cost about **$0.00062 per chapter** on those paid rates, excluding repairs. Actual usage/latency remains to be measured.
+- [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing): the current default, Gemini 3.5 Flash-Lite, offers free-tier input/output; paid rates are **$0.30 per million input tokens / $2.50 per million output tokens**. For illustration, 3,000 input + 800 output tokens would be **$0.0029 per chapter** on those paid rates, excluding repairs. Actual usage and account billing tier are separate from published pricing; no billing settings were changed by this test. The earlier 2.5 default returned HTTP 404 for this new-user API project, even though model listing included it. Google's response directed this project to 3.5 Flash-Lite.
 - [Gemini rate limits](https://ai.google.dev/gemini-api/docs/rate-limits): check the project's actual limits in AI Studio. Do not promise a fixed daily free allowance. Quota errors do not trigger an automatic paid-provider fallback.
 - Free-tier requests may be used to improve Google's products; send game facts only, not personal player information. This adapter sends neither run IDs nor complete save history to the model.
 - [Groq limits](https://console.groq.com/docs/rate-limits) also show free plans, but this slice implements one provider rather than a routing framework.
-- [Gemini REST generation API](https://ai.google.dev/api/generate-content) supports structured JSON output. The adapter uses the documented `generateContent`/`responseSchema` compatibility route for 2.5 Flash-Lite. The real endpoint still needs a credentialed smoke test; mocked tests cannot establish current model access.
+- [Gemini REST generation API](https://ai.google.dev/api/generate-content) supports structured JSON output. The `generateContent`/`responseSchema` adapter was verified with a real 3.5 Flash-Lite request: HTTP 200, three validated cards, 2.01 seconds for that request. Retry returned the identical persisted receipt in 0.055 seconds; after restarting the server, the same receipt returned in 0.107 seconds. These are individual local measurements, not a latency guarantee. [Live connection receipt](evidence/annual-town/gemini-live-verification.json).
+
+**Hosting decision:** Peter chose to keep this local for now. Vercel account access was verified, but no project was created, no provider key was uploaded, and no deployment was made. A future backend can live in Peter's separate Vercel project while the game frontend remains with the teammate; callers would receive the backend URL rather than the Gemini key. The existing local cache needs shared durable storage before a public serverless release.
 
 ## Failure, persistence and ownership
 

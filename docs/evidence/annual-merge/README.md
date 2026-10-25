@@ -13,10 +13,14 @@ The original integration was delivered through `2387393`. The annual gameplay ow
 
 Unity 6000.6.6f1 / CLI beta.14: recompile reported up-to-date, zero errors/warnings. [Unity checks](unity-checks.json) pass 84 real-map annual assertions, 16 chapter/session assertions and 94 annual model assertions. The real-map check writes the [three-year run](three-year-run.json) and [recipes](recipes.json), tests water conservation, lifecycle, retries, serialization, accepted-year undo guards, and completion at Year 10. Original handoff fixtures were restored after collecting these new receipts.
 
-[Standalone results](standalone.json): 94 annual, 15 gameplay, 36 chapter/service, and 1,372 consequences assertions pass with `DOTNET_ROLL_FORWARD=Major` on installed .NET 10. Three new chapter cases cover the exact legacy fingerprint, changed service rules and nonempty redo. No real provider request was made. Earlier full geography/editing/catalog/B/D/C3 results remain in [initial integration evidence](../branch-integration/README.md); they are not re-labelled as fresh tests here.
+[Standalone results](standalone.json): 94 annual, 15 gameplay, 38 chapter/service, and 1,372 consequences assertions pass with `DOTNET_ROLL_FORWARD=Major` on installed .NET 10. Three new chapter cases cover the exact legacy fingerprint, changed service rules and nonempty redo. No real provider request was made. Earlier full geography/editing/catalog/B/D/C3 results remain in [initial integration evidence](../branch-integration/README.md); they are not re-labelled as fresh tests here.
 
 ## Limits and references
 
 Seven starter recipes are playable; all twelve source rows are retained. Remaining catalog effects, complete ending/comparison, provider connection to the main HUD and performance/accessibility certification are outside this merge. The chapter playtest/service remains additive. No website deployment or new visual-study merge is included. Concurrent local Pipeline settings and the visual handoff file remain untouched.
 
 Patterns TN-03/04/05/06/08, CS-01/02/03 and AX-01 guide the retained annual presentation. Compare with the worker’s [three-year Chrome evidence](../annual-gameplay/README.md). Study19b remains an unaccepted visual baseline; this merge does not establish Terra Nil parity or Phase 2A acceptance.
+
+## Supplemental published chapter update
+
+The pre-push fetch found `724ad02` on main: a supported Gemini model default, clearer unavailable-model errors, prompt refinement and the owner’s live-provider evidence. Merged that published update as well, preserving both status entries. The combined standalone chapter suite now passes 38 checks. This merge did not repeat a provider call or read the credential. These service/docs/test changes do not alter the Unity build sources.

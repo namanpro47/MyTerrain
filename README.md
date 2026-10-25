@@ -2,7 +2,7 @@
 
 **Updated product direction (October 24):** Terra is being built around **plan → budget → End Year → consequences → adapt**, through ten years in Meadowbrook Valley. The [revised implementation plan](IMPLEMENTATION_PLAN.md) stages a playable three-year loop, the full [12-action budget/effects catalog and three meters](docs/ACTIONS_AND_EFFECTS.md), ten-year balance, and comparison/replay. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is retained with its adoption decision. The playable scene now has seven starter recipes, annual USD planning, End Year reports, three meters and local save/restore. The full catalog, final comparison/replay and visual rebuild remain incomplete. [Integrated annual verification](docs/evidence/annual-merge/README.md).
 
-**Annual chapters:** [run the local Gemini service and chapter playtest](docs/annual-chapters.md). Free-tier adapter, persistent yearly chapters and explicit offline fallback; final main-game integration and a credentialed provider test remain separate.
+**Annual chapters:** [run the local Gemini service and chapter playtest](docs/annual-chapters.md). Local Gemini adapter, persistent yearly chapters and explicit offline fallback; the owner’s live-provider check is recorded, while narration controls in the main-game HUD remain separate.
 
 **Annual town foundation:** [runtime, API and engine handoff](docs/annual-town-runtime.md) · [Peter's updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). The annual engine is now the playable scene’s sole financial authority; editing changes the current-year proposal queue.
 

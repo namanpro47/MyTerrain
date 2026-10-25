@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-24",
+  "baseCommit": "2387393",
+  "model": "gemini-3.5-flash-lite",
+  "previousModel": "gemini-2.5-flash-lite",
+  "previousModelGenerationStatus": 404,
+  "previousModelDiagnostic": "Unavailable to new users; provider recommended gemini-3.5-flash-lite",
+  "liveChapterHttpStatus": 200,
+  "liveChapterSeconds": 2.01,
+  "cardCount": 3,
+  "sharedValidationPassed": true,
+  "duplicateReceiptIdentical": true,
+  "cachedRetrySeconds": 0.055,
+  "restartReceiptIdentical": true,
+  "restartSeconds": 0.107,
+  "standaloneAssertions": 35,
+  "credentialSource": "Existing ignored Terra-env/.env",
+  "keyPrinted": false,
+  "keyUploadedToVercel": false,
+  "vercelDeploymentCreated": false,
+  "hostingDecision": "Keep local for now",
+  "limitations": [
+    "Single local latency sample",
+    "Published free-tier pricing does not prove account billing tier",
+    "No browser/game integration or narrative-quality acceptance"
+  ],
+  "sourceSha256": {
+    "services/chapters/GeminiNarrator.cs": "b472be3de8c01bef7bd49b9f129d536f42cd061bc05f77a6ee4a4c51e80add3a",
+    "services/chapters/Program.cs": "32ea4aee7ec52a320efe3b426323bc7729d003d58f582e4df188acd5c365cd47",
+    "tests/chapters/Program.cs": "141eaff3602989294b001cc5647571d1d4b94fb478d5c2614ce13a49fb4361da"
+  }
+}

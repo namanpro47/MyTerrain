@@ -91,12 +91,17 @@ await Reject(() => new ChapterService(narrator, directory + "-cancel").Resolve(i
 var handler = new StubHttpHandler();
 using var http = new HttpClient(handler);
 var gemini = new GeminiNarrator(http, "test-only-not-a-real-key");
+Check(gemini.Model == "gemini-3.5-flash-lite", "Default model must support new Gemini API projects.");
 handler.Body = "{\"candidates\":[{\"finishReason\":\"STOP\",\"content\":{\"parts\":[{\"text\":" + System.Text.Json.JsonSerializer.Serialize(ChapterJson.Write(offline.chapter)) + "}]}}]}";
 var parsed = await gemini.Generate(AnnualChapters.Facts(preview), "", default);
 Check(parsed.cards.Length == 3 && handler.SawHeader && !handler.Url.Contains("key="), "Gemini wire format or header credential handling failed.");
 Check(handler.SentBody.Contains("responseSchema") && handler.SentBody.Contains("site:a"), "Request lacks constrained schema/facts.");
 handler.Status = HttpStatusCode.TooManyRequests;
 await Reject(() => gemini.Generate(AnnualChapters.Facts(preview), "", default), "Quota response must fail.");
+handler.Status = HttpStatusCode.NotFound;
+string missingModelMessage = "";
+try { await gemini.Generate(AnnualChapters.Facts(preview), "", default); } catch (ProviderFailure error) { missingModelMessage = error.Message; }
+Check(missingModelMessage.Contains("GEMINI_MODEL") && !missingModelMessage.Contains("test-only-not-a-real-key"), "Unavailable-model error must give safe configuration guidance.");
 handler.Status = HttpStatusCode.OK; handler.Body = "{\"candidates\":[{\"finishReason\":\"MAX_TOKENS\"}]}";
 await Reject(() => gemini.Generate(AnnualChapters.Facts(preview), "", default), "Truncation must fail.");
 handler.Body = "{\"promptFeedback\":{\"blockReason\":\"SAFETY\"}}";
