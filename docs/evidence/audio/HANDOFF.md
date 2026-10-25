@@ -18,7 +18,7 @@ The audio hooks in `WorldAtlas.cs` and `WorldAtlas.Visuals.cs` are frozen at 442
 
 These calls require the complete additive `Assets/Terra/Scripts/Audio` runtime and Resources/Audio bank from the same commit. Main bootstrap now starts the persistent director before attaching the atlas. Its own mute/focus policy works while the atlas pauses the legacy scene listener.
 
-The board currently retains the atlas file claim only because the running reservation cannot be released mid-build. As soon as the owned build finishes, this chat will finish/re-register its narrower task without the atlas files and record the release here. Research/new selector partials can proceed independently meanwhile.
+**Atlas ownership is released.** The first cold import ended; `terra-sound-full-20261025` is finished and the narrower `terra-sound-verify-20261025` explicitly excludes both atlas files. The release chat can claim and redesign them now. Runtime scripts compiled; the first validation helper used a removed GetInstanceID API, corrected in the next commit before repeat validation.
 
 ## Integration steps
 

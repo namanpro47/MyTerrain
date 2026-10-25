@@ -20,7 +20,7 @@ public static class TerraAudioChecks
         {
             var variants = Enumerable.Range(0,3).Select(i => Resources.Load<AudioClip>("Audio/place-" + family + "-" + i)).ToArray();
             Need(variants.All(c => c != null), "Missing variant: " + family);
-            Need(variants.Select(c => c.GetInstanceID()).Distinct().Count() == 3, "Repeated take: " + family);
+            Need(variants.Select(AssetDatabase.GetAssetPath).Distinct().Count() == 3, "Repeated take: " + family);
         }
         string[] cues = { "ui-click", "ui-focus", "ui-open", "ui-close", "ui-confirm", "tool-select", "cancel", "undo", "redo", "blocked", "move", "remove", "clear", "camera", "atlas-select", "travel", "arrival", "year-submit", "year-report", "year-attention", "year-continue", "new-run", "decade-complete" };
         foreach (var id in cues) Need(Resources.Load<AudioClip>("Audio/"+id) != null,"Missing event: "+id);
