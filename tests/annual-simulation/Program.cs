@@ -6,7 +6,7 @@ var options = new JsonSerializerOptions { IncludeFields = true };
 T Read<T>(string text) => JsonSerializer.Deserialize<T>(text, options)!;
 int count = 0;
 void Check(bool ok, string why) { count++; if (!ok) throw new Exception(why); }
-void Reject(Action action, string why) { bool rejected = false; try { action(); } catch (ArgumentException) { rejected = true; } Check(rejected, why); }
+void Reject(Action action, string why) { bool rejected = false; try { action(); } catch (ArgumentException) { rejected = true; } catch (InvalidOperationException) { rejected = true; } Check(rejected, why); }
 var root = Path.GetFullPath("simulation-data/weather/coon-valley-v1");
 var pack = File.ReadAllBytes(Path.Combine(root,"weather-pack.json"));
 var daily = File.ReadAllBytes(Path.Combine(root,"daily-observations.json"));
@@ -133,3 +133,136 @@ foreach(var report in publicRun.History)
 var publicRestored=AnnualTown.Restore(parkRules,publicRun.Snapshot());
 Check(JsonSerializer.Serialize(publicRestored.Snapshot(),options)==JsonSerializer.Serialize(publicRun.Snapshot(),options),"Public repair full replay differs");
 Console.WriteLine("Numeric weather/repair boundary checks passed: "+count);
+
+var debtRules=CopyRules();debtRules.startingCashCents=7000000;debtRules.appropriationsCents=new long[10];debtRules.appropriationsCents[1]=10000000;
+debtRules.simulation.publicResponsibilities.Single(r=>r.actionId=="public-park").repairCentsPerConditionUnit=1000000000;
+var debtRun=new AnnualTown(debtRules,"repair-arrears");debtRun.QueueAction(parkOffer.siteId,parkOffer.actionId,0);AnnualTownDemo.Finish(debtRun,provider);
+Check(debtRun.History.Any(r=>r.ledger.closingArrearsCents>0),"Repair shortage fixture incurred no debt");
+Check(debtRun.History.SelectMany(r=>r.simulation.payments).Any(p=>p.kind=="prior-repair-arrears"&&p.paidCents>0&&p.paidCents<p.dueCents),"Fixture did not exercise partial prior repair");
+foreach(var report in debtRun.History)
+{
+    var l=report.ledger;var s=report.simulation;
+    Check(s.payments.Sum(p=>p.dueCents)==l.upfrontPaidCents+l.openingArrearsCents+l.programDueCents+l.operatingDueCents+l.repairDueCents,"Old repair billed twice");
+    Check(l.closingCashCents==l.openingCashCents-l.upfrontPaidCents-l.arrearsPaidCents-l.programPaidCents-l.operatingPaidCents-l.repairPaidCents+l.appropriationCents+l.publicReceiptsCents,"Cash discontinuity");
+    foreach(var site in s.closingState.sites)
+    {
+        double debtDamage=s.closingState.repairs.Where(r=>r.siteId==site.siteId).Sum(r=>r.unrecoveredCondition);
+        Check(site.condition>=0&&site.condition<=1&&Math.Abs(site.outstandingDamage-(1-site.condition))<1e-10,"Condition authority disagrees");
+        Check(debtDamage<=site.outstandingDamage+1e-10,"Unpaid public damage freely recovered");
+    }
+    foreach(var crop in s.crops)
+    {
+        double expected=crop.openingCondition-s.impacts.Where(i=>i.siteId==crop.siteId&&i.beforeHarvest).Sum(i=>i.conditionLoss);
+        Check(Math.Abs(expected-crop.harvestCondition)<1e-10,"Post-harvest damage changed the harvest");
+    }
+}
+Check(debtRun.History.Where(r=>r.year>2).Any(r=>r.outcomes.sites.Single(s=>s.siteId==parkOffer.siteId).phase==TownAssetPhase.Suspended),"Unpaid operations were retroactively funded by closing receipts");
+var reloadDebt=AnnualTown.Restore(debtRules,debtRun.Snapshot());
+Check(JsonSerializer.Serialize(reloadDebt.Snapshot(),options)==JsonSerializer.Serialize(debtRun.Snapshot(),options),"Debt/recovery replay differs");
+var pendingRun=new AnnualTown(numericRules,"pending-numeric");pendingRun.BeginResolution("pending-numeric/y1",0);string pendingJson=JsonSerializer.Serialize(pendingRun.Snapshot(),options);
+var badConsequence=provider.Resolve(pendingRun.PendingRequest);badConsequence.effects=new[]{new TownSiteEffect{siteId=numericRules.sites[0].id,reason="invented",sourceId=numericRules.id}};
+Reject(()=>pendingRun.CompleteResolution(badConsequence),"External numeric effect accepted");Check(JsonSerializer.Serialize(pendingRun.Snapshot(),options)==pendingJson,"Rejected effect partially published year");
+var pendingReload=AnnualTown.Restore(numericRules,Read<AnnualTownSnapshot>(pendingJson));
+var committed=AnnualTownDemo.Advance(pendingReload,"pending-numeric/y1",provider);
+string accepted=JsonSerializer.Serialize(pendingReload.Snapshot(),options);pendingReload.CompleteResolution(provider.Resolve(committed.acceptedRequest));
+Check(JsonSerializer.Serialize(pendingReload.Snapshot(),options)==accepted,"Duplicate numeric acceptance spent twice");
+Reject(()=>AnnualChapters.Preview(new AnnualChapterRequest{definition=numericRules,snapshot=Read<AnnualTownSnapshot>(pendingJson)}),"Legacy resolving narration accepted schema3");
+Reject(()=>AnnualGameplay.Forecast(new AnnualTown(numericRules,"forecast")),"Exact unplayed numeric harvest exposed");
+var invalidState=debtRun.Snapshot();invalidState.simulation.sites[0].condition=double.NaN;
+Reject(()=>AnnualTown.Restore(debtRules,invalidState),"Nonfinite saved state accepted");
+var otherWeather=AnnualSimulationFactory.Create(legacyRules,weather,"same-weather-comparison");
+var otherRun=new AnnualTown(otherWeather,"other-weather");AnnualTownDemo.Finish(otherRun,provider);
+Check(otherRun.History.Sum(r=>r.outcomes.productionUnits)!=numeric.History.Sum(r=>r.outcomes.productionUnits),"Different weather schedules cannot change output");
+Console.WriteLine("Numeric replay/debt/calendar checks passed: "+count);
+
+// Validate semantic structure even when a caller recomputes a digest over bad data.
+foreach(var mutation in new Action<TownYearReport>[] {
+ r=>r.simulation.crops[0].outputUnits+=1,
+ r=>r.simulation.crops[0].harvestDay++,
+ r=>r.simulation.storage[0].capturedM3+=1,
+ r=>r.simulation.impacts[0].beforeHarvest=!r.simulation.impacts[0].beforeHarvest,
+ r=>r.simulation.payments[0].paidCents++,
+ r=>r.simulation.energyDeficit=double.NaN,
+ r=>r.simulation.driver.events[0].precipTenthsMm++,
+ r=>r.simulation.closingState.sites[0].outstandingDamage=.123
+})
+{
+ var invalid=Read<TownYearReport>(JsonSerializer.Serialize(publicRun.History[1],options));mutation(invalid);
+ Reject(()=>AnnualSimulation.ValidateReport(parkRules,invalid),"Malformed numeric report accepted");
+}
+foreach(var mutation in new Action<TownSimulationState>[] {
+ s=>s.sites=null!,s=>s.repairs=null!,s=>s.sites[1].siteId=s.sites[0].siteId,
+ s=>s.sites[0].rotationPhase=99,s=>s.sites[0].cropId="invented",s=>s.sites[0].condition=double.PositiveInfinity,
+ s=>s.repairs[0].unpaidCents=-1,s=>s.repairs[0].eventId="invented",s=>s.repairs[0].unrecoveredCondition=0,
+ s=>s.repairs[0].createdYear=0
+})
+{
+ var invalid=Read<AnnualTownSnapshot>(JsonSerializer.Serialize(debtRun.Snapshot(),options));mutation(invalid.simulation);
+ Reject(()=>AnnualTown.Restore(debtRules,invalid),"Malformed numeric state accepted");
+}
+var previewRun=new AnnualTown(numericRules,"preview-envelope");
+string previewBefore=JsonSerializer.Serialize(previewRun.Snapshot(),options);
+var planning=AnnualSimulation.PlanningRange(previewRun);
+Check(planning.sites.Length==numericRules.sites.Length&&planning.sites.All(s=>s.minimumProductionUnits==0&&s.maximumProductionUnits>=0),"Invalid conditional envelope");
+Check(previewBefore==JsonSerializer.Serialize(previewRun.Snapshot(),options),"Preview mutated annual state");
+var alternatePreview=AnnualSimulation.PlanningRange(new AnnualTown(otherWeather,"other-seed-preview"));
+Check(JsonSerializer.Serialize(planning,options)==JsonSerializer.Serialize(alternatePreview,options),"Preview leaks future realized weather");
+for(int y=1;y<=10;y++)
+{
+ if(previewRun.Phase==TownPhase.Reviewing)previewRun.ContinuePlanning(previewRun.Revision);
+ var envelope=AnnualSimulation.PlanningRange(previewRun);
+ var result=AnnualTownDemo.Advance(previewRun,"preview/y"+y,provider);
+ Check(result.outcomes.sites.All(s=>s.productionUnits>=0&&s.productionUnits<=envelope.sites.Single(x=>x.siteId==s.siteId).maximumProductionUnits+1e-9),"Realized output escapes conditional envelope");
+}
+Console.WriteLine("Numeric semantic validation and conditional preview checks passed: "+count);
+
+// Deliberately financed six-data-center stress on the six legal connected-map lots.
+var industrialRules=CopyRules();industrialRules.startingCashCents=100000000000;
+var industrial=new AnnualTown(industrialRules,"numeric-six-data-centers");
+var centers=industrialRules.actions.Where(a=>a.actionId=="data-center").OrderBy(a=>a.siteId,StringComparer.Ordinal).Take(6).ToArray();
+Check(centers.Length==6,"Six legal data-center sites unavailable in connected fixture");
+foreach(var offer in centers)industrial.QueueAction(offer.siteId,offer.actionId,industrial.Revision);
+var financedBaseline=new AnnualTown(industrialRules,"numeric-financed-no-action");
+var industrialEvidence=new List<object>();
+for(int y=1;y<=10;y++)
+{
+ if(industrial.Phase==TownPhase.Reviewing){industrial.ContinuePlanning(industrial.Revision);financedBaseline.ContinuePlanning(financedBaseline.Revision);}
+ var envelope=AnnualSimulation.PlanningRange(industrial);
+ var built=AnnualTownDemo.Advance(industrial,"industrial/y"+y,provider);var empty=AnnualTownDemo.Advance(financedBaseline,"baseline/y"+y,provider);
+ Check(JsonSerializer.Serialize(built.simulation.driver,options)==JsonSerializer.Serialize(empty.simulation.driver,options),"Data centers changed external weather");
+ Check(built.ledger.closingArrearsCents==0&&built.ledger.operatingPaidCents==built.ledger.operatingDueCents,"Financed fixture did not fund operation");
+ Check(built.outcomes.sites.All(s=>s.productionUnits<=envelope.sites.Single(x=>x.siteId==s.siteId).maximumProductionUnits+1e-9),"Industrial preview underestimates feasible production");
+ var e=built.outcomes.economy;var b=empty.outcomes.economy;
+ if(y>=4)
+ {
+  Check(e.energyDemand>b.energyDemand&&e.waterDemand>b.waterDemand,"Six operating centers did not accumulate resource demand");
+  Check(built.simulation.energyDeficit>=empty.simulation.energyDeficit&&built.simulation.waterDeficit>=empty.simulation.waterDeficit,"Raw deficits hidden by scores");
+  Check(built.simulation.crops.Sum(c=>c.productiveAreaM2)<empty.simulation.crops.Sum(c=>c.productiveAreaM2),"Six buildings displaced no agricultural area");
+ }
+ Check(new[]{built.outcomes.economicScore,built.outcomes.socialScore,built.outcomes.environmentalScore}.All(s=>s>=0&&s<=100),"Stress score outside rubric");
+ industrialEvidence.Add(new {year=y,centers=centers.Select(c=>c.siteId),economy=e,baseline=b,
+  deltas=new[]{built.simulation.economicDelta,built.simulation.socialDelta,built.simulation.environmentalDelta},
+  deficits=new[]{built.simulation.energyDeficit,built.simulation.waterDeficit,built.simulation.wastewaterDeficit,built.simulation.housingDeficit,built.simulation.jobsDeficit},
+  built.ledger,agriculturalAreaM2=built.simulation.crops.Sum(c=>c.productiveAreaM2),baselineAreaM2=empty.simulation.crops.Sum(c=>c.productiveAreaM2)});
+}
+Check(JsonSerializer.Serialize(AnnualTown.Restore(industrialRules,industrial.Snapshot()).Snapshot(),options)==JsonSerializer.Serialize(industrial.Snapshot(),options),"Six-center ending replay differs");
+// Pin sensitivity per run; do not randomly draw a favorable treatment effect each year.
+var sensitivityEvidence=new List<object>();
+foreach(string sensitivity in new[]{"low","central","high"})
+foreach(string strategy in new[]{"baseline","cultivate-standard","cover-crop","conservation-rotation","cultivate-margin","water-swale"})
+{
+ var rules=AnnualSimulationFactory.Create(legacyRules,weather,"coon-valley-demo-1",sensitivity);
+ var run=new AnnualTown(rules,"sensitivity/"+sensitivity+"/"+strategy);
+ if(strategy!="baseline") {var offer=rules.actions.First(a=>a.actionId==strategy);run.QueueAction(offer.siteId,offer.actionId,run.Revision);}
+ AnnualTownDemo.Finish(run,provider);
+ Check(run.History.All(r=>r.simulation.driver.recordId==saved.recordIds[r.year-1]),"Sensitivity changed historical schedule");
+ Check(run.History.All(r=>r.ledger.closingCashCents>=0&&r.simulation.crops.All(c=>c.outputUnits>=0)),"Sensitivity produced negative harvest/cash");
+ Check(JsonSerializer.Serialize(AnnualTown.Restore(rules,run.Snapshot()).Snapshot(),options)==JsonSerializer.Serialize(run.Snapshot(),options),"Sensitivity replay differs");
+ sensitivityEvidence.Add(new {sensitivity,strategy,production=run.History.Sum(r=>r.outcomes.productionUnits),
+  loss=run.History.Sum(r=>r.simulation.impacts.Sum(i=>i.conditionLoss)),publicRepairCents=run.History.Sum(r=>r.ledger.repairDueCents),
+  finalScores=new[]{run.History.Last().outcomes.economicScore,run.History.Last().outcomes.socialScore,run.History.Last().outcomes.environmentalScore}});
+}
+Directory.CreateDirectory("Builds/AnnualSimulation");
+File.WriteAllText("Builds/AnnualSimulation/sensitivity.json",JsonSerializer.Serialize(sensitivityEvidence,new JsonSerializerOptions(options){WriteIndented=true}));
+File.WriteAllText("Builds/AnnualSimulation/six-data-centers.json",JsonSerializer.Serialize(industrialEvidence,new JsonSerializerOptions(options){WriteIndented=true}));
+Console.WriteLine("Numeric financed industrial and sensitivity checks passed: "+count);

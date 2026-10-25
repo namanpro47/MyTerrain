@@ -34,7 +34,7 @@ namespace Terra.Core
                     new TownPublicResponsibility {actionId="wastewater-upgrade",responsibility="Scenario public wastewater asset",repairCentsPerConditionUnit=50000000,ruleId="public-repair-duty-v1"}},
                 dailyStorageRecoveryFraction=.1,privateAnnualRecovery=.08,drySpellGraceDays=12,rainDamageThresholdMm=25,localRainDamagePerMm=.002,
                 upstreamRainThresholdMm=45,upstreamDamagePerMm=.001,antecedentAmplificationPerMm=.002,maximumEventDamage=.25,minimumWeatherFactor=.35,maximumWeatherFactor=1.1,
-                eventRuleId="illustrative-connected-rain-v1",recoveryRuleId="year-end-recovery-next-year-v1"
+                eventRuleId="illustrative-connected-rain-v1",recoveryRuleId="year-end-recovery-next-year-v1",storageRecoveryRuleId="linear-capacity-drain-per-day-v1"
             };
             // Remove the old fixed Year-3/7 loss and universal repair bill in this version only.
             d.drivers = d.simulation.drivers.Select(x=>new TownYearDriver {year=x.year,id=x.recordId,evidenceLevel="historical-regional-weather-authored-response",productionFactor=1,
