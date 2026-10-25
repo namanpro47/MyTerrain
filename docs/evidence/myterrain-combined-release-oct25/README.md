@@ -24,3 +24,11 @@ Applied TN-01/03/06/08 and AX-01: make the globe the scene, brighten and simplif
 - Existing atlas package checks33pass after redesign source changes.
 - Report narration95assertions pass using DOTNET_ROLL_FORWARD=Major (host has.NET10).
 - Unity render/build and actual Chrome validation pending; no visual completion claim yet.
+
+### Combined pure checks
+
+After integrating study65, audio04549ad, narration629d082 and guidancecb9e37e: annual94+15, chapters42, report95; full catalog/annual replay/guidance stress2460checks for each connected and legacy layout; weather19, compression4, audio4bank suites and native atlas33checks passed. The audio suites use the audio owner's existing isolatedPython runtime; no new packages installed.
+
+### Coordination note
+
+One local integration command used semicolon sequencing after a busy reservation57 response and therefore merged the two frozen feature commits before acquiring integration. No shared branch push, fetch, deployment, owner file or Editor operation occurred in that interval. The candidate is isolated and the other integrator only published its feature checkpoint. Subsequent resource acquisitions are checked in separate calls before dependent actions. This is a workflow deviation, not a passing reservation receipt.

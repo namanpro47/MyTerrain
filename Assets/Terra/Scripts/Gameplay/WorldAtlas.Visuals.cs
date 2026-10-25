@@ -68,7 +68,6 @@ namespace Terra.Gameplay
                 Text(choices[i].transform,new[]{"Meadowbrook\nValley","Point Reyes","Suusamyr"}[i],new Vector2(0,1),new Vector2(112,-44),new Vector2(182,56),20,Cream).fontStyle=FontStyles.Bold;
                 choiceUnderline[i]=Box(choices[i].transform,"Selected landscape",new Vector2(.5f,0),new Vector2(0,0),new Vector2(270,3)).gameObject.AddComponent<UnityEngine.UI.Image>();choiceUnderline[i].color=Gold;choiceUnderline[i].raycastTarget=false;
             }
-            Text(panel,"DRAG THE WORLD TO EXPLORE",new Vector2(.68f,1),new Vector2(0,-145),new Vector2(400,24),12,Muted,TextAlignmentOptions.Center);
             Button(panel,"−",new Vector2(1,.5f),new Vector2(-46,-65),new Vector2(40,40),()=>Zoom(1));
             Button(panel,"+",new Vector2(1,.5f),new Vector2(-46,-15),new Vector2(40,40),()=>Zoom(-1));
             Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-46,-116),new Vector2(64,34),()=>Select(Selected));
