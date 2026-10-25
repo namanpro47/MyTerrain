@@ -1,6 +1,8 @@
 # Package C3 — restrained audio kit
 
-**October 24, 2026 · prepared for integration, not active in the game.** This delivery is the independent audio subset of package C. C1/C2 visual work remains dependent on the Phase 2A art selection. All sounds serve the existing Meadowbrook Valley location. The current visual captures remain rejected; this kit makes no visual acceptance claim.
+**October 24, 2026 · package integrated and Unity-imported; not active in the game.**
+
+**Integration update:** [combined verification](PARALLEL_INTEGRATION.md) supersedes the original import-pending notes below. All five clips now have Unity-generated importer metadata with verified mono 22,050 Hz/load settings; the four short cues also pass decoded-signal checks. The source delivery record and manifest preserve their original verification scope. Final game wiring, Web AAC loops and subjective mix/listening remain later checks. This delivery is the independent audio subset of package C. C1/C2 visual work remains dependent on the Phase 2A art selection. All sounds serve the existing Meadowbrook Valley location. The current visual captures remain rejected; this kit makes no visual acceptance claim.
 
 Five mono PCM16 WAV assets live in `Assets/Terra/Audio/ExternalKit/Clips/`. They total **2,581,526 source bytes** (2.46 MiB), with 22.05 kHz sample rate. A decoded float32 copy of all samples would occupy about 4.92 MiB, excluding browser/engine overhead and duplicate buffers; this is arithmetic, not measured Unity memory. Unity Web download size is unmeasured. The four interaction clips together are only 21,614 bytes.
 

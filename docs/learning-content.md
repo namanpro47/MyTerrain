@@ -1,6 +1,6 @@
 # Meadowbrook Valley learning content — package D v1
 
-Package D is a ready-to-bind **content delivery**, not an integrated mission or ending. It adds 49 `ContentEntry` files for the one selected AOI, keeps the fixture intro unchanged, and supplies a data-only binding index and executable checks. No scene, UI, mission logic, scientific coefficients, scenario balance, shared contract, or build packaging is changed.
+Package D is a ready-to-bind **content delivery**, not an integrated mission or ending. [Combined package verification](PARALLEL_INTEGRATION.md) now includes actual Unity deserialization and round trips for every entry; the original package-only evidence below remains historical. It adds 49 `ContentEntry` files for the one selected AOI, keeps the fixture intro unchanged, and supplies a data-only binding index and executable checks. No scene, UI, mission logic, scientific coefficients, scenario balance, shared contract, or build packaging is changed.
 
 The baseline is `08092a1f19ceb064ab21c11c6f97dd221693d410`. Geography stays `meadowbrook-v1` / `coon-valley-brye-v1`, WGS84 `[-91.043,43.697,-91.031,43.706]`. Meadowbrook Valley is the fictional display name. The community-garden transfer prompt is a hypothetical text question, **not another authored location or level**.
 

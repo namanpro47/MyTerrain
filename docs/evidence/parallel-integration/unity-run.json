@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "engine": "6000.6.6f1",
+  "checkout": "/Users/naman/.codex/worktrees/terra-package-integration/Terra",
+  "initialAttempt": {
+    "result": "failed",
+    "cause": "AudioClip.GetData rejected compressed short-cue samples; initial identity-only importer metadata was not configured.",
+    "logSha256": "5a20587a655ee005d454391241e38ceba15647727e0fa898c45e69768f9598f3"
+  },
+  "repairAttempt": {
+    "entryPoint": "ParallelPackageChecks.ConfigureAudioImports",
+    "exitCode": 0,
+    "result": "passed",
+    "packageChecks": 141,
+    "existingStateChecks": 139,
+    "logSha256": "a48c4e7cfd2729178c0195ab4781f99f50eb7b9ed5f08d9d8c8d5c3d756e9b62"
+  },
+  "scope": "Own batch Editor only; no active worker Editor controlled. No scene or project-setting changes included."
+}
