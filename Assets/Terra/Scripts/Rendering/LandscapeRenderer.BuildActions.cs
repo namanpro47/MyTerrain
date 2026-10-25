@@ -20,7 +20,7 @@ namespace Terra.Rendering
         {
             if(!clusteredWoodland||source==null||!source.Valid)return source;
             float left=source.foundation[0].x,right=source.foundation[2].x,bottom=source.foundation[0].z,top=source.foundation[2].z;
-            float dx=(xmax-xmin)/Mathf.Ceil((xmax-xmin)/1.5f),dz=(zmax-zmin)/Mathf.Ceil((zmax-zmin)/1.5f);
+            float dx=displayDx,dz=displayDz;
             var xs=new List<float>{left,right};var zs=new List<float>{bottom,top};
             for(float x=xmin+Mathf.Ceil((left-xmin)/dx)*dx;x<right;x+=dx)if(x>left)xs.Add(x);
             for(float z=zmin+Mathf.Ceil((bottom-zmin)/dz)*dz;z<top;z+=dz)if(z>bottom)zs.Add(z);

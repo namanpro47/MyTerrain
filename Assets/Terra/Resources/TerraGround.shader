@@ -14,6 +14,7 @@ Shader "Terra/Illustrated Ground"
         _StonesNormal("Matching bank stones relief",2D)="bump"{}
         _Cutoff("Cutoff",Range(0,1))=0.5
         _SurfaceKind("Decorative surface",Float)=0
+        _IllustrativeRelief("Illustrative hillside faces",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
         _CanopyMap("Illustrative tree footprint",2D)="black"{}
         _TreatmentMap("Reversible surface changes",2D)="black"{}
@@ -40,6 +41,7 @@ Shader "Terra/Illustrated Ground"
                 float4 _BaseMap_ST;
                 half _Cutoff;
                 half _SurfaceKind;
+                half _IllustrativeRelief;
                 float _MeadowScale;
                 float4 _LandBounds;
             CBUFFER_END
@@ -179,7 +181,7 @@ Shader "Terra/Illustrated Ground"
                     surfaceNormal=normalize(lerp(half3(0,0,1),surfaceNormal,.45*fade));
 
                 }
-                if(_SurfaceKind>2.5) {
+                if(_SurfaceKind>2.5 && _IllustrativeRelief>.5) {
                     half face=1-smoothstep(.62,.92,input.normalWS.y);
                     float2 faceUV=abs(input.normalWS.x)>abs(input.normalWS.z)?float2(p.y,input.positionWS.y):float2(p.x,input.positionWS.y);
                     // The artist earth map supplies broad sediment marks; projection

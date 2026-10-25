@@ -1,0 +1,132 @@
+{
+  "creator": "Atapataco",
+  "source": "https://atapataco.itch.io/handpainted-grass-ground-textures",
+  "retrieved": "2026-10-25",
+  "licenseEvidence": "Creator replies https://itch.io/post/7434415 and https://itch.io/post/7438612 permit commercial use with publisher credit/link. No separate license text bundled. No claim of CC0 or standalone redistribution permission.",
+  "attribution": "Hand-painted grass textures by Atapataco \u2014 https://atapataco.itch.io/handpainted-grass-ground-textures",
+  "archiveSha256": "6ecee982be0e74e5ac909d9ab35998c4c08e01868bf0dabcb90fc368e25a9bc9",
+  "actualContents": "24 PNGs (grass, dirt, rocks, snow variants); no shaders, masks or normal maps in this download. Original pixels unchanged.",
+  "status": "Temporary in-engine material study only; no production binding or distribution of source textures.",
+  "files": [
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt.png",
+      "sha256": "f70e6205c36d994aca9c7b4b3537bc11aa39cf6ea2f31f822f5a2657c4e03eb5",
+      "bytes": 565523
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_clay.png",
+      "sha256": "9a2d3193d4c9a048b878623e248cfe53db01cd8b16626dfcc1add99d2d192b43",
+      "bytes": 441176
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_claydarked.png",
+      "sha256": "bad259028ed9138ca92a58c48d13977ffd79017a624bb787a0b358510eb670db",
+      "bytes": 312866
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_corrupted light.png",
+      "sha256": "57662503834ccad4275d4d95b6eef24cfab8ff97d2c6c24e47b1e7005872bc68",
+      "bytes": 451069
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_corrupted.png",
+      "sha256": "a95f33d2670c7f1ded5d43d4cbc720c951d6c5e905c680742ee506e7781b4f4c",
+      "bytes": 431624
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_desatured.png",
+      "sha256": "18308655d58098f0a8c93b933ec2dd696c8971c76ad91f27cd900d83e99dfe01",
+      "bytes": 540552
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_lighted.png",
+      "sha256": "0776570353342093b29bd393fbf0b51905ae0aac5ace01479c8ac00d11938f5b",
+      "bytes": 578885
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_over corrupted.png",
+      "sha256": "23e5a1d62fba36f3e8c9240063f3aed9bc27fdaae9483f54caf19d6858f96e2d",
+      "bytes": 470661
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt_overdesatured.png",
+      "sha256": "e971781dd515332607ea215db8af9ccb9ca0f8d6d48f6d111223f9b9886c1e28",
+      "bytes": 418245
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass.png",
+      "sha256": "4ea9e088eb2fa5ea9b802c1f6142167fb3e9e0c60f107476b4f69a63c75efa41",
+      "bytes": 1518824
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_bluetint.png",
+      "sha256": "e22412b37e697201ec4542bb485936e136a9ac03e36aa731faf52c94630dc7fc",
+      "bytes": 1300119
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_corrupted.png",
+      "sha256": "6f11e2c39c592c986b794193e094a6cdac1a82704945bad5a9f6614d53b61c26",
+      "bytes": 1488147
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_darked.png",
+      "sha256": "6a386c32f7ebbcd1b7a20f78bcd1236e45335283bdfd74a96eb00478ff9ce23e",
+      "bytes": 1460755
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_desatured.png",
+      "sha256": "57764e5d2a5b3446a359f21b7703f60d92f18c21797ba10e6486e07fcded806e",
+      "bytes": 1362966
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_lighted.png",
+      "sha256": "5639c2f22cc6748812ba5f2a855ed12c6c0a024407a12cf1e527359a6d428f9b",
+      "bytes": 1594767
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_overcorrupted.png",
+      "sha256": "5723face15adc3235266fa022b603ee8ed138d11fd30cd9fbc02ce94e9d48137",
+      "bytes": 1520292
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_swamp.png",
+      "sha256": "e1ea26cab37d10f1bec2db1d6c7a547aa8fd117fced8e02a61e48efaf71f91cd",
+      "bytes": 1588275
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_swamp_dark.png",
+      "sha256": "d417b9a766a55cdfe05021534b08da933ad17563df0fe342a11acc9349daaa52",
+      "bytes": 1468713
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Grass/Grass_swamp_lighted.png",
+      "sha256": "fdf366d3fdc6e28deabe9b1aa039465c76776b0a9359ba146344252638dd7268",
+      "bytes": 1668834
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Rocks/dirt_desatured_rocks.png",
+      "sha256": "fd7951b6d243a7d353977539822f2312ce0bdd5711602c54e5ee1c0cc3bcd727",
+      "bytes": 853870
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Rocks/dirt_lighted_rocks.png",
+      "sha256": "f62ad35248b847919129926dfcff11c95be5bd0878e40f5b83065b038a69612b",
+      "bytes": 925648
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Snow/snow_dark.png",
+      "sha256": "c01a828eefed4ca48b6cd24ebb14715e9b550abf9adb178d69df415ae2893129",
+      "bytes": 1562993
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Snow/snow_normal.png",
+      "sha256": "07c5daccea6d570088f9ce1b8f1f7a148ba984364e23d678c47cc9715d36874b",
+      "bytes": 1265645
+    },
+    {
+      "path": "Handpainted_Grass_and_Ground_Textures_Free/Snow/snow_super_dark.png",
+      "sha256": "dd434a851d882db83ed8eb7aa1307e0021f456981cac6cc81920d403363b4ddc",
+      "bytes": 1694369
+    }
+  ]
+}
