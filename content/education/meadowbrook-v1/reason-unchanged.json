@@ -1,0 +1,9 @@
+{
+  "id": "reason-unchanged",
+  "title": "Already placed",
+  "body": "This treatment is already here. Try another treatment or site to compare a change.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

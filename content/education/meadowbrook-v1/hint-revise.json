@@ -1,0 +1,9 @@
+{
+  "id": "hint-revise",
+  "title": "Make room for a different plan",
+  "body": "Undo a proposal and try another treatment. Watch which needs it helps and which it makes harder to meet.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

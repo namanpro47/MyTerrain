@@ -1,0 +1,9 @@
+{
+  "id": "tool-water-swale-unavailable",
+  "title": "Vegetated swale",
+  "body": "This treatment reserves land and uses credits. Runoff estimates are unavailable, so a water benefit cannot yet be shown.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

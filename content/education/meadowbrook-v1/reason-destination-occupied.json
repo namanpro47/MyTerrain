@@ -1,0 +1,9 @@
+{
+  "id": "reason-destination-occupied",
+  "title": "Destination already in use",
+  "body": "A proposal is already at the destination. Choose another site or remove that proposal first.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

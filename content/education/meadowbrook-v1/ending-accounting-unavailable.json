@@ -1,0 +1,9 @@
+{
+  "id": "ending-accounting-unavailable",
+  "title": "Compare the landscape",
+  "body": "The current accounting is unavailable. Return to your plan and try the comparison again; no numeric result is shown here.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

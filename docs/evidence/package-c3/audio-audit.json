@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "checks": 94,
+  "source_wav_bytes": 2581526,
+  "source_size_is_not_web_download_size": true,
+  "float32_decoded_bytes_estimate": 5162476,
+  "actual_unity_memory_or_build_measurement": false,
+  "subjective_listening_review": false,
+  "unity_import_tested": false,
+  "unity_web_playback_tested": false,
+  "clips": [
+    {
+      "id": "place",
+      "bytes": 4888,
+      "frames": 2422,
+      "seconds": 0.109841,
+      "rate_hz": 22050,
+      "channels": 1,
+      "sample_peak_dbfs": -14.0,
+      "sample_headroom_db": 14.0,
+      "rms_dbfs": -31.7,
+      "dc_offset": -0.000690576756522244,
+      "float32_decoded_bytes_estimate": 9688
+    },
+    {
+      "id": "undo",
+      "bytes": 2862,
+      "frames": 1409,
+      "seconds": 0.0639,
+      "rate_hz": 22050,
+      "channels": 1,
+      "sample_peak_dbfs": -18.001,
+      "sample_headroom_db": 18.001,
+      "rms_dbfs": -40.256,
+      "dc_offset": -0.00036889665764726755,
+      "float32_decoded_bytes_estimate": 5636
+    },
+    {
+      "id": "cancel",
+      "bytes": 6562,
+      "frames": 3259,
+      "seconds": 0.1478,
+      "rate_hz": 22050,
+      "channels": 1,
+      "sample_peak_dbfs": -19.999,
+      "sample_headroom_db": 19.999,
+      "rms_dbfs": -32.175,
+      "dc_offset": -3.989103492252224e-06,
+      "float32_decoded_bytes_estimate": 13036
+    },
+    {
+      "id": "blocked",
+      "bytes": 7302,
+      "frames": 3629,
+      "seconds": 0.16458,
+      "rate_hz": 22050,
+      "channels": 1,
+      "sample_peak_dbfs": -21.001,
+      "sample_headroom_db": 21.001,
+      "rms_dbfs": -37.22,
+      "dc_offset": -4.995161588936346e-05,
+      "float32_decoded_bytes_estimate": 14516
+    },
+    {
+      "id": "ambient-wind",
+      "bytes": 2559912,
+      "frames": 1279900,
+      "seconds": 58.045351,
+      "rate_hz": 22050,
+      "channels": 1,
+      "sample_peak_dbfs": -19.361,
+      "sample_headroom_db": 19.361,
+      "rms_dbfs": -36.003,
+      "dc_offset": 6.207951121669662e-07,
+      "float32_decoded_bytes_estimate": 5119600,
+      "loop": {
+        "count": 1,
+        "type": 0,
+        "start": 1024,
+        "end": 1279899,
+        "play_count": 0
+      },
+      "loop_seconds": 57.998912,
+      "seam_step_dbfs": -48.871,
+      "seam_to_adjacent_step_rms_ratio": 0.966,
+      "loop_rms_dbfs": -36.0,
+      "first_last_second_rms_difference_db": 1.357
+    }
+  ]
+}

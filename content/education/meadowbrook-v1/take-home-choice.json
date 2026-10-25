@@ -1,0 +1,28 @@
+{
+  "id": "take-home-choice",
+  "title": "Take a question home",
+  "body": "A land-use change is proposed near you. Choose a question you would want answered. Each is a useful starting point.",
+  "choices": [
+    {
+      "id": "home-production",
+      "text": "Whose productive-land needs would this change serve?",
+      "explanation": "Ask what evidence supports those needs and which uses would lose space.",
+      "correct": false
+    },
+    {
+      "id": "home-vegetation",
+      "text": "What vegetation would be kept, changed or restored?",
+      "explanation": "Ask how the alternatives use the same limited land and what trade-offs they create.",
+      "correct": false
+    },
+    {
+      "id": "home-water",
+      "text": "Where would runoff go, and what assumptions support the estimate?",
+      "explanation": "Ask which areas connect to proposed water measures and what happens when their capacity is reached.",
+      "correct": false
+    }
+  ],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "entries": 50,
+  "authoredEntries": 49,
+  "questions": 2,
+  "hints": 5,
+  "placeholders": 8,
+  "dtoSource": "Assets/Terra/Scripts/Contracts/WorldContracts.cs"
+}

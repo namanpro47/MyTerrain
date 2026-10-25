@@ -1,0 +1,9 @@
+{
+  "id": "ending-continue",
+  "title": "Continue Building",
+  "body": "Return to this proposal and try a different balance. Your current design stays in place.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

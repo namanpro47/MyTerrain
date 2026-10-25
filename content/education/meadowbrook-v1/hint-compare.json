@@ -1,0 +1,9 @@
+{
+  "id": "hint-compare",
+  "title": "Try another possibility",
+  "body": "Preview the same treatment elsewhere. A different starting use can mean a different trade-off.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

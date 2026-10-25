@@ -1,0 +1,9 @@
+{
+  "id": "tool-restore-grass",
+  "title": "Restore meadow",
+  "body": "Replace this site’s use with grass cover. Check any productive capacity you give up. The runoff effect depends on the modeled starting cover.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

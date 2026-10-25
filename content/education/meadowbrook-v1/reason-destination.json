@@ -1,0 +1,9 @@
+{
+  "id": "reason-destination",
+  "title": "Choose where to move",
+  "body": "Choose an eligible destination site for this proposal, or cancel to leave it where it is.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

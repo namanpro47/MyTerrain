@@ -1,0 +1,38 @@
+[
+  {
+    "file": "unknown-source.json",
+    "error": "Unknown source"
+  },
+  {
+    "file": "unknown-placeholder.json",
+    "error": "unknown placeholder"
+  },
+  {
+    "file": "malformed-placeholder.json",
+    "error": "Malformed placeholder"
+  },
+  {
+    "file": "missing-feedback.json",
+    "error": "Missing choice explanation"
+  },
+  {
+    "file": "string-correct.json",
+    "error": "JSON boolean"
+  },
+  {
+    "file": "extra-dto-field.json",
+    "error": "ContentEntry fields"
+  },
+  {
+    "file": "duplicate-choice-id.json",
+    "error": "Duplicate choice"
+  },
+  {
+    "file": "long-body.json",
+    "error": "body too long"
+  },
+  {
+    "file": "null-choices.json",
+    "error": "choices must be"
+  }
+]

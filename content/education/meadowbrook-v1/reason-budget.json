@@ -1,0 +1,9 @@
+{
+  "id": "reason-budget",
+  "title": "Not enough credits",
+  "body": "This plan exceeds the budget. Undo a proposal or preview a less costly option.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

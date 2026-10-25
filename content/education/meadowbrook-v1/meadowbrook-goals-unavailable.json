@@ -1,0 +1,9 @@
+{
+  "id": "meadowbrook-goals-unavailable",
+  "title": "Explore the choices",
+  "body": "Try a proposal and compare its effects. Mission targets are unavailable; no completed challenge is being claimed.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

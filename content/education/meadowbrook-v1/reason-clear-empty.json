@@ -1,0 +1,9 @@
+{
+  "id": "reason-clear-empty",
+  "title": "No proposals to clear",
+  "body": "The landscape has no proposals. Choose a treatment and an eligible site to try a change.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "ending-water-unavailable",
+  "title": "Water comparison unavailable",
+  "body": "A matched baseline and proposal estimate is not available. No runoff improvement or water-goal success can be claimed from this comparison.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

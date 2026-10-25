@@ -1,0 +1,9 @@
+{
+  "id": "ending-accounting",
+  "title": "How your plan changed the land",
+  "body": "Productive capacity: {production} illustrative units; change from baseline: {netProduction} units. Credits spent: {spentCredits}; remaining: {remainingCredits}.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

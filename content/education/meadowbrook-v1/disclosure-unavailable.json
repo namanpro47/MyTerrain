@@ -1,0 +1,9 @@
+{
+  "id": "disclosure-unavailable",
+  "title": "Water estimates unavailable",
+  "body": "Runoff calculations are unavailable in this build. Pending does not mean no runoff. Compare land and credits for now; do not infer a water result.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}

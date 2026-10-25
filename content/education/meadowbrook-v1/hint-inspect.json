@@ -1,0 +1,9 @@
+{
+  "id": "hint-inspect",
+  "title": "Start with a site",
+  "body": "Inspect a marked site to see its current use and available treatments.",
+  "choices": [],
+  "sourceIds": [
+    "scenario-assumptions-v1"
+  ]
+}
