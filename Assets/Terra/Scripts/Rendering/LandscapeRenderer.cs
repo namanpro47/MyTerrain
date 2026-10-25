@@ -200,7 +200,7 @@ namespace Terra.Rendering
                         if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
                         // Metre-scale plants form small stands with quiet ground between them.
                         // These positions illustrate habitat structure, not observed plant locations.
-                        if(grouping>.44f)
+                        if(grouping>.44f||cover=="woodland")
                         {
                             float angle=Range(0,Mathf.PI*2),radius=Range(2.5f,5.5f);
                             int count=random.Next(9,17);
@@ -224,6 +224,7 @@ namespace Terra.Rendering
                 nature.Add(wispy,fine,Color.white,true);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }
             BuildForestFloor();
+            BuildGrassland();
         }
         bool NearLine(float x,float z,float margin)
         {

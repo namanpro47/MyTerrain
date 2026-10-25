@@ -1,0 +1,7 @@
+var root=UnityEngine.GameObject.Find("Study36 connected baseline meadow");var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var transformBounds=typeof(Terra.Rendering.InstancedNature).GetMethod("TransformBounds",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);int count=0;
+foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>())foreach(var batch in (System.Collections.IEnumerable)n.GetType().GetField("batches",f).GetValue(n)){
+var type=batch.GetType();var matrices=(UnityEngine.Matrix4x4[])type.GetField("transforms").GetValue(batch);var mesh=(UnityEngine.Mesh)type.GetField("mesh").GetValue(batch);var bounds=new UnityEngine.Bounds();float maxHeight=0;
+for(int i=0;i<matrices.Length;i++){matrices[i]=matrices[i]*UnityEngine.Matrix4x4.Scale(new UnityEngine.Vector3(3,1.4f,3));var b=(UnityEngine.Bounds)transformBounds.Invoke(null,new object[]{mesh.bounds,matrices[i]});if(i==0)bounds=b;else bounds.Encapsulate(b);maxHeight=UnityEngine.Mathf.Max(maxHeight,b.size.y);count++;}
+type.GetField("bounds").SetValue(batch,bounds);type.GetField("maxHeight").SetValue(batch,maxHeight);
+}
+return count;

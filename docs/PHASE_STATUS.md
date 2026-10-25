@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**New source candidate:** [Study36 broad grass stands](evidence/phase2a/visual-rebuild/study36-findings.md) now adds a full-location lower vegetation layer and honors grass RGB/status tint. Editor compilation and209 lifecycle assertions pass; browser visual/performance verification is pending. The visible Chrome evidence below remains study34b.
+
 **Visual checkpoint: study34b, still unaccepted.** Corrected forest export `f88b6f6` passed exact local byte verification at **47.8 MB**. One foreground Chrome route measured **19ms p95/p99**; queue/undo preserved cash, with no error-level browser logs. Distant foliage is recovered, but overview repetition, bare lower layers and the broad flat grass surface remain substantial gaps. [Actual Chrome evidence](evidence/phase2a/visual-rebuild/study34b-build.json) · [rejected understory/material/composition trials and next direction](evidence/phase2a/visual-rebuild/study35-findings.md). Phase 2A remains open. No dimension is certified at 4.5/5; no purchase or image generation.
 
 
