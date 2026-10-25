@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-25",
+  "baseCommit": "913c79fcfae6da89142762e747550fa8aa2cc240",
+  "runtimeChanged": false,
+  "sdk": "10.0.402",
+  "runtime": "10.0.13",
+  "target": "net8.0 with DOTNET_ROLL_FORWARD=Major",
+  "inputs": [
+    {
+      "path": "tests/full-game/Program.cs",
+      "sha256": "9d35fa8b48411bc7774225e12f89dd9af4ef00b653a20819a109f050923d7dd1"
+    },
+    {
+      "path": "tests/full-game/AnnualStressChecks.cs",
+      "sha256": "928b216ba0f2a0cfb82af3c8f0a55a0b99a7ea6b44721abadddc9423e922495f"
+    },
+    {
+      "path": "tests/full-game/Terra.FullGameChecks.csproj",
+      "sha256": "2dadd74faeabe2408e627b1859ec3311f1cda85def5af5d14f3652a9524767a7"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/ActionProfiles.cs",
+      "sha256": "51e614a2b41d0625841ea66678eee0f03acc5e7b511f197f844a8683f90ed14b"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualChapters.cs",
+      "sha256": "39bf998415fa3e3f5976bb43921cfaf2157574c1e7ed25ac51abd8f72c618401"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualEconomy.cs",
+      "sha256": "8245f47954dff3d9c9572be7c2482993faa6b5e680df844c6b0c0b7db2c7eb79"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualGameplay.cs",
+      "sha256": "a3850bdc4102208bed5ceb770b7fda1259cdaf91730a724877d9e8e7b352de88"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualSpatialOpportunities.cs",
+      "sha256": "63e535bc4699de26607a8bf964c5189fd427bc8f8495587acaf395c9195dcf6b"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTown.cs",
+      "sha256": "d956ffd36fde2e349af24b10b00ac1701cd1e51f8cf9020bcae1a8c9144380e5"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTownDemo.cs",
+      "sha256": "dc04c6e8f6f8f893e0e7f7c6422c70818ed6949c5a9ca3e8025eeceba59dd2f9"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/AnnualTownSummary.cs",
+      "sha256": "663aaabf5bb12dc7dbe4f95afe1eee0e652f9643df161beb7e6957201c33439c"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/BuildActionRules.cs",
+      "sha256": "167d25cb17fc604fd7bc367495c42e5e21b4704a2550573b8d254ecb302a3491"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/FullAnnualGameplay.cs",
+      "sha256": "18c4eb28a9182ab430a66bfbb1d3824abb726e940a304d31a110dc55d2ea3c92"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/LandscapeRunoff.cs",
+      "sha256": "3a4ae18daeafc80931cd3a4791d0e7b751d5bc4be767139b589199008a2013ab"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/LocationProfile.cs",
+      "sha256": "14f2739429549e4edf108ac2adc68824e37fc0dc3beae1c73b2a8b1afded2781"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/TownCopies.cs",
+      "sha256": "394788e6b004dd61fb98efba73991f26048f8b6148e797082159ad170226ce58"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Core/WorldStateStore.cs",
+      "sha256": "2794281da2f75ff601200e280d5ec0f378000198582c9c32d5194b96dd723f3c"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualChapterContracts.cs",
+      "sha256": "daa772be8fe3f4efda0f39a485db70a513c54ac84cff28119db84d831005ae39"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs",
+      "sha256": "bb898982488701358e8a92dc8d9a9b18755dbd2ec5f21b658d620137c6d457b2"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/PackValidator.cs",
+      "sha256": "b0be4f0d6fcb7bbfe5511fc3785130fd28571cde1846c0de28332929288b2688"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Contracts/WorldContracts.cs",
+      "sha256": "880657aca4d0a444fac3fc8e143d86e52bac518016e80a748634d96610631aeb"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Simulation/CurveNumberMixture.cs",
+      "sha256": "f1466fb4ce0f417495d50089c44f3d4bf3121de80260f57982b2cf813f46ef2e"
+    },
+    {
+      "path": "Assets/Terra/Scripts/Simulation/RunoffEvaluator.cs",
+      "sha256": "cc2e277206e6adbbd97f1b112c39882cb1a14f76149c099689feb467f02963ac"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/world.json",
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/scenario.json",
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "worlds/meadowbrook-v1/hydrology.json",
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "Assets/Terra/Resources/ConnectedFields.json",
+      "sha256": "7f497a12c36f79f5c167a08d842962b232d0d8a57b71f404c39206d529e34f42"
+    },
+    {
+      "path": "Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset",
+      "sha256": "6080ff857914136ac9588eea100c6f775a84d9703818aab100302fabe3231a3a"
+    }
+  ]
+}

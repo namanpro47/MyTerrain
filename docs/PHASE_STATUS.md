@@ -1,5 +1,11 @@
 # Terra — phase status and evidence
 
+## Phase 5/6 annual stress and recovery — October 25, 2026
+
+The annual-completion chat independently extends the existing full-game suite: **2,399 assertions pass on both current connected and legacy Wisconsin layouts**. New coverage includes 51 repeated-family/site-order routes per layout, exact interrupted-future recovery at every Year 1–10, mismatched/duplicate response safety, same-condition comparison drivers, late construction with $600K beyond-horizon obligations, debt-preserving shortfall endings, and a recoverable repair with a useful Year 4 park investment. No production rule, price, save, HUD or scenery changes. [Reproduction, exact inputs, results and limitations](evidence/annual-completion/README.md).
+
+The user explicitly chose to continue with **human playtesting unavailable**; no novice comprehension or duration claim is made. The existing implementation chat retains rendering/performance and integration; this chat owns the final public manual run and two rehearsals after the accepted visual export. These model checks do not close Phase 2A, final Chrome/release gates or certify a deployment.
+
 ## Larger nature groups and crop integration — October 25, 2026
 
 [Candidate `d620ff2`](evidence/phase2a/submission-cells-01/README.md) changes nature aggregation from 96m to 192m after existing source culling/LOD selection. Exact matrix/bounds/capacity checks and paired camera captures pass. In one sequential focused Chrome comparison at 1280×720, conifer control p95 is 39ms and candidate p95 is 30ms; queue/undo preserve cash and accepted history. These bounded results do not replace three final combined paths. The frozen candidate has 31 byte-verified files /48,086,076 bytes. Source/import and benchmark limits are explicit in the receipt.
