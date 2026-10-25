@@ -22,3 +22,9 @@ These are backend, adapter and compilation checks. Peter retains interactive Uni
 ## Local handoff
 
 Keep the loopback service running on port 8787. Unity's normal local endpoint works without a scene override. Test End Year, then wait for **AI explanation** on the year overview. For the ending, use the ten-year future shortcut and wait for the optional Year-10 explanation. Numerical results/local summary remain usable if AI times out or becomes unavailable.
+
+## Native Editor handoff
+
+The open `C:/Users/Peter/Terra-Unity` checkout was fast-forwarded to main with its four pre-existing Unity-generated local changes preserved. A recovery patch was written under its ignored `Logs/AnnualSync` folder.
+
+Native recompilation exposed a cross-assembly CS0122 error in the earlier combined-assembly check: gameplay referenced the internal `TownCopies` helper. Commit `2eedec9` replaces that use with the existing public-contract JsonUtility comparison. After syncing that fix, the actual Unity 6000.6.6f1 Editor reports **compilationFailed=false, compiling=false, consoleErrors=0**, with ten existing warnings. Play Mode is stopped and the Editor is ready for Peter's QA. The local Gemini service remains running on `127.0.0.1:8787`.
