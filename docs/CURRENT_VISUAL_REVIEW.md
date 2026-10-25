@@ -39,7 +39,7 @@ The normal view exposes the whole-scene weaknesses. Woodland has more volume, ye
 | Intervention and transformation | Actual annual growth is more legible; only one browser parcel/three years and two Editor action lifecycles have been reviewed in this revision. |
 | Whole-scene consistency | Larger layouts inspected; alternate sites, other interventions, motion, all three regions and full release acceptance remain incomplete. |
 
-**No dimension is certified at 4.5/5.** Current progress does not waive the user's visual rejection or establish commercial-game parity. The next substantial art change targets cultivated field mass. Do not repeat tiny row jitter or the rejected raised canopy sheet.
+**No dimension is certified at 4.5/5.** Current progress does not waive the user's visual rejection or establish commercial-game parity. The next substantial art change targets cultivated field mass. [Study56](evidence/phase2a/visual-rebuild/study56-findings.md) additionally rejects grass-as-grain and empty interiors with narrow wheat bands. Production rendering remains study55. Do not repeat density/tint tuning, tiny row jitter or the raised canopy sheet; new solid-leaf crop sources are acquired but not yet evaluated in-scene.
 
 ## Verification boundary
 
