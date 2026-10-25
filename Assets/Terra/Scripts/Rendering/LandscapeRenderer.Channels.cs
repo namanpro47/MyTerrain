@@ -27,6 +27,7 @@ namespace Terra.Rendering
         }
         void BuildStreamsidePlants()
         {
+            if(clusteredWoodland){BuildLayeredRiverMeadow();return;}
             var low=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");
             var rock=Resources.Load<GameObject>("Nature/Rock_Medium_2");
