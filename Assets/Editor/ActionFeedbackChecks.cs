@@ -30,6 +30,9 @@ public static class ActionFeedbackChecks
             Check(Field<TextMeshProUGUI>("changeMoney").text=="-$3,500","signed dollar popup");
             Check(Field<TextMeshProUGUI>("changeContext").text.Contains("Reserved")&&Field<TextMeshProUGUI>("changeContext").text.Contains("forecast"),"reservation and forecast labels");
             Check(Field<TextMeshProUGUI>("changeScores").text.Contains("-12.3")&&Field<TextMeshProUGUI>("changeScores").text.Contains("+2.4"),"mixed outcomes preserve both signs");
+            hud.TickChangeFeedback(30);
+            Check(Field<float>("changeRemaining")>=6.9f,"stalled or unfocused frame preserves reading time");
+            Check(receipt.gameObject.activeSelf==!hud.ModalOpen,"unfocused receipt remains visible outside modals");
             foreach(bool large in new[]{false,true})
             {
                 if(large)typeof(TerraHud).GetMethod("ToggleText",flags).Invoke(hud,null);

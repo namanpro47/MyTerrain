@@ -72,10 +72,12 @@ namespace Terra.UI
         public void TickChangeFeedback(float seconds)
         {
             if(activeChange==null||changeReceipt==null)return;
-            bool visible=!ModalOpen&&Application.isFocused;
+            bool visible=!ModalOpen;
             changeReceipt.gameObject.SetActive(visible&&changeRemaining>0);
             if(!visible)return; // Reading a dialog or changing tabs must not swallow the receipt.
-            changeRemaining=Mathf.Max(0,changeRemaining-seconds);
+            // Keep the receipt visible while unfocused, and never let a resumed or
+            // stalled frame consume the entire reading window.
+            if(Application.isFocused)changeRemaining=Mathf.Max(0,changeRemaining-Mathf.Clamp(seconds,0,.1f));
             if(changeRemaining<=0)
             {
                 changeReceipt.gameObject.SetActive(false);activeChange=null;RestoreMetricFeedback();return;
