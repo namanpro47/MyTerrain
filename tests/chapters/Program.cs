@@ -28,6 +28,17 @@ if (args.Length == 2 && args[0] == "--unity-fixture") {
 
 int checks = 0;
 void Check(bool condition, string message) { if (!condition) throw new Exception(message); checks++; }
+var manyFacts = new[] { "year", "weather", "economic", "social", "environmental", "budget", "limits" }
+    .Concat(Enumerable.Range(0, 340).Select(i => "site:plot-" + i))
+    .Select(id => new AnnualChapterFact { id = id, text = "Engine fact " + id }).ToArray();
+var compact = AnnualChapters.NarrationFacts(manyFacts, new TownYearRequest {
+    actions = new[] { new TownPlannedAction { siteId = "plot-339", actionId = "public-park" } },
+    assets = new[] { new TownAsset { siteId = "plot-338", actionId = "public-park", startedYear = 1 } }
+});
+Check(compact.Length == 64 && compact.Select(f => f.id).Distinct().Count() == 64, "Large map narration exceeded the distinct fact budget.");
+Check(compact.Take(7).Select(f => f.id).SequenceEqual(manyFacts.Take(7).Select(f => f.id)), "Large map lost aggregate facts.");
+Check(compact[7].id == "site:plot-339" && compact[8].id == "site:plot-338", "Current choices and prior projects must precede empty plots.");
+Check(compact.First(f => f.id == "limits").text.Contains("Aggregate totals include every site.") && manyFacts[6].text == "Engine fact limits", "Subset disclosure missing or original facts mutated.");
 async Task Reject(Func<Task> action, string message) {
     bool rejected = false;
     try { await action(); } catch { rejected = true; }
