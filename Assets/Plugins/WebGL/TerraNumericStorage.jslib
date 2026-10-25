@@ -31,10 +31,12 @@ mergeInto(LibraryManager.library, {
       } catch (_) { reply(false, 'invalid-envelope'); return; }
     }
     var open;
-    try { open = indexedDB.open('MyTerrainNumericSavesV1', 1); }
+    try { open = indexedDB.open('MyTerrainNumericSavesV1', 2); }
     catch (error) { reply(false, code(error)); return; }
     open.onupgradeneeded = function() {
-      if (!open.result.objectStoreNames.contains('runs')) open.result.createObjectStore('runs');
+      ['runs', 'definitions', 'directories'].forEach(function(name) {
+        if (!open.result.objectStoreNames.contains(name)) open.result.createObjectStore(name);
+      });
     };
     open.onerror = function() { reply(false, code(open.error)); };
     open.onblocked = function() { reply(false, 'storage-blocked'); };
