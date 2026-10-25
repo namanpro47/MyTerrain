@@ -6,12 +6,13 @@ const os = require('node:os');
 const DEFAULT_VOICE = 'XrExE9yKIg1WjnnlVkGX'; // Matilda: warm, clear female narrator.
 const MODEL = 'eleven_flash_v2_5';
 const MAX_TEXT = 700;
+const SPEED = 1.10;
 function createHandler({env=process.env, fetcher=fetch, cacheDir=path.join(os.tmpdir(),'myterrain-speech-v1'), now=Date.now}={}) {
   const pending = new Map(), limits = new Map();
   let active=0;
   const voice=env.ELEVENLABS_VOICE_ID || DEFAULT_VOICE;
   const model=env.ELEVENLABS_MODEL || MODEL;
-  const revision=createHash('sha256').update(`${voice}:${model}:0.55:0.75:0.96:v1`).digest('hex').slice(0,16);
+  const revision=createHash('sha256').update(`${voice}:${model}:0.55:0.75:${SPEED}:v2`).digest('hex').slice(0,16);
   const allowed=new Set((env.TERRA_VOICE_ORIGINS || 'https://www.myterrain.io,https://myterrain.io,https://terra-browser.vercel.app').split(',').map(x=>x.trim()));
   // Vercel supplies this deployment's own hostname; do not allow arbitrary *.vercel.app origins.
   if(env.VERCEL_URL)allowed.add('https://'+env.VERCEL_URL);
@@ -30,7 +31,7 @@ function createHandler({env=process.env, fetcher=fetch, cacheDir=path.join(os.tm
     if(!origin && !local && req.headers['sec-fetch-site']!=='same-origin')return json(res,403,'Open narration from the game.');
     if(origin){res.setHeader('Access-Control-Allow-Origin',origin);res.setHeader('Vary','Origin');res.setHeader('Access-Control-Allow-Headers','Content-Type');res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS');}
     if(req.method==='OPTIONS'){res.statusCode=204;return res.end();}
-    if(req.method==='GET') {res.setHeader('Content-Type','application/json');return res.end(JSON.stringify({configured:!!env.ELEVENLABS_API_KEY,voice:env.ELEVENLABS_VOICE_NAME||'Matilda',revision,maxCharacters:MAX_TEXT}));}
+    if(req.method==='GET') {res.setHeader('Content-Type','application/json');return res.end(JSON.stringify({configured:!!env.ELEVENLABS_API_KEY,voice:env.ELEVENLABS_VOICE_NAME||'Matilda',revision,speed:SPEED,maxCharacters:MAX_TEXT}));}
     if(req.method!=='POST'){res.setHeader('Allow','GET, POST, OPTIONS');return json(res,405,'Method not allowed.');}
     let input;
     try {input=await read(req);}catch{return json(res,400,'Invalid speech request.');}
@@ -54,7 +55,7 @@ function createHandler({env=process.env, fetcher=fetch, cacheDir=path.join(os.tm
       const generate=(async()=>{
         const response=await fetcher(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voice)}?output_format=mp3_44100_128`,{
           method:'POST',headers:{'xi-api-key':env.ELEVENLABS_API_KEY,'Content-Type':'application/json','Accept':'audio/mpeg'},
-          body:JSON.stringify({text,model_id:model,voice_settings:{stability:.55,similarity_boost:.75,speed:.96}}),signal:AbortSignal.timeout(20000)
+          body:JSON.stringify({text,model_id:model,voice_settings:{stability:.55,similarity_boost:.75,speed:SPEED}}),signal:AbortSignal.timeout(20000)
         });
         if(!response.ok){const error=new Error('Voice unavailable. Text remains available.');error.status=response.status===429?429:503;throw error;}
         const bytes=Buffer.from(await response.arrayBuffer());

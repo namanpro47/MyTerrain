@@ -14,8 +14,8 @@ test('same dialogue shares one generation and cached replay; key stays in upstre
  const f=await fixture(t);const responses=await Promise.all([f.post('Welcome to the valley.'),f.post('Welcome to the valley.')]);
  for(const r of responses){assert.equal(r.status,200);assert.equal((await r.arrayBuffer()).byteLength,128);}
  assert.equal(f.calls.length,1);assert.equal((await f.post('Welcome to the valley.')).status,200);assert.equal(f.calls.length,1);
- assert.equal(f.calls[0].options.headers['xi-api-key'],'TEST_ONLY');assert.ok(!f.calls[0].options.body.includes('TEST_ONLY'));
- const config=await fetch(f.url,{headers:{Origin:'https://www.myterrain.io'}}).then(r=>r.json());assert.ok(config.configured);assert.ok(!JSON.stringify(config).includes('TEST_ONLY'));
+ assert.equal(JSON.parse(f.calls[0].options.body).voice_settings.speed,1.10);assert.equal(f.calls[0].options.headers['xi-api-key'],'TEST_ONLY');assert.ok(!f.calls[0].options.body.includes('TEST_ONLY'));
+ const config=await fetch(f.url,{headers:{Origin:'https://www.myterrain.io'}}).then(r=>r.json());assert.ok(config.configured);assert.equal(config.speed,1.10);assert.ok(!JSON.stringify(config).includes('TEST_ONLY'));
 });
 test('rejects origins, missing browser origin, arbitrary provider controls, empty/oversized/markup input before quota',async t=>{
  const f=await fixture(t);

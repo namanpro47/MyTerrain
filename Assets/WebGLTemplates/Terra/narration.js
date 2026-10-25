@@ -1,6 +1,24 @@
 /* Spoken presentation only. No keys, game rules, or save-state writes. */
 (function(root){
   'use strict';
+  // Speak the message, not the dashboard. Unity supplies plain text with line
+  // breaks represented as sentence separators; filter before splitting/caching.
+  function coreText(value){
+    const plain=String(value||'').replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim();
+    if(/^What will you leave behind\?/i.test(plain))
+      return 'What will you leave behind? Shape this landscape over ten years. Balance homes and livelihoods with land and water. Choose a project, find a place, then End Year. Edit freely until then. Accepted projects take time and need upkeep. Real terrain; fictional community and outcomes.';
+    return plain.split(/(?<=[.!?])\s+/).map(s=>s.replace(/^[.\s]+|[.\s]+$/g,'').trim()).filter(s=>{
+      if(!s)return false;
+      // Resource/score cards, budget arithmetic, option captions and before/now labels.
+      if(/^(?:public funds|homes now\s*\/\s*needed|jobs now\s*\/\s*target|before|now|selected)$/i.test(s))return false;
+      if(/^[\d\s.,+−–\-/:%]+$/.test(s))return false;
+      if(/^\d+\s+years?(?:\s*[.·]\s*selected)?$/i.test(s))return false;
+      if(/[$€£]|\d\s*%|\d\s*\/\s*\d/.test(s))return false;
+      if(/^(?:economic|social|environmental|change|score|homes|jobs|cash|balance|income|cost|upkeep|budget|funds|unpaid bills|future obligations)\b/i.test(s)&&/\d/.test(s))return false;
+      if((s.match(/\d+(?:[.,]\d+)*/g)||[]).length>=3)return false;
+      return true;
+    }).map(s=>/[!?]$/.test(s)?s:s+'.').join(' ');
+  }
   function split(text,max=600){
     const words=text.replace(/<[^>]*>/g,'').replace(/\s+/g,' ').trim().split(' '),result=[];let part='';
     for(let word of words){
@@ -10,9 +28,9 @@
     }
     if(part)result.push(part);return result;
   }
-  if(typeof module!=='undefined')module.exports={split};
+  if(typeof module!=='undefined')module.exports={split,coreText};
   if(!root.document)return;
-  let ctx,gain,source,abort,timer,version=0,text='',parts=[],index=0,volume=0,enabled=true,gesture=false;
+  let ctx,gain,source,abort,timer,version=0,text='',raw='',parts=[],index=0,volume=0,enabled=true,gesture=false;
   let status=0,revision='',buffer=null,started=false,configPromise;
   const endpoint=/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?'http://127.0.0.1:8788/api/narration':'/api/narration';
   const memory=new Map();let cachePromise;
@@ -61,12 +79,15 @@
   function unlock(){gesture=true;context().resume().then(sync).catch(()=>{status=3;});}
   document.addEventListener('pointerdown',unlock,{capture:true});document.addEventListener('keydown',unlock,{capture:true});
   document.addEventListener('visibilitychange',sync);window.addEventListener('blur',sync);window.addEventListener('focus',sync);
-  window.addEventListener('pagehide',()=>{stop();text='';});
+  window.addEventListener('pagehide',()=>{stop();text='';raw='';});
   root.terraNarration={
     set(value,on,level){
       enabled=!!on;volume=Math.max(0,Math.min(1,level));
-      if(value!==text){stop();text=value;parts=split(value);index=0;timer=setTimeout(()=>{timer=null;sync();},350);}
-      else if(!timer)sync();
+      if(value!==raw){
+        raw=value;const next=coreText(value);
+        if(next!==text){stop();text=next;parts=split(next);index=0;timer=setTimeout(()=>{timer=null;sync();},350);}
+      }
+      if(!timer)sync();
     },
     replay(){stop();index=0;sync();},
     status(){return text&&!available()&&status!==4?3:status;},

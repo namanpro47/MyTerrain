@@ -30,3 +30,18 @@ test('hidden tab pauses and does not request next segment until visible',async()
  h.doc.hidden=true;h.events.visibilitychange();h.sources[0].onended();await settle();assert.equal(h.requests.length,1);
  h.doc.hidden=false;h.events.visibilitychange();await settle();assert.equal(h.requests.length,2);
 });
+
+test('core narration skips dashboard numbers and retains instructions and warnings',()=>{
+ const {coreText}=require('../../Assets/WebGLTemplates/Terra/narration.js');
+ const opening='What will you leave behind?. 10 years. One landscape. Your choices.. Balance homes and livelihoods with land and water.. Choose a project, then Find a place, then End Year.. Edit freely until End Year. Accepted projects take time and need upkeep.. Real terrain. fictional community and outcomes.. $10M. PUBLIC FUNDS. 4 / 16. HOMES NOW / NEEDED. 4 / 36. JOBS NOW / TARGET';
+ const spoken=coreText(opening);assert.ok(spoken.length<opening.length);assert.ok(!/\$|PUBLIC FUNDS|4 \/|TARGET/.test(spoken));assert.match(spoken,/Choose a project, find a place, then End Year/);assert.match(spoken,/fictional community/);
+ assert.equal(coreText('Review year 2. Your plan. Apartments $4,000,000. Running costs $20,000. $10,000,000 + $1,000,000. Ending the year commits this plan. A negative balance blocks new construction.'),'Review year 2. Your plan. Ending the year commits this plan. A negative balance blocks new construction.');
+ assert.equal(coreText('Year 1 complete. Homes are ready. Economic / 100. Before. 42.3. Now. 45.2. Environmental −100 to 100. New homes need water and power.'),'Year 1 complete. Homes are ready. New homes need water and power.');
+ assert.equal(coreText('Choose how long you want to plan. Every game follows the community for ten years. 1 year. 3 years. selected. 5 years. 10 years.'),'Choose how long you want to plan. Every game follows the community for ten years.');
+});
+test('stat-only changes do not restart speech and numeric-only panels spend no quota',async()=>{
+ const h=harness();h.events.pointerdown();h.player.set('Homes are ready. $10M. PUBLIC FUNDS. 4 / 16. HOMES NOW / NEEDED.',true,.8);h.flush();await settle();
+ assert.equal(h.requests[0].text,'Homes are ready.');assert.equal(h.sources.length,1);
+ h.player.set('Homes are ready. $9M. PUBLIC FUNDS. 8 / 16. HOMES NOW / NEEDED.',true,.8);h.flush();await settle();assert.equal(h.sources.length,1);assert.equal(h.requests.length,1);assert.ok(!h.sources[0].stopped);
+ h.player.set('$9M. PUBLIC FUNDS. 8 / 16. HOMES NOW / NEEDED.',true,.8);h.flush();await settle();assert.equal(h.requests.length,1);assert.equal(h.player.status(),0);assert.ok(h.sources[0].stopped);
+});

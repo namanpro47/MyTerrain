@@ -21,3 +21,9 @@ Chrome at `http://127.0.0.1:8998/`, 1728 × 940:
 - `chrome-integration-logs.json` preserves the observations. The shader-stripping warning is existing renderer output, not a voice error.
 
 **Release blocker found:** selecting “Begin · 10 decision years” caused WebAssembly `RuntimeError: unreachable` in the shared game start path. Handed the trace to the gameplay/release owners; production held. Yearly dialogue and sound-panel acceptance require the corrected export. No final production or visual-gate acceptance is claimed yet.
+
+## Concise narration follow-up — October 25, 2026
+
+After the [combined release went live](../release-consolidated-20261025/README.md#published-result), the user requested less numeric detail and a quicker pace. The browser now selects core prose before playback/cache segmentation: an authored short opening, no standalone stat cards, currency/percentage/ratio readouts or decision-option captions. Instructions, warnings and meaningful year references stay spoken. Changes only to excluded statistics do not restart the passage. Visual information is unchanged (TN-06/07/08, AX-01). Provider speed is 1.10 instead of .96, with a new cache revision.
+
+Eleven focused Node checks pass, including the supplied opening, budget/stat exclusions, retained warnings, no numeric-only request, and no restart on stat-only updates. An actual Matilda sample returns 200 audio/mpeg at the new settings. Reused the accepted Unity export with exactly two changed files: narration.js and api/narration.js. No repeat Unity/game walkthrough; no game rules, scenes or rendered UI changed. [Receipt](concise-update.json).
