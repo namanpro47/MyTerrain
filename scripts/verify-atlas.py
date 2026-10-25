@@ -18,8 +18,11 @@ for id in locations:
         check(w['features']==[],'no invented mapped roads or water')
         check(len(json.loads((base/'provenance.json').read_text())['elevationTiles'])>0,'tile source receipts')
 check(len(set(heights))==3,'three distinct terrains')
-for name in ['atlas.js','atlas.css','globe.js','locations.js','player.js','vendor/three.module.min.js','vendor/THREE-LICENSE.txt','images/earth.jpg','images/wisconsin.svg','images/point-reyes.svg','images/suusamyr.svg']:
-    check((atlas/name).stat().st_size>0,'missing resource '+name)
-for id in locations:check(id in (atlas/'locations.js').read_text(),'browser catalog ID')
-check('eval(' not in (atlas/'atlas.js').read_text(),'no dynamic code evaluation')
-print(f'Atlas package: {checks} checks passed.')
+template=root/'Assets/WebGLTemplates/Terra'
+check(not (template/'atlas').exists(),'no HTML atlas runtime')
+check((template/'index.html').read_text().count('<canvas')==1,'one Unity canvas')
+check('<title>MyTerrain</title>' in (template/'index.html').read_text(),'player brand')
+check((root/'Assets/Terra/Resources/Atlas/Earth.jpg').stat().st_size>1000000,'native Earth texture')
+for name in ['WorldAtlas.cs','WorldAtlas.Visuals.cs','TerraMain.Atlas.cs']:
+    check((root/'Assets/Terra/Scripts/Gameplay'/name).exists(),'native atlas component '+name)
+print(f'Native atlas package: {checks} checks passed.')

@@ -2,13 +2,17 @@
 
 The user explicitly authorized a draggable globe, cinematic entry and three supported rural locations. This supersedes earlier one-location/no-selector limits for this bounded feature. The separate Phase 2A landscape-quality gate remains open.
 
-## Experience
+## Native Unity correction
 
-The browser starts in a warm, quiet atlas: NASA Earth imagery, a softly lit globe, fine geographic graticule, readable pins, original landscape illustrations and three fixed destination cards. Drag Earth with mouse or touch, use the arrow keys while the globe is focused, or select a card/pin. Selection rotates along the shortest longitude arc. Scroll or +/− zoom; the centre control returns to the selected place. The cards also support left/right arrows and normal Tab/Enter navigation.
+The user rejected the HTML landing page and explicitly required the draggable globe and descent **inside Unity**. The product is now **MyTerrain** wherever players see its name. Earlier HTML-atlas captures remain historical, not the accepted implementation.
 
-Explore moves the globe into the centre of the screen, turns toward the selected coordinate and descends through the surface, then reveals the loaded Unity landscape. Loading waits for the actual landscape-ready signal, not just the WASM download. Back/Escape during loading returns to the atlas; errors expose a retry. Motion follows the system preference and has a persistent explicit toggle. With reduced motion the camera flight is omitted. The game’s World atlas control (or Shift+Escape) returns without resetting the run; returning to the same landscape reuses the player, while another location starts a fresh runtime with its own save.
+`WorldAtlas` owns a real textured 3D sphere, separate URP camera, atmospheric shell, geographic pins, uGUI buttons and TMP labels. Drag rotates with damped inertia; scroll and +/− zoom; 1–3 or Tab selects a region; Enter descends. Selection follows the shortest longitude arc. Field notes identify the imagery and distinguish observed geography from educational assumptions.
 
-Patterns: **TN-01** landscape as the emotional focus, **TN-02** clear masses and restrained palette, **TN-03** sparse controls, **TN-06** short entry guidance, **AX-01** keyboard, contrast, viewport and motion checks. The atlas is a new browser entry surface, not a claim that the underlying Phase 2A scenery has been accepted. The existing rejected landscape captures remain historical comparison material.
+Travel turns toward the selected coordinate, approaches the surface and fades through an atmospheric veil. It then loads the actual selected landscape and reveals its camera descending to the playable view. The load is never treated as complete before terrain and annual state are ready. Back/Escape cancels; failed loads expose retry. Reduced motion bypasses the sustained flight and is remembered.
+
+The native World atlas button or Shift+Escape returns to the globe. Same-place entry preserves the live scene; different-place entry reloads the gameplay scene behind the persistent atlas and restores that place's isolated save. Existing committed-year rules and save keys remain intact. Internal Terra names are retained for compatibility; they are not player branding.
+
+Patterns: **TN-01/02/03/06**, **AX-01**. A navy orbital scene, mint markers and cream typography connect selection to the current annual HUD. This bounded atlas correction does not certify the separate Phase 2A landscape gate.
 
 ## Fixed catalog and evidence
 
@@ -29,30 +33,21 @@ New terrain comes from **Mapzen / AWS Terrain Tiles**, USGS 3DEP and global SRTM
 - [Suusamyr pasture context, UNDP](https://files.acquia.undp.org/public/migration/kg/Brochure-pastures-ENG.pdf)
 - [NASA globe source](https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/)
 
-The three landscape cards are original SVG illustrations, not photos or surveyed features. Earth is a July 2004 composite with an atlas colour treatment, not live imagery. See `Assets/WebGLTemplates/Terra/atlas/CREDITS.md`. All resources are bundled; no runtime CDN, paid asset, key or image generation is used.
+Earth is a July 2004 composite with a native shader colour treatment, not live imagery. Credits are retained in `Assets/Terra/Resources/Atlas/CREDITS.md` and the native Field notes panel. The old HTML atlas, Three.js, illustration cards and duplicate browser selection state have been removed.
 
 ## Integration and reproduction
 
-- Browser entry: `Assets/WebGLTemplates/Terra/index.html`, `atlas/{atlas,globe,locations,player}.js` and `atlas.css`.
-- Location contract: `LocationProfile` in Core; bounded ID/index adapter in `TerraMain.Atlas.cs` and `TerraBrowser.jslib`.
-- `TerraMain` reads the location before loading. Only Wisconsin applies its historical wind-site adapter. Regional packs contain their own complete opportunities.
-- Annual and chapter keys are separate for each region. The October 25 connected-field follow-up gives Wisconsin definition 3.2 its own town/chapter keys; the original 3.1 keys remain intact for historical recovery. The definition ID remains unchanged. Point Reyes and Suusamyr retain their 3.1 keys and geometry. Cross-location save restore is rejected.
-- Browser input capture is released while the atlas is visible. Camera/audio resume when returning. Outstanding accepted-year work may finish and save; atlas navigation never rewrites a committed year.
-- In-game identity, loading, ending and field-guide notes follow the location. The main gameplay HUD remains uGUI/TMP.
+- Native runtime: `Assets/Terra/Scripts/Gameplay/WorldAtlas{,.Visuals}.cs` and `TerraMain.Atlas.cs`.
+- Native assets: `Assets/Terra/Resources/Atlas/`.
+- Browser: `Assets/WebGLTemplates/Terra/index.html` and `player.js` only boot the canvas and transport input. No browser location selection or camera animation.
+- Annual/chapter keys remain isolated by pack. Wisconsin retains current connected-field v3.2 state; other places keep v3.1. Cross-location restore is rejected.
+- Editor Play and the WebGL build use the same globe and entry lifecycle. No EditorPrefs location bypass is required.
 
 ```sh
-python3 worldgen/build-regions.py         # downloads only missing verified-HTTPS elevation tiles
 python3 scripts/prepare-world.py --pack all
 python3 scripts/verify-atlas.py
-unity command script eval --caller plugin --skill unity-cli --project-path "$PWD" \
-  'return AtlasLocationChecks.Run();' --format json
-unity command script eval --caller plugin --skill unity-cli --project-path "$PWD" --detach \
-  'TerraBuild.BuildWeb();' --format json
-python3 -m http.server 49174 --bind 127.0.0.1 --directory Builds/Web
 ```
 
-`build-regions.py` needs Python, NumPy and Pillow. Downloaded tiles stay in ignored `worldgen/cache/regions`; the normalized packs are committed and play without a network GIS service. Unity's build entry packages all three packs automatically. Editor Play defaults to Wisconsin; a developer may set `terra.editor.location` to one of the other stable pack IDs to inspect it.
+Use the shared resource coordinator before Editor/build/Chrome work (see `docs/WORK_COORDINATION.md`). Invoke `TerraBuild.BuildWeb()` in the owned project to package all three places and export the complete Unity player. Serve only that worktree's `Builds/Web` on an unused port.
 
-For browser-only iteration, `scripts/preview-atlas.py --player /absolute/path/to/an/existing/Builds/Web` stages the real template around an explicitly older player. This is **not** an integrated build and cannot establish new runtime behavior. Final verification must use the new `TerraBuild.BuildWeb` output.
-
-Verification receipts and captures: [atlas evidence](evidence/atlas/README.md).
+Verification and actual rendered captures: [native atlas evidence](evidence/native-atlas/README.md). Historical web-atlas evidence: [previous implementation](evidence/atlas/README.md).

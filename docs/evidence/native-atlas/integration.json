@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-25T16:48:27.168692+00:00",
+  "tested_runtime_commit": "af925de9af2ceb4da09e0e8c5e24a1bd7412b921",
+  "integration_commit": "283ef8f37b3f1d683557640c9f327d8c01eed586",
+  "refreshed_origin_main": "7c322e980087060f79b272f022ba94273283e04c",
+  "runtime_diff_from_tested": "",
+  "reconciliation": "Preserved incoming simulation-reference requirements and browser performance evidence. Resolved adjacent spec additions by retaining both native MyTerrain direction and simulation-reference direction. Incoming changes are documentation/evidence only.",
+  "checks": [
+    "Unity WebGL export passed",
+    "Chrome native atlas and all three locations passed",
+    "Existing WebGL save upgrade passed",
+    "33 package checks passed after merge",
+    "Browser JavaScript syntax passed after merge"
+  ],
+  "deployment": "No public deployment; frozen local export remains available."
+}

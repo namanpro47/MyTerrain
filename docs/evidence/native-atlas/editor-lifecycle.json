@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "docs/evidence/native-atlas/verify-live.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "PASS: arrived scene, one persistent EventSystem, MyTerrain product, west/east orientation, outward normals, pointer rotation, travel cancellation."
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
