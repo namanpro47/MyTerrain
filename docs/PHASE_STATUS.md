@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Main production refresh — October 25, 2026
+
+Published clean-source `913c79f`, with runtime/build inputs matching reconciled main `7e95434`, to [terra-browser.vercel.app](https://terra-browser.vercel.app/). Deployment `dpl_DvwrgFpEd8YyYUevRgbyqLXqbR1Z` is Ready; 31 files / 39,997,384 bytes match the frozen export publicly. Fresh Unity build and 804 automated checks passed. Local/public Chrome atlas, landscape, current HUD, placement and undo smoke checks passed with no error-level logs. [Exact identity, files, captures and limits](evidence/deployment-main-2026-10-25/README.md). This refresh does not merge unfinished visual candidates or accept Phase 2A; full public rehearsals and final performance acceptance remain open.
+
 ## Phase 5/6 annual stress and recovery — October 25, 2026
 
 The annual-completion chat independently extends the existing full-game suite: **2,399 assertions pass on both current connected and legacy Wisconsin layouts**. New coverage includes 51 repeated-family/site-order routes per layout, exact interrupted-future recovery at every Year 1–10, mismatched/duplicate response safety, same-condition comparison drivers, late construction with $600K beyond-horizon obligations, debt-preserving shortfall endings, and a recoverable repair with a useful Year 4 park investment. No production rule, price, save, HUD or scenery changes. [Reproduction, exact inputs, results and limitations](evidence/annual-completion/README.md).

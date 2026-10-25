@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "913c79fcfae6da89142762e747550fa8aa2cc240",
+  "tests": {
+    "annualTown": 94,
+    "annualGameplay": 15,
+    "chapters": 42,
+    "fullGame": 608,
+    "atlasPackage": 41,
+    "compression": 4
+  },
+  "worldPacks": "All three packs packaged with verified checksums",
+  "providerCalls": false
+}
