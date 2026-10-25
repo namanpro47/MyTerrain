@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "reloaded": false,
+  "dense": false,
+  "checks": 8,
+  "year": 1,
+  "historyCount": 1,
+  "sequence": 5,
+  "definitionReadMs": 496.5,
+  "openMs": 539.3,
+  "reloadMs": 58.799999999999955,
+  "totalMs": 1927.9,
+  "runId": "numeric-check-oct25-1954",
+  "unity": "6000.6.6f1",
+  "saveHash": "3c82fe219ea72bcf1a8fd29b3c31f18910d896000dc2742a95061690610e5a7c",
+  "reportHash": "20ea2ff97ffdea4161f7973791acac4bce1988fcf09cf62e7a4465932f21c3cc",
+  "mode": "local",
+  "error": "",
+  "sourceManifestSha256": "9ff6572d81b431c895548d1ae21a0f2146490a34bfe83de9158b4ff993aa30e6"
+}

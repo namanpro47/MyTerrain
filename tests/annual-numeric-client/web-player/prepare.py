@@ -23,6 +23,6 @@ for name in ('definition.json','dense-definition.json','dense-save.json'):copy(R
 copy(ROOT/'ProjectSettings/ProjectVersion.txt',TARGET/'ProjectSettings/ProjectVersion.txt')
 (TARGET/'Packages').mkdir(exist_ok=True)
 if not (TARGET/'Packages/manifest.json').exists():(TARGET/'Packages/manifest.json').write_text(json.dumps({'dependencies':{'com.unity.modules.jsonserialize':'1.0.0'}}))
-(TARGET/'Assets/Plugins/WebGL/NumericCheckResult.jslib').write_text("""mergeInto(LibraryManager.library, {TerraNumericCheckResult:function(ptr){var text=UTF8ToString(ptr);var result=JSON.parse(text);document.getElementById('result').textContent=(result.passed?'PASS':'FAIL')+'\\n'+JSON.stringify(result,null,2);fetch('/evidence',{method:'POST',headers:{'Content-Type':'application/json'},body:text});}});""")
+(TARGET/'Assets/Plugins/WebGL/NumericCheckResult.jslib').write_text("""mergeInto(LibraryManager.library, {TerraNumericCheckProgress:function(ptr){var value=JSON.parse(UTF8ToString(ptr));value.heapBytes=HEAPU8.length;document.getElementById('progress').textContent=JSON.stringify(value,null,2);navigator.sendBeacon('/progress',JSON.stringify(value));},TerraNumericCheckResult:function(ptr){var text=UTF8ToString(ptr);var result=JSON.parse(text);document.getElementById('result').textContent=(result.passed?'PASS':'FAIL')+'\\n'+JSON.stringify(result,null,2);fetch('/evidence',{method:'POST',headers:{'Content-Type':'application/json'},body:text});}});""")
 (TARGET/'source-manifest.json').write_text(json.dumps(files,indent=2)+'\n')
 print(TARGET)
