@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "if(!UnityEngine.Application.isPlaying)throw new System.Exception(\"Requires Play\");\nvar main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();if(main==null||main.Diagnostic==\"loading\")throw new System.Exception(\"Not ready\");var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;var t=main.GetType();t.GetMethod(\"ResetView\",flags).Invoke(main,null);\nforeach(var pair in new[]{new[]{\"shownYaw\",\"yaw\"},new[]{\"shownPitch\",\"pitch\"},new[]{\"shownZoom\",\"zoom\"},new[]{\"shownTarget\",\"target\"}})t.GetField(pair[0],flags).SetValue(main,t.GetField(pair[1],flags).GetValue(main));\nvar camera=UnityEngine.Camera.main;camera.targetTexture=new UnityEngine.RenderTexture(1280,720,24){name=\"Study55 camera target\"};camera.rect=new UnityEngine.Rect(0,0,1,1);camera.aspect=1280f/720;Terra.Rendering.InstancedNature.DisplayPixelRatio=1;t.GetMethod(\"RenderView\",flags).Invoke(main,null);main.enabled=false;\nvar land=(Terra.Rendering.LandscapeRenderer)t.GetField(\"landscape\",flags).GetValue(main);land.ViewScale(210f/720);UnityEngine.Shader.SetGlobalFloat(\"_TerraDisplayPixelRatio\",1);\nland.Tick(0,true);\nreturn new{frame=UnityEngine.Time.frameCount,state=main.Diagnostic,camera=camera.transform.position.ToString(),pixelHeight=camera.pixelHeight,nature=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None).Take(5).Select(n=>n.name).ToArray()};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 3004,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "camera": "(51.97, 203.55, -297.20)",
+        "pixelHeight": 720,
+        "nature": [
+          "Grassland drift",
+          "River meadow 3 -2",
+          "Grassland drift",
+          "Grassland drift",
+          "Clustered woodland tile"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

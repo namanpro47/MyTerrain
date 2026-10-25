@@ -1,0 +1,3292 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var camera=UnityEngine.Camera.main;var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;\nvar rows=new System.Collections.Generic.List<object>();var planes=UnityEngine.GeometryUtility.CalculateFrustumPlanes(camera);float factor=camera.pixelHeight/2f,span=UnityEngine.Mathf.Tan(camera.fieldOfView*.5f*UnityEngine.Mathf.Deg2Rad);\nforeach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>())foreach(var b in (System.Collections.IEnumerable)n.GetType().GetField(\"batches\",flags).GetValue(n)){\nobject Get(string name)=>b.GetType().GetField(name,flags).GetValue(b);\nvar mesh=(UnityEngine.Mesh)Get(\"mesh\");if(!mesh.name.StartsWith(\"LeafCrop\"))continue;\nvar bounds=(UnityEngine.Bounds)Get(\"bounds\");var shadow=bounds;shadow.Expand((float)Get(\"maxHeight\")*8+bounds.size.y*2+16);bool visible=UnityEngine.GeometryUtility.TestPlanesAABB(planes,shadow);\nfloat depth=UnityEngine.Mathf.Max(1,UnityEngine.Vector3.Dot(bounds.center-camera.transform.position,camera.transform.forward)-bounds.extents.magnitude);float pixels=(float)Get(\"detailExtent\")*factor/(depth*span);\nvar medium=(UnityEngine.Mesh)Get(\"medium\");var distant=(UnityEngine.Mesh)Get(\"distant\");int lod=pixels<(float)Get(\"mediumDetailPixels\")?2:pixels<(float)Get(\"highDetailPixels\")?1:0;var selected=lod==2?distant:lod==1?medium:mesh;\nvar transforms=(UnityEngine.Matrix4x4[])Get(\"transforms\");int sub=(int)Get(\"submesh\");rows.Add(new{owner=n.name,count=transforms.Length,visible,boundsX=bounds.size.x,boundsZ=bounds.size.z,pixels,lod,triangles=(long)selected.GetIndexCount(sub)/3*transforms.Length});\n}\nvar soils=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>().Where(r=>r.name==\"Cultivated soil beds\").ToArray();\nreturn new{frame=UnityEngine.Time.frameCount,rows,soilSurfaces=soils.Length,soilVertices=soils.Sum(r=>r.GetComponent<UnityEngine.MeshFilter>().sharedMesh.vertexCount),shaderErrors=UnityEditor.ShaderUtil.GetShaderMessages(UnityEngine.Resources.Load<UnityEngine.Shader>(\"TerraGround\")),stats=new{UnityEditor.UnityStats.triangles}};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 17450,
+        "rows": [
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 23.3937988,
+            "boundsZ": 113.08606,
+            "pixels": 4.582617,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 53,
+            "visible": true,
+            "boundsX": 22.9411621,
+            "boundsZ": 35.53116,
+            "pixels": 4.17593145,
+            "lod": 2,
+            "triangles": 4452
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 122.719116,
+            "boundsZ": 62.7072144,
+            "pixels": 47.6844826,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 79,
+            "visible": false,
+            "boundsX": 21.6940918,
+            "boundsZ": 130.50354,
+            "pixels": 38.6509438,
+            "lod": 0,
+            "triangles": 109968
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.2186279,
+            "boundsZ": 132.519043,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.7621155,
+            "boundsZ": 148.007935,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.2454224,
+            "boundsZ": 147.773438,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.3049316,
+            "boundsZ": 147.88147,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.4703979,
+            "boundsZ": 147.910889,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.0013428,
+            "boundsZ": 148.006714,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.2271729,
+            "boundsZ": 147.768433,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.8097839,
+            "boundsZ": 147.88147,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.4700928,
+            "boundsZ": 147.765991,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.4631348,
+            "boundsZ": 148.0061,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.3439331,
+            "boundsZ": 147.912842,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.935791,
+            "boundsZ": 147.881531,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.5146484,
+            "boundsZ": 147.771057,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.2091064,
+            "boundsZ": 148.007385,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.3405151,
+            "boundsZ": 147.908813,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.19458,
+            "boundsZ": 147.681641,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Eastern wind opportunity",
+            "count": 69,
+            "visible": false,
+            "boundsX": 17.3803711,
+            "boundsZ": 142.8457,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 96048
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.9214478,
+            "boundsZ": 92.7432251,
+            "pixels": 9.532205,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 26.5697327,
+            "boundsZ": 93.05878,
+            "pixels": 9.796766,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 23.3629456,
+            "boundsZ": 93.10019,
+            "pixels": 10.0452108,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 67.79664,
+            "boundsZ": 35.57831,
+            "pixels": 9.145138,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 40.11031,
+            "boundsZ": 40.3524933,
+            "pixels": 9.556215,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 15,
+            "visible": true,
+            "boundsX": 4.09880447,
+            "boundsZ": 37.8901253,
+            "pixels": 9.463813,
+            "lod": 1,
+            "triangles": 5850
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.711792,
+            "boundsZ": 83.09326,
+            "pixels": 10.0876656,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.0739441,
+            "boundsZ": 150.526825,
+            "pixels": 13.6412649,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.5604248,
+            "boundsZ": 150.245575,
+            "pixels": 13.9493895,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.7433472,
+            "boundsZ": 150.242523,
+            "pixels": 14.2142887,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.10791,
+            "boundsZ": 150.526855,
+            "pixels": 14.5346384,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.1052246,
+            "boundsZ": 150.52417,
+            "pixels": 14.8521843,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.7353516,
+            "boundsZ": 150.2359,
+            "pixels": 15.1654758,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.5593262,
+            "boundsZ": 150.244446,
+            "pixels": 15.47496,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.9750977,
+            "boundsZ": 150.426514,
+            "pixels": 15.8377171,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.1641846,
+            "boundsZ": 150.58313,
+            "pixels": 16.3496628,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.72754,
+            "boundsZ": 150.22937,
+            "pixels": 16.8071651,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.5605469,
+            "boundsZ": 150.2431,
+            "pixels": 17.1896439,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.9802246,
+            "boundsZ": 150.430359,
+            "pixels": 17.63289,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 88,
+            "visible": false,
+            "boundsX": 11.35083,
+            "boundsZ": 137.734131,
+            "pixels": 16.5818367,
+            "lod": 1,
+            "triangles": 34320
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 17.54892,
+            "boundsZ": 105.413391,
+            "pixels": 11.4413433,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0845184,
+            "boundsZ": 105.540405,
+            "pixels": 11.7471809,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.7502365,
+            "boundsZ": 105.450928,
+            "pixels": 12.0803051,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.093811,
+            "boundsZ": 105.368713,
+            "pixels": 12.4101362,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0823212,
+            "boundsZ": 105.538483,
+            "pixels": 12.7930822,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.7538452,
+            "boundsZ": 105.452881,
+            "pixels": 13.1882629,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0944977,
+            "boundsZ": 105.37323,
+            "pixels": 13.5787315,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0800476,
+            "boundsZ": 105.536438,
+            "pixels": 14.013154,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline West field",
+            "count": 73,
+            "visible": true,
+            "boundsX": 14.6524572,
+            "boundsZ": 105.540077,
+            "pixels": 14.2992182,
+            "lod": 1,
+            "triangles": 28470
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 75,
+            "visible": true,
+            "boundsX": 18.4290161,
+            "boundsZ": 60.4914169,
+            "pixels": 8.389765,
+            "lod": 1,
+            "triangles": 29250
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 57,
+            "visible": false,
+            "boundsX": 46.8539124,
+            "boundsZ": 15.58429,
+            "pixels": 2.90344739,
+            "lod": 2,
+            "triangles": 4788
+          },
+          {
+            "owner": "Baseline Meadow edge",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.1997528,
+            "boundsZ": 95.45764,
+            "pixels": 51.97874,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Meadow edge",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.8423767,
+            "boundsZ": 95.53198,
+            "pixels": 58.07961,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Meadow edge",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.6889725,
+            "boundsZ": 95.39722,
+            "pixels": 69.15503,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Meadow edge",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.1606789,
+            "boundsZ": 95.47687,
+            "pixels": 82.50309,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Meadow edge",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.6052284,
+            "boundsZ": 95.4985352,
+            "pixels": 113.668381,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 104,
+            "visible": false,
+            "boundsX": 63.1112061,
+            "boundsZ": 23.0971222,
+            "pixels": 14.017005,
+            "lod": 1,
+            "triangles": 40560
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 24.6842041,
+            "boundsZ": 117.956787,
+            "pixels": 19.7494965,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 30.9084167,
+            "boundsZ": 118.092041,
+            "pixels": 20.5637817,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 26.8478546,
+            "boundsZ": 118.033447,
+            "pixels": 21.3409672,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 30.35492,
+            "boundsZ": 117.68103,
+            "pixels": 22.3053246,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 30.884552,
+            "boundsZ": 118.050781,
+            "pixels": 23.5655365,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.8500023,
+            "boundsZ": 118.087891,
+            "pixels": 24.8486137,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.6226654,
+            "boundsZ": 117.642456,
+            "pixels": 25.8260651,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.7943344,
+            "boundsZ": 117.925354,
+            "pixels": 27.2480869,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.8614445,
+            "boundsZ": 118.0531,
+            "pixels": 28.4098072,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower west field",
+            "count": 79,
+            "visible": false,
+            "boundsX": 13.7103586,
+            "boundsZ": 80.4238,
+            "pixels": 21.0253258,
+            "lod": 0,
+            "triangles": 109968
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 31.9217873,
+            "boundsZ": 50.46216,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 41.1668472,
+            "boundsZ": 37.8040771,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 33.45215,
+            "boundsZ": 50.5941772,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 35.8051,
+            "boundsZ": 50.58661,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 58,
+            "visible": false,
+            "boundsX": 26.3960571,
+            "boundsZ": 54.9597168,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 80736
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 16.5958252,
+            "boundsZ": 110.232849,
+            "pixels": 3.55564642,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 13.7207031,
+            "boundsZ": 118.096863,
+            "pixels": 3.60885859,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 18.6203613,
+            "boundsZ": 128.075653,
+            "pixels": 3.68067074,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 18.0690918,
+            "boundsZ": 125.364136,
+            "pixels": 3.7291522,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 16.9196777,
+            "boundsZ": 105.387512,
+            "pixels": 3.72783637,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 19.82373,
+            "boundsZ": 125.151855,
+            "pixels": 3.755102,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.7796936,
+            "boundsZ": 110.272736,
+            "pixels": 3.72170877,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.2925415,
+            "boundsZ": 103.099976,
+            "pixels": 3.727735,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 24.9035339,
+            "boundsZ": 102.888336,
+            "pixels": 3.77712774,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.2922363,
+            "boundsZ": 75.59808,
+            "pixels": 3.69019127,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 28,
+            "visible": true,
+            "boundsX": 8.693481,
+            "boundsZ": 73.07483,
+            "pixels": 3.7157886,
+            "lod": 2,
+            "triangles": 2352
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.3271179,
+            "boundsZ": 95.5852051,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 28.0874443,
+            "boundsZ": 85.29053,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.8327789,
+            "boundsZ": 127.751221,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.2325211,
+            "boundsZ": 147.948242,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 13.9451141,
+            "boundsZ": 148.085571,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 13.56221,
+            "boundsZ": 122.700195,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.3275146,
+            "boundsZ": 132.791016,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 12.8194885,
+            "boundsZ": 135.348633,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.0884857,
+            "boundsZ": 137.657715,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.869812,
+            "boundsZ": 147.7948,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 112,
+            "visible": false,
+            "boundsX": 13.1376343,
+            "boundsZ": 147.833466,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 155904
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.0496368,
+            "boundsZ": 70.44641,
+            "pixels": 39.70721,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.9104614,
+            "boundsZ": 90.4397,
+            "pixels": 61.4991264,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.3153229,
+            "boundsZ": 150.390015,
+            "pixels": 105.944389,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.56305,
+            "boundsZ": 147.57959,
+            "pixels": 136.358154,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.5290222,
+            "boundsZ": 147.9768,
+            "pixels": 175.3622,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.8962555,
+            "boundsZ": 148.093018,
+            "pixels": 265.531555,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.29691,
+            "boundsZ": 50.5936279,
+            "pixels": 187.576126,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 32.7175827,
+            "boundsZ": 50.5917358,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 110,
+            "visible": false,
+            "boundsX": 26.8336048,
+            "boundsZ": 50.4726563,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 153120
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 19.6865845,
+            "boundsZ": 80.27832,
+            "pixels": 3.8145988,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 16.3804932,
+            "boundsZ": 105.324463,
+            "pixels": 3.94126654,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 17.23761,
+            "boundsZ": 117.7576,
+            "pixels": 4.046138,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 23.0386353,
+            "boundsZ": 133.098969,
+            "pixels": 4.182757,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 23.26355,
+            "boundsZ": 135.427429,
+            "pixels": 4.25030565,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 27.213623,
+            "boundsZ": 137.650635,
+            "pixels": 4.330293,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 25.9692383,
+            "boundsZ": 62.9353638,
+            "pixels": 4.30995941,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 26.0697632,
+            "boundsZ": 115.185089,
+            "pixels": 4.45086241,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 14.2780762,
+            "boundsZ": 115.284241,
+            "pixels": 4.49838734,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 54,
+            "visible": true,
+            "boundsX": 10.76236,
+            "boundsZ": 112.967712,
+            "pixels": 4.508389,
+            "lod": 2,
+            "triangles": 4536
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 22,
+            "visible": true,
+            "boundsX": 9.11889648,
+            "boundsZ": 97.4897156,
+            "pixels": 15.5675468,
+            "lod": 1,
+            "triangles": 8580
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.2950745,
+            "boundsZ": 95.4483643,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.2689514,
+            "boundsZ": 90.59375,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.4494934,
+            "boundsZ": 102.697021,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.83017,
+            "boundsZ": 110.293945,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.2223663,
+            "boundsZ": 113.03833,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.8777313,
+            "boundsZ": 112.824463,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 13.3598633,
+            "boundsZ": 120.583618,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.46997,
+            "boundsZ": 145.16626,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.3846436,
+            "boundsZ": 122.940186,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 12.2651672,
+            "boundsZ": 120.524414,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.087738,
+            "boundsZ": 122.713379,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.2982788,
+            "boundsZ": 122.948975,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 12.855957,
+            "boundsZ": 125.396484,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 8,
+            "visible": false,
+            "boundsX": 3.38876343,
+            "boundsZ": 19.98172,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 11136
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 13.9428711,
+            "boundsZ": 132.713989,
+            "pixels": 697.977356,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 12.5924072,
+            "boundsZ": 147.703613,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 13.8271179,
+            "boundsZ": 148.074951,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.8840027,
+            "boundsZ": 107.63501,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 39.3147278,
+            "boundsZ": 100.468018,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 32.0904236,
+            "boundsZ": 57.8232422,
+            "pixels": 87.5077057,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.4130249,
+            "boundsZ": 95.36072,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.11969,
+            "boundsZ": 110.431152,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 115,
+            "visible": false,
+            "boundsX": 13.3106689,
+            "boundsZ": 147.580353,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 160080
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.580719,
+            "boundsZ": 75.29556,
+            "pixels": 47.1990547,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.6434326,
+            "boundsZ": 85.58099,
+            "pixels": 69.28951,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.7516785,
+            "boundsZ": 85.31726,
+            "pixels": 86.48861,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.7637939,
+            "boundsZ": 85.59955,
+            "pixels": 116.192482,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.4641724,
+            "boundsZ": 85.32605,
+            "pixels": 154.181519,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.2188721,
+            "boundsZ": 85.54205,
+            "pixels": 244.573212,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower east field",
+            "count": 30,
+            "visible": false,
+            "boundsX": 8.26947,
+            "boundsZ": 50.20761,
+            "pixels": 64.65476,
+            "lod": 0,
+            "triangles": 41760
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 99.92102,
+            "boundsZ": 15.5964966,
+            "pixels": 9.892088,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 38,
+            "visible": false,
+            "boundsX": 32.3618164,
+            "boundsZ": 13.0997314,
+            "pixels": 9.671407,
+            "lod": 1,
+            "triangles": 14820
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 4,
+            "visible": false,
+            "boundsX": 6.56201172,
+            "boundsZ": 7.7204895,
+            "pixels": 7.783092,
+            "lod": 2,
+            "triangles": 336
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 35.04413,
+            "boundsZ": 75.36279,
+            "pixels": 132.695953,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 15,
+            "visible": false,
+            "boundsX": 5.22872925,
+            "boundsZ": 102.975708,
+            "pixels": 216.058334,
+            "lod": 0,
+            "triangles": 20880
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 32.24337,
+            "boundsZ": 40.5958557,
+            "pixels": 10.0780783,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 32.3720627,
+            "boundsZ": 40.5956573,
+            "pixels": 10.704711,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 32.43651,
+            "boundsZ": 42.98294,
+            "pixels": 11.426569,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 28.1174164,
+            "boundsZ": 62.94951,
+            "pixels": 12.1264114,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.2839355,
+            "boundsZ": 68.09451,
+            "pixels": 12.74143,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 98,
+            "visible": false,
+            "boundsX": 16.3610382,
+            "boundsZ": 70.23462,
+            "pixels": 13.1612864,
+            "lod": 1,
+            "triangles": 38220
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 31,
+            "visible": true,
+            "boundsX": 46.82611,
+            "boundsZ": 10.3028564,
+            "pixels": 3.6230526,
+            "lod": 2,
+            "triangles": 2604
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.805542,
+            "boundsZ": 75.5246048,
+            "pixels": 17.5097542,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 31.057251,
+            "boundsZ": 72.8772659,
+            "pixels": 20.753561,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 29.55127,
+            "boundsZ": 75.59472,
+            "pixels": 22.1876335,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.407959,
+            "boundsZ": 77.92121,
+            "pixels": 23.44257,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 9,
+            "visible": false,
+            "boundsX": 6.954193,
+            "boundsZ": 30.5663414,
+            "pixels": 22.4908943,
+            "lod": 0,
+            "triangles": 12528
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.77893,
+            "boundsZ": 95.2924347,
+            "pixels": 26.47729,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 28.5401611,
+            "boundsZ": 150.442627,
+            "pixels": 30.70988,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 28.125,
+            "boundsZ": 150.091827,
+            "pixels": 32.7936249,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 28.4968872,
+            "boundsZ": 150.593857,
+            "pixels": 35.39737,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 29.4119873,
+            "boundsZ": 150.578064,
+            "pixels": 38.16832,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.15393,
+            "boundsZ": 150.267548,
+            "pixels": 40.80727,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 48.51129,
+            "boundsZ": 150.594727,
+            "pixels": 51.96534,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.0927734,
+            "boundsZ": 150.522064,
+            "pixels": 62.8366241,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 97,
+            "visible": false,
+            "boundsX": 19.4953613,
+            "boundsZ": 150.5955,
+            "pixels": 66.43121,
+            "lod": 0,
+            "triangles": 135024
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 26.0880737,
+            "boundsZ": 105.021362,
+            "pixels": 16.5598049,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 30.78218,
+            "boundsZ": 150.323547,
+            "pixels": 18.1823616,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 24.39972,
+            "boundsZ": 150.28241,
+            "pixels": 18.6776142,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 16.7884521,
+            "boundsZ": 125.075531,
+            "pixels": 16.1787071,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 39,
+            "visible": true,
+            "boundsX": 7.957306,
+            "boundsZ": 83.06412,
+            "pixels": 13.154973,
+            "lod": 1,
+            "triangles": 15210
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.3855591,
+            "boundsZ": 125.374023,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.2219238,
+            "boundsZ": 119.996338,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.6925354,
+            "boundsZ": 105.4209,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.6611328,
+            "boundsZ": 92.90076,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.2608643,
+            "boundsZ": 95.49365,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.11139,
+            "boundsZ": 80.50891,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.1042786,
+            "boundsZ": 80.4018555,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.123291,
+            "boundsZ": 80.57666,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.1148071,
+            "boundsZ": 70.34497,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 89,
+            "visible": false,
+            "boundsX": 20.4756775,
+            "boundsZ": 50.5776367,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 123888
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 45.97931,
+            "boundsZ": 138.053467,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.3286133,
+            "boundsZ": 147.972046,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.83435,
+            "boundsZ": 115.596588,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.1844482,
+            "boundsZ": 137.969055,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.7159424,
+            "boundsZ": 150.36853,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.88562,
+            "boundsZ": 150.390259,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.885498,
+            "boundsZ": 150.369141,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.4293213,
+            "boundsZ": 150.479492,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.8363037,
+            "boundsZ": 110.5011,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.8804626,
+            "boundsZ": 110.536682,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.7225342,
+            "boundsZ": 110.253113,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 126,
+            "visible": false,
+            "boundsX": 21.1348877,
+            "boundsZ": 103.022278,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 175392
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.3132935,
+            "boundsZ": 150.593048,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.74292,
+            "boundsZ": 150.331909,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.8405762,
+            "boundsZ": 150.012024,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.9294434,
+            "boundsZ": 150.483047,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.9946289,
+            "boundsZ": 150.591919,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.6134033,
+            "boundsZ": 150.504654,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.5885925,
+            "boundsZ": 150.059967,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.9317627,
+            "boundsZ": 150.487183,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.4195557,
+            "boundsZ": 150.590652,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 42.99048,
+            "boundsZ": 150.5876,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.9553223,
+            "boundsZ": 150.589447,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 98,
+            "visible": false,
+            "boundsX": 13.0330811,
+            "boundsZ": 115.365494,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 136416
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 15.8852234,
+            "boundsZ": 105.395538,
+            "pixels": 14.9696894,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.077713,
+            "boundsZ": 105.534363,
+            "pixels": 15.4205313,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.7608337,
+            "boundsZ": 105.456635,
+            "pixels": 15.9590778,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0956268,
+            "boundsZ": 105.382141,
+            "pixels": 16.5125618,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0752869,
+            "boundsZ": 105.532196,
+            "pixels": 17.15081,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 20.7642212,
+            "boundsZ": 105.458405,
+            "pixels": 17.8182335,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.09607,
+            "boundsZ": 105.386475,
+            "pixels": 18.5071678,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 21.0728,
+            "boundsZ": 105.529907,
+            "pixels": 19.3077583,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": true,
+            "boundsX": 23.9540863,
+            "boundsZ": 105.541504,
+            "pixels": 20.3348827,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.7750244,
+            "boundsZ": 105.505493,
+            "pixels": 21.374651,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Central field",
+            "count": 47,
+            "visible": false,
+            "boundsX": 8.959045,
+            "boundsZ": 97.7054749,
+            "pixels": 20.5667953,
+            "lod": 0,
+            "triangles": 65424
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.3468018,
+            "boundsZ": 70.3869,
+            "pixels": 13.7871,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.1487122,
+            "boundsZ": 67.9195862,
+            "pixels": 14.4513721,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.2758484,
+            "boundsZ": 68.05548,
+            "pixels": 15.2538452,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.4659424,
+            "boundsZ": 72.6235046,
+            "pixels": 16.0472546,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.800415,
+            "boundsZ": 150.598053,
+            "pixels": 31.5910645,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.4624634,
+            "boundsZ": 150.529663,
+            "pixels": 33.57476,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.82129,
+            "boundsZ": 150.119919,
+            "pixels": 35.97769,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.9312744,
+            "boundsZ": 150.456177,
+            "pixels": 38.02336,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.3338623,
+            "boundsZ": 150.58783,
+            "pixels": 39.9951668,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.9155273,
+            "boundsZ": 132.902954,
+            "pixels": 34.0690651,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 84,
+            "visible": false,
+            "boundsX": 14.16687,
+            "boundsZ": 80.39209,
+            "pixels": 26.643858,
+            "lod": 0,
+            "triangles": 116928
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 75.40613,
+            "boundsZ": 103.08313,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.81543,
+            "boundsZ": 140.529175,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 29.02002,
+            "boundsZ": 125.428223,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 9,
+            "visible": false,
+            "boundsX": 19.64087,
+            "boundsZ": 110.455933,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 12528
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 68,
+            "visible": false,
+            "boundsX": 32.4996643,
+            "boundsZ": 37.9469,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 94656
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 27.348877,
+            "boundsZ": 135.4281,
+            "pixels": 3.21798015,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 31.0078125,
+            "boundsZ": 110.377441,
+            "pixels": 3.153739,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 34.1459961,
+            "boundsZ": 140.150818,
+            "pixels": 3.24602222,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 31.7840576,
+            "boundsZ": 150.44104,
+            "pixels": 3.30552888,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 32.921875,
+            "boundsZ": 150.5954,
+            "pixels": 3.3320117,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 38.0094,
+            "boundsZ": 150.3534,
+            "pixels": 3.365907,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 35.8028564,
+            "boundsZ": 150.552124,
+            "pixels": 3.39661217,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": true,
+            "boundsX": 49.9985962,
+            "boundsZ": 140.512146,
+            "pixels": 3.44347739,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 21,
+            "visible": false,
+            "boundsX": 20.5429077,
+            "boundsZ": 68.08191,
+            "pixels": 3.41191816,
+            "lod": 2,
+            "triangles": 1764
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.9473572,
+            "boundsZ": 105.485657,
+            "pixels": 23.3237858,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.09674,
+            "boundsZ": 105.394928,
+            "pixels": 24.4279156,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.0675659,
+            "boundsZ": 105.525177,
+            "pixels": 25.84266,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.7739258,
+            "boundsZ": 105.463257,
+            "pixels": 27.3931217,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.0969543,
+            "boundsZ": 105.399109,
+            "pixels": 29.06944,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.06485,
+            "boundsZ": 105.522705,
+            "pixels": 31.0955544,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 20.7769775,
+            "boundsZ": 105.464783,
+            "pixels": 33.3499,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.0971069,
+            "boundsZ": 105.403107,
+            "pixels": 35.8519135,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline East field",
+            "count": 73,
+            "visible": false,
+            "boundsX": 14.7888184,
+            "boundsZ": 105.434509,
+            "pixels": 37.8195038,
+            "lod": 0,
+            "triangles": 101616
+          },
+          {
+            "owner": "Baseline Brye-side field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.6689453,
+            "boundsZ": 87.7773743,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Brye-side field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.83667,
+            "boundsZ": 88.05829,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Brye-side field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.2854614,
+            "boundsZ": 87.9577,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Brye-side field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.9368286,
+            "boundsZ": 87.8533,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Brye-side field",
+            "count": 13,
+            "visible": false,
+            "boundsX": 6.94848633,
+            "boundsZ": 30.3117218,
+            "pixels": 176.163864,
+            "lod": 0,
+            "triangles": 18096
+          },
+          {
+            "owner": "Baseline Southern field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.78799,
+            "boundsZ": 95.5363159,
+            "pixels": 258.4618,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Southern field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 29.59481,
+            "boundsZ": 95.59729,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Southern field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 32.4036026,
+            "boundsZ": 95.56763,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Southern field",
+            "count": 74,
+            "visible": false,
+            "boundsX": 60.5308838,
+            "boundsZ": 95.46716,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 103008
+          },
+          {
+            "owner": "Baseline Western terrace",
+            "count": 128,
+            "visible": true,
+            "boundsX": 27.68335,
+            "boundsZ": 48.0847778,
+            "pixels": 3.8699255,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Baseline Western terrace",
+            "count": 128,
+            "visible": true,
+            "boundsX": 46.4498,
+            "boundsZ": 47.9879456,
+            "pixels": 4.00591373,
+            "lod": 2,
+            "triangles": 10752
+          },
+          {
+            "owner": "Baseline Western terrace",
+            "count": 35,
+            "visible": true,
+            "boundsX": 7.63806152,
+            "boundsZ": 48.05223,
+            "pixels": 4.022367,
+            "lod": 2,
+            "triangles": 2940
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.5302124,
+            "boundsZ": 145.167114,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.2444153,
+            "boundsZ": 145.182892,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.8528442,
+            "boundsZ": 147.956177,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.8701019,
+            "boundsZ": 147.795166,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 14.5840149,
+            "boundsZ": 148.028931,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.8837128,
+            "boundsZ": 148.045166,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.2058105,
+            "boundsZ": 142.922729,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.8824615,
+            "boundsZ": 132.990479,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.4263535,
+            "boundsZ": 120.52002,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 17.7204437,
+            "boundsZ": 115.379395,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.4171886,
+            "boundsZ": 95.34204,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 15.1618309,
+            "boundsZ": 97.53784,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 5,
+            "visible": false,
+            "boundsX": 3.361168,
+            "boundsZ": 12.8766174,
+            "pixels": 2429.10718,
+            "lod": 0,
+            "triangles": 6960
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 115.825226,
+            "boundsZ": 150.351135,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.4936523,
+            "boundsZ": 150.484009,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.3240967,
+            "boundsZ": 150.5603,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 95,
+            "visible": false,
+            "boundsX": 19.5077515,
+            "boundsZ": 67.8057251,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 132240
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 21.3178711,
+            "boundsZ": 135.546875,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 34.8612061,
+            "boundsZ": 150.435181,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.770874,
+            "boundsZ": 123.065796,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.5869751,
+            "boundsZ": 137.7392,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 126,
+            "visible": false,
+            "boundsX": 93.4295044,
+            "boundsZ": 150.258423,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 175392
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 61.94104,
+            "boundsZ": 125.444305,
+            "pixels": 46.2151833,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 34.9394226,
+            "boundsZ": 150.345474,
+            "pixels": 140.227585,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.63971,
+            "boundsZ": 150.473984,
+            "pixels": 266.1181,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 19.1518555,
+            "boundsZ": 97.9300842,
+            "pixels": 50.6053658,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.86206,
+            "boundsZ": 97.96939,
+            "pixels": 56.6029167,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 18.2980347,
+            "boundsZ": 97.9968262,
+            "pixels": 65.03957,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 16.4277954,
+            "boundsZ": 98.03282,
+            "pixels": 77.69603,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 11,
+            "visible": false,
+            "boundsX": 4.53652954,
+            "boundsZ": 28.055954,
+            "pixels": 32.4871559,
+            "lod": 0,
+            "triangles": 15312
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 22.671936,
+            "boundsZ": 117.910522,
+            "pixels": 32.63536,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.8736649,
+            "boundsZ": 118.095215,
+            "pixels": 34.7718277,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.7452774,
+            "boundsZ": 118.024414,
+            "pixels": 37.5750275,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.6856842,
+            "boundsZ": 117.7229,
+            "pixels": 40.7760849,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.8724823,
+            "boundsZ": 118.057617,
+            "pixels": 43.88198,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 29.51677,
+            "boundsZ": 118.08667,
+            "pixels": 47.771698,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 27.6694489,
+            "boundsZ": 110.3468,
+            "pixels": 46.2893448,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.2710266,
+            "boundsZ": 100.4281,
+            "pixels": 42.9834633,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.2227631,
+            "boundsZ": 92.84949,
+            "pixels": 42.3834419,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 128,
+            "visible": false,
+            "boundsX": 23.16948,
+            "boundsZ": 80.3747559,
+            "pixels": 39.29425,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Baseline Lower central field",
+            "count": 57,
+            "visible": false,
+            "boundsX": 11.7646484,
+            "boundsZ": 65.20227,
+            "pixels": 34.0669327,
+            "lod": 0,
+            "triangles": 79344
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 24.3273926,
+            "boundsZ": 110.433838,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.7133789,
+            "boundsZ": 150.547852,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.57434,
+            "boundsZ": 150.240967,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.8275146,
+            "boundsZ": 150.424683,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.90448,
+            "boundsZ": 150.253479,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.82666,
+            "boundsZ": 150.474121,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.4467773,
+            "boundsZ": 150.386963,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 30.3010254,
+            "boundsZ": 150.4917,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 26.90503,
+            "boundsZ": 150.248474,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 42.6452637,
+            "boundsZ": 100.500519,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 119,
+            "visible": false,
+            "boundsX": 16.6486816,
+            "boundsZ": 100.529144,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 165648
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 47.4075928,
+            "boundsZ": 80.27301,
+            "pixels": 9.63696,
+            "lod": 1,
+            "triangles": 49920
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 95,
+            "visible": false,
+            "boundsX": 16.43872,
+            "boundsZ": 70.26108,
+            "pixels": 9.368443,
+            "lod": 1,
+            "triangles": 37050
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 58.92914,
+            "boundsZ": 30.5974121,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 41.7908936,
+            "boundsZ": 150.545654,
+            "pixels": 2429.10742,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 128,
+            "visible": false,
+            "boundsX": 25.4901733,
+            "boundsZ": 150.262817,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 178176
+          },
+          {
+            "owner": "Meadowbrook Valley landscape",
+            "count": 46,
+            "visible": false,
+            "boundsX": 30.1938477,
+            "boundsZ": 127.752472,
+            "pixels": 2429.10767,
+            "lod": 0,
+            "triangles": 64032
+          }
+        ],
+        "soilSurfaces": 48,
+        "soilVertices": 1282588,
+        "shaderErrors": [
+          {
+            "message": "use of potentially uninitialized variable (PaintedFilteredSample)",
+            "messageDetails": "Compiling Subshader: 0, Pass: IllustratedGround, Fragment program with _MAIN_LIGHT_SHADOWS_CASCADE _SHADOWS_SOFT\nPlatform defines: SHADER_API_DESKTOP UNITY_ENABLE_DETAIL_NORMALMAP UNITY_ENABLE_REFLECTION_BUFFERS UNITY_FRAMEBUFFER_FETCH_AVAILABLE UNITY_LIGHTMAP_FULL_HDR UNITY_LIGHT_PROBE_PROXY_VOLUME UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BLENDING UNITY_SPECCUBE_BOX_PROJECTION UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS\nDisabled keywords: SHADER_API_GLES30 SHADER_API_GLES31 SHADER_API_GLES32 UNITY_ASTC_NORMALMAP_ENCODING UNITY_COLORSPACE_GAMMA UNITY_HARDWARE_TIER1 UNITY_HARDWARE_TIER2 UNITY_HARDWARE_TIER3 UNITY_LIGHTMAP_DLDR_ENCODING UNITY_LIGHTMAP_RGBM_ENCODING UNITY_METAL_SHADOWS_USE_POINT_FILTERING UNITY_NO_DXT5nm UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 UNITY_PBS_USE_BRDF3 UNITY_PRETRANSFORM_TO_DISPLAY_ORIENTATION UNITY_UNIFIED_SHADER_PRECISION_MODEL UNITY_VIRTUAL_TEXTURING _MAIN_LIGHT_SHADOWS _SHADOWS_SOFT_HIGH _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM",
+            "file": "Assets/Terra/Resources/TerraGround.shader",
+            "line": 81,
+            "platform": 14,
+            "severity": 1
+          }
+        ],
+        "stats": {
+          "triangles": 32028773
+        }
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

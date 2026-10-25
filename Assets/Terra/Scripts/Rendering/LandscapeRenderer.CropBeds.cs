@@ -86,7 +86,14 @@ namespace Terra.Rendering
                 if(fits)plants.Add(matrix);
             }
             MeshObject("Cultivated soil beds",geometry,soil,parent);
-            if(plants.Count>0)parent.gameObject.AddComponent<InstancedNature>().Add(plant,plants,Color.white);
+            if(plants.Count>0)
+            {
+                var nature=parent.gameObject.AddComponent<InstancedNature>();
+                // Keep LOD/culling bounds local instead of spanning an entire crop row.
+                // The shared collector can still combine nearby groups after selection.
+                foreach(var cell in plants.GroupBy(m=>new Vector2Int(Mathf.FloorToInt(m.m03/32),Mathf.FloorToInt(m.m23/32))))
+                    nature.Add(plant,cell.ToList(),Color.white);
+            }
         }
     }
 }
