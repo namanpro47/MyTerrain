@@ -1,0 +1,165 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "YEAR 1  /  local summary  ·  1 / 3",
+      "rect": {
+        "x": 312,
+        "y": 194.655029296875,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 13.440000534057617,
+      "minGlyphCssPx": 13.440000534057617,
+      "preferredHeight": 15.020000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "What the year leaves in the budget",
+      "rect": {
+        "x": 312,
+        "y": 234.65499877929688,
+        "width": 656,
+        "height": 44
+      },
+      "bodyCssPx": 33.599998474121094,
+      "minGlyphCssPx": 33.599998474121094,
+      "preferredHeight": 37.540000915527344,
+      "availableHeight": 44
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 872,
+        "y": 188.655029296875,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 14.5600004196167,
+      "minGlyphCssPx": 14.5600004196167,
+      "preferredHeight": 16.270000457763672,
+      "availableHeight": 32
+    },
+    {
+      "text": "Next card →",
+      "rect": {
+        "x": 656,
+        "y": 481.3450012207031,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 44
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 322,
+        "y": 481.3450012207031,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 44
+    },
+    {
+      "text": "The year's bills have been paid. The balance left in the public budget is your starting point for what comes next; some of it is already promised to ongoing projects. No project tax receipts arrived this year. Projects that are still being built cannot yet contribute them.\n\nLocal summary from saved game results. No AI was used.",
+      "rect": {
+        "x": 312,
+        "y": 294.6549987792969,
+        "width": 656,
+        "height": 144.69000244140625
+      },
+      "bodyCssPx": 20.15999984741211,
+      "minGlyphCssPx": 20.15999984741211,
+      "preferredHeight": 144.69000244140625,
+      "availableHeight": 144.69000244140625
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 868,
+        "y": 188.655029296875,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 646,
+        "y": 479.3450012207031,
+        "width": 322,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 312,
+        "y": 479.3450012207031,
+        "width": 322,
+        "height": 48
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 572,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 776,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 468,
+      "y": 592,
+      "width": 344,
+      "height": 128
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 280,
+      "y": 168.655029296875,
+      "width": 720,
+      "height": 382.6899719238281
+    }
+  ]
+}

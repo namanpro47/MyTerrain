@@ -1,0 +1,236 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MYTERRAIN  /  YOUR VALLEY",
+      "rect": {
+        "x": 392,
+        "y": 136,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 22
+    },
+    {
+      "text": "Farms beside the creek · Meadowbrook Valley",
+      "rect": {
+        "x": 392,
+        "y": 176,
+        "width": 656,
+        "height": 68.02001953125
+      },
+      "bodyCssPx": 30.000011444091797,
+      "minGlyphCssPx": 30.000011444091797,
+      "preferredHeight": 68.0199966430664,
+      "availableHeight": 68.0199966430664
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 952,
+        "y": 130,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 32
+    },
+    {
+      "text": "Explore the landscape  →",
+      "rect": {
+        "x": 736,
+        "y": 720,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Back to introduction",
+      "rect": {
+        "x": 402,
+        "y": 720,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "<b>Your year 10 goals</b>\nEconomic 75 · Social 75 · Environmental 60\nEvery run gets an ending.\n\nIn this fictional Meadowbrook community, four households share a farm store, a small village square and a recreation ground. Productive fields sit between woodland and creek corridors. Add homes and livelihoods while keeping those corridors intact.\n\n32 open plots · 60 m grid; large projects use joined cells. Seven existing community plots remain in place. Woodland, water and protected areas cannot be built over.\n\nYou have $10M in public funds and ten years. The community starts with 4 of 16 needed homes and 4 of 36 target jobs. Queue a plan, then End Year to pay and advance construction. Upkeep reserves future funds.\n\nFictional scenario · shared weather and economic reference: Coon Valley, Wisconsin; other parameters are authored. Previous-layout saves are retained separately.",
+      "rect": {
+        "x": 392,
+        "y": 260.02001953125,
+        "width": 656,
+        "height": 438.0400085449219
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 438.0400085449219,
+      "availableHeight": 438.0400085449219
+    },
+    {
+      "text": "↑",
+      "rect": {
+        "x": 836,
+        "y": 686,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "↓",
+      "rect": {
+        "x": 884,
+        "y": 686,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "Scroll to read",
+      "rect": {
+        "x": 928,
+        "y": 687,
+        "width": 120,
+        "height": 24
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 24
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 948,
+        "y": 130,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 726,
+        "y": 718,
+        "width": 322,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 392,
+        "y": 718,
+        "width": 322,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button ↑",
+      "enabled": true,
+      "rect": {
+        "x": 828,
+        "y": 684,
+        "width": 40,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ↓",
+      "enabled": true,
+      "rect": {
+        "x": 876,
+        "y": 684,
+        "width": 40,
+        "height": 30
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 286,
+      "y": 640,
+      "width": 688,
+      "height": 186
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 220,
+      "y": 834,
+      "width": 1000,
+      "height": 56
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 548,
+      "y": 772,
+      "width": 344,
+      "height": 128
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 360,
+      "y": 110,
+      "width": 720,
+      "height": 680
+    }
+  ]
+}

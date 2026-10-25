@@ -1,0 +1,213 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MYTERRAIN  /  FIELD GUIDE",
+      "rect": {
+        "x": 184,
+        "y": 42,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 13.440000534057617,
+      "minGlyphCssPx": 13.440000534057617,
+      "preferredHeight": 15.020000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "Real land. Hypothetical choices.",
+      "rect": {
+        "x": 184,
+        "y": 82,
+        "width": 656,
+        "height": 44
+      },
+      "bodyCssPx": 33.599998474121094,
+      "minGlyphCssPx": 33.599998474121094,
+      "preferredHeight": 37.540000915527344,
+      "availableHeight": 44
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 744,
+        "y": 36,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 14.5600004196167,
+      "minGlyphCssPx": 14.5600004196167,
+      "preferredHeight": 16.270000457763672,
+      "availableHeight": 32
+    },
+    {
+      "text": "Terrain & cover →",
+      "rect": {
+        "x": 510,
+        "y": 490,
+        "width": 320,
+        "height": 44
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 44
+    },
+    {
+      "text": "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\nReal terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stepped slopes, road finishes, stream banks, water depths and bridge designs are illustrative. The four existing homes represent the fictional starting community; their locations are not surveyed buildings. Field parcels and individual trees were not surveyed.\n\nEleven management opportunities (including a hypothetical wind site) and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.",
+      "rect": {
+        "x": 184,
+        "y": 43.2099609375,
+        "width": 656,
+        "height": 412.7900085449219
+      },
+      "bodyCssPx": 20.15999984741211,
+      "minGlyphCssPx": 20.15999984741211,
+      "preferredHeight": 412.7900085449219,
+      "availableHeight": 412.7900085449219
+    },
+    {
+      "text": "↑",
+      "rect": {
+        "x": 628,
+        "y": 456,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 20.15999984741211,
+      "minGlyphCssPx": 20.15999984741211,
+      "preferredHeight": 22.530000686645508,
+      "availableHeight": 26
+    },
+    {
+      "text": "↓",
+      "rect": {
+        "x": 676,
+        "y": 456,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 20.15999984741211,
+      "minGlyphCssPx": 20.15999984741211,
+      "preferredHeight": 22.530000686645508,
+      "availableHeight": 26
+    },
+    {
+      "text": "Scroll to read",
+      "rect": {
+        "x": 720,
+        "y": 457,
+        "width": 120,
+        "height": 24
+      },
+      "bodyCssPx": 13.440000534057617,
+      "minGlyphCssPx": 13.440000534057617,
+      "preferredHeight": 15.020000457763672,
+      "availableHeight": 24
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 740,
+        "y": 36,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button Sources & limits →",
+      "enabled": true,
+      "rect": {
+        "x": 500,
+        "y": 488,
+        "width": 340,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button ↑",
+      "enabled": true,
+      "rect": {
+        "x": 620,
+        "y": 454,
+        "width": 40,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ↓",
+      "enabled": true,
+      "rect": {
+        "x": 668,
+        "y": 454,
+        "width": 40,
+        "height": 30
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 162,
+      "y": 330,
+      "width": 520,
+      "height": 172
+    },
+    {
+      "x": 16,
+      "y": 428,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 510,
+      "width": 992,
+      "height": 56
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 520,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 340,
+      "y": 448,
+      "width": 344,
+      "height": 128
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 152,
+      "y": 16,
+      "width": 720,
+      "height": 544
+    }
+  ]
+}
