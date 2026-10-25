@@ -79,6 +79,9 @@ namespace Terra.Core
                 foreach(var group in rules.sites.GroupBy(s=>s.connectionGroupId).OrderBy(g=>g.Key,StringComparer.Ordinal))
                 {
                     var devices=group.Where(g=>initialCapacity[g.siteId]>0||states[g.siteId].storedWaterM3>0).OrderBy(g=>g.siteId,StringComparer.Ordinal).ToArray();
+                    // Sparse accounting: absent devices and absent carried water mean
+                    // exactly zero storage reduction. Keep all real device/release rows.
+                    if(devices.Length==0){reduction[group.Key]=0;continue;}
                     double oldStored=devices.Sum(g=>states[g.siteId].storedWaterM3),recovered=0,released=0,capacity=0;
                     var capacities=new Dictionary<string,double>();
                     foreach(var device in devices)
