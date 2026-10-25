@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Community imagery import — isolated candidate, October 25, 2026
+
+The installed `terra-community-import` skill resolves a place, reviews licensed imagery, imports metric elevation and stages an independent native selector preview. Two 1.2 km studies preserve real Coon Valley and Tomales NAIP aerial images on USGS terrain. Five Python tests, skill validation and Unity geometry/image-registration checks pass; initial Chrome loads, source comparison, rotation, zoom and close pass. [Sources, captures and exact limits](evidence/community-import/README.md). The latest gear-menu integration is awaiting the separately owned selector release and final combined-source browser verification. Automatic search is a stub; editable 3D buildings and annual community scenarios are not implemented. Existing annual scenarios and Phase 2A acceptance remain independent.
+
 ## Pinned Wisconsin weather reference — October 25, 2026
 
 [Data preparation and consumer contract](../simulation-data/weather/README.md) provides 24 complete years of nearby La Crosse airport PRCP/TMAX/TMIN observations, 15 contiguous ten-year schedules, exact source/pack hashes and a daily companion for crop-season timing. **19 data/derivation tests pass** and all four products rebuild byte-for-byte offline. [Coverage, reproducibility and limitations](evidence/weather-reference/README.md). The common Coon Valley reference is regional, not on-site measurement; thresholds and later crop/exposure/recovery responses remain authored. This data-only delivery does not activate a new simulation, change legacy saves or certify browser behavior. The numeric/report-v2 consumer and visual/release gates remain open.
