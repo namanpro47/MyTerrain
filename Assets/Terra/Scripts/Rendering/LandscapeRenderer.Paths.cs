@@ -15,7 +15,11 @@ namespace Terra.Rendering
             const int size=1024;
             float dx=(xmax-xmin)/(size-1),dz=(zmax-zmin)/(size-1);
             var distance=new float[size*size];System.Array.Fill(distance,4);
+            var across=new float[distance.Length];System.Array.Fill(across,1);
+            var owner=new int[distance.Length];var junction=new bool[distance.Length];int routeId=0;
             foreach(var route in world.features.Where(f=>f.kind=="path"))
+            {
+            routeId++;
             for(int i=1;i<route.points.Length;i++)
             {
                 var a=new Vector2(route.points[i-1].x,route.points[i-1].z);
@@ -30,13 +34,34 @@ namespace Terra.Rendering
                     var p=new Vector2(xmin+x*dx,zmin+z*dz);
                     float t=segment.sqrMagnitude>0?Mathf.Clamp01(Vector2.Dot(p-a,segment)/segment.sqrMagnitude):0;
                     int index=z*size+x;
-                    distance[index]=Mathf.Min(distance[index],Vector2.Distance(p,a+segment*t)-route.widthM*.5f);
+                    float centerDistance=Vector2.Distance(p,a+segment*t);
+                    float edgeDistance=centerDistance-route.widthM*.5f;
+                    if(edgeDistance<distance[index])
+                    {
+                        distance[index]=edgeDistance;
+                        across[index]=centerDistance/Mathf.Max(.1f,route.widthM*.5f);
+                    }
+                    // Adjacent segments of the same source route are not junctions.
+                    if(edgeDistance<0)
+                    {
+                        if(owner[index]==0)owner[index]=routeId;
+                        else if(owner[index]!=routeId)junction[index]=true;
+                    }
                 }
             }
+            }
+            // R retains the original route union. G describes centre-to-edge position;
+            // B suppresses the illustrative grassy centre where different routes meet.
             var pixels=new Color32[distance.Length];
-            for(int i=0;i<pixels.Length;i++){byte value=(byte)(Mathf.Clamp01((distance[i]+2)/4)*255);pixels[i]=new Color32(value,value,value,255);}
+            for(int i=0;i<pixels.Length;i++)
+            {
+                byte value=(byte)(Mathf.Clamp01((distance[i]+2)/4)*255);
+                pixels[i]=new Color32(value,(byte)(Mathf.Clamp01(across[i])*255),(byte)(junction[i]?255:0),255);
+            }
             pathMask=new Texture2D(size,size,TextureFormat.RGBA32,true,true){name="Mapped route union",wrapMode=TextureWrapMode.Clamp,filterMode=FilterMode.Trilinear};
             pathMask.SetPixels32(pixels);pathMask.Apply();ground.SetTexture("_PathMap",pathMask);
+            ground.SetFloat("_IllustratedPaths",clusteredWoodland?1:0);
+            if(clusteredWoodland)ground.SetTexture("_PathPaint",Resources.Load<Texture2D>("AtapatacoGround/PathColor"));
         }
         // Crossings are illustrative construction at mapped route intersections, not surveyed bridge designs.
         void BuildCrossings()

@@ -1,0 +1,160 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 352,
+        "y": 102,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Year 1 · offline chapter</b>",
+      "rect": {
+        "x": 352,
+        "y": 141,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 578,
+        "y": 744,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Read chapter →",
+      "rect": {
+        "x": 666,
+        "y": 680,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 360,
+        "y": 680,
+        "width": 214,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>A year takes shape</b>\n\nYour plan became part of the landscape this year. 3 new projects are now committed, and their costs and consequences will carry into the years ahead. Your commitments include Traditional farmland.\n\nThe year's results reflect the land and services already in use.\n\n<b>Cash  $10,694,000</b>\nReserved for later years  $54,000\n\nIllustrative game outcomes · not a forecast.",
+      "rect": {
+        "x": 352,
+        "y": 190,
+        "width": 736,
+        "height": 296.3299865722656
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 296.3299865722656,
+      "availableHeight": 296.3299865722656
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 570,
+        "y": 742,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 658,
+        "y": 678,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 352,
+        "y": 678,
+        "width": 230,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 320,
+      "y": 80,
+      "width": 800,
+      "height": 740
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1069400000; queued=0; assets=3\n"
+}

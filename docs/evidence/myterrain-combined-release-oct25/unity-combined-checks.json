@@ -1,0 +1,45 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "typeof(MainGameChapterChecks).GetMethod(\"CheckSessionAndHud\",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).Invoke(null,null); return new { hud=(int)typeof(MainGameChapterChecks).GetField(\"count\",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).GetValue(null), chapters=AnnualChapterChecks.Run(), audio=TerraAudioChecks.Run(), shaders=new[]{\"Atlas/Globe\",\"Atlas/Sky\",\"Atlas/Ink\",\"Atlas/Atmosphere\"}.Select(s=>new {s,messages=UnityEditor.ShaderUtil.GetShaderMessages(UnityEngine.Resources.Load<UnityEngine.Shader>(s))}).ToArray() };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "hud": 809,
+        "chapters": 16,
+        "audio": "{\n    \"checks\": 380,\n    \"clips\": 79,\n    \"bytes\": 7827093,\n    \"families\": [\n        \"farm\",\n        \"rotation\",\n        \"margin\",\n        \"cover\",\n        \"meadow\",\n        \"swale\",\n        \"park\",\n        \"home\",\n        \"housing\",\n        \"warehouse\",\n        \"data\",\n        \"village\",\n        \"power\",\n        \"solar\",\n        \"wind\",\n        \"stewardship\",\n        \"water\"\n    ],\n    \"unity\": \"6000.6.6f1\",\n    \"result\": \"passed\"\n}",
+        "shaders": [
+          {
+            "s": "Atlas/Globe",
+            "messages": []
+          },
+          {
+            "s": "Atlas/Sky",
+            "messages": []
+          },
+          {
+            "s": "Atlas/Ink",
+            "messages": []
+          },
+          {
+            "s": "Atlas/Atmosphere",
+            "messages": []
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "job wait",
+  "data": {
+    "jobId": "f52e104084ec40879baa486d18bce8ff",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": "Combined guidance export complete",
+      "executionTimeMs": 421429,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T17:43:20.021675Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}

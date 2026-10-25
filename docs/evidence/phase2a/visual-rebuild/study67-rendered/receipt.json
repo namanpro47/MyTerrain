@@ -1,0 +1,47 @@
+{
+  "source": "d05f641",
+  "originMainInspected": "970e8af",
+  "editorPid": 40731,
+  "editorPort": 7804,
+  "canopyInstances": 1750,
+  "shrubInstances": 2824,
+  "spatialTiles": 135,
+  "sourceJsonEqualityGuardPassed": true,
+  "annualDiagnostic": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "captureFrames": {
+    "normal": 4739,
+    "close": 8267,
+    "wide": 8575
+  },
+  "normalView": [
+    1,
+    -32,
+    34,
+    105,
+    -90,
+    30,
+    -70
+  ],
+  "closeView": {
+    "perspective": true,
+    "yaw": -32,
+    "pitch": 55,
+    "zoom": 55,
+    "x": 110,
+    "z": 20,
+    "y": "sampled rendered terrain height"
+  },
+  "wideView": [
+    1,
+    -32,
+    42,
+    300,
+    0,
+    35,
+    0
+  ],
+  "editorClosed": "graceful, verified process absent",
+  "reservation": 11,
+  "reservationReleased": true,
+  "scope": "Observed tool outputs transcribed as a concise receipt; actual screenshots and replay scripts alongside. Editor only; no Chrome, performance, lifecycle or acceptance claim."
+}

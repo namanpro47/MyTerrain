@@ -1,0 +1,33 @@
+var root=UnityEngine.GameObject.Find("Study33 native forest");
+var renderers=root!=null?root.GetComponentsInChildren<UnityEngine.MeshRenderer>():UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None);
+var meshes=new System.Collections.Generic.Dictionary<UnityEngine.Mesh,UnityEngine.Mesh>();
+int changed=0;
+foreach(var r in renderers){
+ var mf=r.GetComponent<UnityEngine.MeshFilter>();if(mf==null)continue;
+ var mats=r.sharedMaterials;var source=mf.sharedMesh;
+ for(int slot=0;slot<mats.Length;slot++){
+  var original=mats[slot];if(!original.shader.name.Contains("FWTreeLeaf"))continue;
+  if(!meshes.TryGetValue(source,out var mesh)){
+   mesh=UnityEngine.Object.Instantiate(source);mesh.name=source.name+" cluster normals";
+   var vertices=mesh.vertices;var normals=mesh.normals;var indices=mesh.GetIndices(slot).Distinct().ToArray();
+   int count=14;var centers=new UnityEngine.Vector3[count];centers[0]=vertices[indices[0]];
+   for(int c=1;c<count;c++){float far=-1;foreach(var i in indices){float d=float.MaxValue;for(int j=0;j<c;j++)d=UnityEngine.Mathf.Min(d,(vertices[i]-centers[j]).sqrMagnitude);if(d>far){far=d;centers[c]=vertices[i];}}}
+   for(int iteration=0;iteration<12;iteration++){
+    var sums=new UnityEngine.Vector3[count];var counts=new int[count];
+    foreach(var i in indices){int nearest=0;float distance=float.MaxValue;for(int j=0;j<count;j++){float d=(vertices[i]-centers[j]).sqrMagnitude;if(d<distance){nearest=j;distance=d;}}sums[nearest]+=vertices[i];counts[nearest]++;}
+    for(int j=0;j<count;j++)if(counts[j]>0)centers[j]=sums[j]/counts[j];
+   }
+   var bounds=new UnityEngine.Bounds(vertices[indices[0]],UnityEngine.Vector3.zero);foreach(var i in indices)bounds.Encapsulate(vertices[i]);
+   foreach(var i in indices){int nearest=0;float distance=float.MaxValue;for(int j=0;j<count;j++){float d=(vertices[i]-centers[j]).sqrMagnitude;if(d<distance){nearest=j;distance=d;}}
+    var cluster=(vertices[i]-centers[nearest]).normalized;var crown=(vertices[i]-bounds.center).normalized;
+    normals[i]=(cluster*.8f+crown*.2f+UnityEngine.Vector3.up*.15f).normalized;
+   }
+   mesh.normals=normals;meshes[source]=mesh;
+  }
+  mf.sharedMesh=mesh;
+  var material=new UnityEngine.Material(UnityEngine.Shader.Find("Terra/Study34 Cluster Leaves"));material.SetTexture("_BaseMap",original.GetTexture("_BaseColor"));material.SetColor("_BaseColor",UnityEngine.Color.white);material.SetFloat("_Cutoff",.4f);material.enableInstancing=true;mats[slot]=material;changed++;
+ }
+ r.sharedMaterials=mats;
+}
+foreach(var lod in UnityEngine.Object.FindObjectsByType<UnityEngine.LODGroup>(UnityEngine.FindObjectsSortMode.None))if(lod.name.Contains("Tree"))lod.ForceLOD(0);
+return new{changed,meshes=meshes.Count,clusters=14};

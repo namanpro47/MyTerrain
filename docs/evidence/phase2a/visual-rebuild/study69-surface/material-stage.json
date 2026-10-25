@@ -1,0 +1,10 @@
+{
+  "groundCount": 1,
+  "materialCount": 168,
+  "instances": 20770,
+  "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "placementChanged": false,
+  "paint": "JulioGround/MeadowColor",
+  "paintTileMetres": 40,
+  "scope": "Runtime material copies and runtime ground materials only; mapped grass layout unchanged; river meadow and interventions retain original materials."
+}

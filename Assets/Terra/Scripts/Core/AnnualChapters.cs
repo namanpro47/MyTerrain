@@ -16,6 +16,7 @@ namespace Terra.Core
         {
             Require(input != null && input.schemaVersion == 1 && input.definition != null && input.snapshot != null,
                 "A versioned definition and frozen snapshot are required.");
+            Require(input.definition.schemaVersion<=2&&input.snapshot.schemaVersion==1,"Numeric-v4 years use accepted-report narration, never the legacy resolving endpoint.");
             Require(input.snapshot.phase == TownPhase.Resolving && input.snapshot.pendingRequest != null,
                 "Submit the year before requesting its chapter.");
             var town = AnnualTown.Restore(input.definition, input.snapshot);

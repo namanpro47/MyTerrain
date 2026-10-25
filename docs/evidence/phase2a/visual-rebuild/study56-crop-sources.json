@@ -1,0 +1,36 @@
+{
+  "creator": "Quaternius",
+  "pack": "Ultimate Crops Pack",
+  "page": "https://quaternius.com/packs/ultimatecrops.html",
+  "creatorLinkedFolder": "https://drive.google.com/drive/folders/1uhbi-NWp7pwqOGtraBZurbphyxAvoABZ",
+  "fbxFolder": "https://drive.google.com/drive/folders/1r_WpDuffiJeQ3neYTvCEb0RI-yOB_afS",
+  "license": "CC0 1.0 Universal",
+  "acquired": "2026-10-25",
+  "status": "Downloaded binary FBX sources and creator license; not imported or rendered yet. No quality claim.",
+  "files": [
+    {
+      "name": "Corn_3.fbx",
+      "source": "https://drive.google.com/uc?export=download&id=1oVO9vLberk9FDp7ABRy6iwnlOnzzhgd_",
+      "bytes": 21900,
+      "sha256": "3e59c3b6664499e3c5848f9a2e0f082c152e1d82a36ff3a647fd46e069dbff5f",
+      "local": "Builds/ArtResearch/Study56/Corn_3.fbx",
+      "archived": "docs/evidence/phase2a/visual-rebuild/study56-Corn_3.fbx"
+    },
+    {
+      "name": "Corn_4.fbx",
+      "source": "https://drive.google.com/uc?export=download&id=11g04DZQm3OtAtGbRm7RQW8v5VkIOUsEq",
+      "bytes": 37660,
+      "sha256": "efa76806e992dcf7fa8597d0b327e06319a81b4d1d6aef9b93251bd54479ef61",
+      "local": "Builds/ArtResearch/Study56/Corn_4.fbx",
+      "archived": "docs/evidence/phase2a/visual-rebuild/study56-Corn_4.fbx"
+    },
+    {
+      "name": "License.txt",
+      "source": "https://drive.google.com/uc?export=download&id=1Nu6uebTf-tnJhYyark490TvgZl5C5XmD",
+      "bytes": 364,
+      "sha256": "83d8959f9fc56353ed571fbe2dc52e4bcd64508e2399501cd45ac2ce3df0bf8c",
+      "local": "Builds/ArtResearch/Study56/License.txt",
+      "archived": "docs/evidence/phase2a/visual-rebuild/study56-crop-license.txt"
+    }
+  ]
+}

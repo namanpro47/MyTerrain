@@ -1,0 +1,145 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study47-import.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/01_t.obj",
+          "parts": [
+            {
+              "name": "01_t",
+              "bounds": "Center: (0.29, 15.49, 0.16), Extents: (10.58, 15.49, 10.70)",
+              "tris": 6,
+              "normals": 12,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/02_t.obj",
+          "parts": [
+            {
+              "name": "02_t",
+              "bounds": "Center: (0.29, 15.49, 0.16), Extents: (10.58, 15.49, 10.70)",
+              "tris": 6,
+              "normals": 12,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/03_t.obj",
+          "parts": [
+            {
+              "name": "03_t",
+              "bounds": "Center: (0.29, 15.49, 0.16), Extents: (10.58, 15.49, 10.70)",
+              "tris": 6,
+              "normals": 12,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/04_t.obj",
+          "parts": [
+            {
+              "name": "04_t",
+              "bounds": "Center: (0.29, 15.49, 0.16), Extents: (10.58, 15.49, 10.70)",
+              "tris": 6,
+              "normals": 12,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/09_t.obj",
+          "parts": [
+            {
+              "name": "09_t",
+              "bounds": "Center: (0.00, 16.00, 0.00), Extents: (16.00, 16.00, 13.86)",
+              "tris": 24,
+              "normals": 27,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/10_t.obj",
+          "parts": [
+            {
+              "name": "10_t",
+              "bounds": "Center: (0.00, 16.00, 0.00), Extents: (16.00, 16.00, 13.86)",
+              "tris": 24,
+              "normals": 27,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/13.obj",
+          "parts": [
+            {
+              "name": "13",
+              "bounds": "Center: (-0.18, 24.56, 1.08), Extents: (61.83, 27.20, 60.71)",
+              "tris": 288,
+              "normals": 270,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/14.obj",
+          "parts": [
+            {
+              "name": "14",
+              "bounds": "Center: (-0.18, 24.56, 1.08), Extents: (61.83, 27.20, 60.71)",
+              "tris": 288,
+              "normals": 270,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/15.obj",
+          "parts": [
+            {
+              "name": "15",
+              "bounds": "Center: (2.71, 36.95, -2.42), Extents: (32.26, 36.95, 34.96)",
+              "tris": 160,
+              "normals": 150,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        },
+        {
+          "path": "Assets/Terra/Art/YughuesGrassStudy/16.obj",
+          "parts": [
+            {
+              "name": "16",
+              "bounds": "Center: (3.09, 27.68, -2.75), Extents: (45.93, 27.68, 49.29)",
+              "tris": 288,
+              "normals": 270,
+              "transform": "1.00000\t0.00000\t0.00000\t0.00000\n0.00000\t1.00000\t0.00000\t0.00000\n0.00000\t0.00000\t1.00000\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

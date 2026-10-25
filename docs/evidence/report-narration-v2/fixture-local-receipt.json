@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "acceptedTransitionId": "fixture-run:year-1:revision-2",
+  "acceptedTransitionHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "requestHash": "06070d5012ba1d2e1a2850c49a0598abb9db225be0f03ae499448493e9ea0f86",
+  "rulesVersion": "annual-fixture-v4",
+  "reportVersion": "accepted-report-v2",
+  "promptVersion": "report-highlight-selection-v2.0.0",
+  "contractVersion": "report-selection-v2.0.0",
+  "modelVersion": "gemini-3.5-flash-lite",
+  "mode": "local",
+  "reasonCode": "missing-config",
+  "title": "Year 1: accepted results",
+  "introduction": "Economic 51 (+2), Social 58 (+0), Environmental 47.5 (+1). Cash $9,000,000 is saved. These are illustrative results.",
+  "cards": [
+    {
+      "factId": "budget",
+      "title": "Public budget",
+      "text": "$100,000 of public upkeep was paid. Private harvest is not public income."
+    },
+    {
+      "factId": "harvest",
+      "title": "Harvest and weather",
+      "text": "West field output decreased under the saved dry-season response. This is an authored scenario, not a forecast."
+    },
+    {
+      "factId": "recovery",
+      "title": "Next year's starting condition",
+      "text": "Funded public repair improves next year's starting condition; it does not reverse this year's harvest loss."
+    }
+  ]
+}

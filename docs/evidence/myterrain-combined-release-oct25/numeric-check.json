@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "command": "unity command script",
+  "data": null,
+  "errors": [
+    {
+      "code": "COMMAND_FAILED",
+      "message": "Runtime Error\n  Save belongs to different rules/data, or is incomplete."
+    }
+  ],
+  "warnings": []
+}

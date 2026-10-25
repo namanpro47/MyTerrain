@@ -1,0 +1,36 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);
+var parent=(UnityEngine.Transform)land.GetType().GetField("root",flags).GetValue(land);
+var prior=UnityEngine.GameObject.Find("Study47 formed stream banks");if(prior!=null)UnityEngine.Object.DestroyImmediate(prior);
+var holder=new UnityEngine.GameObject("Study47 formed stream banks");holder.transform.SetParent(parent,false);
+var material=new UnityEngine.Material(UnityEngine.Shader.Find("Universal Render Pipeline/Simple Lit")){name="Study47 artist bank stone"};
+material.SetTexture("_BaseMap",UnityEngine.Resources.Load<UnityEngine.Texture2D>("JulioGround/StonesColor"));material.SetColor("_BaseColor",new UnityEngine.Color(.38f,.34f,.29f));material.SetFloat("_Smoothness",0);
+var ground=UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().First(m=>m.shader.name=="Terra/Studies/Painted Ground 47");
+int vertices=0,triangles=0;
+foreach(var feature in world.features.Where(f=>f.kind=="water"))
+{
+ var route=(Terra.Contracts.Point[])land.GetType().GetMethod("RoundedWaterRoute",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).Invoke(null,new object[]{feature.points});
+ var samples=new System.Collections.Generic.List<UnityEngine.Vector2>();
+ for(int i=1;i<route.Length;i++){var a=new UnityEngine.Vector2(route[i-1].x,route[i-1].z);var b=new UnityEngine.Vector2(route[i].x,route[i].z);int count=UnityEngine.Mathf.CeilToInt(UnityEngine.Vector2.Distance(a,b)/1.2f);for(int j=0;j<count;j++)samples.Add(UnityEngine.Vector2.Lerp(a,b,(float)j/count));}
+ samples.Add(new UnityEngine.Vector2(route[route.Length-1].x,route[route.Length-1].z));
+ foreach(float side in new[]{-1f,1f})
+ {
+  var v=new System.Collections.Generic.List<UnityEngine.Vector3>();var uv=new System.Collections.Generic.List<UnityEngine.Vector2>();var wall=new System.Collections.Generic.List<int>();var cap=new System.Collections.Generic.List<int>();float along=0;
+  for(int i=0;i<samples.Count;i++)
+  {
+   var p=samples[i];var before=(p-samples[UnityEngine.Mathf.Max(0,i-1)]).normalized;var after=(samples[UnityEngine.Mathf.Min(samples.Count-1,i+1)]-p).normalized;
+   if(i==0)before=after;if(i==samples.Count-1)after=before;var d=(before+after).normalized;var normal=new UnityEngine.Vector2(-d.y,d.x)*side;
+   if(i>0)along+=UnityEngine.Vector2.Distance(p,samples[i-1]);
+   float variation=(UnityEngine.Mathf.PerlinNoise(p.x*.19f+71,p.y*.19f+39)-.5f)*.65f;
+   float[] widths={1.8f,2.5f,3.1f,4.2f,5.2f};float[] lifts={-1.8f,-.65f,.08f,.15f,0};
+   for(int k=0;k<widths.Length;k++){var q=p+normal*(feature.widthM*.5f+widths[k]+variation);v.Add(new UnityEngine.Vector3(q.x,land.Height(q.x,q.y)+lifts[k],q.y));uv.Add(new UnityEngine.Vector2(along/7,lifts[k]/3));}
+   if(i==0)continue;
+   for(int k=0;k<4;k++){int a=(i-1)*5+k,b=i*5+k;var indices=k<2?wall:cap;if(side<0)indices.AddRange(new[]{a,b,a+1,a+1,b,b+1});else indices.AddRange(new[]{a,a+1,b,a+1,b+1,b});}
+  }
+  var mesh=new UnityEngine.Mesh{name="Study47 continuous bank"};mesh.SetVertices(v);mesh.SetUVs(0,uv);mesh.subMeshCount=2;mesh.SetTriangles(wall,0);mesh.SetTriangles(cap,1);mesh.RecalculateNormals();mesh.RecalculateBounds();
+  var go=new UnityEngine.GameObject("Bank "+side);go.transform.SetParent(holder.transform,false);go.AddComponent<UnityEngine.MeshFilter>().sharedMesh=mesh;go.AddComponent<UnityEngine.MeshRenderer>().sharedMaterials=new[]{material,ground};vertices+=v.Count;triangles+=(wall.Count+cap.Count)/3;
+ }
+}
+return new{vertices,triangles,sourceTerrainUnchanged=true,temporaryOnly=true};

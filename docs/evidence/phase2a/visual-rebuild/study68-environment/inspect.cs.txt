@@ -1,0 +1,7 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires stopped Editor");
+var root="Assets/Terra/Art/RGPolyStudy";
+var materials=UnityEditor.AssetDatabase.FindAssets("t:Material",new[]{root}).Select(g=>UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>(UnityEditor.AssetDatabase.GUIDToAssetPath(g))).Where(m=>m!=null).ToArray();
+var grass=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(root+"/Prefabs/Grass Variant.prefab");
+var report=new{materials=materials.Select(m=>new{m.name,shader=m.shader==null?null:m.shader.name,supported=m.shader!=null&&m.shader.isSupported}).ToArray(),grass=grass.GetComponentsInChildren<UnityEngine.MeshFilter>(true).Select(f=>new{f.name,vertices=f.sharedMesh.vertexCount,triangles=f.sharedMesh.triangles.Length/3,bounds=f.sharedMesh.bounds.ToString()}).ToArray(),shaderMessages=materials.Where(m=>m.shader!=null).SelectMany(m=>UnityEditor.ShaderUtil.GetShaderMessages(m.shader).Select(e=>new{material=m.name,e.message,severity=e.severity.ToString()})).ToArray()};
+System.IO.File.WriteAllText("Builds/ArtResearch/Study68/engine-inspection.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));
+return report;

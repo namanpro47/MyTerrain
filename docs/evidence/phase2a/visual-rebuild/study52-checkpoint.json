@@ -1,0 +1,71 @@
+{
+  "sourceHead": "aec6261",
+  "status": "Rejected Editor-only construction study",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-break-grid.cs.txt",
+      "bytes": 1283,
+      "sha256": "21e54757c4c5e645259a81819b263eafa57133ee9df7261a7a87d6fca4ca1d99"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-break-grid.json",
+      "bytes": 656,
+      "sha256": "e59fc1502358ea2bc84d3f51c88fe56268dd669b4d876c5373592d49605dbbb3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-canopy.cs.txt",
+      "bytes": 1376,
+      "sha256": "388e3e14942575d848ac4727ad8832aa0fa446cfc1ccf94333cb3e153f5c7dbe"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-canopy.json",
+      "bytes": 580,
+      "sha256": "54dd12015d998869500697c613caf7536af704e35a7e6e6e26be65ab42977e1c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-close-camera.json",
+      "bytes": 569,
+      "sha256": "8e3d6c4bceb5dfb355a1d9dec444d132652621b4aee32d52fcdee4107f326469"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-normal-camera.json",
+      "bytes": 892,
+      "sha256": "a0cbd75fb96a4e68e461e1d3c598a1d39a2e840d1c955b54a8df7a1a2de34526"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-shell-off.json",
+      "bytes": 558,
+      "sha256": "9239045f397d8f3282811b07df0c55afa2d8b60e4dfc175b8af0a889095b20d2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-canopy-close.png",
+      "bytes": 1241967,
+      "sha256": "3c124a120dce877aefaa07a4a6ee95c69f64c6cd840e5194c0911b24f78f57ad"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-jitter-close.png",
+      "bytes": 1263918,
+      "sha256": "63f256d5b5a78f542a0db16e5565db9ea2d8c0f1a9dd714c6c22ad0f11b00e5b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-jitter-normal.png",
+      "bytes": 1470090,
+      "sha256": "315a6f5d466c6f8aed1d851922d41ec04db2b6af6c9c6b629587edf00348e9ee"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-jitter-only-close.png",
+      "bytes": 1605789,
+      "sha256": "8f5934faa702076a625ed5ff702a9b9e4a11c8a94b05e7ddabebdd52c0b692c2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-jitter-only-normal.png",
+      "bytes": 1548498,
+      "sha256": "8671a0ff1cb3a2f94183ad481057d6d1bfc32c9a1f2f3b742a73b23047fde5e5"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study52-canopy.shader.txt",
+      "bytes": 3000,
+      "sha256": "26752cf6bf948e8d91d2d60efc4475f13a48b9fe31bb54c0ded489bbef308e59"
+    }
+  ]
+}

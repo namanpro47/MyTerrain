@@ -1,0 +1,233 @@
+{
+  "checks": 33,
+  "summaries": [
+    {
+      "pack": "meadowbrook-v1",
+      "source": "model9c0d156\u002Bread-only dense sourceea37af0",
+      "sites": 41,
+      "offers": 360,
+      "definitionBytes": 710024,
+      "snapshotBytes": 2785622,
+      "times": [
+        25,
+        21,
+        17,
+        20,
+        27,
+        19,
+        27,
+        23,
+        21,
+        26
+      ],
+      "replayMs": 476,
+      "projectionError": "Expected 1\u201364 canonical report facts.",
+      "facts": 0,
+      "counts": [
+        {
+          "year": 1,
+          "impacts": 246,
+          "storage": 246
+        },
+        {
+          "year": 2,
+          "impacts": 533,
+          "storage": 533
+        },
+        {
+          "year": 3,
+          "impacts": 328,
+          "storage": 328
+        },
+        {
+          "year": 4,
+          "impacts": 410,
+          "storage": 410
+        },
+        {
+          "year": 5,
+          "impacts": 492,
+          "storage": 492
+        },
+        {
+          "year": 6,
+          "impacts": 205,
+          "storage": 205
+        },
+        {
+          "year": 7,
+          "impacts": 410,
+          "storage": 410
+        },
+        {
+          "year": 8,
+          "impacts": 287,
+          "storage": 287
+        },
+        {
+          "year": 9,
+          "impacts": 205,
+          "storage": 205
+        },
+        {
+          "year": 10,
+          "impacts": 369,
+          "storage": 369
+        }
+      ],
+      "totalMs": 893
+    },
+    {
+      "pack": "point-reyes-v1",
+      "source": "model9c0d156\u002Bread-only dense sourceea37af0",
+      "sites": 312,
+      "offers": 3240,
+      "definitionBytes": 5884039,
+      "snapshotBytes": 19643347,
+      "times": [
+        130,
+        229,
+        128,
+        111,
+        137,
+        72,
+        110,
+        90,
+        88,
+        114
+      ],
+      "replayMs": 1609,
+      "projectionError": "Expected 1\u201364 canonical report facts.",
+      "facts": 0,
+      "counts": [
+        {
+          "year": 1,
+          "impacts": 1872,
+          "storage": 1872
+        },
+        {
+          "year": 2,
+          "impacts": 4056,
+          "storage": 4056
+        },
+        {
+          "year": 3,
+          "impacts": 2496,
+          "storage": 2496
+        },
+        {
+          "year": 4,
+          "impacts": 3120,
+          "storage": 3120
+        },
+        {
+          "year": 5,
+          "impacts": 3744,
+          "storage": 3744
+        },
+        {
+          "year": 6,
+          "impacts": 1560,
+          "storage": 1560
+        },
+        {
+          "year": 7,
+          "impacts": 3120,
+          "storage": 3120
+        },
+        {
+          "year": 8,
+          "impacts": 2184,
+          "storage": 2184
+        },
+        {
+          "year": 9,
+          "impacts": 1560,
+          "storage": 1560
+        },
+        {
+          "year": 10,
+          "impacts": 2808,
+          "storage": 2808
+        }
+      ],
+      "totalMs": 3579
+    },
+    {
+      "pack": "suusamyr-v1",
+      "source": "model9c0d156\u002Bread-only dense sourceea37af0",
+      "sites": 340,
+      "offers": 3554,
+      "definitionBytes": 6442345,
+      "snapshotBytes": 21072177,
+      "times": [
+        53,
+        122,
+        79,
+        96,
+        119,
+        75,
+        131,
+        98,
+        84,
+        117
+      ],
+      "replayMs": 1559,
+      "projectionError": "Expected 1\u201364 canonical report facts.",
+      "facts": 0,
+      "counts": [
+        {
+          "year": 1,
+          "impacts": 2040,
+          "storage": 2040
+        },
+        {
+          "year": 2,
+          "impacts": 4420,
+          "storage": 4420
+        },
+        {
+          "year": 3,
+          "impacts": 2720,
+          "storage": 2720
+        },
+        {
+          "year": 4,
+          "impacts": 3400,
+          "storage": 3400
+        },
+        {
+          "year": 5,
+          "impacts": 4080,
+          "storage": 4080
+        },
+        {
+          "year": 6,
+          "impacts": 1700,
+          "storage": 1700
+        },
+        {
+          "year": 7,
+          "impacts": 3400,
+          "storage": 3400
+        },
+        {
+          "year": 8,
+          "impacts": 2380,
+          "storage": 2380
+        },
+        {
+          "year": 9,
+          "impacts": 1700,
+          "storage": 1700
+        },
+        {
+          "year": 10,
+          "impacts": 3060,
+          "storage": 3060
+        }
+      ],
+      "totalMs": 3255
+    }
+  ]
+}

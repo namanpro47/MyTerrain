@@ -18,10 +18,12 @@ namespace Terra.UI
         readonly Dictionary<Button,string> categoryButtons=new Dictionary<Button,string>();
         readonly Dictionary<string,GameObject> actionRows=new Dictionary<string,GameObject>();
         readonly Dictionary<string,int> availableSites=new Dictionary<string,int>();
+        readonly Dictionary<string,TextMeshProUGUI> selectedToolBadges=new Dictionary<string,TextMeshProUGUI>();
         TextMeshProUGUI actionSummary;
         string activeCategory="Farming";
         bool catalogKeyboard;
         int? highlightedFieldCount;
+        string annualPlanningHint;
 
         public void BuildAvailability(int? count)
         {
@@ -55,6 +57,13 @@ namespace Terra.UI
                     var icon=Rect(button.transform,"Model icon",new Vector2(.5f,1),new Vector2(0,-1),new Vector2(width-15,62)).gameObject.AddComponent<Image>();icon.sprite=catalog.Find(action.artId).icon;icon.preserveAspect=true;icon.raycastTarget=false;
                     var title=Label(button.transform,ShortTitle(action),new Vector2(.5f,1),new Vector2(0,-64),new Vector2(width-12,36),14,Paper,FontStyles.Bold);title.name="Action title";title.alignment=TextAlignmentOptions.Center;
                     var count=Label(button.transform,availableSites[action.id]==0?"No fitting parcel":availableSites[action.id]+" eligible fields",new Vector2(.5f,0),new Vector2(0,3),new Vector2(width-12,18),11,availableSites[action.id]==0?new Color(1,.69f,.55f):Soft);count.name="Action price";count.alignment=TextAlignmentOptions.Center;
+                    var badge=Label(button.transform,"Selected",new Vector2(1,1),new Vector2(-5,-3),new Vector2(57,16),10,Accent,FontStyles.Bold);
+                    badge.name="Selected tool badge";badge.alignment=TextAlignmentOptions.Right;badge.gameObject.SetActive(false);selectedToolBadges[action.id]=badge;
+                    if(action.category=="Farming")
+                    {
+                        string motif=action.id=="conservation-rotation"?"redo":action.id=="cultivate-margin"?"map":action.id=="cover-crop"?"leaf":"work";
+                        Glyph(icon.transform,motif,new Vector2(0,1),new Vector2(1,-1),18,Paper);
+                    }
                 }
             }
             ShowCategory(activeCategory);
@@ -74,7 +83,8 @@ namespace Terra.UI
             if(annualRules!=null)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
-                actionSummary.text=recipe==null?"Choose a project · B to browse":highlightedFieldCount==0?"No available field · choose another project":"Choose an outlined field";
+                actionSummary.text=recipe==null?(annualPlanningHint??"Choose a project, then a field · B to browse"):
+                    (action==null?recipe.title:ShortTitle(action))+" · "+(highlightedFieldCount==0?"No available fields":"Hover a marked field");
                 if(highlightedFieldCount>0)actionSummary.text+=" · "+highlightedFieldCount.Value+" available";
                 return;
             }
@@ -100,6 +110,7 @@ namespace Terra.UI
         }
         void SelectCatalog(string id)
         {
+            foreach(var badge in selectedToolBadges)badge.Value.gameObject.SetActive(badge.Key==id);
             var action=actionRules?.Find(id);if(action!=null && annualRules!=null)catalogPage=Array.IndexOf(actionButtons.Where(p=>AnnualCategory(p.Value)==AnnualCategory(id)).Select(p=>p.Value).ToArray(),id)/catalogColumns;
             if(action!=null)ShowCategory(annualRules==null?action.category:AnnualCategory(id));else UpdateActionSummary();
         }

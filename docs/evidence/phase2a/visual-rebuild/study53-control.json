@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>().Where(m=>!UnityEditor.AssetDatabase.Contains(m)&&m.HasFloat(\"_IllustratedPaths\")))m.SetFloat(\"_IllustratedPaths\",0);return UnityEngine.Time.frameCount;"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": 2896
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

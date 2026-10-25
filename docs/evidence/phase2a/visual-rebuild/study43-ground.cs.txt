@@ -1,0 +1,5 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study43Ground.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study43Ground.shader");var errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray();if(errors.Length>0)return new{errors};
+var renderers=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).Where(r=>r.name.StartsWith("Continuous ground ")).ToArray();
+var materials=renderers.SelectMany(r=>r.sharedMaterials).Distinct().ToArray();foreach(var m in materials)m.shader=shader;
+return new{shader=shader.name,supported=shader.isSupported,materials=materials.Length,frame=UnityEngine.Time.frameCount};

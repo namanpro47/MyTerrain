@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study59/prefabs.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "Beet_4",
+          "vertices": 880,
+          "triangles": 480,
+          "materials": [
+            {
+              "name": "Beet_4-DarkRed",
+              "color": "RGBA(0.393, 0.157, 0.207, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            },
+            {
+              "name": "Beet_4-DarkGreen",
+              "color": "RGBA(0.420, 0.447, 0.335, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

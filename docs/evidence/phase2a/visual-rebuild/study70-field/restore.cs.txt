@@ -1,0 +1,6 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Play required");var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+foreach(var name in new[]{"Study70 volumetric West field","Study70 volumetric all fields"})UnityEngine.GameObject.Find(name)?.SetActive(false);
+var main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);var baselines=(System.Collections.Generic.Dictionary<string,UnityEngine.Transform>)land.GetType().GetField("baselines",f).GetValue(land);baselines["south-01"].gameObject.SetActive(true);
+int restored=0;foreach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){var batches=(System.Collections.IEnumerable)n.GetType().GetField("batches",f).GetValue(n);if(batches.Cast<object>().Any(batch=>((UnityEngine.Mesh)batch.GetType().GetField("mesh",f).GetValue(batch)).name=="LeafCrop-lod0")){n.enabled=true;restored++;}}
+foreach(var mr in UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None))if(mr.name=="Cultivated soil beds")mr.enabled=true;
+return new{restored,state=main.Diagnostic,sharedMeadowRetained=true};

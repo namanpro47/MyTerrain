@@ -1,0 +1,7 @@
+var folder="Assets/Terra/Resources/AtapatacoGround";
+if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Terra/Resources","AtapatacoGround");
+System.IO.File.Copy("Builds/ArtResearch/AtapatacoGround/unpacked/Handpainted_Grass_and_Ground_Textures_Free/Dirt/dirt.png",folder+"/PathColor.png",true);
+System.IO.File.WriteAllText(folder+"/SOURCE.txt","Handpainted Grass & Ground Textures by Atapataco\nhttps://atapataco.itch.io/handpainted-grass-ground-textures\nDownloaded 2026-10-25, original Dirt/dirt.png pixels unchanged.\nCreator permits commercial use with credit: https://itch.io/post/7434415 and https://itch.io/post/7438612\nNo CC0 claim or standalone source redistribution permission. Keep this source in the private project; game credits link the artist.\nOriginal SHA256: f70e6205c36d994aca9c7b4b3537bc11aa39cf6ea2f31f822f5a2657c4e03eb5\nTerra adapts tiling, saturation and road wear in its shader.\n");
+UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var imp=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(folder+"/PathColor.png");imp.sRGBTexture=true;imp.mipmapEnabled=true;imp.isReadable=false;imp.wrapMode=UnityEngine.TextureWrapMode.Repeat;imp.filterMode=UnityEngine.FilterMode.Trilinear;imp.anisoLevel=2;imp.maxTextureSize=1024;imp.SaveAndReimport();
+return new{asset=folder+"/PathColor.png",imp.maxTextureSize,imp.sRGBTexture,imp.mipmapEnabled};

@@ -1,0 +1,40 @@
+{
+  "camera": {
+    "position": "(-155.66, 17.24, -223.14)",
+    "rotation": "(32.16, 132.04, 0.00)",
+    "fieldOfView": 60.0000038
+  },
+  "terrains": [
+    {
+      "name": "Terrain",
+      "position": "(-162.00, 9.90, -644.00)",
+      "size": "(700.00, 600.00, 700.00)",
+      "detailObjectDistance": 80.0,
+      "detailObjectDensity": 1.0,
+      "layers": [
+        "Grass Layer",
+        "NewLayer",
+        "Brick Layer"
+      ],
+      "details": [
+        {
+          "mesh": "Grass Variant",
+          "minWidth": 0.5,
+          "maxWidth": 1.0,
+          "minHeight": 0.5,
+          "maxHeight": 1.0,
+          "useInstancing": true,
+          "usePrototypeMesh": true
+        }
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "name": "Directional Light",
+      "intensity": 0.5,
+      "type": "Directional",
+      "color": "RGBA(0.920, 0.990, 1.000, 1.000)"
+    }
+  ]
+}

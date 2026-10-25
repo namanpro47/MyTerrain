@@ -1,0 +1,1 @@
+int count=0;foreach(var m in UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.Material>())if(!UnityEditor.EditorUtility.IsPersistent(m)&&m.name=="Study71 crop volume"){m.SetFloat("_NormalWeight",.35f);count++;}return new{count,weight=.35f};

@@ -1,0 +1,44 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "if(UnityEngine.Application.isPlaying)throw new System.Exception(\"Stop Play first\");var paths=new[]{\"Assets/Study51Ground.shader\",\"Assets/Study51Crop.shader\",\"Assets/Study52Canopy.shader\",\"Assets/Study53Ground.shader\"};var removed=paths.Select(p=>new{path=p,deleted=UnityEditor.AssetDatabase.DeleteAsset(p)}).ToArray();var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();return new{removed,controllerEnabled=main.enabled,playing=UnityEngine.Application.isPlaying};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "removed": [
+          {
+            "path": "Assets/Study51Ground.shader",
+            "deleted": true
+          },
+          {
+            "path": "Assets/Study51Crop.shader",
+            "deleted": true
+          },
+          {
+            "path": "Assets/Study52Canopy.shader",
+            "deleted": true
+          },
+          {
+            "path": "Assets/Study53Ground.shader",
+            "deleted": true
+          }
+        ],
+        "controllerEnabled": true,
+        "playing": false
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

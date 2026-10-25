@@ -1,0 +1,10 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study44Leaves.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study44Leaves.shader");var messages=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray();if(messages.Length>0)return new{messages};
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;int count=0;
+foreach(var n in UnityEngine.GameObject.Find("Study44 woodland lower layer").GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var list=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);
+ foreach(var b in list){var t=b.GetType();var material=(UnityEngine.Material)t.GetField("material",flags).GetValue(b);if(!material.name.Contains("Leaves"))continue;
+ var mesh=(UnityEngine.Mesh)t.GetField("mesh",flags).GetValue(b);int sub=(int)t.GetField("submesh",flags).GetValue(b);var vertices=mesh.vertices;var indices=mesh.GetIndices(sub);var bounds=new UnityEngine.Bounds(vertices[indices[0]],UnityEngine.Vector3.zero);foreach(var i in indices)bounds.Encapsulate(vertices[i]);
+ var tex=material.GetTexture("_BaseMap");material.shader=shader;material.SetTexture("_BaseMap",tex);material.SetColor("_BaseColor",new UnityEngine.Color(.62f,.72f,.64f));material.SetFloat("_Cutoff",.5f);material.SetVector("_CrownCenter",bounds.center);material.SetVector("_CrownExtent",bounds.extents);material.enableInstancing=true;count++;
+ }
+}
+return new{materials=count,frame=UnityEngine.Time.frameCount};

@@ -9,9 +9,9 @@ namespace Terra.Rendering
     public sealed partial class LandscapeRenderer
     {
         // Illustrated plant communities; their density and species are not field observations or model inputs.
-        void BuildTreatment(Site site,string treatment,Transform parent,bool preview)
+        void BuildTreatment(Site site,string treatment,Transform parent,bool preview,float vegetationMaturity=1)
         {
-            if(BuildCatalogAction(site,treatment,parent,preview))return;
+            if(BuildCatalogAction(site,treatment,parent,preview,vegetationMaturity))return;
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             bool cultivated=treatment.StartsWith("cultivate");
             // Surface changes live on the terrain material; plants and swale geometry remain independently reversible.
@@ -39,6 +39,9 @@ namespace Terra.Rendering
             return distance;
         }
         void PlantMeadow(Point[] polygon,Transform parent,float spacing,bool withFlowers,Func<float,float,bool> exclude=null)
+            =>PlantMeadowStands(polygon,parent,withFlowers,exclude,1,1);
+
+        void PlantMeadowStands(Point[] polygon,Transform parent,bool withFlowers,Func<float,float,bool> exclude,float breadth,float height)
         {
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");var tall=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var bloom=Resources.Load<GameObject>("Nature/Flower_3_Group");var bloom2=Resources.Load<GameObject>("Nature/Flower_4_Group");
@@ -57,9 +60,9 @@ namespace Terra.Rendering
                 float growth=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.28f,.60f,drift*.75f+detail*.25f));
                 if(J(0,1)>.3f+growth*.7f)continue;
                 float size=Mathf.Lerp(.38f,1.15f,growth)*J(.85f,1.15f);
-                small.Add(PlantMatrix(tuft,px,pz,size,J(0,360))*Matrix4x4.Scale(new Vector3(1.8f,1,1.8f)));
+                small.Add(PlantMatrix(tuft,px,pz,size*height,J(0,360))*Matrix4x4.Scale(new Vector3(1.8f*breadth/height,1,1.8f*breadth/height)));
                 if(growth>.55f&&J(0,1)<.18f)
-                    fine.Add(PlantMatrix(tall,px,pz,J(.7f,1.2f),J(0,360)));
+                    fine.Add(PlantMatrix(tall,px,pz,J(.7f,1.2f)*height,J(0,360))*Matrix4x4.Scale(new Vector3(breadth/height,1,breadth/height)));
                 float blossom=Mathf.PerlinNoise(px*.065f+141,pz*.065f+551);
                 if(withFlowers&&blossom>.63f&&J(0,1)<.16f)
                 {
@@ -75,6 +78,7 @@ namespace Terra.Rendering
 
         void PlantCultivation(Point[] polygon,Transform parent,bool baseline)
         {
+            if(clusteredWoodland){PlantCropBeds(polygon,parent,baseline);return;}
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);
             var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
@@ -101,6 +105,12 @@ namespace Terra.Rendering
         }
         void BuildCultivatedContext()
         {
+            if(clusteredWoodland)
+            {
+                for(float z=zmin;z<zmax;z+=150)for(float x=xmin;x<xmax;x+=150)
+                    PlantCropBeds(Rectangle(x,z,Mathf.Min(x+150,xmax),Mathf.Min(z+150,zmax)),root,true,true);
+                return;
+            }
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {

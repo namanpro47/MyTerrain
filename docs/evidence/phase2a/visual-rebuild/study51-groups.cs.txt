@@ -1,0 +1,8 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);var root=UnityEngine.Object.FindObjectsByType<UnityEngine.Transform>(UnityEngine.FindObjectsInactive.Include,UnityEngine.FindObjectsSortMode.None).First(t=>t.name=="Mapped grassland stands").gameObject;root.SetActive(true);int before=0,after=0;
+foreach(var nature in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>(true)){
+var batches=(System.Collections.IList)nature.GetType().GetField("batches",flags).GetValue(nature);
+foreach(var batch in batches){var t=batch.GetType();var field=t.GetField("transforms",flags);var matrices=(UnityEngine.Matrix4x4[])field.GetValue(batch);before+=matrices.Length;
+var keep=matrices.Where(m=>{float x=m.m03,z=m.m23;float slope=UnityEngine.Mathf.Max(UnityEngine.Mathf.Abs(land.Height(x+2,z)-land.Height(x-2,z)),UnityEngine.Mathf.Abs(land.Height(x,z+2)-land.Height(x,z-2)));if(slope>2)return false;bool woodlandEdge=land.CoverAt(x+10,z)=="woodland"||land.CoverAt(x-10,z)=="woodland"||land.CoverAt(x,z+10)=="woodland"||land.CoverAt(x,z-10)=="woodland";float patch=UnityEngine.Mathf.PerlinNoise(x*.024f+91,z*.024f+267);return woodlandEdge||patch>.68f;}).ToArray();field.SetValue(batch,keep);after+=keep.Length;
+}}
+return new{before,after,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

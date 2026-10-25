@@ -25,3 +25,7 @@ A transient reconnect after recompilation prevented one control Play request fro
 ## Remaining acceptance
 
 The changed shared-material implementation still needs a combined Web export and Chrome visual/frame-time verification with the visual owner's grass checkpoint. Whole-scene quality, final public export/run, two rehearsals and labelled recorded fallback remain open. No public deployment, final acceptance, total-memory or FPS claim is made here.
+
+## Combined grass checkpoint
+
+The subsequent merge with visual `48154c4` retains **414** InstancedNature components and **15** unique material objects (`combined-inventory.json`), with687 submitted /1,236 culled batches in the opening Editor view. The new grass construction adds one material configuration; this is not an old/new frame-time comparison. The grass root fixture was rejected before execution because its archived `.cs.txt` filename is not accepted by eval_file (`combined-grass.json`); no new root-placement pass is claimed. The owner’s source-matched placement receipt remains the placement evidence. Combined Chrome validation is next.

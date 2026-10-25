@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return new{ambientMode=UnityEngine.RenderSettings.ambientMode.ToString(),ambient=UnityEngine.RenderSettings.ambientLight.ToString(),sky=UnityEngine.RenderSettings.ambientSkyColor.ToString(),equator=UnityEngine.RenderSettings.ambientEquatorColor.ToString(),ground=UnityEngine.RenderSettings.ambientGroundColor.ToString(),ambientIntensity=UnityEngine.RenderSettings.ambientIntensity,lights=UnityEngine.Object.FindObjectsByType<UnityEngine.Light>(UnityEngine.FindObjectsSortMode.None).Select(l=>new{l.name,l.intensity,color=l.color.ToString(),rotation=l.transform.eulerAngles.ToString(),l.shadowStrength}).ToArray()};",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "ambientMode": "Trilight",
+        "ambient": "RGBA(0.500, 0.610, 0.720, 1.000)",
+        "sky": "RGBA(0.500, 0.610, 0.720, 1.000)",
+        "equator": "RGBA(0.380, 0.460, 0.400, 1.000)",
+        "ground": "RGBA(0.220, 0.280, 0.220, 1.000)",
+        "ambientIntensity": 1,
+        "lights": [
+          {
+            "name": "Directional Light",
+            "intensity": 1.1,
+            "color": "RGBA(1.000, 0.960, 0.860, 1.000)",
+            "rotation": "(52.00, 260.00, 0.00)",
+            "shadowStrength": 0.72
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

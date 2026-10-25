@@ -1,0 +1,77 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study62/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "maxLeafPositionDelta": 6.143906e-8,
+        "maxLeafNormalDelta": 1.46000971e-7,
+        "maxLeafUvDelta": 0,
+        "checkedLeafCorners": 10206,
+        "pines": 2172,
+        "parts": 452,
+        "finiteMatrices": 4344,
+        "meshes": [
+          {
+            "id": 1,
+            "level": 0,
+            "triangles": 2128,
+            "leafTriangles": 632,
+            "height": 4.50228834
+          },
+          {
+            "id": 1,
+            "level": 1,
+            "triangles": 1156,
+            "leafTriangles": 632,
+            "height": 4.50228834
+          },
+          {
+            "id": 1,
+            "level": 2,
+            "triangles": 992,
+            "leafTriangles": 632,
+            "height": 4.50228834
+          },
+          {
+            "id": 3,
+            "level": 0,
+            "triangles": 1998,
+            "leafTriangles": 502,
+            "height": 2.346961
+          },
+          {
+            "id": 3,
+            "level": 1,
+            "triangles": 1026,
+            "leafTriangles": 502,
+            "height": 2.346961
+          },
+          {
+            "id": 3,
+            "level": 2,
+            "triangles": 866,
+            "leafTriangles": 502,
+            "height": 2.346961
+          }
+        ],
+        "shaderErrors": [],
+        "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

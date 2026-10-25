@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study58/bake.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "source": "FieldWheat",
+        "instances": 784,
+        "vertices": 432768,
+        "triangles": 239904,
+        "resolution": 1024,
+        "tile": 10,
+        "files": [
+          "Builds/ArtResearch/Study58/grain-albedo.png",
+          "Builds/ArtResearch/Study58/grain-normal-height.png"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

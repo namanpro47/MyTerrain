@@ -1,0 +1,110 @@
+{
+  "sourceCommit": "cc04fb2b48fb35775d3bc13762109a6d8d3718f2",
+  "mainIncluded": "8cfb3ad",
+  "state": "completed",
+  "dirtyTrackedInputs": [
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "sha256": "fc735b492306d3f90c87573f0ce0bc30c8bf17aae19f1bf1275a7d89e72760e7"
+    },
+    {
+      "path": "Assets/Terra/Art/ExternalKit/BuildActions/Materials/flower.mat",
+      "sha256": "de7d7006082fb48fce4f9eeb86a44510b3e88e8670b69f3be6098f74241e71fd"
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+      "sha256": "46334afcc3c58dff1bc91dcf8bdff76ab46f91dd4c2b3440d34dfcdc6a443ac1"
+    },
+    {
+      "path": "ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json",
+      "sha256": "06a1c9835f436c094ef005b36badac9d812743aeca512a75a0880061adf78dc2"
+    }
+  ],
+  "jobId": "8ea661e071e041aaa64d1b20ab571681",
+  "result": "Export and Chrome checkpoint complete; visual/performance gates remain unaccepted",
+  "buildMilliseconds": 480704,
+  "buildCompletedAt": "2026-10-25T08:01:27.209909Z",
+  "files": 9,
+  "compressedBytes": 47838671,
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "canvas": [
+      1280,
+      720
+    ],
+    "visibility": "visible"
+  },
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T08:04:23.829Z",
+      "url": "blob:http://127.0.0.1:59134/d410e9b7-51b7-40f9-b66b-add4118e3b6d"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.092002868652344,\"averageFps\":9.63711166381836,\"frameP50Ms\":101.0,\"frameP95Ms\":144.0,\"frameP99Ms\":157.0,\"maxFrameMs\":168.0,\"maxPreviewCpuMs\":20.100000381469727,\"maxPlacementCpuMs\":22.5,\"frames\":290,\"framesOver33Ms\":290,\"framesOver200Ms\":0,\"previewEvents\":6,\"placementEvents\":1,\"cameraEvents\":103,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T08:04:53.920Z",
+      "url": "blob:http://127.0.0.1:59134/d410e9b7-51b7-40f9-b66b-add4118e3b6d"
+    }
+  ],
+  "errorLevelLogCount": 0,
+  "controlPerformance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T08:06:11.075Z",
+      "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.045000076293945,\"averageFps\":18.039608001708984,\"frameP50Ms\":54.0,\"frameP95Ms\":75.0,\"frameP99Ms\":86.0,\"maxFrameMs\":93.0,\"maxPreviewCpuMs\":9.199999809265137,\"maxPlacementCpuMs\":22.200000762939453,\"frames\":542,\"framesOver33Ms\":538,\"framesOver200Ms\":0,\"previewEvents\":6,\"placementEvents\":1,\"cameraEvents\":185,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T08:06:41.117Z",
+      "url": "blob:http://127.0.0.1:59135/6cbb9382-5f9b-4a81-8bc4-7c6ccf4375d9"
+    }
+  ],
+  "controlSource": "53bfacbf1b4cd728e5e921b51bb7295e9240b694",
+  "controlExportIdentity": "All study37-served-assets.json hashes matched Builds/Web.previous before launch",
+  "captures": [
+    {
+      "file": "study39-chrome-close-resized.png",
+      "sha256": "9a8d819ce3e09fddedfdc1b965840ca476c176d4630a8850ce135453c22779ab"
+    },
+    {
+      "file": "study39-chrome-close.png",
+      "sha256": "99e1c77b9d6acd14ae8828eed71f5ad95c4c3288397b2f40c05ea1b8a1883f34"
+    },
+    {
+      "file": "study39-chrome-opening.png",
+      "sha256": "b4331f02213c589be5ddca3f787f16b2d65251448a495fd8b03cfa2207eac416"
+    },
+    {
+      "file": "study39-chrome-overview.png",
+      "sha256": "9f33c807b333c867e15513840890633b706c4f050eb0a82f940469f629a87392"
+    },
+    {
+      "file": "study39-chrome-proposed.png",
+      "sha256": "d30bb9cb917f37e98dc7af3382a7552b6e1412854e6e241b1f79a9459dcc5a77"
+    }
+  ],
+  "limitations": [
+    "One diagnostic route, not the three-path acceptance suite",
+    "Candidate 9.64FPS and144ms p95 fails; cause unresolved",
+    "Previous unchanged study37 control also slowed to18.04FPS and75ms p95 versus earlier42.22FPS/37ms",
+    "Concurrent wasm linker, several Editor/Chrome renderer processes were active; their ownership was not established and they were not terminated",
+    "Control is Year1 with no accepted projects; candidate is Year2 with one establishing restoration. Different state and timing prevent an isolated LOD comparison",
+    "No error-level entries in returned logs; no full-console-history guarantee",
+    "Near/far and proposal/undo inspected; mature lifecycle still pending in this export",
+    "Source plus recorded generated inputs, not a clean-worktree reproducibility claim",
+    "Visual quality remains below the reference; no main integration or public deployment"
+  ]
+}

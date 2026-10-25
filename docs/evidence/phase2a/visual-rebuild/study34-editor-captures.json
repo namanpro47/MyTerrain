@@ -1,0 +1,45 @@
+{
+  "scope": "1280x720 camera-only Editor diagnostics. No HUD. Full-opening capture precedes 1024 bark import limit and main project-ground reconciliation. Floor capture without settled suffix was taken during shader compilation and is invalid for visual judgment.",
+  "captures": [
+    {
+      "file": "study34-close.png",
+      "bytes": 1468622,
+      "sha256": "2ea19754f4ebb80101f7dfd594dd221f65b1f6e744e04da303d34139070a7524"
+    },
+    {
+      "file": "study34-cluster-gallery.png",
+      "bytes": 411286,
+      "sha256": "9ca9fea8a2ec5697bb837494053c10bba654368172e3cab25cf41a62763a4f9c"
+    },
+    {
+      "file": "study34-cluster-shadow.png",
+      "bytes": 1578531,
+      "sha256": "a418b7c335d0c30215bf661e8eb2944d9b56507e07e45c2e34e8579b15ddabe0"
+    },
+    {
+      "file": "study34-cluster-world.png",
+      "bytes": 1586580,
+      "sha256": "849659f02c37843da61dcdc890ae310c5a1762a5b3862485bc76c2c394a321bc"
+    },
+    {
+      "file": "study34-creator-framed.png",
+      "bytes": 450954,
+      "sha256": "21843c7ab1c65bc9ee2f6b133328d55900b21e8dcc9e68fc0e80d73766539fe5"
+    },
+    {
+      "file": "study34-full-opening.png",
+      "bytes": 1697686,
+      "sha256": "1a04c69464f067e23266f6f8af3893830d6642303aaa6af8c84b748271f9b12b"
+    },
+    {
+      "file": "study34-woodland-floor-settled.png",
+      "bytes": 1581745,
+      "sha256": "fad2cf34e156a428fdd59a8d29456145c4cb16a664cfd8205e1e53af54d24611"
+    },
+    {
+      "file": "study34-woodland-floor.png",
+      "bytes": 753558,
+      "sha256": "cd26dbf46e48929b3f325beecde580ebd03fb80ae05c4927b1407b8ccd4fad17"
+    }
+  ]
+}

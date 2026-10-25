@@ -1,0 +1,668 @@
+{
+  "audit": {
+    "cssWidth": 1280,
+    "cssHeight": 720,
+    "pixelRatio": 1,
+    "modal": false,
+    "largeText": false,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "Meadowbrook Valley",
+        "rect": {
+          "x": 30,
+          "y": 23,
+          "width": 278,
+          "height": 28
+        },
+        "bodyCssPx": 20,
+        "minGlyphCssPx": 20,
+        "preferredHeight": 22.350000381469727,
+        "availableHeight": 28
+      },
+      {
+        "text": "Wisconsin · real geography",
+        "rect": {
+          "x": 30,
+          "y": 46,
+          "width": 276,
+          "height": 24
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 24
+      },
+      {
+        "text": "Land & Nature",
+        "rect": {
+          "x": 308,
+          "y": 503,
+          "width": 213.33331298828125,
+          "height": 28
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 28
+      },
+      {
+        "text": "Homes & Community",
+        "rect": {
+          "x": 533.3333129882812,
+          "y": 503,
+          "width": 213.3333740234375,
+          "height": 28
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 28
+      },
+      {
+        "text": "Work & Utilities",
+        "rect": {
+          "x": 758.6666259765625,
+          "y": 503,
+          "width": 213.3333740234375,
+          "height": 28
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 28
+      },
+      {
+        "text": "Housing need · inspect Homes",
+        "rect": {
+          "x": 310,
+          "y": 628,
+          "width": 660,
+          "height": 20
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 20
+      },
+      {
+        "text": "Undo",
+        "rect": {
+          "x": 176,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "View",
+        "rect": {
+          "x": 404,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "Guide",
+        "rect": {
+          "x": 518,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "Settings",
+        "rect": {
+          "x": 632,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "Redo",
+        "rect": {
+          "x": 290,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "World atlas",
+        "rect": {
+          "x": 24,
+          "y": 574,
+          "width": 100,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "Traditional farmland",
+        "rect": {
+          "x": 335,
+          "y": 599,
+          "width": 143,
+          "height": 24
+        },
+        "bodyCssPx": 13,
+        "minGlyphCssPx": 13,
+        "preferredHeight": 14.529999732971191,
+        "availableHeight": 24
+      },
+      {
+        "text": "$100K",
+        "rect": {
+          "x": 421,
+          "y": 559,
+          "width": 54,
+          "height": 25
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 25
+      },
+      {
+        "text": "Cover crop",
+        "rect": {
+          "x": 490,
+          "y": 599,
+          "width": 143,
+          "height": 24
+        },
+        "bodyCssPx": 13,
+        "minGlyphCssPx": 13,
+        "preferredHeight": 14.529999732971191,
+        "availableHeight": 24
+      },
+      {
+        "text": "$120K",
+        "rect": {
+          "x": 576,
+          "y": 559,
+          "width": 54,
+          "height": 25
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 25
+      },
+      {
+        "text": "Crop rotation",
+        "rect": {
+          "x": 645,
+          "y": 599,
+          "width": 143,
+          "height": 24
+        },
+        "bodyCssPx": 13,
+        "minGlyphCssPx": 13,
+        "preferredHeight": 14.529999732971191,
+        "availableHeight": 24
+      },
+      {
+        "text": "$160K",
+        "rect": {
+          "x": 731,
+          "y": 559,
+          "width": 54,
+          "height": 25
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 25
+      },
+      {
+        "text": "Living margin",
+        "rect": {
+          "x": 800,
+          "y": 599,
+          "width": 143,
+          "height": 24
+        },
+        "bodyCssPx": 13,
+        "minGlyphCssPx": 13,
+        "preferredHeight": 14.529999732971191,
+        "availableHeight": 24
+      },
+      {
+        "text": "$125K",
+        "rect": {
+          "x": 886,
+          "y": 559,
+          "width": 54,
+          "height": 25
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 25
+      },
+      {
+        "text": "‹",
+        "rect": {
+          "x": 304,
+          "y": 540,
+          "width": 24,
+          "height": 82
+        },
+        "bodyCssPx": 22,
+        "minGlyphCssPx": 22,
+        "preferredHeight": 24.579999923706055,
+        "availableHeight": 82
+      },
+      {
+        "text": "›",
+        "rect": {
+          "x": 952,
+          "y": 540,
+          "width": 24,
+          "height": 82
+        },
+        "bodyCssPx": 22,
+        "minGlyphCssPx": 22,
+        "preferredHeight": 24.579999923706055,
+        "availableHeight": 82
+      },
+      {
+        "text": "ECONOMIC",
+        "rect": {
+          "x": 814,
+          "y": 27,
+          "width": 124,
+          "height": 18
+        },
+        "bodyCssPx": 11,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 12.289999961853027,
+        "availableHeight": 18
+      },
+      {
+        "text": "42.2 <size=50%>/100</size>\n<size=50%>Year-end  43.0</size>",
+        "rect": {
+          "x": 790,
+          "y": 46,
+          "width": 150,
+          "height": 56
+        },
+        "bodyCssPx": 22,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 47.54999923706055,
+        "availableHeight": 56
+      },
+      {
+        "text": "SOCIAL",
+        "rect": {
+          "x": 974,
+          "y": 27,
+          "width": 124,
+          "height": 18
+        },
+        "bodyCssPx": 11,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 12.289999961853027,
+        "availableHeight": 18
+      },
+      {
+        "text": "58.0 <size=50%>/100</size>\n<size=50%>Year-end  61.0</size>",
+        "rect": {
+          "x": 950,
+          "y": 46,
+          "width": 150,
+          "height": 56
+        },
+        "bodyCssPx": 22,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 47.54999923706055,
+        "availableHeight": 56
+      },
+      {
+        "text": "ENVIRONMENTAL",
+        "rect": {
+          "x": 1134,
+          "y": 27,
+          "width": 124,
+          "height": 18
+        },
+        "bodyCssPx": 11,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 12.289999961853027,
+        "availableHeight": 18
+      },
+      {
+        "text": "38.9 <size=50%>/100</size>\n<size=50%>Year-end  39.4</size>",
+        "rect": {
+          "x": 1110,
+          "y": 46,
+          "width": 150,
+          "height": 56
+        },
+        "bodyCssPx": 22,
+        "minGlyphCssPx": 11,
+        "preferredHeight": 47.54999923706055,
+        "availableHeight": 56
+      },
+      {
+        "text": "YEAR 2/10 · PLANNING",
+        "rect": {
+          "x": 30,
+          "y": 88,
+          "width": 190,
+          "height": 22
+        },
+        "bodyCssPx": 13,
+        "minGlyphCssPx": 13,
+        "preferredHeight": 14.529999732971191,
+        "availableHeight": 22
+      },
+      {
+        "text": "$10,930,000 <size=45%>available</size>",
+        "rect": {
+          "x": 62,
+          "y": 110,
+          "width": 250,
+          "height": 38
+        },
+        "bodyCssPx": 27.649999618530273,
+        "minGlyphCssPx": 12.442500114440918,
+        "preferredHeight": 31.290000915527344,
+        "availableHeight": 38
+      },
+      {
+        "text": "End Year  →",
+        "rect": {
+          "x": 971,
+          "y": 670,
+          "width": 158,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "More",
+        "rect": {
+          "x": 746,
+          "y": 670,
+          "width": 76,
+          "height": 32
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 32
+      },
+      {
+        "text": "Budget",
+        "rect": {
+          "x": 242,
+          "y": 88,
+          "width": 66,
+          "height": 20
+        },
+        "bodyCssPx": 12,
+        "minGlyphCssPx": 12,
+        "preferredHeight": 13.40999984741211,
+        "availableHeight": 20
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Farming",
+        "enabled": true,
+        "rect": {
+          "x": 304,
+          "y": 502,
+          "width": 221.33331298828125,
+          "height": 30
+        }
+      },
+      {
+        "name": "Button Residential",
+        "enabled": true,
+        "rect": {
+          "x": 529.3333129882812,
+          "y": 502,
+          "width": 221.33331298828125,
+          "height": 30
+        }
+      },
+      {
+        "name": "Button Community",
+        "enabled": true,
+        "rect": {
+          "x": 754.6666259765625,
+          "y": 502,
+          "width": 221.33331298828125,
+          "height": 30
+        }
+      },
+      {
+        "name": "Button Undo  Z",
+        "enabled": false,
+        "rect": {
+          "x": 146,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button Valley view  R",
+        "enabled": true,
+        "rect": {
+          "x": 374,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button Field guide  G",
+        "enabled": true,
+        "rect": {
+          "x": 488,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button Controls  ?",
+        "enabled": true,
+        "rect": {
+          "x": 602,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button Redo  Y",
+        "enabled": false,
+        "rect": {
+          "x": 260,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button World atlas",
+        "enabled": true,
+        "rect": {
+          "x": 16,
+          "y": 572,
+          "width": 116,
+          "height": 36
+        }
+      },
+      {
+        "name": "Build Traditional farmland",
+        "enabled": true,
+        "rect": {
+          "x": 332,
+          "y": 538,
+          "width": 149,
+          "height": 86
+        }
+      },
+      {
+        "name": "Build Cover crop",
+        "enabled": true,
+        "rect": {
+          "x": 487,
+          "y": 538,
+          "width": 149,
+          "height": 86
+        }
+      },
+      {
+        "name": "Build Conservation rotation",
+        "enabled": true,
+        "rect": {
+          "x": 642,
+          "y": 538,
+          "width": 149,
+          "height": 86
+        }
+      },
+      {
+        "name": "Build Living margin",
+        "enabled": true,
+        "rect": {
+          "x": 797,
+          "y": 538,
+          "width": 149,
+          "height": 86
+        }
+      },
+      {
+        "name": "Button ‹",
+        "enabled": true,
+        "rect": {
+          "x": 304,
+          "y": 538,
+          "width": 24,
+          "height": 86
+        }
+      },
+      {
+        "name": "Button ›",
+        "enabled": true,
+        "rect": {
+          "x": 952,
+          "y": 538,
+          "width": 24,
+          "height": 86
+        }
+      },
+      {
+        "name": "Button Review year →",
+        "enabled": true,
+        "rect": {
+          "x": 966,
+          "y": 668,
+          "width": 168,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button More",
+        "enabled": true,
+        "rect": {
+          "x": 716,
+          "y": 668,
+          "width": 112,
+          "height": 36
+        }
+      },
+      {
+        "name": "Button Budget",
+        "enabled": true,
+        "rect": {
+          "x": 234,
+          "y": 86,
+          "width": 82,
+          "height": 24
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 16,
+        "y": 16,
+        "width": 310,
+        "height": 54
+      },
+      {
+        "x": 296,
+        "y": 496,
+        "width": 688,
+        "height": 158
+      },
+      {
+        "x": 16,
+        "y": 572,
+        "width": 116,
+        "height": 36
+      },
+      {
+        "x": 140,
+        "y": 662,
+        "width": 1000,
+        "height": 48
+      },
+      {
+        "x": 16,
+        "y": 78,
+        "width": 310,
+        "height": 86
+      },
+      {
+        "x": 776,
+        "y": 16,
+        "width": 488,
+        "height": 94
+      }
+    ]
+  },
+  "state": {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=5; cash=1095000000; queued=0; assets=1\n",
+    "timestamp": "2026-10-25T18:08:11.054Z",
+    "url": "blob:http://127.0.0.1:49713/a3833050-3754-42f7-8ed1-f108127adb98"
+  }
+}

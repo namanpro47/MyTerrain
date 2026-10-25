@@ -1,0 +1,32 @@
+import json, math
+from pathlib import Path
+w=json.loads(Path('worlds/meadowbrook-v1/world.json').read_text());t=w['terrain']
+cs=[]
+for c in w['covers']:
+ p=c['polygon'];cs.append((min(q['x'] for q in p),max(q['x'] for q in p),min(q['z'] for q in p),max(q['z'] for q in p),c))
+def inside(p,x,z):
+ hit=False;a=p[-1]
+ for b in p:
+  if (b['z']>z)!=(a['z']>z) and x<(a['x']-b['x'])*(z-b['z'])/(a['z']-b['z'])+b['x']:hit=not hit
+  a=b
+ return hit
+def cover(x,z):
+ for l,r,b,u,c in cs:
+  if l<=x<=r and b<=z<=u and inside(c['polygon'],x,z):return c['coverId']
+ return 'grass'
+def height(x,z):
+ fx=max(0,min(t['columns']-1,(x-t['xMin'])/10));fz=max(0,min(t['rows']-1,(z-t['zMin'])/10))
+ ix=min(int(fx),t['columns']-2);iz=min(int(fz),t['rows']-2);n=iz*t['columns']+ix;u=fx-ix;v=fz-iz
+ a,b,c,d=(t['heights'][q] for q in [n,n+1,n+t['columns'],n+t['columns']+1])
+ return a+(b-a)*u+(c-a)*v if u+v<=1 else d+(c-d)*(1-u)+(b-d)*(1-v)
+def distance(x,z,a,b):
+ dx=b['x']-a['x'];dz=b['z']-a['z'];u=max(0,min(1,((x-a['x'])*dx+(z-a['z'])*dz)/(dx*dx+dz*dz)))
+ return math.hypot(x-a['x']-u*dx,z-a['z']-u*dz)
+water=[(a,b,f['widthM']) for f in w['features'] if f['kind']=='water' for a,b in zip(f['points'],f['points'][1:])]
+report=[]
+for x,z,yaw in [(-285,4,180),(-321,18,180),(-295,-55,0),(-331,-41,0)]:
+ pts=[(x+dx,z+dz) for dx in range(-13,14) for dz in range(-16,17)]
+ hs=[height(*q) for q in pts]
+ report.append(dict(x=x,z=z,yaw=yaw,covers=sorted({cover(*q) for q in pts}),sourceLow=min(hs),sourceHigh=max(hs),sourceRelief=max(hs)-min(hs),minWater=min(distance(*q,a,b)-width/2 for q in pts for a,b,width in water)))
+Path('Builds/ArtResearch/Study65/source-layout.json').write_text(json.dumps(report,indent=2))
+print(json.dumps(report,indent=2))

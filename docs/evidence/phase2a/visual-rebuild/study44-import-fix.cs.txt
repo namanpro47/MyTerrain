@@ -1,0 +1,6 @@
+var root="Assets/Terra/Art/QuaterniusUltimateNature";
+foreach(var name in new[]{"NormalTree_Leaves","Bush_Leaves"}){
+var importer=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(root+"/Textures/"+name+".png");importer.alphaIsTransparency=true;importer.mipmapEnabled=true;importer.mipMapsPreserveCoverage=true;importer.alphaTestReferenceValue=.5f;importer.SaveAndReimport();
+var m=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>(root+"/Materials/"+name+".mat");m.SetFloat("_AlphaClip",1);m.SetFloat("_Cutoff",.5f);m.SetFloat("_AlphaToMask",1);m.EnableKeyword("_ALPHATEST_ON");m.SetOverrideTag("RenderType","TransparentCutout");m.renderQueue=2450;UnityEditor.EditorUtility.SetDirty(m);
+}
+UnityEditor.AssetDatabase.SaveAssets();return "Leaf transparency and alpha-coverage mip imports corrected; source pixels unchanged";

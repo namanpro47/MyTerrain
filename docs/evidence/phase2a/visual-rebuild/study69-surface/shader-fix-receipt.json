@@ -1,0 +1,19 @@
+{
+  "base": "da05997",
+  "inspectedMain": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+  "reservation": 43,
+  "editor": "6000.6.6f1 / Metal",
+  "normalFrame": 82,
+  "wideFrame": 5343,
+  "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "candidateShaderMessages": [],
+  "originalShaderWarning": "PaintedFilteredSample line81 Metal potentially uninitialized",
+  "productionChanged": false,
+  "browserVerified": false,
+  "files": {
+    "corrected-normal.png": "4680aab9569233a6c054d2f88710f2f3512ab5d7282526e714eb67ccaa9c0056",
+    "corrected-wide.png": "7d2b0c5b09c7b99e7a6eafbabc1c11c17e2f98bb1326e32589718d70afeb6ea2",
+    "Ground-corrected.shader.txt": "d1d829104f9ae49c58c023d36866b467d1db0b1ef371ff3f47a1af9e15a7b095",
+    "shader-warning-verification.json": "8505894de826854caad16cca13f38ac999dc534fd48a4128f9416fc7ea09f48a"
+  }
+}

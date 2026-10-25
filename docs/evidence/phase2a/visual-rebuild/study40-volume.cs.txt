@@ -1,0 +1,9 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;int count=0;
+foreach(var name in new[]{"Study40 AssetQuest woodland","Study40 AssetQuest understory"})foreach(var n in UnityEngine.GameObject.Find(name).GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var list=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);
+ foreach(var b in list){var t=b.GetType();var material=(UnityEngine.Material)t.GetField("material",flags).GetValue(b);var tex=material.GetTexture("_BaseMap");if(tex==null||tex.name!="Forest_Pack_Atlas_1")continue;
+ var mesh=(UnityEngine.Mesh)t.GetField("mesh",flags).GetValue(b);var bounds=mesh.bounds;material.shader=UnityEngine.Resources.Load<UnityEngine.Shader>("TerraArtistLeaves");material.SetTexture("_BaseMap",tex);material.SetColor("_BaseColor",UnityEngine.Color.white);material.SetFloat("_Cutoff",.4f);
+ var center=bounds.center;center.y=name.Contains("woodland")?bounds.min.y+bounds.size.y*.64f:bounds.min.y-bounds.size.y*.15f;material.SetVector("_CrownCenter",center);material.SetVector("_CrownExtent",bounds.extents);material.enableInstancing=true;count++;
+ }
+}
+return new{materials=count,frame=UnityEngine.Time.frameCount};

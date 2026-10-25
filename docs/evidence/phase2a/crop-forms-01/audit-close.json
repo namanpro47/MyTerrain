@@ -1,0 +1,84 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CropDiagnostic/audit.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "frame": 5786,
+        "checkedCorners": 8776,
+        "outside": 0,
+        "nonfinite": 0,
+        "levelCounts": [
+          1097,
+          0,
+          0
+        ],
+        "fullTriangles": 1527024,
+        "selectedTriangles": 1527024,
+        "rows": [
+          {
+            "instances": 128,
+            "pixels": 34.02878,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 36.5197525,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 39.39312,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 42.50796,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 46.59727,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 51.3712921,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 56.7163429,
+            "level": 0
+          },
+          {
+            "instances": 128,
+            "pixels": 63.54725,
+            "level": 0
+          },
+          {
+            "instances": 73,
+            "pixels": 68.47578,
+            "level": 0
+          }
+        ],
+        "scope": "Conservative mesh-bound corner containment and color-pass geometry candidate count; not GPU timing or shadow-pass counts."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

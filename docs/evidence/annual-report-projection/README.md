@@ -1,0 +1,42 @@
+# Accepted annual report → canonical narration facts
+
+October 25, 2026. **Additive module ready for the numeric owner's integration; not ready for main or current release on its own.** Numeric dependency `b3176043f1f17566cfcb03d58f64e215f06d6274` remains an inactive, unfinished model. Report-only v2 dependency `629d082cae4b74794eec68cc620dae65f2173f79` is separate. The review worktree was created from refreshed main `13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c`; dependency merge `68e416d7cb3a1ae5337d98fbf3dea0d3fb1f664f` precedes this slice. No main promotion, deployment, live provider, Unity or Chrome test occurred.
+
+`AnnualReportProjection.Build(definition, acceptedReport, previousAcceptedReport, modelVersion)` produces the existing `ReportNarrationRequest`. It does not resolve a year, save a run, call a service or change state. The caller must provide the report **after successful persistence**. Hashes verify consistency; they cannot prove persistence or authenticate an arbitrary caller. This helper checks the projection's source relationships; full replay/acceptance remains the numeric owner's responsibility.
+
+The helper validates numeric rules and complete report hash, accepted request/consequence identity, the frozen weather driver, previous-year/run/definition and carried-state joins, all three score deltas, deficits, exact ledger reconciliation, site coverage and the crop/event/repair links used in its facts. Year 1 uses `AnnualSimulation.OpeningOutcomes` and the numeric initial state. It does not derive a competing baseline. A malformed or oversized projection fails explicitly rather than silently losing a material fact.
+
+Canonical facts cover the budget, all recorded crop sites, aggregate impacts at each affected site, funded recovery and unpaid repair, service deficits, reference weather and the shared Wisconsin disclosure. Local priority is budget → one spatial consequence → unmet service needs. The provider can select/order other existing fact blocks but cannot write new factual prose. All three scores/deltas and exact closing public cash remain in the canonical introduction regardless of card selection. Money retains cents; scores are rounded to 0.1 and other displayed non-money quantities to 0.001, as disclosed. Dates and practice labels are readable; machine IDs remain in explicit fact/site/rule links. Year 10 text describes the ending condition rather than implying another turn.
+
+Projection text version is `annual-report-projection-v1`, placed in the request's `reportVersion`. The numeric report's own `annual-numeric-report-v1` identity remains bound inside its accepted transition hash. Text/localization changes must version the projection instead of silently changing a cached request. The approved visible AI label remains **“AI-organized explanation”**. Patterns TN-05/08 and CS-01/04 guide short, site-linked consequences; these pure checks do not establish visual or usability acceptance.
+
+## Verification
+
+- **435 assertions across 30 accepted years**: no action, public park/repair, and a farming strategy using rotation, cover crops and living margins. The rotation exercises both corn and soy. Each projected year matches the projection of its restored run; inputs stay unchanged. Tests reject wrong rules/run/year, missing prior report, altered hashes, inconsistent rehashed deltas/ledger/driver, invented site/cause/event/practice, incorrect harvest timing and mismatched payment rows. Four additional cultures preserve the exact projection hash. Year 10 does not imply Year 11.
+- **95 report-only narration assertions** and **42 legacy chapter checks** pass against the combined dependency tree. A first attempt exposed missing explicit numeric source includes in the service project; this slice adds those four compile references. That failure was in the unreleased combined branch, not current main. The existing service behavior and legacy endpoint are unchanged.
+- The full plain Core/Contracts/Simulation source, including this helper, builds as **.NET Standard 2.1 / C# 9**, with **0 warnings and 0 errors**. This is portable compile evidence, not Unity/IL2CPP execution or cross-runtime text/hash equivalence.
+- Tests target .NET 8 and ran on the installed .NET 10 runtime with `DOTNET_ROLL_FORWARD=Major`. No real provider calls or external network requests were used.
+
+```sh
+DOTNET_ROLL_FORWARD=Major dotnet run --project tests/annual-report-projection/AnnualReportProjectionChecks.csproj
+DOTNET_ROLL_FORWARD=Major dotnet run --project tests/report-narration/ReportNarrationChecks.csproj
+DOTNET_ROLL_FORWARD=Major dotnet run --project tests/chapters/Terra.ChapterChecks.csproj
+```
+
+[Machine receipt](checks.json), [actual synthetic Year 1 public-run projection](year1-public-request.json), [Year 10 local receipt](year10-public-local.json). These are results of the pinned draft model, not real community outcomes or a finalized calibration. Maximum observed projection: 37 facts; longest fact: 331 UTF-16 code units. The source checkpoint's Year 1 request hash is `a071b1def7e1d7d1c80bb75ec67a6a60b2dc6de96745b778306dcfecb7a93ab5`. The tests intentionally regenerate from accepted reports rather than pin future model results to this draft fixture. Changing numeric rules/condition calculations will change those reports and request hashes.
+
+## Integration handoff
+
+Cherry-pick the additive projection commit onto the numeric continuation containing its DTO/hash/opening-baseline API and the report-v2 helper. **Do not merge this entire dependency branch into the current release.** Reconcile the owner's later storage-rule and cover changes, rerun the projection and existing service checks, then validate the eventual Unity/client integration. The service compile references are necessary because its source list is explicit; do not enable legacy `/chapter` acceptance for numeric runs.
+
+Save-first numeric publication, optional service requests, automatic fallback, persisted first-visible mode, stale response rejection and public-browser acceptance remain separate work. Scene/HUD/TerraMain/default save selection are untouched. Phase 2A visual quality, final combined performance, public run/rehearsal and meaningful recording remain open.
+
+## Dense parcel projection (October 25 follow-up)
+
+The all-parcel expansion introduced more than 64 site facts. Dense accepted reports now use explicit `annual-report-projection-dense-v1`; sparse outputs retain `annual-report-projection-v1`. A bounded summary includes every crop's same-unit output/area total, every impact record with harvest timing counts and an area-weighted whole-map mean loss, all-site weighted closing/recovery condition, every prior/new public repair payment and outstanding repair debt, exact public budget, raw deficits, and both scientific disclosures. Aggregate facts have no incomplete site-link lists. Up to four harvest, four disruption and four repair details retain exact links; a coverage fact names the shown/total count. Complete site/event detail remains in the accepted numeric report.
+
+The dense suite passes **432 assertions across 30 accepted years**, including partial cultivated source fractions, exact report binding, all numerical totals, defined area denominators, Arabic culture invariance, ten-year endings, full saved-envelope replay and an acknowledged large presentation write for each place. `[Dense/Program.cs](../../../tests/annual-report-projection/Dense/Program.cs)` constructs all three current parcel packs with actual source `WorldData`. Run `DOTNET_ROLL_FORWARD=Major dotnet run --project tests/annual-report-projection/Dense/DenseProjectionChecks.csproj -- --write-evidence`.
+
+Measured complete save envelopes (without a duplicate definition, which the controller receives separately): Meadowbrook **1,881,841 bytes / 20 facts maximum**; Point Reyes **12,000,119 bytes / 20 facts**; Suusamyr **12,685,309 bytes / 17 facts**. See [dense-checks.json](dense-checks.json). These are source/.NET fixture results, not browser quotas or performance. The 435 sparse assertions also pass; current model changes legitimately produce a different sample report hash than the original model checkpoint.
+
+Affected integration checks: 50 legacy chapter assertions and 95 report-v2 assertions pass; the chapter service builds with 0 warnings/errors after retaining main's 16 MiB legacy request limit and optional local port. No provider call, Unity execution, browser runtime activation or release acceptance is claimed by these checks.

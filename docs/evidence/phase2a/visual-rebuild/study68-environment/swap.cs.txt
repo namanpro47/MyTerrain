@@ -1,0 +1,20 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();var old=UnityEngine.GameObject.Find("Mapped grassland stands");if(main==null||old==null||main.Diagnostic=="loading")throw new System.Exception("Scene not ready");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var world=(Terra.Contracts.WorldData)main.GetType().GetField("world",flags).GetValue(main);var source=UnityEngine.JsonUtility.ToJson(world);var state=main.Diagnostic;
+var prefab=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/RGPolyStudy/Prefabs/Grass Variant.prefab");var filter=prefab.GetComponentInChildren<UnityEngine.MeshFilter>();var mesh=filter.sharedMesh;var bounds=mesh.bounds;
+var template=new UnityEngine.GameObject("Study68 source grass");template.AddComponent<UnityEngine.MeshFilter>().sharedMesh=mesh;template.AddComponent<UnityEngine.MeshRenderer>().sharedMaterials=filter.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials;template.SetActive(false);
+var root=new UnityEngine.GameObject("Study68 native grass patches");root.transform.SetParent(old.transform.parent,false);int total=0;float minHeight=float.MaxValue,maxHeight=0;
+foreach(var part in old.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var matrices=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var batch in (System.Collections.IEnumerable)part.GetType().GetField("batches",flags).GetValue(part)){
+  var bt=batch.GetType();if((int)bt.GetField("submesh",flags).GetValue(batch)!=0)continue;var oldMesh=(UnityEngine.Mesh)bt.GetField("mesh",flags).GetValue(batch);var ob=oldMesh.bounds;
+  foreach(var m in (UnityEngine.Matrix4x4[])bt.GetField("transforms",flags).GetValue(batch)){
+   var pos=m.MultiplyPoint3x4(new UnityEngine.Vector3(ob.center.x,ob.min.y,ob.center.z));float width=UnityEngine.Mathf.Max(ob.size.x*UnityEngine.Mathf.Abs(m.lossyScale.x),ob.size.z*UnityEngine.Mathf.Abs(m.lossyScale.z));float scale=width/UnityEngine.Mathf.Max(bounds.size.x,bounds.size.z);float h=scale*bounds.size.y;minHeight=UnityEngine.Mathf.Min(minHeight,h);maxHeight=UnityEngine.Mathf.Max(maxHeight,h);
+   matrices.Add(UnityEngine.Matrix4x4.TRS(pos,m.rotation,UnityEngine.Vector3.one*scale)*UnityEngine.Matrix4x4.Translate(new UnityEngine.Vector3(-bounds.center.x,-bounds.min.y,-bounds.center.z)));
+  }
+ }
+ if(matrices.Count==0)continue;var patch=new UnityEngine.GameObject("Study68 grass tile");patch.transform.SetParent(root.transform,false);patch.AddComponent<Terra.Rendering.InstancedNature>().Add(template,matrices,UnityEngine.Color.white);total+=matrices.Count;
+}
+old.SetActive(false);
+if(main.Diagnostic!=state||UnityEngine.JsonUtility.ToJson(world)!=source)throw new System.Exception("Changed source/state");
+var report=new{instances=total,minHeight,maxHeight,sourceGeometry=mesh.name,sourceMaterial=filter.GetComponent<UnityEngine.MeshRenderer>().sharedMaterial.name,state,scope="Play-only mapped grass replacement; original locations and footprint widths, uniform artist-mesh scale; native shader retained. River meadow, fields, woodland, annual state and source geography unchanged."};System.IO.File.WriteAllText("Builds/ArtResearch/Study68/grass-swap.json",Newtonsoft.Json.JsonConvert.SerializeObject(report,Newtonsoft.Json.Formatting.Indented));return report;
