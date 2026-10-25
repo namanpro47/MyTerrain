@@ -23,3 +23,9 @@ The swale query now rejects points outside the route's expanded bounds, skips se
 `swale-equivalence.cs` compares the new private query against the original route-distance/profile formulas at78,000 seeded samples across all13sites, including positive basin samples and points outside every parcel. Maximum cut error0.0000002384m, gradient error0.0000002235 and distance error0.0000076294m. This is bounded floating-point equivalence, not byte-identical geometry or exhaustive proof. The post-change actual-ground annual test separately verifies seams and exact restoration.
 
 Remaining: combined visual quality, actual Chrome preview/placement and frame/load checks, final export/publication and rehearsals. The ground/grass/field refinement remains with its visual owner.
+
+## Independent main integration
+
+Only the swale query fix was cherry-picked as `ed2055b` onto main `fd35f8c`; evidence follows as `aff7e3b`. The visual candidate, terrain cache, materials and Surface optimization are not part of this main integration. The same pre-change Swales file was verified identical on both bases.
+
+On `aff7e3b`, the actual existing `annual-terrain-integration-check.cs` passes all31 result records (`main-annual-terrain.json`), covering592 lowered vertices,309 matching shared edges, undo/cancel, Year10 save replay and read-only comparison. `main-compile.json` reports zero errors/warnings and up-to-date compilation after Editor startup; `main-state.json` records an advancing player frame and original Year1/Planning state with $10M and no proposals/assets. The main-only preview+flush sample is111.35ms: the candidate's80ms result cannot be transferred to main, which does not have the display-height cache. No Chrome or accepted performance claim follows from either Editor sample.
