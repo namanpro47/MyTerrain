@@ -75,7 +75,12 @@ namespace Terra.UI
             Button(stage,step==0||step==6?"← "+returnLabel:"← Back",64,24,200,64,Back,false);
             Text(stage,"Take it local",300,25,350,60,30,Ink,true);
             string[] names={"Where","Level","Action","Plan","Share","Check-in"};int current=Mathf.Min(step,5);
-            for(int i=0;i<6;i++)Text(stage,(i<current?"✓ ":(i+1)+"  ")+names[i],1000+i*140,35,138,48,21,i<=current?Green:Muted,i==current);
+            for(int i=0;i<6;i++)
+            {
+                if(i<current)Icon(stage,"check",1000+i*140,42,26,Green);
+                else Text(stage,(i+1).ToString(),1000+i*140,35,28,48,21,i==current?Green:Muted,i==current);
+                Text(stage,names[i],1034+i*140,35,104,48,21,i<=current?Green:Muted,i==current);
+            }
             Panel(stage,"Header rule",0,110,1920,2,Line,false);
             switch(step){case 0:Where();break;case 1:Level();break;case 2:ActionPage();break;case 3:Plan();break;case 4:Share();break;case 5:CheckIn();break;default:Saved();break;}
             feedback=Text(stage,notice,96,1010,1728,40,21,Muted);focusIndex=0;Focus(0);
@@ -289,10 +294,21 @@ namespace Terra.UI
         {var r=Box(parent,"Label",x,y,w,h);var t=r.gameObject.AddComponent<TextMeshProUGUI>();t.font=TMP_Settings.defaultFontAsset;t.text=value;t.fontSize=size;t.color=color;t.fontStyle=bold?FontStyles.Bold:FontStyles.Normal;t.raycastTarget=false;t.richText=false;t.textWrappingMode=TextWrappingModes.Normal;return t;}
         Button Button(Transform parent,string title,float x,float y,float w,float h,Action action,bool primary,Color? accent=null)
         {
+            string mark=null;
+            if(title.StartsWith("✓ ")){mark="check";title=title.Substring(2);}
+            else if(title.StartsWith("○ ")){mark="circle";title=title.Substring(2);}
+            else if(title.StartsWith("← ")){mark="back";title=title.Substring(2);}
+            else if(title.EndsWith(" ↗")){mark="external";title=title.Substring(0,title.Length-2);}
             var r=Panel(parent,title,x,y,w,h,primary?(accent??Ink):Color.white);var b=r.gameObject.AddComponent<Button>();b.targetGraphic=r.GetComponent<Image>();
             var outline=r.gameObject.AddComponent<Outline>();outline.effectColor=Hex("2457C5");outline.effectDistance=new Vector2(3,-3);outline.enabled=false;
-            var label=Text(r,title,18,12,w-36,h-24,27,primary?Color.white:Ink,true);label.alignment=TextAlignmentOptions.Center;
+            if(mark!=null)Icon(r,mark,22,(h-30)*.5f,30,primary?Color.white:Ink);
+            var label=Text(r,title,mark==null?18:66,12,w-(mark==null?36:84),h-24,27,primary?Color.white:Ink,true);label.alignment=TextAlignmentOptions.Center;
             b.navigation=new Navigation{mode=Navigation.Mode.None};b.onClick.AddListener(()=>{Terra.Audio.TerraAudio.Ensure().Click();action();});controls.Add(b);return b;
+        }
+        void Icon(Transform parent,string symbol,float x,float y,float size,Color color)
+        {
+            var glyph=Box(parent,"Icon · "+symbol,x,y,size,size).gameObject.AddComponent<HudGlyph>();
+            glyph.symbol=symbol;glyph.color=color;glyph.raycastTarget=false;
         }
         TMP_InputField Input(Transform parent,string hint,string value,float x,float y,float w,float h,int limit,bool multi,Action<string> changed)
         {
