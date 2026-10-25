@@ -52,6 +52,9 @@ public static class TerraBuild
             throw new BuildFailedException($"Web build failed: {report.summary.result}");
 
         File.Copy(Path.Combine(Application.dataPath, "../scripts/vercel.json"), Path.Combine(staging, "vercel.json"), true);
+        // Package only server source; credentials are supplied by the hosting environment.
+        var api = Path.Combine(staging, "api"); Directory.CreateDirectory(api);
+        File.Copy(Path.Combine(Application.dataPath, "../services/narration/api/narration.js"), Path.Combine(api, "narration.js"), true);
         var previous = output + ".previous";
         if (Directory.Exists(previous)) Directory.Delete(previous, true);
         if (Directory.Exists(output)) Directory.Move(output, previous);

@@ -1,0 +1,7 @@
+{
+  "method": "Read-only .NET10 compiler check of this worktree runtime sources against installed Unity6000.6.6f1 and existing package reference assemblies; no Editor/build acceptance implied.",
+  "native": true,
+  "webgl": true,
+  "source": "600d50d4615c86b690ddda5c184f11634d1fd4b4",
+  "webglReferences": "Installed WebGL il2cpp managed reference assemblies"
+}
