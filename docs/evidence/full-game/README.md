@@ -54,3 +54,74 @@ Larger-text help passed its corrected text-height audit at 1440×900 and at 125%
 
 
 Final correction export `1e172d1aad5c4a4abc90fb3f7c745cda` succeeded in 108.391 s. It restores the completed strategy unchanged, correctly frames the operating 165 m turbine (`chrome-operating-wind.png`), and emits no browser errors in the inspected log. Two mute/unmute cycles changed Chrome's audio-playing indicator as expected; reduced-motion controls changed state. This verifies control/output activity, not a human listening-quality assessment. Standalone full-game checks remain 608/608; the Unity lifecycle entry point completed successfully. The latest local asset receipt pins the tested bytes. Diagnostics now separately report annual-transition duration and native/managed memory observations for the remaining performance work.
+
+## Whole-game browser coverage and performance baseline
+
+Chrome 155.0.8059.85 on this M1 Max / macOS 26.5.2 completed the community-and-services strategy manually through all ten years: **85.4 / 99.0 / 54.8**, cash **$5.240M**, future commitments **$797K**. The earlier land-and-livelihoods strategy reached **94.2 / 91.0 / 66.6**, cash **$6.163M**, commitments **$612K**. Reload restored completed results. Together with the remaining-family run, all seventeen variants were queued, accepted and operated in the live game. Close captures cover cover crops, gas power, data center, low-density homes, traditional farming, swales, stewardship and margins. This establishes gameplay coverage, not acceptance of every asset's visual finish.
+
+The remaining-family run correctly rejected a data center when only $1.95M was available against its $3.8M full reservation. After waiting, it became affordable in Year 3. The completed result was **91.7 / 58.9 / 36.2**, cash **$8.753M**, commitments **$573K**: a mixed ending with a lower environmental result than no new action. Completed views now explicitly say read-only and every ending reports cumulative public spending, including repairs and paid arrears.
+
+The pre-chapter integration build measured manual End Year including world/report refresh at **23.1–54.4 ms**; eight-year fast-forward took **308.6 ms**, yielding between years. These are offline timings, not provider latency. Native memory remained approximately **116–122 MB allocated / 214–222 MB reserved** across the recorded future/replay observations; this short sample does not establish a long-session leak guarantee.
+
+Three foreground 30-second paths at 1440×900 recorded **zero unfocused frames**:
+
+| Path | Average fps | Frame p95 / p99 | Maximum | Result |
+|---|---:|---:|---:|---|
+| Late land strategy camera | 50.5 | 31 / 41 ms | 51 ms | Stable-30 frame budget met; 60 fps target missed |
+| Close editing, preview, queue, undo/redo | 33.7 | 48 / 62 ms | 117 ms | Stable-30 budget missed |
+| Transformed landscape camera | 46.5 | 35 / 46 ms | 54 ms | Stable-30 budget missed |
+
+Raw JSON accompanies this note. No placement CPU stall exceeded 200 ms; sampled DOM-to-next-animation-frame placement latency was 30.6–34.7 ms. Preview included a 117.4 ms maximum outlier, with the other measured samples at 16–56.2 ms. These measurements indicate a presentation opportunity, not physical display latency. Other existing Unity Editors and Chrome work were left running; measurements describe this actual shared demo setup.
+
+The release optimization audit found WebAssembly `BuildTimes` mode and a 32 MiB initial heap. The build entry now requests `RuntimeSpeedLTO` and a 256 MiB initial heap based on the observed reserved memory, retaining geometric growth, gzip, fallback decoding, cache and exception handling. No scene density, shadows, resolution or material quality was reduced. Re-measurement is required before declaring an improvement. Relevant Unity 6000.6 guidance: [Web Player optimization](https://docs.unity3d.com/6000.6/Documentation/Manual/web-optimization-player.html). Phase 2A and release acceptance remain open.
+
+## Reconciliation with Peter's chapter integration
+
+Fetched `9da54a5d07985e1d248f0ae1a91e3d585713947e` and merged its local chapter integration without replacing the annual ledger or either set of UI changes. The full-game suite passes **608 assertions**, and the chapter suite passes **40** using `DOTNET_ROLL_FORWARD=Major` with the installed .NET 10 runtime. Strategy fixture fingerprints were regenerated with Peter's corrected Mono-compatible numeric hashing; balances and outcomes are unchanged. Unity compilation passes. The next Web export includes both changes; previous browser evidence remains pinned to its prior export.
+
+## Runtime optimization retest
+
+Export job `063e05ac9e4544cc9bda625b72f09a81` completed in **358.399 s**, with RuntimeSpeedLTO and the 256 MiB initial heap. Verified local assets total **39,617,826 bytes**. No art or render-quality setting was reduced.
+
+| Foreground path, 1440×900 | Average fps | p95 / p99 | Max | Frames over 33.34 ms |
+|---|---:|---:|---:|---:|
+| Accepted transformed landscape | 58.2 | 20 / 22 ms | 25 ms | 0 |
+| Close preview / queue / undo / redo | 37.9 | 33 / 37 ms | 66 ms | 50 / 1,138 |
+| Opening landscape, one test player | 57.9 | 20 / 24 ms | 162 ms | 3 / 1,737 |
+
+All three recorded paths have zero unfocused frames and meet the documented p95 ≤33.3 ms fallback, while the 60 fps target remains unmet. The editing sample has eighteen preview presentation-opportunity samples below 33 ms and two placements at 32.4/60 ms; no >200 ms placement stall. This result is specific to this machine/export and must be reconsidered after integrating the visual owner's next scene.
+
+An intervening opening-path sample with multiple test players open and another Unity build active recorded p95 **277 ms**; it is preserved as `performance-optimized-opening.json`. Closing this task's duplicate players and repeating the same movement yielded the one-player row above. Do not discard that interference case or imply performance is independent of concurrent GPU/CPU load. No teammate application was closed.
+
+Fresh-origin arrival observations so far are **6.854 s** and **12.324 s** with `Cache-Control: no-store`. The first originated at native window size before resizing, the second at 1440×900. A third tab did not yield a readiness receipt before closure and is **not** counted as a pass; three complete controlled arrivals remain required.
+
+The combined game restores an existing mixed ending unchanged and now displays **$11.427M public spending**, $8.753M closing cash, $180K receipts and $573K future commitments. Chapter failure leaves Year 1 pending with $10M unchanged. Reload restores that submitted state; retry remains safe; explicit offline acceptance produces exactly $11M closing cash for a waiting year. Captures accompany this note. The generic offline budget card discovered here is being replaced by actual accepted ledger amounts and all three indicator results; prior saved chapters retain their original receipt text.
+
+### Chapter recovery, compact text and repeated runs
+
+Export `47d3ac9481664b41b580b818173b66cb` completed in **361.928 s**; `chapter-assets.json` pins its bytes. A previously accepted offline chapter restores without another appropriation/payment. A pending Year 2 can return to editing with its cash unchanged, then accept a different park plan. The new offline card reports its exact $50K payment, $1M appropriation, $11.95M closing cash and $20K commitments. Economic/social and environmental/conditions cards now include accepted scores and actual quantities. Old saved chapter receipts retain their original text. The chapter suite passes **42 checks**, the Unity main-game HUD/session check passes **17**, and existing Unity chapter checks pass **16**.
+
+Larger-text chapter cards and the spending-inclusive ending fit at **125% Chrome zoom / 1024×576 CSS pixels** with no text-height audit overflow. The park-only run ends at **42.9 / 61.0 / 42.6**, cash **$19.784M**, public spending **$216K**, obligations **$4K**. The measured offline Year 2 acceptance took **48.6 ms** including persistence/report refresh; the remaining eight years took **641.5 ms** including yielded frames and final rendering refresh.
+
+Two confirmed replays and ten-year continuations within the same player produced the exact no-action result **42.3 / 58.0 / 42.0**, cash **$19.85M**, spending **$150K**, obligations **$0**. Reserved native memory stayed at **221,708,288 bytes**; settled allocation was **122,492,568 bytes**, with **277 meshes / 689 materials**. Managed memory fell to **22,949,888 bytes** after settling. This is a bounded repeated-run observation, not a proof of indefinite leak freedom.
+
+**Foreground measurement qualification:** subsequent native Chrome inspection found the other visual-work chat using another tab while this task's automation could still interact with its player. Unity's `Application.isFocused` alone does not prove browser-tab visibility. The earlier performance rows therefore remain provisional foreground evidence. F9 diagnostics now record DOM hidden/focus status, visibility transitions and blur events; eight mocked restart/visibility/listener-cleanup checks pass. Repeat the three paths with those diagnostics before certifying the foreground gate.
+
+
+### Visibility-confirmed measurements and project stories
+
+Final local export `b7554282467b478bbc2a2246937b62dc` completed in **276.357 s**. `local-assets.json` pins this output. The user authorized coordination with the visual-work chat; that chat left Chrome foreground available during these tests. Each 30-second sample records DOM visibility/focus at both ends, no visibility transitions, no blur events, and zero Unity unfocused frames. One test player was open. These measurements supersede the provisional foreground rows above for this build.
+
+| Path at 1440×900 | Average fps | p95 / p99 | Maximum | Frames over 33.34 ms |
+|---|---:|---:|---:|---:|
+| Opening camera | 59.9 | 18 / 20 ms | 24 ms | 0 / 1,796 |
+| Close editing / preview / queue / undo / redo | 60.0 | 18 / 18 ms | 28 ms | 0 / 1,800 |
+| Transformed eight-project valley | 57.8 | 21 / 23 ms | 30 ms | 0 / 1,734 |
+
+`foreground-opening.json`, `foreground-editing.json` and `foreground-transformed.json` retain the actual receipts. The strict p95 16.7 ms / 60 fps target remains unmet; the documented stable-30 fallback passes on this machine and export, without reducing art or render quality. Placement CPU maximum was **16 ms**; two DOM-input-to-feedback presentation opportunities were **38.8 / 34.4 ms**. Eighteen preview samples were **16.4–27.4 ms**, with **2.2 ms** maximum preview CPU. No frame or interaction exceeded 200 ms. These are presentation opportunities, not physical display latency.
+
+Three sequential first visits to separate `Cache-Control: no-store` localhost origins, using one tab/player, reached the actual interactive receipt in **4.416 / 4.145 / 4.059 seconds**. See `foreground-fresh-origin-loads.json`. This is local delivery, not public network or low-end hardware evidence. Existing Unity Editors were preserved; no claim of an otherwise idle machine is made.
+
+The ending timeline now leads to each accepted project's short story: committed year, first operating year, final lifecycle/maturity, production/service units and configured retention, with explicit scenario limits. Inspect focuses the actual metric footprint without allowing edits/refunds. Chrome traversed all eight stories, verified cover crop Year 1 → operating Year 2 and data center Year 3 → operating Year 5, inspected the final site, and returned to the unchanged future. A no-project run presents the existing-use trajectory instead of indexing an empty list. The story fits larger text at 125% zoom / 1024×576 CSS with **zero overflow** in `project-story-large-125-audit.json`. Captures: `chrome-project-story.png`, `chrome-project-story-last.png`, `chrome-project-story-inspect.png`, `chrome-project-story-large-125.png`, `chrome-no-action-story.png`. No browser error was present in the inspected final log.
+
+Pattern IDs **TN-06 / TN-08 / CS-01 / AX-01**: truthful accepted-history narrative, site-level visual payoff and compact legible field notes. The active visual owner reports substantial remaining scenery gaps; this checkpoint does **not** accept Phase 2A or the full Phase 7/8 gate. All seventeen variants have functional browser coverage; final visual integration, matched scenery review, release rehearsals and the public complete run remain open. Novice/hardware/physical listening assessments remain explicitly untested.

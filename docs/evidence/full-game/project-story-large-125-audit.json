@@ -1,0 +1,158 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1.25,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "T E R R A   /   FIELD NOTES",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 34.41229248046875,
+        "width": 610.953857421875,
+        "height": 20.08612060546875
+      },
+      "bodyCssPx": 13.122932434082031,
+      "minGlyphCssPx": 13.122932434082031,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Your projects · 1 / 8</b></size>\n\n<size=88%>You committed Cover crop at West field in Year 1.\n\nIts first operating year was Year 2.\n\nFinal state: Operating · establishment 100%.\nLifecycle and funding follow the configured action recipe.\n\nIllustrative production: 10.8 units; services: 0.0 units.\nConfigured runoff retention: 0 m³; not a flood-risk estimate.\n\nInspect its real-sized footprint in the final valley. These are saved game outcomes, not a local forecast.</size>",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 67.05230712890625,
+        "width": 615.975341796875,
+        "height": 368.2461242675781
+      },
+      "bodyCssPx": 18.747074127197266,
+      "minGlyphCssPx": 16.497426986694336,
+      "preferredHeight": 333.8599853515625,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 393.15692138671875,
+        "y": 496.3938293457031,
+        "width": 237.6861572265625,
+        "height": 43.51999282836914
+      },
+      "bodyCssPx": 15.935013771057129,
+      "minGlyphCssPx": 15.935013771057129,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Inspect this site",
+      "rect": {
+        "x": 466.80615234375,
+        "y": 442.83074951171875,
+        "width": 346.48614501953125,
+        "height": 43.519989013671875
+      },
+      "bodyCssPx": 15.935012817382812,
+      "minGlyphCssPx": 15.935012817382812,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Next project",
+      "rect": {
+        "x": 210.7077178955078,
+        "y": 442.83074951171875,
+        "width": 179.1015167236328,
+        "height": 43.519989013671875
+      },
+      "bodyCssPx": 15.935012817382812,
+      "minGlyphCssPx": 15.935012817382812,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 386.4615478515625,
+        "y": 494.7200012207031,
+        "width": 251.076904296875,
+        "height": 46.8676872253418
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 460.11077880859375,
+        "y": 441.15692138671875,
+        "width": 359.87689208984375,
+        "height": 46.86769104003906
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 441.15692138671875,
+        "width": 192.49227905273438,
+        "height": 46.86769104003906
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 24,
+      "y": 24,
+      "width": 310,
+      "height": 94
+    },
+    {
+      "x": 132,
+      "y": 396,
+      "width": 760,
+      "height": 160
+    },
+    {
+      "x": 24,
+      "y": 126,
+      "width": 310,
+      "height": 196
+    },
+    {
+      "x": 350,
+      "y": 24,
+      "width": 650,
+      "height": 94
+    },
+    {
+      "x": 200,
+      "y": 330,
+      "width": 130,
+      "height": 38
+    },
+    {
+      "x": 24,
+      "y": 330,
+      "width": 164,
+      "height": 38
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 177.2307891845703,
+      "y": 16,
+      "width": 669.5384521484375,
+      "height": 544
+    }
+  ]
+}

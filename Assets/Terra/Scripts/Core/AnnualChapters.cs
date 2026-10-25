@@ -30,9 +30,9 @@ namespace Terra.Core
             var facts = new List<AnnualChapterFact> {
                 Fact("year", "Year " + summary.year + " of " + town.Definition.years + ". " + summary.headline
                     + (summary.finalYear ? " This is the final year of the run." : "")), Fact("weather", summary.scenario),
-                Fact("economic", summary.economic.evidence + " " + summary.economic.rubric),
-                Fact("social", summary.social.evidence + " " + summary.social.rubric),
-                Fact("environmental", summary.environmental.evidence + " " + summary.environmental.rubric),
+                Fact("economic", Score(summary.economic) + summary.economic.evidence + " " + summary.economic.rubric),
+                Fact("social", Score(summary.social) + summary.social.evidence + " " + summary.social.rubric),
+                Fact("environmental", Score(summary.environmental) + summary.environmental.evidence + " " + summary.environmental.rubric),
                 Fact("budget", "USD: spent " + Dollars(summary.spentCents) + "; received " + Dollars(summary.receivedCents)
                     + "; closing cash " + Dollars(summary.ledger.closingCashCents) + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + "."),
                 Fact("limits", Notice + " " + town.Definition.assumptions)
@@ -73,15 +73,19 @@ namespace Terra.Core
             var town = Preview(input);
             var summary = AnnualTownSummary.Latest(town);
             return new AnnualChapterReceipt {
-                rulesVersion = RulesVersion, mode = "offline", model = "authored-offline-v1",
+                rulesVersion = RulesVersion, mode = "offline", model = "authored-offline-v2",
                 consequences = town.History.Last().acceptedConsequences,
                 chapter = new AnnualChapterText {
                     title = "Year " + summary.year + (summary.finalYear ? " — your ten-year future" : " — the next chapter"),
                     introduction = "Offline chapter. " + summary.headline,
                     cards = new[] {
-                        Card("Public budget", "Public spending and future obligations follow the accepted ledger.", "budget"),
-                        Card("Life in the valley", summary.economic.evidence, "economic"),
-                        Card("The land", summary.environmental.evidence, "environmental")
+                        Card("Public budget", "Spent " + Dollars(summary.spentCents) + "; received " + Dollars(summary.receivedCents)
+                            + " including the annual appropriation. Closing cash " + Dollars(summary.ledger.closingCashCents)
+                            + "; future obligations " + Dollars(summary.ledger.futureCommitmentsCents) + ". Accepted payments cannot be undone.", "budget"),
+                        Card("People and livelihoods", Score(summary.economic) + summary.economic.evidence + "\n\n"
+                            + Score(summary.social) + summary.social.evidence, "economic", "social"),
+                        Card("The land and this year's conditions", Score(summary.environmental) + summary.environmental.evidence
+                            + "\n\n" + summary.scenario, "environmental", "weather")
                     }
                 }
             };
@@ -91,7 +95,9 @@ namespace Terra.Core
         public static string RequestKey(AnnualChapterRequest input) => TownCopies.Hash(new[] { input.snapshot.runId, input.snapshot.pendingRequest.requestId });
         static AnnualChapterFact Fact(string id, string text) => new AnnualChapterFact { id = id, text = text };
         static string Dollars(long cents) => (cents / 100m).ToString("C2", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
-        static AnnualChapterCard Card(string title, string text, string fact) => new AnnualChapterCard { title = title, explanation = text, factIds = new[] { fact } };
+        static string Score(AnnualOutcomeSummary value) => value.label + " " + value.score.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)
+            + " / 100" + (value.hasPreviousYear ? " (" + value.change.ToString("+0.0;-0.0;0.0", System.Globalization.CultureInfo.InvariantCulture) + " vs last year)" : "") + ". ";
+        static AnnualChapterCard Card(string title, string text, params string[] facts) => new AnnualChapterCard { title = title, explanation = text, factIds = facts };
         static void Text(string text, int limit) => Require(!string.IsNullOrWhiteSpace(text) && text.Length <= limit
             && !text.Contains("<") && !text.Contains(">") && !text.Any(c => char.IsControl(c) && c != '\n'), "Text is missing, too long, or contains markup/control characters.");
         static void Require(bool valid, string message) { if (!valid) throw new ArgumentException(message); }

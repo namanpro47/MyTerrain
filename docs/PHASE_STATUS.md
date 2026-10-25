@@ -14,6 +14,14 @@ Reconciled the concurrently published `358312d` responsive UI / future compariso
 
 Final-build Chrome check: no-new-project Year 1 accepted a Gemini chapter with the reviewed **$11M** closing cash. Confirmed offline fast-forward then reached **Year 10 / Complete**, **$19.85M** closing cash, and the matching **42.3 / 58.0 / 42.0** no-new-action comparison. No runtime errors in the inspected final-build log. The test run was archived through New run, leaving Year 1 for Peter's local test. No public deployment.
 
+## Full-game quality checkpoint — October 24, 2026
+
+Reconciled Peter's `9da54a5` annual chapters through `ba88fdf`, preserving the shared ledger and saved receipts. Offline chapters now show exact accepted money and all three indicator results; the ending adds saved project stories and site inspection. Chrome verifies pending/retry/reload/offline recovery, unchanged committed cash, complete story pagination, no-project ending, compact 125% larger text, and repeated replays. Full source checks: **608 full-game, 42 chapters, 94 annual + 15 gameplay, 1,372 consequences**; Unity **34 lifecycle, 17 main HUD/session + 16 chapter** assertions.
+
+Release Web exports now use RuntimeSpeedLTO and a measured 256 MiB initial heap. Three visibility-confirmed 30-second Chrome paths at 1440×900 yield p95 **18 / 18 / 21 ms**, with no frames above 33.34 ms; the stable-30 fallback passes while the strict 60 fps target remains unmet. Three fresh local-origin arrivals take **4.416 / 4.145 / 4.059 s**. Offline Year 2 accepts in **48.6 ms**; eight-year fast-forward takes **641.5 ms**. Repeated-run reserved native memory remains **221.7 MB**. [Methods, limitations, exact bytes and captures](evidence/full-game/README.md#visibility-confirmed-measurements-and-project-stories).
+
+**Engineering checkpoint, not full phase completion:** Phase 2A still has known visual gaps under its active owner. Final visual integration, release rehearsal and complete public run remain required. Novice observations are unavailable. Pattern IDs TN-06/08, CS-01, AX-01.
+
 ## Full-plan implementation — October 24, 2026
 
 Phase 6 / Phase 7 implementation checkpoint: same-driver no-new-action comparison, ten-year timeline, explicit scenario targets, optional transfer/takeaway, confirmed replay, gesture-triggered free audio and compact/larger-text layouts are connected. Actual Chrome land-and-livelihoods play reaches the exact tested ending (94.2/91.0/66.6; $6.163M); repair review, reference-map isolation and enlarged compact ending are verified. [Current evidence](evidence/full-game/README.md#future-replay-and-whole-game-browser-checkpoint). Phase 2A visual acceptance, remaining family/browser/performance and release evidence are still open.

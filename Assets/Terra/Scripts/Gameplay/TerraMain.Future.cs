@@ -81,8 +81,29 @@ namespace Terra.Gameplay
         {
             var history=annual.State.history;var rows=history.Skip(page*5).Take(5);
             string text=string.Join("\n\n",rows.Select(r=>"YEAR "+r.year+"  ·  E "+r.outcomes.economicScore.ToString("0.0")+" / S "+r.outcomes.socialScore.ToString("0.0")+" / Env "+r.outcomes.environmentalScore.ToString("0.0")+"\nCash "+Terra.UI.TerraHud.Money(r.ledger.closingCashCents)+" · "+r.acceptedRequest.actions.Length+" new projects · "+r.acceptedRequest.driver.description));
-            hud.AnnualDialog("Your ten-year timeline · "+(page+1)+" / 2","<size=86%>"+text+"</size>",page==0?"Years 6–10":"Return to future",page==0?(Action)(()=>ShowTimelinePage(1)):ShowFuture);
+            hud.AnnualDialog("Your ten-year timeline · "+(page+1)+" / 2","<size=86%>"+text+"</size>",page==0?"Years 6–10":"The projects you shaped",page==0?(Action)(()=>ShowTimelinePage(1)):(()=>ShowProjectStory(0)));
             hud.AnnualSecondary("Learning takeaway",ShowTransferQuestion);
+        }
+        void ShowProjectStory(int index)
+        {
+            var state=annual.State;var assets=state.assets.OrderBy(a=>a.startedYear).ThenBy(a=>a.siteId).ToArray();
+            if(assets.Length==0)
+            {
+                hud.AnnualDialog("A decade of existing uses","You accepted ten years without adding projects. Existing services and land still faced the saved conditions and their public costs. This is the same no-new-action trajectory used in the comparison.","Return to future",ShowFuture);
+                return;
+            }
+            var asset=assets[index];var site=world.sites.First(s=>s.id==asset.siteId);
+            var action=annualDefinition.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId);
+            var final=state.history.Last().outcomes.sites.First(s=>s.siteId==asset.siteId);
+            var firstOperating=state.history.FirstOrDefault(r=>r.outcomes.sites.Any(s=>s.siteId==asset.siteId&&s.actionId==asset.actionId&&s.phase==TownAssetPhase.Operating));
+            string text="You committed "+action.title+" at "+site.name+" in Year "+asset.startedYear+".\n\n"+
+                (firstOperating==null?"It had not reached the operating stage by Year 10.":"Its first operating year was Year "+firstOperating.year+".")+
+                "\n\nFinal state: "+final.phase+" · establishment "+(final.maturity*100).ToString("0")+"%.\n"+final.explanation+
+                "\n\nIllustrative production: "+final.productionUnits.ToString("0.0")+" units; services: "+final.serviceUnits.ToString("0.0")+" units.\nConfigured runoff retention: "+final.retentionCapacityM3.ToString("0")+" m³; not a flood-risk estimate.\n\nInspect its real-sized footprint in the final valley. These are saved game outcomes, not a local forecast.";
+            hud.AnnualDialog("Your projects · "+(index+1)+" / "+assets.Length,"<size=88%>"+text+"</size>","Inspect this site",()=>{
+                comparisonMap=false;hud.MapView(null);RefreshLandscape();hud.CloseModal();selectedId=hoverId=asset.siteId;Refresh();FocusSite();
+            });
+            hud.AnnualSecondary(index+1<assets.Length?"Next project":"Return to future",index+1<assets.Length?(Action)(()=>ShowProjectStory(index+1)):ShowFuture);
         }
         void ShowTransferQuestion()
         {

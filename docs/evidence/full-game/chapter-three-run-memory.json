@@ -1,0 +1,38 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":122164933,\"reservedBytes\":221708288,\"managedBytes\":44523520,\"meshes\":281,\"materials\":697}\n",
+    "timestamp": "2026-10-25T04:00:31.765Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"new-run\",\"allocatedBytes\":122623782,\"reservedBytes\":221708288,\"managedBytes\":24928256,\"meshes\":279,\"materials\":693}\n",
+    "timestamp": "2026-10-25T04:01:07.731Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":122459871,\"reservedBytes\":221708288,\"managedBytes\":40980480,\"meshes\":277,\"materials\":689}\n",
+    "timestamp": "2026-10-25T04:01:09.445Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"new-run\",\"allocatedBytes\":122689247,\"reservedBytes\":221708288,\"managedBytes\":23896064,\"meshes\":277,\"materials\":689}\n",
+    "timestamp": "2026-10-25T04:01:16.269Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":122689247,\"reservedBytes\":221708288,\"managedBytes\":40980480,\"meshes\":277,\"materials\":689}\n",
+    "timestamp": "2026-10-25T04:01:17.869Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":122492568,\"reservedBytes\":221708288,\"managedBytes\":22949888,\"meshes\":277,\"materials\":689}\n",
+    "timestamp": "2026-10-25T04:01:57.131Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  }
+]

@@ -26,6 +26,7 @@ namespace Terra.Gameplay
         UnityWebRequest request;
         UnityWebRequestAsyncOperation operation;
         AnnualChapterRequest frozen;
+        System.Diagnostics.Stopwatch resolutionTiming;
 
         public void ResolveOnline()
         {
@@ -36,6 +37,7 @@ namespace Terra.Gameplay
                 if (!Uri.TryCreate(endpoint, UriKind.Absolute, out var uri)
                     || (uri.Scheme != "https" && !(uri.Scheme == "http" && uri.IsLoopback)))
                     throw new InvalidOperationException("Use HTTPS, or HTTP on localhost for the developer service.");
+                resolutionTiming = System.Diagnostics.Stopwatch.StartNew();
                 frozen = Freeze();
                 if (frozen == null) return; // Already reviewing/completed: never reroll.
                 Persist(); // Save frozen request before the first network request.
@@ -98,12 +100,18 @@ namespace Terra.Gameplay
             frozen = null;
             Persist();
             Publish();
+            if (resolutionTiming != null)
+                Debug.Log("TERRA_ANNUAL_TIMING: " + receipt.mode + " year " + receipt.consequences.year + " accepted in "
+                    + resolutionTiming.Elapsed.TotalMilliseconds.ToString("0.0", System.Globalization.CultureInfo.InvariantCulture)
+                    + " ms including persistence and report refresh; online includes request wait");
+            resolutionTiming = null;
         }
 
         public void ResolveOffline()
         {
             StopRequest(); // Explicit selection; never an automatic silent fallback.
             Error = null;
+            resolutionTiming = System.Diagnostics.Stopwatch.StartNew();
             frozen = Freeze();
             if (frozen != null) { Persist(); Accept(AnnualChapters.Offline(frozen)); }
         }

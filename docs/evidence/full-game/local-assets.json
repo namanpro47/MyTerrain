@@ -5,50 +5,50 @@
     {
       "file": "index.html",
       "status": 200,
-      "bytes": 6364,
-      "sha256": "c2c4e1ddbc57dd1828f9c7cd250f4ea6c7cea542d0e3ea7b950ec0de2b36cb8b",
+      "bytes": 6520,
+      "sha256": "521113f1f4ce0de403dcded150c002c34dff2f0aea082e0db65aa427c76dadfd",
       "contentType": "text/html",
       "contentEncoding": null,
       "cacheControl": null
     },
     {
-      "file": "Build/0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+      "file": "Build/2ec32cbcf396b364dfc21490996fd030.wasm.unityweb",
       "status": 200,
-      "bytes": 76877,
-      "sha256": "7ff6dd4a716985c2aad791e338b283fc79adf6734751cccf08becedc9bce8aa7",
+      "bytes": 11112213,
+      "sha256": "1a913938ea0c5a24afa80c047541d8d3bc0e90c2a9391327b9377144986170ad",
       "contentType": "application/vnd.unity",
       "contentEncoding": null,
       "cacheControl": null,
-      "decodedBytes": 339104
+      "decodedBytes": 40268504
     },
     {
-      "file": "Build/257d40f506ed19067a7ace802e558ff8.wasm.unityweb",
+      "file": "Build/3c9012e6761d7b736efc91fcd6933a64.framework.js.unityweb",
       "status": 200,
-      "bytes": 9663400,
-      "sha256": "27c95b768e6ad412744f47da7a82163f9aa76cec598e6e9c8fd580755bb2f1f9",
+      "bytes": 76563,
+      "sha256": "9807efc4bc4035fc17e80ec873a18f20864811d36d22e027c3b2f08527b1934a",
       "contentType": "application/vnd.unity",
       "contentEncoding": null,
       "cacheControl": null,
-      "decodedBytes": 36188953
+      "decodedBytes": 330848
     },
     {
-      "file": "Build/47a2e144987363fdd1cd9feb52587d8f.data.unityweb",
-      "status": 200,
-      "bytes": 27419776,
-      "sha256": "90b2b89f484a404ae32c3f026e938a6d85fea4d9b3af694dc7759047f8a68fbb",
-      "contentType": "application/vnd.unity",
-      "contentEncoding": null,
-      "cacheControl": null,
-      "decodedBytes": 37665954
-    },
-    {
-      "file": "Build/8700c5dace182e99a256e1be4c5fc555.loader.js",
+      "file": "Build/4339545020df2d46df439aa0a59edbb8.loader.js",
       "status": 200,
       "bytes": 48779,
-      "sha256": "2ab024610042c79f281607c089514618b7a89b6a73326ecefdc528272b0b2af1",
+      "sha256": "dd79924ffc2b364605948d58adb869049bf80c1665df9afad6e2c7af1654ad30",
       "contentType": "text/javascript",
       "contentEncoding": null,
       "cacheControl": null
+    },
+    {
+      "file": "Build/e0f4035726c96b04f17f5189ba87d131.data.unityweb",
+      "status": 200,
+      "bytes": 27419494,
+      "sha256": "ee74a558a8a264d606baedc6ac19abb2cc5ccc7174fed7ed3c581bc6e94e9686",
+      "contentType": "application/vnd.unity",
+      "contentEncoding": null,
+      "cacheControl": null,
+      "decodedBytes": 37671263
     },
     {
       "file": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",

@@ -1,0 +1,44 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 3639ms",
+    "timestamp": "2026-10-25T03:44:00.292Z",
+    "url": "http://127.0.0.1:8851/"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=531; meshes=31; vertices=728538; materials=4\n",
+    "timestamp": "2026-10-25T03:44:03.447Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T03:44:03.507Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 6854",
+    "timestamp": "2026-10-25T03:44:03.507Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T03:44:53.183Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.009002685546875,\"averageFps\":37.92195510864258,\"frameP50Ms\":26.0,\"frameP95Ms\":33.0,\"frameP99Ms\":37.0,\"maxFrameMs\":66.0,\"maxPreviewCpuMs\":2.4000000953674316,\"maxPlacementCpuMs\":17.600000381469727,\"frames\":1138,\"framesOver33Ms\":50,\"framesOver200Ms\":0,\"previewEvents\":23,\"placementEvents\":2,\"cameraEvents\":565,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T03:45:23.195Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":32.400000005960464},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":26.299999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.799999982118607},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":26.700000017881393},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.5},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":32.30000001192093},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":24},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":23.30000001192093},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":22.5},{\"kind\":\"placement\",\"source\":\"keyboard\",\"milliseconds\":60},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25.599999994039536},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":26.200000017881393},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":30.69999998807907},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":26},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":24.5},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":31},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":26.900000005960464},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":29.700000017881393},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":29},{\"kind\":\"preview\",\"source\":\"keyboard\",\"milliseconds\":25}],\"discardedStale\":0}",
+    "timestamp": "2026-10-25T03:45:23.211Z",
+    "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+  }
+]

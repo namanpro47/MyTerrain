@@ -1,0 +1,22 @@
+{
+  "method": "Three new local origins; Cache-Control no-store; browser/native caches not globally cleared",
+  "runs": [
+    [
+      {
+        "level": "info",
+        "message": "TERRA_INTERACTIVE_MS 6854",
+        "timestamp": "2026-10-25T03:44:03.507Z",
+        "url": "blob:http://127.0.0.1:8851/6f0dde04-85a0-4ca7-a09c-0ec99344b67a"
+      }
+    ],
+    [
+      {
+        "level": "info",
+        "message": "TERRA_INTERACTIVE_MS 12324",
+        "timestamp": "2026-10-25T03:45:54.541Z",
+        "url": "blob:http://127.0.0.1:8852/8aa97c1f-858e-4c61-b621-04549aba20b4"
+      }
+    ],
+    []
+  ]
+}

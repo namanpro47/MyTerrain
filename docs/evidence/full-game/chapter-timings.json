@@ -1,0 +1,62 @@
+[
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 2 accepted in 48.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T03:57:53.257Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 3 accepted in 34.7 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.161Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 4 accepted in 37.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.215Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 5 accepted in 38.3 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.273Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 6 accepted in 50.7 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.345Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 7 accepted in 43.9 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.413Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 8 accepted in 47.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.492Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 9 accepted in 50.3 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.571Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: offline year 10 accepted in 50.6 ms including persistence and report refresh; online includes request wait\n",
+    "timestamp": "2026-10-25T04:00:31.650Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_ANNUAL_TIMING: fast-forward from year 3 completed in 641.5 ms including yielding and final world refresh\n",
+    "timestamp": "2026-10-25T04:00:31.765Z",
+    "url": "blob:http://127.0.0.1:8852/594e6496-d898-4b34-83bb-7d07feace97e"
+  }
+]

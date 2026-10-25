@@ -62,6 +62,9 @@ Check(ChapterJson.Write(input) == original && town.CashCents == 1000000 && town.
 var offline = AnnualChapters.Offline(input);
 AnnualChapters.ValidateReceipt(input, offline);
 Check(offline.mode == "offline" && offline.chapter.cards.Length == 3, "Offline path must be labelled.");
+Check(offline.chapter.cards[0].explanation.Contains("$9,025.00"), "Offline budget must show the accepted closing cash.");
+Check(offline.chapter.cards.SelectMany(c => c.factIds).Contains("social") && offline.chapter.cards[1].explanation.Contains("Social "), "Offline chapter must explain the social result as well as economic and environmental results.");
+AnnualChapters.ValidateReceipt(fullUnityFixture, AnnualChapters.Offline(fullUnityFixture));
 var invalid = Copy(offline); invalid.consequences.effects = new[] { new TownSiteEffect { siteId = "a", sourceId = "fixture-year-1", productionFactor = 1.1, reason = "Invented bonus" } };
 RejectSync(() => AnnualChapters.ValidateReceipt(input, invalid), "AI must not inject even an in-range effect.");
 invalid = Copy(offline); invalid.consequences.inputHash = "different";
