@@ -1,0 +1,23 @@
+{
+  "source": "632c1599cff61802682a199696415652d3653776",
+  "unity": "6000.6.6f1",
+  "newtonsoftPackage": "com.unity.nuget.newtonsoft-json@3.2.2",
+  "modelTarget": "netstandard2.1",
+  "assertions": 60,
+  "routes": 4,
+  "years": 40,
+  "inputSha256": {
+    "Builds/AnnualSimulation/UnityVectors/repair-debt/snapshot.json": "a89b30f3e12cbb9c4c4acaa2d9b2bbf530a87214100c46bb64526fcd6874b45f",
+    "Builds/AnnualSimulation/UnityVectors/repair-debt/definition.json": "375338f79552d2a0b9beaae6fd9be82ef8b0193862b4481ce04e0bfc19086694",
+    "Builds/AnnualSimulation/UnityVectors/six-centers/snapshot.json": "29540edf5e0334f10ef42941a11f091d120df2069eb1d18bbd296d3bd1c72919",
+    "Builds/AnnualSimulation/UnityVectors/six-centers/definition.json": "88013ff3002ec3fca864efcedc3790a3b3890685e699b3d97d1ec4638f46e6cb",
+    "Builds/AnnualSimulation/UnityVectors/baseline/snapshot.json": "150c0a4295ca7a56c47dde01be46c71def46538d15003218e19f02a2640417a3",
+    "Builds/AnnualSimulation/UnityVectors/baseline/definition.json": "e116fc9dc43cc98ae722e941b4479e7ca24bc977d01c62f284d2375e88897474",
+    "Builds/AnnualSimulation/UnityVectors/public-repair/snapshot.json": "0a532a33f5516cc95d95c1579698a00ebfbddb570609f230eedf0c902b59fca7",
+    "Builds/AnnualSimulation/UnityVectors/public-repair/definition.json": "e116fc9dc43cc98ae722e941b4479e7ca24bc977d01c62f284d2375e88897474",
+    "Builds/NumericJsonDiagnostic/Portable.dll": "64774012f3f64b9c819bbacea1fba7914036420e606c47603b7a34e501400d6c",
+    "Builds/NumericJsonDiagnostic/Newtonsoft.Json.dll": "7292d3eb508652d14726749dd27094f2d481aeccf2db6427b62f68a71460897e",
+    "/Applications/Unity/Hub/Editor/6000.6.6f1/Unity.app/Contents/Resources/Scripting/MonoBleedingEdge/bin/mono": "617b0ac41c484b3748675c63c118611288c3210a6264724ff10a3f9f6bb23684"
+  },
+  "limits": "Bundled Mono console execution only; no actual Unity player or IL2CPP/WebGL/IndexedDB acceptance"
+}
