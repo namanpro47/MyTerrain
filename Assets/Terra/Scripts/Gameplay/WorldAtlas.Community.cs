@@ -10,6 +10,8 @@ namespace Terra.Gameplay
         TextMeshProUGUI communityStatus,communitySource;
         RectTransform communityList;
         bool communityWasOpen;
+        CommunityCatalog communityCatalog;CommunityPlace currentCommunity;
+        int communityPage;
 
         // Separate partial keeps the existing globe, journey and annual save path owned by the atlas.
         public void InstallCommunityBrowser(CommunityTerrain companion)
@@ -28,6 +30,8 @@ namespace Terra.Gameplay
             Text(panel,"2  Review the real place",new Vector2(0,1),new Vector2(32,-368),new Vector2(310,32),23,Cream);
             Text(panel,"Try these prepared communities",new Vector2(0,1),new Vector2(32,-410),new Vector2(310,28),16,Mint);
             communityList=Box(panel,"Prepared communities",new Vector2(0,1),new Vector2(32,-452),new Vector2(304,142));
+            Button(panel,"Previous",new Vector2(0,1),new Vector2(32,-560),new Vector2(146,36),()=>CommunityPage(-1));
+            Button(panel,"Next",new Vector2(0,1),new Vector2(190,-560),new Vector2(146,36),()=>CommunityPage(1));
             Text(panel,"3  Shape its future",new Vector2(0,1),new Vector2(32,-618),new Vector2(310,32),23,Cream);
             Text(panel,"Terrain exploration is ready. Editable objects and annual scenarios still need authoring.",new Vector2(0,1),new Vector2(32,-661),new Vector2(304,72),16,Muted);
             var viewport=Box(panel,"Source-aligned preview",new Vector2(1,1),new Vector2(-28,-142),new Vector2(840,485));
@@ -46,18 +50,28 @@ namespace Terra.Gameplay
             communityPanel.SetActive(false);
             StartCoroutine(community.ReadCatalog(catalog=>
             {
-                // Bounded display: keep this surface simple; paginate if the authored catalog grows.
-                for(int i=0;i<Mathf.Min(catalog.places.Length,3);i++)
-                {
-                    var place=catalog.places[i];
-                    Button(communityList,place.name+"  →",new Vector2(0,1),new Vector2(0,-i*48),new Vector2(304,42),()=>LoadCommunity(place));
-                }
+                communityCatalog=catalog;CommunityPage(0);
+                if(communityWasOpen&&catalog.places.Length>0)LoadCommunity(catalog.places[0]);
             },message=>communityStatus.text=message));
+        }
+        void CommunityPage(int direction)
+        {
+            if(communityCatalog==null||communityCatalog.places.Length==0)return;
+            int pages=(communityCatalog.places.Length+1)/2;communityPage=(communityPage+direction+pages)%pages;
+            foreach(Transform child in communityList){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+            for(int i=0;i<2;i++)
+            {
+                int index=communityPage*2+i;if(index>=communityCatalog.places.Length)break;
+                var place=communityCatalog.places[index];
+                Button(communityList,place.name+"  →",new Vector2(0,1),new Vector2(0,-i*48),new Vector2(304,42),()=>LoadCommunity(place));
+            }
         }
         public void OpenCommunityBrowser()
         {
             if(Traveling||communityPanel==null)return;
             notes.SetActive(true);communityPanel.SetActive(true);communityWasOpen=true;
+            if(currentCommunity!=null)LoadCommunity(currentCommunity);
+            else if(communityCatalog!=null&&communityCatalog.places.Length>0)LoadCommunity(communityCatalog.places[0]);
             EventSystemSelect(communityPanel.GetComponentInChildren<UnityEngine.UI.Button>());
         }
         static void EventSystemSelect(UnityEngine.UI.Button button)
@@ -69,6 +83,7 @@ namespace Terra.Gameplay
         }
         public void LoadCommunity(CommunityPlace place)
         {
+            currentCommunity=place;
             communitySource.text=place.region+" · imagery "+place.imageYear+"\nUSDA NAIP / USGS · public domain · 3DEP elevation · not a local forecast";
             community.Load(place,communityImage,communityStatus);
         }
