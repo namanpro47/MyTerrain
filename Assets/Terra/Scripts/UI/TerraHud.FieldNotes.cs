@@ -1,3 +1,4 @@
+using Terra.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -119,16 +120,18 @@ namespace Terra.UI
             if(rows.Count==0)rows.Add("No new projects this year.");
             void Cost(string label,long amount){if(amount!=0)rows.Add(label+"   "+NotesMoney(amount));}
             Cost("Running costs",ledger.operatingPaidCents);Cost("Program payments",ledger.programPaidCents);
+            Cost("Capital refund",-ledger.capitalRefundCents);
             Cost("Repairs",ledger.repairPaidCents);Cost("Earlier unpaid bills",ledger.arrearsPaidCents);
             long total=ledger.upfrontPaidCents+ledger.operatingPaidCents+ledger.programPaidCents+ledger.repairPaidCents+ledger.arrearsPaidCents;
             string body="<b>Your plan</b>\n"+string.Join("\n",rows)+"\n\n<b>Pay now   "+NotesMoney(total)+"</b>"+
                 "\nTax receipts to collect   +"+NotesMoney(ledger.publicReceiptsCents)+
                 "\nAnnual public funding   +"+NotesMoney(ledger.appropriationCents)+
-                "\n\n"+NotesMoney(ledger.openingCashCents)+" − "+NotesMoney(total)+" + "+NotesMoney(ledger.publicReceiptsCents)+" + "+NotesMoney(ledger.appropriationCents)+
+                "\n\n"+NotesMoney(ledger.openingCashCents)+" + "+NotesMoney(ledger.capitalRefundCents)+" − "+NotesMoney(total)+" + "+NotesMoney(ledger.publicReceiptsCents)+" + "+NotesMoney(ledger.appropriationCents)+
                 "\n<b>Balance after this year   "+NotesMoney(ledger.closingCashCents)+"</b>"+
                 "\n\nReserved for later years   "+NotesMoney(ledger.futureCommitmentsCents)+
                 (ledger.closingArrearsCents>0?"\nUnpaid bills carried forward   "+NotesMoney(ledger.closingArrearsCents):"")+
-                "\n\n"+mode+" · game estimates. Ending the year commits this plan.";
+                "\n\n"+mode+" · game estimates. Ending the year commits this plan."+
+                (AnnualPlayerRules.Enabled(annualRules)?" Regional hazards use inferred chances, not forecasts. Unexpected repairs may change this estimate. A negative balance blocks new construction. Results save before AI explanation; if AI fails, a local summary uses those same values.":"");
             FieldNotes("Review year "+state.year,body,"End Year",accept);
         }
     }

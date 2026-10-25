@@ -20,7 +20,7 @@ namespace Terra.Core
             // Empty extra effects is intentional; summaries explain the actual ledger/results.
             return new TownYearConsequences {
                 runId = request.runId, requestId = request.requestId, inputHash = request.inputHash, year = request.year,
-                effects = Array.Empty<TownSiteEffect>()
+                effects = request.driver.regionalEvents==null ? Array.Empty<TownSiteEffect>() : AnnualPlayerRules.Effects(request)
             };
         }
     }

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "researchOnly": true,
+  "reviewedAt": "2026-10-25",
+  "sources": [
+    {
+      "id": "vernon-plan",
+      "url": "https://cms8.revize.com/revize/vernoncountywi/Vernon%20County%20HMP%20-%20WEM-%20FEMA%20Approved%20v2-%20FINAL.pdf",
+      "reviewedAt": "2026-10-25",
+      "scope": "Vernon County, Wisconsin; 2023-2028 planning document",
+      "pdfPagesReviewed": [
+        20,
+        22,
+        36,
+        57
+      ],
+      "locatorNote": "PDF page numbers are one-based; source uses broad category and mixed horizon wording.",
+      "bytes": 8092612,
+      "sha256": "97c38da16a22578e34c377750d53c4a1bd3849b05f123e0df7274d5560ffdec5"
+    },
+    {
+      "id": "nws-coon-2018",
+      "url": "https://www.weather.gov/arx/aug2818",
+      "reviewedAt": "2026-10-25",
+      "scope": "Regional event report including Coon Valley, August 2018"
+    },
+    {
+      "id": "marin-plan",
+      "url": "https://storage.googleapis.com/proudcity/marindpwca/2024/05/Marin_County_MJHMP_2023_Final_resized1.pdf",
+      "reviewedAt": "2026-10-25",
+      "scope": "Marin County operational area; 2023 planning assessment",
+      "pdfPagesReviewed": [
+        5,
+        114,
+        115,
+        117
+      ],
+      "renderedAndVisuallyChecked": [
+        5,
+        117
+      ],
+      "locatorNote": "Table 3.4 and likelihood/severity rubric; broad event sizes, not destructive-site odds.",
+      "bytes": 25140501,
+      "sha256": "3f3568a3b87149e2d84bb99b0ba2f554cde0dc9920e27f91f02e8bce14198316"
+    },
+    {
+      "id": "marin-hazard-maps",
+      "url": "https://www.marincounty.gov/departments/fire/office-emergency-management/disaster-preparedness/local-hazard-maps",
+      "reviewedAt": "2026-10-25",
+      "scope": "Marin County screening layers; AOI overlap not extracted"
+    },
+    {
+      "id": "nps-woodward-2020",
+      "url": "https://www.nps.gov/pore/learn/nature/wildlandfire_woodwardfire.htm",
+      "reviewedAt": "2026-10-25",
+      "scope": "Point Reyes National Seashore, 2020 historical fire"
+    },
+    {
+      "id": "usgs-bay-outlook-2016",
+      "url": "https://pubs.usgs.gov/fs/2016/3020/fs20163020.pdf",
+      "reviewedAt": "2026-10-25",
+      "scope": "San Francisco Bay region, 2014-2043 forecast published 2016; archival, not a 2026 annual site forecast"
+    },
+    {
+      "id": "mchs-chuy-archival",
+      "url": "https://www.mchs.gov.kg/ru/structures_old/kr-okm-chui-oblusu-boyuncha-bashkarmalygy/",
+      "reviewedAt": "2026-10-25",
+      "scope": "Chuy regional assessment with Suusamyr references; content includes 2014-2015 statistics/forecasts"
+    },
+    {
+      "id": "gfz-suusamyr-study",
+      "url": "https://academic.oup.com/gji/article/216/1/703/5151338",
+      "reviewedAt": "2026-10-25",
+      "scope": "Suusamyr Fault field/palaeoseismic study; historical event and rupture evidence"
+    },
+    {
+      "id": "gfdr-thinkhazard-chuy-eq",
+      "url": "https://thinkhazard.org/en/report/147294-kyrgyz-republic-chuy/EQ",
+      "reviewedAt": "2026-10-25",
+      "scope": "Chuy administrative screening, potentially damaging shaking threshold"
+    },
+    {
+      "id": "gfdr-thinkhazard-chuy-ls",
+      "url": "https://thinkhazard.org/en/report/147294-kyrgyz-republic-chuy/LS",
+      "reviewedAt": "2026-10-25",
+      "scope": "Chuy administrative screening, landslide susceptibility"
+    },
+    {
+      "id": "gfdr-thinkhazard-chuy-wf",
+      "url": "https://thinkhazard.org/en/report/147294-kyrgyz-republic-chuy/WF",
+      "reviewedAt": "2026-10-25",
+      "scope": "Chuy administrative screening, fire-weather suitability"
+    }
+  ],
+  "retrievalFailures": [
+    {
+      "file": "kyrgyz-mchs-monitoring.pdf",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "kyrgyz-mchs-chuy.pdf",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

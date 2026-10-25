@@ -65,7 +65,7 @@ namespace Terra.Gameplay
             {hud.HidePlacementFeedback();return;}
             string queued=QueuedAt(site.id);
             bool active=!string.IsNullOrEmpty(treatmentId);
-            var accepted=state.assets.FirstOrDefault(a=>a.siteId==site.id);
+            var accepted=state.assets.FirstOrDefault(a=>a.siteId==site.id&&a.cancelledYear==0);
             if(!active)
             {
                 hud.HidePlacementFeedback();

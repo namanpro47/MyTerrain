@@ -55,7 +55,7 @@ namespace Terra.UI
         }
         void UpdateProjectFacts(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,bool queued)
         {
-            projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued)&&!state.assets.Any(a=>a.siteId==site.id);
+            projectFactsVisible=recipe!=null&&site!=null&&mode=="place"&&(rejection==null||queued)&&!state.assets.Any(a=>a.siteId==site.id&&a.cancelledYear==0);
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
             bool replacing=queued&&rejection==null&&state.queue.Any(q=>q.siteId==site.id&&q.actionId!=recipe.actionId);
@@ -84,7 +84,7 @@ namespace Terra.UI
             {
                 var baseline=annualRules.sites.First(a=>a.id==site.id);
                 double loss=baseline.baselineProductionUnits-recipe.productionUnits;
-                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Reserves this field for the run";tradeoffGlyph.symbol="warning";
+                projectTradeoff.text=loss>0?"Replaces productive land; adds upkeep":"Cancel later; completed capital returns $0";tradeoffGlyph.symbol="warning";
             }
             tradeoffGlyph.SetVerticesDirty();
             projectTiming.text="Opens Y"+(state.year+recipe.constructionYears)+" · grows for "+recipe.establishmentYears+" yr";
