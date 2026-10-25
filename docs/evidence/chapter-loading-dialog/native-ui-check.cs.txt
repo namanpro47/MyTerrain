@@ -1,0 +1,44 @@
+
+var originalScene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+var scratch=UnityEditor.SceneManagement.EditorSceneManager.NewScene(UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,UnityEditor.SceneManagement.NewSceneMode.Additive);
+UnityEngine.SceneManagement.SceneManager.SetActiveScene(scratch);
+Terra.UI.TerraHud hud=null;
+UnityEngine.GameObject events=null;
+try {
+ var world=UnityEngine.JsonUtility.FromJson<Terra.Contracts.WorldData>(System.IO.File.ReadAllText("worlds/meadowbrook-v1/world.json"));
+ var scenario=UnityEngine.JsonUtility.FromJson<Terra.Contracts.Scenario>(System.IO.File.ReadAllText("worlds/meadowbrook-v1/scenario.json"));
+ var hydro=UnityEngine.JsonUtility.FromJson<Terra.Core.RunoffConfiguration>(System.IO.File.ReadAllText("worlds/meadowbrook-v1/hydrology.json"));
+ Terra.Core.AnnualSpatialOpportunities.AddWind(world,hydro);
+ var catalog=UnityEditor.AssetDatabase.LoadAssetAtPath<Terra.Art.BuildActionCatalog>("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
+ var rules=Terra.Gameplay.BuildActionRuntime.Expand(catalog,ref world,ref scenario);
+ var definition=Terra.Core.FullAnnualGameplay.Create(world,scenario,"meadowbrook-v1",rules,new Terra.Core.LandscapeRunoff(world,scenario,hydro));
+ var town=new Terra.Core.AnnualTown(definition,"native-loading-fixture");
+ Terra.Core.AnnualTownDemo.Advance(town,"native-loading-fixture/1",new Terra.Core.AuthoredAnnualConsequenceProvider());
+ events=new UnityEngine.GameObject("Loading dialog fixture events");
+ var eventSystem=events.AddComponent<UnityEngine.EventSystems.EventSystem>();
+ typeof(UnityEngine.EventSystems.EventSystem).GetMethod("OnEnable",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(eventSystem,null);
+ hud=new Terra.UI.TerraHud(_=>{},()=>{},()=>{},()=>{},()=>{},()=>{});
+ hud.ConfigureEditing(()=>{},()=>{},()=>{},()=>{});
+ hud.ConfigureBuildActions(catalog,rules,world,_=>{});
+ hud.ConfigureAnnual(definition,()=>{},()=>{},()=>{});
+ var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+ hud.AnnualChapterWaiting(10,()=>{},true);
+ var root=(UnityEngine.Transform)typeof(Terra.UI.TerraHud).GetField("root",flags).GetValue(hud);
+ var indicator=root.GetComponentInChildren<Terra.UI.ChapterLoadingIndicator>(true);
+ if(!hud.ModalOpen||indicator==null||!indicator.gameObject.activeInHierarchy)throw new System.Exception("Loading dialog/bar missing");
+ bool waiting=true;
+ var receipt=Terra.Core.AnnualChapters.OfflineAccepted(town);receipt.mode="gemini";receipt.model="native-ui-fixture";
+ hud.AnnualChapterReport(town,receipt,()=>{},()=>{});
+ if(!hud.ModalOpen||indicator.gameObject.activeSelf)throw new System.Exception("Result did not replace loading bar");
+ bool result=true;
+ hud.AnnualChapterWaiting(10,()=>{},true);hud.CloseModal();
+ hud.AnnualDialog("Other modal","No loading bar here","Done",()=>{});
+ typeof(Terra.UI.ChapterLoadingIndicator).GetMethod("LateUpdate",flags).Invoke(indicator,null);
+ if(indicator.gameObject.activeSelf)throw new System.Exception("Loading bar leaked into another modal");
+ return new {waiting,result,otherModalClean=true,year=town.Year,mode=receipt.mode};
+} finally {
+ if(hud!=null){var root=(UnityEngine.Transform)typeof(Terra.UI.TerraHud).GetField("root",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).GetValue(hud);UnityEngine.Object.DestroyImmediate(root.gameObject);}
+ if(events!=null)UnityEngine.Object.DestroyImmediate(events);
+ UnityEngine.SceneManagement.SceneManager.SetActiveScene(originalScene);
+ UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scratch,true);
+}

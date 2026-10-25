@@ -1,0 +1,14 @@
+{
+  "source": "39df591",
+  "fixture": "isolated additive scene; synthetic Gemini-labelled narrative, no provider call",
+  "nativeUi": {
+    "waiting": true,
+    "result": true,
+    "otherModalClean": true,
+    "year": 1,
+    "mode": "gemini"
+  },
+  "sessionAssertions": 25,
+  "nativeCompilerErrors": 0,
+  "playerProgressSavedBeforeUpdate": 10
+}
