@@ -80,7 +80,7 @@ namespace Terra.Gameplay
         public void StartJourney()
         {
             if(Traveling||notes.activeSelf||options.activeSelf)return;if(!Visible)Show();Traveling=true;Visible=true;chosen=true;failure=null;focusing=false;pointerHeld=false;velocity=Vector2.zero;
-            Terra.Audio.TerraAudio.Ensure().Request("travel",6);journey=StartCoroutine(Travel());
+            DismissStartNudge();Terra.Audio.TerraAudio.Ensure().Request("travel",6);journey=StartCoroutine(Travel());
         }
         IEnumerator Travel()
         {
@@ -136,7 +136,7 @@ namespace Terra.Gameplay
                 else if(!pointerHeld&&!ReducedMotion){longitude+=velocity.x*Time.unscaledDeltaTime;latitude+=velocity.y*Time.unscaledDeltaTime;velocity*=Mathf.Exp(-Time.unscaledDeltaTime*5);}
                 latitude=Mathf.Clamp(latitude,-75,75);distance=Mathf.Lerp(distance,targetDistance,1-Mathf.Exp(-Time.unscaledDeltaTime*8));ApplyGlobe();
             }
-            PositionPins();AnimateScenery();
+            PositionPins();AnimateScenery();RefreshStartNudge();
         }
         public void SetMotion(bool reduced)
         {

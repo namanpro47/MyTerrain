@@ -69,6 +69,7 @@ namespace Terra.Gameplay
                 choiceNames[i]=Display(choices[i].transform,new[]{"Meadowbrook","Point Reyes","Suusamyr"}[i],new Vector2(.5f,0),new Vector2(0,8),new Vector2(250,40),27,Cream);
                 choiceUnderline[i]=Box(choices[i].transform,"Focus diamond",new Vector2(.5f,0),new Vector2(0,0),new Vector2(6,6)).gameObject.AddComponent<Image>();choiceUnderline[i].transform.localRotation=Quaternion.Euler(0,0,45);choiceUnderline[i].color=Gold;choiceUnderline[i].raycastTarget=false;
             }
+            BuildStartNudge();
             var optionsRect=Box(uiRoot,"Atlas options",new Vector2(1,1),new Vector2(-28,-86),new Vector2(238,216));options=optionsRect.gameObject;
             var optionsBackground=options.AddComponent<Image>();optionsBackground.sprite=rounded;optionsBackground.type=Image.Type.Sliced;optionsBackground.color=new Color(.07f,.14f,.17f,.98f);
             motion=Button(optionsRect,"Motion: full",new Vector2(.5f,1),new Vector2(0,-15),new Vector2(208,48),()=>SetMotion(!ReducedMotion));
