@@ -1,6 +1,6 @@
 # Full-game acceptance index
 
-Current engineering checkpoint: `8093653` on main; playable runtime/export `67f867e`. This index distinguishes implemented behavior from final acceptance. The implementation plan remains authoritative. Historical receipts remain valid for their named versions; they are not silently relabelled as checks of the final release.
+Current engineering checkpoint includes the [catalog input routing fix](evidence/full-game/catalog-input/README.md); latest verified water export remains `67f867e`. This index distinguishes implemented behavior from final acceptance. The implementation plan remains authoritative. Historical receipts remain valid for their named versions; they are not silently relabelled as checks of the final release.
 
 | Plan area | Evidence already established | Required final follow-through |
 |---|---|---|

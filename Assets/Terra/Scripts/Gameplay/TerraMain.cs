@@ -135,7 +135,7 @@ namespace Terra.Gameplay
         void Pointer(int kind,Vector2 position,bool panning)
         {
             if(atlasVisible)return;if(kind==0)AudioGesture();
-            hud.PointerHover(position);
+            hud.PointerHover(position,kind==0);
             if(kind==0)
             {
                 var hits=new List<RaycastResult>();

@@ -163,8 +163,10 @@ namespace Terra.UI
             if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&focus.gameObject.activeInHierarchy)focus.onClick.Invoke();
             return true;
         }
-        public void PointerHover(Vector2 point)
+        public void PointerHover(Vector2 point,bool pointerDown=false)
         {
+            // A pointer press leaves catalog keyboard navigation; hover alone does not.
+            if(pointerDown&&!ModalOpen)catalogKeyboard=false;
             if(EventSystem.current==null)return;var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=point},hits);
             var b=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
             if(b!=null&&b.IsInteractable())Focus(b);else if(!ModalOpen)Focus(null);
