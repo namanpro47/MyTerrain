@@ -1,0 +1,98 @@
+[
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T05:44:26.989Z",
+    "url": "blob:https://terra-browser.vercel.app/efda9094-172e-4c6d-a21d-1819ad50970f"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:27.035Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:27.109Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:27.145Z",
+    "url": "https://terra-browser.vercel.app/Build/3b38cb4feb6f2b6843a3db7f08250b0a.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T05:44:49.308Z",
+    "url": "blob:https://terra-browser.vercel.app/b483ad6d-3f92-4cc8-84aa-8c73a519663f"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:49.354Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:49.493Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:49.522Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:44:49.686Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T05:46:40.320Z",
+    "url": "blob:https://terra-browser.vercel.app/b483ad6d-3f92-4cc8-84aa-8c73a519663f"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T05:47:05.959Z",
+    "url": "blob:https://terra-browser.vercel.app/89b6cd61-524f-4ad1-aa73-ee608cb4a68f"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:47:06.003Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:47:06.061Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:47:06.102Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T05:47:06.184Z",
+    "url": "https://terra-browser.vercel.app/Build/ae646b05ac0dc7ade6cbd5a6696b9022.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T05:47:07.593Z",
+    "url": "blob:https://terra-browser.vercel.app/89b6cd61-524f-4ad1-aa73-ee608cb4a68f"
+  }
+]

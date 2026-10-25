@@ -463,3 +463,26 @@ Compile: zero errors/warnings. Web export f269a564130743b7b3361baca56fa204 succe
 The PC renderer has SSAO but our active WebGL/Mobile pipeline does not. Custom ground/leaf shaders also do not consume the standard SSAO lighting factor. The first PC-only change had no active effect (32f). A temporary depth-reconstructed, after-opaque AO feature was then added to the actual Mobile renderer (radius2m,intensity0.7,falloff1200). [Matched close view with AO](study32g-canopy-ao.png) versus [without AO](study32g-canopy-no-ao.png): slight contact improvement, but no meaningful repair to weak tree forms/forest structure. Rejected as the next visual direction; both renderer assets restored exactly. No AO browser export or performance claim. A one-off inspection script dereferenced an absent additional-camera component and failed; subsequent null-safe inspection established the active pipeline. It was a diagnostic-script error, not a game error.
 
 TriForge acquisition is pending user confirmation of the actual Unity Terms/EULA acceptance dialog. No agreement accepted and no pack downloaded/imported at this checkpoint. Free-only scope remains. The previous goal turn made progress by preserving/pushing32a-d evidence; this turn adds a real compiled/browser-tested composition candidate and rules out AO as a substantial solution.
+
+
+### Study32 checkpoint — annual merge and free asset acquisition
+
+Commit `1aec1e8` merges annual main `48a3e41` with the perspective opening. FocusSite explicitly restores yaw -32 / pitch 42 for the existing annual bounds calculation; reset/opening retain pitch 34. Recompile reports zero errors/warnings. The subsequent focus-framing diagnostic failed with a generic target-invocation exception, so integrated framing is **unverified**. No annual browser export was produced here. Later remote `e25c5d3` remains outside this checkpoint.
+
+The user explicitly approved accepting Unity's Terms of Service and Asset Store EULA for the free TriForge pack. The official account page confirmed acquisition, and Unity downloaded the 672,496,588-byte archive. [Official listing](https://assetstore.unity.com/packages/3d/environments/fantasy/fantasy-worlds-forest-free-stylized-forest-environment-open-worl-282610). Its nested URP package and dependency subset are local research files under ignored `Builds/ArtResearch/TriForgeForest`; none are imported into game Assets yet. The selection script wrote the subset archive, then failed in inventory reporting because this Python lacks `hashlib.file_digest`; finish the report and inspect dependencies before import. The shaders, materials, browser compatibility, visual fit and cost remain unevaluated. This supersedes the earlier pending-approval note without changing the free-only budget or visual acceptance status.
+
+
+### Study33 preparation — native TriForge foliage trial
+
+Patterns TN-02/09/10/12. Dominant failure: thin repeated canopy forms, weak forest mass and internal structure. The next materially different construction uses TriForge's authored tree, sapling and understory with their native URP shaders first. The source tree prefab has five LOD levels. Its promotional full-pack overview includes content beyond the free subset and is not evidence of our game's quality.
+
+[Selected dependency inventory and archive hashes](study33-asset-inventory.json) records 67 assets, 358,618,768 compressed bytes. Original shader/material/model bytes and GUIDs are preserved. The selection excludes the large demo terrain but includes the asset gallery's dependencies; remove gallery-only dependencies if the family is selected for the playable build. Local report generation now succeeds using a streaming SHA-256 helper compatible with the installed Python. No purchased resource or generated image.
+
+Merged remote `e25c5d3` (compact feedback and completed inspection fixes) after reviewing its bounded source changes. The earlier focus-framing exception was traced to LayoutAnnual on an incompletely initialized HUD: the actual console reports a missing WorldPack file. Running `scripts/prepare-world.py` verifies source checksums/hydrology partition and stages all four required files. A fresh runtime check is still required; this is not yet a focus-framing pass.
+
+Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrustWindow.ShouldProceedAfterTrustCheck` / `ContainerWindow.MakeModal`, confirmed by a process stack sample. The Editor is alive; no second import or Editor restart was attempted. A queued `editor focus` timed out without running because the import holds the command queue. The available native UI binding selects the primary checkout instead, so the user was asked to approve the pending trust prompt in this visual worktree. This is a tooling wait, not a shader incompatibility or evidence of visual improvement. No new asset has reached the playable export yet.
+
+
+### Study33 result — import complete, foliage trials rejected
+
+[Findings and render comparisons](study33-findings.md) supersede the pending trust-dialog state above. Native and adapted foliage ran in the annual scene; no candidate met the visual bar. Captures, prefab inspection and replay scripts are preserved. No production source change or new Chrome export. The imported asset library stays local pending selection.

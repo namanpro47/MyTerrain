@@ -1,0 +1,233 @@
+{
+  "output": null,
+  "diagnostics": [],
+  "success": true,
+  "result": [
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/TriForge Wind Controller.prefab",
+      "height": 0,
+      "bounds": "Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)",
+      "lods": null,
+      "materials": []
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_ForestPlant_B_02.prefab",
+      "height": 0.293450832,
+      "bounds": "Center: (0.02, 0.14, 0.00), Extents: (0.24, 0.15, 0.24)",
+      "lods": null,
+      "materials": [
+        {
+          "name": "M_fwOF_ForestPlants_01",
+          "shader": "TriForge/Fantasy Worlds/FWGrass",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Grass_M_1.prefab",
+      "height": 0.370339,
+      "bounds": "Center: (0.00, 0.15, 0.01), Extents: (0.20, 0.19, 0.18)",
+      "lods": null,
+      "materials": [
+        {
+          "name": "M_fwOF_Grass_01",
+          "shader": "TriForge/Fantasy Worlds/FWGrass",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Rock_01.prefab",
+      "height": 0.712913752,
+      "bounds": "Center: (0.05, 0.01, 0.00), Extents: (0.52, 0.36, 0.35)",
+      "lods": [
+        {
+          "transition": 0.0475298427,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Rock_01(Clone)",
+              "vertices": 348,
+              "triangles": 422
+            }
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "M_fwOF_Rocks_01",
+          "shader": "FWRocks",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Stone_01.prefab",
+      "height": 0.410835743,
+      "bounds": "Center: (0.00, -0.02, 0.00), Extents: (0.26, 0.21, 0.20)",
+      "lods": [
+        {
+          "transition": 0.0178013127,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Stone_01(Clone)",
+              "vertices": 120,
+              "triangles": 106
+            }
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "M_fwOF_Stones_01",
+          "shader": "Universal Render Pipeline/Lit",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Tree_M_2.prefab",
+      "height": 16.1049328,
+      "bounds": "Center: (0.20, 6.36, 0.52), Extents: (6.57, 8.05, 7.07)",
+      "lods": [
+        {
+          "transition": 0.8992767,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Tree_Med_02_LOD0",
+              "vertices": 23184,
+              "triangles": 18324
+            }
+          ]
+        },
+        {
+          "transition": 0.6440054,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Tree_Med_02_LOD1",
+              "vertices": 13619,
+              "triangles": 11566
+            }
+          ]
+        },
+        {
+          "transition": 0.2216072,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Tree_Med_02_LOD2",
+              "vertices": 5713,
+              "triangles": 4207
+            }
+          ]
+        },
+        {
+          "transition": 0.104216687,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Tree_Med_02_LOD3",
+              "vertices": 4081,
+              "triangles": 2224
+            }
+          ]
+        },
+        {
+          "transition": 0.005811651,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_Tree_Med_02_LOD4",
+              "vertices": 94,
+              "triangles": 74
+            }
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "M_fwOF_Tree_Med_2B",
+          "shader": "TriForge/Fantasy Worlds/FWTreeBark",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        },
+        {
+          "name": "M_fwOF_Leaf_Branches_01",
+          "shader": "TriForge/Fantasy Worlds/FWTreeLeaf",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        },
+        {
+          "name": "M_fwOF_Tree_Med_2A",
+          "shader": "TriForge/Fantasy Worlds/FWTreeBark",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        },
+        {
+          "name": "M_fwOF_TreeLOD_01",
+          "shader": "TriForge/Fantasy Worlds/FWTreeBark",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        },
+        {
+          "name": "M_fwOF_TreeBillboard_01",
+          "shader": "TriForge/Fantasy Worlds/FWTreeLeaf",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_TreeSapling_02B.prefab",
+      "height": 1.41629922,
+      "bounds": "Center: (0.13, 0.60, 0.01), Extents: (0.62, 0.71, 0.62)",
+      "lods": [
+        {
+          "transition": 0.25,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_TreeSapling_02B_LOD0",
+              "vertices": 2852,
+              "triangles": 2046
+            }
+          ]
+        },
+        {
+          "transition": 0.0391748548,
+          "renderers": [
+            {
+              "name": "MSH_fwOF_TreeSapling_02B_LOD1",
+              "vertices": 2852,
+              "triangles": 2046
+            }
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "M_fwOF_Leaf_Branches_01B",
+          "shader": "TriForge/Fantasy Worlds/FWTreeLeaf",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        },
+        {
+          "name": "M_fwOF_SaplingBark_01",
+          "shader": "TriForge/Fantasy Worlds/FWTreeBark",
+          "supported": true,
+          "instancing": true,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

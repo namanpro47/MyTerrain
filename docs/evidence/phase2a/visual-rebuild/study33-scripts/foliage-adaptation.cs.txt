@@ -1,0 +1,17 @@
+var root=UnityEngine.GameObject.Find("Study33 native forest");
+var map=new System.Collections.Generic.Dictionary<string,UnityEngine.Material>();
+foreach(var r in root.GetComponentsInChildren<UnityEngine.MeshRenderer>()){
+ var mf=r.GetComponent<UnityEngine.MeshFilter>();if(mf==null)continue;var mesh=mf.sharedMesh;var mats=r.sharedMaterials;
+ for(int i=0;i<mats.Length;i++){
+  var src=mats[i];if(!src.shader.name.Contains("FWTreeLeaf"))continue;
+  var key=src.name+"/"+mesh.name+"/"+i;
+  if(!map.TryGetValue(key,out var m)){
+   m=new UnityEngine.Material(UnityEngine.Shader.Find("Terra/Artist Leaves"));m.SetTexture("_BaseMap",src.GetTexture("_BaseColor"));m.SetColor("_BaseColor",UnityEngine.Color.white);m.SetFloat("_Cutoff",.4f);
+   var verts=mesh.vertices;var indices=mesh.GetIndices(i);var bounds=new UnityEngine.Bounds(verts[indices[0]],UnityEngine.Vector3.zero);foreach(var index in indices)bounds.Encapsulate(verts[index]);
+   m.SetVector("_CrownCenter",bounds.center);m.SetVector("_CrownExtent",bounds.extents);m.enableInstancing=true;map[key]=m;
+  }
+  mats[i]=m;
+ }
+ r.sharedMaterials=mats;
+}
+return new{adaptedMaterials=map.Count,description="Artist texture/mesh retained; existing volume-lit cutout with alpha-to-coverage; native bark retained"};

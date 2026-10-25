@@ -1,0 +1,421 @@
+{
+  "source": "Unity Asset Store product 282610, creator TriForge Assets, version 1.0",
+  "sourceBytes": 672496588,
+  "sourceSha256": "0ae6ee4f60a5aa44ffc8c6b3f5b79a1af2fc686ac75ce4c279506e9d1bfadf6c",
+  "subset": "Builds/ArtResearch/TriForgeForest/TriForge-URP-selected.unitypackage",
+  "subsetBytes": 358618768,
+  "subsetSha256": "368af5e4c24f0bca651ce34a7351a43fadf1685e37152443583241129a8921ae",
+  "assets": [
+    {
+      "guid": "093e148e12d95fd4fa3de7521060d537",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_BC.png",
+      "archive": 0,
+      "bytes": 7595706
+    },
+    {
+      "guid": "0b255a7279a1353489c6e6cc46e8cfad",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_BC.png",
+      "archive": 0,
+      "bytes": 1155749
+    },
+    {
+      "guid": "0ca5a618f829cfa49b84f942580a883d",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Terrain/T_fwOF_Moss_02_BC.png",
+      "archive": 0,
+      "bytes": 24445020
+    },
+    {
+      "guid": "0d09bcb90c7d4594c9b0378baf559835",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_ForestPlants_01_N.png",
+      "archive": 0,
+      "bytes": 7183169
+    },
+    {
+      "guid": "11447dd52b20f224c8144bfc3a51ba6d",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Scripts/TF_FW_WindController.cs",
+      "archive": 0,
+      "bytes": 932
+    },
+    {
+      "guid": "1649e9c2d20b96544bb76ed4f9e1b052",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeBillboard_N.png",
+      "archive": 0,
+      "bytes": 12231397
+    },
+    {
+      "guid": "18476a37983f7084a9eed22a548d7103",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWTreeLeaf.shader",
+      "archive": 1,
+      "bytes": 164566
+    },
+    {
+      "guid": "18b0973e437c071448ce4f7e5e1b603b",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Terrain/T_fwOF_Moss_02_N.png",
+      "archive": 0,
+      "bytes": 19492330
+    },
+    {
+      "guid": "1c459e916d1d529419de330dac59acf8",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Leaf_Branches_01B.mat",
+      "archive": 1,
+      "bytes": 4683
+    },
+    {
+      "guid": "1dad65dba40550c45a25bbdb3b9b750d",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Rocks_01_N.png",
+      "archive": 0,
+      "bytes": 12672199
+    },
+    {
+      "guid": "240b3a0574e99154a9373551b32654fc",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_MAOS.png",
+      "archive": 0,
+      "bytes": 9444225
+    },
+    {
+      "guid": "2540f6323ca664740814f40c7a2facbb",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Tree_Med_2B.mat",
+      "archive": 1,
+      "bytes": 4220
+    },
+    {
+      "guid": "2747b78f944a31a4c91caa6d93049f71",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_ForestPlant_B_02.fbx",
+      "archive": 1,
+      "bytes": 27516
+    },
+    {
+      "guid": "2ff8d4ae973995647848916587b87dd9",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Terrain/T_fwOF_Moss_02_Mask.png",
+      "archive": 0,
+      "bytes": 2246170
+    },
+    {
+      "guid": "3001bdecf3940fd46baa6d10a43efc06",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_MAOS.png",
+      "archive": 0,
+      "bytes": 1335973
+    },
+    {
+      "guid": "32e70de12bb7d6c4f87da76bda27bf48",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_1.png",
+      "archive": 0,
+      "bytes": 7916675
+    },
+    {
+      "guid": "33f4199e01a9e324399cb7adab2ab0c6",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_2.png",
+      "archive": 0,
+      "bytes": 8279471
+    },
+    {
+      "guid": "35c0f093f3579dd4a9ecf493d250bce9",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeBillboard_BC.png",
+      "archive": 0,
+      "bytes": 16757282
+    },
+    {
+      "guid": "378eb7a6f1fcee54e90afb0250e0e090",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Textures/T_fw_Wind_Map_Strength.png",
+      "archive": 0,
+      "bytes": 15310686
+    },
+    {
+      "guid": "3c1b7a8a04dde2e428828ad3b7325f3a",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_N.png",
+      "archive": 0,
+      "bytes": 19018201
+    },
+    {
+      "guid": "3d9b1698010f14242b5d3e1a14661c8b",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_Stone_01.fbx",
+      "archive": 1,
+      "bytes": 19036
+    },
+    {
+      "guid": "40e9efa1eec80434e8f4ec7d54191999",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_Rock_01.fbx",
+      "archive": 1,
+      "bytes": 34124
+    },
+    {
+      "guid": "45767a232a2239042acd5ef5b8ceca99",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Stones_01_MAOS.png",
+      "archive": 0,
+      "bytes": 4763293
+    },
+    {
+      "guid": "46230ba921dc6cf40818f7b0a9b46642",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/New Material.mat",
+      "archive": 1,
+      "bytes": 3710
+    },
+    {
+      "guid": "4699785cfae895b4bb847f70d98bb855",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_ForestPlants_01.mat",
+      "archive": 1,
+      "bytes": 4661
+    },
+    {
+      "guid": "46bef3d4f20f45442acaeb7767c56b29",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/Global Volume Profile.asset",
+      "archive": 1,
+      "bytes": 5229
+    },
+    {
+      "guid": "479d3fd4a07ddbb4db1b4e65c448fb55",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Stones_01_N.png",
+      "archive": 0,
+      "bytes": 3433469
+    },
+    {
+      "guid": "483e8fa5ab2104d4a9324bd435ab2754",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_1.png",
+      "archive": 0,
+      "bytes": 15576910
+    },
+    {
+      "guid": "4effbb598921d434f8a5485874752215",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Stone_01.prefab",
+      "archive": 1,
+      "bytes": 3967
+    },
+    {
+      "guid": "51807d1f856fecc4f96f56bb3cae0a16",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Grass_01.mat",
+      "archive": 1,
+      "bytes": 4979
+    },
+    {
+      "guid": "5b0f1568669869047a7a124bd3c0dd48",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Grass_M_1.prefab",
+      "archive": 1,
+      "bytes": 2441
+    },
+    {
+      "guid": "5ed077ed39cbad84597e1da3e96b74b9",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_N.png",
+      "archive": 0,
+      "bytes": 9721704
+    },
+    {
+      "guid": "65ab1e588993cfb4ea2a248548b02eaf",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Textures/T_fw_Wind_Map_Direction.png",
+      "archive": 0,
+      "bytes": 26937292
+    },
+    {
+      "guid": "682dfb480d69221428b2c1307ed9f7a5",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/Background.mat",
+      "archive": 1,
+      "bytes": 3755
+    },
+    {
+      "guid": "7a6d8535602da15409ee9779bb881e7d",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_ForestPlants_01_BC.png",
+      "archive": 0,
+      "bytes": 9432373
+    },
+    {
+      "guid": "7ccac9daac041234e9d63f296584c4c1",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Rocks_01.mat",
+      "archive": 1,
+      "bytes": 4835
+    },
+    {
+      "guid": "7dd82c83c428c704ab20d7cd6cb31185",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_N.png",
+      "archive": 0,
+      "bytes": 923866
+    },
+    {
+      "guid": "7ed64078ad97aac42a2544de876a9acf",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_2.png",
+      "archive": 0,
+      "bytes": 15931935
+    },
+    {
+      "guid": "8947feed88d38a944818f414938d716c",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Grass_MAOS.png",
+      "archive": 0,
+      "bytes": 4373831
+    },
+    {
+      "guid": "8f091b74cddfbe64291d9d4b21d383cb",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Rocks_01_BC.png",
+      "archive": 0,
+      "bytes": 17119004
+    },
+    {
+      "guid": "967c2e216c4997447b472a5a935c6787",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_Tree_Med_02.fbx",
+      "archive": 1,
+      "bytes": 2828124
+    },
+    {
+      "guid": "997a8cfb10385ed4e98c47e992f1d253",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Stones_01_BC.png",
+      "archive": 0,
+      "bytes": 4855822
+    },
+    {
+      "guid": "9ac9564498a32db48b38d9e5f36550e8",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_SaplingBark_01.mat",
+      "archive": 1,
+      "bytes": 4230
+    },
+    {
+      "guid": "9d54ead6771f7a5408c402b4d8b8139e",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_2.png",
+      "archive": 0,
+      "bytes": 9024108
+    },
+    {
+      "guid": "9e490e347b306724d8c373938da8ec5e",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_ForestPlant_B_02.prefab",
+      "archive": 1,
+      "bytes": 2448
+    },
+    {
+      "guid": "9ebd954b647601d499b43eb87d3ff45c",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_TreeLOD_01.mat",
+      "archive": 1,
+      "bytes": 3633
+    },
+    {
+      "guid": "a043556d7205f99439bbb888232fbc9a",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_TreeSapling_02B.prefab",
+      "archive": 1,
+      "bytes": 6733
+    },
+    {
+      "guid": "aaba200a9b4d35448ac9b286df00e458",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_ForestPlants_01_MAOS.png",
+      "archive": 0,
+      "bytes": 7252224
+    },
+    {
+      "guid": "ada26fdb50c323d4d8cb596b14d5008a",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Rocks_01_MAOS.png",
+      "archive": 0,
+      "bytes": 15917855
+    },
+    {
+      "guid": "ae8ff1e39793c8f4b8ff98905a4becfc",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/T_fwOF_Grass_BC.png",
+      "archive": 0,
+      "bytes": 12831696
+    },
+    {
+      "guid": "b1161e66ce2623f4ab74b3e15892fdac",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Tree_Med_2A.mat",
+      "archive": 1,
+      "bytes": 4220
+    },
+    {
+      "guid": "b69f8301e72b3234bb08e8411fd73c53",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/TriForge Wind Controller.prefab",
+      "archive": 0,
+      "bytes": 1884
+    },
+    {
+      "guid": "bc51859a359a6124d9240419fc73341a",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Rock_01.prefab",
+      "archive": 1,
+      "bytes": 4609
+    },
+    {
+      "guid": "c44c8118fe90f084d9dcd47f2472ef0e",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Stones_01.mat",
+      "archive": 1,
+      "bytes": 4067
+    },
+    {
+      "guid": "c49b102da323ba847aef3192323214ea",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_TreeBillboard_01.mat",
+      "archive": 1,
+      "bytes": 4326
+    },
+    {
+      "guid": "cc3aa26d1e06b1746ad535b0ba86175f",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_1.png",
+      "archive": 0,
+      "bytes": 13983656
+    },
+    {
+      "guid": "da2a15fe3f5622a419f1767c6cf9cb2f",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWTreeBark.shader",
+      "archive": 1,
+      "bytes": 171081
+    },
+    {
+      "guid": "dfbfde34c66d35e47b27dfc84ea67a55",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_BC.png",
+      "archive": 0,
+      "bytes": 2916694
+    },
+    {
+      "guid": "e0e1564190e7a314681eee16f55f85a3",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/Old Forest Overview URP.png",
+      "archive": 1,
+      "bytes": 15197212
+    },
+    {
+      "guid": "e255d3ea53542cc4a8319698e30886d7",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_Grass_M_1.fbx",
+      "archive": 1,
+      "bytes": 36652
+    },
+    {
+      "guid": "e42c7d6a1b97f0242a30eb596ff25638",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_OldForest/Materials/Old Forest Overview URP 1.mat",
+      "archive": 1,
+      "bytes": 3724
+    },
+    {
+      "guid": "e718f022091fcdd46aaa9d5169ff5c53",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Scenes/URP/fwOF_FreeDemo_Assets.unity",
+      "archive": 1,
+      "bytes": 296896
+    },
+    {
+      "guid": "e9385d15c881d8f478537dfc08d731dd",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Meshes/MSH_fwOF_TreeSapling_02B.fbx",
+      "archive": 1,
+      "bytes": 316700
+    },
+    {
+      "guid": "e946b109dd25e5f4aac9b5f74b4026e1",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWRocks.shader",
+      "archive": 1,
+      "bytes": 129135
+    },
+    {
+      "guid": "ee4f6530b00c2944680137afac5a86e6",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Materials/M_fwOF_Leaf_Branches_01.mat",
+      "archive": 1,
+      "bytes": 4698
+    },
+    {
+      "guid": "f33ad934dfd440e4c96b0ca0f308ee97",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_Tree_M_2.prefab",
+      "archive": 1,
+      "bytes": 60510
+    },
+    {
+      "guid": "f63804e25a84a7c44a5df7ae33b3e171",
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWGrass.shader",
+      "archive": 1,
+      "bytes": 143381
+    }
+  ],
+  "purpose": "Six creator prefabs, wind controller and asset gallery with referenced dependencies; original URP source bytes and GUIDs unchanged.",
+  "license": "Standard Unity Asset Store EULA; explicit user acceptance for this free asset recorded in chat. No CC0 claim.",
+  "status": "Import completed; native and adapted Editor render trials performed. No production adoption, Chrome export or visual acceptance.",
+  "import": {
+    "job": "db9dc473c1414203b0959444f53be2f8",
+    "completedUtc": "2026-10-25T05:40:03.720619Z",
+    "result": "Selected TriForge URP dependencies imported",
+    "executionTimeMs": 1298513
+  }
+}

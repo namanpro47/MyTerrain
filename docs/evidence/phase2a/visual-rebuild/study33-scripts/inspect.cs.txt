@@ -1,0 +1,13 @@
+var root="Assets/TriForge Assets/";
+var prefabs=UnityEditor.AssetDatabase.FindAssets("t:Prefab",new[]{root.TrimEnd('/')});
+var rows=new System.Collections.Generic.List<object>();
+foreach(var guid in prefabs){
+ var path=UnityEditor.AssetDatabase.GUIDToAssetPath(guid);var go=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(path);
+ var lod=go.GetComponentInChildren<UnityEngine.LODGroup>();
+ var renderers=lod!=null?lod.GetLODs()[0].renderers:go.GetComponentsInChildren<UnityEngine.Renderer>();
+ var bounds=new UnityEngine.Bounds();bool first=true;
+ foreach(var r in renderers){if(first){bounds=r.bounds;first=false;}else bounds.Encapsulate(r.bounds);}
+ var materials=go.GetComponentsInChildren<UnityEngine.Renderer>(true).SelectMany(r=>r.sharedMaterials).Distinct().ToArray();
+ rows.Add(new{path,height=bounds.size.y,bounds=bounds.ToString(),lods=lod==null?null:lod.GetLODs().Select(l=>new{transition=l.screenRelativeTransitionHeight,renderers=l.renderers.Select(r=>new{name=r.name,vertices=r.GetComponent<UnityEngine.MeshFilter>()?.sharedMesh.vertexCount,triangles=r.GetComponent<UnityEngine.MeshFilter>()?.sharedMesh.triangles.Length/3}).ToArray()}).ToArray(),materials=materials.Select(m=>new{name=m.name,shader=m.shader.name,supported=m.shader.isSupported,instancing=m.enableInstancing,errors=UnityEditor.ShaderUtil.GetShaderMessages(m.shader).Where(msg=>msg.severity==UnityEditor.Rendering.ShaderCompilerMessageSeverity.Error).Select(msg=>msg.message).ToArray()}).ToArray()});
+}
+return rows;
