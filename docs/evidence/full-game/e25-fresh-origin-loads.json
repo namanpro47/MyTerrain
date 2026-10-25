@@ -1,0 +1,30 @@
+{
+  "sourceCommit": "e25c5d3",
+  "buildJob": "307ec5386a024e2bbd1c989614f72f3f",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "method": "Three sequential first visits to separate Cache-Control: no-store localhost origins in one Chrome tab. Own Editor Play Mode stopped; other Unity Editors preserved. Actual TERRA_INTERACTIVE_MS receipt, not WASM readiness. Not public-network or low-end-hardware evidence; foreground load timing not separately instrumented.",
+  "receipts": [
+    {
+      "level": "info",
+      "message": "TERRA_INTERACTIVE_MS 8393",
+      "timestamp": "2026-10-25T05:29:55.013Z",
+      "url": "blob:http://127.0.0.1:8861/56cb96f7-f63b-46c7-a56a-132edc700671"
+    },
+    {
+      "level": "info",
+      "message": "TERRA_INTERACTIVE_MS 6546",
+      "timestamp": "2026-10-25T05:30:08.311Z",
+      "url": "blob:http://127.0.0.1:8862/92274fe0-59a8-4326-847f-f7680581ddca"
+    },
+    {
+      "level": "info",
+      "message": "TERRA_INTERACTIVE_MS 9086",
+      "timestamp": "2026-10-25T05:30:49.959Z",
+      "url": "blob:http://127.0.0.1:8863/f4b7ab4f-a6ea-4fa5-804f-15e8335f9b11"
+    }
+  ],
+  "errors": []
+}

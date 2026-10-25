@@ -1,0 +1,74 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 4390ms",
+    "timestamp": "2026-10-25T05:11:40.905Z",
+    "url": "http://127.0.0.1:8855/"
+  },
+  {
+    "level": "log",
+    "message": "Shader 'Hidden/Universal Render Pipeline/PaniniProjection' is not supported or has been stripped from the build (in 'PaniniProjectionPostProcessPass'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T05:11:43.193Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T05:11:43.193Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=1041; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T05:11:44.766Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "warn",
+    "message": "Manual synchronization of Unity Application.persistentDataPath via JS_FileSystem_Sync() is deprecated and will be later removed in a future Unity version. The persistent data directory will be automatically synchronized instead on file modification. Pass config.autoSyncPersistentDataPath = true; to configuration in createUnityInstance() to opt in to the new behavior.",
+    "timestamp": "2026-10-25T05:11:44.864Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=10; phase=Completed; revision=26; cash=524000000; queued=0; assets=7\n",
+    "timestamp": "2026-10-25T05:11:44.919Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 8404",
+    "timestamp": "2026-10-25T05:11:44.919Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_MEMORY: {\"checkpoint\":\"future\",\"allocatedBytes\":114824830,\"reservedBytes\":146931712,\"managedBytes\":295694336,\"meshes\":452,\"materials\":905}\n",
+    "timestamp": "2026-10-25T05:11:44.968Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "Audio context resumed after 6.412 seconds.",
+    "timestamp": "2026-10-25T05:11:47.137Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T05:15:24.455Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.014007568359375,\"averageFps\":59.93867874145508,\"frameP50Ms\":17.0,\"frameP95Ms\":18.0,\"frameP99Ms\":18.0,\"maxFrameMs\":35.0,\"maxPreviewCpuMs\":16.799999237060547,\"maxPlacementCpuMs\":-1.0,\"frames\":1799,\"framesOver33Ms\":1,\"framesOver200Ms\":0,\"previewEvents\":1,\"placementEvents\":0,\"cameraEvents\":982,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T05:15:54.474Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T05:15:54.484Z",
+    "url": "blob:http://127.0.0.1:8855/5500f433-1e32-440d-ab4d-e71b2cafd0b4"
+  }
+]

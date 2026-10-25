@@ -167,3 +167,28 @@ Completed Year 10 now hides the build catalog and inactive undo/redo/clear/revie
 
 
 Export `e46184c317244573b281ea04ee992340` from `48a3e41` completed in **348.299 s**. `study31-completed-assets.json` verifies the delivered bytes. Chrome restores the community ending unchanged, hides completed construction controls, fits the village in the freed landscape space, and retains compact settings/exploration. Pressing B does not trap read-only map navigation. The compact Focus feedback message overlapped the site panel; the follow-up narrows and wraps it between panels. Completed inspection now uses a neutral selected outline and describes unchanged land, rather than showing a placement rejection. The 22 HUD/session + 16 chapter checks remain passing; corrected-export browser verification is pending. No foreground performance sample is counted while Chrome's active window is changing.
+
+
+### Integrated study31 foreground performance and replay
+
+The user provided an uninterrupted Chrome window for three 30-second paths on the `48a3e41` export. At **1440×900 CSS/render pixels**, each receipt confirms DOM visible/focused at both ends, zero visibility changes/blur events, and zero Unity unfocused frames. This task had one active test player and no build running during the samples; teammate Unity work remained open. See `study31-performance-summary.json` and its three raw foreground receipts.
+
+| Path | Average fps | p95 / p99 | Maximum | Frames over 33.34 ms |
+|---|---:|---:|---:|---:|
+| Opening camera | 60.0 | 18 / 18 ms | 18 ms | 0 / 1,800 |
+| Close preview, queue, undo and redo | 59.9 | 18 / 18 ms | 40 ms | 1 / 1,799 |
+| Transformed seven-project valley | 59.9 | 18 / 18 ms | 35 ms | 1 / 1,799 |
+
+The stable-30 fallback passes; the strict p95 16.7 ms target remains unmet. Nineteen preview presentation opportunities span **12.5–24.2 ms**; two placements are **39.9 / 35.2 ms**. Preview CPU maximum is **3.3 ms**, placement CPU **23.3 ms**. No frame or interaction exceeds 200 ms. These are input-to-first-rAF presentation opportunities, not physical display latency. The compact feedback follow-up and future scenery work still require their own appropriate verification.
+
+Actual Chrome continuation of the two queued cover-crop projects reaches **65.3 / 58.0 / 44.1**, **$19.550M** closing cash, **$450K** public spending and zero future obligations. Functional ten-year continuation takes **853.9 ms**, including yielded frames and final refresh. Canceling New run preserves the result; confirming archives it and restores Year 1, **$10M**, zero commitments, visible catalog and functional queue/undo. The replay capture shows a new **$150K reservation** with cash unchanged. These are browser integration checks, not final rehearsals or novice research.
+
+
+### Compact follow-up and rejected foundation-material study
+
+Export `307ec5386a024e2bbd1c989614f72f3f`, source `e25c5d3`, completed in **393.733 s**. `compact-feedback-assets.json` pins its bytes. Actual Chrome at **1024×576 CSS** verifies neutral completed-field selection and the existing-land description. Standard and larger text fit; Focus feedback stays in the clear column between budget and site panels. `compact-feedback-larger-audit.json` records **zero text-height overflow** and six enabled completed-view controls. Captures `compact-feedback-fixed.png` and `compact-feedback-larger.png` show the actual player. This is a layout pass, not a new scenery acceptance.
+
+A bounded running-Editor trial cloned only the village grass/path mesh UVs and materials, assigning the existing licensed Julio Meadow/Earth color and normal textures. The metric source meshes and live session remained unchanged. Frames advanced from 22,068 at fixture setup to 27,500 before teardown. Matched 1920×1080 scene captures (`project-ground-rejected-before.png` / `project-ground-rejected-after.png`) show an excessively saturated lawn and muddy, conspicuously tiled plaza. **Rejected:** no runtime or shared-prefab change was adopted. The script is retained for reproducibility, not production use. Play Mode ended, temporary objects were discarded and the original Free Aspect view restored. Pattern IDs TN-02/09/10: coherent material values and authored whole-scene quality remain more important than adding surface detail.
+
+
+Three sequential first arrivals at separate no-store local origins reached the actual interactive game in **8.393 / 6.546 / 9.086 s** on the `e25c5d3` export. Each rendered the onboarding/planning controls; the inspected logs contain no error-level entry for these origins. `e25-fresh-origin-loads.json` preserves the receipts and limitations. One tab/player was used, own Editor Play Mode was stopped, and teammate Editors were preserved. These are local-delivery observations; neither a controlled foreground load benchmark nor public network/low-end hardware evidence is claimed.
