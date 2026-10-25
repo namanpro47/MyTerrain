@@ -1,56 +1,8 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#eef0e6"><title>Terra · A world of possibilities</title>
-<link rel="icon" href="atlas/images/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="atlas/atlas.css">
-<link rel="preload" href="atlas/images/earth.jpg" as="image">
-</head>
-<body>
-<div id="atlas">
-  <header class="masthead">
-    <a class="wordmark" href="./" aria-label="Terra home"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 29V18L20 7l15 11v11M5 29l15-11 15 11M12 24v10m16-10v10"/></svg>TERRA<span>SHAPE YOUR WORLD</span></a>
-    <div class="chapter"><span class="chapter-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
-    <button id="about" class="quiet-button" aria-label="About Terra and map sources">About this world <span aria-hidden="true">↗</span></button>
-  </header>
-  <main>
-    <section class="hero" aria-labelledby="intro-title">
-      <div class="intro">
-        <p class="eyebrow"><span></span> A LITTLE PLACE. A BIGGER FUTURE.</p>
-        <h1 id="intro-title">One planet.<br>A world of<br><em>possibilities.</em></h1>
-        <p class="intro-copy">Every landscape has a story. <br>Choose a place. Shape what comes next.</p>
-        <div class="destination" aria-live="polite" aria-atomic="true">
-          <p id="destination-region" class="eyebrow"></p>
-          <h2 id="destination-name"></h2>
-          <p id="destination-summary"></p>
-        </div>
-        <button id="enter" class="primary-button">Explore this landscape <span aria-hidden="true">↗</span></button>
-        <p class="journey-note">10 years. Your choices. A different future.</p>
-      </div>
-      <div class="world-stage">
-        <div class="atlas-caption"><span>THE LIVING ATLAS</span><span>01 / 03</span></div>
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="globe-shadow"></div>
-        <canvas id="globe" tabindex="0" role="img" aria-label="Interactive Earth. Drag to rotate, scroll to zoom, or use arrow keys. Choose a location with the cards below." aria-describedby="globe-help"></canvas>
-        <div id="pins"></div>
-        <div id="globe-fallback" hidden><p>The interactive globe is unavailable on this device.</p><p>You can still choose any landscape below.</p></div>
-        <div class="compass" aria-hidden="true"><span>N</span><svg viewBox="0 0 32 32"><path d="M16 3L22 25l-6-5-6 5Z"/></svg></div>
-        <div class="globe-toolbar"><p id="globe-help"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13V6a2 2 0 014 0v6-8a2 2 0 014 0v8-5a2 2 0 014 0v7c0 5-3 7-7 7s-5-3-7-6l-2-3a2 2 0 013-2l1 1"/></svg>Drag to explore <span>·</span> Scroll to zoom</p><div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-globe" aria-label="Return globe to selected location">⌖</button><button id="zoom-in" aria-label="Zoom in">+</button></div></div>
-      </div>
-    </section>
-    <section class="landscapes" aria-labelledby="landscapes-title">
-      <div class="section-heading"><h2 id="landscapes-title">Find your corner of the world</h2><p>THREE LANDSCAPES. ENDLESS POSSIBILITIES.</p></div>
-      <div id="location-cards" class="cards" role="group" aria-label="Choose your landscape"></div>
-    </section>
-  </main>
-  <footer><span class="footer-motto"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 15C1 7 8 2 17 3c0 9-5 15-13 12ZM4 16l8-8"/></svg> A better world starts somewhere.</span><span>Real places <i>·</i> Thoughtful choices <i>·</i> Shared futures</span><button id="motion" class="quiet-button" aria-pressed="false">Motion: full</button></footer>
-</div>
-<div id="journey" hidden role="status" aria-live="polite"><div class="journey-inner"><p class="eyebrow">YOUR NEXT CHAPTER</p><h2 id="journey-title"></h2><p id="journey-caption"></p><div class="progress-track"><span id="progress-bar"></span></div><p id="progress">Finding your place in the world…</p><button id="cancel-journey" class="quiet-button">← Back to the globe</button><button id="retry" class="primary-button" hidden>Try again</button></div></div>
-<div id="game" hidden><canvas id="unity-canvas" tabindex="0" aria-label="Terra annual land-use game. B opens the project catalog; Tab cycles sites; Enter queues; Z undoes; E reviews the year; Escape goes back. Drag to pan; scroll to zoom. Shift+Escape returns to the world atlas." aria-describedby="accessible-controls"></canvas><button id="return-atlas" aria-label="Return to location selection" aria-keyshortcuts="Shift+Escape" title="World atlas · Shift+Esc">← <span>World atlas</span> <kbd>⇧ Esc</kbd></button></div>
-<p id="accessible-controls" class="sr-only">Plan and budget, then End Year to accept consequences. Undo changes only the current plan. Progress saves separately for each location. Real elevation; hypothetical projects and outcomes. Press question mark in the game for controls and accessibility settings.</p>
-<dialog id="about-dialog"><button id="close-about" class="dialog-close" aria-label="Close about">×</button><p class="eyebrow">TERRA / FIELD NOTES</p><h2>Real places.<br>Possible futures.</h2><p>Explore the choices that shape land, livelihoods and community over ten years. Plan projects, balance a public budget and see the consequences.</p><p id="place-evidence"></p><p>New regional scenarios share illustrative USD budgets and educational rules. They are not forecasts, local cost estimates, ownership claims or permission to build.</p><details><summary>Map sources & credits</summary><p>Earth: NASA Blue Marble Next Generation, July 2004, Reto Stöckli / NASA Earth Observatory. Colour treatment for this atlas; not live imagery. <a href="https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/" target="_blank" rel="noreferrer">NASA source ↗</a></p><p>Wisconsin: USGS 3DEP, NLCD and National Map. New regional elevation: Mapzen / AWS Terrain Tiles, USGS 3DEP and SRTM. Cover and sites in those scenarios are authored. <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md" target="_blank" rel="noreferrer">Terrain credits ↗</a></p><p>Stream surface normal: MatrixRex, Uber Stylized Water. Adapted world-space sampling. <a href="atlas/vendor/WATER-LICENSE.txt" target="_blank" rel="noreferrer">MIT license ↗</a></p><p>Landscape card illustrations: original Terra SVG artwork. Three.js: MIT license. NASA and source providers do not endorse Terra.</p></details><button id="about-done" class="primary-button">Back to exploring <span>↗</span></button></dialog>
-<noscript><p class="noscript">Terra needs JavaScript to explore the globe and play. Please enable it and reload.</p></noscript>
-<script>window.TERRA_BUILD={loader:'Build/{{{ LOADER_FILENAME }}}',data:'Build/{{{ DATA_FILENAME }}}',framework:'Build/{{{ FRAMEWORK_FILENAME }}}',code:'Build/{{{ CODE_FILENAME }}}'};</script>
-<script type="module" src="atlas/atlas.js"></script>
-</body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09131a"><title>MyTerrain</title>
+<style>*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#09131a;color:#edf5ee;font-family:system-ui,sans-serif}canvas{display:block;width:100%;height:100%;outline:none;touch-action:none}#loading{position:fixed;inset:0;display:grid;place-content:center;text-align:center;background:#09131a}h1{font-weight:500;letter-spacing:-.04em;font-size:38px;margin:0 0 24px}p{color:#a7beba;font-size:14px}progress{width:240px;height:3px;accent-color:#99deba}button{padding:12px 24px;border:0;border-radius:8px;background:#99deba;color:#09131a;font:inherit}noscript{position:fixed;inset:40%;width:300px}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}</style></head>
+<body><canvas id="unity-canvas" tabindex="0" aria-label="MyTerrain. Drag the globe to rotate. Use 1, 2 or 3 to choose a location, then Enter to descend. Shift Escape returns to the globe." aria-describedby="instructions"></canvas>
+<p id="instructions" class="sr-only">All map selection and gameplay run inside Unity. Arrow keys rotate the globe; plus and minus zoom. In the landscape, B opens projects, Tab cycles sites, Enter queues a proposal and E reviews the year. Question mark opens controls and accessibility settings.</p>
+<div id="loading" role="status"><h1>MyTerrain</h1><progress id="progress" max="1" value="0"></progress><p id="status">Opening your world…</p><button id="retry" hidden onclick="location.reload()">Try again</button></div>
+<noscript>MyTerrain needs JavaScript to run. Please enable it and reload.</noscript>
+<script>window.TERRA_BUILD={loader:'Build/{{{ LOADER_FILENAME }}}',data:'Build/{{{ DATA_FILENAME }}}',framework:'Build/{{{ FRAMEWORK_FILENAME }}}',code:'Build/{{{ CODE_FILENAME }}}'};</script><script src="player.js"></script></body></html>

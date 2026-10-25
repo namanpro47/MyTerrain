@@ -1,0 +1,22 @@
+// Run with the owned Editor in Play Mode after a completed location arrival.
+var atlas=Terra.Gameplay.WorldAtlas.Instance;
+var main=UnityEngine.Object.FindAnyObjectByType<Terra.Gameplay.TerraMain>();
+if(atlas==null||!main.LandscapeIsReady||atlas.Visible||atlas.Traveling)throw new System.Exception("Arrival incomplete");
+if(UnityEngine.Object.FindObjectsByType<UnityEngine.EventSystems.EventSystem>(UnityEngine.FindObjectsSortMode.None).Length!=1)throw new System.Exception("Duplicate EventSystems after scene reload");
+if(UnityEngine.Application.productName!="MyTerrain")throw new System.Exception("Wrong application name");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+atlas.Show();atlas.Select(0,true);
+var earth=(UnityEngine.Transform)typeof(Terra.Gameplay.WorldAtlas).GetField("earth",flags).GetValue(atlas);
+var camera=(UnityEngine.Camera)typeof(Terra.Gameplay.WorldAtlas).GetField("globeCamera",flags).GetValue(atlas);
+var geo=typeof(Terra.Gameplay.WorldAtlas).GetMethod("Geo",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);
+var wi=(UnityEngine.Vector3)geo.Invoke(null,new object[]{new UnityEngine.Vector2(43.7015f,-91.037f)});
+var ca=(UnityEngine.Vector3)geo.Invoke(null,new object[]{new UnityEngine.Vector2(38.066f,-122.810f)});
+if(camera.WorldToViewportPoint(earth.TransformPoint(ca)).x>=camera.WorldToViewportPoint(earth.TransformPoint(wi)).x)throw new System.Exception("West/east orientation reversed");
+var mesh=earth.GetComponentInChildren<UnityEngine.MeshFilter>().sharedMesh;
+int midpoint=mesh.vertexCount/2;
+if(UnityEngine.Vector3.Dot(mesh.vertices[midpoint].normalized,mesh.normals[midpoint])<.99f)throw new System.Exception("Inward sphere normals");
+var before=atlas.Diagnostic;atlas.Pointer(0,new UnityEngine.Vector2(UnityEngine.Screen.width*.55f,UnityEngine.Screen.height*.6f));atlas.Pointer(1,new UnityEngine.Vector2(UnityEngine.Screen.width*.65f,UnityEngine.Screen.height*.6f));atlas.Pointer(2,new UnityEngine.Vector2(UnityEngine.Screen.width*.65f,UnityEngine.Screen.height*.6f));
+if(before==atlas.Diagnostic)throw new System.Exception("Pointer drag did not rotate");
+atlas.StartJourney();atlas.Show();if(atlas.Traveling||!atlas.Visible)throw new System.Exception("Cancellation failed");
+atlas.Select(2,true);
+return "PASS: arrived scene, one persistent EventSystem, MyTerrain product, west/east orientation, outward normals, pointer rotation, travel cancellation.";

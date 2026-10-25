@@ -29,6 +29,14 @@ namespace Terra.UI
         GameObject tooltip,loading,loadingShade,modal,modalShade,toastPanel,guideSummary;
         UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton,retryButton;
         UnityEngine.UI.Button focus,returnFocus; int dataPage;string activeTool="";
+        public void SetVisible(bool visible){root.gameObject.SetActive(visible);}
+        Action<bool> atlasMotionChanged;
+        public void ConfigureAtlas(Action open,Action<bool> motionChanged)
+        {
+            atlasMotionChanged=motionChanged;
+            var button=Button(root,"World atlas",new Vector2(0,0),new Vector2(16,112),new Vector2(116,36),open,14);
+            button.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
+        }
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
         public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume,Terra.Core.LocationProfile location=null)
@@ -45,7 +53,7 @@ namespace Terra.UI
             EventSystem.current.sendNavigationEvents=false;
             font=TMP_Settings.defaultFontAsset;rounded=RoundSprite();
             var identity=Panel(root,"Place",new Vector2(0,1),new Vector2(24,-24),new Vector2(310,94),PanelColor);
-            Label(identity,"T E R R A",new Vector2(0,1),new Vector2(18,-12),new Vector2(270,24),16,Accent,FontStyles.Bold);
+            Label(identity,"MyTerrain",new Vector2(0,1),new Vector2(18,-12),new Vector2(270,24),16,Accent,FontStyles.Bold);
             Label(identity,this.location.Name,new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
             placeSubtitle=Label(identity,this.location.Subtitle,new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),this.location.IsWisconsin?16:12,Soft);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
@@ -72,14 +80,14 @@ namespace Terra.UI
             var shade=Rect(root,"Guide backdrop",new Vector2(.5f,.5f),Vector2.zero,Vector2.zero);shade.anchorMin=Vector2.zero;shade.anchorMax=Vector2.one;shade.offsetMin=shade.offsetMax=Vector2.zero;
             shade.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.04f,.10f,.09f,.72f);modalShade=shade.gameObject;modalShade.SetActive(false);
             modal=Panel(root,"Field guide",new Vector2(.5f,.5f),Vector2.zero,new Vector2(800,650),Paper).gameObject;
-            Label(modal.transform,"T E R R A   /   FIELD NOTES",new Vector2(0,1),new Vector2(32,-22),new Vector2(730,24),14,new Color(.31f,.40f,.31f),FontStyles.Bold);
+            Label(modal.transform,"MyTerrain   /   FIELD NOTES",new Vector2(0,1),new Vector2(32,-22),new Vector2(730,24),14,new Color(.31f,.40f,.31f),FontStyles.Bold);
             modalText=Label(modal.transform,"",new Vector2(0,1),new Vector2(32,-61),new Vector2(736,440),20,Ink);
             guideSummary=Rect(modal.transform,"Evidence distinctions",new Vector2(.5f,0),new Vector2(0,152),new Vector2(736,78)).gameObject;
             string[] categories={"OBSERVED","AUTHORED","NOT A FORECAST"},summaries={"Terrain & broad cover","Sites & productive units","No flood or yield claim"};
             for(int i=0;i<3;i++){var card=Panel(guideSummary.transform,categories[i],new Vector2(0,0),new Vector2(i*248,0),new Vector2(240,78),new Color(.86f,.89f,.79f));Label(card,categories[i],new Vector2(0,1),new Vector2(12,-12),new Vector2(216,24),14,Ink,FontStyles.Bold);Label(card,summaries[i],new Vector2(0,1),new Vector2(12,-38),new Vector2(216,32),16,Ink);}
             guideSummary.SetActive(false);
             closeButton=Button(modal.transform,"Return to landscape  Esc",new Vector2(.5f,0),new Vector2(0,22),new Vector2(300,56),CloseModal,17);
-            motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");},16);
+            motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");atlasMotionChanged?.Invoke(ReducedMotion);},16);
             muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
             dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%6;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
@@ -142,7 +150,7 @@ namespace Terra.UI
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Plan → End Year → adapt</b>\nQueue projects and reserve their public costs. End Year pays once and advances them. Accepted years stay in history. Three categories contain all twelve families; arrows show more options.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters\nG: field guide · ?: controls");
+            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters\nG: field guide · ?: controls · Shift+Esc: world atlas");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");lastScreen=Vector2.zero;Layout();}
         public bool KeyboardInput(Keyboard k)
         {

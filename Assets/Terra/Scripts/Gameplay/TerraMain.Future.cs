@@ -122,7 +122,7 @@ namespace Terra.Gameplay
         }
         void ShowTakeaway(bool supported)
         {
-            hud.AnnualDialog(supported?"A useful question to take home":"Look beyond the receipt",(supported?"Yes. A building's capacity is different from the service people can actually receive.":"Tax receipts can help the public budget, but a completed home may still lack water or other services.")+"\n\nAsk of a real proposal: Who agrees to it? What need does it meet? What land and resources does it use? Who pays the ongoing costs? What evidence would change the plan?\n\nTerra's geography is sourced. Its public budgets, demands and future outcomes are educational scenarios, not local forecasts.","Return to my future",ShowFuture);
+            hud.AnnualDialog(supported?"A useful question to take home":"Look beyond the receipt",(supported?"Yes. A building's capacity is different from the service people can actually receive.":"Tax receipts can help the public budget, but a completed home may still lack water or other services.")+"\n\nAsk of a real proposal: Who agrees to it? What need does it meet? What land and resources does it use? Who pays the ongoing costs? What evidence would change the plan?\n\nMyTerrain's geography is sourced. Its public budgets, demands and future outcomes are educational scenarios, not local forecasts.","Return to my future",ShowFuture);
         }
     }
 }
