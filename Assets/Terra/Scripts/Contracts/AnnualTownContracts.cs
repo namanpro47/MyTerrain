@@ -16,6 +16,7 @@ namespace Terra.Contracts
         public TownActionDefinition[] actions;
         public TownYearDriver[] drivers;
         public TownScoreRubric rubric;
+        public TownEconomyDefinition economy;
     }
 
     [Serializable] public sealed class TownSiteDefinition
@@ -36,6 +37,7 @@ namespace Terra.Contracts
         public long annualPublicOperatingCents, annualPublicReceiptsCents;
         public int paymentYears, operatingYears, constructionYears, establishmentYears = 1;
         public double productionUnits, serviceUnits, vegetatedFraction, retentionCapacityM3;
+        public TownProjectServices services;
     }
 
     [Serializable] public sealed class TownScoreRubric
@@ -110,6 +112,7 @@ namespace Terra.Contracts
         public int disruptedSites;
         public string rubricVersion, economicExplanation, socialExplanation, environmentalExplanation;
         public TownSiteYearResult[] sites;
+        public TownEconomyOutcome economy;
     }
 
     [Serializable] public sealed class TownYearReport
@@ -134,4 +137,32 @@ namespace Terra.Contracts
         public TownYearReport[] history;
         public TownYearRequest pendingRequest;
     }
+    // Schema 2: explicit scenario quantities. Null means unsupported, never zero.
+    [Serializable] public sealed class TownProjectServices
+    {
+        public string familyId, assumptions;
+        public double occupiedAreaM2, jobs, homes, recreation, localServices;
+        public double energyDemand, waterDemand, wastewaterLoad, energySupply, cleanEnergySupply, wastewaterCapacity;
+        public double emissionsPressure, targetCurveNumber;
+        public bool connected, consent;
+    }
+    [Serializable] public sealed class TownEconomyDefinition
+    {
+        public string version, assumptions;
+        public double householdDemand, jobsTarget, recreationTarget, localServicesTarget;
+        public double baselineHomes, baselineJobs, baselineRecreation, baselineLocalServices;
+        public double baselineEnergySupply, baselineCleanEnergySupply, baselineWaterSupply, baselineWastewaterCapacity;
+        public double baselineEnergyDemand, baselineWaterDemand, baselineWastewaterLoad, emissionsLimit;
+        public double coverTargetFraction, runoffReductionTarget;
+        public SimulationInput referenceStorm;
+    }
+    [Serializable] public sealed class TownEconomyOutcome
+    {
+        public double homesBuilt, occupiedHomes, jobs, recreation, localServices;
+        public double energyDemand, energySupplied, cleanEnergySupplied, waterDemand, waterSupplied, wastewaterLoad, wastewaterTreated;
+        public double emissionsPressure, fundedFraction, serviceFraction, resourceFraction;
+        public double generatedM3, retainedM3, dischargedM3, baselineDischargedM3;
+        public string[] reasons;
+    }
+
 }

@@ -37,7 +37,7 @@ namespace Terra.Rendering
             {
                 // A level foundation with terrain-following sides fills the bounded gap. Existing
                 // terrain heights stay intact; the rules reject >3 m fill and protected land.
-                var geometry=new Geometry();var ring=layout.footprint;
+                var geometry=new Geometry();var ring=layout.foundation;
                 for(int edge=0;edge<4;edge++)
                 {
                     var a=ring[edge];var b=ring[(edge+1)%4];int steps=Mathf.CeilToInt(Vector2.Distance(new Vector2(a.x,a.z),new Vector2(b.x,b.z))/2);

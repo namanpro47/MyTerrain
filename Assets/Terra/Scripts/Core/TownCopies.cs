@@ -48,6 +48,8 @@ namespace Terra.Core
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance).OrderBy(f => f.Name, StringComparer.Ordinal))
             {
                 var fieldValue = field.GetValue(value);
+                // Optional schema-2 DTOs do not change any legacy definition/report fingerprints.
+                if (fieldValue == null && (field.Name == "economy" || field.Name == "services")) continue;
                 // v1 actions always coupled services to production. Preserve their saved hashes
                 // only for that default; altered behavior must still change the rules hash.
                 if (legacyActions && value is TownActionDefinition && field.Name == "servicesFollowProduction" && (bool)fieldValue) continue;

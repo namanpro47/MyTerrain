@@ -60,6 +60,9 @@ namespace Terra.Core
             }
             return RunoffEvaluator.Evaluate(new SimulationInput{schemaVersion=1,revision=revision,storm=storm,sites=input.ToArray()});
         }
+        public SimulationInput AnnualBaseline() => new SimulationInput { schemaVersion=1, revision=0, storm=TownCopies.Copy(storm),
+            sites=context.Concat(world.sites.Select(s=>new SimulationSiteInput { siteId=s.id, contributingAreaId=groups[s.id], areaM2=s.analysisAreaM2, curveNumber=CurveNumberMixture.AreaWeighted(s.baselineCover,parameters) })).ToArray() };
+        public double CurveNumber(CoverFraction[] cover) => CurveNumberMixture.AreaWeighted(cover,parameters);
         // Fixed-storm comparison of accepted annual cover/storage, not annual rain or a flood forecast.
         // Baseline cover remains outside the real building/park footprint. Establishment is gradual.
         public SimulationOutput EvaluateAnnual(TownYearOutcomes outcomes, int revision)

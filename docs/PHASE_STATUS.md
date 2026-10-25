@@ -1,5 +1,10 @@
 # Terra — phase status and evidence
 
+## Full-plan implementation — October 24, 2026
+
+The user authorized all remaining phases and direct main deliveries with reconciliation. Phase 4A/4B engineering checkpoint: all twelve source families / seventeen variants now have explicit capacities, resource demand, costs, footprint eligibility and a schema-2 full rubric, using Peter's annual authority. A same-AOI hypothetical wind opportunity preserves the runoff partition. [Evidence and remaining gates](evidence/full-game/README.md). Verified: 603 full-game assertions, 94 annual + 15 gameplay, 38 chapters, 1,372 consequences, and 34 Unity lifecycle/serialization checks; Unity compiles without errors/warnings. Phase 2A remains with its active visual owner and is **not accepted**; Chrome verification is currently blocked by the locked Mac. This is a tested engineering checkpoint, not completion of the visual/browser phase gates.
+
+
 ## Annual gameplay integration — October 24, 2026 (current work)
 
 The user explicitly authorized integrating Peter's annual foundation/action assets alongside the visual and editing work. This is scoped implementation authorization while the Phase 2A visual gate remains open, not acceptance of the current scenery. The rewritten [implementation plan](../IMPLEMENTATION_PLAN.md) and [Actions & Effects contract](ACTIONS_AND_EFFECTS.md) supersede the older phase labels below; the older receipts remain historical evidence.

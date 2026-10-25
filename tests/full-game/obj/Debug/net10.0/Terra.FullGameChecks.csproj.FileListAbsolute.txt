@@ -1,0 +1,15 @@
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.GeneratedMSBuildEditorConfig.editorconfig
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.AssemblyInfoInputs.cache
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.AssemblyInfo.cs
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.csproj.CoreCompileInputs.cache
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.sourcelink.json
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/bin/Debug/net10.0/Terra.FullGameChecks
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/bin/Debug/net10.0/Terra.FullGameChecks.deps.json
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/bin/Debug/net10.0/Terra.FullGameChecks.runtimeconfig.json
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/bin/Debug/net10.0/Terra.FullGameChecks.dll
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/bin/Debug/net10.0/Terra.FullGameChecks.pdb
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.dll
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/refint/Terra.FullGameChecks.dll
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.pdb
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/Terra.FullGameChecks.genruntimeconfig.cache
+/Users/naman/.codex/worktrees/full-implementation/Terra/tests/full-game/obj/Debug/net10.0/ref/Terra.FullGameChecks.dll

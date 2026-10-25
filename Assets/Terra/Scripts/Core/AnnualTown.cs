@@ -198,11 +198,23 @@ namespace Terra.Core
             ledger.repairPaidCents = Pay(ledger.repairDueCents);
             ledger.closingArrearsCents = checked(ArrearsCents - ledger.arrearsPaidCents + ledger.programDueCents - ledger.programPaidCents
                 + ledger.operatingDueCents - ledger.operatingPaidCents + ledger.repairDueCents - ledger.repairPaidCents);
+            var outcomes = EvaluateOutcomes(nextAssets, funded, consequences, ledger);
+            if (definition.economy != null)
+            {
+                ledger.publicReceiptsCents = 0;
+                double offeredHomes = outcomes.sites.Where(r => r.actionId != null).Sum(r => Action(r.siteId,r.actionId).services.homes * ActiveShare(r));
+                double occupancy = offeredHomes == 0 ? 0 : Math.Min(1, Math.Max(0, definition.economy.householdDemand-definition.economy.baselineHomes)/offeredHomes);
+                foreach (var row in outcomes.sites.Where(r => r.actionId != null))
+                {
+                    var recipe = Action(row.siteId,row.actionId);
+                    ledger.publicReceiptsCents = checked(ledger.publicReceiptsCents + (long)Math.Floor(recipe.annualPublicReceiptsCents * ActiveShare(row) * occupancy * outcomes.economy.resourceFraction));
+                }
+            }
             ledger.appropriationCents = definition.appropriationsCents[Year - 1];
             ledger.closingCashCents = checked(cash + ledger.appropriationCents + ledger.publicReceiptsCents);
             ledger.futureCommitmentsCents = checked(FutureCosts(nextAssets, Year + 1) + ledger.closingArrearsCents);
             var report = new TownYearReport { year = Year, ledger = ledger,
-                outcomes = EvaluateOutcomes(nextAssets, funded, consequences, ledger),
+                outcomes = outcomes,
                 acceptedRequest = TownCopies.Copy(pending), acceptedConsequences = TownCopies.Copy(consequences) };
 
             assets = nextAssets; CashCents = ledger.closingCashCents; ArrearsCents = ledger.closingArrearsCents;
@@ -242,7 +254,13 @@ namespace Terra.Core
                         + (recipe.vegetatedFraction - site.baselineVegetatedFraction) * row.maturity * row.condition);
                     row.retentionCapacityM3 = active ? recipe.retentionCapacityM3 * row.maturity * row.condition : 0;
                 }
-                row.productionUnits *= pending.driver.productionFactor * (effect?.productionFactor ?? 1);
+                if (asset != null && definition.economy != null)
+                {
+                    var recipe = Action(asset.siteId,asset.actionId);
+                    row.productionUnits += site.baselineProductionUnits*(1-recipe.services.occupiedAreaM2/site.areaM2)*(1-ActiveShare(row));
+                }
+                bool growing = asset == null || definition.economy == null || new[]{"cultivate-standard","cultivate-margin","conservation-rotation","cover-crop"}.Contains(asset.actionId);
+                row.productionUnits *= (growing ? pending.driver.productionFactor : 1) * (effect?.productionFactor ?? 1);
                 if (asset == null || Action(asset.siteId, asset.actionId).servicesFollowProduction)
                     row.serviceUnits *= pending.driver.productionFactor * (effect?.productionFactor ?? 1);
                 row.disrupted = effect?.disrupted ?? false;
@@ -264,8 +282,11 @@ namespace Terra.Core
             result.economicExplanation = "Illustrative production against target plus funded public operation; private production is not treasury income.";
             result.socialExplanation = "Illustrative community service target and sites without disruption; not measured employment, health or households.";
             result.environmentalExplanation = "Vegetated share of management sites plus configured operational retention capacity; not a flood, biodiversity or water-quality forecast.";
+            if (definition.economy != null) AnnualEconomy.Evaluate(definition, result, ledger, pending.driver);
             return result;
         }
+
+        static double ActiveShare(TownSiteYearResult row) => row.phase == TownAssetPhase.Operating || row.phase == TownAssetPhase.Establishing ? row.maturity * row.condition : 0;
 
         long ProgramDue(TownAsset asset, int year)
         {
@@ -384,9 +405,10 @@ namespace Terra.Core
         static double Clamp01(double value) => Math.Max(0, Math.Min(1, value));
         public static void ValidateDefinition(AnnualTownDefinition d)
         {
-            Require(d != null && d.schemaVersion == 1 && !string.IsNullOrWhiteSpace(d.id) && !string.IsNullOrWhiteSpace(d.version) && !string.IsNullOrWhiteSpace(d.worldPackId), "Versioned town definition is required.");
+            Require(d != null && (d.schemaVersion == 1 || d.schemaVersion == 2) && !string.IsNullOrWhiteSpace(d.id) && !string.IsNullOrWhiteSpace(d.version) && !string.IsNullOrWhiteSpace(d.worldPackId), "Versioned town definition is required.");
             Require(d.currency == "USD" && d.priceYear >= 2000 && d.priceYear <= 2200 && d.years >= 1 && d.years <= 100, "Invalid currency/year/horizon.");
             Money(d.startingCashCents);
+            if (d.schemaVersion == 2) AnnualEconomy.Validate(d);
             Require(d.appropriationsCents != null && d.appropriationsCents.Length == d.years, "Provide one explicit appropriation per year.");
             foreach (var amount in d.appropriationsCents) Money(amount);
             Require(d.sites != null && d.sites.Length > 0 && d.actions != null && d.drivers != null && d.drivers.Length == d.years && d.rubric != null, "Incomplete definition.");

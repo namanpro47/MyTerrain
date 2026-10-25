@@ -17,7 +17,7 @@ namespace Terra.Core
     public sealed class BuildActionLayout
     {
         public float x, z, yaw, groundY, relief;
-        public Point[] footprint;
+        public Point[] footprint, foundation;
         public string rejection;
         public bool Valid => rejection == null;
     }
@@ -36,10 +36,31 @@ namespace Terra.Core
             this.world = world; this.actions = actions;
             swaleSites = new HashSet<string>(world.sites.Where(s => s.allowedTreatments.Contains("water-swale")).Select(s => s.id));
         }
+        public void ExpandOffers(WorldData world, Scenario scenario)
+        {
+            foreach(var rule in actions)
+            {
+                var legacy=scenario.treatments.FirstOrDefault(t=>t.id==rule.id);
+                if(legacy!=null){legacy.title=rule.title;continue;}
+                bool farming=rule.category=="Farming",green=rule.landscape||rule.id=="public-park";
+                // These are disclosed visual/accounting assumptions. No new jobs, water benefit,
+                // energy output or annual economic effects are invented by choosing a model.
+                var treatment=new Treatment{id=rule.id,title=rule.title,family=rule.category.ToLowerInvariant(),description=rule.description,visualRecipeId=rule.artId,modelParameterId="unmodeled-build-action",productiveFraction=farming?1:0,
+                    cover=new[]{new CoverFraction{coverId=farming?"cultivated":green?"grass":"sealed",fraction=1}}};
+                scenario.treatments=scenario.treatments.Concat(new[]{treatment}).ToArray();
+            }
+            foreach(var site in world.sites.Where(s=>!s.protectedSite))
+            {
+                var extras=actions.Where(a=>!site.allowedTreatments.Contains(a.id)&&Rejection(site,a.id)==null).ToArray();
+                site.allowedTreatments=site.allowedTreatments.Concat(extras.Select(a=>a.id)).ToArray();
+                site.offers=site.offers.Concat(extras.Select(a=>new SiteOffer{treatmentId=a.id,cost=a.cost,production=a.category=="Farming"?site.baselineProduction:0,retentionCapacityM3=0})).ToArray();
+            }
+        }
         public BuildActionRule Find(string id) => actions.FirstOrDefault(a => a.id == id);
         public string Rejection(Site site, string id)
         {
             if (site.protectedSite) return site.name + " is a protected scenario zone. No construction or land changes are allowed.";
+            if(site.id=="annual-wind-13" && id!="wind") return "This fictional opportunity is reserved for a wind agreement; other projects use the existing fields.";
             var action = Find(id); if (action == null) return "Choose an action from the build catalog.";
             if (id == "water-swale" && !swaleSites.Contains(site.id))
                 return "Swales are enabled only at Meadow edge and Brye-side field in this scenario. This is an authored connection rule, not a terrain calculation.";
@@ -60,21 +81,23 @@ namespace Terra.Core
                     float x=minX+w/2+(maxX-minX-w)*u,z=minZ+d/2+(maxZ-minZ-d)*v;
                     var ring=new[]{new Point(x-w/2,z-d/2),new Point(x+w/2,z-d/2),new Point(x+w/2,z+d/2),new Point(x-w/2,z+d/2)};
                     if(ring.Any(p=>!Contains(site.polygon,p.x,p.z)))continue;
+                    float fw=action.id=="wind"?16:w,fd=action.id=="wind"?16:d;
+                    var foundation=new[]{new Point(x-fw/2,z-fd/2),new Point(x+fw/2,z-fd/2),new Point(x+fw/2,z+fd/2),new Point(x-fw/2,z+fd/2)};
                     float low=float.MaxValue,high=float.MinValue;
                     // Include terrain-grid corners and both rectangle edges; the surface is piecewise linear.
-                    var xs=Samples(x-w/2,x+w/2,world.terrain.xMin,world.terrain.cellSizeM);
-                    var zs=Samples(z-d/2,z+d/2,world.terrain.zMin,world.terrain.cellSizeM);
+                    var xs=Samples(x-fw/2,x+fw/2,world.terrain.xMin,world.terrain.cellSizeM);
+                    var zs=Samples(z-fd/2,z+fd/2,world.terrain.zMin,world.terrain.cellSizeM);
                     foreach(float px in xs)foreach(float pz in zs){float h=Height(px,pz);low=Math.Min(low,h);high=Math.Max(high,h);}
                     // A grid cell is split on x+z=constant. Include where those diagonals
                     // intersect footprint edges, not just grid corners (which can miss a peak).
                     var terrain=world.terrain;float step=terrain.cellSizeM,origin=terrain.xMin+terrain.zMin;
-                    float first=origin+(float)Math.Ceiling((x-w/2+z-d/2-origin)/step)*step;
-                    for(float diagonal=first;diagonal<x+w/2+z+d/2;diagonal+=step)
+                    float first=origin+(float)Math.Ceiling((x-fw/2+z-fd/2-origin)/step)*step;
+                    for(float diagonal=first;diagonal<x+fw/2+z+fd/2;diagonal+=step)
                     {
-                        foreach(float px in new[]{x-w/2,x+w/2}){float pz=diagonal-px;if(pz<z-d/2||pz>z+d/2)continue;float h=Height(px,pz);low=Math.Min(low,h);high=Math.Max(high,h);}
-                        foreach(float pz in new[]{z-d/2,z+d/2}){float px=diagonal-pz;if(px<x-w/2||px>x+w/2)continue;float h=Height(px,pz);low=Math.Min(low,h);high=Math.Max(high,h);}
+                        foreach(float px in new[]{x-fw/2,x+fw/2}){float pz=diagonal-px;if(pz<z-fd/2||pz>z+fd/2)continue;float h=Height(px,pz);low=Math.Min(low,h);high=Math.Max(high,h);}
+                        foreach(float pz in new[]{z-fd/2,z+fd/2}){float px=diagonal-pz;if(px<x-fw/2||px>x+fw/2)continue;float h=Height(px,pz);low=Math.Min(low,h);high=Math.Max(high,h);}
                     }
-                    var layout=new BuildActionLayout{x=x,z=z,yaw=yaw,footprint=ring,groundY=high+.04f,relief=high-low};
+                    var layout=new BuildActionLayout{x=x,z=z,yaw=yaw,footprint=ring,foundation=foundation,groundY=high+.04f,relief=high-low};
                     // Terrain-following samples prefer the first central fit; only rigid pads need the flattest candidate.
                     if(best==null||(!action.landscape&&layout.relief<best.relief))best=layout;
                 }

@@ -49,7 +49,7 @@ namespace Terra.Gameplay
             if(editMode=="remove")return QueuedAt(site.id)==null?"Only queued projects can be removed.":null;
             if(string.IsNullOrEmpty(treatmentId))return "Choose an action to propose here.";
             if(annual.State.assets.Any(a=>a.siteId==site.id))return "Accepted project: permanent for this run. Choose another field.";
-            if(!AnnualGameplay.Supported.Contains(treatmentId))return "This asset's annual recipe is not ready for play yet.";
+            if(!FullAnnualGameplay.Supported.Contains(treatmentId))return "This asset's annual recipe is not ready for play yet.";
             string physical=buildActionRules.Rejection(site,treatmentId);if(physical!=null)return physical;
             if(editMode=="place"&&QueuedAt(site.id)==treatmentId)return "Queued for this year. Move, remove or replace before End Year.";
             try
@@ -117,14 +117,14 @@ namespace Terra.Gameplay
         {
             var forecast=AnnualGameplay.Forecast(annual.Engine).outcomes;
             hud.AnnualState(annual.Engine,annualBaseline,forecast);
-            hud.AnnualWater(runoff.EvaluateAnnual(annual.State.history.LastOrDefault()?.outcomes??annualBaseline,Revision),runoff.EvaluateAnnual(forecast,Revision));
+            hud.AnnualWater(AnnualEconomy.Water(annualDefinition,annual.State.history.LastOrDefault()?.outcomes??annualBaseline),AnnualEconomy.Water(annualDefinition,forecast));
             UpdatePreview();
         }
         void InitializeAnnual(string packId)
         {
-            annualDefinition=AnnualGameplay.Create(world,scenario,packId,buildActionRules.Rejection);
+            annualDefinition=FullAnnualGameplay.Create(world,scenario,packId,buildActionRules,runoff);
             annualBaseline=AnnualGameplay.Baseline(annualDefinition);
-            annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey="terra.meadowbrook.annual-playable.v2";
+            annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey="terra.meadowbrook.annual-full.v3";
             string recovery=null;
             try{annual.Initialize(annualDefinition,Guid.NewGuid().ToString("N"),true);}
             catch(Exception e)

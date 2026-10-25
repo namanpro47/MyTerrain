@@ -53,27 +53,46 @@ namespace Terra.UI
             }
             UpdateActionSummary();
         }
-        static string AnnualCategory(string id)=>id=="restore-grass"||id=="water-swale"?"Nature & water":id=="cultivate-standard"||id=="cultivate-margin"||id=="conservation-rotation"?"Farming":"Community";
+        int catalogPage;
+        readonly System.Collections.Generic.List<Button> catalogPageButtons=new System.Collections.Generic.List<Button>();
+        static string AnnualCategory(string id) => new[]{"low-density-housing","high-density-housing","public-park","village-center"}.Contains(id)?"Homes & Community":new[]{"agricultural-storage","data-center","non-renewable-power","solar","wind","wastewater-upgrade"}.Contains(id)?"Work & Utilities":"Land & Nature";
         void ConfigureAnnualCatalog()
         {
             foreach(var row in actionRows.Values)row.SetActive(false);actionRows.Clear();
             var tabs=categoryButtons.Keys.ToArray();categoryButtons.Clear();
-            string[] groups={"Farming","Nature & water","Community"};
+            string[] groups={"Land & Nature","Homes & Community","Work & Utilities"};
             for(int i=0;i<tabs.Length;i++)
             {
                 var tab=tabs[i];tab.gameObject.SetActive(i<groups.Length);if(i>=groups.Length)continue;
                 string group=groups[i];SetButtonText(tab,group);categoryButtons[tab]=group;
                 var rect=tab.GetComponent<RectTransform>();rect.anchoredPosition=new Vector2(10+i*248,-8);rect.sizeDelta=new Vector2(240,38);
-                tab.onClick.RemoveAllListeners();tab.onClick.AddListener(()=>ShowCategory(group));
+                tab.onClick.RemoveAllListeners();tab.onClick.AddListener(()=>{catalogPage=0;ShowCategory(group);});
                 var row=Rect(actionDock,group+" annual actions",new Vector2(0,1),new Vector2(10,-53),new Vector2(740,124));actionRows[group]=row.gameObject;
-                var actions=actionButtons.Where(p=>AnnualGameplay.Supported.Contains(p.Value)&&AnnualCategory(p.Value)==group).ToArray();
+                var actions=actionButtons.Where(p=>FullAnnualGameplay.Supported.Contains(p.Value)&&AnnualCategory(p.Value)==group).ToArray();
                 for(int j=0;j<actions.Length;j++)
                 {
                     var button=actions[j].Key;button.transform.SetParent(row,false);
-                    var r=button.GetComponent<RectTransform>();r.anchoredPosition=new Vector2((732-actions.Length*244)/2+j*244,0);r.sizeDelta=new Vector2(238,124);
+                    var r=button.GetComponent<RectTransform>();r.anchoredPosition=new Vector2(36+(j%4)*168,0);r.sizeDelta=new Vector2(162,124);
+                    foreach(var text in button.GetComponentsInChildren<TextMeshProUGUI>())text.rectTransform.sizeDelta=new Vector2(154,text.rectTransform.sizeDelta.y);
+                    var icon=button.transform.Find("Model icon")?.GetComponent<RectTransform>();if(icon!=null)icon.sizeDelta=new Vector2(150,62);
+                }
+                if(actions.Length>4)
+                {
+                    var prev=Button(row,"‹",new Vector2(0,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=Math.Max(0,catalogPage-1);ApplyCatalogPage();},22);
+                    var next=Button(row,"›",new Vector2(1,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=(catalogPage+1)%((actions.Length+3)/4);ApplyCatalogPage();},22);
+                    catalogPageButtons.Add(prev);catalogPageButtons.Add(next);
                 }
             }
-            ShowCategory("Farming");
+            ShowCategory("Land & Nature");
+        }
+        void ApplyCatalogPage()
+        {
+            if(annualRules==null)return;
+            foreach(var group in actionRows.Keys)
+            {
+                var buttons=actionButtons.Where(p=>AnnualCategory(p.Value)==group).Select(p=>p.Key).ToArray();
+                for(int i=0;i<buttons.Length;i++)buttons[i].gameObject.SetActive(i/4==catalogPage);
+            }
         }
         public void AnnualState(AnnualTown town,TownYearOutcomes baseline,TownYearOutcomes forecast)
         {
@@ -127,7 +146,7 @@ namespace Terra.UI
             previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);
             Paint();
         }
-        static string Bundle(TownActionDefinition recipe)=>recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
+        static string Bundle(TownActionDefinition recipe)=>recipe.services!=null?recipe.fundedUnit:recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
         public void AnnualDialog(string title,string body,string action,Action callback)
         {
             ShowModal(title,body);annualDetails.gameObject.SetActive(false);
@@ -151,8 +170,24 @@ namespace Terra.UI
         public void AnnualReport(AnnualTown town,TownYearOutcomes baseline,Action continuePlanning)
         {
             var h=town.History;var r=h.Last();var p=h.Length>1?h[h.Length-2].outcomes:baseline;var o=r.outcomes;var l=r.ledger;
-            string changes=string.Join(" · ",o.sites.Where(s=>s.actionId!=null).GroupBy(s=>s.phase).Select(g=>g.Count()+" "+g.Key.ToString().ToLowerInvariant()));
-            AnnualDialog("Year "+r.year+" · accepted", "<size=88%>"+r.acceptedRequest.driver.description+"\n"+changes+"\n\nCash  "+Money(l.openingCashCents)+" → <b>"+Money(l.closingCashCents)+"</b>\nProjects "+Money(l.upfrontPaidCents)+" · upkeep "+Money(l.operatingPaidCents)+"\nAppropriation "+Money(l.appropriationCents)+" · receipts "+Money(l.publicReceiptsCents)+"\nFuture obligations "+Money(l.futureCommitmentsCents)+" · arrears "+Money(l.closingArrearsCents)+"\n\n<b>Economic "+o.economicScore.ToString("0.0")+" ("+Signed(o.economicScore-p.economicScore)+")</b> · output "+o.productionUnits.ToString("0.0")+" / 40 + upkeep funded\n<b>Social "+o.socialScore.ToString("0.0")+" ("+Signed(o.socialScore-p.socialScore)+")</b> · food / home / recreation services "+o.serviceUnits.ToString("0.0")+" / 18\n<b>Environment "+o.environmentalScore.ToString("0.0")+" ("+Signed(o.environmentalScore-p.environmentalScore)+")</b> · cover "+(100*o.vegetatedAreaM2/o.managedAreaM2).ToString("0")+"% + storage "+o.retentionCapacityM3.ToString("0")+" m³\n\n<size=82%>Starter rubric v2: 80/20 weights, capped 0–100. Authored effects, not yield, wellbeing or flood forecasts. Adapt on uncommitted fields.</size></size>",town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1):"Return to landscape",continuePlanning);
+            if(o.economy!=null)
+            {
+                AnnualDialog("Year "+r.year+" · accepted", "<size=88%>"+r.acceptedRequest.driver.description+"\n\nCash "+Money(l.openingCashCents)+" → <b>"+Money(l.closingCashCents)+"</b>\nProjects "+Money(l.upfrontPaidCents)+" · operation "+Money(l.operatingPaidCents)+"\nReceipts "+Money(l.publicReceiptsCents)+" · appropriation "+Money(l.appropriationCents)+"\nArrears "+Money(l.closingArrearsCents)+" · future commitments "+Money(l.futureCommitmentsCents)+"\n\nEconomic "+o.economicScore.ToString("0.0")+" ("+Signed(o.economicScore-p.economicScore)+") · Social "+o.socialScore.ToString("0.0")+" ("+Signed(o.socialScore-p.socialScore)+")\nEnvironment "+o.environmentalScore.ToString("0.0")+" ("+Signed(o.environmentalScore-p.environmentalScore)+")\n\n"+string.Join("\n\n",o.economy.reasons)+"</size>",town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1):"See ten-year future",continuePlanning);
+                AnnualSecondary("Meter details",()=>AnnualMetrics(o,()=>AnnualReport(town,baseline,continuePlanning)));
+            }
+            else AnnualDialog("Year "+r.year+" · accepted","Cash "+Money(l.closingCashCents)+"\n"+o.economicExplanation+"\n"+o.socialExplanation+"\n"+o.environmentalExplanation,"Continue",continuePlanning);
         }
+        public void AnnualSecondary(string caption,Action callback)
+        {
+            annualDetails.gameObject.SetActive(true);SetButtonText(annualDetails,caption);
+            annualDetails.onClick.RemoveAllListeners();annualDetails.onClick.AddListener(()=>callback());
+            var r=annualPrimary.GetComponent<RectTransform>();r.anchorMin=r.anchorMax=r.pivot=new Vector2(1,0);r.anchoredPosition=new Vector2(-32,86);
+        }
+        public void AnnualMetrics(TownYearOutcomes o,Action back)
+        {
+            var e=o.economy;
+            AnnualDialog("Why these three indicators?","<size=83%>"+o.economicExplanation+"\n\n"+o.socialExplanation+"\n\n"+o.environmentalExplanation+"\n\nOutput "+o.productionUnits.ToString("0.0")+" / "+annualRules.rubric.productionTargetUnits+" · jobs "+e.jobs.ToString("0.0")+" / "+annualRules.economy.jobsTarget+"\nEnergy "+e.energySupplied.ToString("0.0")+" / "+e.energyDemand.ToString("0.0")+" · clean "+e.cleanEnergySupplied.ToString("0.0")+"\nDrinking water "+e.waterSupplied.ToString("0.0")+" / "+e.waterDemand.ToString("0.0")+" · sewage treated "+e.wastewaterTreated.ToString("0.0")+" / "+e.wastewaterLoad.ToString("0.0")+"\nStorm generated / retained / discharged: "+e.generatedM3.ToString("0")+" / "+e.retainedM3.ToString("0")+" / "+e.dischargedM3.ToString("0")+" m³\n\n"+annualRules.rubric.version+" · scenario units, not local forecasts.</size>","Back",back);
+        }
+
     }
 }
