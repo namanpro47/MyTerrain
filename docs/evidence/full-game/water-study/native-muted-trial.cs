@@ -1,0 +1,14 @@
+var renderer=System.Linq.Enumerable.First(UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None),r=>r.name=="Mapped stream centreline");
+var material=renderer.sharedMaterial;
+material.SetColor("_Color_Shallow",new UnityEngine.Color(.31f,.49f,.43f,.34f).linear);
+material.SetColor("_Color_Deep",new UnityEngine.Color(.12f,.36f,.40f,.94f).linear);
+material.SetFloat("_Water_Depth",1.9f);
+material.SetFloat("_Enable_Intersection",1);
+material.SetFloat("_InterSec_Width",.18f);
+material.SetColor("_InterSec_Color",new UnityEngine.Color(.64f,.77f,.69f,.3f).linear);
+material.SetTexture("_InterSec_Foam_Mask",UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/Editor/StreamStudy/Uber/Textures/Foam 1.png"));
+material.SetFloat("_InterSec_Foam_Scale",.6f);
+material.SetFloat("_InterSec_Foam_Smooth",.3f);
+material.SetFloat("_Normal_Strength",.12f);
+material.DisableKeyword("_ENABLECAUSTICS");material.SetFloat("_ENABLECAUSTICS",0);
+return new{material.name,keywords=material.shaderKeywords};

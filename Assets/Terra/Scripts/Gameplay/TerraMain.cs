@@ -57,7 +57,7 @@ namespace Terra.Gameplay
             hud.Progress("Shaping the terrain and woodland…");yield return null;
             try{if(location.IsWisconsin)AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
             catch(Exception e){Error(e.Message);yield break;}
-            world=w;scenario=s;
+            world=w;scenario=s;ConfigureWaterRendering();
             try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);}
             catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
