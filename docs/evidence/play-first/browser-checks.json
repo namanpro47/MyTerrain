@@ -1,0 +1,285 @@
+{
+  "source": "607e34e",
+  "browser": "156.0.8078.48",
+  "headless": true,
+  "localUrl": "http://127.0.0.1:49832/",
+  "viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      1024,
+      576
+    ]
+  ],
+  "provider": "Local endpoint explicitly aborted; two offline years accepted through the visible recovery action.",
+  "checks": [
+    {
+      "name": "1440 planning visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440 planning clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Park inspector shows actual finances and opening",
+      "pass": true,
+      "detail": [
+        "Meadowbrook Valley",
+        "Wisconsin · real geography",
+        "Land & Nature",
+        "Homes & Community",
+        "Work & Utilities",
+        "Choose an outlined field · 8 available",
+        "Undo",
+        "View",
+        "Guide",
+        "Settings",
+        "PLAN Y1 · West field",
+        "Public park",
+        "Focused site · Scroll to zoom · R returns to the valley",
+        "Redo",
+        "Queue · Enter",
+        "Homes",
+        "$1M",
+        "Apartments",
+        "$5M",
+        "Public park",
+        "$50K",
+        "Village center",
+        "$4M",
+        "ECONOMIC",
+        "42.3 <size=50%>/100</size>\n<size=50%>Year-end  42.3</size>",
+        "SOCIAL",
+        "58.0 <size=50%>/100</size>\n<size=50%>Year-end  58.0</size>",
+        "ENVIRONMENTAL",
+        "38.9 <size=50%>/100</size>\n<size=50%>Year-end  38.9</size>",
+        "YEAR 1/10 · PLANNING",
+        "$10,000,000 <size=45%>available</size>",
+        "End Year  →",
+        "Details & assumptions",
+        "More",
+        "Budget",
+        "$50,000\n<size=72%>public upfront</size>",
+        "$2,000/yr upkeep · 10 yr",
+        "6 recreation units",
+        "1 energy · 1 water / yr",
+        "Opens Y2 · grows for 1 yr",
+        "$70,000 total reserved"
+      ]
+    },
+    {
+      "name": "More Enter does not queue the selected project",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "after": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    {
+      "name": "More Enter opens an enabled action",
+      "pass": true,
+      "detail": {
+        "labels": [
+          "T E R R A   /   FIELD NOTES",
+          "<size=140%><b>See my ten-year future?</b></size>\n\nSubmit the current reviewed plan, then advance the remaining years without new projects. Existing projects still age, need upkeep and encounter the same saved conditions.\n\nCurrent plan: 0 projects; expected Year 1 closing cash $11,000,000.\n\nFast-forward uses labelled offline chapters. This cannot undo accepted years. Progress is saved after each year; a failed step can be retried.",
+          "Return to landscape  Esc",
+          "Confirm · advance to Year 10"
+        ]
+      }
+    },
+    {
+      "name": "1440 inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440 inspector clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Replacement is explicitly prospective",
+      "pass": true,
+      "detail": [
+        "REPLACE Y1 · West field",
+        "Replace · Enter"
+      ]
+    },
+    {
+      "name": "Replacement inspection preserves queued park",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0",
+        "after": "year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0"
+      }
+    },
+    {
+      "name": "1280 larger inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1280 larger inspector clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024 larger inspector visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024 larger inspector clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Compact inspector shows three catalog cards",
+      "pass": true,
+      "detail": [
+        "Build Low-density housing",
+        "Build High-density housing",
+        "Build Public park"
+      ]
+    },
+    {
+      "name": "Provider failure preserves year, revision, cash and queue",
+      "pass": true,
+      "detail": "year=1; phase=Resolving; revision=1; cash=1000000000; queued=1; assets=0"
+    },
+    {
+      "name": "1024 larger year highlights visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024 larger year highlights clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Accepted year opens nonmodal highlights",
+      "pass": true,
+      "detail": {
+        "modal": false,
+        "state": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "Highlight focus preserves accepted state",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1",
+        "after": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "Ledger returns to year highlights",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Saved story is optional and clearly offline",
+      "pass": true,
+      "detail": "T E R R A   /   FIELD NOTES\n<size=140%><b>Year 1 · offline chapter</b></size>\n\n<size=92%><b>Year 1 — the next chapter</b>\n\nOffline chapter. 1 new project committed.\n\n<b>Cash  $10,950,000</b>\nFuture obligations  $20,000\n\nIllustrative game ou"
+    },
+    {
+      "name": "Reading story and budget preserves accepted state",
+      "pass": true,
+      "detail": {
+        "before": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1",
+        "after": "year=1; phase=Reviewing; revision=2; cash=1095000000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "Immediate next-year continuation",
+      "pass": true,
+      "detail": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1"
+    },
+    {
+      "name": "Historical overview blocks editing keys",
+      "pass": true,
+      "detail": {
+        "before": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1",
+        "after": "year=2; phase=Planning; revision=3; cash=1095000000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "1024 larger opening year visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024 larger opening year clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Opening year highlights actual Operating transition",
+      "pass": true,
+      "detail": [
+        "West field · Operating"
+      ]
+    },
+    {
+      "name": "1440 larger opening year visible labels fit",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440 larger opening year clears World atlas",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Reload preserves accepted years and cash",
+      "pass": true,
+      "detail": {
+        "before": "year=3; phase=Planning; revision=5; cash=1194800000; queued=0; assets=1",
+        "after": "year=3; phase=Planning; revision=5; cash=1194800000; queued=0; assets=1"
+      }
+    },
+    {
+      "name": "No uncaught browser exception",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "Only the two intentionally blocked provider requests failed",
+      "pass": true,
+      "detail": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_FAILED"
+        },
+        {
+          "type": "error",
+          "text": "Failed to load resource: net::ERR_FAILED"
+        }
+      ]
+    }
+  ],
+  "harnessNotes": [
+    "Provider failure intentionally leaves phase Resolving while the user chooses Retry, Edit or Offline. The browser assertion was corrected from Planning to Resolving; no runtime change was required."
+  ],
+  "consoleErrors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: net::ERR_FAILED"
+    }
+  ],
+  "finalState": "year=3; phase=Planning; revision=5; cash=1194800000; queued=0; assets=1"
+}
