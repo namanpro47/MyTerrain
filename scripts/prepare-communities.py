@@ -17,10 +17,12 @@ def stage(root=ROOT):
         if not folder.is_dir() or folder.name.startswith('.'):
             continue
         data = json.loads((folder/'community.json').read_text())
-        assert data['id'] == folder.name and data['schemaVersion'] == 1
+        if data['id'] != folder.name or data['schemaVersion'] != 1:
+            raise ValueError('Community identity/schema mismatch: ' + folder.name)
         hashes = json.loads((folder/'checksums.json').read_text())
         for name in ('community.json', 'imagery.jpg', 'provenance.json', 'imagery-catalog.json', 'imagery-service.json'):
-            assert hashlib.sha256((folder/name).read_bytes()).hexdigest() == hashes[name], name
+            if hashlib.sha256((folder/name).read_bytes()).hexdigest() != hashes[name]:
+                raise ValueError('Community checksum mismatch: ' + name)
         output = target/folder.name; output.mkdir(exist_ok=True)
         for name in ('community.json','imagery.jpg'):
             shutil.copyfile(folder/name, output/name)
