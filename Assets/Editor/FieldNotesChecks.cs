@@ -36,7 +36,7 @@ public static class FieldNotesChecks
         {
             hud.AnnualChapterReport(town,receipt,()=>{},()=>{},page);
             string story=Visible();
-            Check(story.Contains("offline chapter"),"Offline source label missing.");
+            Check(story.Contains("local summary"),"Local narration source label missing.");
             Check(!story.Contains("vs last year")&&!story.Contains("Output multiplier"),"Raw score/technical text remains in narrative.");
             Check(story.Length>200,"Chapter does not contain a developed narrative.");
             var scroll=GameObject.Find("Field notes reading area").GetComponent<UnityEngine.UI.ScrollRect>();
@@ -51,6 +51,9 @@ public static class FieldNotesChecks
             if(page==3)Check(scroll.content.Find("Environmental progress")!=null,"Land card needs an environmental bar.");
         }
         Check(accepted==JsonUtility.ToJson(town.Snapshot())&&savedReceipt==JsonUtility.ToJson(receipt),"Reading mutated accepted history or saved receipt.");
+        receipt.chapter.introduction="AI unavailable. "+receipt.chapter.introduction;
+        hud.AnnualChapterReport(town,receipt,()=>{},()=>{},0);
+        Check(Visible().Contains("AI unavailable."),"Hosted fallback disclosure lost in the readable narrative.");
         hud.ShowHelp();
         Check(!GameObject.Find("Terra HUD").GetComponentsInChildren<UnityEngine.UI.ScrollRect>().Any(s=>s.gameObject.name=="Field notes reading area"),"Chapter content leaked into help.");
         hud.CloseModal();

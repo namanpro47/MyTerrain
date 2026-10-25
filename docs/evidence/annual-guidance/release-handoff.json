@@ -1,0 +1,39 @@
+{
+  "owner": "01a173b3-7b93-7012-94cd-187a4433e564",
+  "branch": "codex/annual-guidance",
+  "candidateCommit": "4ad59c61907f286ecb73e6a9c7c4134587a0a09f",
+  "runtimeSourceCommit": "cb9e37ec00ab2a8e600d20b9178f8eb1a781bdfe",
+  "readyForIntegration": true,
+  "readyForDeployment": true,
+  "remainingVerification": "Frozen guidance browser verification complete. Release owner still verifies final combined UI after Field Notes/selector/audio merges.",
+  "tests": {
+    "modelConnected": 2460,
+    "modelLegacy": 2460,
+    "guidanceHud": 783,
+    "existingHud": 809,
+    "chapters": 16,
+    "webExport": true,
+    "servedFilesMatched": 19,
+    "chromeCombined": true,
+    "chromeErrorCount": 0
+  },
+  "exportDirectory": "/Users/naman/.codex/worktrees/annual-guidance/Terra/Builds/Verified/cb9e37e",
+  "localUrl": "http://127.0.0.1:49713/",
+  "exportFiles": 20,
+  "exportBytes": 40169854,
+  "ownedEditorClosed": true,
+  "integration": "Merge feature branch; preserve incoming native atlas/play-first changes. Annual.cs change is only four idlehint-binding lines in AnnualState. Field Notes owner may edit confirmation and End Year caption independently. Keep Core AnnualPlanningGuidance, BuildActions idlehint binding, AnnualLayout summary14px/15.68px.",
+  "checksToRepeat": [
+    "Enter Wisconsin, cancel default tool: short context hint visible",
+    "Choose project: preserve outlined-field instruction; cancel restores hint",
+    "Year2 saved budget/history unchanged; needs-based hint",
+    "1024x576 larger text and inspector open: summary fits",
+    "No error-level runtime console messages"
+  ],
+  "limits": [
+    "No Phase2A acceptance",
+    "Human playtesting unavailable by user instruction",
+    "No new numeric simulation or automatic narration fallback in this branch",
+    "No final combined release rehearsal or performance acceptance"
+  ]
+}

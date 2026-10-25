@@ -1,0 +1,27 @@
+{
+  "status": "soil-bed direction remains research; darker beet replacement rejected; temporary Unity assets removed",
+  "source_commit": "09cead6",
+  "files_sha256": {
+    "study59-beds.cs.txt": "3515e166e390ced52559acc5306c36e23b7e3566c2e52ab6672c65434674470e",
+    "study59-beds.json": "7dabf45025543cdb2cc1754ea6c6c454abfee791fe257710ebb76466b856de68",
+    "study59-soil-mask.cs.txt": "87d2b2d5d94e9b2a90e526c3484a6e2c1a62058bc829653ba423cc5269844125",
+    "study59-soil-mask.json": "f58e73d7e2cb102b449fe5df91e75a806733c18099c0a28ffa110ed6a63153c3",
+    "study59-normal.cs.txt": "322df588a1b8362a5057c3a29c55aa3c300f1e3fbb10f0860d281ccc998a34fb",
+    "study59-close.cs.txt": "93fdd7032f39d13a4ae6f55d67804a64cb2d5474006a466023d56c800873ef99",
+    "study59-capture.cs.txt": "cf94633d498f875245aba7a157bfeab9634d1bb84a3e0e1507d38def184a46d9",
+    "study59-initial-normal.png": "ffe4bfc12b16791ff13c75e7763d54602f7b7245d096c956561076c13ed949ef",
+    "study59-initial-close.png": "6f92d52e02aca4e23494be7b3dbf8811e40ac0d7ee6cee0055de513fede068ee",
+    "study59-corrected-soil-close.png": "31650c96d12f1551b2854499b97a7dd6d3725d8681e634343de40efd51727fa0",
+    "study59-CultivatedSoil.shader.txt": "cce508b9ef9794536d5a486a8c8676ba00d37d95b6e7ab104f14205f63f8bf07",
+    "study59-corrected-normal.png": "43c31b8d203e46eae09ae75283242d8dc1e66ca1413ae4c9a6e4fe0c4fe69d06",
+    "study59-beets-normal.png": "07c32964750ae3092386eb8b381bfbd6ae941b3df0cec96617f599e2b41c0f3a",
+    "study59-beets-close.png": "6c6afd2feecda8985c439446c00d47108655675f7185502d56bac010aa746ff4",
+    "study59-Beet_4.fbx": "22021bcee1d3abe8eab9f75e642dd82fc700d6c120b8e932ea9faebe71905f2d",
+    "study59-beet-import.cs.txt": "a8f84b1acc8e837b1c883d2d8d6dbca810859087c2ae46aa34a52f42d80fb25b",
+    "study59-beet-prefabs.cs.txt": "959b7f7d4f8b097ab498e28a393a03131e45fe457169157795235b658ae3a61c",
+    "study59-beets.cs.txt": "f12f016e3924103ea8d5f49947bf5c58255a9d7af3aefdb10e0a1d959c957fa8",
+    "study59-beet-import.json": "e299edeb889d47641f1e818341bbf2a2fdf89268f9ae4b82c46bf43b810e29c5",
+    "study59-beet-prefabs.json": "ff9da956a99f5bab152c3165121e5cefc7158f4d24496801bbed5e8cedb52a79",
+    "study59-beets.json": "1fae1bea78dbcdd44aa4c6b7d71d81423bba51ec3e3b2f94601f9a52b9d2939c"
+  }
+}

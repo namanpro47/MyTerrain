@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic; typeof(MainGameChapterChecks).GetField(\"count\",flags).SetValue(null,0); typeof(MainGameChapterChecks).GetMethod(\"CheckSessionAndHud\",flags).Invoke(null,null); return new{hudChecks=(int)typeof(MainGameChapterChecks).GetField(\"count\",flags).GetValue(null),chapterChecks=AnnualChapterChecks.Run()};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "hudChecks": 809,
+        "chapterChecks": 16
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/annual-guidance/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

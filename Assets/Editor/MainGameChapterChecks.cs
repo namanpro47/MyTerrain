@@ -56,6 +56,7 @@ public static class MainGameChapterChecks
         {
             count+=PlayFirstHudChecks.Run(hud,definition,world);
             count+=FieldNotesChecks.Run(hud,definition);
+            count+=ActionFeedbackChecks.Run(hud);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;
@@ -76,7 +77,7 @@ public static class MainGameChapterChecks
             Action next=()=>{hud.CloseModal();chapters.Continue();};
             Action ledger=()=>hud.AnnualReport(town.Engine,AnnualGameplay.Baseline(definition),next,()=>hud.AnnualChapterReport(town.Engine,chapters.ForYear(1),next,()=>{}));
             hud.AnnualChapterReport(town.Engine,chapters.ForYear(1),next,ledger);
-            Check(hud.Audit().Contains("offline chapter"),"Main report did not label the offline chapter.");
+            Check(hud.Audit().Contains("local summary"),"Main report did not label the local summary.");
             Click("Budget & meters");Check(hud.Audit().Contains("Back to chapter"),"Ledger lost its chapter return path.");
             Click("Back to chapter");Click("Read chapter →");
             Click("Next card →");Click("Next card →");
@@ -89,7 +90,7 @@ public static class MainGameChapterChecks
             var pending=chapters.ExportSave();
             chapters.ImportSave(pending);
             hud.AnnualChapterRecovery(2,"Connection interrupted",()=>{},()=>chapters.ResolveOffline(),()=>{hud.CloseModal();chapters.CancelResolution();});
-            Check(hud.Audit().Contains("Use offline chapter")&&hud.Audit().Contains("Edit this year's plan"),"Recovery actions are missing.");
+            Check(hud.Audit().Contains("Use local summary")&&hud.Audit().Contains("Edit this year's plan"),"Recovery actions are missing.");
             Click("Edit this year's plan");
             Check(!hud.ModalOpen&&town.State.phase==TownPhase.Planning&&town.State.history.Length==1,"Editing a pending plan lost accepted history or left recovery open.");
             town.Initialize(definition,"new-main-ui-run");chapters.ResetForRun();

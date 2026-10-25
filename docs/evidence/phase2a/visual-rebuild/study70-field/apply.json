@@ -1,0 +1,12 @@
+{
+  "site": "south-01",
+  "tiles": 361,
+  "vertices": 69312,
+  "triangles": 34656,
+  "maskCoveredPixels": 50882,
+  "fieldWidth": 110.0,
+  "fieldDepth": 107.5,
+  "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "sourceUnchanged": true,
+  "scope": "Play-only single-parcel spatial slices; baseline hidden. No shadow casting, browser/performance or lifecycle acceptance."
+}

@@ -1,0 +1,5 @@
+baseline: 10 years, exact ledger, 10 accepted transition hashes and both JSON round trips passed; definition 6e9235f19fc4d2cf321b24351fdefd3c3e34bfc34fd998931910f4c53a53b95a
+public-repair: 10 years, exact ledger, 10 accepted transition hashes and both JSON round trips passed; definition 6e9235f19fc4d2cf321b24351fdefd3c3e34bfc34fd998931910f4c53a53b95a
+repair-debt: 10 years, exact ledger, 10 accepted transition hashes and both JSON round trips passed; definition 94f503d2750dcff366426832db4a35c5b2c8fee3c5735014448de02db4d44f2c
+six-centers: 10 years, exact ledger, 10 accepted transition hashes and both JSON round trips passed; definition cbcf510b1138c3f458c0539bc1392591bbe6512d2fd5d1f7980a6e5b2beff2b0
+PASS 60 assertions; bundled Mono, no Editor or browser

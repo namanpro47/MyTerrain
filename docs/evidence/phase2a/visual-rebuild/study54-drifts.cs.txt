@@ -1,0 +1,21 @@
+if(!UnityEngine.Application.isPlaying)throw new System.Exception("Requires Play");
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);var terrain=world.terrain;
+UnityEngine.GameObject.Find("Study54 plant communities").SetActive(false);
+var root=new UnityEngine.GameObject("Study54 terrain drifts");root.transform.SetParent(main.transform,false);
+var source=UnityEngine.Resources.Load<UnityEngine.GameObject>("Nature/Grass_Common_Short");var near=land.GetType().GetMethod("NearLine",flags);var contains=land.GetType().GetMethod("Contains",flags|System.Reflection.BindingFlags.Static);
+var rng=new System.Random(5402);float J(float a,float b)=>a+(b-a)*(float)rng.NextDouble();int count=0,groups=0;
+for(float cz=terrain.zMin;cz<terrain.zMin+(terrain.rows-1)*terrain.cellSizeM;cz+=60)
+for(float cx=terrain.xMin;cx<terrain.xMin+(terrain.columns-1)*terrain.cellSizeM;cx+=60){
+var plants=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+for(float z=cz+1.25f;z<cz+60;z+=2.5f)for(float x=cx+1.25f;x<cx+60;x+=2.5f){
+ float px=x+J(-1,1),pz=z+J(-1,1);if(land.CoverAt(px,pz)!="grass"||(bool)near.Invoke(land,new object[]{px,pz,6f})||world.sites.Any(s=>(bool)contains.Invoke(null,new object[]{s.polygon,px,pz})))continue;
+ float field=UnityEngine.Mathf.PerlinNoise(px*.014f+184,pz*.014f+629)*.8f+UnityEngine.Mathf.PerlinNoise(px*.038f+71,pz*.038f+29)*.2f;
+ float growth=UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.InverseLerp(.47f,.65f,field));if(growth<.025f)continue;
+ float height=UnityEngine.Mathf.Lerp(.55f,3.2f,growth)*J(.8f,1.2f),width=UnityEngine.Mathf.Lerp(2.4f,5.2f,growth);
+ plants.Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(px,land.Height(px,pz)+.03f,pz),UnityEngine.Quaternion.Euler(0,J(0,360),0),new UnityEngine.Vector3(width,height,width)));
+}
+if(plants.Count==0)continue;var patch=new UnityEngine.GameObject("Drift "+groups);patch.transform.SetParent(root.transform,false);patch.AddComponent<Terra.Rendering.InstancedNature>().Add(source,plants,new UnityEngine.Color(.82f,.94f,.72f),true);count+=plants.Count;groups++;
+}
+return new{groups,count,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

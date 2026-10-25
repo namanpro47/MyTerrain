@@ -1,0 +1,290 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 352,
+        "y": 102,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Year 1 · offline chapter · 2 / 3</b>",
+      "rect": {
+        "x": 352,
+        "y": 141,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 578,
+        "y": 744,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Next card →",
+      "rect": {
+        "x": 666,
+        "y": 680,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 360,
+        "y": 680,
+        "width": 214,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>The pace of community life</b>\n\nThe year's results reflect the land and services already in use.\n\nHousing needs remain unmet. A home only helps when it is ready and supplied; the next plan can weigh housing against work and everyday services.",
+      "rect": {
+        "x": 352,
+        "y": 190,
+        "width": 736,
+        "height": 146.739990234375
+      },
+      "bodyCssPx": 19.999998092651367,
+      "minGlyphCssPx": 19.999998092651367,
+      "preferredHeight": 146.74000549316406,
+      "availableHeight": 146.74000549316406
+    },
+    {
+      "text": "Economic  / 100",
+      "rect": {
+        "x": 352,
+        "y": 354.74005126953125,
+        "width": 640,
+        "height": 24
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 24
+    },
+    {
+      "text": "Before",
+      "rect": {
+        "x": 352,
+        "y": 384.74005126953125,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "42.3",
+      "rect": {
+        "x": 1034,
+        "y": 384.74005126953125,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Now",
+      "rect": {
+        "x": 352,
+        "y": 414.74005126953125,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "78.3",
+      "rect": {
+        "x": 1034,
+        "y": 414.74005126953125,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Social  / 100",
+      "rect": {
+        "x": 352,
+        "y": 468.7400207519531,
+        "width": 640,
+        "height": 24
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 24
+    },
+    {
+      "text": "Before",
+      "rect": {
+        "x": 352,
+        "y": 498.7400207519531,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "58.0",
+      "rect": {
+        "x": 1034,
+        "y": 498.7400207519531,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Now",
+      "rect": {
+        "x": 352,
+        "y": 528.739990234375,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "58.0",
+      "rect": {
+        "x": 1034,
+        "y": 528.739990234375,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 570,
+        "y": 742,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 658,
+        "y": 678,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 352,
+        "y": 678,
+        "width": 230,
+        "height": 56
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "x": 320,
+      "y": 80,
+      "width": 800,
+      "height": 740
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1069400000; queued=0; assets=3\n"
+}

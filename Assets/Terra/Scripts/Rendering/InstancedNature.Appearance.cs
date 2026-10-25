@@ -8,10 +8,13 @@ namespace Terra.Rendering
         Dictionary<Material,Color> originalTints;
 
         // Drawn batches have no Renderer component for MaterialPropertyBlock overrides.
-        // Add already clones these materials, so changing them cannot recolor another site.
+        // Unchanged patches share immutable materials. Detach this site's colored
+        // materials before changing them, so annual status cannot recolor its neighbours.
         public void SetTint(Color tint,float strength)
         {
             strength=Mathf.Clamp01(strength);
+            if(strength==0&&originalTints==null)return;
+            MakeTintMaterialsPrivate();
             if(originalTints==null)originalTints=new Dictionary<Material,Color>();
             foreach(var material in ownedMaterials)
             {

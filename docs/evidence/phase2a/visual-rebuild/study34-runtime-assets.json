@@ -1,0 +1,181 @@
+{
+  "license": "Standard Unity Asset Store EULA; free acquisition authorized; original source retained locally",
+  "status": "Candidate, browser checks pending",
+  "dependencies": [
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_BC.png",
+      "bytes": 2916694,
+      "sha256": "92b69495818e1fd7bfc6bf718cbfbd4308c657db7d76dd1298a0c50965995033"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_1.png",
+      "bytes": 15576910,
+      "sha256": "110547202b1ea25bcdfbe1c8c836c3c621a1ee8d4bee69ec550886a381cef1d3"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part0-lod1.asset",
+      "bytes": 447429,
+      "sha256": "333a6268390936b57f7a33eb49b0e8a932dec9cc8735097dd76e87f005790a68"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part2-lod0.asset",
+      "bytes": 504409,
+      "sha256": "874159918e0e7ac0a5cfd15dd8a90a1bfd2758dde21846f004ff580bb8f65bed"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part1-lod2.asset",
+      "bytes": 511490,
+      "sha256": "b310a815ef50fc4a94c56e0cdba51a6b299c4b8a335bcdcad16fcf24c7d91e08"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part2-lod2.asset",
+      "bytes": 295128,
+      "sha256": "6a5ea6a1897d9eec6cf34e655a2eaa7ec623eba7d8b60927204c753d12bfb162"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part1-lod2.asset",
+      "bytes": 57866,
+      "sha256": "3ce2636b8e9bd37b58aa82b8545bb8c2fed11e210698c9f1480fd8c493de855c"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part0-lod2.asset",
+      "bytes": 247635,
+      "sha256": "5fa60c08198699492a4ad53f9153c07d4a8b6e5f205df204d941a893a9982677"
+    },
+    {
+      "path": "Assets/Terra/Resources/TerraClusterLeaves.shader",
+      "bytes": 5841,
+      "sha256": "7cb6210150eb5d4b8a543946def7dacea63b3b7dabad2d436932282e463a9b7f"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part0-lod0.asset",
+      "bytes": 564817,
+      "sha256": "539c620c093907c67228816ab63990427808273c232c49a4e2e5e7706f046114"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWTreeBark.shader",
+      "bytes": 171081,
+      "sha256": "18caf3f95a44263da3ece97d19dc00e5a7e3efbef0bdaca1ae6c5cb223f8fc68"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak.prefab",
+      "bytes": 26029,
+      "sha256": "20e4967243f97c4c894d8c335998e39abbf364cbf9dc8113a0f1877b382378c1"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part0.mat",
+      "bytes": 4237,
+      "sha256": "c3fa7eee556412dd3084fd20a8840a049b51cca151a57a3aca53520558908071"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part1-lod1.asset",
+      "bytes": 57866,
+      "sha256": "08aa310d2a3665ad6f6ab1ba22dba36ea55172869c05554cf7e22de082d97b43"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part0-lod2.asset",
+      "bytes": 447429,
+      "sha256": "2ea3e793ea9381d3f88f656acf243c09e54d5690fdba0d5eb8b789eab6528089"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part2.mat",
+      "bytes": 4237,
+      "sha256": "ea4c0d83541d4fb20528c7211857da2e89365bb1154670fe3a9f23860562c962"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_N.png",
+      "bytes": 923866,
+      "sha256": "0930ace836842eb167c714c7f0efabc2b5a9ea6d6b337f3bc2db711d9da0647e"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_2.png",
+      "bytes": 8279471,
+      "sha256": "26fdb48122306119415106a17cb1db8cac59cfdf0ddbedc318f38b9119941cd4"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling.prefab",
+      "bytes": 17869,
+      "sha256": "2893e05d300a0741b7133f967200208835377a8d3bedd55f0d1dc1f85b6aeda3"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_1.png",
+      "bytes": 7916675,
+      "sha256": "4f0aee14cc02ef09c842b5133a6ee20d7fc3240e41034ccb9d985d4a0103360a"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_1.png",
+      "bytes": 13983656,
+      "sha256": "99f8429ed7e0cde8aa661a3c7717229dff532e09212c56707e7be88d756b2bf6"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part1.mat",
+      "bytes": 1074,
+      "sha256": "0997f92ebe6b4e58ea57544c390a6964904ebf8cd36a3059cae8a2747959e059"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part1-lod0.asset",
+      "bytes": 57866,
+      "sha256": "df3606b2d00d2ec63a6bb8600659b5df5dd28cbdfeee038c28431b9f1067da8d"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_2.png",
+      "bytes": 9024108,
+      "sha256": "15ccc3c69cdbb3576ad01e76c0b32b1737c3029089ea20a6556e85e888b8c96a"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part2-lod1.asset",
+      "bytes": 295128,
+      "sha256": "f552f7b87b36359abbf8f4b947b4b7fcb862583f3945ab34d386d31761652254"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_BC.png",
+      "bytes": 1155749,
+      "sha256": "d0f03d4b2847a6e34923f0432d9dcb5e816b12819c69261ea5209f3e74b2faa9"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_2.png",
+      "bytes": 15931935,
+      "sha256": "d0e63c3d0074f894f878eee379feaf59a385c6cfd1eb7f3858388b06ad35c600"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part1-lod0.asset",
+      "bytes": 2128918,
+      "sha256": "551dd57972cb1d809a62a7f9142548eb555394248a329c916bf8042ba6315bd5"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part1.mat",
+      "bytes": 4248,
+      "sha256": "f363a99a4a6d59d7db5708eaec18175e9975c3aa783accc460fbdb700c241a44"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part0-lod1.asset",
+      "bytes": 247635,
+      "sha256": "78a69c4a1d3f06cf63f6acd961bd0a88b3a61733dfb104d9fee4bd89a39b7a99"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestOak-part1-lod1.asset",
+      "bytes": 1150165,
+      "sha256": "e80552ca25e69bfde4534a373a59eb196cde4f2d6e5213525bbc2bc8693a6754"
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_MAOS.png",
+      "bytes": 1335973,
+      "sha256": "747e3568920349d9bd0afd2064d67f011b33ac5abeffdc7f9e9f5f1fc8a5d060"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part0-lod0.asset",
+      "bytes": 247635,
+      "sha256": "ed7210588015f215bc17e26eb894f2700c67c5bab8c4eccffc1d5535b1add743"
+    },
+    {
+      "path": "Assets/Terra/Resources/Forest/ForestSapling-part0.mat",
+      "bytes": 1078,
+      "sha256": "0ce9b441a39cf3301d341f5ec706c8077aa1103e22986c34a9111f83191aa7ad"
+    },
+    {
+      "path": "Assets/TriForge Assets/TERRA_PROVENANCE.md",
+      "bytes": 1515,
+      "sha256": "dbcdf42fb2941daff6f017607c5bd1c25439f6d93ffcc92e413f0f87571adb18"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+UnityEditor.AssetDatabase.ImportAsset("Assets/Study52Canopy.shader",UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var shader=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Shader>("Assets/Study52Canopy.shader");
+var fs=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshFilter>(UnityEngine.FindObjectsSortMode.None).Where(f=>f.name.StartsWith("Continuous ground ")).ToArray();
+var source=fs[0].GetComponent<UnityEngine.MeshRenderer>().sharedMaterial;var mat=new UnityEngine.Material(shader);mat.CopyPropertiesFromMaterial(source);mat.SetColor("_GrainColor",UnityEngine.Resources.Load<UnityEngine.Material>("Nature/FieldCluster").GetColor("_BaseColor"));mat.SetFloat("_CanopyHeight",.95f);
+var root=new UnityEngine.GameObject("Study52 continuous grain");int chunks=0;
+foreach(var f in fs){var o=new UnityEngine.GameObject("Grain canopy "+chunks++);o.transform.SetParent(root.transform,false);o.transform.SetPositionAndRotation(f.transform.position,f.transform.rotation);o.transform.localScale=f.transform.lossyScale;o.AddComponent<UnityEngine.MeshFilter>().sharedMesh=f.sharedMesh;var r=o.AddComponent<UnityEngine.MeshRenderer>();r.sharedMaterial=mat;r.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;}
+return new{chunks,errors=UnityEditor.ShaderUtil.GetShaderMessages(shader).Select(m=>m.message).ToArray(),frame=UnityEngine.Time.frameCount};

@@ -1,0 +1,36 @@
+{
+  "assertions": 432,
+  "numericYears": 30,
+  "unity": false,
+  "chrome": false,
+  "liveProviderCalls": 0,
+  "summaries": [
+    {
+      "pack": "meadowbrook-v1",
+      "sites": 41,
+      "years": 10,
+      "maximumFacts": 20,
+      "maximumFactTextLength": 366,
+      "fullEnvelopeBytes": 1881841,
+      "definitionBytes": 539633
+    },
+    {
+      "pack": "point-reyes-v1",
+      "sites": 312,
+      "years": 10,
+      "maximumFacts": 20,
+      "maximumFactTextLength": 366,
+      "fullEnvelopeBytes": 12000119,
+      "definitionBytes": 4516889
+    },
+    {
+      "pack": "suusamyr-v1",
+      "sites": 340,
+      "years": 10,
+      "maximumFacts": 17,
+      "maximumFactTextLength": 365,
+      "fullEnvelopeBytes": 12685309,
+      "definitionBytes": 4944038
+    }
+  ]
+}

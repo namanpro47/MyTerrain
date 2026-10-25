@@ -1,0 +1,26 @@
+# Study 53 — worn rural path candidate
+
+October 25, 2026. **Bounded improvement on the visual branch; Phase 2A remains unaccepted.** Production-source base `e4d7bc7` includes main through `a143632`. The study follows the [rejected continuous crop canopy](study52-findings.md). Patterns [TN-02/09/12](../../../DESIGN_REFERENCE.md); the [visual goal](../../../PHASE_2A_GOAL.md) still requires whole-scene Chrome comparisons, not a completed material checklist.
+
+## Candidate retained
+
+Mapped roads previously read as uniform beige ribbons. The existing1024² path mask now retains the same outer coverage in R and stores center-to-edge position in G plus separate-route intersections in B. The ground shader uses this to distinguish subdued worn tracks, irregular grassy centers and verges. All layers share the terrain surface and union mask; no new road geometry or texture-resolution increase. The texture is sampled only within the road branch. Runtime cost has not been measured in Chrome.
+
+The first artist-color trial was too orange and its track contrast resembled glowing rails: [close](study53-road-after-live.png), [normal](study53-road-normal.png). Reduced saturation and track contrast produce the retained candidate: [fresh production normal](study53-production-normal.png), [matched old-road control](study53-production-control.png), [fresh production close](study53-production-close.png). The source/camera/vegetation are the same in the production normal/control pair; the control turns off only `_IllustratedPaths`.
+
+The effect is deliberately limited to Wisconsin by the existing regional woodland flag. Other places retain the prior road shading; their route masks still receive the additional channels. Their broader scenery is not newly certified. Bridge decks retain their distinct existing material. The road remains quite regular, and the broad meadow, crop grid, transition richness and whole-scene cohesion still fall below the visual gate. This local improvement is not a new accepted art direction.
+
+## Free artist resource and visible credit
+
+Original `Dirt/dirt.png` from [Atapataco's free Handpainted Grass & Ground pack](https://atapataco.itch.io/handpainted-grass-ground-textures) is imported unchanged as `Assets/Terra/Resources/AtapatacoGround/PathColor.png`. SHA256 `f70e6205c36d994aca9c7b4b3537bc11aa39cf6ea2f31f822f5a2657c4e03eb5`. Import uses sRGB, repeating trilinear mips and a1024px maximum; shader adapts tint/tiling. [Original archive and license evidence](study50-atapataco-source.json). The creator permits commercial use with credit; this is not CC0 or permission for standalone source redistribution. The repository was confirmed private before importing. `SOURCE.txt` preserves attribution beside the asset; in-game Landscape art credits name/link Atapataco. No purchase or image generation.
+
+Earlier meadow/crop research shots use the transient study51 materials and jitter control; they are not the retained production source. Grass images, crop shell and jitter are not adopted. The final road uses the existing production meadow/field renderer plus only this new path material.
+
+## Verification and limitations
+
+- [Final compile](study53-final-compile.json): zero errors/warnings. [Final loop check](study53-final-ticking.json) confirms advancing frames.
+- [Old/new route-mask comparison](study53-verify.json) compares all1,048,576 R pixels to the prior algorithm: zero mismatches.220 intersection pixels; correct path texture binding; zero shader errors. World JSON remains unchanged; current state is Year1/Planning/revision0/queued0/assets0. This is not an annual lifecycle proof.
+- The first credits draft exceeded the fixed panel at larger text. The shortened [final fit check](study53-credits-final.json) uses the actual text toggle:376.26px at20pt and421.41px at22.4pt within440px. Artist names, links and existing license notes remain. [Credits diagnostic](study53-credits-final-clean.png) temporarily renders the Canvas through a camera for capture; world outlines were hidden because their render queue overlaps a camera Canvas. Production remains Screen Space Overlay. This is text/layout evidence, not browser acceptance. The earlier cropped/outline-obscured credit captures are invalid full-UI evidence.
+- A restart command briefly lost its connection after compilation. The same Editor was confirmed ready/stopped. A follow-up script then disabled the controller before checking HUD readiness, touching the unsaved edit scene. Restored the original enabled flag through the Editor API, added Play/readiness guards, and reran in a fresh initialized game. No scene file was saved. This tooling mistake is not a production gameplay failure.
+
+All landscape images are actual1280×720 Unity camera captures without HUD. No new Web export, browser road review, motion/performance claim, public deployment or acceptance score. The earlier integrated baseline's [Chrome results](../../full-game/relief-browser/README.md) fail the frame-time and initial-size gates; they do not measure this new path shader. The goal remains active. Next work must address the dominant meadow/crop construction and render cost without treating a better road as sufficient scenery quality.

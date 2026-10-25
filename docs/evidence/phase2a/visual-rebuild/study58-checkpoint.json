@@ -1,0 +1,81 @@
+{
+  "source": "a2339e1",
+  "status": "Rejected art trial; production scenery unchanged; study57 also integrates verified vegetation submission consolidation",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-CropBake.shader.txt",
+      "bytes": 1103,
+      "sha256": "14459fd14b34fad8853793b7d390c7ad43f73c965bb3cc5151474a40dac95b28"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-CropSurface-initial.shader.txt",
+      "bytes": 15747,
+      "sha256": "34ca7ea71f6b09dadd0db5fb221ff4faa6a358adf3e1e8e55bd8d7218c6fe059"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-CropSurface.shader.txt",
+      "bytes": 15873,
+      "sha256": "7d789757da6469a4d9cbaa213781e4fa0249c876833a5851b64f3092d88a5bb3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-apply.cs.txt",
+      "bytes": 2961,
+      "sha256": "0778a04ad15b08dfa8f936df045dbf057ad6eb9b7a373dc8d8e37e89e06d5a33"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-apply.json",
+      "bytes": 731,
+      "sha256": "2520a888635eddda873cc0cedb521890376104f6e3bae694a9f6fadffdd7bbe5"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-bake.cs.txt",
+      "bytes": 3941,
+      "sha256": "f907ceb84ee4247d902560cb828e52398127fd1432af1882f084c29c413a5318"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-bake.json",
+      "bytes": 864,
+      "sha256": "aac1799a7cb54356cb87e57d51fce31d2ee449bb65da989bae78f68976ce329c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-capture.cs.txt",
+      "bytes": 846,
+      "sha256": "b0951bed5b52199945c309bf203459fea84487e19d04ab74f3e996ba2f4a6c38"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-findings.md",
+      "bytes": 3725,
+      "sha256": "4caf1dc5aadf511f84cff8c86e981eb6ac93f2ac018f9c78cc18ab8797837c81"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-grain-albedo.png",
+      "bytes": 809501,
+      "sha256": "75171001422a7b75226b63a24a6866614a1de6ea6b177c7498d29c2dae93c284"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-grain-normal-height.png",
+      "bytes": 994487,
+      "sha256": "8a5510c6e85fa4b79a29288a29cb78539ee0cac5796de741a6964a3822d486b4"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-soft-surface-close.png",
+      "bytes": 1596702,
+      "sha256": "8dd5d6606659f54e61b1037e556ed66ef2ea03c2f68d5ee45ac88872b3ea2240"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-soft-surface-normal.png",
+      "bytes": 1645122,
+      "sha256": "a364c8f742272b4974bf8c38c411867814ac47cd17de6c0a931dd1c2dff42cb3"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-surface-close.png",
+      "bytes": 1667385,
+      "sha256": "c08c83bba0c94cd0e796c9df109118dbe5b119bd50f3d99c4a192a19789b155f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study58-surface-normal.png",
+      "bytes": 1646340,
+      "sha256": "a0a6153957501442dd1037744b87fe32d56a98241b7b86accd7e27090ff70e71"
+    }
+  ]
+}

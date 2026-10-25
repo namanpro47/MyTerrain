@@ -1,0 +1,15 @@
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var type=typeof(Terra.Rendering.InstancedNature);int n=0;
+foreach(var layer in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None).Where(x=>x.name=="Study56 broad grain stands"))
+foreach(var b in (System.Collections.IList)type.GetField("batches",f).GetValue(layer))
+{
+ var bt=b.GetType();var matrices=(UnityEngine.Matrix4x4[])bt.GetField("transforms").GetValue(b);var mesh=(UnityEngine.Mesh)bt.GetField("mesh").GetValue(b);var bounds=new UnityEngine.Bounds();float height=0;
+ for(int i=0;i<matrices.Length;i++)
+ {
+  matrices[i]=matrices[i]*UnityEngine.Matrix4x4.Scale(new UnityEngine.Vector3(1.9f,1.45f,1.9f));
+  var current=(UnityEngine.Bounds)type.GetMethod("TransformBounds",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).Invoke(null,new object[]{mesh.bounds,matrices[i]});
+  if(i==0)bounds=current;else bounds.Encapsulate(current);height=UnityEngine.Mathf.Max(height,current.size.y);
+ }
+ bt.GetField("bounds").SetValue(b,bounds);bt.GetField("maxHeight").SetValue(b,height);n++;
+}
+return new{batches=n};

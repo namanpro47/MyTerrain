@@ -1,0 +1,77 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study44-verify.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "prefabs": [
+          {
+            "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1.prefab",
+            "vertices": 10379,
+            "triangles": 8520,
+            "bounds": "Center: (0.11, 3.43, -0.13), Extents: (2.03, 3.43, 1.37)",
+            "materials": [
+              "NormalTree_Bark",
+              "NormalTree_1-leaves"
+            ]
+          },
+          {
+            "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3.prefab",
+            "vertices": 7340,
+            "triangles": 7096,
+            "bounds": "Center: (-0.63, 2.64, 0.06), Extents: (2.52, 2.64, 1.44)",
+            "materials": [
+              "NormalTree_Bark",
+              "NormalTree_3-leaves"
+            ]
+          },
+          {
+            "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5.prefab",
+            "vertices": 2469,
+            "triangles": 2182,
+            "bounds": "Center: (0.01, 1.49, 0.01), Extents: (1.55, 1.49, 1.28)",
+            "materials": [
+              "NormalTree_Bark",
+              "NormalTree_5-leaves"
+            ]
+          }
+        ],
+        "dependencies": [
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/ClusterLeaves.shader",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1.asset",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1.prefab",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1-leaves.mat",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3.asset",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3.prefab",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3-leaves.mat",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5.asset",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5.prefab",
+          "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5-leaves.mat",
+          "Assets/Terra/Art/QuaterniusUltimateNature/Materials/NormalTree_Bark.mat",
+          "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Bark.png",
+          "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Bark_Normal.png",
+          "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Leaves.png",
+          "Packages/com.unity.render-pipelines.universal/Editor/AssetVersion.cs",
+          "Packages/com.unity.render-pipelines.universal/Shaders/Lit.shader"
+        ],
+        "frame": 70811,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

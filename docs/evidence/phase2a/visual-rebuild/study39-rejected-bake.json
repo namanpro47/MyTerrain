@@ -1,0 +1,97 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study39-bake.cs",
+      "timeout": "30"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "Grass_Common_Short-lod1",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Short.fbx",
+          "originalTriangles": 155,
+          "triangles": 100,
+          "submeshes": 1,
+          "sourceBounds": "Center: (0.04, 0.64, -0.11), Extents: (0.32, 0.67, 0.37)",
+          "bounds": "Center: (0.00, 0.65, -0.11), Extents: (0.28, 0.67, 0.37)"
+        },
+        {
+          "name": "Grass_Common_Short-lod2",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Short.fbx",
+          "originalTriangles": 155,
+          "triangles": 54,
+          "submeshes": 1,
+          "sourceBounds": "Center: (0.04, 0.64, -0.11), Extents: (0.32, 0.67, 0.37)",
+          "bounds": "Center: (-0.04, 0.56, -0.11), Extents: (0.19, 0.58, 0.31)"
+        },
+        {
+          "name": "Grass_Wispy_Short-lod1",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Wispy_Short.fbx",
+          "originalTriangles": 494,
+          "triangles": 321,
+          "submeshes": 1,
+          "sourceBounds": "Center: (0.07, 0.45, 0.02), Extents: (0.66, 0.54, 0.60)",
+          "bounds": "Center: (0.07, 0.45, 0.02), Extents: (0.66, 0.54, 0.60)"
+        },
+        {
+          "name": "Grass_Wispy_Short-lod2",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Wispy_Short.fbx",
+          "originalTriangles": 494,
+          "triangles": 317,
+          "submeshes": 1,
+          "sourceBounds": "Center: (0.07, 0.45, 0.02), Extents: (0.66, 0.54, 0.60)",
+          "bounds": "Center: (0.07, 0.45, 0.02), Extents: (0.66, 0.54, 0.60)"
+        },
+        {
+          "name": "Grass_Common_Tall-lod1",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Tall.fbx",
+          "originalTriangles": 326,
+          "triangles": 212,
+          "submeshes": 1,
+          "sourceBounds": "Center: (-0.04, 0.90, 0.02), Extents: (0.45, 0.94, 0.50)",
+          "bounds": "Center: (-0.04, 0.88, 0.04), Extents: (0.45, 0.90, 0.47)"
+        },
+        {
+          "name": "Grass_Common_Tall-lod2",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Grass_Common_Tall.fbx",
+          "originalTriangles": 326,
+          "triangles": 113,
+          "submeshes": 1,
+          "sourceBounds": "Center: (-0.04, 0.90, 0.02), Extents: (0.45, 0.94, 0.50)",
+          "bounds": "Center: (-0.01, 0.88, 0.04), Extents: (0.41, 0.90, 0.47)"
+        },
+        {
+          "name": "Flower_3_Group-lod1",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Flower_3_Group.fbx",
+          "originalTriangles": 755,
+          "triangles": 546,
+          "submeshes": 2,
+          "sourceBounds": "Center: (-0.13, 0.99, -0.01), Extents: (0.74, 1.03, 0.80)",
+          "bounds": "Center: (-0.11, 0.86, 0.09), Extents: (0.68, 0.88, 0.62)"
+        },
+        {
+          "name": "Flower_3_Group-lod2",
+          "source": "Assets/Terra/Art/QuaterniusNature/Models/Flower_3_Group.fbx",
+          "originalTriangles": 755,
+          "triangles": 546,
+          "submeshes": 2,
+          "sourceBounds": "Center: (-0.13, 0.99, -0.01), Extents: (0.74, 1.03, 0.80)",
+          "bounds": "Center: (-0.11, 0.86, 0.09), Extents: (0.68, 0.88, 0.62)"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

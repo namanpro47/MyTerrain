@@ -1,0 +1,218 @@
+[
+  {
+    "sensitivity": "low",
+    "strategy": "baseline",
+    "production": 274.44989740913957,
+    "loss": 11.74180130088407,
+    "publicRepairCents": 0,
+    "finalScores": [
+      57.7835375536073,
+      54.16872439690022,
+      38.08108162635241
+    ]
+  },
+  {
+    "sensitivity": "low",
+    "strategy": "cultivate-standard",
+    "production": 275.00506155520225,
+    "loss": 11.720874851525483,
+    "publicRepairCents": 0,
+    "finalScores": [
+      59.15180076340037,
+      54.19716036568347,
+      37.654275500591915
+    ]
+  },
+  {
+    "sensitivity": "low",
+    "strategy": "cover-crop",
+    "production": 281.07891190667095,
+    "loss": 11.470382931637033,
+    "publicRepairCents": 0,
+    "finalScores": [
+      60.475476411387284,
+      54.496135795362036,
+      39.82246627310205
+    ]
+  },
+  {
+    "sensitivity": "low",
+    "strategy": "conservation-rotation",
+    "production": 275.28974895952075,
+    "loss": 11.541896069582416,
+    "publicRepairCents": 0,
+    "finalScores": [
+      60.33139353295709,
+      54.455844222467334,
+      39.46988463193982
+    ]
+  },
+  {
+    "sensitivity": "low",
+    "strategy": "cultivate-margin",
+    "production": 271.3829721323482,
+    "loss": 11.420362741699277,
+    "publicRepairCents": 0,
+    "finalScores": [
+      59.409816916724644,
+      54.499575693505584,
+      39.19023513423846
+    ]
+  },
+  {
+    "sensitivity": "low",
+    "strategy": "water-swale",
+    "production": 274.562351011361,
+    "loss": 11.424086591749592,
+    "publicRepairCents": 2991011,
+    "finalScores": [
+      57.80115894682722,
+      54.4730433298256,
+      41.337495184629766
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "baseline",
+    "production": 218.7501836112358,
+    "loss": 14.559292258923744,
+    "publicRepairCents": 0,
+    "finalScores": [
+      50.05703348831369,
+      50.48968426679019,
+      36.26592650371716
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "cultivate-standard",
+    "production": 219.25468190074093,
+    "loss": 14.54195683620994,
+    "publicRepairCents": 0,
+    "finalScores": [
+      51.08458417446307,
+      50.51230522121849,
+      35.93373709354935
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "cover-crop",
+    "production": 226.1845546081413,
+    "loss": 14.301648985425253,
+    "publicRepairCents": 0,
+    "finalScores": [
+      52.535859758491775,
+      50.85906761911081,
+      37.72925774250721
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "conservation-rotation",
+    "production": 220.63561571731938,
+    "loss": 14.369183281977346,
+    "publicRepairCents": 0,
+    "finalScores": [
+      52.31319288731541,
+      50.76505555870783,
+      37.374639161152054
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "cultivate-margin",
+    "production": 218.44295987204657,
+    "loss": 14.248144316811636,
+    "publicRepairCents": 0,
+    "finalScores": [
+      51.89199997765341,
+      50.9368288348076,
+      37.24973587873518
+    ]
+  },
+  {
+    "sensitivity": "central",
+    "strategy": "water-swale",
+    "production": 218.86105551801745,
+    "loss": 14.297260538867821,
+    "publicRepairCents": 4255873,
+    "finalScores": [
+      50.07211769527588,
+      51.07396699157524,
+      39.54968097281984
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "baseline",
+    "production": 178.25061846929165,
+    "loss": 16.56383928690993,
+    "publicRepairCents": 0,
+    "finalScores": [
+      45.1515930304773,
+      47.73648551337195,
+      33.802839228512276
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "cultivate-standard",
+    "production": 178.66165685367508,
+    "loss": 16.551165698555725,
+    "publicRepairCents": 0,
+    "finalScores": [
+      45.941297264339454,
+      47.75096691546921,
+      33.53816084405052
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "cover-crop",
+    "production": 185.35812828120072,
+    "loss": 16.334389964794525,
+    "publicRepairCents": 0,
+    "finalScores": [
+      47.210406195761756,
+      48.06344763774078,
+      35.0007945751175
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "conservation-rotation",
+    "production": 180.47992836724183,
+    "loss": 16.39950277186093,
+    "publicRepairCents": 0,
+    "finalScores": [
+      47.08135578916105,
+      47.97375039329393,
+      34.69634249992608
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "cultivate-margin",
+    "production": 178.9848032348086,
+    "loss": 16.27563983427327,
+    "publicRepairCents": 0,
+    "finalScores": [
+      46.76371973433767,
+      48.14926934191124,
+      34.62267017740241
+    ]
+  },
+  {
+    "sensitivity": "high",
+    "strategy": "water-swale",
+    "production": 178.3487940047332,
+    "loss": 16.42086935839265,
+    "publicRepairCents": 5506306,
+    "finalScores": [
+      45.16286446239916,
+      48.504293330655344,
+      37.09198076462989
+    ]
+  }
+]

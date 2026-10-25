@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study60/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "groundTriangleChecks": 2912,
+        "maxError": 0.00009536743,
+        "vertices": 683200,
+        "tiles": 62,
+        "submittedPartInstances": 26406,
+        "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "shaderErrors": []
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,121 @@
+{
+  "sourceCommit": "cb9e37ec00ab2a8e600d20b9178f8eb1a781bdfe",
+  "url": "http://127.0.0.1:49713/",
+  "files": [
+    {
+      "path": "Build/240d77c2484db296d90f766dd71fbe16.loader.js",
+      "status": 200,
+      "bytes": 118806,
+      "sha256": "029c81ee7e63b585874bb0d085ff5446d5b9d57d1190be5812d0e70303be10d1"
+    },
+    {
+      "path": "Build/64f81469e782c0e979cfc39144204921.data.unityweb",
+      "status": 200,
+      "bytes": 30529395,
+      "sha256": "52cc4b67e81d07c56678be44469c227c8280d15e08e8b9d6b489c6a1dacb799b"
+    },
+    {
+      "path": "Build/85c92d0c825f3e6a17bba1376a28a995.framework.js.unityweb",
+      "status": 200,
+      "bytes": 67747,
+      "sha256": "5010148ec732ab75b15e688f821664c630d255c21fce0ae15228bd74efcdea5d"
+    },
+    {
+      "path": "Build/d914a9c8c92d701002676381762967f1.wasm.unityweb",
+      "status": 200,
+      "bytes": 7952128,
+      "sha256": "9c54b8a087e3a35447c55ff953469e4aa81c194e2318e7df30175e7083f53edf"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "status": 200,
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "status": 200,
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "status": 200,
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "status": 200,
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "status": 200,
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "status": 200,
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "status": 200,
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "status": 200,
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "status": 200,
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "status": 200,
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "status": 200,
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 2103,
+      "sha256": "2fd6b88e6afdea8463bbf8428ede2e3684f0efec5a55f48d23eb0fc26bb40674"
+    },
+    {
+      "path": "licenses/WATER-LICENSE.txt",
+      "status": 200,
+      "bytes": 1066,
+      "sha256": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87"
+    },
+    {
+      "path": "player.js",
+      "status": 200,
+      "bytes": 2548,
+      "sha256": "279618ee306155b7c4865b565a4f099af27504c57171981bb48296de7209ba47"
+    }
+  ],
+  "allMatch": true
+}

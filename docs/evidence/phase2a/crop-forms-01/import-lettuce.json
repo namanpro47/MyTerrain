@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CropDiagnostic/import-lettuce.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "sub": 0,
+          "material": "DarkGreen",
+          "count": 2864,
+          "min": [
+            -0.5220002,
+            -0.0669499,
+            -0.522000432
+          ],
+          "max": [
+            0.5220009,
+            0.407251716,
+            0.522000551
+          ],
+          "color": "RGBA(0.420, 0.447, 0.335, 1.000)",
+          "localMatrix": "100.00000\t0.00000\t0.00000\t0.00000\n0.00000\t-0.00001\t99.99999\t0.00000\n0.00000\t-99.99999\t-0.00001\t0.00000\n0.00000\t0.00000\t0.00000\t1.00000\n"
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

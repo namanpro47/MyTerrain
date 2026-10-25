@@ -1,0 +1,24 @@
+var f=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",f).GetValue(main);
+var visual=land.GetType().GetMethod("VisualCropAt",f);bool Crop(float x,float z)=>(bool)visual.Invoke(land,new object[]{x,z});
+var type=typeof(Terra.Rendering.InstancedNature);var bf=type.GetField("batches",f);int count=0,components=0;
+var grain=UnityEngine.Resources.Load<UnityEngine.GameObject>("Nature/FieldCluster");
+foreach(var layer in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None))
+{
+ if(layer.name=="Study56 broad grain stands"){layer.enabled=false;continue;}
+ var batches=(System.Collections.IList)bf.GetValue(layer);if(batches.Count==0)continue;var bt=batches[0].GetType();
+ if(!(bool)bt.GetField("crop").GetValue(batches[0]))continue;
+ var matrices=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var b in batches)foreach(var m in (UnityEngine.Matrix4x4[])bt.GetField("transforms").GetValue(b))
+ {
+  float x=m.m03,z=m.m23;
+  float u=x-12*UnityEngine.Mathf.Sin(z*.012f)-5*UnityEngine.Mathf.Sin(z*.029f);
+  float d=UnityEngine.Mathf.Abs(UnityEngine.Mathf.Repeat(u+19.2f,38.4f)-19.2f);
+  bool edge=!Crop(x-5,z)||!Crop(x+5,z)||!Crop(x,z-5)||!Crop(x,z+5);
+  bool band=d<3.8f;
+  if(edge||band)matrices.Add(m);
+ }
+ layer.enabled=false;var child=new UnityEngine.GameObject("Study56 grain edges and bands");child.transform.SetParent(layer.transform,false);
+ child.AddComponent<Terra.Rendering.InstancedNature>().Add(grain,matrices,UnityEngine.Color.white);count+=matrices.Count;components++;
+}
+return new{roots=count,components,state=main.Diagnostic};

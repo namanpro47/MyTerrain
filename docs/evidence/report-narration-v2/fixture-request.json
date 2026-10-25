@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "year": 1,
+  "acceptedTransitionId": "fixture-run:year-1:revision-2",
+  "acceptedTransitionHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "rulesVersion": "annual-fixture-v4",
+  "reportVersion": "accepted-report-v2",
+  "promptVersion": "report-highlight-selection-v2.0.0",
+  "modelVersion": "gemini-3.5-flash-lite",
+  "title": "Year 1: accepted results",
+  "introduction": "Economic 51 (+2), Social 58 (+0), Environmental 47.5 (+1). Cash $9,000,000 is saved. These are illustrative results.",
+  "facts": [
+    {
+      "id": "budget",
+      "title": "Public budget",
+      "text": "$100,000 of public upkeep was paid. Private harvest is not public income.",
+      "siteIds": [],
+      "causalRuleIds": [
+        "ledger-v4"
+      ]
+    },
+    {
+      "id": "harvest",
+      "title": "Harvest and weather",
+      "text": "West field output decreased under the saved dry-season response. This is an authored scenario, not a forecast.",
+      "siteIds": [
+        "west-field"
+      ],
+      "causalRuleIds": [
+        "crop-dry-v4"
+      ]
+    },
+    {
+      "id": "recovery",
+      "title": "Next year's starting condition",
+      "text": "Funded public repair improves next year's starting condition; it does not reverse this year's harvest loss.",
+      "siteIds": [
+        "public-swale"
+      ],
+      "causalRuleIds": [
+        "repair-after-harvest-v4"
+      ]
+    },
+    {
+      "id": "reference",
+      "title": "Shared reference",
+      "text": "Fictional scenario · weather and economic references: Coon Valley, Wisconsin · other parameters are authored game assumptions.",
+      "siteIds": [],
+      "causalRuleIds": []
+    }
+  ]
+}

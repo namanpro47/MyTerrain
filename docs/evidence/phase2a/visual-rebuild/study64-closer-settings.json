@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study64/view.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 4013,
+        "settings": [
+          "1",
+          "-32",
+          "42",
+          "72",
+          "-75",
+          "30",
+          "45"
+        ],
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "camera": "(12.26, 178.27, -94.65)",
+        "lights": [
+          {
+            "name": "Directional Light",
+            "intensity": 1.1,
+            "direction": "(52.00, 260.00, 0.00)"
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

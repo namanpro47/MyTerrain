@@ -1,0 +1,4 @@
+var root=UnityEngine.GameObject.Find("Study44 native Quaternius woodland");var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var materials=new System.Collections.Generic.HashSet<UnityEngine.Material>();
+foreach(var n in root.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){var batches=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);foreach(var b in batches){var m=(UnityEngine.Material)b.GetType().GetField("material",flags).GetValue(b);if(m.name.Contains("Leaves"))materials.Add(m);}}
+foreach(var m in materials){m.SetFloat("_AlphaClip",1);m.SetFloat("_Cutoff",.5f);m.SetFloat("_AlphaToMask",1);m.EnableKeyword("_ALPHATEST_ON");m.SetOverrideTag("RenderType","TransparentCutout");m.renderQueue=2450;}
+return new{materials=materials.Count,frame=UnityEngine.Time.frameCount};

@@ -1,0 +1,2841 @@
+{
+  "schemaVersion": 1,
+  "packId": "meadowbrook-v1",
+  "version": "4.0.0",
+  "gridSizeM": 60,
+  "worldSha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+  "title": "Farms beside the creek",
+  "story": "In this fictional Meadowbrook community, four households share a farm store, a small village square and a recreation ground. Productive fields sit between woodland and creek corridors. Add homes and livelihoods while keeping those corridors intact.",
+  "sites": [
+    {
+      "id": "reserve-11",
+      "name": "Wooded slope",
+      "sourceId": "scenario-assumptions-v1",
+      "contributingAreaId": "site-only-reserve-11",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 90.0,
+          "z": 200.0
+        },
+        {
+          "x": 90.0,
+          "z": 330.0
+        },
+        {
+          "x": -60.0,
+          "z": 330.0
+        },
+        {
+          "x": -60.0,
+          "z": 200.0
+        }
+      ],
+      "analysisAreaM2": 19500.0,
+      "baselineProduction": 0,
+      "protectedSite": true,
+      "protectionReason": "Scenario no-edit zone; not a legal designation.",
+      "baselineCover": [
+        {
+          "coverId": "woodland",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "reserve-12",
+      "name": "Stream corridor",
+      "sourceId": "scenario-assumptions-v1",
+      "contributingAreaId": "site-only-reserve-12",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360.0,
+          "z": -100.0
+        },
+        {
+          "x": 360.0,
+          "z": 40.0
+        },
+        {
+          "x": 310.0,
+          "z": 40.0
+        },
+        {
+          "x": 310.0,
+          "z": -100.0
+        }
+      ],
+      "analysisAreaM2": 7000.0,
+      "baselineProduction": 0,
+      "protectedSite": true,
+      "protectionReason": "Scenario no-edit zone; not a legal designation.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.1241306
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.1972134
+        },
+        {
+          "coverId": "woodland",
+          "fraction": 0.678656
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-07-05",
+      "name": "Open plot 8 · 6",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-07-05",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -120,
+          "z": -300
+        },
+        {
+          "x": 60,
+          "z": -300
+        },
+        {
+          "x": 60,
+          "z": -120
+        },
+        {
+          "x": -120,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 32400,
+      "baselineProduction": 3.24,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 9.72,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 7.29,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 324.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-03",
+      "name": "Open plot 17 · 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -420
+        },
+        {
+          "x": 540,
+          "z": -420
+        },
+        {
+          "x": 540,
+          "z": -300
+        },
+        {
+          "x": 420,
+          "z": -300
+        }
+      ],
+      "analysisAreaM2": 14400,
+      "baselineProduction": 1.4296537000369194,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9928150694700829
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.0071849305299171344
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 4.32,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 3.24,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 144.0
+        }
+      ]
+    },
+    {
+      "id": "grid-10-04",
+      "name": "Open plot 11 · 5",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-10-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 60,
+          "z": -360
+        },
+        {
+          "x": 180,
+          "z": -360
+        },
+        {
+          "x": 180,
+          "z": -240
+        },
+        {
+          "x": 60,
+          "z": -240
+        }
+      ],
+      "analysisAreaM2": 14400,
+      "baselineProduction": 0.8179402206936559,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.5680140421483721
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.4319859578516279
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 4.32,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 3.24,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 144.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-05",
+      "name": "Existing village square",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-05",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -300
+        },
+        {
+          "x": 540,
+          "z": -300
+        },
+        {
+          "x": 540,
+          "z": -180
+        },
+        {
+          "x": 420,
+          "z": -180
+        }
+      ],
+      "analysisAreaM2": 14400,
+      "baselineProduction": 1.0940779626175008,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.7597763629288201
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.0668903037378467
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.17333333333333334
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-11-00",
+      "name": "Open plot 12 · 1",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-11-00",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 120,
+          "z": -600
+        },
+        {
+          "x": 180,
+          "z": -600
+        },
+        {
+          "x": 180,
+          "z": -540
+        },
+        {
+          "x": 120,
+          "z": -540
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3599991063500267,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.999997517638963
+        },
+        {
+          "coverId": "grass",
+          "fraction": 2.482361036931656e-06
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-12-00",
+      "name": "Open plot 13 · 1",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-12-00",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 180,
+          "z": -600
+        },
+        {
+          "x": 240,
+          "z": -600
+        },
+        {
+          "x": 240,
+          "z": -540
+        },
+        {
+          "x": 180,
+          "z": -540
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.35976229412560207,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9993397059044502
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.0006602940955498424
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-13-00",
+      "name": "Open plot 14 · 1",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-13-00",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 240,
+          "z": -600
+        },
+        {
+          "x": 300,
+          "z": -600
+        },
+        {
+          "x": 300,
+          "z": -540
+        },
+        {
+          "x": 240,
+          "z": -540
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-14-00",
+      "name": "Open plot 15 · 1",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-14-00",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 300,
+          "z": -600
+        },
+        {
+          "x": 360,
+          "z": -600
+        },
+        {
+          "x": 360,
+          "z": -540
+        },
+        {
+          "x": 300,
+          "z": -540
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.31334880213580907,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.8704133392661364
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.12958666073386363
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-14-01",
+      "name": "Open plot 15 · 2",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-14-01",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 300,
+          "z": -540
+        },
+        {
+          "x": 360,
+          "z": -540
+        },
+        {
+          "x": 360,
+          "z": -480
+        },
+        {
+          "x": 300,
+          "z": -480
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3387044367143273,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9408456575397981
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.05915434246020191
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-15-01",
+      "name": "Open plot 16 · 2",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-15-01",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360,
+          "z": -540
+        },
+        {
+          "x": 420,
+          "z": -540
+        },
+        {
+          "x": 420,
+          "z": -480
+        },
+        {
+          "x": 360,
+          "z": -480
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3518681681806964,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9774115782797121
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.022588421720287848
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-08-02",
+      "name": "Open plot 9 · 3",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-08-02",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -60,
+          "z": -480
+        },
+        {
+          "x": 0,
+          "z": -480
+        },
+        {
+          "x": 0,
+          "z": -420
+        },
+        {
+          "x": -60,
+          "z": -420
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.35999999999999993,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9999999999999998
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-15-02",
+      "name": "Open plot 16 · 3",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-15-02",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360,
+          "z": -480
+        },
+        {
+          "x": 420,
+          "z": -480
+        },
+        {
+          "x": 420,
+          "z": -420
+        },
+        {
+          "x": 360,
+          "z": -420
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3135814007718189,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.8710594465883857
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.12894055341161423
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-02",
+      "name": "Existing recreation ground",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-02",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -480
+        },
+        {
+          "x": 480,
+          "z": -480
+        },
+        {
+          "x": 480,
+          "z": -420
+        },
+        {
+          "x": 420,
+          "z": -420
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.16799999999999998,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.4666666666666667
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.4533333333333333
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.08000000000000002
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-08-03",
+      "name": "Open plot 9 · 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-08-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -60,
+          "z": -420
+        },
+        {
+          "x": 0,
+          "z": -420
+        },
+        {
+          "x": 0,
+          "z": -360
+        },
+        {
+          "x": -60,
+          "z": -360
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3248494895347512,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9023596931520866
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.09764030684791337
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-09-03",
+      "name": "Open plot 10 · 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-09-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 0,
+          "z": -420
+        },
+        {
+          "x": 60,
+          "z": -420
+        },
+        {
+          "x": 60,
+          "z": -360
+        },
+        {
+          "x": 0,
+          "z": -360
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.20164130653117865,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.5601147403643851
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.43988525963561514
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-10-03",
+      "name": "Open plot 11 · 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-10-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 60,
+          "z": -420
+        },
+        {
+          "x": 120,
+          "z": -420
+        },
+        {
+          "x": 120,
+          "z": -360
+        },
+        {
+          "x": 60,
+          "z": -360
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.14905276096608486,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.4140354471280135
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.5859645528719865
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-11-03",
+      "name": "Open plot 12 · 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-11-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 120,
+          "z": -420
+        },
+        {
+          "x": 180,
+          "z": -420
+        },
+        {
+          "x": 180,
+          "z": -360
+        },
+        {
+          "x": 120,
+          "z": -360
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.0025357864929195784,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.007043851369221052
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.992956148630779
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-15-03",
+      "name": "Existing home 4",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-15-03",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360,
+          "z": -420
+        },
+        {
+          "x": 420,
+          "z": -420
+        },
+        {
+          "x": 420,
+          "z": -360
+        },
+        {
+          "x": 360,
+          "z": -360
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.2455157299149193,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.6819881386525536
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.16778963912522427
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.15022222222222223
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-05-04",
+      "name": "Open plot 6 · 5",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-05-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -240,
+          "z": -360
+        },
+        {
+          "x": -180,
+          "z": -360
+        },
+        {
+          "x": -180,
+          "z": -300
+        },
+        {
+          "x": -240,
+          "z": -300
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.0,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "grass",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-08-04",
+      "name": "Open plot 9 · 5",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-08-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": -60,
+          "z": -360
+        },
+        {
+          "x": 0,
+          "z": -360
+        },
+        {
+          "x": 0,
+          "z": -300
+        },
+        {
+          "x": -60,
+          "z": -300
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3539278357244811,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9831328770124476
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.016867122987552722
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-09-04",
+      "name": "Open plot 10 · 5",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-09-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 0,
+          "z": -360
+        },
+        {
+          "x": 60,
+          "z": -360
+        },
+        {
+          "x": 60,
+          "z": -300
+        },
+        {
+          "x": 0,
+          "z": -300
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3390643015109292,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9418452819748033
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.058154718025196464
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-15-04",
+      "name": "Existing home 2",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-15-04",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360,
+          "z": -360
+        },
+        {
+          "x": 420,
+          "z": -360
+        },
+        {
+          "x": 420,
+          "z": -300
+        },
+        {
+          "x": 360,
+          "z": -300
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.2768,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.768888888888889
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.08088888888888889
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.15022222222222223
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-12-05",
+      "name": "Open plot 13 · 6",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-12-05",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 180,
+          "z": -300
+        },
+        {
+          "x": 240,
+          "z": -300
+        },
+        {
+          "x": 240,
+          "z": -240
+        },
+        {
+          "x": 180,
+          "z": -240
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-15-05",
+      "name": "Existing home 1",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-15-05",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 360,
+          "z": -300
+        },
+        {
+          "x": 420,
+          "z": -300
+        },
+        {
+          "x": 420,
+          "z": -240
+        },
+        {
+          "x": 360,
+          "z": -240
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.2768,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.768888888888889
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.08088888888888889
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.15022222222222223
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-10-06",
+      "name": "Open plot 11 · 7",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-10-06",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 60,
+          "z": -240
+        },
+        {
+          "x": 120,
+          "z": -240
+        },
+        {
+          "x": 120,
+          "z": -180
+        },
+        {
+          "x": 60,
+          "z": -180
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-11-06",
+      "name": "Open plot 12 · 7",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-11-06",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 120,
+          "z": -240
+        },
+        {
+          "x": 180,
+          "z": -240
+        },
+        {
+          "x": 180,
+          "z": -180
+        },
+        {
+          "x": 120,
+          "z": -180
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-12-06",
+      "name": "Open plot 13 · 7",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-12-06",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 180,
+          "z": -240
+        },
+        {
+          "x": 240,
+          "z": -240
+        },
+        {
+          "x": 240,
+          "z": -180
+        },
+        {
+          "x": 180,
+          "z": -180
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-10-07",
+      "name": "Open plot 11 · 8",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-10-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 60,
+          "z": -180
+        },
+        {
+          "x": 120,
+          "z": -180
+        },
+        {
+          "x": 120,
+          "z": -120
+        },
+        {
+          "x": 60,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-11-07",
+      "name": "Open plot 12 · 8",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-11-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 120,
+          "z": -180
+        },
+        {
+          "x": 180,
+          "z": -180
+        },
+        {
+          "x": 180,
+          "z": -120
+        },
+        {
+          "x": 120,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-12-07",
+      "name": "Open plot 13 · 8",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-12-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 180,
+          "z": -180
+        },
+        {
+          "x": 240,
+          "z": -180
+        },
+        {
+          "x": 240,
+          "z": -120
+        },
+        {
+          "x": 180,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-07",
+      "name": "Existing home 3",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -180
+        },
+        {
+          "x": 480,
+          "z": -180
+        },
+        {
+          "x": 480,
+          "z": -120
+        },
+        {
+          "x": 420,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.2768,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.768888888888889
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.08088888888888889
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.15022222222222223
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-17-07",
+      "name": "Existing farm store",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-17-07",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 480,
+          "z": -180
+        },
+        {
+          "x": 540,
+          "z": -180
+        },
+        {
+          "x": 540,
+          "z": -120
+        },
+        {
+          "x": 480,
+          "z": -120
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.15839999999999999,
+      "protectedSite": true,
+      "protectionReason": "Existing community asset. Redevelopment is outside this game.",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.43999999999999995
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.05600000000000001
+        },
+        {
+          "coverId": "sealed",
+          "fraction": 0.5040000000000001
+        }
+      ],
+      "allowedTreatments": [],
+      "offers": []
+    },
+    {
+      "id": "grid-11-08",
+      "name": "Open plot 12 · 9",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-11-08",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 120,
+          "z": -120
+        },
+        {
+          "x": 180,
+          "z": -120
+        },
+        {
+          "x": 180,
+          "z": -60
+        },
+        {
+          "x": 120,
+          "z": -60
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-12-08",
+      "name": "Open plot 13 · 9",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-12-08",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 180,
+          "z": -120
+        },
+        {
+          "x": 240,
+          "z": -120
+        },
+        {
+          "x": 240,
+          "z": -60
+        },
+        {
+          "x": 180,
+          "z": -60
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-08",
+      "name": "Open plot 17 · 9",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-08",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -120
+        },
+        {
+          "x": 480,
+          "z": -120
+        },
+        {
+          "x": 480,
+          "z": -60
+        },
+        {
+          "x": 420,
+          "z": -60
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-17-08",
+      "name": "Open plot 18 · 9",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-17-08",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 480,
+          "z": -120
+        },
+        {
+          "x": 540,
+          "z": -120
+        },
+        {
+          "x": 540,
+          "z": -60
+        },
+        {
+          "x": 480,
+          "z": -60
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.36,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-09",
+      "name": "Open plot 17 · 10",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-09",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": -60
+        },
+        {
+          "x": 480,
+          "z": -60
+        },
+        {
+          "x": 480,
+          "z": 0
+        },
+        {
+          "x": 420,
+          "z": 0
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.3600000000000001,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 1.0000000000000002
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-16-12",
+      "name": "Open plot 17 · 13",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-16-12",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 420,
+          "z": 120
+        },
+        {
+          "x": 480,
+          "z": 120
+        },
+        {
+          "x": 480,
+          "z": 180
+        },
+        {
+          "x": 420,
+          "z": 180
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.0037945144016259293,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.010540317782294247
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.9894596822177057
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    },
+    {
+      "id": "grid-17-12",
+      "name": "Open plot 18 · 13",
+      "sourceId": "scenario-open-grid-v1",
+      "contributingAreaId": "grid-isolated-grid-17-12",
+      "modelParameterId": "cn-b-cover-assumed-v1",
+      "polygon": [
+        {
+          "x": 480,
+          "z": 120
+        },
+        {
+          "x": 540,
+          "z": 120
+        },
+        {
+          "x": 540,
+          "z": 180
+        },
+        {
+          "x": 480,
+          "z": 180
+        }
+      ],
+      "analysisAreaM2": 3600,
+      "baselineProduction": 0.33911948367898476,
+      "protectedSite": false,
+      "protectionReason": "",
+      "baselineCover": [
+        {
+          "coverId": "cultivated",
+          "fraction": 0.9419985657749577
+        },
+        {
+          "coverId": "grass",
+          "fraction": 0.05800143422504233
+        }
+      ],
+      "allowedTreatments": [
+        "cultivate-standard",
+        "cultivate-margin",
+        "restore-grass",
+        "water-swale"
+      ],
+      "offers": [
+        {
+          "treatmentId": "cultivate-standard",
+          "cost": 26,
+          "production": 1.08,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "cultivate-margin",
+          "cost": 26,
+          "production": 0.81,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "restore-grass",
+          "cost": 14,
+          "production": 0,
+          "retentionCapacityM3": 0
+        },
+        {
+          "treatmentId": "water-swale",
+          "cost": 30,
+          "production": 0,
+          "retentionCapacityM3": 36.0
+        }
+      ]
+    }
+  ],
+  "context": [
+    {
+      "id": "grid-context-cultivated",
+      "coverId": "cultivated",
+      "areaM2": 276124.8982734386
+    },
+    {
+      "id": "grid-context-grass",
+      "coverId": "grass",
+      "areaM2": 306877.3908405614
+    },
+    {
+      "id": "grid-context-sealed",
+      "coverId": "sealed",
+      "areaM2": 79882.739732
+    },
+    {
+      "id": "grid-context-woodland",
+      "coverId": "woodland",
+      "areaM2": 595814.971154
+    }
+  ],
+  "connections": [
+    {
+      "siteId": "reserve-11",
+      "groupId": "site-only-reserve-11"
+    },
+    {
+      "siteId": "reserve-12",
+      "groupId": "site-only-reserve-12"
+    },
+    {
+      "siteId": "grid-07-05",
+      "groupId": "grid-isolated-grid-07-05"
+    },
+    {
+      "siteId": "grid-16-03",
+      "groupId": "grid-isolated-grid-16-03"
+    },
+    {
+      "siteId": "grid-10-04",
+      "groupId": "grid-isolated-grid-10-04"
+    },
+    {
+      "siteId": "grid-16-05",
+      "groupId": "grid-isolated-grid-16-05"
+    },
+    {
+      "siteId": "grid-11-00",
+      "groupId": "grid-isolated-grid-11-00"
+    },
+    {
+      "siteId": "grid-12-00",
+      "groupId": "grid-isolated-grid-12-00"
+    },
+    {
+      "siteId": "grid-13-00",
+      "groupId": "grid-isolated-grid-13-00"
+    },
+    {
+      "siteId": "grid-14-00",
+      "groupId": "grid-isolated-grid-14-00"
+    },
+    {
+      "siteId": "grid-14-01",
+      "groupId": "grid-isolated-grid-14-01"
+    },
+    {
+      "siteId": "grid-15-01",
+      "groupId": "grid-isolated-grid-15-01"
+    },
+    {
+      "siteId": "grid-08-02",
+      "groupId": "grid-isolated-grid-08-02"
+    },
+    {
+      "siteId": "grid-15-02",
+      "groupId": "grid-isolated-grid-15-02"
+    },
+    {
+      "siteId": "grid-16-02",
+      "groupId": "grid-isolated-grid-16-02"
+    },
+    {
+      "siteId": "grid-08-03",
+      "groupId": "grid-isolated-grid-08-03"
+    },
+    {
+      "siteId": "grid-09-03",
+      "groupId": "grid-isolated-grid-09-03"
+    },
+    {
+      "siteId": "grid-10-03",
+      "groupId": "grid-isolated-grid-10-03"
+    },
+    {
+      "siteId": "grid-11-03",
+      "groupId": "grid-isolated-grid-11-03"
+    },
+    {
+      "siteId": "grid-15-03",
+      "groupId": "grid-isolated-grid-15-03"
+    },
+    {
+      "siteId": "grid-05-04",
+      "groupId": "grid-isolated-grid-05-04"
+    },
+    {
+      "siteId": "grid-08-04",
+      "groupId": "grid-isolated-grid-08-04"
+    },
+    {
+      "siteId": "grid-09-04",
+      "groupId": "grid-isolated-grid-09-04"
+    },
+    {
+      "siteId": "grid-15-04",
+      "groupId": "grid-isolated-grid-15-04"
+    },
+    {
+      "siteId": "grid-12-05",
+      "groupId": "grid-isolated-grid-12-05"
+    },
+    {
+      "siteId": "grid-15-05",
+      "groupId": "grid-isolated-grid-15-05"
+    },
+    {
+      "siteId": "grid-10-06",
+      "groupId": "grid-isolated-grid-10-06"
+    },
+    {
+      "siteId": "grid-11-06",
+      "groupId": "grid-isolated-grid-11-06"
+    },
+    {
+      "siteId": "grid-12-06",
+      "groupId": "grid-isolated-grid-12-06"
+    },
+    {
+      "siteId": "grid-10-07",
+      "groupId": "grid-isolated-grid-10-07"
+    },
+    {
+      "siteId": "grid-11-07",
+      "groupId": "grid-isolated-grid-11-07"
+    },
+    {
+      "siteId": "grid-12-07",
+      "groupId": "grid-isolated-grid-12-07"
+    },
+    {
+      "siteId": "grid-16-07",
+      "groupId": "grid-isolated-grid-16-07"
+    },
+    {
+      "siteId": "grid-17-07",
+      "groupId": "grid-isolated-grid-17-07"
+    },
+    {
+      "siteId": "grid-11-08",
+      "groupId": "grid-isolated-grid-11-08"
+    },
+    {
+      "siteId": "grid-12-08",
+      "groupId": "grid-isolated-grid-12-08"
+    },
+    {
+      "siteId": "grid-16-08",
+      "groupId": "grid-isolated-grid-16-08"
+    },
+    {
+      "siteId": "grid-17-08",
+      "groupId": "grid-isolated-grid-17-08"
+    },
+    {
+      "siteId": "grid-16-09",
+      "groupId": "grid-isolated-grid-16-09"
+    },
+    {
+      "siteId": "grid-16-12",
+      "groupId": "grid-isolated-grid-16-12"
+    },
+    {
+      "siteId": "grid-17-12",
+      "groupId": "grid-isolated-grid-17-12"
+    }
+  ],
+  "initialBuildings": [
+    {
+      "siteId": "grid-16-05",
+      "actionId": "village-center",
+      "title": "Existing village square"
+    },
+    {
+      "siteId": "grid-15-05",
+      "actionId": "low-density-housing",
+      "title": "Existing home 1"
+    },
+    {
+      "siteId": "grid-15-04",
+      "actionId": "low-density-housing",
+      "title": "Existing home 2"
+    },
+    {
+      "siteId": "grid-16-07",
+      "actionId": "low-density-housing",
+      "title": "Existing home 3"
+    },
+    {
+      "siteId": "grid-15-03",
+      "actionId": "low-density-housing",
+      "title": "Existing home 4"
+    },
+    {
+      "siteId": "grid-17-07",
+      "actionId": "agricultural-storage",
+      "title": "Existing farm store"
+    },
+    {
+      "siteId": "grid-16-02",
+      "actionId": "public-park",
+      "title": "Existing recreation ground"
+    }
+  ]
+}

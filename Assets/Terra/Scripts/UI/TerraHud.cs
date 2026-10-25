@@ -38,7 +38,7 @@ namespace Terra.UI
             button.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
         }
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
-        public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
+        public bool ReducedMotion{get;private set;} public bool Muted=>Terra.Audio.TerraAudio.Instance!=null&&Terra.Audio.TerraAudio.Instance.Muted; public bool LargeText{get;private set;}
         public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume,Terra.Core.LocationProfile location=null)
         {
             this.location=location??Terra.Core.LocationProfile.All[0];this.resume=resume;retryLoad=retry;
@@ -88,9 +88,9 @@ namespace Terra.UI
             guideSummary.SetActive(false);
             closeButton=Button(modal.transform,"Return to landscape  Esc",new Vector2(.5f,0),new Vector2(0,22),new Vector2(300,56),CloseModal,17);
             motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");atlasMotionChanged?.Invoke(ReducedMotion);},16);
-            muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
+            muteButton=Button(modal.transform,"Sound settings  U",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),Terra.Audio.TerraAudioPanel.Show,16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
-            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%6;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
+            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%7;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
             var loadingBackdrop=Rect(root,"Loading backdrop",Vector2.zero,Vector2.zero,Vector2.zero);
             loadingBackdrop.anchorMin=Vector2.zero;loadingBackdrop.anchorMax=Vector2.one;loadingBackdrop.offsetMin=loadingBackdrop.offsetMax=Vector2.zero;
             loadingBackdrop.gameObject.AddComponent<UnityEngine.UI.Image>().color=new Color(.84f,.88f,.77f);loadingShade=loadingBackdrop.gameObject;
@@ -146,17 +146,19 @@ namespace Terra.UI
             previewBody.text=treatment.title+"\n"+(action==null?"":$"{action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+"\n")+"<b>"+cost+"</b> credits · <b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b> farm units\n<size=82%>Other benefits: not modeled</size>";
             previewAction.text="Click / Enter to place   ·   Esc";
         }
-        public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
+        public void Toast(string text){if(!string.IsNullOrEmpty(text))DismissChange();toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(returnFocus!=null&&returnFocus.gameObject.activeInHierarchy&&returnFocus.IsInteractable()?returnFocus:null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Plan → End Year → adapt</b>\nQueue projects and reserve their public costs. End Year pays once and advances them. Accepted years stay in history. Three categories contain all twelve families; arrows show more options.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters · O: more\nG: field guide · ?: controls · Shift+Esc: world atlas");
+            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters · O: more\nG: field guide · ?: controls · U: sound · Shift+Esc: atlas");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");lastScreen=Vector2.zero;Layout();}
         public bool KeyboardInput(Keyboard k)
         {
             if(k==null)return ModalOpen;
             if(loading.activeSelf){if(loadFailed&&k.enterKey.wasPressedThisFrame)retryLoad();return true;}
+            if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&focus.gameObject.activeInHierarchy&&focus.IsInteractable()
+                &&(ModalOpen||AnnualOverviewOpen||catalogKeyboard||(moreMenu!=null&&moreMenu.gameObject.activeSelf)))Terra.Audio.TerraAudio.Instance?.Click();
             if(OverviewKeyboard(k))return true;
             if(!ModalOpen&&!AnnualOverviewOpen&&!(moreMenu?.gameObject.activeSelf??false)&&BuildMenuKeyboard(k))return true;
             if(!ModalOpen && annualRules!=null)
@@ -198,7 +200,7 @@ namespace Terra.UI
             var b=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
             if(b!=null&&b.IsInteractable())Focus(b);else if(!ModalOpen)Focus(null);
         }
-        void Focus(UnityEngine.UI.Button button){focus=button;Paint();}
+        void Focus(UnityEngine.UI.Button button){if(button!=null&&button!=focus)Terra.Audio.TerraAudio.Instance?.Focus();focus=button;Paint();}
         void Paint()
         {
             foreach(var b in buttons){bool selected=CatalogSelected(b)||b==selectedHighlight;
@@ -223,10 +225,10 @@ namespace Terra.UI
             if(dataPage==0)ShowModal("Real land. Hypothetical choices.",
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
-                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
+                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stepped slopes, road finishes, stream banks, water depths and bridge designs are illustrative. The four existing homes represent the fictional starting community; their locations are not surveyed buildings. Field parcels and individual trees were not surveyed.\n\n"+
                 "Eleven management opportunities (including a hypothetical wind site) and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.");
             else if(dataPage==1)ShowModal("Reading the terrain & cover",
-                "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m grid, without vertical exaggeration.\n\n"+
+                "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m analytical grid. The miniature adds broad, stylized ledges on steep hillsides; these are not surveyed cliffs. Suitability and runoff still use the original analytical heights.\n\n"+
                 "<b>02   Land cover · USGS / MRLC NLCD 2021</b>\n30 m classes, June 2023 release. Narrow margins are unresolved. Simplified display groups do not measure ecological condition.\n\n"+
                 "<b>A miniature, not a survey of every plant</b>\nCanopy shapes, crop rows, surface grain and vegetation clusters are illustrations. They do not add finer observed geographic data.");
             else if(dataPage==2)ShowModal("Mapped lines & the limits",
@@ -234,21 +236,27 @@ namespace Terra.UI
                 "<b>What is not included</b>\nNo parcel, structure, tree, ownership or local soil survey. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.\n\n"+
                 "<b>Use this game to ask better questions</b>\nThe proposals are educational choices, not recommendations for real farms. Production units are illustrative accounting, not measured yields.");
             else if(dataPage==3)ShowModal("Landscape art & acknowledgements",
-                "<b>JulioVII · Stylized Grass & Dirt</b>\nCC-BY (version unspecified by creator)\njuliovii.itch.io/ftpgrass-dirt\nAdapted tiling, tint, relief and blending.\n\n"+
-                "<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use. Adapted scale, materials and instancing.\n\n"+
-                "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.");
+                "<b>JulioVII · Stylized Grass & Dirt</b>\nCC-BY (version unspecified by creator)\njuliovii.itch.io/ftpgrass-dirt\n\n"+
+                "<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use.\n\n"+
+                "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\n\n"+
+                "<b>Atapataco · Handpainted Grass & Ground</b>\natapataco.itch.io/handpainted-grass-ground-textures\n"+
+                "Scale, materials, tiling and instancing adapted for MyTerrain.");
             else if(dataPage==4)ShowModal("Plants & sound credits",
                 "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nelijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted geometry, palette, materials and instancing.\n\n"+
                 "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com · adapted geometry/materials.\n\n"+
                 "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
-            else ShowModal("One storm. Connected choices.",
+            else if(dataPage==5)ShowModal("One storm. Connected choices.",
                 "<b>50 mm rain · assumed soil B</b>\nEducational TR-55 estimate. Cover CN: crops 78, grass 61, woods 55, high-runoff cover 98 (assumed, not measured imperviousness).\n\n"+
                 "<b>Each area counts once</b>\nSites + unchanged context: "+(location.IsWisconsin?"1.49":"1.44")+" km² with display margin. Volumes summed. "+runoffContextSummary+"\n\n"+
                 "<b>Swales have limits</b>\nEach holds ≤8 m³ beyond its grass-cover effect, only from its highlighted hypothetical group. No measured drainage, outside inflow, flood or water-quality forecast.\n"+
                 "<size=80%>Source: USDA TR-55 (1986), chapter 2. Tables reproduced by USACE: hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables</size>");
+            else ShowModal("The sound of a possible future",
+                "<b>Music · CC0</b>\nMystical Piano — Indieteur\nVaporware — The Cynic Project\ncynicmusic.com / pixelsphere.org\nAvailable at opengameart.org. Adapted levels and transitions.\n\n"+
+                "<b>Nature & actions · CC0</b>\nPark ambiences — Thimras (recorded in Adelaide, Australia)\nWind1 — Luke.RUSTLTD (synthesized wind)\nImpact & Interface Sounds — Kenney · kenney.nl\nOriginal mallet cues composed for MyTerrain.\n\n"+
+                "These are decorative sounds, not recordings of the playable locations or evidence of local species or weather.\n\nSound settings: U · mute and independent music, ambience and effects levels are saved on this device.");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
             guideSummary.SetActive(dataPage==0&&!LargeText);
-            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Landscape art →":dataPage==3?"Plants & sound →":dataPage==4?"Runoff & connections →":"← Place & assumptions");
+            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Landscape art →":dataPage==3?"Plants & sound →":dataPage==4?"Runoff & connections →":dataPage==5?"Sound credits →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
         {ResetFieldNotes();if(moreMenu!=null)moreMenu.gameObject.SetActive(false);closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);SetButtonText(closeButton,"Return to landscape  Esc");if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
@@ -256,7 +264,7 @@ namespace Terra.UI
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}
         Transform Panel(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect(parent,name,anchor,pos,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=color;return r;}
         TextMeshProUGUI Label(Transform parent,string text,Vector2 anchor,Vector2 pos,Vector2 size,float fontSize,Color color,FontStyles style=FontStyles.Normal){var r=Rect(parent,"Label",anchor,pos,size);var label=r.gameObject.AddComponent<TextMeshProUGUI>();label.font=font;label.text=text;label.fontSize=fontSize;label.color=color;label.fontStyle=style;label.raycastTarget=false;label.textWrappingMode=TextWrappingModes.Normal;label.overflowMode=TextOverflowModes.Overflow;sizes[label]=fontSize;return label;}
-        UnityEngine.UI.Button Button(Transform parent,string text,Vector2 anchor,Vector2 pos,Vector2 size,Action action,float textSize){var panel=Panel(parent,"Button "+text,anchor,pos,size,Raised);var button=panel.gameObject.AddComponent<UnityEngine.UI.Button>();button.targetGraphic=panel.GetComponent<UnityEngine.UI.Image>();button.transition=UnityEngine.UI.Selectable.Transition.None;button.onClick.AddListener(()=>{action();Paint();});var line=panel.gameObject.AddComponent<UnityEngine.UI.Outline>();line.effectDistance=new Vector2(2,-2);line.enabled=false;var t=Label(panel,text,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),textSize,Paper);t.alignment=TextAlignmentOptions.Center;buttons.Add(button);return button;}
+        UnityEngine.UI.Button Button(Transform parent,string text,Vector2 anchor,Vector2 pos,Vector2 size,Action action,float textSize){var panel=Panel(parent,"Button "+text,anchor,pos,size,Raised);var button=panel.gameObject.AddComponent<UnityEngine.UI.Button>();button.targetGraphic=panel.GetComponent<UnityEngine.UI.Image>();panel.gameObject.AddComponent<Terra.Audio.TerraAudioButton>();button.transition=UnityEngine.UI.Selectable.Transition.None;button.onClick.AddListener(()=>{Terra.Audio.TerraAudio.Instance?.Click();action();Paint();});var line=panel.gameObject.AddComponent<UnityEngine.UI.Outline>();line.effectDistance=new Vector2(2,-2);line.enabled=false;var t=Label(panel,text,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(16,4),textSize,Paper);t.alignment=TextAlignmentOptions.Center;buttons.Add(button);return button;}
         Sprite RoundSprite(){const int n=32;var texture=new Texture2D(n,n,TextureFormat.RGBA32,false);for(int y=0;y<n;y++)for(int x=0;x<n;x++){float dx=Mathf.Max(8-x,x-23),dy=Mathf.Max(8-y,y-23);float d=Mathf.Sqrt(Mathf.Max(dx,0)*Mathf.Max(dx,0)+Mathf.Max(dy,0)*Mathf.Max(dy,0));texture.SetPixel(x,y,new Color(1,1,1,Mathf.Clamp01(8.5f-d)));}texture.Apply();return Sprite.Create(texture,new Rect(0,0,n,n),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(9,9,9,9));}
     }
 }

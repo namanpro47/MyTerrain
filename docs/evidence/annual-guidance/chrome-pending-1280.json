@@ -1,0 +1,166 @@
+{
+  "audit": {
+    "cssWidth": 1280,
+    "cssHeight": 720,
+    "pixelRatio": 1,
+    "modal": true,
+    "largeText": false,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "T E R R A   /   FIELD NOTES",
+        "rect": {
+          "x": 272,
+          "y": 57,
+          "width": 730,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      },
+      {
+        "text": "<size=140%><b>Year 1 is still pending</b></size>\n\nChapter request failed. Retry this year or choose offline.\n\n<b>No year has advanced and no payment was taken.</b>\n\nRetry the chapter, use the labelled offline story, or return to editing this year's plan.",
+        "rect": {
+          "x": 272,
+          "y": 96,
+          "width": 736,
+          "height": 440
+        },
+        "bodyCssPx": 20,
+        "minGlyphCssPx": 20,
+        "preferredHeight": 169.27000427246094,
+        "availableHeight": 440
+      },
+      {
+        "text": "Edit this year's plan",
+        "rect": {
+          "x": 498,
+          "y": 609,
+          "width": 284,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Retry chapter",
+        "rect": {
+          "x": 586,
+          "y": 545,
+          "width": 414,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Use offline chapter",
+        "rect": {
+          "x": 280,
+          "y": 545,
+          "width": 214,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Return to landscape  Esc",
+        "enabled": true,
+        "rect": {
+          "x": 490,
+          "y": 607,
+          "width": 300,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ",
+        "enabled": true,
+        "rect": {
+          "x": 578,
+          "y": 543,
+          "width": 430,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button All proposals",
+        "enabled": true,
+        "rect": {
+          "x": 272,
+          "y": 543,
+          "width": 230,
+          "height": 56
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 16,
+        "y": 16,
+        "width": 310,
+        "height": 54
+      },
+      {
+        "x": 296,
+        "y": 496,
+        "width": 688,
+        "height": 158
+      },
+      {
+        "x": 16,
+        "y": 662,
+        "width": 1248,
+        "height": 48
+      },
+      {
+        "x": 16,
+        "y": 78,
+        "width": 310,
+        "height": 124
+      },
+      {
+        "x": 732,
+        "y": 16,
+        "width": 532,
+        "height": 98
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "x": 16,
+        "y": 618,
+        "width": 84,
+        "height": 36
+      },
+      {
+        "x": 240,
+        "y": 35,
+        "width": 800,
+        "height": 650
+      }
+    ]
+  },
+  "state": {
+    "level": "log",
+    "message": "TERRA_ANNUAL_STATE: year=1; phase=Resolving; revision=3; cash=1000000000; queued=1; assets=0\n",
+    "timestamp": "2026-10-25T16:24:02.946Z",
+    "url": "blob:http://127.0.0.1:49713/d3f5761d-a2b0-4bc2-92b6-e3d93cf57b28"
+  }
+}

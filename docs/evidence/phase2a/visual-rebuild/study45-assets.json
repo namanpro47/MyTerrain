@@ -1,0 +1,97 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study45-assets.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 96,
+        "rows": [
+          {
+            "name": "ClusterTree_1",
+            "meshes": [
+              {
+                "level": 0,
+                "triangles": 8520,
+                "vertices": 10379,
+                "height": 6.86662054
+              },
+              {
+                "level": 1,
+                "triangles": 3726,
+                "vertices": 5465,
+                "height": 6.98010969
+              },
+              {
+                "level": 2,
+                "triangles": 1952,
+                "vertices": 2622,
+                "height": 7.003953
+              }
+            ]
+          },
+          {
+            "name": "ClusterTree_3",
+            "meshes": [
+              {
+                "level": 0,
+                "triangles": 7096,
+                "vertices": 7340,
+                "height": 5.28103828
+              },
+              {
+                "level": 1,
+                "triangles": 2916,
+                "vertices": 3786,
+                "height": 5.386659
+              },
+              {
+                "level": 2,
+                "triangles": 1666,
+                "vertices": 2024,
+                "height": 5.386659
+              }
+            ]
+          },
+          {
+            "name": "ClusterTree_5",
+            "meshes": [
+              {
+                "level": 0,
+                "triangles": 2182,
+                "vertices": 2469,
+                "height": 2.980054
+              },
+              {
+                "level": 1,
+                "triangles": 928,
+                "vertices": 1287,
+                "height": 3.039655
+              },
+              {
+                "level": 2,
+                "triangles": 496,
+                "vertices": 639,
+                "height": 3.039655
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

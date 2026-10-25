@@ -1,0 +1,132 @@
+{
+  "sourceHead": "50fdb7c",
+  "fetchedOriginMain": "fff6eaec866281356c6f1270e797a0a6b5d1a747",
+  "status": "Experimental Editor-only checkpoint; not adopted or accepted",
+  "files": [
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-camera.cs.txt",
+      "bytes": 1248,
+      "sha256": "5a995ef147e541fa36b220473979e5b9b9271456b615b2f30a442f6b701ebd83"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-camera.json",
+      "bytes": 867,
+      "sha256": "812c51b9b6d810466fa855c9c6b49c122e98c452322947ea341826f4981d7703"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-close-camera.json",
+      "bytes": 538,
+      "sha256": "bb42dbd758ebf1289dbeef7d668fa24b4dbebdd82a3b1f74e7ccb3c42787825e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-b-camera.json",
+      "bytes": 869,
+      "sha256": "92e96523ba8b3726c1a6d486cb8a654a574925517c85929ff0815b6410ab1aaf"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-b.cs.txt",
+      "bytes": 538,
+      "sha256": "9daccfe9a88425d5ac48d3c45badd1e601f9cee638679b571fb747c08b53520c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-b.json",
+      "bytes": 620,
+      "sha256": "fde0b976d913a1e2641672690058ed13cb6c45018d58e7ed6047b400c8d18991"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-camera.json",
+      "bytes": 869,
+      "sha256": "a6d5f36d798148c7a994a505add4b9193c890fa4ebc30eca7405b568d42712b6"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-close-camera.json",
+      "bytes": 545,
+      "sha256": "553ab1647e0d07d925bf0a89a03275ca0d90fa0c1ad858002a8419794c652a53"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-close.cs.txt",
+      "bytes": 834,
+      "sha256": "918ca9403f0ec50ca9b2e6ef5b41dd3518bf3963c80052e623c66cc94bf8a20d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field.cs.txt",
+      "bytes": 909,
+      "sha256": "201592666412ba23de919b244acb5b5f4b306c2222e56add5e76dec35312a00c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field.json",
+      "bytes": 554,
+      "sha256": "52b2e11976694873831c605fd228bc7e218fed551ba6a7eccb0968d8b65d66b9"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-groups.cs.txt",
+      "bytes": 1551,
+      "sha256": "41a9bfa71764fd252ef502e43bdef8d280a7de538484ba47a039767c38c15b08"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-groups.json",
+      "bytes": 652,
+      "sha256": "8813ba21ab4d3cb5c06ba3af87f10f94abf11667ce9919fcfc967e39dc157d92"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-meadow-off.json",
+      "bytes": 660,
+      "sha256": "7295a54251bcb61d3f416dea8e3a6c0241c30e72ba6adfd83b4104c4665f83f9"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-paint.cs.txt",
+      "bytes": 1217,
+      "sha256": "ba3cb85cddc6a1c9c0273636646af18eaef320ad9a1c3ff6f9ea92ee7a6b0e15"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-paint.json",
+      "bytes": 552,
+      "sha256": "ec0591a773bc6693cd02a4e5c8f9f12962a97f0c41bcd64f8a983d9e6f528402"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-ticking.json",
+      "bytes": 673,
+      "sha256": "695a4e25d1ddc49b8f9d4ed9b0f65e870394e7ca5e86899683915d311ccb3ecd"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-b-normal.png",
+      "bytes": 1545187,
+      "sha256": "1be46b5a594e38dd5bc34de3f95c82bc09e449e02cc9c021055b6e3ba745b76a"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-close.png",
+      "bytes": 1633717,
+      "sha256": "a6fe87f2e079ea438d7620cb3f9fd623b91b5bd7aa901bb79c163a000aa38e8b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-field-normal.png",
+      "bytes": 1538217,
+      "sha256": "0a2255ea88679e653710e6dcbec0400f36ac15a64e7e89a378c205357b5ce886"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-painted-groups-close.png",
+      "bytes": 1229619,
+      "sha256": "e335a52e27a2924953ac1aad822bab8eee020608ad5b0ecce85a722dcd90d897"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-painted-groups-normal.png",
+      "bytes": 1735187,
+      "sha256": "705c9638052c792b4d10c2157aec32a538bcd8d9e52c519a22eb37292fb7525e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-painted-open-normal.png",
+      "bytes": 1700402,
+      "sha256": "896515a6aed40018721b66562f6c901ca756b9c24fd6467efa637b2023822d8e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-ground.shader.txt",
+      "bytes": 13902,
+      "sha256": "bbd023b136b4976900f98684300fbc292875e053a08f6d97aed3e1bc29285296"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study51-crop.shader.txt",
+      "bytes": 3403,
+      "sha256": "793261536b75e0124241b39b0011d183a2371b4fb3bdfc48aa5575edb4d13dcf"
+    }
+  ]
+}

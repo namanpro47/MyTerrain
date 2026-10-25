@@ -1,0 +1,19 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var oldRoot=UnityEngine.GameObject.Find("Layered woodland cohorts");
+var root=new UnityEngine.GameObject("Study44 native Quaternius woodland");
+var trees=new[]{"NormalTree_1","NormalTree_3","NormalTree_5"}.Select(name=>UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/QuaterniusUltimateNature/Preview/"+name+".prefab")).ToArray();
+var bounds=trees.Select(tree=>{var filters=tree.GetComponentsInChildren<UnityEngine.MeshFilter>();var points=new System.Collections.Generic.List<UnityEngine.Vector3>();foreach(var f in filters){var matrix=tree.transform.worldToLocalMatrix*f.transform.localToWorldMatrix;var b=f.sharedMesh.bounds;for(int i=0;i<8;i++)points.Add(matrix.MultiplyPoint3x4(b.center+UnityEngine.Vector3.Scale(b.extents,new UnityEngine.Vector3((i&1)==0?-1:1,(i&2)==0?-1:1,(i&4)==0?-1:1))));}var box=new UnityEngine.Bounds(points[0],UnityEngine.Vector3.zero);foreach(var p in points)box.Encapsulate(p);return box;}).ToArray();
+int mature=0,young=0;var counts=new int[3];
+foreach(var n in oldRoot.GetComponentsInChildren<Terra.Rendering.InstancedNature>()){
+ var list=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);var groups=trees.Select(_=>new System.Collections.Generic.List<UnityEngine.Matrix4x4>()).ToArray();
+ foreach(var b in list){var t=b.GetType();var mesh=(UnityEngine.Mesh)t.GetField("mesh",flags).GetValue(b);if(mesh.name!="ForestOak-part0-lod0"&&mesh.name!="ForestSapling-part0-lod0")continue;
+ bool small=mesh.name.StartsWith("ForestSapling");foreach(var m in (UnityEngine.Matrix4x4[])t.GetField("transforms",flags).GetValue(b)){
+ var p=m.GetColumn(3);var oldScale=m.lossyScale;float targetHeight=small?oldScale.y:oldScale.y*16;
+ float cohort=UnityEngine.Mathf.PerlinNoise(p.x*.021f+91,p.z*.021f+17);int variant=cohort<.4f?0:cohort<.59f?1:2;
+ float s=targetHeight/bounds[variant].size.y;var position=new UnityEngine.Vector3(p.x,land.Height(p.x,p.z)-bounds[variant].min.y*s,p.z);
+ groups[variant].Add(UnityEngine.Matrix4x4.TRS(position,m.rotation,new UnityEngine.Vector3(s*oldScale.x/oldScale.y,s,s)));counts[variant]++;if(small)young++;else mature++;
+ }}
+ var go=new UnityEngine.GameObject("Native mixed woodland tile");go.transform.SetParent(root.transform,false);var nature=go.AddComponent<Terra.Rendering.InstancedNature>();for(int i=0;i<trees.Length;i++)nature.Add(trees[i],groups[i],UnityEngine.Color.white);
+}
+oldRoot.SetActive(false);
+return new{mature,young,counts,bounds=bounds.Select(b=>b.ToString()).ToArray(),frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

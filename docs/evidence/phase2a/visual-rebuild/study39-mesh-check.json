@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study39-mesh-check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "passed": 54,
+        "checks": [
+          "Grass_Common_Short LOD1 resource exists",
+          "Grass_Common_Short LOD1 material slots preserved",
+          "Grass_Common_Short LOD1 UV and normal channels complete",
+          "Grass_Common_Short LOD1 fewer triangles",
+          "Grass_Common_Short LOD1 retains at least95% height",
+          "Grass_Common_Short LOD1 bounded silhouette reduction",
+          "Grass_Common_Short LOD1 finite positions",
+          "Grass_Common_Short LOD1 valid indices",
+          "Grass_Common_Short LOD1 finite UVs",
+          "Grass_Common_Short LOD2 resource exists",
+          "Grass_Common_Short LOD2 material slots preserved",
+          "Grass_Common_Short LOD2 UV and normal channels complete",
+          "Grass_Common_Short LOD2 fewer triangles",
+          "Grass_Common_Short LOD2 retains at least95% height",
+          "Grass_Common_Short LOD2 bounded silhouette reduction",
+          "Grass_Common_Short LOD2 finite positions",
+          "Grass_Common_Short LOD2 valid indices",
+          "Grass_Common_Short LOD2 finite UVs",
+          "Grass_Wispy_Short LOD1 resource exists",
+          "Grass_Wispy_Short LOD1 material slots preserved",
+          "Grass_Wispy_Short LOD1 UV and normal channels complete",
+          "Grass_Wispy_Short LOD1 fewer triangles",
+          "Grass_Wispy_Short LOD1 retains at least95% height",
+          "Grass_Wispy_Short LOD1 bounded silhouette reduction",
+          "Grass_Wispy_Short LOD1 finite positions",
+          "Grass_Wispy_Short LOD1 valid indices",
+          "Grass_Wispy_Short LOD1 finite UVs",
+          "Grass_Wispy_Short LOD2 resource exists",
+          "Grass_Wispy_Short LOD2 material slots preserved",
+          "Grass_Wispy_Short LOD2 UV and normal channels complete",
+          "Grass_Wispy_Short LOD2 fewer triangles",
+          "Grass_Wispy_Short LOD2 retains at least95% height",
+          "Grass_Wispy_Short LOD2 bounded silhouette reduction",
+          "Grass_Wispy_Short LOD2 finite positions",
+          "Grass_Wispy_Short LOD2 valid indices",
+          "Grass_Wispy_Short LOD2 finite UVs",
+          "Grass_Common_Tall LOD1 resource exists",
+          "Grass_Common_Tall LOD1 material slots preserved",
+          "Grass_Common_Tall LOD1 UV and normal channels complete",
+          "Grass_Common_Tall LOD1 fewer triangles",
+          "Grass_Common_Tall LOD1 retains at least95% height",
+          "Grass_Common_Tall LOD1 bounded silhouette reduction",
+          "Grass_Common_Tall LOD1 finite positions",
+          "Grass_Common_Tall LOD1 valid indices",
+          "Grass_Common_Tall LOD1 finite UVs",
+          "Grass_Common_Tall LOD2 resource exists",
+          "Grass_Common_Tall LOD2 material slots preserved",
+          "Grass_Common_Tall LOD2 UV and normal channels complete",
+          "Grass_Common_Tall LOD2 fewer triangles",
+          "Grass_Common_Tall LOD2 retains at least95% height",
+          "Grass_Common_Tall LOD2 bounded silhouette reduction",
+          "Grass_Common_Tall LOD2 finite positions",
+          "Grass_Common_Tall LOD2 valid indices",
+          "Grass_Common_Tall LOD2 finite UVs"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

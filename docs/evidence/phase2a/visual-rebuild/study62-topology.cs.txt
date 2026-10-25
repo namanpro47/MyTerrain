@@ -1,0 +1,10 @@
+var rows=new System.Collections.Generic.List<object>();
+foreach(int id in new[]{1,3})
+{
+ var model=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_"+id+".prefab");var mesh=model.GetComponentInChildren<UnityEngine.MeshFilter>().sharedMesh;var indices=mesh.GetTriangles(1);var parents=Enumerable.Range(0,mesh.vertexCount).ToArray();
+ int Find(int i){while(parents[i]!=i){parents[i]=parents[parents[i]];i=parents[i];}return i;}
+ for(int i=0;i<indices.Length;i+=3){parents[Find(indices[i+1])]=Find(indices[i]);parents[Find(indices[i+2])]=Find(indices[i]);}
+ var components=indices.Distinct().GroupBy(Find).Select(g=>g.ToArray()).ToArray();
+ rows.Add(new{id,vertices=mesh.vertexCount,triangles=indices.Length/3,components=components.GroupBy(c=>c.Length).Select(g=>new{vertices=g.Key,count=g.Count()}).ToArray()});
+}
+return rows;

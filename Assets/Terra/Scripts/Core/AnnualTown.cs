@@ -6,7 +6,7 @@ using Terra.Contracts;
 namespace Terra.Core
 {
     /// <summary>Authoritative annual state. No Unity, network, clock, or random dependencies.</summary>
-    public sealed class AnnualTown
+    public sealed partial class AnnualTown
     {
         readonly AnnualTownDefinition definition;
         readonly Dictionary<string, TownSiteDefinition> sites;
@@ -17,6 +17,7 @@ namespace Terra.Core
         TownPlannedAction[] queue = Array.Empty<TownPlannedAction>();
         TownAsset[] assets = Array.Empty<TownAsset>();
         TownYearRequest pending;
+        TownSimulationState numericState;
         public string RunId { get; }
         public string DefinitionHash { get; }
         public TownPhase Phase { get; private set; } = TownPhase.Planning;
@@ -45,6 +46,7 @@ namespace Terra.Core
             sites = definition.sites.ToDictionary(s => s.id, StringComparer.Ordinal);
             actions = definition.actions.ToDictionary(a => Key(a.siteId, a.actionId), StringComparer.Ordinal);
             CashCents = definition.startingCashCents;
+            numericState = AnnualSimulation.Initial(definition);
         }
 
         static string Key(string siteId, string actionId) => siteId + ":" + actionId;
@@ -134,8 +136,11 @@ namespace Terra.Core
             }
             Planning(); Current(expectedRevision);
             pending = new TownYearRequest {
+                schemaVersion = definition.simulation == null ? 1 : 2,
                 runId = RunId, requestId = requestId, definitionHash = DefinitionHash, year = Year, revision = Revision,
-                actions = TownCopies.Copy(queue), assets = TownCopies.Copy(assets), driver = TownCopies.Copy(definition.drivers[Year - 1])
+                actions = TownCopies.Copy(queue), assets = TownCopies.Copy(assets), driver = TownCopies.Copy(definition.drivers[Year - 1]),
+                simulation = definition.simulation == null ? null : new TownSimulationRequest { rulesVersion=definition.simulation.version,
+                    driver=TownCopies.Copy(definition.simulation.drivers[Year-1]),openingState=TownCopies.Copy(numericState) }
             };
             pending.inputHash = TownCopies.Hash(pending); // inputHash is null while hashing.
             Phase = TownPhase.Resolving;
@@ -165,6 +170,8 @@ namespace Terra.Core
             var nextAssets = TownCopies.Copy(assets).Concat(pending.actions.Select(q => new TownAsset {
                 siteId = q.siteId, actionId = q.actionId, startedYear = Year, condition = 1
             })).ToArray();
+            if(numericState!=null)
+                foreach(var asset in nextAssets)asset.condition=numericState.sites.Single(s=>s.siteId==asset.siteId).condition;
             var ledger = new TownYearLedger { currency = definition.currency, priceYear = definition.priceYear,
                 openingCashCents = CashCents, openingArrearsCents = ArrearsCents };
             long cash = CashCents;
@@ -194,11 +201,12 @@ namespace Terra.Core
                 if (IsOperating(asset, Year) && funded[asset.siteId])
                     ledger.publicReceiptsCents = checked(ledger.publicReceiptsCents + recipe.annualPublicReceiptsCents);
             }
-            ledger.repairDueCents = pending.driver.unexpectedPublicRepairCents;
+            var numeric = definition.simulation == null ? null : PrepareNumeric(nextAssets,funded,consequences,ledger);
+            ledger.repairDueCents = numeric == null ? pending.driver.unexpectedPublicRepairCents : numeric.newRepairDue;
             ledger.repairPaidCents = Pay(ledger.repairDueCents);
             ledger.closingArrearsCents = checked(ArrearsCents - ledger.arrearsPaidCents + ledger.programDueCents - ledger.programPaidCents
                 + ledger.operatingDueCents - ledger.operatingPaidCents + ledger.repairDueCents - ledger.repairPaidCents);
-            var outcomes = EvaluateOutcomes(nextAssets, funded, consequences, ledger);
+            var outcomes = numeric == null ? EvaluateOutcomes(nextAssets, funded, consequences, ledger) : SettleNumeric(numeric,nextAssets,funded,ledger);
             if (definition.economy != null)
             {
                 ledger.publicReceiptsCents = 0;
@@ -215,9 +223,19 @@ namespace Terra.Core
             ledger.futureCommitmentsCents = checked(FutureCosts(nextAssets, Year + 1) + ledger.closingArrearsCents);
             var report = new TownYearReport { year = Year, ledger = ledger,
                 outcomes = outcomes,
-                acceptedRequest = TownCopies.Copy(pending), acceptedConsequences = TownCopies.Copy(consequences) };
+                acceptedRequest = TownCopies.Copy(pending), acceptedConsequences = TownCopies.Copy(consequences), simulation=numeric?.report };
+            if(numeric!=null)
+            {
+                var before=history.LastOrDefault()?.outcomes??AnnualSimulation.OpeningOutcomes(definition);
+                report.simulation.economicDelta=outcomes.economicScore-before.economicScore;
+                report.simulation.socialDelta=outcomes.socialScore-before.socialScore;
+                report.simulation.environmentalDelta=outcomes.environmentalScore-before.environmentalScore;
+                AnnualSimulation.ValidateReport(definition,report);
+                report.simulation.transitionHash=AnnualSimulation.ReportHash(report);
+            }
 
             assets = nextAssets; CashCents = ledger.closingCashCents; ArrearsCents = ledger.closingArrearsCents;
+            if(numeric!=null)numericState=numeric.report.closingState;
             history.Add(report); queue = Array.Empty<TownPlannedAction>(); undo.Clear(); redo.Clear(); pending = null; Revision++;
             Phase = Year == definition.years ? TownPhase.Completed : TownPhase.Reviewing;
             return TownCopies.Copy(report);
@@ -323,6 +341,7 @@ namespace Terra.Core
             Require(result.schemaVersion == 1 && result.runId == RunId && result.requestId == pending.requestId
                 && result.year == Year && result.inputHash == pending.inputHash, "Consequences do not match the frozen year request.");
             Require(result.effects != null, "Effects must be an explicit array (empty is valid).");
+            if(definition.simulation!=null)Require(result.effects.Length==0,"Numeric-v4 effects are engine-owned; external effects cannot alter a saved driver.");
             var ids = new HashSet<string>(StringComparer.Ordinal);
             foreach (var effect in result.effects)
             {
@@ -342,21 +361,24 @@ namespace Terra.Core
         }
 
         public AnnualTownSnapshot Snapshot() => new AnnualTownSnapshot {
+            schemaVersion = definition.simulation == null ? 1 : 2,
             runId = RunId, definitionHash = DefinitionHash, phase = Phase, year = Year, revision = Revision,
             cashCents = CashCents, arrearsCents = ArrearsCents, queue = Queue, assets = Assets,
-            undo = TownCopies.Copy(undo.Reverse().ToArray()), redo = TownCopies.Copy(redo.Reverse().ToArray()), history = History, pendingRequest = PendingRequest
+            undo = TownCopies.Copy(undo.Reverse().ToArray()), redo = TownCopies.Copy(redo.Reverse().ToArray()), history = History, pendingRequest = PendingRequest,
+            simulation=TownCopies.Copy(numericState)
         };
 
         // Replays accepted evidence, never calls the provider. Derived scores/ledgers in a save are not trusted.
         public static AnnualTown Restore(AnnualTownDefinition rules, AnnualTownSnapshot save)
         {
-            Require(save != null && save.schemaVersion == 1, "Unsupported annual save.");
+            Require(save != null && save.schemaVersion == (rules?.schemaVersion==3?2:1), "Unsupported annual save.");
             save = TownCopies.Copy(save);
             // Unity's inline serializer may expand an absent DTO into empty fields.
             if (save.pendingRequest != null && string.IsNullOrEmpty(save.pendingRequest.requestId)) save.pendingRequest = null;
             var town = new AnnualTown(rules, save.runId);
             Require(save.definitionHash == town.DefinitionHash && save.history != null && save.queue != null && save.assets != null && save.undo != null, "Save belongs to different rules/data, or is incomplete.");
             Require(save.history.Length <= rules.years, "Too many saved years.");
+            if(rules.schemaVersion==3)AnnualSimulation.ValidateState(rules,save.simulation,save.history.Length,save.arrearsCents);
             foreach (var record in save.history)
             {
                 Require(record != null && record.acceptedRequest != null && record.acceptedConsequences != null, "Missing committed annual evidence.");
@@ -369,11 +391,13 @@ namespace Terra.Core
                 town.Revision = req.revision;
                 var regenerated = town.BeginResolution(req.requestId, town.Revision);
                 Require(TownCopies.Hash(regenerated) == TownCopies.Hash(req), "Committed input hash/state does not match saved history.");
-                town.CompleteResolution(record.acceptedConsequences);
+                var replayed=town.CompleteResolution(record.acceptedConsequences);
+                if(rules.schemaVersion==3)Require(TownCopies.Hash(replayed)==TownCopies.Hash(record),"Saved numeric report differs from its committed replay.");
             }
             if (town.Phase == TownPhase.Reviewing && (save.phase == TownPhase.Planning || save.phase == TownPhase.Resolving)) town.ContinuePlanning(town.Revision);
             Require(save.year == town.Year && save.revision >= town.Revision && save.cashCents == town.CashCents
                 && save.arrearsCents == town.ArrearsCents && TownCopies.Hash(save.assets) == TownCopies.Hash(town.assets), "Saved state disagrees with committed history.");
+            Require(TownCopies.Hash(save.simulation)==TownCopies.Hash(town.numericState),"Saved site condition/repair state differs from committed history.");
             town.Revision = save.revision;
             if (save.phase == TownPhase.Planning || save.phase == TownPhase.Resolving)
             {
@@ -405,10 +429,13 @@ namespace Terra.Core
         static double Clamp01(double value) => Math.Max(0, Math.Min(1, value));
         public static void ValidateDefinition(AnnualTownDefinition d)
         {
-            Require(d != null && (d.schemaVersion == 1 || d.schemaVersion == 2) && !string.IsNullOrWhiteSpace(d.id) && !string.IsNullOrWhiteSpace(d.version) && !string.IsNullOrWhiteSpace(d.worldPackId), "Versioned town definition is required.");
+            d=TownCopies.Copy(d);
+            Require(d != null && (d.schemaVersion == 1 || d.schemaVersion == 2 || d.schemaVersion == 3) && !string.IsNullOrWhiteSpace(d.id) && !string.IsNullOrWhiteSpace(d.version) && !string.IsNullOrWhiteSpace(d.worldPackId), "Versioned town definition is required.");
             Require(d.currency == "USD" && d.priceYear >= 2000 && d.priceYear <= 2200 && d.years >= 1 && d.years <= 100, "Invalid currency/year/horizon.");
             Money(d.startingCashCents);
-            if (d.schemaVersion == 2) AnnualEconomy.Validate(d);
+            if (d.schemaVersion >= 2) AnnualEconomy.Validate(d);
+            if (d.schemaVersion == 3) AnnualSimulation.Validate(d);
+            else Require(d.simulation==null,"Legacy rules cannot contain numeric-v4 simulation data.");
             Require(d.appropriationsCents != null && d.appropriationsCents.Length == d.years, "Provide one explicit appropriation per year.");
             foreach (var amount in d.appropriationsCents) Money(amount);
             Require(d.sites != null && d.sites.Length > 0 && d.actions != null && d.drivers != null && d.drivers.Length == d.years && d.rubric != null, "Incomplete definition.");

@@ -1,0 +1,1 @@
+Terra chapter checks passed: 50; no real provider called. Cache fixtures: /var/folders/s6/43qsm6h11w9bb8qxs7vf5x2m0000gn/T/terra-chapters-check-e3489d72b6df4a568f683ffdef58c10a

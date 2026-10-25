@@ -1,0 +1,23 @@
+{
+  "file": "Assets/Terra/Art/QuaterniusCrops/Wheat_4.fbx",
+  "sha256": "ffe5684d4b8e3434e8e1908c3a0d980460e33da8259ca48d05844282fed76e1e",
+  "fbxVersion": 7400,
+  "geometries": [
+    {
+      "vertices": 53,
+      "sourceBoundsMin": [
+        -0.08266546577215195,
+        -0.01517848763614893,
+        0.0
+      ],
+      "sourceBoundsMax": [
+        0.015178618021309376,
+        0.040682293474674225,
+        0.9479931592941284
+      ],
+      "polygons": 53,
+      "rawLongestAxis": "Z",
+      "note": "Raw FBX mesh coordinates precede importer/node transforms; do not interpret Y as height. Native stalk is narrow relative to its long axis. Unity inspection determines metric bounds."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+Derived mesh LODs of the existing Quaternius Stylized Nature MegaKit grass (CC0).
+Original FBXs: Assets/Terra/Art/QuaterniusNature/Models/Grass_{Common_Short,Wispy_Short,Common_Tall}.fbx.
+Original close meshes, materials, UV palette, plant positions and lifecycle rules remain in use.
+Baked with UnityMeshSimplifier 3.1.1, MIT, commit 53fdb3122645bcd3ad2c258235200dff3dfbaa9b.
+https://github.com/Whinarn/UnityMeshSimplifier
+Pinned Package Manager dependency; see its LICENSE.md and Third Party Notices.md.
+Bake: scripts/art/bake-grass-lods.cs.txt (copy to .cs for Editor eval_file, stopped Play).
+Review and limitations: docs/evidence/phase2a/visual-rebuild/study39-findings.md.
+No AI image generation or new texture. Only original mesh geometry is reduced.

@@ -16,6 +16,7 @@ namespace Terra.Core
         {
             Require(input != null && input.schemaVersion == 1 && input.definition != null && input.snapshot != null,
                 "A versioned definition and frozen snapshot are required.");
+            Require(input.definition.schemaVersion<=2&&input.snapshot.schemaVersion==1,"Numeric-v4 years use accepted-report narration, never the legacy resolving endpoint.");
             Require(input.snapshot.phase == TownPhase.Resolving && input.snapshot.pendingRequest != null,
                 "Submit the year before requesting its chapter.");
             var town = AnnualTown.Restore(input.definition, input.snapshot);
@@ -66,6 +67,30 @@ namespace Terra.Core
                 "Chapter v1 cannot change engine outcomes or the frozen request.");
             ValidateText(receipt.chapter, Facts(expected));
             return expected;
+        }
+
+        public static AnnualNarrationRequest NarrationRequest(AnnualChapterRequest input)
+        {
+            var expected = Preview(input);
+            return new AnnualNarrationRequest {
+                rulesVersion = RulesVersion, clientFingerprint = Fingerprint(input),
+                consequences = expected.History.Last().acceptedConsequences,
+                facts = NarrationFacts(Facts(expected), input.snapshot.pendingRequest)
+            };
+        }
+
+        public static AnnualChapterFact[] NarrationFacts(AnnualChapterFact[] facts, TownYearRequest pending)
+        {
+            if (facts.Length <= 64) return facts;
+            var byId = facts.ToDictionary(f => f.id, StringComparer.Ordinal);
+            var priority = pending.actions.Select(a => "site:" + a.siteId)
+                .Concat(pending.assets.OrderByDescending(a => a.startedYear).Select(a => "site:" + a.siteId));
+            var selected = facts.Take(7).Concat(priority.Where(byId.ContainsKey).Select(id => byId[id]))
+                .Concat(facts.Skip(7)).GroupBy(f => f.id, StringComparer.Ordinal).Select(g => g.First()).Take(64)
+                .Select(f => new AnnualChapterFact { id = f.id, text = f.text }).ToArray();
+            selected.First(f => f.id == "limits").text += " Narrative detail covers 57 of " + (facts.Length - 7)
+                + " sites, prioritizing this year's choices and prior projects. Aggregate totals include every site.";
+            return selected;
         }
 
         public static AnnualChapterReceipt Offline(AnnualChapterRequest input)

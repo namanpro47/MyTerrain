@@ -1,0 +1,16 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var prefabs=new[]{"Forest_Grass_1","Green_Patch_1","Fern_1a","Blackberry_Bush_1b"}.Select(n=>UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/AssetQuestForestDemo/Preview/"+n+".prefab")).ToArray();
+var tiles=new System.Collections.Generic.Dictionary<UnityEngine.Vector2Int,System.Collections.Generic.List<UnityEngine.Matrix4x4>[]>();int replaced=0;var random=new System.Random(4011);
+foreach(var n in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None)){
+ var list=(System.Collections.IList)n.GetType().GetField("batches",flags).GetValue(n);
+ for(int k=list.Count-1;k>=0;k--){var batch=list[k];var t=batch.GetType();if(!(bool)t.GetField("groundcover",flags).GetValue(batch))continue;var old=(UnityEngine.Matrix4x4[])t.GetField("transforms",flags).GetValue(batch);int sub=(int)t.GetField("submesh",flags).GetValue(batch);var keep=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ foreach(var m in old){var p=m.GetColumn(3);if(p.x< -330||p.x>170||p.z< -230||p.z>180){keep.Add(m);continue;}if(sub!=0)continue;
+ var tile=new UnityEngine.Vector2Int(UnityEngine.Mathf.FloorToInt(p.x/35),UnityEngine.Mathf.FloorToInt(p.z/35));if(!tiles.TryGetValue(tile,out var arrays)){arrays=Enumerable.Range(0,4).Select(_=>new System.Collections.Generic.List<UnityEngine.Matrix4x4>()).ToArray();tiles.Add(tile,arrays);}
+ double r=random.NextDouble();int index=r<.72?0:r<.91?1:r<.98?2:3;float width=index==0?1.7f:index==1?1.6f:index==2?1.1f:2.4f;float height=index==0?1.8f:index==1?1.5f:index==2?1.2f:2.2f;float size=.8f+(float)random.NextDouble()*.4f;
+ arrays[index].Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(p.x,p.y+.03f,p.z),UnityEngine.Quaternion.Euler(0,(float)random.NextDouble()*360,0),new UnityEngine.Vector3(width,height,width)*size));replaced++;
+ }
+ if(keep.Count==0)list.RemoveAt(k);else t.GetField("transforms",flags).SetValue(batch,keep.ToArray());
+ }
+}
+var root=new UnityEngine.GameObject("Study40 AssetQuest understory");foreach(var pair in tiles){var go=new UnityEngine.GameObject("Artist groundcover tile");go.transform.SetParent(root.transform,false);var n=go.AddComponent<Terra.Rendering.InstancedNature>();for(int i=0;i<4;i++)n.Add(prefabs[i],pair.Value[i],UnityEngine.Color.white);}
+return new{tiles=tiles.Count,replaced,frame=UnityEngine.Time.frameCount};

@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study55/annual-year2.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "targetYear": 2,
+        "phase": "Establishing",
+        "maturity": 0.6666666666666666,
+        "cash": 1192100000,
+        "layers": [
+          {
+            "name": "Restoration low sward",
+            "count": 1958,
+            "averageScale": 0.431008846,
+            "maximumScale": 1.0903697
+          },
+          {
+            "name": "Restoration taller swaths",
+            "count": 1678,
+            "averageScale": 1.47246838,
+            "maximumScale": 1.98288167
+          },
+          {
+            "name": "Restoration warm flowers",
+            "count": 102,
+            "averageScale": 0.9957434,
+            "maximumScale": 1.23597217
+          },
+          {
+            "name": "Restoration light flowers",
+            "count": 78,
+            "averageScale": 1.011143,
+            "maximumScale": 1.23047113
+          }
+        ],
+        "liveSessionUnchanged": true,
+        "sourceUnchanged": true,
+        "frame": 1574
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

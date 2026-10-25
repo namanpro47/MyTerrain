@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study71/check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "playing": false,
+        "frame": 1,
+        "scene": "Assets/Terra/Scenes/TerraMain.unity",
+        "dirty": false,
+        "shaders": [
+          {
+            "name": "Study71/Source Normal Bake",
+            "supported": true,
+            "messages": []
+          },
+          {
+            "name": "Study71/Lit Crop Volume",
+            "supported": true,
+            "messages": []
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,284 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 144,
+        "y": 38,
+        "width": 730,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "<b>Year 1 · offline chapter · 3 / 3</b>",
+      "rect": {
+        "x": 144,
+        "y": 77,
+        "width": 736,
+        "height": 42
+      },
+      "bodyCssPx": 26,
+      "minGlyphCssPx": 26,
+      "preferredHeight": 29.049999237060547,
+      "availableHeight": 42
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 370,
+        "y": 484,
+        "width": 284,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Plan year 2 →",
+      "rect": {
+        "x": 458,
+        "y": 420,
+        "width": 414,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 152,
+        "y": 420,
+        "width": 214,
+        "height": 52
+      },
+      "bodyCssPx": 17,
+      "minGlyphCssPx": 17,
+      "preferredHeight": 19,
+      "availableHeight": 52
+    },
+    {
+      "text": "<b>The land carries the choices</b>\n\nLand already committed to a use stays part of the story. Vegetated ground and any operating water projects contribute to the environmental result, alongside the pressures from everyday activity.\n\nAuthored reference conditions These are authored game conditions, not a prediction for this place.",
+      "rect": {
+        "x": 144,
+        "y": 62.05999755859375,
+        "width": 736,
+        "height": 193.94000244140625
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 193.94000244140625,
+      "availableHeight": 193.94000244140625
+    },
+    {
+      "text": "↑",
+      "rect": {
+        "x": 668,
+        "y": 382,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "↓",
+      "rect": {
+        "x": 716,
+        "y": 382,
+        "width": 24,
+        "height": 26
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 26
+    },
+    {
+      "text": "Scroll to read",
+      "rect": {
+        "x": 760,
+        "y": 383,
+        "width": 120,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "38.0",
+      "rect": {
+        "x": 826,
+        "y": 334,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Now",
+      "rect": {
+        "x": 144,
+        "y": 334,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "38.9",
+      "rect": {
+        "x": 826,
+        "y": 304,
+        "width": 54,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Before",
+      "rect": {
+        "x": 144,
+        "y": 304,
+        "width": 70,
+        "height": 24
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 24
+    },
+    {
+      "text": "Environmental  / 100",
+      "rect": {
+        "x": 144,
+        "y": 274,
+        "width": 640,
+        "height": 24
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 24
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 362,
+        "y": 482,
+        "width": 300,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 450,
+        "y": 418,
+        "width": 430,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 144,
+        "y": 418,
+        "width": 230,
+        "height": 56
+      }
+    },
+    {
+      "name": "Button ↑",
+      "enabled": true,
+      "rect": {
+        "x": 660,
+        "y": 380,
+        "width": 40,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ↓",
+      "enabled": true,
+      "rect": {
+        "x": 708,
+        "y": 380,
+        "width": 40,
+        "height": 30
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 428,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 520,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 112,
+      "y": 16,
+      "width": 800,
+      "height": 544
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=4; cash=1069400000; queued=0; assets=3\n"
+}

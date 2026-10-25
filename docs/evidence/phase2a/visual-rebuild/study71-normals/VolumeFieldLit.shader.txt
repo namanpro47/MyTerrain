@@ -1,0 +1,33 @@
+Shader "Study71/Lit Crop Volume" {
+Properties { _Slices("Artist geometry slices",2DArray)=""{} _Normals("Original mesh normals",2DArray)=""{} _NormalWeight("Original normal weight",Range(0,1))=1 _Mask("Parcel eligibility",2D)="white"{} _Bounds("Mask bounds",Vector)=(0,0,1,1) }
+SubShader {Tags {"RenderType"="TransparentCutout" "Queue"="AlphaTest" "RenderPipeline"="UniversalPipeline"} Pass {
+Tags {"LightMode"="UniversalForward"} Cull Off ZWrite On
+HLSLPROGRAM
+#pragma target 3.5
+#pragma vertex Vert
+#pragma fragment Frag
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile_fragment _ _SHADOWS_SOFT
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+TEXTURE2D_ARRAY(_Slices);SAMPLER(sampler_Slices);
+TEXTURE2D_ARRAY(_Normals);SAMPLER(sampler_Normals);
+TEXTURE2D(_Mask);SAMPLER(sampler_Mask);
+CBUFFER_START(UnityPerMaterial)
+float4 _Bounds;float _NormalWeight;
+CBUFFER_END
+struct A{float4 p:POSITION;float3 uv:TEXCOORD0;float2 data:TEXCOORD1;};struct V{float4 p:SV_POSITION;float3 w:TEXCOORD0;float3 uv:TEXCOORD1;float2 data:TEXCOORD2;};
+V Vert(A i){V o;o.w=TransformObjectToWorld(i.p.xyz);o.p=TransformWorldToHClip(o.w);o.uv=i.uv;o.data=i.data;return o;}
+half4 Frag(V i):SV_Target{
+// Reconstruct from all three opaque slab stacks; no view-axis switch.
+clip(SAMPLE_TEXTURE2D(_Mask,sampler_Mask,(i.w.xz-_Bounds.xy)/_Bounds.zw).r-.5);
+half4 c=SAMPLE_TEXTURE2D_ARRAY(_Slices,sampler_Slices,i.uv.xy,i.uv.z);float heightPixels=abs(UNITY_MATRIX_P[1][1])*_ScreenParams.y/max(1,-TransformWorldToView(i.w).z);
+float sideWeight=i.data.x>.5&&i.data.x<1.5?1:saturate((heightPixels-1.5)/2);
+clip(c.a*sideWeight-.4);
+// Imported slices preserve alpha coverage and dilate edge colors natively.
+half3 sourceNormal=normalize(SAMPLE_TEXTURE2D_ARRAY(_Normals,sampler_Normals,i.uv.xy,i.uv.z).rgb*2-1);
+half3 normal=normalize(lerp(half3(0,1,0),sourceNormal,_NormalWeight));
+Light sun=GetMainLight(TransformWorldToShadowCoord(i.w));half3 lighting=SampleSH(normal)+sun.color*saturate(dot(normal,sun.direction))*sun.shadowAttenuation;
+return half4(c.rgb*lighting*i.data.y,1);}
+ENDHLSL
+}}}

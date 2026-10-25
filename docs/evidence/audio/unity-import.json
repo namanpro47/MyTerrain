@@ -1,0 +1,26 @@
+{
+    "checks": 380,
+    "clips": 79,
+    "bytes": 7827093,
+    "families": [
+        "farm",
+        "rotation",
+        "margin",
+        "cover",
+        "meadow",
+        "swale",
+        "park",
+        "home",
+        "housing",
+        "warehouse",
+        "data",
+        "village",
+        "power",
+        "solar",
+        "wind",
+        "stewardship",
+        "water"
+    ],
+    "unity": "6000.6.6f1",
+    "result": "passed"
+}

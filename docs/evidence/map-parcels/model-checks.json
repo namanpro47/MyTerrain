@@ -1,0 +1,32 @@
+{
+  "checks": 2241,
+  "locations": [
+    {
+      "pack": "meadowbrook-v1",
+      "openPlots": 32,
+      "initialBuildings": 7,
+      "actions": 360,
+      "definitionBytes": 670429,
+      "completedInputBytes": 959306,
+      "closingCash": 1882000000
+    },
+    {
+      "pack": "point-reyes-v1",
+      "openPlots": 305,
+      "initialBuildings": 7,
+      "actions": 3240,
+      "definitionBytes": 5925670,
+      "completedInputBytes": 7743559,
+      "closingCash": 1882000000
+    },
+    {
+      "pack": "suusamyr-v1",
+      "openPlots": 333,
+      "initialBuildings": 7,
+      "actions": 3554,
+      "definitionBytes": 6489798,
+      "completedInputBytes": 8424739,
+      "closingCash": 1882000000
+    }
+  ]
+}
