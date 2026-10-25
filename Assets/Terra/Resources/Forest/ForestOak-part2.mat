@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ForestOak-part2
+  m_Name: ForestOak part 2
   m_Shader: {fileID: 4800000, guid: da2a15fe3f5622a419f1767c6cf9cb2f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

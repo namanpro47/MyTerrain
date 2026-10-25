@@ -1,0 +1,253 @@
+{
+  "compiling": false,
+  "updating": false,
+  "playing": false,
+  "lods": [
+    {
+      "name": "ForestOak",
+      "levels": [
+        {
+          "triangles": 18324,
+          "parts": [
+            {
+              "mesh": "ForestOak-part0-lod0",
+              "material": "ForestOak part 0"
+            },
+            {
+              "mesh": "ForestOak-part1-lod0",
+              "material": "ForestOak part 1"
+            },
+            {
+              "mesh": "ForestOak-part2-lod0",
+              "material": "ForestOak part 2"
+            }
+          ]
+        },
+        {
+          "triangles": 11566,
+          "parts": [
+            {
+              "mesh": "ForestOak-part0-lod1",
+              "material": "ForestOak part 0"
+            },
+            {
+              "mesh": "ForestOak-part1-lod1",
+              "material": "ForestOak part 1"
+            },
+            {
+              "mesh": "ForestOak-part2-lod1",
+              "material": "ForestOak part 2"
+            }
+          ]
+        },
+        {
+          "triangles": 4207,
+          "parts": [
+            {
+              "mesh": "ForestOak-part0-lod2",
+              "material": "ForestOak-far-bark"
+            },
+            {
+              "mesh": "ForestOak-part1-lod2",
+              "material": "ForestOak part 1"
+            },
+            {
+              "mesh": "ForestOak-part2-lod2",
+              "material": "ForestOak part 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ForestSapling",
+      "levels": [
+        {
+          "triangles": 2046,
+          "parts": [
+            {
+              "mesh": "ForestSapling-part0-lod0",
+              "material": "ForestSapling part 0"
+            },
+            {
+              "mesh": "ForestSapling-part1-lod0",
+              "material": "ForestSapling part 1"
+            }
+          ]
+        },
+        {
+          "triangles": 2046,
+          "parts": [
+            {
+              "mesh": "ForestSapling-part0-lod1",
+              "material": "ForestSapling part 0"
+            },
+            {
+              "mesh": "ForestSapling-part1-lod1",
+              "material": "ForestSapling part 1"
+            }
+          ]
+        },
+        {
+          "triangles": 2046,
+          "parts": [
+            {
+              "mesh": "ForestSapling-part0-lod2",
+              "material": "ForestSapling part 0"
+            },
+            {
+              "mesh": "ForestSapling-part1-lod2",
+              "material": "ForestSapling part 1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_BC.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_1.png",
+    "Assets/Terra/Resources/Forest/ForestOak-part0-lod1.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part2-lod0.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part1-lod2.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part2-lod2.asset",
+    "Assets/Terra/Resources/Forest/ForestSapling-part1-lod2.asset",
+    "Assets/Terra/Resources/Forest/ForestSapling-part0-lod2.asset",
+    "Assets/Terra/Resources/TerraClusterLeaves.shader",
+    "Assets/Terra/Resources/Forest/ForestOak-part0-lod0.asset",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Common Files/Shaders/FWTreeBark.shader",
+    "Assets/Terra/Resources/Forest/ForestOak.prefab",
+    "Assets/Terra/Resources/Forest/ForestOak-part0.mat",
+    "Assets/Terra/Resources/Forest/ForestSapling-part1-lod1.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part0-lod2.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part2.mat",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_MAOS.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_N.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_2.png",
+    "Assets/Terra/Resources/Forest/ForestSapling.prefab",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_1.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_1.png",
+    "Assets/Terra/Resources/Forest/ForestOak-part1.mat",
+    "Assets/Terra/Resources/Forest/ForestSapling-part1-lod0.asset",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_2.png",
+    "Assets/Terra/Resources/Forest/ForestOak-part2-lod1.asset",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_N.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_2.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_BC.png",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_BC.png",
+    "Assets/Terra/Resources/Forest/ForestOak-far-bark.mat",
+    "Assets/Terra/Resources/Forest/ForestOak-part1-lod0.asset",
+    "Assets/Terra/Resources/Forest/ForestSapling-part1.mat",
+    "Assets/Terra/Resources/Forest/ForestSapling-part0-lod1.asset",
+    "Assets/Terra/Resources/Forest/ForestOak-part1-lod1.asset",
+    "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_MAOS.png",
+    "Assets/Terra/Resources/Forest/ForestSapling-part0-lod0.asset",
+    "Assets/Terra/Resources/Forest/ForestSapling-part0.mat"
+  ],
+  "textures": [
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_BC.png",
+      "size": 2048,
+      "coverage": true,
+      "alpha": 0.4,
+      "crunch": false,
+      "quality": 50
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_1.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_MAOS.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_N.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_N_2.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_1.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_1.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_BC_2.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_N.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Tree_Med_02_MAOS_2.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_BC.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_TreeLOD_01_BC.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    },
+    {
+      "path": "Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_SaplingBark_01_MAOS.png",
+      "size": 1024,
+      "coverage": false,
+      "alpha": 0.5,
+      "crunch": true,
+      "quality": 80
+    }
+  ]
+}

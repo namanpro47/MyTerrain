@@ -13,6 +13,7 @@ UnityEngine.Mesh Part(UnityEngine.Mesh source,int submesh,bool leaves,string nam
  var originalIndices=source.GetIndices(submesh);var used=originalIndices.Distinct().ToArray();var map=new System.Collections.Generic.Dictionary<int,int>();
  for(int i=0;i<used.Length;i++)map[used[i]]=i;
  var oldV=source.vertices;var oldN=source.normals;var oldUv=source.uv;var oldT=source.tangents;var oldC=source.colors;
+ if(used.Length==0){var empty=new UnityEngine.Mesh{name=name};empty.vertices=new UnityEngine.Vector3[0];empty.SetTriangles(new int[0],0);return Save(empty,name+".asset");}
  var vertices=used.Select(i=>oldV[i]).ToArray();var normals=used.Select(i=>oldN[i]).ToArray();
  if(leaves){
   int count=14;var centers=new UnityEngine.Vector3[count];centers[0]=vertices[0];
@@ -49,13 +50,20 @@ object Bake(string sourceName,string resultName){
   for(int s=0;s<baseMaterials.Length;s++){
    bool leaves=baseMaterials[s].shader.name.Contains("FWTreeLeaf");var sourceRenderer=sourceLods[UnityEngine.Mathf.Min(level,sourceLods.Length-1)].renderers[0];
    int slot=System.Array.FindIndex(sourceRenderer.sharedMaterials,m=>m==baseMaterials[s]);
-   // Native far bark uses another atlas; retain the matching medium bark instead of pairing wrong UVs/materials.
-   if(slot<0){sourceRenderer=sourceLods[UnityEngine.Mathf.Min(1,sourceLods.Length-1)].renderers[0];slot=System.Array.FindIndex(sourceRenderer.sharedMaterials,m=>m==baseMaterials[s]);}
+   var selectedMaterial=materials[s];bool emptyPart=false;
+   if(slot<0&&level==2&&!leaves){
+    int firstBark=System.Array.FindIndex(baseMaterials,m=>!m.shader.name.Contains("FWTreeLeaf"));
+    slot=System.Array.FindIndex(sourceRenderer.sharedMaterials,m=>!m.shader.name.Contains("FWTreeLeaf"));
+    emptyPart=s!=firstBark;
+    if(!emptyPart){var farMaterial=new UnityEngine.Material(sourceRenderer.sharedMaterials[slot]){name=resultName+" far bark",enableInstancing=true};selectedMaterial=Save(farMaterial,resultName+"-far-bark.mat");}
+   }
    if(slot<0)throw new System.InvalidOperationException("No matching material for "+baseMaterials[s].name);
    var child=new UnityEngine.GameObject("Part"+s+"LOD"+level);child.transform.SetParent(output.transform,false);
    var local=source.transform.worldToLocalMatrix*sourceRenderer.transform.localToWorldMatrix;child.transform.localPosition=local.GetColumn(3);child.transform.localRotation=local.rotation;child.transform.localScale=local.lossyScale;
-   child.AddComponent<UnityEngine.MeshFilter>().sharedMesh=Part(sourceRenderer.GetComponent<UnityEngine.MeshFilter>().sharedMesh,slot,leaves,resultName+"-part"+s+"-lod"+level);
-   var r=child.AddComponent<UnityEngine.MeshRenderer>();r.sharedMaterial=materials[s];renderers[s]=r;
+   var meshName=resultName+"-part"+s+"-lod"+level;
+   if(emptyPart){var empty=new UnityEngine.Mesh{name=meshName};empty.vertices=new UnityEngine.Vector3[0];empty.SetTriangles(new int[0],0);child.AddComponent<UnityEngine.MeshFilter>().sharedMesh=Save(empty,meshName+".asset");}
+   else child.AddComponent<UnityEngine.MeshFilter>().sharedMesh=Part(sourceRenderer.GetComponent<UnityEngine.MeshFilter>().sharedMesh,slot,leaves,meshName);
+   var r=child.AddComponent<UnityEngine.MeshRenderer>();r.sharedMaterial=selectedMaterial;renderers[s]=r;
   }
   lods[level]=new UnityEngine.LOD(level==0?.2f:level==1?.06f:.005f,renderers);
  }

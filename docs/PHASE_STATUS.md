@@ -1,5 +1,8 @@
 # Terra — phase status and evidence
 
+**Visual checkpoint: study34, still unaccepted.** The free TriForge family is integrated as a clustered-foliage candidate. Its first Chrome export exposed distant canopy loss, 51.2 MB transfer and p95 35ms on one diagnostic route. LOD/material matching and alpha-coverage/compression corrections are verified in the Editor but still need a fresh Web export. [Findings, actual captures and verification limits](evidence/phase2a/visual-rebuild/study34-findings.md). Phase 2A remains open; no dimension is certified at 4.5/5. Main through `763ef9b` was reconciled before the first export; `f4f148d` is the refreshed remote checkpoint to reconcile. No purchase or image generation.
+
+
 **Visual worktree state:** Main through `5deb32d` is reconciled here. The free TriForge Forest import completed and its native/adapted foliage was evaluated in the same Wisconsin landscape. These are rejected Editor trials, not a new playable candidate. [Study33 findings, captures and replay scripts](evidence/phase2a/visual-rebuild/study33-findings.md) supersede the pending-import note. Runtime source is unchanged; Phase 2A remains open. The annual game initialized after staging all four WorldPack files and reopening the updated TerraMain scene. Local port 49658 still serves historical study32e; the separate Peter-sync and production evidence retain their own build identities. No purchase or generated image.
 
 ## Annual-game production refresh — October 24, 2026, 22:44 local

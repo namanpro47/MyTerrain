@@ -7,7 +7,7 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh,medium,distant;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight;public bool crop,groundcover; }
+        sealed class Batch { public Mesh mesh,medium,distant;public Material material,mediumMaterial,distantMaterial;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight,highDetailPixels=42,mediumDetailPixels=18;public bool crop,groundcover,distantEmpty; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
         static int cameraFrame=-1;static bool cameraValid,orthographic;
@@ -53,6 +53,19 @@ namespace Terra.Rendering
                     material.enableInstancing=true;
                     if(tint!=Color.white&&prefab.name.StartsWith("Grass"))material.color=tint;
                     ownedMaterials.Add(material);
+                    var mediumMaterial=material;var distantMaterial=material;
+                    if(lods!=null&&lods.Length>1)
+                    {
+                        int part=System.Array.IndexOf(filters,filter);
+                        Material LevelMaterial(int level)
+                        {
+                            var source=lods[level].renderers[part].sharedMaterials[sub];
+                            if(source==sourceMaterial)return material;
+                            var copy=new Material(source){enableInstancing=true};ownedMaterials.Add(copy);return copy;
+                        }
+                        mediumMaterial=LevelMaterial(1);
+                        if(lods.Length>2)distantMaterial=LevelMaterial(2);
+                    }
                     // Dense crop clusters use larger batches; woodland retains smaller spatial groups.
                     // RenderMeshInstanced stores both transform matrices: stay below its default 511-instance limit.
                     int batchSize=(prefab.name=="GeometricWheat"||prefab.name=="FieldCluster")?500:128;
@@ -64,7 +77,7 @@ namespace Terra.Rendering
                         if(medium!=null)localBounds.Encapsulate(medium.bounds);if(distant!=null)localBounds.Encapsulate(distant.bounds);
                         var bounds=TransformBounds(localBounds,matrices[0]);float maxHeight=bounds.size.y;
                         for(int i=1;i<matrices.Length;i++){var plantBounds=TransformBounds(localBounds,matrices[i]);bounds.Encapsulate(plantBounds);maxHeight=Mathf.Max(maxHeight,plantBounds.size.y);}
-                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster",groundcover=softGroundCover});
+                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,mediumMaterial=mediumMaterial,distantMaterial=distantMaterial,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster",groundcover=softGroundCover,highDetailPixels=lods!=null?120:42,mediumDetailPixels=lods!=null?50:18,distantEmpty=distant!=null&&distant.GetIndexCount(sub)==0});
                     }
                 }
             }
@@ -100,10 +113,13 @@ namespace Terra.Rendering
                     float depth=Mathf.Max(1,Vector3.Dot(b.bounds.center-cameraPosition,cameraForward)-b.bounds.extents.magnitude);
                     pixels=b.maxHeight*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
                     // The crop shader fades individual stalks before this conservative batch cutoff.
-                    if(b.crop&&pixels<=2.4f||b.groundcover&&pixels<=1.5f)continue;
+                    if(b.crop&&pixels<=2.4f||b.groundcover&&pixels<=1.5f||b.medium!=null&&pixels<2)continue;
                 }
-                var mesh=pixels<18&&b.distant!=null?b.distant:pixels<42&&b.medium!=null?b.medium:b.mesh;
-                var parameters=new RenderParams(b.material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
+                bool far=pixels<b.mediumDetailPixels&&b.distant!=null,mid=!far&&pixels<b.highDetailPixels&&b.medium!=null;
+                if(far&&b.distantEmpty)continue;
+                var mesh=far?b.distant:mid?b.medium:b.mesh;
+                var material=far?b.distantMaterial:mid?b.mediumMaterial:b.material;
+                var parameters=new RenderParams(material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
                 var matrices=b.transforms;
                 if(revealStarted>=0)
                 {

@@ -229,8 +229,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3206541991045935618}
   serializedVersion: 3
-  m_LocalReferencePoint: {x: 0.2028284, y: 6.502638, z: 0.6812067}
-  m_Size: 15.813107
+  m_LocalReferencePoint: {x: 0.2028284, y: 6.4144483, z: 0.6812067}
+  m_Size: 15.989486
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -591,7 +591,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f32c5e15a66524a3d921f2cc7153e8f5, type: 2}
+  - {fileID: 2100000, guid: 6cac33a3acba147478bbf48c588b1115, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
