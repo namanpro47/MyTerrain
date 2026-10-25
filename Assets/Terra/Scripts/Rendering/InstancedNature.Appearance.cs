@@ -15,7 +15,8 @@ namespace Terra.Rendering
             if(originalTints==null)originalTints=new Dictionary<Material,Color>();
             foreach(var material in ownedMaterials)
             {
-                if(!material.HasProperty("_BaseColor"))continue;
+                // Some artist shaders use this name for a texture rather than a color.
+                if(!material.HasColor("_BaseColor"))continue;
                 if(!originalTints.TryGetValue(material,out var original))
                 {
                     original=material.GetColor("_BaseColor");originalTints.Add(material,original);

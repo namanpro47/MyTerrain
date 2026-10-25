@@ -24,8 +24,9 @@ namespace Terra.Rendering
                 float tintStrength=stage=="PROPOSED"?.65f:stage=="SUSPENDED"?.75f:1-Mathf.Clamp01((float)maturity);
                 foreach(var renderer in holder.GetComponentsInChildren<Renderer>())
                 {
+                    if(renderer.sharedMaterial==null||!renderer.sharedMaterial.HasColor("_BaseColor"))continue;
                     var block=new MaterialPropertyBlock();
-                    Color original=renderer.sharedMaterial!=null&&renderer.sharedMaterial.HasProperty("_BaseColor")?renderer.sharedMaterial.GetColor("_BaseColor"):Color.white;
+                    Color original=renderer.sharedMaterial.GetColor("_BaseColor");
                     Color tint=stage=="PROPOSED"?Color.Lerp(original,new Color(.66f,.85f,.86f),.65f):stage=="SUSPENDED"?Color.Lerp(original,Color.gray,.75f):Color.Lerp(new Color(.55f,.46f,.28f),original,(float)maturity);
                     block.SetColor("_BaseColor",tint);renderer.SetPropertyBlock(block);
                 }

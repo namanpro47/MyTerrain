@@ -264,3 +264,10 @@ Reload restores the same Year 10 / revision22 / $19.700M / one-asset ending, wit
 ### Crop form studies — rejected before integration
 
 The [solid wheat and connected-row comparison](cozy-crop-study/README.md) tests free CC0 COZY FARM wheat with its intended unlit palette against current crop cards at matched close/normal/wide Editor views. The new solid asset remains a repeated bright grid at normal scale; connected standing-row geometry creates artificial ribs and adds 2.58M vertices. Both are rejected. Only reproducible evidence/source inputs outside Assets are retained; no crop production change or Web acceptance claim. Main gameplay/annual state is unchanged, and Phase 2A remains open.
+
+
+### Native shader property compatibility
+
+The visual owner's native bark shader declares `_BaseColor` as a texture. Annual tint code previously checked only the property's name, then read/wrote it as a color. Both the instanced-material path and ordinary Renderer path now require `Material.HasColor`; unsupported native properties and existing property blocks stay intact. Supported color materials keep the previous appearance and alpha behavior. No imported asset or rendering/batching change.
+
+[15 focused Editor assertions](tint-property-type-check.json) exercise a real shader with a texture named `_BaseColor`, alongside a color material: texture/source isolation, supported tint/reset/idempotence/alpha, no invalid color-cache entry, unchanged ordinary-renderer property blocks through all three tint statuses, and byte-identical annual state/terrain. [209 existing annual assertions](tint-property-type-regression.json) also pass; game frames 3367→3385 advanced. CLI recompile reports zero errors/warnings; the current Editor console has zero errors/warnings (its retained historical buffer includes earlier build/import warnings). Temporary fixture shader was removed after Play stopped. Replay sources: `terra-tint-fixture-import.cs` then `terra-tint-type-check.cs`. Browser export verification follows separately; earlier player captures do not verify this source change.
