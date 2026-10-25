@@ -1,0 +1,293 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MYTERRAIN  /  YOUR VALLEY",
+      "rect": {
+        "x": 184,
+        "y": 92.40499877929688,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 22
+    },
+    {
+      "text": "How many years will you make decisions?",
+      "rect": {
+        "x": 184,
+        "y": 132.40499877929688,
+        "width": 656,
+        "height": 44
+      },
+      "bodyCssPx": 30,
+      "minGlyphCssPx": 30,
+      "preferredHeight": 33.52000045776367,
+      "availableHeight": 44
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 744,
+        "y": 86.40499877929688,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 32
+    },
+    {
+      "text": "Voice: on",
+      "rect": {
+        "x": 580,
+        "y": 82.40499877929688,
+        "width": 114,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Replay voice",
+      "rect": {
+        "x": 718,
+        "y": 82.40499877929688,
+        "width": 114,
+        "height": 26
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 26
+    },
+    {
+      "text": "Begin · 3 decision years",
+      "rect": {
+        "x": 510,
+        "y": 439.5950012207031,
+        "width": 320,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Choose how long you want to plan. Every game still follows the community for ten years.\n\nAfter your final decision year, projects keep developing, upkeep is paid and yearly conditions still apply. The remaining years advance to your Year 10 review without more building decisions.",
+      "rect": {
+        "x": 184,
+        "y": 192.40499877929688,
+        "width": 656,
+        "height": 129.19000244140625
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 129.19000244140625,
+      "availableHeight": 129.19000244140625
+    },
+    {
+      "text": "10 years",
+      "rect": {
+        "x": 695.5,
+        "y": 341.5950012207031,
+        "width": 134,
+        "height": 54
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 54
+    },
+    {
+      "text": "5 years",
+      "rect": {
+        "x": 528.5,
+        "y": 341.5950012207031,
+        "width": 134,
+        "height": 54
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 54
+    },
+    {
+      "text": "3 years · selected",
+      "rect": {
+        "x": 361.5,
+        "y": 341.5950012207031,
+        "width": 134,
+        "height": 54
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 40.810001373291016,
+      "availableHeight": 54
+    },
+    {
+      "text": "1 year",
+      "rect": {
+        "x": 194.5,
+        "y": 341.5950012207031,
+        "width": 134,
+        "height": 54
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 54
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 740,
+        "y": 86.40499877929688,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button Voice: on",
+      "enabled": true,
+      "rect": {
+        "x": 572,
+        "y": 80.40499877929688,
+        "width": 130,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button Replay voice",
+      "enabled": true,
+      "rect": {
+        "x": 710,
+        "y": 80.40499877929688,
+        "width": 130,
+        "height": 30
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 500,
+        "y": 437.5950012207031,
+        "width": 340,
+        "height": 48
+      }
+    },
+    {
+      "name": "Choose 1 decision years",
+      "enabled": true,
+      "rect": {
+        "x": 184,
+        "y": 339.5950012207031,
+        "width": 155,
+        "height": 58
+      }
+    },
+    {
+      "name": "Choose 3 decision years",
+      "enabled": true,
+      "rect": {
+        "x": 351,
+        "y": 339.5950012207031,
+        "width": 155,
+        "height": 58
+      }
+    },
+    {
+      "name": "Choose 5 decision years",
+      "enabled": true,
+      "rect": {
+        "x": 518,
+        "y": 339.5950012207031,
+        "width": 155,
+        "height": 58
+      }
+    },
+    {
+      "name": "Choose 10 decision years",
+      "enabled": true,
+      "rect": {
+        "x": 685,
+        "y": 339.5950012207031,
+        "width": 155,
+        "height": 58
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 162,
+      "y": 318,
+      "width": 520,
+      "height": 184
+    },
+    {
+      "x": 16,
+      "y": 428,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 510,
+      "width": 992,
+      "height": 56
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 520,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 704,
+      "y": 114,
+      "width": 304,
+      "height": 348
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 152,
+      "y": 66.40499877929688,
+      "width": 720,
+      "height": 443.19000244140625
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n"
+}

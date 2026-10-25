@@ -103,4 +103,18 @@ var failedTown=Town("failed-send-town");var failedChapter=Chapter(failedTown,"fa
 UnityWebRequest.OnSend=()=>throw new InvalidOperationException("Transport failed before dispatch");failedChapter.ResolveOnline();UnityWebRequest.OnSend=null;
 Check(!failedChapter.Busy&&failedChapter.Latest.mode=="offline","immediate transport failure clears preparing/waiting and shows fallback");
 Check(failedTown.State.history.Length==1&&failedTown.State.phase==TownPhase.Reviewing,"failed transport preserves accepted numeric year");
+// Real Unity-written fractional v5 fixture; exact reader never relaxes report hashes.
+string ReadFixture(string name){using var stream=File.OpenRead("docs/evidence/annual-feedback/restore-fixture/"+name+".json.gz");using var zip=new System.IO.Compression.GZipStream(stream,System.IO.Compression.CompressionMode.Decompress);using var reader=new StreamReader(zip);return reader.ReadToEnd();}
+var preciseDefinition=AnnualNumericJson.ReadTownDefinition(ReadFixture("save-roundtrip-definition"));
+string preciseJson=ReadFixture("save-roundtrip-original");
+var precise=AnnualNumericJson.ReadTownSave(preciseJson);
+var preciseTown=AnnualTown.Restore(preciseDefinition,precise);
+Check(TownCopies.Hash(preciseTown.History)==TownCopies.Hash(precise.history),"real fractional v5 history retains exact hash");
+Check(BitConverter.DoubleToInt64Bits(precise.history[0].outcomes.sites[1].vegetatedAreaM2)==4668317464170332160L,"exact fractional bit pattern");
+foreach(bool money in new[]{true,false}){
+ var altered=AnnualNumericJson.ReadTownSave(preciseJson);if(money)altered.history[0].ledger.closingCashCents++;else altered.history[0].outcomes.sites[1].vegetatedAreaM2+=0.01;
+ bool rejected=false;try{AnnualTown.Restore(preciseDefinition,altered);}catch(ArgumentException){rejected=true;}Check(rejected,"tampered ledger/outcome rejected");
+}
+bool unknownRejected=false;try{AnnualNumericJson.ReadTownSave("{\"unknown\":1}");}catch(Newtonsoft.Json.JsonSerializationException){unknownRejected=true;}Check(unknownRejected,"unknown save members rejected");
+bool nullRejected=false;try{AnnualNumericJson.ReadTownSave("null");}catch(ArgumentException){nullRejected=true;}Check(nullRejected,"null save rejected");
 Console.WriteLine("Save-first chapter session checks passed: "+checks+" (transport/Unity stubs, no live provider)");

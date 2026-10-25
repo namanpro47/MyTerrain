@@ -106,6 +106,19 @@ foreach(bool playerRules in new[]{false,true})
     Check(full.Phase==TownPhase.Completed&&full.History.Length==10,"Full-land fast-forward uses all ten transitions");
     var stepwise=AnnualTown.Restore(fullRules,beforeFull);for(int y=1;y<=10;y++){if(y>1)stepwise.ContinuePlanning(stepwise.Revision);Advance(stepwise);}
     Check(stepwise.CashCents==full.CashCents&&stepwise.History.Last().outcomes.environmentalScore==full.History.Last().outcomes.environmentalScore,"Skip and manual waiting have identical final finances and outcomes");
+    // Worst occupied landscape: preserve both current and previous full histories.
+    int EncodedBytes(object value)
+    {
+        using var bytes=new MemoryStream();
+        using(var zip=new System.IO.Compression.GZipStream(bytes,System.IO.Compression.CompressionMode.Compress,true))
+        {var json=System.Text.Encoding.UTF8.GetBytes(JsonSerializer.Serialize(value,options));zip.Write(json,0,json.Length);}
+        return 13+Convert.ToBase64String(bytes.ToArray()).Length;
+    }
+    int completeHistoryBytes=EncodedBytes(full.Snapshot());
+    // Chapter envelopes contain another complete town plus short prose; reserve 128 KiB extra for prose/preferences.
+    int replayStorageBudget=completeHistoryBytes*4+EncodedBytes(fullRules)+128*1024;
+    Check(replayStorageBudget<1024*1024,"Full-land completed history and replay archives fit browser quota with prose headroom");
+    Console.WriteLine(location.PackId+" full-land replay storage budget: "+replayStorageBudget+" bytes");
     Console.WriteLine(location.PackId+": affordability, conversion, all horizons, full-land skip passed");
 }
 Directory.CreateDirectory("docs/evidence/annual-feedback");

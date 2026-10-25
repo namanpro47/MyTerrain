@@ -5,7 +5,7 @@ using Terra.Contracts;
 
 namespace Terra.Gameplay
 {
-    // Numeric DTO transport only. JsonUtility can change a double by one ULP while
+    // Exact DTO transport. JsonUtility can change a double by one ULP while
     // parsing decimal JSON; accepted hashes require exact values across runtimes.
     // Unity dependency: com.unity.nuget.newtonsoft-json@3.2.2 (Json.NET 13.0.2).
     public static class AnnualNumericJson
@@ -23,6 +23,10 @@ namespace Terra.Gameplay
             CheckAdditionalContent = true,
             MaxDepth = 64
         };
+        public static AnnualTownDefinition ReadTownDefinition(string json) => Read<AnnualTownDefinition>(json);
+        public static AnnualTownSnapshot ReadTownSave(string json) => Read<AnnualTownSnapshot>(json);
+        public static AnnualChapterSave ReadChapterSave(string json) => Read<AnnualChapterSave>(json);
+        public static AnnualChapterReceipt ReadChapterReceipt(string json) => Read<AnnualChapterReceipt>(json);
         public static AnnualNumericSave ReadSave(string json) => Read<AnnualNumericSave>(json);
         public static AnnualTownDefinition ReadDefinition(string json)
         {
