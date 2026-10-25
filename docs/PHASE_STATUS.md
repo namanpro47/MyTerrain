@@ -2,6 +2,8 @@
 
 ## Full-plan implementation — October 24, 2026
 
+Phase 5 engineering follow-through: **608** full-game assertions now include two distinct affordable ten-year strategies, saved adverse conditions, stress cases and exact manual/fast-forward equality with per-year reload. Final meters are 85.4/99.0/54.8 and 94.2/91.0/66.6 respectively. [Reproducible run snapshots](evidence/full-game/README.md#phase-5-balance-and-transition-checkpoint). Human duration/comprehension and live browser acceptance remain pending.
+
 The user authorized all remaining phases and direct main deliveries with reconciliation. Phase 4A/4B engineering checkpoint: all twelve source families / seventeen variants now have explicit capacities, resource demand, costs, footprint eligibility and a schema-2 full rubric, using Peter's annual authority. A same-AOI hypothetical wind opportunity preserves the runoff partition. [Evidence and remaining gates](evidence/full-game/README.md). Verified: 603 full-game assertions, 94 annual + 15 gameplay, 38 chapters, 1,372 consequences, and 34 Unity lifecycle/serialization checks; Unity compiles without errors/warnings. Phase 2A remains with its active visual owner and is **not accepted**; Chrome verification is currently blocked by the locked Mac. This is a tested engineering checkpoint, not completion of the visual/browser phase gates.
 
 

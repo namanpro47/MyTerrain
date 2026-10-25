@@ -64,3 +64,41 @@ Check(thirsty.History.Last().outcomes.economy.resourceFraction<1,"Data center cr
 var ww=d.actions.First(a=>a.actionId=="wastewater-upgrade");var sewage=new AnnualTown(d,"sewage");sewage.QueueAction(ww.siteId,ww.actionId,0);AnnualTownDemo.Finish(sewage,provider);
 Check(sewage.History.Last().outcomes.economy.waterSupplied<=d.economy.baselineWaterSupply,"Wastewater is not drinking water");
 Console.WriteLine("Full-game boundary checks passed; total assertions: "+checks);
+// Two reproducible plans use the real map, physical offers and actual cash constraints.
+AnnualTown Strategy(string name,string[] priorities)
+{
+ var town=new AnnualTown(d,name);var remaining=priorities.ToList();
+ for(int year=1;year<=10;year++)
+ {
+  if(town.Phase==TownPhase.Reviewing)town.ContinuePlanning(town.Revision);
+  foreach(var id in remaining.ToArray())
+  {
+   var offer=d.actions.Where(a=>a.actionId==id&&!town.Assets.Any(s=>s.siteId==a.siteId)&&!town.Queue.Any(s=>s.siteId==a.siteId))
+      .OrderBy(a=>d.actions.Count(b=>b.siteId==a.siteId)).FirstOrDefault(a=>town.Preview(a.siteId,id)>=0);
+   if(offer==null)continue;
+   town.QueueAction(offer.siteId,id,town.Revision);remaining.Remove(id);
+  }
+  AnnualTownDemo.Advance(town,name+"/year-"+year,provider);
+ }
+ Check(remaining.Count==0,"All planned projects affordable and physically fit: "+name+" "+string.Join(",",remaining));
+ return town;
+}
+var community=Strategy("community-and-services",new[]{"high-density-housing","conservation-rotation","public-park","village-center","solar","wastewater-upgrade","restore-grass"});
+var landscape=Strategy("land-and-livelihoods",new[]{"wind","agricultural-storage","conservation-rotation","conservation-rotation","restore-grass","high-density-housing","wastewater-upgrade","public-park"});
+foreach(var town in new[]{community,landscape})
+{
+ var end=town.History.Last();Check(end.ledger.closingArrearsCents==0&&town.AvailableCents>=0,"Financially viable strategy");
+ Console.WriteLine(town.RunId+": "+end.outcomes.economicScore.ToString("0.0")+" / "+end.outcomes.socialScore.ToString("0.0")+" / "+end.outcomes.environmentalScore.ToString("0.0")+"; cash $"+(town.CashCents/100));
+ File.WriteAllText("docs/evidence/full-game/"+town.RunId+".json",JsonSerializer.Serialize(town.Snapshot(),options));
+}
+var manual=new AnnualTown(d,"manual-equivalence");var choice=d.actions.First(a=>a.actionId=="public-park");manual.QueueAction(choice.siteId,choice.actionId,0);
+var automatic=AnnualTown.Restore(d,manual.Snapshot());AnnualTownDemo.Finish(automatic,provider);
+for(int year=1;year<=10;year++)
+{
+ if(manual.Phase==TownPhase.Reviewing)manual.ContinuePlanning(manual.Revision);
+ AnnualTownDemo.Advance(manual,manual.RunId+"/finish-year-"+year,provider);
+ manual=AnnualTown.Restore(d,JsonSerializer.Deserialize<AnnualTownSnapshot>(JsonSerializer.Serialize(manual.Snapshot(),options),options));
+}
+Check(JsonSerializer.Serialize(manual.Snapshot(),options)==JsonSerializer.Serialize(automatic.Snapshot(),options),"Fast-forward and manual transitions identical, including reload each year");
+File.WriteAllText("docs/evidence/full-game/checks.json",JsonSerializer.Serialize(new {assertions=checks,variants=FullAnnualGameplay.Supported.Length,offers=d.actions.Length,legacyWorldUnchanged=true,manualFastForwardEquivalent=true},options));
+Console.WriteLine("Full ten-year checks passed; total assertions: "+checks);

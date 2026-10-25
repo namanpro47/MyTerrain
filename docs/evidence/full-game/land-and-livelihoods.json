@@ -1,0 +1,3131 @@
+{
+  "schemaVersion": 1,
+  "year": 10,
+  "revision": 27,
+  "runId": "land-and-livelihoods",
+  "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+  "phase": 3,
+  "cashCents": 616300000,
+  "arrearsCents": 0,
+  "queue": [],
+  "undo": [],
+  "redo": [],
+  "assets": [
+    {
+      "siteId": "annual-wind-13",
+      "actionId": "wind",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-01",
+      "actionId": "agricultural-storage",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "west-10",
+      "actionId": "conservation-rotation",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-07",
+      "actionId": "conservation-rotation",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-08",
+      "actionId": "restore-grass",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-02",
+      "actionId": "wastewater-upgrade",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-03",
+      "actionId": "public-park",
+      "startedYear": 1,
+      "condition": 1
+    },
+    {
+      "siteId": "south-04",
+      "actionId": "high-density-housing",
+      "startedYear": 6,
+      "condition": 1
+    }
+  ],
+  "history": [
+    {
+      "year": 1,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 1000000000,
+        "upfrontPaidCents": 794500000,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 840000,
+        "operatingPaidCents": 840000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 304660000,
+        "futureCommitmentsCents": 119560000
+      },
+      "outcomes": {
+        "economicScore": 49.12385185185185,
+        "socialScore": 58.00000000000001,
+        "environmentalScore": 42.42577091556825,
+        "productionUnits": 14.123851851851851,
+        "serviceUnits": 3,
+        "vegetatedAreaM2": 31827.65104972447,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.7013333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.3333333333333333,
+            "condition": 1,
+            "productionUnits": 4.6,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1036.538254469633,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.3333333333333333,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 5222.0262587070465,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.3333333333333333,
+            "condition": 1,
+            "productionUnits": 4.6,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 867.0666853586832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 222.16961486265063,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 6,
+          "recreation": 4,
+          "localServices": 4,
+          "energyDemand": 20.666666666666664,
+          "energySupplied": 20.666666666666664,
+          "cleanEnergySupplied": 10,
+          "waterDemand": 21.333333333333336,
+          "waterSupplied": 21.333333333333336,
+          "wastewaterLoad": 16,
+          "wastewaterTreated": 16,
+          "emissionsPressure": 0.6666666666666666,
+          "fundedFraction": 1,
+          "serviceFraction": 0.7,
+          "resourceFraction": 1,
+          "generatedM3": 9688.0068359375,
+          "retainedM3": 0,
+          "dischargedM3": 9688.0068359375,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 6.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9688 m\u00B3; wastewater treated 16.0 / 16.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 1,
+        "revision": 7,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-1",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "3b2ae9b7ca745731aee1936aba7cf7bd27819f5cf4ed81cc7a781546bd456e4f",
+        "actions": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind"
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage"
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation"
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation"
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass"
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade"
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park"
+          }
+        ],
+        "assets": [],
+        "driver": {
+          "year": 1,
+          "id": "shared-conditions-v3-1",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 1,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-1",
+        "inputHash": "3b2ae9b7ca745731aee1936aba7cf7bd27819f5cf4ed81cc7a781546bd456e4f",
+        "effects": []
+      }
+    },
+    {
+      "year": 2,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 304660000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 4040000,
+        "operatingPaidCents": 4040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 400620000,
+        "futureCommitmentsCents": 115520000
+      },
+      "outcomes": {
+        "economicScore": 78.82385185185186,
+        "socialScore": 61.00000000000001,
+        "environmentalScore": 41.663404632536526,
+        "productionUnits": 31.323851851851853,
+        "serviceUnits": 3,
+        "vegetatedAreaM2": 34917.18545045679,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.6666666666666666,
+            "condition": 1,
+            "productionUnits": 9.2,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1362.0191272348166,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.6666666666666666,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 5986.013129353522,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 1,
+            "maturity": 0.6666666666666666,
+            "condition": 1,
+            "productionUnits": 9.2,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1033.5333426793416,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 222.16961486265063,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 21,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 26.333333333333336,
+          "energySupplied": 26.333333333333336,
+          "cleanEnergySupplied": 10,
+          "waterDemand": 25.666666666666664,
+          "waterSupplied": 25.666666666666664,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 5.333333333333334,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9692.0859375,
+          "retainedM3": 0,
+          "dischargedM3": 9692.0859375,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 21.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9692 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 2,
+        "revision": 9,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-2",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "4c664d2a0f679e183d960143b1bd59612b7b779e8a8e84416c6843d79339352c",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 2,
+          "id": "shared-conditions-v3-2",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 2,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-2",
+        "inputHash": "4c664d2a0f679e183d960143b1bd59612b7b779e8a8e84416c6843d79339352c",
+        "effects": []
+      }
+    },
+    {
+      "year": 3,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 400620000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 12040000,
+        "operatingPaidCents": 12040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 488580000,
+        "futureCommitmentsCents": 103480000
+      },
+      "outcomes": {
+        "economicScore": 88.57051851851851,
+        "socialScore": 53.307692307692314,
+        "environmentalScore": 66.68332703431284,
+        "productionUnits": 34.403851851851854,
+        "serviceUnits": 2.4000000000000004,
+        "vegetatedAreaM2": 57032.950236326455,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 5,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": null,
+            "explanation": "Authored wet year: farm output and renewable generation \u00D70.8; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.8,
+            "serviceUnits": 0.8,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Authored wet year: farm output and renewable generation \u00D70.8; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.8,
+            "serviceUnits": 0.8,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Authored wet year: farm output and renewable generation \u00D70.8; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.8,
+            "serviceUnits": 0.8,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Authored wet year: farm output and renewable generation \u00D70.8; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 11.04,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Authored wet year: farm output and renewable generation \u00D70.8; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 11.04,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 33,
+          "energySupplied": 33,
+          "cleanEnergySupplied": 33,
+          "waterDemand": 27,
+          "waterSupplied": 27,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9525.541015625,
+          "retainedM3": 0,
+          "dischargedM3": 9525.541015625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9526 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 3,
+        "revision": 11,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-3",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "6b19b5759713dd95cbd8e34d4c472c2413b5f6efb6e013ef2b62f4adaf0c4e9d",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 3,
+          "id": "shared-conditions-v3-3",
+          "description": "Authored wet year: farm output and renewable generation \u00D70.8",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 0.8,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 3,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-3",
+        "inputHash": "6b19b5759713dd95cbd8e34d4c472c2413b5f6efb6e013ef2b62f4adaf0c4e9d",
+        "effects": []
+      }
+    },
+    {
+      "year": 4,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 488580000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 12040000,
+        "operatingPaidCents": 12040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 576540000,
+        "futureCommitmentsCents": 91440000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 61.00000000000001,
+        "environmentalScore": 66.68332703431284,
+        "productionUnits": 40.52385185185185,
+        "serviceUnits": 3,
+        "vegetatedAreaM2": 57032.950236326455,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 33,
+          "energySupplied": 33,
+          "cleanEnergySupplied": 33,
+          "waterDemand": 27,
+          "waterSupplied": 27,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9525.541015625,
+          "retainedM3": 0,
+          "dischargedM3": 9525.541015625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9526 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 4,
+        "revision": 13,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-4",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "998e73be28c326b438ad022e4119f339c4619a5299033216dbee467222c356ce",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 4,
+          "id": "shared-conditions-v3-4",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 4,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-4",
+        "inputHash": "998e73be28c326b438ad022e4119f339c4619a5299033216dbee467222c356ce",
+        "effects": []
+      }
+    },
+    {
+      "year": 5,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 576540000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 12040000,
+        "operatingPaidCents": 12040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 664500000,
+        "futureCommitmentsCents": 79400000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 61.00000000000001,
+        "environmentalScore": 66.68332703431284,
+        "productionUnits": 40.52385185185185,
+        "serviceUnits": 3,
+        "vegetatedAreaM2": 57032.950236326455,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 33,
+          "energySupplied": 33,
+          "cleanEnergySupplied": 33,
+          "waterDemand": 27,
+          "waterSupplied": 27,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9525.541015625,
+          "retainedM3": 0,
+          "dischargedM3": 9525.541015625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9526 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 5,
+        "revision": 15,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-5",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "b1770ff846f5bfbba76aae21945d5c1687d32ff237c7da07ea07609fad492f39",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 5,
+          "id": "shared-conditions-v3-5",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 5,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-5",
+        "inputHash": "b1770ff846f5bfbba76aae21945d5c1687d32ff237c7da07ea07609fad492f39",
+        "effects": []
+      }
+    },
+    {
+      "year": 6,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 664500000,
+        "upfrontPaidCents": 500000000,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 12040000,
+        "operatingPaidCents": 12040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 252460000,
+        "futureCommitmentsCents": 127360000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 61.00000000000001,
+        "environmentalScore": 66.68332703431284,
+        "productionUnits": 40.276148148148145,
+        "serviceUnits": 2,
+        "vegetatedAreaM2": 57032.950236326455,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.7522962962962962,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 33,
+          "energySupplied": 33,
+          "cleanEnergySupplied": 33,
+          "waterDemand": 27,
+          "waterSupplied": 27,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9525.541015625,
+          "retainedM3": 0,
+          "dischargedM3": 9525.541015625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9526 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 6,
+        "revision": 18,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-6",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "2b6c42db76711116ab13049b813bf0c7210598489ee1dfc4aad1855de7b68fdc",
+        "actions": [
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing"
+          }
+        ],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 6,
+          "id": "shared-conditions-v3-6",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 6,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-6",
+        "inputHash": "2b6c42db76711116ab13049b813bf0c7210598489ee1dfc4aad1855de7b68fdc",
+        "effects": []
+      }
+    },
+    {
+      "year": 7,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 252460000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 12040000,
+        "operatingPaidCents": 12040000,
+        "repairDueCents": 15000000,
+        "repairPaidCents": 15000000,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 325420000,
+        "futureCommitmentsCents": 115320000
+      },
+      "outcomes": {
+        "economicScore": 84.08281481481481,
+        "socialScore": 54.846153846153854,
+        "environmentalScore": 66.68332703431284,
+        "productionUnits": 29.916148148148146,
+        "serviceUnits": 1.3,
+        "vegetatedAreaM2": 57032.950236326455,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 4,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 0,
+            "maturity": 0,
+            "condition": 1,
+            "productionUnits": 0.7522962962962962,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Authored disruption: farm output and renewable generation \u00D70.65; $150K public repair due; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.65,
+            "serviceUnits": 0.65,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Authored disruption: farm output and renewable generation \u00D70.65; $150K public repair due; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.65,
+            "serviceUnits": 0.65,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Authored disruption: farm output and renewable generation \u00D70.65; $150K public repair due; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.969999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Authored disruption: farm output and renewable generation \u00D70.65; $150K public repair due; production follows the saved growing condition.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.969999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": true
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 4,
+          "occupiedHomes": 4,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 33,
+          "energySupplied": 33,
+          "cleanEnergySupplied": 33,
+          "waterDemand": 27,
+          "waterSupplied": 27,
+          "wastewaterLoad": 17,
+          "wastewaterTreated": 17,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9525.541015625,
+          "retainedM3": 0,
+          "dischargedM3": 9525.541015625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 4.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9526 m\u00B3; wastewater treated 17.0 / 17.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 7,
+        "revision": 20,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-7",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "28ddad148fa1c243e001b0a9e5eacb3b3d14a8df9026950c65f162e40b0139f6",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "startedYear": 6,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 7,
+          "id": "shared-conditions-v3-7",
+          "description": "Authored disruption: farm output and renewable generation \u00D70.65; $150K public repair due",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 0.65,
+          "unexpectedPublicRepairCents": 15000000
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 7,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-7",
+        "inputHash": "28ddad148fa1c243e001b0a9e5eacb3b3d14a8df9026950c65f162e40b0139f6",
+        "effects": []
+      }
+    },
+    {
+      "year": 8,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 325420000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 18040000,
+        "operatingPaidCents": 18040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 15000000,
+        "closingCashCents": 422380000,
+        "futureCommitmentsCents": 97280000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 91.00000000000001,
+        "environmentalScore": 66.59706667881615,
+        "productionUnits": 40.276148148148145,
+        "serviceUnits": 2,
+        "vegetatedAreaM2": 57367.350236326456,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7522962962962962,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 334.40000000000003,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 16,
+          "occupiedHomes": 16,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 45,
+          "energySupplied": 45,
+          "cleanEnergySupplied": 45,
+          "waterDemand": 45,
+          "waterSupplied": 45,
+          "wastewaterLoad": 31,
+          "wastewaterTreated": 31,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9546.6259765625,
+          "retainedM3": 0,
+          "dischargedM3": 9546.6259765625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 16.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9547 m\u00B3; wastewater treated 31.0 / 31.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 8,
+        "revision": 22,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-8",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "4c8d7b6236e1b2d18ae60535e289ae1f351abd2b96b2d69e0807fa425700716e",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "startedYear": 6,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 8,
+          "id": "shared-conditions-v3-8",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 8,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-8",
+        "inputHash": "4c8d7b6236e1b2d18ae60535e289ae1f351abd2b96b2d69e0807fa425700716e",
+        "effects": []
+      }
+    },
+    {
+      "year": 9,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 422380000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 18040000,
+        "operatingPaidCents": 18040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 15000000,
+        "closingCashCents": 519340000,
+        "futureCommitmentsCents": 79240000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 91.00000000000001,
+        "environmentalScore": 66.59706667881615,
+        "productionUnits": 40.276148148148145,
+        "serviceUnits": 2,
+        "vegetatedAreaM2": 57367.350236326456,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7522962962962962,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 334.40000000000003,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 16,
+          "occupiedHomes": 16,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 45,
+          "energySupplied": 45,
+          "cleanEnergySupplied": 45,
+          "waterDemand": 45,
+          "waterSupplied": 45,
+          "wastewaterLoad": 31,
+          "wastewaterTreated": 31,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9546.6259765625,
+          "retainedM3": 0,
+          "dischargedM3": 9546.6259765625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 16.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9547 m\u00B3; wastewater treated 31.0 / 31.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 9,
+        "revision": 24,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-9",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "5eed8035c1a8422d9cd4d3efe4142060ee253ef08415e605eef259560c7b6391",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "startedYear": 6,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 9,
+          "id": "shared-conditions-v3-9",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 9,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-9",
+        "inputHash": "5eed8035c1a8422d9cd4d3efe4142060ee253ef08415e605eef259560c7b6391",
+        "effects": []
+      }
+    },
+    {
+      "year": 10,
+      "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 519340000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 18040000,
+        "operatingPaidCents": 18040000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 100000000,
+        "publicReceiptsCents": 15000000,
+        "closingCashCents": 616300000,
+        "futureCommitmentsCents": 61200000
+      },
+      "outcomes": {
+        "economicScore": 94.16666666666667,
+        "socialScore": 91.00000000000001,
+        "environmentalScore": 66.59706667881615,
+        "productionUnits": 40.276148148148145,
+        "serviceUnits": 2,
+        "vegetatedAreaM2": 57367.350236326456,
+        "managedAreaM2": 110975,
+        "retentionCapacityM3": 0,
+        "disruptedSites": 0,
+        "rubricVersion": "full-rubric-v2",
+        "economicExplanation": "40% output need \u002B 30% sustained jobs \u002B 30% due obligations funded. Jobs and outputs are illustrative; private activity is not treasury income.",
+        "socialExplanation": "40% occupied housing \u002B 40% energy, drinking water, wastewater, recreation and local-service needs (equal subweights) \u002B 20% undisrupted sites. Resources limit occupied homes.",
+        "environmentalExplanation": "40% cover/condition \u002B 25% same-storm discharge reduction \u002B 20% low-emissions supply \u002B 15% water/treatment needs. All except reference runoff are authored indices, not ecological or health forecasts.",
+        "sites": [
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 8.701333333333334,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 201.60000000000002,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.506962962962963,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 832,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7155555555555555,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1631.9999999999998,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0.7522962962962962,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 334.40000000000003,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-05",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 229.25836220383644,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-06",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 1,
+            "serviceUnits": 1,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1687.5,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 6750,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "east-09",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 0,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 13.799999999999999,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 1200,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-11",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 19500,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "reserve-12",
+            "actionId": null,
+            "explanation": "Existing use under the saved annual scenario.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 4750.59187412262,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          },
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "explanation": "Lifecycle and funding follow the configured action recipe.",
+            "phase": 2,
+            "maturity": 1,
+            "condition": 1,
+            "productionUnits": 0,
+            "serviceUnits": 0,
+            "vegetatedAreaM2": 20250,
+            "retentionCapacityM3": 0,
+            "disrupted": false
+          }
+        ],
+        "economy": {
+          "homesBuilt": 16,
+          "occupiedHomes": 16,
+          "jobs": 29,
+          "recreation": 10,
+          "localServices": 4,
+          "energyDemand": 45,
+          "energySupplied": 45,
+          "cleanEnergySupplied": 45,
+          "waterDemand": 45,
+          "waterSupplied": 45,
+          "wastewaterLoad": 31,
+          "wastewaterTreated": 31,
+          "emissionsPressure": 11,
+          "fundedFraction": 1,
+          "serviceFraction": 0.775,
+          "resourceFraction": 1,
+          "generatedM3": 9546.6259765625,
+          "retainedM3": 0,
+          "dischargedM3": 9546.6259765625,
+          "baselineDischargedM3": 9700.705078125,
+          "reasons": [
+            "Homes occupied 16.0 / 16; resources supplied 100%.",
+            "Sustained jobs 29.0 / 36; obligations funded 100%.",
+            "Reference-storm discharge 9547 m\u00B3; wastewater treated 31.0 / 31.0 scenario units."
+          ]
+        }
+      },
+      "acceptedRequest": {
+        "schemaVersion": 1,
+        "year": 10,
+        "revision": 26,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-10",
+        "definitionHash": "77c40366726130fde0b25c3918f950e1bdfbf95476899a535b378eb08363aa68",
+        "inputHash": "12958c8994f08d2c58795bb4e132740b80278c18c5c2eed3253875290256640f",
+        "actions": [],
+        "assets": [
+          {
+            "siteId": "annual-wind-13",
+            "actionId": "wind",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-01",
+            "actionId": "agricultural-storage",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "west-10",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-07",
+            "actionId": "conservation-rotation",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-08",
+            "actionId": "restore-grass",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-02",
+            "actionId": "wastewater-upgrade",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-03",
+            "actionId": "public-park",
+            "startedYear": 1,
+            "condition": 1
+          },
+          {
+            "siteId": "south-04",
+            "actionId": "high-density-housing",
+            "startedYear": 6,
+            "condition": 1
+          }
+        ],
+        "driver": {
+          "year": 10,
+          "id": "shared-conditions-v3-10",
+          "description": "Authored reference conditions",
+          "evidenceLevel": "scenario-assumption",
+          "productionFactor": 1,
+          "unexpectedPublicRepairCents": 0
+        }
+      },
+      "acceptedConsequences": {
+        "schemaVersion": 1,
+        "year": 10,
+        "runId": "land-and-livelihoods",
+        "requestId": "land-and-livelihoods/year-10",
+        "inputHash": "12958c8994f08d2c58795bb4e132740b80278c18c5c2eed3253875290256640f",
+        "effects": []
+      }
+    }
+  ],
+  "pendingRequest": null
+}

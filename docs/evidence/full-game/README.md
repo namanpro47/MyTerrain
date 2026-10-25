@@ -22,3 +22,14 @@ The three action categories use four visible cards per page. Reports show actual
 - Unity 6000.6.6f1 compiled with zero errors/warnings and passed **34** full-catalog lifecycle/JSON replay checks across **127 eligible offers**. The follow-up call briefly disconnected during domain reload; waiting for readiness restored the connection. Existing consequences suite passed **1,372 assertions**. Browser evidence is pending. The first two detached Editor launches exited during startup; an attached headless launch is importing. The Mac is locked and computer-use automatic unlock failed; the user has been asked to unlock it for required Chrome verification.
 
 **Not a phase-completion or release claim.** The direct visual gate, actual browser evidence, final balance/ending/accessibility/performance and release rehearsal are not yet accepted. Human novice observations remain unavailable.
+
+## Phase 5 balance and transition checkpoint
+
+The same standalone suite now passes **608 assertions**. It executes two distinct plans against the real expanded offers and cash reservation rules, then compares manual continuation (reloading after every year) with the exact fast-forward transition sequence. Snapshots are identical. Both plans encounter the saved Year 3/7 adverse conditions, fund every selected bundle and finish with no arrears and positive uncommitted cash.
+
+| Actual plan | Year 10 Economic / Social / Environmental | Closing public cash |
+|---|---|---:|
+| [Community and services](community-and-services.json): apartments, rotation, park, village center, solar, wastewater, restoration | 85.4 / 99.0 / 54.8 | $5,240,000 |
+| [Land and livelihoods](land-and-livelihoods.json): wind, farm storage, two rotations, restoration, apartments, wastewater, park | 94.2 / 91.0 / 66.6 | $6,163,000 |
+
+These are reproducible engineering balance examples, not novice playtest findings or a claim that every family is equally strong. The tested no-action, saturated services, insufficient funding, adverse conditions and resource-intensive data-center cases remain part of the suite. The source chart prices have not been changed. No elapsed-time or 8–12-minute human-comprehension claim is made. Full-browser adaptation, confirmation and timing remain to be verified.
