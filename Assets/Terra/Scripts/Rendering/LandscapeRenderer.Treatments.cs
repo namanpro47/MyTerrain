@@ -13,15 +13,12 @@ namespace Terra.Rendering
         {
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             bool cultivated=treatment.StartsWith("cultivate");
-            Color ground=cultivated?new Color(.67f,.56f,.30f):new Color(.39f,.56f,.25f);
-            if(preview)ground=Color.Lerp(ground,new Color(.68f,.74f,.49f),.15f);
-            Patch("Illustrative treatment soil",p,ground,.12f,parent);
+            // Surface changes live on the terrain material; plants and swale geometry remain independently reversible.
             if(cultivated)
             {
                 if(treatment=="cultivate-margin")
                 {
                     float edge=b+(t-b)*.25f;var margin=Rectangle(l,b,r,edge);
-                    Patch("Living meadow margin",margin,new Color(.40f,.57f,.26f),.16f,parent);
                     PlantMeadow(margin,parent,3.1f,true);b=edge;
                 }
                 PlantCultivation(Rectangle(l,b,r,t),parent,false);
@@ -66,12 +63,18 @@ namespace Terra.Rendering
             var rng=new System.Random((int)(l*71+b*131)+418);float J(float min,float max)=>min+(float)rng.NextDouble()*(max-min);
             for(float z=b+2.5f;z<t-2;z+=spacing)for(float x=l+2.5f;x<r-2;x+=spacing)
             {
-                float px=x+J(-.65f,.65f),pz=z+J(-.65f,.65f);
+                float px=x+J(-spacing*.48f,spacing*.48f),pz=z+J(-spacing*.48f,spacing*.48f);
                 if(!Contains(polygon,px,pz)||(exclude?.Invoke(px,pz)??false))continue;
-                small.Add(PlantMatrix(tuft,px,pz,J(.38f,.70f),J(0,360)));
-                float cluster=Mathf.PerlinNoise((px+1000)*.06f,(pz+1000)*.06f);
+                float cluster=Mathf.PerlinNoise((px+1000)*.035f,(pz+1000)*.035f);
+                int stems=cluster>.50f?3:1;
+                for(int n=0;n<stems;n++)
+                {
+                    float sx=px+J(-.8f,.8f),sz=pz+J(-.8f,.8f);
+                    if(Contains(polygon,sx,sz)&&!(exclude?.Invoke(sx,sz)??false))
+                        small.Add(PlantMatrix(tuft,sx,sz,J(.38f,.70f),J(0,360)));
+                }
                 if(rng.NextDouble()<.30)fine.Add(PlantMatrix(tall,px,pz,J(.55f,.95f),J(0,360)));
-                if(withFlowers&&rng.NextDouble()<(cluster>.52f?.40:.08))
+                if(withFlowers&&cluster>.55f&&rng.NextDouble()<.65)
                 {
                     bool second=cluster>.62f;var model=second?bloom2:bloom;
                     (second?flowers2:flowers).Add(PlantMatrix(model,px+.6f,pz+.4f,J(.27f,.45f),J(0,360)));

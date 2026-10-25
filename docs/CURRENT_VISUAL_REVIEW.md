@@ -1,16 +1,18 @@
 # Current visual review — Phase 2A remains open
 
-**Source checkpoint26:** smaller plant communities, revised crop scale and a forest-edge opening are saved as work in progress. Editor captures and a clean C# compile are recorded in the [study ledger](evidence/phase2a/visual-rebuild/README.md). Chrome evaluation is pending; the browser captures below remain study25.
-
-**Latest illustrated candidate: study25, October 24, 2026. Fine meadow material and palette sampling updated; visual and performance acceptance remain open. Not an accepted art direction.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md) govern this comparison. Refresh this page with actual Chrome output as the candidate changes; retain historical captures in the ledger.
+**Latest Chrome candidate: study27, October 24, 2026. Terrain-integrated interventions; visual and performance gates remain failed.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md) govern this comparison. These are recoverable studies, not accepted art direction.
 
 ## Current game: normal play
 
-![Terra study25: actual Chrome opening](evidence/phase2a/visual-rebuild/study25-default.jpg)
+![Terra27 actual Chrome opening](evidence/phase2a/visual-rebuild/study27-default.jpg)
 
-Chrome,1280×720 CSS /1600×900 render buffer, same Meadowbrook Valley AOI. A free hand-painted grass texture and its matching normal map replace the broad procedural meadow wash. Coarse road-context pixels now share that surface around explicit mapped routes. The palette used by grass no longer bleeds unused white atlas space at distance. Source land-cover queries and accounting are unchanged; displayed meadow around coarse sealed context is an illustration, not a reclassification. Four erces tree forms from study22 remain.
+Verified 1280×720 CSS/render buffer. Study 26 corrects oversized meadow/crop plants and frames a forest edge;27 integrates interventions into the terrain's own materials. Free artist models and textures remain the source assets. No image generation. The broad open terrain, mechanical fields and weak plant communities still leave a substantial reference gap.
 
-**The broader low-sward/crop trial23 and broad-brush material24 were rejected.** Their captures, reasons and sources remain in the ledger. This candidate still reads too uniformly across large open areas; field repetition, plant scale and rectangular interventions remain conspicuous. The annual-gameplay roadmap is not implemented by this visual work.
+## Restoration now belongs to the terrain
+
+![Terra27 actual Chrome restoration](evidence/phase2a/visual-rebuild/study27-restored.jpg)
+
+The raised solid-color overlay is gone. Restored land shares terrain normals, artist paint/relief and lighting, with a narrow visual transition inside the management boundary. Exact site geometry, land-cover queries and accounting remain unchanged. Preview/cancel and undo restore the prior surface. This is a contact/material consistency improvement; the treatment still lacks the richness needed to pass.
 
 ## Primary comparison: Terra Nil
 
@@ -24,7 +26,7 @@ Chrome,1280×720 CSS /1600×900 render buffer, same Meadowbrook Valley AOI. A fr
 
 ## Whole-location consistency
 
-![Terra study25: actual Chrome overview](evidence/phase2a/visual-rebuild/study25-overview.jpg)
+![Terra study27: actual Chrome overview](evidence/phase2a/visual-rebuild/study27-overview.jpg)
 
 Distinct canopy cohorts and low edge growth now extend across the location. The distant field surface represents crops as individual stalks become subpixel. Evaluate the zoom transition as well as this still; better frame time does not excuse a visible loss of quality.
 
@@ -34,12 +36,12 @@ Distinct canopy cohorts and low edge growth now extend across the location. The 
 |---|---|
 | Composition, scale and depth | Closer creek opening is more useful; empty ground, overly large repeated forms and overview slab still weaken the scene. |
 | Vegetation and environmental forms | Four branching forms and a low edge layer improve the canopy. Thin-tree stands remain sparse; broadleaf cohorts can still read as repeated clusters. |
-| Ground, fields, water and transitions | Meadow uses finer artist surface/relief and has continuous road verges. Broad areas remain visually uniform; cultivation still reads as mechanical rows and treatments are schematic. |
+| Ground, fields, water and transitions | Meadow uses finer artist surface/relief and has continuous road verges. Broad areas remain visually uniform; cultivation still reads as mechanical rows remain weak. Treatments now share the terrain material, but planting and swale forms are still schematic. |
 | Lighting, color and atmosphere | Shorter, lighter shadows improve readability. Similar greens and broad smooth ground still weaken separation and richness. |
-| Intervention appearance and transformation | The current treatments work, but conspicuous rectangular edges and inconsistent surface detail remain. Future annual lifecycle visuals need the same standard. |
+| Intervention appearance and transformation | Treatments now share the terrain material and have softened contact. Plant communities and swale construction remain too schematic. Future annual lifecycle visuals need the same standard. |
 | Whole-scene consistency | Close/wide representation is under evaluation. Required layouts, matched reviews, motion video and full delivery checks remain incomplete. |
 
 **No dimension is certified at the required 4.5/5.** No formal acceptance review, current public release or reference-parity claim follows from these studies. Use TN-02/09/10/11/12 when taking the next visual pass; use Cities: Skylines patterns for information design as the annual gameplay is built.
 
 
-Study25 is isolated on `codex/visual-study20`; [worktree/integration handoff](VISUAL_WORK_HANDOFF.md). Restore/undo passed. First diagnostic p95=75ms with a duplicate game tab; repeat after closing it p95=41ms, both failed. No error-level messages returned. No performance acceptance. Displayed size/render buffer differ from22, so do not infer a controlled before/after speed comparison. Next test scene composition and plant-scale hierarchy materially; another texture/tint pass alone will not solve the open-ground and transformation failures. No public deployment or annual-gameplay implementation is claimed.
+Study 27 is isolated on `codex/visual-study20`; [integration handoff](VISUAL_WORK_HANDOFF.md). Preview/cancel, replacement-cancel, Restore and undo passed in Chrome. The moving/placement diagnostic failed at p95=67 ms, p99=75 ms, max=102 ms. No error-level logs; no performance acceptance, public deployment or annual-gameplay claim. The existing orthographic diagnostic did not solve scene richness. Next test a substantially stronger material/foliage direction and representative scene framing, not another tint/density cycle.

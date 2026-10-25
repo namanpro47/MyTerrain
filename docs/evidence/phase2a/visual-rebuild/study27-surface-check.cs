@@ -1,0 +1,27 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var landscape=(Terra.Rendering.LandscapeRenderer)typeof(Terra.Gameplay.TerraMain).GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)typeof(Terra.Gameplay.TerraMain).GetField("world",flags).GetValue(main);
+var site=world.sites.First(s=>!s.protectedSite);
+var mask=(UnityEngine.Texture2D)typeof(Terra.Rendering.LandscapeRenderer).GetField("treatmentSurface",flags).GetValue(landscape);
+float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);
+float xmin=(float)typeof(Terra.Rendering.LandscapeRenderer).GetField("xmin",flags).GetValue(landscape),xmax=(float)typeof(Terra.Rendering.LandscapeRenderer).GetField("xmax",flags).GetValue(landscape);
+float zmin=(float)typeof(Terra.Rendering.LandscapeRenderer).GetField("zmin",flags).GetValue(landscape),zmax=(float)typeof(Terra.Rendering.LandscapeRenderer).GetField("zmax",flags).GetValue(landscape);
+var results=new System.Collections.Generic.List<string>();
+string originalCover=landscape.CoverAt(x,z);
+void Check(string label,int channel){landscape.ViewScale(.25f);var c=mask.GetPixelBilinear((x-xmin)/(xmax-xmin),(z-zmin)/(zmax-zmin));bool pass=channel<0?c.a<.01f:channel==0?c.r>.99f&&c.a>.99f:c.g>.99f&&c.a>.99f;if(!pass)throw new System.Exception(label+" failed "+c);results.Add(label+" passed "+c);}
+Check("initial baseline",-1);
+landscape.Ghost(site,true,"restore-grass");Check("restore preview",1);
+landscape.ClearGhost();Check("cancel preview",-1);
+var restored=landscape.Apply(site,"restore-grass");Check("committed restoration",1);
+if(restored.GetComponentsInChildren<UnityEngine.MeshFilter>().Length!=0)throw new System.Exception("Restoration still creates an overlay mesh");
+results.Add("restoration has no overlay mesh");
+landscape.Ghost(site,true,"cultivate-standard");Check("replacement preview",0);
+landscape.ClearGhost();Check("cancel restores prior treatment",1);
+landscape.Apply(site,null);Check("undo returns original surface",-1);
+if(landscape.CoverAt(x,z)!=originalCover)throw new System.Exception("Analytical cover changed");
+results.Add("analytical cover unchanged: "+originalCover);
+landscape.Apply(site,"restore-grass");landscape.ViewScale(.25f);
+typeof(Terra.Gameplay.TerraMain).GetField("hoverId",flags).SetValue(main,site.id);
+typeof(Terra.Gameplay.TerraMain).GetMethod("FocusSite",flags).Invoke(main,null);
+return results;

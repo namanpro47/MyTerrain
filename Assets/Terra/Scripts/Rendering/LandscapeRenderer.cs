@@ -137,6 +137,7 @@ namespace Terra.Rendering
             material.SetTexture("_MeadowPaint",Resources.Load<Texture2D>("MeadowPaint"));
             material.SetTexture("_MeadowRelief",Resources.Load<Texture2D>("MeadowRelief"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
+            CreateTreatmentSurface(material);
             BuildPathMask(material);
             BuildChannelTerrain(material);
         }
@@ -312,6 +313,7 @@ namespace Terra.Rendering
         Material BoundaryMat(Color color){if(!boundaryMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraBoundary"));material.SetColor("_BaseColor",color);boundaryMaterials.Add(color,material);}return material;}
         public void ViewScale(float metresPerCssPixel)
         {
+            FlushTreatmentSurface();
             boundaryScale=metresPerCssPixel;
             foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:pair.Key==chosenOutline?1.8f:1;
                 pair.Value.enabled=pair.Key==activeOutline||pair.Key==chosenOutline;
@@ -320,17 +322,19 @@ namespace Terra.Rendering
         public void ClearGhost()
         {
             if(ghost!=null)DestroyGroup(ghost);ghost=null;
-            if(ghostSiteId!=null){if(proposals.TryGetValue(ghostSiteId,out var prior))prior.gameObject.SetActive(true);baselines[ghostSiteId].gameObject.SetActive(!proposals.ContainsKey(ghostSiteId));ghostSiteId=null;}
+            if(ghostSiteId!=null){surfaceDirty=true;ghostTreatment=null;if(proposals.TryGetValue(ghostSiteId,out var prior))prior.gameObject.SetActive(true);baselines[ghostSiteId].gameObject.SetActive(!proposals.ContainsKey(ghostSiteId));ghostSiteId=null;}
         }
         public void Ghost(Site site,bool valid,string treatment)
         {
             ClearGhost();if(site==null)return;ghost=new GameObject("Placement preview").transform;ghost.SetParent(root,false);
             if(!valid){Patch("Unavailable footprint",site.polygon,new Color(.62f,.29f,.23f),.22f,ghost);return;}
-            ghostSiteId=site.id;baselines[site.id].gameObject.SetActive(false);if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
+            ghostSiteId=site.id;ghostTreatment=treatment;surfaceDirty=true;baselines[site.id].gameObject.SetActive(false);if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
             BuildTreatment(site,treatment,ghost,true);
         }
         public Transform Apply(Site site,string treatment)
         {
+            if(treatment==null)surfaceTreatments.Remove(site.id);else surfaceTreatments[site.id]=treatment;
+            surfaceDirty=true;
             if(proposals.TryGetValue(site.id,out var previous)){DestroyGroup(previous);proposals.Remove(site.id);}
             baselines[site.id].gameObject.SetActive(treatment==null);if(treatment==null)return null;
             var holder=new GameObject("Proposal "+site.id).transform;holder.SetParent(root,false);proposals[site.id]=holder;
@@ -429,6 +433,6 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>()){meshes.Remove(f.sharedMesh);Object.Destroy(f.sharedMesh);}Object.Destroy(group.gameObject);}
-        public void Dispose(){if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMask!=null)Object.Destroy(pathMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        public void Dispose(){if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMask!=null)Object.Destroy(pathMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
     }
 }

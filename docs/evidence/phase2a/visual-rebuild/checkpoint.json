@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Studies23/24 rejected, study25 source/export and Chrome evidence recorded. Visual and performance gates remain failed.",
+  "documentation": "Studies26/27 source/export and Chrome evidence recorded. Visual and performance gates remain failed.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
@@ -12,7 +12,7 @@
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Own Unity Play stopped, background override off; auto-tick prior setting retained. Browser viewport reset after captures; current local tab retained.",
-  "nextDecision": "Materially change scene composition and real-scale plant hierarchy at the forest/field/water junction; replace mechanical field/treatment construction. Do not keep cycling meadow tint/texture variants while the whole scene remains weak. Profile failed browser route.",
+  "nextDecision": "Substantially stronger coherent material/foliage direction and closer representative composition; do not repeat density/tint. Inspect terrain whole-mesh cost and leaf shadow/depth configuration without assuming cause.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -87,26 +87,14 @@
     "visualAcceptance": false
   },
   "latestStudy": {
-    "study": "25",
-    "build": "success",
-    "job": "7cd5bae3a448464fb2571f3a619f2a09",
-    "executionTimeMs": 70784,
-    "browser": "Chrome",
-    "cssViewport": [
-      1280,
-      720
-    ],
-    "renderBuffer": [
-      1600,
-      900
-    ],
-    "normalCapture": "study25-default.jpg",
-    "closeCapture": "study25-close.jpg",
-    "overviewCapture": "study25-overview.jpg",
-    "transformationCapture": "study25-restored.jpg",
-    "exportCheck": "study25-export-check.json",
-    "visualAcceptance": false,
-    "performanceAcceptance": false
+    "study": 27,
+    "normalCapture": "study27-default.jpg",
+    "closeCapture": "study27-close.jpg",
+    "overviewCapture": "study27-overview.jpg",
+    "transformationCapture": "study27-restored.jpg",
+    "exportCheck": "study27-export-check.json",
+    "runtimeLog": "study27-browser-log.json",
+    "viewport": "1280x720 CSS and render buffer"
   },
   "historicalStudy19FirstChecks": {
     "scope": "Study19 first export normal/overview only; current source correction not verified",
@@ -396,25 +384,82 @@
   },
   "previousGoalTurnClassification": "progress: committed22, added tested alternatives23/24/25 and source provenance; rejected weaker results; fixed visible palette mip bleed.",
   "currentSourceStudy": {
-    "study": 26,
-    "status": "Work in progress saved at user request; Editor reviewed and compiled, Chrome pending",
-    "buildJob": "fb09e29b41d44109a735336560c519eb",
-    "changes": [
-      "Metre-scale meadow plants in irregular stands",
-      "Crop height and spacing hierarchy",
-      "Prefab floor cache",
-      "Forest-edge opening target -100/10, zoom90"
-    ],
-    "evidence": [
-      "study26-editor-first.png",
-      "study26-junction-editor.png",
-      "study26-edge-editor.png"
-    ],
+    "study": 27,
+    "status": "Chrome verified partial candidate, art and performance failed",
+    "buildJob": "9f7e4cea1e42416eade1a2d59abc44a3",
     "export": {
       "status": "succeeded",
-      "milliseconds": 98565,
-      "identityCheck": "study26-export-check.json",
-      "browser": "Pending; open tab still study25 until reload"
+      "milliseconds": 77771,
+      "identityCheck": "study27-export-check.json"
     }
+  },
+  "studyHistory": [
+    {
+      "latestStudy": {
+        "study": "25",
+        "build": "success",
+        "job": "7cd5bae3a448464fb2571f3a619f2a09",
+        "executionTimeMs": 70784,
+        "browser": "Chrome",
+        "cssViewport": [
+          1280,
+          720
+        ],
+        "renderBuffer": [
+          1600,
+          900
+        ],
+        "normalCapture": "study25-default.jpg",
+        "closeCapture": "study25-close.jpg",
+        "overviewCapture": "study25-overview.jpg",
+        "transformationCapture": "study25-restored.jpg",
+        "exportCheck": "study25-export-check.json",
+        "visualAcceptance": false,
+        "performanceAcceptance": false
+      },
+      "checks": null,
+      "currentSourceStudy": {
+        "study": 26,
+        "status": "Work in progress saved at user request; Editor reviewed and compiled, Chrome pending",
+        "buildJob": "fb09e29b41d44109a735336560c519eb",
+        "changes": [
+          "Metre-scale meadow plants in irregular stands",
+          "Crop height and spacing hierarchy",
+          "Prefab floor cache",
+          "Forest-edge opening target -100/10, zoom90"
+        ],
+        "evidence": [
+          "study26-editor-first.png",
+          "study26-junction-editor.png",
+          "study26-edge-editor.png"
+        ],
+        "export": {
+          "status": "succeeded",
+          "milliseconds": 98565,
+          "identityCheck": "study26-export-check.json",
+          "browser": "Pending; open tab still study25 until reload"
+        }
+      }
+    }
+  ],
+  "checks": {
+    "renderer": "9 state/structure observations pass; study27-surface-check.json",
+    "browser": "Preview/cancel; Restore5/42; replacement preview/cancel restores prior; undo6/60 revision2",
+    "performance": {
+      "status": "failed",
+      "seconds": 30.037,
+      "p95Ms": 67,
+      "p99Ms": 75,
+      "maxMs": 102,
+      "framesOver33Ms": 468,
+      "framesOver200Ms": 0,
+      "placementEvents": 1,
+      "previewEvents": 1,
+      "cameraEvents": 496,
+      "unfocusedFrames": 0
+    },
+    "consoleErrors": 0,
+    "visual": "failed; no dimension certified at4.5",
+    "publicDeployment": "not performed"
   }
 }

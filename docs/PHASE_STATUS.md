@@ -30,9 +30,9 @@
 - **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
 - **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
 
-## Current Phase 2A checkpoint — study25
+## Current Phase 2A checkpoint — study27
 
-[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Studies23/24 were rejected;25 tests finer free CC0 meadow paint with its matching relief, retains22’s canopy, and corrects distant grass-palette white bleed. Source pixels and analytical cover/accounting are unchanged. Opening/close/overview and Restore/undo twice verified at1280×720 CSS /1600×900 buffer. First moving route p95=75ms with a duplicate game tab; repeat after closing it p95=41ms. Both fail. No error-level messages returned. Broad scene composition, plant scale, mechanical fields and treatment boundaries still fail the visual gate. No public deployment or annual-gameplay claim. [Full evidence](evidence/phase2a/visual-rebuild/README.md) · [isolated handoff](VISUAL_WORK_HANDOFF.md).
+[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Study26 corrects giant grass/flower scales and tests a forest-edge opening;27 replaces floating treatment-color meshes with a reversible terrain-material map. Source geography/accounting are unchanged. Renderer state checks and actual Chrome preview/cancel, replacement-cancel, Restore/undo pass at1280×720 CSS/render buffer. Moving diagnosticp95=67ms fails; no error-level logs. Broad ground, field repetition, plant communities and swale appearance remain substantially below reference. **No visual dimension is certified at4.5.** Local export identity verified; no current public deployment or annual-gameplay claim. [Full evidence](evidence/phase2a/visual-rebuild/README.md) · [isolated handoff](VISUAL_WORK_HANDOFF.md).
 
 ## Fresh-build publication — October 24, 2026, 18:12 local
 

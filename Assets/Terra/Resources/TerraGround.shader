@@ -12,6 +12,7 @@ Shader "Terra/Illustrated Ground"
         _Cutoff("Cutoff",Range(0,1))=0.5
         _SurfaceKind("Decorative surface",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
+        _TreatmentMap("Reversible surface changes",2D)="black"{}
         _RiverMap("Illustrative bank distance",2D)="white"{}
         _PathMap("Mapped route union",2D)="white"{}
         _LandBounds("World bounds",Vector)=(-590,-630,1180,1260)
@@ -38,6 +39,7 @@ Shader "Terra/Illustrated Ground"
                 float4 _LandBounds;
             CBUFFER_END
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
+            TEXTURE2D(_TreatmentMap); SAMPLER(sampler_TreatmentMap);
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BankMap); SAMPLER(sampler_BankMap);
             TEXTURE2D(_MeadowPaint); SAMPLER(sampler_MeadowPaint);
@@ -82,11 +84,14 @@ Shader "Terra/Illustrated Ground"
                     // Sharpen competing classes into readable material masses without altering source cover queries.
                     cover=pow(max(cover,.0001),6);
                     cover/=dot(cover,half4(1,1,1,1));
+                    half4 treatment=SAMPLE_TEXTURE2D(_TreatmentMap,sampler_TreatmentMap,(p-_LandBounds.xy)/_LandBounds.zw);
+                    half2 treatmentWeights=treatment.rg/max(treatment.r+treatment.g,.0001);
+                    cover=lerp(cover,half4(0,treatmentWeights.x,treatmentWeights.y,0),treatment.a);
                     float patches=Noise(p*.025+offset)*.6+Noise(p*.10)*.4;
                     half3 woodland=lerp(half3(.22,.35,.12),half3(.37,.47,.18),patches);
                     half3 meadow=half3(.45,.60,.32);
                     half3 field=lerp(half3(.61,.53,.28),half3(.76,.65,.36),patches);
-                    float row=(.5+.5*sin(p.x*2.617994));
+                    float row=(.5+.5*sin(p.x*4.654211));
                     float footprint=max(length(ddx(p)),length(ddy(p)));
                     float rowFade=1-saturate(footprint*.45);
                     float farRows=(.5+.5*sin(p.x*.654499));
