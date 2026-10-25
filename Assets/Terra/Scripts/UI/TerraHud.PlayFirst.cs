@@ -31,6 +31,7 @@ namespace Terra.UI
         {
             moreMenu=Panel(root,"More planning tools",Vector2.zero,new Vector2(16,62),new Vector2(250,202),PanelColor);
             moreMenu.SetSiblingIndex(modalShade.transform.GetSiblingIndex());moreMenu.gameObject.SetActive(false);
+            resetProposalsButton.onClick.AddListener(()=>moreMenu.gameObject.SetActive(false));
             moreButton=Button(commandBar,"More",Vector2.zero,Vector2.zero,new Vector2(94,36),()=>{moreMenu.gameObject.SetActive(!moreMenu.gameObject.activeSelf);Focus(moreMenu.gameObject.activeSelf?reportButton:moreButton);},14);
             foreach(var pair in new[]{(undoButton,"undo"),(redoButton,"redo"),(viewButton,"map"),(guideButton,"guide"),(controlsButton,"settings"),(moreButton,"more")})ButtonGlyph(pair.Item1,pair.Item2);
             budgetButton=Button(budgetPanel,"Budget",new Vector2(1,1),new Vector2(-10,-8),new Vector2(82,24),()=>AnnualDialog("Public budget",annualBudget.text+"\n\nAvailable = cash minus accepted commitments and this year's reserved plan.\n\nQueueing reserves the full public term. End Year pays this year's bills.","Back to landscape",CloseModal),12);

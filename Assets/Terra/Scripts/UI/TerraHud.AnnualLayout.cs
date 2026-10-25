@@ -75,6 +75,7 @@ namespace Terra.UI
                 button.gameObject.SetActive(!annualCompleted||i>=2);
                 Place(button,commandBar,new Vector2(6+i*(unit+2),6),unit);
             }
+            Position(moreMenu,Vector2.zero,new Vector2(Mathf.Min(width-266,(width-barWidth)/2+6+5*(unit+2)),62),new Vector2(250,202));
             Place(endYearButton,commandBar,new Vector2(barWidth-174,6),168);endYearButton.gameObject.SetActive(!annualCompleted);
             SetButtonText(undoButton,"Undo");SetButtonText(redoButton,"Redo");SetButtonText(viewButton,"View");SetButtonText(guideButton,"Guide");SetButtonText(controlsButton,"Settings");
             var secondary=new[]{reportButton,futureButton,resetProposalsButton,restartButton};
