@@ -72,7 +72,10 @@ namespace Terra.Rendering
             if(action.landscape){BuildAnnualLand(site,id,parent,preview,vegetationMaturity);return true;}
             var entry=buildCatalog.Find(action.artId);var layout=VisualLayout(buildRules.Layout(site,action));
             if(entry?.prefab==null||!layout.Valid)return false;
-            if(id=="wind")BuildWindMeadow(site,layout,parent);else BuildRemainingSite(site,layout,parent);
+            if(id=="wind"){if(!preview)BuildWindMeadow(site,layout,parent);}
+            else if(site.protectedSite||!baselines.ContainsKey(site.id))BuildRemainingSite(site,layout,parent);
+            // Rigid projects reuse the site's source vegetation outside the occupied lot.
+            // Replanting that whole field on every hover was the main selection stall.
             var instance=Object.Instantiate(entry.prefab,parent);instance.name=entry.title+(preview?" preview":"");
             instance.transform.localPosition=new Vector3(layout.x,action.landscape?0:layout.groundY,layout.z);
             instance.transform.localRotation=Quaternion.Euler(0,layout.yaw,0);instance.transform.localScale=Vector3.one;

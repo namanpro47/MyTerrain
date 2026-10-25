@@ -51,25 +51,27 @@ namespace Terra.Rendering
             var go=new GameObject("Vegetation submissions");
             instance=go.AddComponent<NatureSubmission>();
         }
-        internal static void Submit(RenderParams parameters,Mesh mesh,int submesh,Matrix4x4[] matrices)
+        internal static void Submit(RenderParams parameters,Mesh mesh,int submesh,Matrix4x4[] matrices,int count=-1)
         {
+            if(count<0)count=matrices.Length;
+            if(count==0)return;
             // Already-large batches gain little from copying. Transparent draws
             // retain their original bounds/sort order. All current cutouts are opaque.
-            if(instance==null||!instance.isActiveAndEnabled||matrices.Length>=128||parameters.material.renderQueue>2500
+            if(instance==null||!instance.isActiveAndEnabled||count>=128||parameters.material.renderQueue>2500
 #if UNITY_EDITOR
                 ||SeparateForComparison
 #endif
                 )
-            {Graphics.RenderMeshInstanced(parameters,mesh,submesh,matrices);return;}
-            instance.Add(parameters,mesh,submesh,matrices);
+            {Graphics.RenderMeshInstanced(parameters,mesh,submesh,matrices,count);return;}
+            instance.Add(parameters,mesh,submesh,matrices,count);
         }
-        void Add(RenderParams parameters,Mesh mesh,int submesh,Matrix4x4[] matrices)
+        void Add(RenderParams parameters,Mesh mesh,int submesh,Matrix4x4[] matrices,int count)
         {
             if(frame!=Time.frameCount)
             {Clear();frame=Time.frameCount;LastSourceBatches=0;LastDrawCalls=0;}
             LastSourceBatches++;
             var key=new Key(parameters,mesh,submesh);
-            if(!active.TryGetValue(key,out int index)||pool[index].count+matrices.Length>Capacity)
+            if(!active.TryGetValue(key,out int index)||pool[index].count+count>Capacity)
             {
                 index=used++;if(index==pool.Count)pool.Add(new Draw());
                 var next=pool[index];next.parameters=parameters;next.mesh=mesh;next.submesh=submesh;next.count=0;
@@ -78,14 +80,14 @@ namespace Terra.Rendering
             var draw=pool[index];
             // Most spatial keys have only one source. Keep its existing array;
             // allocate/copy a pooled buffer only when a second source joins it.
-            if(draw.count==0){draw.source=matrices;draw.count=matrices.Length;return;}
+            if(draw.count==0){draw.source=matrices;draw.count=count;return;}
             if(draw.source!=null)
             {
                 if(draw.matrices==null)draw.matrices=new Matrix4x4[Capacity];
                 Array.Copy(draw.source,draw.matrices,draw.count);draw.source=null;
             }
             if(draw.count>0){var bounds=draw.parameters.worldBounds;bounds.Encapsulate(parameters.worldBounds);draw.parameters.worldBounds=bounds;}
-            Array.Copy(matrices,0,draw.matrices,draw.count,matrices.Length);draw.count+=matrices.Length;
+            Array.Copy(matrices,0,draw.matrices,draw.count,count);draw.count+=count;
         }
         void LateUpdate()
         {

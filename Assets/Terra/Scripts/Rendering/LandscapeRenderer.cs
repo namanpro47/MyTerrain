@@ -111,7 +111,13 @@ namespace Terra.Rendering
             foreach(var site in world.sites)
             {
                 var holder=new GameObject("Baseline "+site.name).transform;holder.SetParent(root,false);baselines[site.id]=holder;
-                if(!site.protectedSite)BuildBaselinePlants(site,holder);
+                if(!site.protectedSite)
+                {
+                    BuildBaselinePlants(site,holder);
+                    // Prepare immutable clipping metadata during loading, not on the
+                    // first building click. GPU mesh copies remain lazy.
+                    if(buildRules!=null)BaselineVegetationFor(site.id);
+                }
                 outlines[site.id]=Outline(site.polygon,new Color(.65f,.73f,.50f),1.1f,.36f,root);
             }
             Debug.Log($"TERRA_SCENERY: buildMs={timer.Elapsed.TotalMilliseconds:0}; meshes={meshes.Count}; vertices={meshes.Sum(m=>m.vertexCount)}; materials={materials.Count}");
@@ -335,18 +341,27 @@ namespace Terra.Rendering
         }
         public void ClearGhost()
         {
+            ghostPreviewSite=null;ghostPreviewAction=null;
             if(ghost!=null)DestroyGroup(ghost);ghost=null;
-            if(ghostSiteId!=null){surfaceDirty=true;ghostTreatment=null;if(proposals.TryGetValue(ghostSiteId,out var prior))prior.gameObject.SetActive(true);baselines[ghostSiteId].gameObject.SetActive(!proposals.ContainsKey(ghostSiteId));ghostSiteId=null;}
+            if(ghostSiteId!=null){if(ghostTreatment!=null)surfaceDirty=true;ghostTreatment=null;if(proposals.TryGetValue(ghostSiteId,out var prior))prior.gameObject.SetActive(true);RestoreBaselineVegetation(ghostSiteId);ghostSiteId=null;}
         }
         public void Ghost(Site site,bool valid,string treatment)
         {
+            if(ghost!=null&&ghostPreviewSite==site?.id&&ghostPreviewAction==treatment&&ghostPreviewValid==valid)return;
             ClearGhost();if(site==null)return;ghost=new GameObject("Placement preview").transform;ghost.SetParent(root,false);
+            ghostPreviewSite=site.id;ghostPreviewAction=treatment;ghostPreviewValid=valid;
             if(valid)
             {
                 // A proposal has its own material. Hover never paints the accepted ground mask.
-                ghostSiteId=site.id;ghostTreatment=null;baselines[site.id].gameObject.SetActive(false);
+                ghostSiteId=site.id;ghostTreatment=null;
+                bool land=buildRules?.Find(treatment)?.landscape==true;
+                bool reuse=UsesBaselineVegetation(treatment)||treatment=="wind";
+                baselines[site.id].gameObject.SetActive(reuse||land);
+                if(reuse)BaselineVegetationFor(site.id).Exclude(ProjectLot(site,treatment));
                 if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
-                BuildTreatment(site,treatment,ghost,true);TintPlacementGhost(ghost);
+                // Land tools preview their exact field boundary. Generate the detailed
+                // replacement planting only when queued, rather than on every hover.
+                if(!land){BuildTreatment(site,treatment,ghost,true);TintPlacementGhost(ghost);}
             }
             BuildPlacementBoundary(site,treatment,ghost,valid,false);
         }
@@ -355,7 +370,11 @@ namespace Terra.Rendering
             if(treatment==null)surfaceTreatments.Remove(site.id);else surfaceTreatments[site.id]=treatment;
             surfaceDirty=true;
             if(proposals.TryGetValue(site.id,out var previous)){DestroyGroup(previous);proposals.Remove(site.id);}
-            baselines[site.id].gameObject.SetActive(treatment==null);if(treatment==null)return null;
+            bool reuse=UsesBaselineVegetation(treatment);
+            if(reuse)baselineProjectLots[site.id]=ProjectLot(site,treatment);else baselineProjectLots.Remove(site.id);
+            RestoreBaselineVegetation(site.id);
+            if(treatment!=null&&!reuse)baselines[site.id].gameObject.SetActive(false);
+            if(treatment==null)return null;
             var holder=new GameObject("Proposal "+site.id).transform;holder.SetParent(root,false);proposals[site.id]=holder;
             BuildTreatment(site,treatment,holder,false,vegetationMaturity);return holder;
         }
@@ -487,8 +506,9 @@ namespace Terra.Rendering
             var go=new GameObject(name);go.transform.SetParent(parent,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=material;
         }
         void DestroyGroup(Transform group)
-        {foreach(var f in group.GetComponentsInChildren<MeshFilter>(true))if(meshes.Remove(f.sharedMesh))Object.Destroy(f.sharedMesh);Object.Destroy(group.gameObject);}
-        public void Dispose(){DisposePlacementMaterials();if(forestFloor!=null)Object.Destroy(forestFloor);if(projectGrassMaterial!=null)Object.Destroy(projectGrassMaterial);if(projectPathMaterial!=null)Object.Destroy(projectPathMaterial);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        {foreach(var f in group.GetComponentsInChildren<MeshFilter>(true))if(meshes.Remove(f.sharedMesh))DestroyOwned(f.sharedMesh);DestroyOwned(group.gameObject);}
+        static void DestroyOwned(Object value){if(Application.isPlaying)Object.Destroy(value);else Object.DestroyImmediate(value);}
+        public void Dispose(){DisposePlacementMaterials();if(forestFloor!=null)DestroyOwned(forestFloor);if(projectGrassMaterial!=null)DestroyOwned(projectGrassMaterial);if(projectPathMaterial!=null)DestroyOwned(projectPathMaterial);if(treatmentSurface!=null)DestroyOwned(treatmentSurface);if(pathMask!=null)DestroyOwned(pathMask);if(visualCover!=null)DestroyOwned(visualCover);if(riverMask!=null)DestroyOwned(riverMask);if(pathMaterial!=null)DestroyOwned(pathMaterial);if(streamMaterial!=null)DestroyOwned(streamMaterial);if(swaleMaterial!=null)DestroyOwned(swaleMaterial);foreach(var mesh in meshes)DestroyOwned(mesh);foreach(var material in materials.Values)DestroyOwned(material);foreach(var material in groundMaterials.Values)DestroyOwned(material);foreach(var material in boundaryMaterials.Values)DestroyOwned(material);}
 
     }
 }

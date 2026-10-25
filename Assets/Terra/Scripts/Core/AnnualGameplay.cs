@@ -66,9 +66,9 @@ namespace Terra.Core
         // Resolve a detached copy for previews; the live run, history and treasury are untouched.
         public static TownYearReport Forecast(AnnualTown town)
         {
-            if(town.Definition.simulation!=null&&town.Phase!=TownPhase.Reviewing&&town.Phase!=TownPhase.Completed)
+            if(town.HasNumericSimulation&&town.Phase!=TownPhase.Reviewing&&town.Phase!=TownPhase.Completed)
                 throw new InvalidOperationException("Numeric-v4 planning requires a conditional range; an unplayed harvest is not a forecast.");
-            var copy=AnnualTown.Restore(town.Definition,town.Snapshot());
+            var copy=town.CopyForForecast();
             if(copy.Phase==TownPhase.Reviewing||copy.Phase==TownPhase.Completed)return copy.History.Last();
             copy.NeutralPlanningDriver();
             return AnnualTownDemo.Advance(copy,copy.PendingRequest?.requestId??copy.RunId+"/preview/"+copy.Revision,new AuthoredAnnualConsequenceProvider());

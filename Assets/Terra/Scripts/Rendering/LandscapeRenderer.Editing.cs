@@ -10,6 +10,7 @@ namespace Terra.Rendering
             ClearGhost();
             if(site==null)return;
             ghostSiteId=site.id;ghostTreatment="";surfaceDirty=true;
+            if(baselineVegetation.TryGetValue(site.id,out var vegetation))vegetation.Exclude(null);
             if(proposals.TryGetValue(site.id,out var proposal))proposal.gameObject.SetActive(false);
             baselines[site.id].gameObject.SetActive(true);
         }

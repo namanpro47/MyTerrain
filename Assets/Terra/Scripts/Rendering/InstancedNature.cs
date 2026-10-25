@@ -7,7 +7,7 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed partial class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh,medium,distant;public Material material,mediumMaterial,distantMaterial;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight,detailExtent,cullPixels=2,highDetailPixels=42,mediumDetailPixels=18;public bool crop,groundcover,distantEmpty,bakedGrass; }
+        sealed class Batch { public Mesh mesh,medium,distant;public Material material,mediumMaterial,distantMaterial;public int submesh;public Matrix4x4[] transforms,animated,filtered;public int filteredCount=-1;public Bounds bounds;public float maxHeight,detailExtent,cullPixels=2,highDetailPixels=42,mediumDetailPixels=18;public bool crop,groundcover,distantEmpty,bakedGrass; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
         static int cameraFrame=-1;static bool cameraValid,orthographic;
@@ -23,6 +23,29 @@ namespace Terra.Rendering
         public static float DisplayPixelRatio{get;set;}=1;
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
+        Bounds? excludedFootprint;
+        bool exclusionActive;
+        // Reuse source plants for building previews/proposals. Only the occupied lot is hidden.
+        // Buffers are allocated once and the original instance matrices are never rewritten.
+        public void ExcludeFootprint(Bounds? footprint)
+        {
+            if(!footprint.HasValue){exclusionActive=false;return;}
+            exclusionActive=true;
+            if(excludedFootprint.HasValue&&excludedFootprint.Value==footprint.Value)return;
+            excludedFootprint=footprint;
+            var box=footprint.Value;
+            foreach(var b in batches)
+            {
+                if(b.filtered==null)b.filtered=new Matrix4x4[b.transforms.Length];
+                b.filteredCount=0;
+                for(int i=0;i<b.transforms.Length;i++)
+                {
+                    var plant=TransformBounds(b.mesh.bounds,b.transforms[i]);
+                    if(plant.max.x>=box.min.x&&plant.min.x<=box.max.x&&plant.max.z>=box.min.z&&plant.min.z<=box.max.z)continue;
+                    b.filtered[b.filteredCount++]=b.transforms[i];
+                }
+            }
+        }
         void OnEnable(){NatureSubmission.Ensure();}
         public void Reveal(float duration){revealStarted=Time.unscaledTime;revealDuration=duration;foreach(var batch in batches)batch.animated=new Matrix4x4[batch.transforms.Length];}
         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
@@ -128,6 +151,7 @@ namespace Terra.Rendering
 #endif
             foreach(var b in batches)
             {
+                if(exclusionActive&&b.filteredCount==0)continue;
                 if(checkBounds)
                 {
                     // Skip submissions that cannot affect the view. The broad margin retains
@@ -167,7 +191,7 @@ namespace Terra.Rendering
                     }
                     matrices=b.animated;
                 }
-                NatureSubmission.Submit(parameters,mesh,b.submesh,matrices);
+                NatureSubmission.Submit(parameters,mesh,b.submesh,exclusionActive?b.filtered:matrices,exclusionActive?b.filteredCount:matrices.Length);
                 LastSubmittedBatches++;
             }
             if(revealStarted>=0&&Time.unscaledTime-revealStarted>revealDuration+.2f)revealStarted=-1;
