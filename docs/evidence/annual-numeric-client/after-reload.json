@@ -1,0 +1,11 @@
+{
+  "kind": "after-reload",
+  "checks": [
+    "Record survives page reload with exact 25 MiB payload"
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "at": "2026-10-25T18:53:49.879Z",
+  "syntheticPaddingBytes": 26214400,
+  "unityLinked": false,
+  "bridgeSha256": "b4e401afbaa6a90e877379f0b32ec41195ba9d694919704f4345ae4a37124084"
+}

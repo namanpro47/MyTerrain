@@ -52,13 +52,13 @@ namespace Terra.Gameplay
         public async Task<AnnualNumericSave> Read(CancellationToken cancellation)
         {
             var json = await Send("read", null, null, cancellation);
-            return string.IsNullOrEmpty(json) ? null : JsonUtility.FromJson<AnnualNumericSave>(json);
+            return string.IsNullOrEmpty(json) ? null : AnnualNumericJson.ReadSave(json);
         }
         public async Task Write(string expectedHash, AnnualNumericSave candidate, CancellationToken cancellation)
         {
             if (candidate == null || candidate.saveHash != AnnualNumericTransactions.Hash(candidate))
                 throw new ArgumentException("Cannot persist an incomplete numeric envelope.");
-            await Send("write", expectedHash, JsonUtility.ToJson(candidate), cancellation);
+            await Send("write", expectedHash, AnnualNumericJson.WriteSave(candidate), cancellation);
         }
         Task<string> Send(string operation, string expectedHash, string value, CancellationToken cancellation)
         {
