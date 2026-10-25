@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "base": "67c0141",
+  "runtime": "net8.0 target run on installed .NET10.0.13 with DOTNET_ROLL_FORWARD=Major",
+  "url": "http://127.0.0.1:61298",
+  "liveProviderCalls": 0,
+  "checks": [
+    "Key explicitly absent; no live provider configured",
+    "v2 automatic local summary on missing configuration",
+    "Canonical accepted summary retained",
+    "Canonical fact amounts and causal wording retained",
+    "Allowed local origin honored",
+    "Duplicate HTTP request returns byte-identical receipt",
+    "Same transition changed facts conflict before provider",
+    "Legacy snapshot or extra numeric fields rejected by v2",
+    "Legacy schema rejected by v2",
+    "Unapproved origin rejected",
+    "Non-loopback Host rejected",
+    "Legacy valid request preserves missing-key/pending behavior",
+    "v2 cannot enter legacy commit-receipt path",
+    "Independent Python/C# canonical hash equality"
+  ]
+}
