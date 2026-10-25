@@ -1,0 +1,16 @@
+{
+  "source": "https://dglopez.itch.io/low-poly-farm-market-asset-pack-30-free-3d-models",
+  "sourceArchiveReceipt": "../study72-geometry/free-pack-acquisition.json",
+  "importFile": "Assets/Terra/Art/FieldMassStudy/Dglopez/Wheat Crop.fbx",
+  "bytes": 72492,
+  "sha256": "a119140675cec06fb45806b620f918821e3942ceedc1feff2b1df8ec567375cc",
+  "byteIdenticalLocalImport": true,
+  "retainedNotices": [
+    "ASSET_MANIFEST.json",
+    "USAGE_TERMS.json",
+    "AI_NOTICE.txt",
+    "README.txt",
+    "LICENSE.txt"
+  ],
+  "status": "Prepared original local import; Unity import/render pending; not tracked or production referenced."
+}

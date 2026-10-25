@@ -1,0 +1,115 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study73/inspect.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "part": "Wheat Crop",
+          "vertices": 4657,
+          "triangles": 1672,
+          "submeshes": 7,
+          "scale": "(100.00, 100.00, 100.00)",
+          "boundsSize": [
+            0.008,
+            0.0043,
+            0.0111999707
+          ],
+          "materials": [
+            {
+              "name": "Wheat _ Green culm",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.5099999,
+                0.5599999,
+                0.119999938,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Green gold leaf",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.429999918,
+                0.5399999,
+                0.09999994,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Leaf folds",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.5199999,
+                0.6099999,
+                0.159999937,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Leaf reverse",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.3199999,
+                0.399999917,
+                0.06999996,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Lit gold.001",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                1,
+                0.73999995,
+                0.119999938,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Ripe amber.001",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.919999957,
+                0.62,
+                0.0549999624,
+                1
+              ],
+              "texture": null
+            },
+            {
+              "name": "Wheat _ Husk shadow.001",
+              "shader": "Universal Render Pipeline/Lit",
+              "color": [
+                0.77,
+                0.459999859,
+                0.035,
+                1
+              ],
+              "texture": null
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

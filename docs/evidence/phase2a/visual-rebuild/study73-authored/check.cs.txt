@@ -1,0 +1,1 @@
+return new{playing=UnityEngine.Application.isPlaying,frame=UnityEngine.Time.frameCount,scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,dirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty,studyObjects=UnityEngine.Resources.FindObjectsOfTypeAll<UnityEngine.GameObject>().Count(g=>g.scene.IsValid()&&g.name.StartsWith("Study73"))};
