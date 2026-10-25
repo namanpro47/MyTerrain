@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-25",
+  "regions": 3,
+  "candidateHazards": 18,
+  "sources": 11,
+  "allSourceReferencesResolve": true,
+  "allRuntimeProfilesDisabled": true,
+  "allExactEngineProbabilitiesUnset": true,
+  "canonicalWeatherGitBlobsMatchPublishedPins": true,
+  "workingTreeWeatherRawBytesMatchPublishedPins": false,
+  "workingTreeWeatherSemanticallyMatchesCanonicalBlobs": true,
+  "workingTreeByteDifference": "CRLF checkout versus LF canonical blobs; do not package hash-mismatched working files as a verified pack.",
+  "fourWeatherCountsIndependentlyReproducedFromCanonicalDailyCompanion": true,
+  "illustrativeLedgerReconciles": true,
+  "downloadedPdfHashesVerified": true,
+  "limits": "Research-data/consistency checks only; no event-rate calibration, new runtime, live provider or browser test."
+}
