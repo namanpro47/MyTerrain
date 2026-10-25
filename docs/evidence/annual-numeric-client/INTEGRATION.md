@@ -23,3 +23,11 @@ The current game remains on its validated schema-2 annual path. This document re
 4. Final combined Chrome coverage must include all three separate places, pending/accepted reload, save errors, provider/local mode and late response, manual/fast-forward ending agreement, repeated runs and retained prior history. Report real limitations and keep the independent visual/performance gates visible.
 
 Session API definitions live in `Assets/Terra/Scripts/Gameplay/AnnualTownSession.Numeric.cs`. The implementation remains explicit and inactive until this handoff is integrated and verified by the shared Main/HUD owners.
+
+## Submission deadline boundary — October 25
+
+Keep the released schema-2 game active. Main now contains the separate schema-2/v5 player rules (debt, cancellation, inferred regional events and signed Environment); these must not be silently removed or passed through a schema-3 factory. Pending annual-feedback planning/conversion changes also need an explicit owner review before numeric activation.
+
+The actual Unity/IL2CPP sparse fixture passed, but the 340-site ten-year player exhausted WebAssembly memory. Commit22a68bd supplies frame-boundary validation checkpoints and removes a repeated initialization replay. Its source checks pass; this alone does not establish that dense WebGL memory is fixed. See README for the latest retry outcome.
+
+The acknowledged run-directory controller and C#/JavaScript adapter are available on `codex/numeric-directory-browser` (adapter2cf446b). They preserve exact definitions and prior runs, and remain inactive. Source/model tests and installed Unity API compilation pass; actual linked directory/browser acceptance and gameplay integration remain open. Its database-v2 upgrade requires both bridges together. Directory Open accepts a cancellation-aware checkpoint; the integration owner must supply a main-thread next-frame callback in WebGL.

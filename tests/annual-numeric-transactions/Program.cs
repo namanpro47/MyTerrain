@@ -234,11 +234,11 @@ await Reject<OperationCanceledException>(() => AnnualNumericTransactions.Open(ru
     checkpointCancellation.Token, token => { checkpointCancellation.Cancel(); token.ThrowIfCancellationRequested(); return Task.CompletedTask; }),
     "Cancellation at a validation checkpoint aborts opening");
 Check(cancelledStore.Writes == 0 && cancelledStore.Value == null, "Cancelled validation never creates a run");
-var checkpointStore = new FakeStore(); bool blockCheckpoint = false;
+var checkpointStore = new FakeStore(); bool blockCheckpoint = false; int blockedCheckpointCalls = 0;
 var arrivedAtCheckpoint = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
 var releaseCheckpoint = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
 var checkpointSession = await AnnualNumericTransactions.Open(rules, "paused-checkpoint", checkpointStore,
-    checkpoint: async token => { if (blockCheckpoint) { arrivedAtCheckpoint.TrySetResult(); await releaseCheckpoint.Task.WaitAsync(token); } });
+    checkpoint: async token => { if (blockCheckpoint && ++blockedCheckpointCalls == 2) { arrivedAtCheckpoint.TrySetResult(); await releaseCheckpoint.Task.WaitAsync(token); } });
 int checkpointWrites = checkpointStore.Writes; string checkpointHash = checkpointSession.SaveState.saveHash;
 blockCheckpoint = true;
 var checkpointPlan = checkpointSession.QueueAction(park.siteId, park.actionId, checkpointSession.State.revision);
