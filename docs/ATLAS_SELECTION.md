@@ -34,7 +34,7 @@ The three landscape cards are original SVG illustrations, not photos or surveyed
 - Browser entry: `Assets/WebGLTemplates/Terra/index.html`, `atlas/{atlas,globe,locations,player}.js` and `atlas.css`.
 - Location contract: `LocationProfile` in Core; bounded ID/index adapter in `TerraMain.Atlas.cs` and `TerraBrowser.jslib`.
 - `TerraMain` reads the location before loading. Only Wisconsin applies its historical wind-site adapter. Regional packs contain their own complete opportunities.
-- Annual and chapter keys are separate for each region; Wisconsin’s exact existing keys and definition ID remain unchanged. Cross-location save restore is rejected.
+- Annual and chapter keys are separate for each region. The October 25 connected-field follow-up gives Wisconsin definition 3.2 its own town/chapter keys; the original 3.1 keys remain intact for historical recovery. The definition ID remains unchanged. Point Reyes and Suusamyr retain their 3.1 keys and geometry. Cross-location save restore is rejected.
 - Browser input capture is released while the atlas is visible. Camera/audio resume when returning. Outstanding accepted-year work may finish and save; atlas navigation never rewrites a committed year.
 - In-game identity, loading, ending and field-guide notes follow the location. The main gameplay HUD remains uGUI/TMP.
 

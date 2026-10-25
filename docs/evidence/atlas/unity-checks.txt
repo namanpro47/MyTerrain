@@ -1,1 +1,1 @@
-Atlas locations: 675 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection.
+Atlas locations: 678 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection.

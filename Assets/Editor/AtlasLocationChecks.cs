@@ -18,7 +18,7 @@ public static class AtlasLocationChecks
         Check(LocationProfile.All.Select(l=>l.AnnualSaveKey).Distinct().Count()==3,"Annual save keys collide");
         Check(LocationProfile.All.Select(l=>l.ChapterSaveKey).Distinct().Count()==3,"Chapter save keys collide");
         Check(LocationProfile.At(-1).IsWisconsin&&LocationProfile.At(99).IsWisconsin,"Invalid browser IDs must use safe default");
-        Check(LocationProfile.All[0].AnnualSaveKey=="terra.meadowbrook.annual-full.v3.1","Existing Wisconsin save key changed");
+        Check(LocationProfile.All[0].AnnualSaveKey=="terra.meadowbrook.annual-full.v3.1","Legacy Wisconsin save key changed");
         var catalog=AssetDatabase.LoadAssetAtPath<BuildActionCatalog>("Assets/Terra/Art/ExternalKit/BuildActions/BuildActionCatalog.asset");
         AnnualTownSnapshot first=null;
         foreach(var place in LocationProfile.All)
@@ -30,9 +30,10 @@ public static class AtlasLocationChecks
             var h=JsonUtility.FromJson<RunoffConfiguration>(File.ReadAllText(root+"hydrology.json"));
             PackValidator.Validate(m,w,s);assertions++;
             Check(m.packId==place.PackId,"Catalog and manifest disagree");
-            if(place.IsWisconsin)AnnualSpatialOpportunities.AddWind(w,h);
+            if(place.IsWisconsin){AnnualSpatialOpportunities.ConnectFields(w,h,JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("ConnectedFields").text).sites);AnnualSpatialOpportunities.AddWind(w,h);}
             var rules=BuildActionRuntime.Expand(catalog,ref w,ref s);
             var d=FullAnnualGameplay.Create(w,s,m.packId,rules,new LandscapeRunoff(w,s,h));
+            Check(d.version==(place.IsWisconsin?"3.2.0":"3.1.0"),"Connected layout version leaked across regions");
             foreach(var id in FullAnnualGameplay.Supported)
             {
                 Check(d.actions.Any(a=>a.actionId==id),place.Name+" has no eligible "+id);

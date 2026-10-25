@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "dce921982fb8b2e069500fd33399407ab53fbf20",
+  "reconciledMain": "5960a65",
+  "unity": "6000.6.6f1",
+  "target": "WebGL",
+  "optimization": "RuntimeSpeedLTO",
+  "durationSeconds": 378.243,
+  "localUrl": "http://127.0.0.1:49725/Review/",
+  "servedFiles": 30,
+  "servedBytes": 45006470,
+  "allServedBytesMatchExport": true,
+  "publicDeployment": false,
+  "note": "Later commits contain evidence/docs only; runtime source matches this build. Unity-generated TMP fallback serialization and obsolete debug-symbol meta removals are excluded from source commits."
+}

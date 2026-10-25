@@ -8,6 +8,12 @@
 
 Status: Phase 1 visual contract frozen; browser review passed. One Meadowbrook Valley landscape (fictional game name for the selected Wisconsin AOI) is the intended full game. At that checkpoint the scene was explicitly an invented technical fixture, not real geography. Current real-landscape integration status is recorded in [PHASE_STATUS.md](PHASE_STATUS.md); the historical v1 details below are not a statement that Phase 2 still uses synthetic terrain.
 
+## Current HUD and connected-field revision — October 25, 2026
+
+The user requested a much closer Terra Nil / Cities: Skylines interface and continuous development. The annual HUD now uses compact slate/navy panels, a prominent USD available balance, three equally weighted colored indicators, pictorial project cards with upfront price badges, and one bottom command bar. Cream remains the field-note/report surface. The older green-panel layout below is historical. Patterns TN-03/04/05, CS-01/02 and AX-01; [implementation, reference images and Chrome evidence](evidence/hud-connected/README.md).
+
+The eight hypothetical southern management parcels share exact edges. Land treatments reach these boundaries and cultivation rows use a common world origin. Mapped water/woodland determine the stepped outside boundary; building prefab and lot dimensions stay metric. This bounded revision does not accept the broader Phase 2A scenery gate.
+
 ## Direction
 
 A warm miniature landscape: restrained moss/sage grass, darker clustered woodland, ochre earth edges, straw cultivation patterns and muted teal water. Contrast comes from readable cover masses and height, not saturated debug tiles. Keep terrain dominant, with a framed edge and a fixed opening view. Mapped scenery feels settled; a proposal has a pale ghost footprint, raised outline and a short settling reveal. Protection is communicated in text as well as a warm blocked outline. Decorative vegetation remains labeled as decoration in provenance.

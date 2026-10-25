@@ -1,0 +1,170 @@
+{
+  "sites": [
+    {
+      "siteId": "south-01",
+      "areaM2": 11825.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 0.0,
+        "sealed": 0.0,
+        "cultivated": 11824.999999999996
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 38.361999999999995,
+        "path": 47.779
+      }
+    },
+    {
+      "siteId": "south-02",
+      "areaM2": 13975.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 0.0,
+        "sealed": 0.0,
+        "cultivated": 13975.000000000002
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 147.00610307058682,
+        "path": 54.95554851681134
+      }
+    },
+    {
+      "siteId": "south-03",
+      "areaM2": 11825.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 0.0,
+        "sealed": 0.0,
+        "cultivated": 11825.0
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 39.0778652837789,
+        "path": 80.3722591942352
+      }
+    },
+    {
+      "siteId": "south-04",
+      "areaM2": 13200.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 0.0,
+        "sealed": 0.0,
+        "cultivated": 13200.0
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 44.451901477889564,
+        "path": 151.701
+      }
+    },
+    {
+      "siteId": "south-05",
+      "areaM2": 15600.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 1503.398973576679,
+        "sealed": 0.0,
+        "cultivated": 14096.601026423323
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 97.71533647954435,
+        "path": 162.04975026580703
+      }
+    },
+    {
+      "siteId": "south-06",
+      "areaM2": 9187.5,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 723.8061497795788,
+        "sealed": 0.0,
+        "cultivated": 8463.693850220421
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 22.325679994688723,
+        "path": 67.18366406060697
+      }
+    },
+    {
+      "siteId": "south-07",
+      "areaM2": 7800.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 860.4617029071474,
+        "sealed": 0.0,
+        "cultivated": 6939.538297092854
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 53.24237328481893,
+        "path": 192.77743883785715
+      }
+    },
+    {
+      "siteId": "south-08",
+      "areaM2": 12675.0,
+      "sourceCoverAreaM2": {
+        "woodland": 0.0,
+        "grass": 6835.366437349907,
+        "sealed": 0.0,
+        "cultivated": 5839.633562650093
+      },
+      "minimumMappedCenterlineDistanceM": {
+        "water": 32.42770679527,
+        "path": 149.75400000000002
+      }
+    }
+  ],
+  "sharedEdgesM": [
+    [
+      "south-01",
+      "south-02",
+      107.5
+    ],
+    [
+      "south-02",
+      "south-03",
+      107.5
+    ],
+    [
+      "south-01",
+      "south-04",
+      110
+    ],
+    [
+      "south-02",
+      "south-05",
+      130
+    ],
+    [
+      "south-04",
+      "south-05",
+      120.0
+    ],
+    [
+      "south-03",
+      "south-06",
+      105
+    ],
+    [
+      "south-05",
+      "south-06",
+      87.5
+    ],
+    [
+      "south-04",
+      "south-07",
+      80
+    ],
+    [
+      "south-05",
+      "south-08",
+      130
+    ],
+    [
+      "south-07",
+      "south-08",
+      97.5
+    ]
+  ],
+  "overlapM2": 0,
+  "note": "Eight contiguous hypothetical management parcels. Mapped water/woodland determine the stepped outer edge. Isolated east/west opportunities and protected zones are unchanged."
+}

@@ -55,7 +55,15 @@ namespace Terra.Gameplay
         IEnumerator ShapeLandscape(Manifest m,WorldData w,Scenario s)
         {
             hud.Progress("Shaping the terrain and woodland…");yield return null;
-            try{if(location.IsWisconsin)AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
+            try
+            {
+                if(location.IsWisconsin)
+                {
+                    AnnualSpatialOpportunities.ConnectFields(w,runoffConfiguration,JsonUtility.FromJson<WorldData>(Resources.Load<TextAsset>("ConnectedFields").text).sites);
+                    AnnualSpatialOpportunities.AddWind(w,runoffConfiguration);
+                }
+                buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);
+            }
             catch(Exception e){Error(e.Message);yield break;}
             world=w;scenario=s;ConfigureWaterRendering();
             try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);}
