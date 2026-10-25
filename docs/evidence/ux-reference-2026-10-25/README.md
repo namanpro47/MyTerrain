@@ -30,7 +30,7 @@ The user requested a deep study of Terra Nil HUD/interactions and a plan full of
 - All 17 video image paths exist; captures are JPEG files named accordingly. User images remain their original PNGs.
 - Board JavaScript passes `node --check`.
 - Local board references and plan links checked; reference thumbnails point to existing project images.
-- Chrome visual/interaction verification is recorded in `verification.json` after the final review. It concerns this research board only, not game acceptance.
+- The finished research board has not received Chrome visual/interaction verification: the shared desktop remained occupied/queued. Static validation passed; this limitation is recorded in `verification.json`. The source video itself was inspected in Chrome earlier in the study. No game acceptance is claimed.
 
 ## Integration handoff
 
