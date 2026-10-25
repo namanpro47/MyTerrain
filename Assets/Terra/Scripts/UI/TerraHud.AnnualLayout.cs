@@ -47,6 +47,7 @@ namespace Terra.UI
             Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,124));
             annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=13;
             annualAvailable.rectTransform.anchoredPosition=new Vector2(14,-32);annualAvailable.fontSize=28*(LargeText?1.12f:1);
+            annualAvailable.enableAutoSizing=true;annualAvailable.fontSizeMin=24;annualAvailable.fontSizeMax=28*(LargeText?1.12f:1);annualAvailable.textWrappingMode=TextWrappingModes.NoWrap;
             annualBudget.rectTransform.anchoredPosition=new Vector2(14,-77);annualBudget.rectTransform.sizeDelta=new Vector2(286,40);annualBudget.fontSize=12*(LargeText?1.12f:1);
             annualWater.gameObject.SetActive(false); // Full storm facts remain in Meter details.
             Position(annualIndicators,new Vector2(1,1),new Vector2(-16,-16),new Vector2(532,98));
@@ -111,6 +112,7 @@ namespace Terra.UI
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);
+            previewTitle.enableAutoSizing=true;previewTitle.fontSizeMin=15;previewTitle.fontSizeMax=previewTitle.fontSize;previewTitle.textWrappingMode=TextWrappingModes.NoWrap;
             previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?104:LargeText?152:120);
             previewBody.fontSize=(annualCompact?13:16)*(LargeText?1.12f:1);
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,annualCompact?49:68);

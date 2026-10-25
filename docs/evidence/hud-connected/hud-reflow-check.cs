@@ -4,6 +4,7 @@ var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags
 var hud=(Terra.UI.TerraHud)main.GetType().GetField("hud",flags).GetValue(main);
 var world=(Terra.Contracts.WorldData)main.GetType().GetField("world",flags).GetValue(main);
 var session=(Terra.Gameplay.AnnualTownSession)main.GetType().GetField("annual",flags).GetValue(main);
+hud.CloseModal();
 var ui=typeof(Terra.UI.TerraHud);
 var root=(UnityEngine.Transform)ui.GetField("root",flags).GetValue(hud);
 var layout=ui.GetMethod("LayoutAnnual",flags);
@@ -32,6 +33,17 @@ foreach(bool large in new[]{false,true})
             hud.AnnualPreview(world.sites.First(s=>s.id==offer.siteId),offer,session.State,"place",null,()=>{},false);
             var body=(TMPro.TextMeshProUGUI)ui.GetField("previewBody",flags).GetValue(hud);body.ForceMeshUpdate(true,true);
             Check(body.preferredHeight<=body.rectTransform.rect.height+.1f,"Preview overflow: "+offer.actionId+" "+size+" large="+large+" needs "+body.preferredHeight+" has "+body.rectTransform.rect.height);
+        }
+        var available=(TMPro.TextMeshProUGUI)ui.GetField("annualAvailable",flags).GetValue(hud);
+        foreach(var amount in new[]{"$10,000,000","$10,810,000","$19,850,000"})
+        {
+            available.text=amount+" <size=45%>available</size>";available.ForceMeshUpdate(true,true);
+            Check(available.textInfo.lineCount==1&&available.preferredHeight<=available.rectTransform.rect.height+.1f,"Available balance wraps: "+amount+" larger="+large);
+        }
+        foreach(var label in root.GetComponentsInChildren<TMPro.TextMeshProUGUI>().Where(t=>!string.IsNullOrWhiteSpace(t.text)))
+        {
+            label.ForceMeshUpdate(true,true);
+            Check(label.preferredHeight<=label.rectTransform.rect.height+.1f,"Visible text overflows: "+label.text+" at "+size+" larger="+large);
         }
         cases.Add(new{width=size.x,height=size.y,large,compact});
     }
