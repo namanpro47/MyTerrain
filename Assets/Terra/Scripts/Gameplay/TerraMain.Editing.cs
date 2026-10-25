@@ -13,6 +13,8 @@ namespace Terra.Gameplay
         AnnualTownSession annual;
         AnnualTownDefinition annualDefinition;
         TownYearOutcomes annualBaseline;
+        string availabilityKey;
+        string[] availableFieldIds=Array.Empty<string>();
         string PreviewSiteId => editMode=="reset"?null:editMode=="move"?hoverId:editMode=="remove"?selectedId:hoverId??selectedId;
         string QueuedAt(string siteId)=>annual?.State.queue.FirstOrDefault(q=>q.siteId==siteId)?.actionId;
         void Choose(string id)
@@ -66,10 +68,22 @@ namespace Terra.Gameplay
         void UpdatePreview()
         {
             if(!ready||annual==null)return;
+            var timer=System.Diagnostics.Stopwatch.StartNew();
+            // Re-evaluate only when the plan/tool changes, not for every pointer or camera move.
+            var state=annual.State;
+            bool showAvailable=!comparisonMap&&!fastForwarding&&state.phase==TownPhase.Planning
+                &&(editMode=="place"||editMode=="move")&&!string.IsNullOrEmpty(treatmentId);
+            string nextKey=state.runId+"/"+state.revision+"/"+state.phase+"/"+editMode+"/"+moveSourceId+"/"+treatmentId+"/"+showAvailable;
+            if(nextKey!=availabilityKey)
+            {
+                availabilityKey=nextKey;
+                availableFieldIds=showAvailable?world.sites.Where(s=>Rejection(s)==null).Select(s=>s.id).ToArray():Array.Empty<string>();
+                hud.BuildAvailability(showAvailable?(int?)availableFieldIds.Length:null);
+            }
             if(comparisonMap){landscape.ClearGhost();landscape.Highlight(null,null,true);hud.HideAnnualPreview();return;}
-            var timer=System.Diagnostics.Stopwatch.StartNew();var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);
+            var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);
             string reason=Rejection(site);var recipe=annualDefinition.actions.FirstOrDefault(a=>a.siteId==site?.id&&a.actionId==(string.IsNullOrEmpty(treatmentId)?QueuedAt(site?.id):treatmentId));
-            landscape.ClearGhost();landscape.Highlight(site?.id,selectedId,reason==null||string.IsNullOrEmpty(treatmentId));
+            landscape.ClearGhost();landscape.Highlight(site?.id,selectedId,reason==null||string.IsNullOrEmpty(treatmentId),availableFieldIds);
             if(site!=null&&(editMode=="place"||editMode=="move")&&reason==null)landscape.Ghost(site,true,treatmentId);
             if(site!=null&&editMode=="remove"&&reason==null)landscape.PreviewBaseline(site);
             bool water=treatmentId=="water-swale"&&site!=null&&site.allowedTreatments.Contains("water-swale");

@@ -1,0 +1,204 @@
+{
+  "sourceCommit": "ba88fdff479a6841adb7e3adaab2a17c44b9afcb",
+  "diagnosticDefine": "TERRA_TREE_AUDIT",
+  "browser": "Chrome on Windows",
+  "origin": "http://127.0.0.1:8082/",
+  "devicePixelRatio": 1.5,
+  "warmupSeconds": 2,
+  "sampleSeconds": 12,
+  "sequence": [
+    "normal",
+    "off",
+    "shadows",
+    "off",
+    "shadows",
+    "normal",
+    "normal"
+  ],
+  "samples": [
+    {
+      "timestampUtc": "2026-10-25T04:30:05.523Z",
+      "mode": "normal",
+      "seconds": 12.105998992919922,
+      "averageFps": 5.699653625488281,
+      "p50Ms": 163,
+      "p95Ms": 263,
+      "maximumMs": 310,
+      "fov": 36,
+      "frames": 69,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:30:28.337Z",
+      "mode": "off",
+      "seconds": 12.031997680664062,
+      "averageFps": 12.051198959350586,
+      "p50Ms": 82,
+      "p95Ms": 95,
+      "maximumMs": 103,
+      "fov": 36,
+      "frames": 145,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:30:49.854Z",
+      "mode": "shadows",
+      "seconds": 12.022003173828125,
+      "averageFps": 6.987188339233398,
+      "p50Ms": 143,
+      "p95Ms": 174,
+      "maximumMs": 187,
+      "fov": 36,
+      "frames": 84,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:31:14.944Z",
+      "mode": "off",
+      "seconds": 12.021995544433594,
+      "averageFps": 12.061225891113281,
+      "p50Ms": 80,
+      "p95Ms": 101,
+      "maximumMs": 116,
+      "fov": 36,
+      "frames": 145,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:31:36.393Z",
+      "mode": "shadows",
+      "seconds": 12.069999694824219,
+      "averageFps": 8.119304656982422,
+      "p50Ms": 124,
+      "p95Ms": 139,
+      "maximumMs": 145,
+      "fov": 36,
+      "frames": 98,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:32:41.051Z",
+      "mode": "normal",
+      "seconds": 12.197006225585938,
+      "averageFps": 4.591290473937988,
+      "p50Ms": 239,
+      "p95Ms": 252.99998474121094,
+      "maximumMs": 263,
+      "fov": 36,
+      "frames": 56,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    },
+    {
+      "timestampUtc": "2026-10-25T04:33:29.505Z",
+      "mode": "normal",
+      "seconds": 12.007003784179688,
+      "averageFps": 5.330222129821777,
+      "p50Ms": 172,
+      "p95Ms": 252,
+      "maximumMs": 254.00001525878906,
+      "fov": 36,
+      "frames": 64,
+      "unfocusedFrames": 0,
+      "bufferWidth": 1287,
+      "bufferHeight": 1304,
+      "revision": 0,
+      "cameraPosition": {
+        "x": -43.21092224121094,
+        "y": 236.65792846679688,
+        "z": -282.7126159667969
+      },
+      "cameraRotation": {
+        "x": 37,
+        "y": 328,
+        "z": 0
+      }
+    }
+  ],
+  "limits": [
+    "Same existing diagnostic export as the earlier audit; later main UI/build changes are not in this export.",
+    "Three normal, two off and two shadow-only trials. Keep the complete range; normal and shadow trials varied.",
+    "The second normal trial overlaps process-level GPU counter collection. The third normal trial was collected after counters stopped.",
+    "Camera, drawing buffer, revision and focus flags match in every logged sample. Native foreground scene was inspected in all three modes.",
+    "Chrome was instrumented through its debugging extension. This is a local diagnostic comparison, not a release performance certification.",
+    "Removing canopy changes occlusion and ground shading; differences measure net scene cost rather than GPU pass self-time.",
+    "No rendering optimization, GPU preference change, browser restart or deployment was performed."
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "chromeGpuPid": 13440,
+  "method": "Read-only Windows GPU Engine counters; DXGI adapter enumeration maps LUIDs to names",
+  "adapters": {
+    "microsoftBasicRender": "luid_0x00000000_0x00010fe5",
+    "intelUhd": "luid_0x00000000_0x0000f124",
+    "rtx3080Laptop": "luid_0x00000000_0x00011082"
+  },
+  "startUtc": "2026-10-25T04:32:21.2951284Z",
+  "endUtc": "2026-10-25T04:32:56.7028671Z",
+  "intel3dMeanPercent": 58.92721162890326,
+  "intel3dMaxPercent": 63.14608888474491,
+  "normalTrialOverlap": {
+    "intel3dMeanPercent": 58.17682823327712,
+    "startUtc": "2026-10-25T04:32:29Z",
+    "counterSamples": 11,
+    "endUtc": "2026-10-25T04:32:41.051Z"
+  },
+  "nvidiaEngineRowsForChrome": 0,
+  "limits": [
+    "Counters cover the Chrome GPU process, not a single WebGL draw call.",
+    "No NVIDIA engine rows were exposed for this process in this capture; absence is not a measurement of zero total NVIDIA utilization.",
+    "Intel activity does not prove Intel saturation or explain all frame time.",
+    "Read-only diagnostics; no GPU selection or OS settings changed."
+  ],
+  "intelSamples": [
+    {
+      "timeUtc": "2026-10-25T04:32:21.2951284Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.56286037805629
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:22.3436035Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.84256116335047
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:23.3814001Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 57.590947975740136
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:24.423931Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 59.45385407761056
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:25.4788297Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.58614917242765
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:26.5192813Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.221580705916544
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:27.5881701Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.31175553528113
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:28.6357862Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.96437425885303
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:29.6783462Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 61.34579304788213
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:30.7157656Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 59.622193300028904
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:31.7487113Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.338854210826376
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:32.794181Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 62.304225555269554
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:33.8338811Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 57.90281255142708
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:34.8749771Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 55.85865280435234
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:35.9211436Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.24318882319401
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:36.969658Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.764857020561664
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:38.0145034Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.685151698040684
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:39.052394Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.880898622648665
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:40.0814842Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 55.99848293181686
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:41.120692Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.73440865243698
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:42.1650268Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 57.64937642602737
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:43.2142968Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 59.091206267214346
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:44.2567441Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 58.03209428428661
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:45.2833709Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 58.62476997483409
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:46.3368957Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.97788034985033
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:47.3827714Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.38361413721668
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:48.4209717Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 58.408510083340225
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:49.4521105Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 61.827641438766534
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:50.4894543Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 62.47252839415438
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:51.5340745Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 63.14608888474491
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:52.5816613Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 61.34201003678168
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:53.6067203Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 59.696534540938615
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:54.6444738Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 56.836647623929956
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:55.6719581Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 58.516894126752106
+    },
+    {
+      "timeUtc": "2026-10-25T04:32:56.7028671Z",
+      "pid": 13440,
+      "engine": "pid_13440_luid_0x00000000_0x0000f124_phys_0_eng_0_engtype_3d",
+      "percent": 60.23300795705537
+    }
+  ]
+}

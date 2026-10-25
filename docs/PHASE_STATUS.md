@@ -280,6 +280,10 @@ The weakest initial areas were scene composition and feedback readability: spars
 
 Peter requested imported tree geometry/LOD counts and investigation of his slow Windows Chrome run. [Tree audit and reproducible diagnostic](evidence/tree-performance/README.md): 2,255 oak/shrub instances, three active custom LOD meshes (2,833 / 1,524 / 842 vertices), 264 batches. An isolated local player measured 8.23 FPS with trees, 14.73 without, and 8.77 with tree shadows only at a matched 1287 × 1304 buffer. One trial per mode; desktop lock prevented the planned repeated baseline, and active WebGL adapter was not established for these samples. Shadow cost is the leading next experiment, not a certified root cause. Census and diagnostic Web build passed. Normal game rendering/settings and the existing saved plan were not changed. No optimization, deployment or Phase 2A visual acceptance is claimed.
 
+### Resumed tree benchmark — October 24, 2026
+
+After the laptop woke, seven matched foreground Chrome samples completed: normal forest **4.59–5.70 FPS** (three trials), forest off **12.05–12.06 FPS** (two), shadows only **6.99–8.12 FPS** (two). All match camera/FOV, 1287 × 1304 buffer and revision zero. [Resumed evidence](evidence/tree-performance/browser-ablation-resumed.json) and [updated interpretation](evidence/tree-performance/README.md) retain timing variability. Current-process Windows counters plus DXGI mapping show active Intel UHD 3D work during a normal trial; no RTX engine rows were exposed for Chrome. This is a benchmark of the current browser configuration, not a verified RTX baseline. Read-only diagnostics and documentation only; production renderer/assets/settings and saved progress remain unchanged. No performance or visual acceptance gate is certified.
+
 ## Evidence entry template
 
 Copy this section for a phase when work starts. Keep notes brief and link concrete files/captures/logs rather than claiming success from a checklist alone.

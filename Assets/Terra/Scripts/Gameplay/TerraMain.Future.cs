@@ -35,7 +35,7 @@ namespace Terra.Gameplay
         }
         IEnumerator FinishYears()
         {
-            fastForwarding=true;var timing=System.Diagnostics.Stopwatch.StartNew();int firstYear=annual.State.year;
+            fastForwarding=true;UpdatePreview();var timing=System.Diagnostics.Stopwatch.StartNew();int firstYear=annual.State.year;
             while(annual.State.phase!=TownPhase.Completed)
             {
                 int year=annual.State.year;

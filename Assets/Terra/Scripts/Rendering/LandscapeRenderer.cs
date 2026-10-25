@@ -15,6 +15,7 @@ namespace Terra.Rendering
         readonly Dictionary<string,Transform> proposals=new Dictionary<string,Transform>();
         readonly Dictionary<string,Transform> baselines=new Dictionary<string,Transform>();
         readonly Dictionary<string,LineRenderer> outlines=new Dictionary<string,LineRenderer>();
+        readonly HashSet<string> availableFields=new HashSet<string>();
         readonly Dictionary<Color,Material> boundaryMaterials=new Dictionary<Color,Material>();
         string activeOutline,chosenOutline;float boundaryScale=2;
         readonly Dictionary<Color,Material> materials=new Dictionary<Color,Material>();
@@ -307,10 +308,11 @@ namespace Terra.Rendering
         }
         public static bool Contains(Point[] p,float x,float z)
         {for(int i=0;i<p.Length;i++){var a=p[i];var b=p[(i+1)%p.Length];if((b.x-a.x)*(z-a.z)-(b.z-a.z)*(x-a.x)<-.001f)return false;}return true;}
-        public void Highlight(string hover,string selected,bool valid)
+        public void Highlight(string hover,string selected,bool valid,IEnumerable<string> available=null)
         {
+            availableFields.Clear();if(available!=null)availableFields.UnionWith(available);
             activeOutline=hover;chosenOutline=selected;settlingOutline=null;
-            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(1,.84f,.36f):new Color(1,.38f,.23f)):chosen?new Color(.96f,.98f,.83f):new Color(.65f,.73f,.50f));}
+            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(1,.84f,.36f):new Color(1,.38f,.23f)):availableFields.Contains(pair.Key)?new Color(.35f,1f,.88f):chosen?new Color(.96f,.98f,.83f):new Color(.65f,.73f,.50f));}
             ViewScale(boundaryScale);
         }
         Material BoundaryMat(Color color){if(!boundaryMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraBoundary"));material.SetColor("_BaseColor",color);boundaryMaterials.Add(color,material);}return material;}
@@ -318,8 +320,8 @@ namespace Terra.Rendering
         {
             FlushTreatmentSurface();
             boundaryScale=metresPerCssPixel;
-            foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:pair.Key==chosenOutline?1.8f:1;
-                pair.Value.enabled=pair.Key==activeOutline||pair.Key==chosenOutline;
+            foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:availableFields.Contains(pair.Key)?2f:pair.Key==chosenOutline?1.8f:1;
+                pair.Value.enabled=pair.Key==activeOutline||pair.Key==chosenOutline||availableFields.Contains(pair.Key);
                 pair.Value.startWidth=pair.Value.endWidth=(width+1.4f)*boundaryScale;}
         }
         public void ClearGhost()
