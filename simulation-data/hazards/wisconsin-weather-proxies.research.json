@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "researchOnly": true,
+  "derivedAt": "2026-10-25",
+  "source": {
+    "weatherPack": "simulation-data/weather/coon-valley-v1/weather-pack.json",
+    "weatherPackSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+    "dailyCompanion": "simulation-data/weather/coon-valley-v1/daily-observations.json",
+    "dailyCompanionSha256": "ce1128972981490c28c74bb4e291725345e7c0a4674781c460a4d987fbbbc840",
+    "stationId": "USW00014920",
+    "analysisWindow": "May 1-September 30 inclusive",
+    "period": [
+      2001,
+      2024
+    ],
+    "sampleYears": 24,
+    "repositoryRevision": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+    "workingTreeWeatherPackSha256": "6cebd0e62474efee3ac479d3e44dc2cd66a98cb0a6d4d27fdf50f1fa1dd6148c",
+    "workingTreeDailyCompanionSha256": "70fa8f7c77f7b226777ffa07bec1544a11fb5100e2a8cbcb3c12feb2e9b223e6",
+    "byteBoundary": "Canonical Git blobs match published pins. This Windows worktree uses CRLF and differs in raw bytes; parsed data is identical. No hash-normalization change is made to runtime."
+  },
+  "meaning": "Observed station-year threshold frequencies; not disaster damage probabilities, forecasts, or additional independent draws. Thresholds are authored.",
+  "proxies": {
+    "any_analysis_window_day_prcp_ge_25mm": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "count": 24,
+      "sample_fraction": 1.0
+    },
+    "any_analysis_window_day_prcp_ge_50mm": {
+      "years": [
+        2004,
+        2005,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2014,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2024
+      ],
+      "count": 16,
+      "sample_fraction": 0.6666666666666666
+    },
+    "any_analysis_window_day_tmax_ge_35C": {
+      "years": [
+        2001,
+        2002,
+        2003,
+        2005,
+        2006,
+        2007,
+        2009,
+        2011,
+        2012,
+        2013,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "count": 20,
+      "sample_fraction": 0.8333333333333334
+    },
+    "analysis_window_dry_spell_ge_21days": {
+      "years": [
+        2001,
+        2009,
+        2012,
+        2013,
+        2023
+      ],
+      "count": 5,
+      "sample_fraction": 0.20833333333333334
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "method": "Anonymous OPTIONS only; no provider call or player state mutation",
+  "checks": [
+    {
+      "origin": "https://terra-browser.vercel.app",
+      "route": "/session",
+      "status": "HTTP/2 204 ",
+      "corsHeaders": {
+        "access-control-allow-headers": "Content-Type, Authorization, X-Unity-Version",
+        "access-control-allow-methods": "POST, GET, OPTIONS",
+        "access-control-allow-origin": "https://terra-browser.vercel.app"
+      }
+    },
+    {
+      "origin": "https://terra-browser.vercel.app",
+      "route": "/chapter",
+      "status": "HTTP/2 204 ",
+      "corsHeaders": {
+        "access-control-allow-headers": "Content-Type, Authorization, X-Unity-Version",
+        "access-control-allow-methods": "POST, GET, OPTIONS",
+        "access-control-allow-origin": "https://terra-browser.vercel.app"
+      }
+    },
+    {
+      "origin": "https://www.myterrain.io",
+      "route": "/session",
+      "status": "HTTP/2 403 ",
+      "corsHeaders": {}
+    },
+    {
+      "origin": "https://www.myterrain.io",
+      "route": "/chapter",
+      "status": "HTTP/2 403 ",
+      "corsHeaders": {}
+    },
+    {
+      "origin": "https://myterrain.io",
+      "route": "/session",
+      "status": "HTTP/2 403 ",
+      "corsHeaders": {}
+    },
+    {
+      "origin": "https://myterrain.io",
+      "route": "/chapter",
+      "status": "HTTP/2 403 ",
+      "corsHeaders": {}
+    }
+  ]
+}

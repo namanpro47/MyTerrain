@@ -11,3 +11,5 @@ The globe mesh, shaders, graticule and UI shapes are original runtime code. Typo
 The water texture remains MatrixRex / Uber Stylized Water, MIT. The original texture and notice remain in the landscape assets; an exported copy of the notice is retained in WebGLTemplates/Terra/licenses/WATER-LICENSE.txt.
 
 Display type: **Lilita One**, Juan Montoreano, copyright 2011. SIL Open Font License 1.1; unmodified source from https://github.com/google/fonts/tree/main/ofl/lilitaone. Full license retained in `Fonts/OFL.txt` and the exported `licenses/LILITA-OFL.txt`. The native SDF asset is generated from that font for game titles and destination labels.
+
+Web startup preview: `Assets/WebGLTemplates/Terra/globe-preview.webp` is a 668×668 crop of the actual native Chrome selector capture `docs/evidence/myterrain-combined-release-oct25/chrome-selector.png` (source export `19e7eae`). Crop bounds: (530,92)–(1198,760); WebP quality 88. It reuses the NASA-derived native globe, with no newly generated artwork. The browser loads an unmodified copy of Lilita One under the existing exported OFL notice. Refresh the preview when the native opening composition changes.

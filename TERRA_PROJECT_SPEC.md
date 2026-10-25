@@ -1,5 +1,7 @@
 # MyTerrain: Shape Your World
 
+**Approved player-rule revision — October 25, 2026:** Peter approved charging upkeep into a negative public cash balance, blocking new construction until repayment, cancelling accepted projects for the unfinished fraction of upfront public capital (completed projects return $0), signed Environmental scores down to -100, and explicitly inferred regional hazard chances. These decisions supersede the earlier no-borrowing, permanent-project, all-scores-0–100 and unverified-hazards-disabled requirements below for new player-rules-v5 runs. Use upkeep rather than a second utility rationing simulation. Existing rule versions and saves keep their original behaviour. See [exact rules, limits and validation](docs/ANNUAL_PLAYER_RULES.md).
+
 **Product & Implementation Specification**
 **Status:** Active north star — three rural locations, annual land-use strategy
 **Revised:** October 25, 2026, by explicit user direction

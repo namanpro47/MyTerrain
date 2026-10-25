@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "19e7eae835ed4c06a21d42887a9a53ed28cc4fc2",
+  "deploymentId": "dpl_8oY5izzcxAmi7nGXD86LXFiuLuNc",
+  "target": "production",
+  "state": "READY",
+  "url": "https://www.myterrain.io",
+  "immutableUrl": "https://terra-browser-nq2qoz9qd-namanpro47s-projects.vercel.app",
+  "verifiedPublicFiles": 21,
+  "chromeErrors": 0
+}

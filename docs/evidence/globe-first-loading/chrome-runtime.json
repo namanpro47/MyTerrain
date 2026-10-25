@@ -1,0 +1,37 @@
+{
+  "normal": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+      "timestamp": "2026-10-25T19:58:54.582Z",
+      "url": "blob:http://127.0.0.1:49176/232cd4e3-f2ea-4451-ae82-fad4432033b3"
+    },
+    {
+      "level": "info",
+      "message": "MYTERRAIN_WORLD_VISIBLE 16291",
+      "timestamp": "2026-10-25T19:58:54.772Z",
+      "url": "http://127.0.0.1:49176/player.js"
+    },
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: point-reyes-v1\n",
+      "timestamp": "2026-10-25T19:59:42.326Z",
+      "url": "blob:http://127.0.0.1:49176/232cd4e3-f2ea-4451-ae82-fad4432033b3"
+    }
+  ],
+  "normalErrors": [],
+  "retry": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_NATIVE_ATLAS_READY\n",
+      "timestamp": "2026-10-25T20:01:19.090Z",
+      "url": "blob:http://127.0.0.1:49176/d464c1fe-f8fb-43f8-8efb-90a4c06208e1"
+    },
+    {
+      "level": "info",
+      "message": "MYTERRAIN_WORLD_VISIBLE 24980",
+      "timestamp": "2026-10-25T20:01:20.557Z",
+      "url": "http://127.0.0.1:49176/player.js"
+    }
+  ]
+}

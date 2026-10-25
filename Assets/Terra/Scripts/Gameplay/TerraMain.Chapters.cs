@@ -16,6 +16,10 @@ namespace Terra.Gameplay
         {
             chapters=gameObject.AddComponent<AnnualChapterSession>();chapters.town=annual;
             chapters.endpoint=annualChapterEndpoint;chapters.saveKey=Terra.Core.UniformParcels.Applied(world)?location.ParcelChapterSaveKey:location.IsWisconsin?"terra.meadowbrook.annual-full.chapters.v3.2":location.ChapterSaveKey;
+            // The loopback C# service accepts a frozen game request; the hosted JS
+            // service accepts projected facts and uses guest sessions.
+            chapters.useJavaScriptBackend=AnnualChapterSession.UsesHostedProtocol(annualChapterEndpoint);
+            chapters.saveKey+=".player-rules-v5";
             try{chapters.RestoreSaved();}
             catch(Exception e)
             {
@@ -35,7 +39,8 @@ namespace Terra.Gameplay
             SaveAnnual();
             if(fastForwarding)return;
             RefreshLandscape();Refresh();
-            if(chapters.Busy)hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest());
+            if(chapters.Busy&&annual.Engine.PlayerRulesActive&&annual.State.history.Length>0)ShowAcceptedReport();
+            else if(chapters.Busy)hud.AnnualChapterWaiting(annual.State.year,()=>chapters.StopRequest());
             else if(annual.State.phase==TownPhase.Resolving)ShowPendingChapter();
             else if(annual.State.phase==TownPhase.Reviewing||annual.State.phase==TownPhase.Completed)ShowAcceptedReport();
         }
