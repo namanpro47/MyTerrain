@@ -16,7 +16,7 @@ namespace Terra.Contracts
         public double dailyStorageRecoveryFraction, privateAnnualRecovery, drySpellGraceDays;
         public double rainDamageThresholdMm, localRainDamagePerMm, upstreamRainThresholdMm, upstreamDamagePerMm;
         public double antecedentAmplificationPerMm, maximumEventDamage, minimumWeatherFactor, maximumWeatherFactor;
-        public string eventRuleId, recoveryRuleId;
+        public string eventRuleId, recoveryRuleId, storageRecoveryRuleId;
     }
     [Serializable] public sealed class TownPracticeDefinition
     {
@@ -86,7 +86,7 @@ namespace Terra.Contracts
     }
     [Serializable] public sealed class TownEventStorage
     {
-        public string eventId, connectionGroupId;
+        public string eventId, connectionGroupId, ruleId;
         public string[] deviceSiteIds;
         public double capacityM3, openingStoredM3, recoveredM3, capacityLossReleaseM3;
         public double inflowM3, capturedM3, closingStoredM3;
@@ -96,6 +96,19 @@ namespace Terra.Contracts
         public string id, siteId, actionId, kind, liabilityId;
         public long dueCents, paidCents;
         public double nextYearRecovery;
+    }
+    [Serializable] public sealed class TownPlanningRange
+    {
+        public int year;
+        public long queuedUpfrontCents, totalReservedCents, availableCents;
+        public string units, disclosure;
+        public TownSiteProductionRange[] sites;
+    }
+    [Serializable] public sealed class TownSiteProductionRange
+    {
+        public string siteId, cropId, practiceId;
+        public bool cropOperating;
+        public double croppedAreaM2, minimumProductionUnits, maximumProductionUnits;
     }
     [Serializable] public sealed class TownWeatherSchedule
     {

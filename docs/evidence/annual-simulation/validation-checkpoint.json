@@ -1,0 +1,16 @@
+{
+  "status": "standalone-only-unready-for-release",
+  "numericAssertions": 724,
+  "legacyAssertions": 2399,
+  "sourceSha256": {
+    "Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs": "b7b41341d43145a3aca2640f992b3ff16eef76f7fe796caff843fca800ef5eb9",
+    "Assets/Terra/Scripts/Core/AnnualSimulation.cs": "39f6504e302735d9183845683706a9ee9cc9ab5d71605d3de6c0bdf15ecf6820",
+    "Assets/Terra/Scripts/Core/AnnualSimulationFactory.cs": "f12295e390654129920d130d7d38f2093bf99f9d42402e6e34a81bd48267bfcc",
+    "Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs": "ff33a0adadd0b855e36dba9edb7975b4970debbc6a71114746b075ee5210a997",
+    "Assets/Terra/Scripts/Core/AnnualTown.cs": "6207af9407a4cf2024651c36e033b2f19055ba5ad83c36301fea38c759ba9bdd",
+    "tests/annual-simulation/Program.cs": "e3a1d45fe5d9aef896a59fd168458e2baffa605f69a52480deceec1b0f05ad6c"
+  },
+  "unity": false,
+  "chrome": false,
+  "saveFirstClient": false
+}

@@ -230,6 +230,7 @@ namespace Terra.Core
                 report.simulation.economicDelta=outcomes.economicScore-before.economicScore;
                 report.simulation.socialDelta=outcomes.socialScore-before.socialScore;
                 report.simulation.environmentalDelta=outcomes.environmentalScore-before.environmentalScore;
+                AnnualSimulation.ValidateReport(definition,report);
                 report.simulation.transitionHash=AnnualSimulation.ReportHash(report);
             }
 
@@ -377,6 +378,7 @@ namespace Terra.Core
             var town = new AnnualTown(rules, save.runId);
             Require(save.definitionHash == town.DefinitionHash && save.history != null && save.queue != null && save.assets != null && save.undo != null, "Save belongs to different rules/data, or is incomplete.");
             Require(save.history.Length <= rules.years, "Too many saved years.");
+            if(rules.schemaVersion==3)AnnualSimulation.ValidateState(rules,save.simulation,save.history.Length,save.arrearsCents);
             foreach (var record in save.history)
             {
                 Require(record != null && record.acceptedRequest != null && record.acceptedConsequences != null, "Missing committed annual evidence.");

@@ -27,6 +27,37 @@ namespace Terra.Core
                 vegetatedAreaM2=rows.Sum(r=>r.vegetatedAreaM2),managedAreaM2=definition.sites.Sum(s=>s.areaM2)};
             AnnualEconomy.Evaluate(definition,o,new TownYearLedger(),new TownYearDriver {productionFactor=1});return o;
         }
+        // Planning envelope uses public rules, choices and saved condition only. It never
+        // reads the unplayed year's driver, resolves a copy or implies a probability interval.
+        public static TownPlanningRange PlanningRange(AnnualTown town)
+        {
+            AnnualTown.Require(town!=null&&town.Definition.simulation!=null&&(town.Phase==TownPhase.Planning||town.Phase==TownPhase.Resolving),"A numeric unplayed year is required.");
+            var d=town.Definition;var snapshot=town.Snapshot();
+            var result=new TownPlanningRange {year=town.Year,queuedUpfrontCents=town.Queue.Sum(q=>d.actions.Single(a=>a.siteId==q.siteId&&a.actionId==q.actionId).upfrontPublicCostCents),
+                totalReservedCents=checked(town.CommittedCents+town.QueuedCommitmentCents),availableCents=town.AvailableCents,
+                units="illustrative production units",disclosure="Conditional output envelope, not a probability or promised harvest. Upper bound assumes funded operation and no new damage. Weather, condition and funding can reduce output to zero. Queued upfront cost is paid only when End Year is accepted.",
+                sites=d.sites.Select(site=>{
+                    var asset=town.Assets.FirstOrDefault(a=>a.siteId==site.id);var queued=town.Queue.FirstOrDefault(q=>q.siteId==site.id);
+                    string actionId=asset?.actionId??queued?.actionId;
+                    var recipe=actionId==null?null:d.actions.Single(a=>a.siteId==site.id&&a.actionId==actionId);
+                    var practice=recipe==null?null:d.simulation.practices.FirstOrDefault(p=>p.actionId==recipe.actionId);
+                    int started=asset?.startedYear??town.Year;
+                    bool active=recipe==null||town.Year>=started+recipe.constructionYears&&town.Year<started+recipe.constructionYears+recipe.operatingYears;
+                    var exposure=d.simulation.sites.Single(x=>x.siteId==site.id);
+                    string cropId=exposure.baselineCropId;
+                    double area=site.areaM2*exposure.baselineCroppedFraction*(recipe==null?1:1-recipe.services.occupiedAreaM2/site.areaM2);
+                    if(practice!=null)
+                    {
+                        cropId=practice.cropSequence[Math.Max(0,town.Year-started-recipe.constructionYears)%practice.cropSequence.Length];
+                        area=active?site.areaM2*practice.croppedFraction:0;
+                    }
+                    double agricultural=area<=0?0:area/10000*d.simulation.crops.Single(c=>c.id==cropId).outputPerHa*d.simulation.maximumWeatherFactor;
+                    double other=recipe==null||practice!=null||!active?0:Math.Max(0,recipe.productionUnits-site.baselineProductionUnits*(1-recipe.services.occupiedAreaM2/site.areaM2));
+                    return new TownSiteProductionRange {siteId=site.id,cropId=area>0?cropId:null,practiceId=practice?.actionId??"baseline",cropOperating=area>0,croppedAreaM2=area,
+                        minimumProductionUnits=0,maximumProductionUnits=(agricultural+other)*snapshot.simulation.sites.Single(x=>x.siteId==site.id).condition};
+                }).ToArray()};
+            return result;
+        }
         internal static double Cap(double value) => Math.Max(0,Math.Min(1,value));
         static void Range(double value,double min,double max,string name)
             => AnnualTown.Require(!double.IsNaN(value)&&!double.IsInfinity(value)&&value>=min&&value<=max,"Invalid simulation "+name);
@@ -98,6 +129,97 @@ namespace Terra.Core
             Range(d.rainDamageThresholdMm,1,1000,"rain threshold");Range(d.localRainDamagePerMm,0,.1,"local damage");Range(d.upstreamRainThresholdMm,1,1000,"upstream threshold");Range(d.upstreamDamagePerMm,0,.1,"upstream damage");
             Range(d.antecedentAmplificationPerMm,0,.1,"antecedent amplification");Range(d.maximumEventDamage,0,.5,"event damage cap");Range(d.minimumWeatherFactor,0,1,"weather floor");Range(d.maximumWeatherFactor,1,2,"weather ceiling");
             AnnualTown.Require(!string.IsNullOrWhiteSpace(d.eventRuleId)&&!string.IsNullOrWhiteSpace(d.recoveryRuleId),"Missing event/recovery rule identity.");
+            AnnualTown.Require(d.storageRecoveryRuleId=="linear-capacity-drain-per-day-v1","Unknown storage recovery equation.");
+        }
+        // Required numeric state is never normalized into a legacy/empty state.
+        public static void ValidateState(AnnualTownDefinition definition,TownSimulationState state,int completedYear,long arrears)
+        {
+            var d=definition.simulation;
+            AnnualTown.Require(d!=null&&completedYear>=0&&completedYear<=definition.years&&arrears>=0,"Invalid numeric state context.");
+            AnnualTown.Require(state?.sites!=null&&state.repairs!=null&&state.sites.Length==definition.sites.Length
+                &&state.sites.All(s=>s!=null)&&state.sites.Select(s=>s.siteId).Distinct().Count()==state.sites.Length,"Incomplete/duplicate numeric site state.");
+            foreach(var s in state.sites)
+            {
+                AnnualTown.Require(definition.sites.Any(site=>site.id==s.siteId)&&s.rotationPhase>=0
+                    &&s.rotationPhase<d.practices.Max(p=>p.cropSequence.Length)
+                    &&(string.IsNullOrEmpty(s.cropId)||d.crops.Any(c=>c.id==s.cropId)),"Unknown numeric site/crop/rotation.");
+                Range(s.condition,0,1,"site condition");Range(s.outstandingDamage,0,1,"outstanding damage");
+                Range(s.recoveredLastYear,0,1,"year-end recovery");Range(s.storedWaterM3,0,1e9,"occupied storage");
+                AnnualTown.Require(Math.Abs(s.outstandingDamage-(1-s.condition))<1e-9,"Numeric condition authority disagrees.");
+            }
+            AnnualTown.Require(state.repairs.All(r=>r!=null)&&state.repairs.Select(r=>r.id).Distinct().Count()==state.repairs.Length,"Duplicate/missing repair liability.");
+            long debt=0;
+            foreach(var r in state.repairs)
+            {
+                AnnualTown.Require(!string.IsNullOrWhiteSpace(r.id)&&r.createdYear>=1&&r.createdYear<=completedYear
+                    &&state.sites.Any(s=>s.siteId==r.siteId)&&definition.actions.Any(a=>a.siteId==r.siteId&&a.actionId==r.actionId),"Unknown repair site/action/year.");
+                var duty=d.publicResponsibilities.FirstOrDefault(p=>p.actionId==r.actionId);
+                AnnualTown.Require(duty!=null&&r.responsibility==duty.responsibility&&r.ruleId==duty.ruleId
+                    &&d.drivers[r.createdYear-1].events.Any(e=>e.recordId==r.eventId),"Unknown public repair cause.");
+                AnnualTown.Require(r.originalCents>0&&r.originalCents<=1000000000&&r.unpaidCents>0&&r.unpaidCents<=r.originalCents,"Invalid public repair debt.");
+                Range(r.originalConditionLoss,0,1,"original repair loss");Range(r.unrecoveredCondition,0,r.originalConditionLoss,"unrecovered repair loss");
+                AnnualTown.Require(Math.Abs(r.unrecoveredCondition-r.originalConditionLoss*r.unpaidCents/r.originalCents)<1e-9,"Repair recovery does not match cumulative payment.");
+                debt=checked(debt+r.unpaidCents);
+            }
+            AnnualTown.Require(debt<=arrears,"Itemized repair debt exceeds public arrears.");
+            foreach(var s in state.sites)
+                AnnualTown.Require(state.repairs.Where(r=>r.siteId==s.siteId).Sum(r=>r.unrecoveredCondition)<=s.outstandingDamage+1e-9,"Unpaid public damage was erased.");
+        }
+        public static void ValidateReport(AnnualTownDefinition definition,TownYearReport report)
+        {
+            AnnualTown.Require(definition?.simulation!=null,"Numeric report requires its definition.");
+            ReportHash(report); // Required shape and pinned report hash encoding, before field checks.
+            var s=report.simulation;var r=report.acceptedRequest;var l=report.ledger;
+            AnnualTown.Require(report.year>=1&&report.year<=10&&r.year==report.year&&s.transitionId==r.requestId
+                &&r.simulation.rulesVersion==definition.simulation.version
+                &&TownCopies.Hash(s.driver)==TownCopies.Hash(definition.simulation.drivers[report.year-1])
+                &&TownCopies.Hash(r.simulation.driver)==TownCopies.Hash(s.driver),"Numeric report identity/driver differs.");
+            ValidateState(definition,s.closingState,report.year,l.closingArrearsCents);
+            foreach(double delta in new[]{s.economicDelta,s.socialDelta,s.environmentalDelta})Range(delta,-100,100,"score change");
+            foreach(double deficit in new[]{s.energyDeficit,s.waterDeficit,s.wastewaterDeficit,s.housingDeficit,s.jobsDeficit})Range(deficit,0,1e12,"unmet demand");
+            AnnualTown.Require(s.crops.All(c=>c!=null)&&s.crops.Select(c=>c.siteId).Distinct().Count()==s.crops.Length,"Duplicate/missing harvest.");
+            foreach(var c in s.crops)
+            {
+                var crop=definition.simulation.crops.FirstOrDefault(x=>x.id==c.cropId);
+                AnnualTown.Require(crop!=null&&definition.sites.Any(x=>x.id==c.siteId)&&c.units==crop.units&&c.ruleId==crop.ruleId
+                    &&(c.practiceId=="baseline"||definition.simulation.practices.Any(p=>p.actionId==c.practiceId)),"Unknown harvest cause.");
+                Range(c.productiveAreaM2,0,definition.sites.Single(x=>x.id==c.siteId).areaM2,"cropped area");
+                Range(c.weatherFactor,definition.simulation.minimumWeatherFactor,definition.simulation.maximumWeatherFactor,"harvest weather");
+                foreach(double value in new[]{c.openingCondition,c.harvestCondition,c.closingConditionBeforeRecovery,c.nextYearCondition,c.managementFactor})Range(value,0,1,"harvest condition");
+                AnnualTown.Require(c.benchmarkPerHa==crop.outputPerHa&&c.harvestDay==s.driver.crops.Single(x=>x.cropId==c.cropId).harvestDay
+                    &&c.outputUnits==c.productiveAreaM2/10000*c.benchmarkPerHa*c.weatherFactor*c.managementFactor*c.harvestCondition,"Harvest equation differs.");
+            }
+            AnnualTown.Require(s.impacts.All(i=>i!=null)&&s.impacts.Select(i=>i.siteId+"/"+i.eventId).Distinct().Count()==s.impacts.Length,"Duplicate/missing event impact.");
+            foreach(var i in s.impacts)
+            {
+                var e=s.driver.events.FirstOrDefault(x=>x.recordId==i.eventId);
+                AnnualTown.Require(e!=null&&e.dayOfYear==i.dayOfYear&&i.ruleId==definition.simulation.eventRuleId
+                    &&definition.simulation.sites.Any(x=>x.siteId==i.siteId&&x.connectionGroupId==i.connectionGroupId),"Unknown event impact cause.");
+                Range(i.localHazard,0,1e9,"local hazard");Range(i.upstreamHazard,0,1e9,"upstream hazard");
+                Range(i.connectedStorageReductionFraction,0,1,"retention reduction");Range(i.conditionLoss,0,1,"event condition loss");
+                var crop=s.crops.FirstOrDefault(c=>c.siteId==i.siteId);
+                AnnualTown.Require(i.beforeHarvest==(crop!=null&&i.dayOfYear<=crop.harvestDay),"Harvest event timing differs.");
+            }
+            AnnualTown.Require(s.storage.All(x=>x!=null)&&s.storage.Select(x=>x.connectionGroupId+"/"+x.eventId).Distinct().Count()==s.storage.Length,"Duplicate/missing group storage.");
+            foreach(var x in s.storage)
+            {
+                AnnualTown.Require(x.ruleId==definition.simulation.storageRecoveryRuleId&&s.driver.events.Any(e=>e.recordId==x.eventId)
+                    &&definition.simulation.sites.Any(site=>site.connectionGroupId==x.connectionGroupId)&&x.deviceSiteIds!=null
+                    &&x.deviceSiteIds.Distinct().Count()==x.deviceSiteIds.Length&&x.deviceSiteIds.All(id=>definition.simulation.sites.Any(site=>site.siteId==id&&site.connectionGroupId==x.connectionGroupId)),"Unknown storage cause/device.");
+                foreach(double value in new[]{x.capacityM3,x.openingStoredM3,x.recoveredM3,x.capacityLossReleaseM3,x.inflowM3,x.capturedM3,x.closingStoredM3})Range(value,0,1e12,"event storage");
+                AnnualTown.Require(Math.Abs(x.openingStoredM3-x.recoveredM3-x.capacityLossReleaseM3+x.capturedM3-x.closingStoredM3)<.00001
+                    &&x.capturedM3<=x.inflowM3&&x.closingStoredM3<=x.capacityM3+.00001,"Storage conservation/capacity differs.");
+            }
+            AnnualTown.Require(s.payments.All(p=>p!=null)&&s.payments.Select(p=>p.id).Distinct().Count()==s.payments.Length,"Duplicate/missing payment.");
+            foreach(var p in s.payments)
+            {
+                AnnualTown.Require(!string.IsNullOrWhiteSpace(p.id)&&p.dueCents>=0&&p.paidCents>=0&&p.paidCents<=p.dueCents
+                    &&new[]{"upfront","prior-program-or-operation-arrears","prior-repair-arrears","program","operation","new-repair"}.Contains(p.kind),"Invalid payment.");
+                Range(p.nextYearRecovery,0,1,"paid recovery");
+                AnnualTown.Require(p.kind=="prior-program-or-operation-arrears"||definition.actions.Any(a=>a.siteId==p.siteId&&a.actionId==p.actionId),"Unknown payment site/action.");
+            }
+            AnnualTown.Require(s.payments.Sum(p=>p.paidCents)==checked(l.upfrontPaidCents+l.arrearsPaidCents+l.programPaidCents+l.operatingPaidCents+l.repairPaidCents)
+                &&s.payments.Sum(p=>p.dueCents)==checked(l.upfrontPaidCents+l.openingArrearsCents+l.programDueCents+l.operatingDueCents+l.repairDueCents),"Itemized payments differ from ledger.");
         }
         internal static TownSimulationState Initial(AnnualTownDefinition definition)
             => definition.simulation==null?null:new TownSimulationState {sites=definition.simulation.sites.Select(s=>new TownSimulationSiteState {siteId=s.siteId,cropId=s.baselineCropId,condition=1}).ToArray(),repairs=Array.Empty<TownRepairLiability>()};

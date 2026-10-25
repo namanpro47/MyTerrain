@@ -33,6 +33,13 @@ namespace Terra.Core
             var storage=new List<TownEventStorage>();
             var repairs=TownCopies.Copy(state.repairs).ToList();
             var initialCapacity=outcomes.sites.ToDictionary(r=>r.siteId,r=>r.retentionCapacityM3,StringComparer.Ordinal);
+            double CoverFraction(string id,double condition)
+            {
+                var site=sites[id];var asset=nextAssets.FirstOrDefault(a=>a.siteId==id);
+                double potential=site.baselineVegetatedFraction;
+                if(asset!=null)potential+=(Action(id,asset.actionId).vegetatedFraction-potential)*rows[id].maturity;
+                return Clamp01(potential*condition); // One condition factor for the whole functional cover.
+            }
             int calendarDays=DateTime.IsLeapYear(driver.historicalYear)?366:365;
             foreach(var site in definition.sites)
             {
@@ -84,7 +91,7 @@ namespace Terra.Core
                         capacities[device.siteId]=cap;capacity+=cap;
                     }
                     double inflow=group.Sum(g=>{
-                        var site=sites[g.siteId];double cover=Clamp01(rows[g.siteId].vegetatedAreaM2/site.areaM2);
+                        var site=sites[g.siteId];double cover=CoverFraction(g.siteId,states[g.siteId].condition);
                         return e.precipTenthsMm/10000.0*site.areaM2*(.15+.75*(1-cover));
                     });
                     double available=devices.Sum(g=>Math.Max(0,capacities[g.siteId]-states[g.siteId].storedWaterM3));
@@ -97,7 +104,7 @@ namespace Terra.Core
                     reduction[group.Key]=inflow==0?0:captured/inflow;
                     double closing=devices.Sum(g=>states[g.siteId].storedWaterM3);
                     Require(Math.Abs(oldStored-recovered-released+captured-closing)<.00001,"Event storage conservation failed.");
-                    storage.Add(new TownEventStorage {eventId=e.recordId,connectionGroupId=group.Key,deviceSiteIds=devices.Where(d=>capacities[d.siteId]>0).Select(d=>d.siteId).ToArray(),capacityM3=capacity,
+                    storage.Add(new TownEventStorage {eventId=e.recordId,connectionGroupId=group.Key,ruleId=rules.storageRecoveryRuleId,deviceSiteIds=devices.Where(d=>capacities[d.siteId]>0).Select(d=>d.siteId).ToArray(),capacityM3=capacity,
                         openingStoredM3=oldStored,recoveredM3=recovered,capacityLossReleaseM3=released,inflowM3=inflow,capturedM3=captured,closingStoredM3=closing});
                 }
                 foreach(var exposure in rules.sites.OrderBy(s=>s.siteId,StringComparer.Ordinal))
@@ -106,7 +113,7 @@ namespace Terra.Core
                     var asset=nextAssets.FirstOrDefault(a=>a.siteId==s.siteId);var recipe=asset==null?null:Action(s.siteId,asset.actionId);
                     var practice=recipe==null?null:rules.practices.FirstOrDefault(p=>p.actionId==recipe.actionId);
                     bool active=asset!=null&&IsOperating(asset,Year)&&funded[s.siteId];
-                    double cover=Clamp01(row.vegetatedAreaM2/site.areaM2);
+                    double cover=CoverFraction(s.siteId,s.condition);
                     double local=Math.Max(0,e.precipTenthsMm/10.0-rules.rainDamageThresholdMm)*rules.localRainDamagePerMm*(1-.6*cover)
                         *(1+Math.Min(1,e.antecedent7DaysTenthsMm/10.0*rules.antecedentAmplificationPerMm))*(1-reduction[exposure.connectionGroupId]);
                     double upstream=Math.Max(0,e.precipTenthsMm/10.0-rules.upstreamRainThresholdMm)*rules.upstreamDamagePerMm;
@@ -137,7 +144,7 @@ namespace Terra.Core
                 double annualCondition=Math.Max(0,opening[site.id]-meanLoss[site.id]);
                 double oldCondition=row.condition;row.condition=annualCondition;
                 row.serviceUnits=oldCondition>0?row.serviceUnits*annualCondition/oldCondition:0;
-                row.vegetatedAreaM2*=annualCondition;
+                row.vegetatedAreaM2=site.areaM2*CoverFraction(site.id,annualCondition);
                 row.retentionCapacityM3=opening[site.id]>0?initialCapacity[site.id]*s.condition/opening[site.id]:0;
                 row.disrupted=impacts.Any(e=>e.siteId==site.id);
                 row.explanation=row.disrupted?"Illustrative heavy-rain impacts under "+rules.eventRuleId+"; saved condition carries into the next year.":"Saved crop, lifecycle, condition and funding under "+rules.version+".";
