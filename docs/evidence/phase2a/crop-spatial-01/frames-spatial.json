@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command job wait_status",
+  "data": {
+    "command": "job wait_status",
+    "parameters": {
+      "wait_id": "a1f645f7909e4b7e96919f2874b1fa35"
+    },
+    "result": {
+      "waitId": "a1f645f7909e4b7e96919f2874b1fa35",
+      "state": "met",
+      "met": true,
+      "timedOut": false,
+      "member": "UnityEngine.Time.frameCount",
+      "op": "changed",
+      "value": 8,
+      "initialValue": 6,
+      "elapsedMs": 6982,
+      "framesObserved": 2
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

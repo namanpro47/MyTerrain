@@ -11,6 +11,19 @@
 **Earlier visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Actual Chrome proposal→Year3→reload and 42 lifecycle/render checks pass; full-scene visual and performance acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
 
 **Subsequent visual studies57–58:** mature corn geometry and a baked grain surface were both rejected at normal/close distances. The retained scenery remains study55; submission consolidation `2f8543d` is integrated on the visual branch as `5b8ad52`, with compilation and 15 collector checks passing locally. [Comparisons and integration boundary](evidence/phase2a/visual-rebuild/study57-findings.md). No art acceptance or new public release.
+## Phase 5/6 annual stress and recovery — October 25, 2026
+
+The annual-completion chat independently extends the existing full-game suite: **2,399 assertions pass on both current connected and legacy Wisconsin layouts**. New coverage includes 51 repeated-family/site-order routes per layout, exact interrupted-future recovery at every Year 1–10, mismatched/duplicate response safety, same-condition comparison drivers, late construction with $600K beyond-horizon obligations, debt-preserving shortfall endings, and a recoverable repair with a useful Year 4 park investment. No production rule, price, save, HUD or scenery changes. [Reproduction, exact inputs, results and limitations](evidence/annual-completion/README.md).
+
+The user explicitly chose to continue with **human playtesting unavailable**; no novice comprehension or duration claim is made. The existing implementation chat retains rendering/performance and integration; this chat owns the final public manual run and two rehearsals after the accepted visual export. These model checks do not close Phase 2A, final Chrome/release gates or certify a deployment.
+
+## Crop spatial grouping — isolated candidate, October 25, 2026
+
+[Candidate `d4ae4f2`](evidence/phase2a/crop-spatial-01/README.md) groups existing crop plants into 32m source cells before unchanged culling/LOD selection. Exact plant/soil content fingerprints and all three crop lifecycles pass. Normal/close selected leaf triangles fall 2.76M→1.60M and 5.34M→2.28M; total nature draws fall 499→452 and 295→261. Expected LOD silhouette differences are documented in matched captures. Chrome timing remains pending; **main contains evidence only**, not this runtime/art candidate.
+
+## Combined crop browser regression — October 25, 2026
+
+[Frozen Web64, reported source `e3f4905`](evidence/phase2a/combined-crops-browser-01/README.md) has 31 byte-verified files /48,126,445 bytes. Actual focused Chrome 1280×720 opening, moving-editing and bounded Year 10 samples fail the stable-30 frame-time limit at 37/41/34ms p95. Preview/placement feedback passes; two-project fast-forward, read-only comparison, reload and replay preserve or reset state correctly. This does not replace a manual ten-year run or final performance/visual/public acceptance. Main/runtime promotion remains deferred while the combined rendering cost is investigated.
 
 ## Larger nature groups and crop integration — October 25, 2026
 

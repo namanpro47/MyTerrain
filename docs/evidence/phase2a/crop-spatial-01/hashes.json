@@ -1,0 +1,157 @@
+[
+  {
+    "path": "close-control.cs",
+    "sha256": "650e57af809647c1a2dc333afcdd08771abc1cdaee3a65d33957debce3c1e5c4",
+    "bytes": 1196
+  },
+  {
+    "path": "close-control.json",
+    "sha256": "a62be19bf2a41b45b1fd2914ff347f7258bf83c0ef9862a3410c71150f019b70",
+    "bytes": 1958
+  },
+  {
+    "path": "close-control.png",
+    "sha256": "dcc4b1cf8c5c9ac2019529b7f5e4213e33d035a74aea657116976d5dd6212ad1",
+    "bytes": 1686316
+  },
+  {
+    "path": "close-spatial.cs",
+    "sha256": "bd36ddf9c8bb9f244e34e4c98beee3be605ce3d6db60cc843920f2b885117f42",
+    "bytes": 1196
+  },
+  {
+    "path": "close-spatial.json",
+    "sha256": "90aab220be50aad6a0faaad71ac3ffad66029b9fad95fe5206894965671b7391",
+    "bytes": 1957
+  },
+  {
+    "path": "close-spatial.png",
+    "sha256": "fc4613da9fa852675507478b50532bdbb865bafbc5d67e6c2403e3cf242d96b6",
+    "bytes": 1679808
+  },
+  {
+    "path": "close.cs",
+    "sha256": "951e57bda0c05b70d108cdd210188f00119723bca9442a703992e212a1dee90e",
+    "bytes": 1074
+  },
+  {
+    "path": "close.json",
+    "sha256": "9f85392ddcb5973aecdd78434ab09464765316e875244a44063536aede604ce9",
+    "bytes": 1576
+  },
+  {
+    "path": "comparison.json",
+    "sha256": "eb4236512f114ad4e7b31c868b5f17aede98a3d61eb238d7a8834dc84d90eef6",
+    "bytes": 359
+  },
+  {
+    "path": "frames-spatial.json",
+    "sha256": "22f7d5ac784b87d2a2fea39002402e697324780e4f995cae13866dfaafdfc9e6",
+    "bytes": 679
+  },
+  {
+    "path": "lifecycle-job.json",
+    "sha256": "3a7bac11a931a6d0161d5314a159566121fceeac527f80a421bd7ffccbd64155",
+    "bytes": 232
+  },
+  {
+    "path": "lifecycle-result.json",
+    "sha256": "15bbea31eae342b19282ea13737dc8e264701af40d6af19fe3d3f61a60427ca9",
+    "bytes": 1191
+  },
+  {
+    "path": "lifecycle.cs",
+    "sha256": "e70d02594db8783464ca33269fd7a0d765c08426a1f388eec3187bebefec02c3",
+    "bytes": 6279
+  },
+  {
+    "path": "normal-control.cs",
+    "sha256": "d917b4f2e9fbed05a893a1c8026d9e07b7f7dc0326d31dbe0a3dcce0d728cf05",
+    "bytes": 1197
+  },
+  {
+    "path": "normal-control.json",
+    "sha256": "0f17c828f1796449a2179840d0574dc8d108c8ba298fb4409eeb2d358ecb0fd8",
+    "bytes": 1961
+  },
+  {
+    "path": "normal-control.png",
+    "sha256": "b444480eae094dba631b0e7ee347f49771d633fa1d71596f08674bfb71d327c6",
+    "bytes": 1670105
+  },
+  {
+    "path": "normal-spatial.cs",
+    "sha256": "ac2f177cd5d4e6a2f6a13d0ee73439badfd433f9eec81f8f16b768633038182c",
+    "bytes": 1197
+  },
+  {
+    "path": "normal-spatial.json",
+    "sha256": "d8a5aad2ee54219e25ac27a6e18986189e1d010591f9a48e1ba4c7a9a543aaad",
+    "bytes": 1961
+  },
+  {
+    "path": "normal-spatial.png",
+    "sha256": "5f2d073e47e65fd78aa0967333e2843b26fb878291efe65704db502a3340ba96",
+    "bytes": 1670002
+  },
+  {
+    "path": "normal.cs",
+    "sha256": "c031a3a7539269d4690e02d1499cfc03c479a4f68af8818a0f8c179498ce3583",
+    "bytes": 1432
+  },
+  {
+    "path": "normal.json",
+    "sha256": "4f6063c750e5752664483b26fb56e9006d1236bcf71da019e2e0110f798429fd",
+    "bytes": 2294
+  },
+  {
+    "path": "profile-close-control.json",
+    "sha256": "45bdf7999db657eb1c1ddc93a8592dd6e1f1f3fda436ad411f93048d9f2b5ec2",
+    "bytes": 97997
+  },
+  {
+    "path": "profile-close-spatial.json",
+    "sha256": "c845a83c782e73ac70a80eb93826b4a6c3e8a07f168ee7115e171d52cbd771ad",
+    "bytes": 215017
+  },
+  {
+    "path": "profile-normal-control.json",
+    "sha256": "ffa33f1543e57ea9c9b714ad75a07a2465ab30ddd74b969eff1177d4d95b9df0",
+    "bytes": 97960
+  },
+  {
+    "path": "profile-normal-spatial.json",
+    "sha256": "9ff7fcf14fbe1d8c6ac9186aa388c815f695f97d5147c9ed9c3129a802ac551b",
+    "bytes": 214885
+  },
+  {
+    "path": "profile.cs",
+    "sha256": "4fe8ef4724a9b2deb3465c785dfbf2b1d753e55e705be554e68afa1ee8c5217a",
+    "bytes": 2110
+  },
+  {
+    "path": "snapshot-after.json",
+    "sha256": "211a4da6882bbbd40ae7b2d623296b92843fe4eac95edc5db7b63ca73ddbe296",
+    "bytes": 2554
+  },
+  {
+    "path": "snapshot-control.json",
+    "sha256": "211a4da6882bbbd40ae7b2d623296b92843fe4eac95edc5db7b63ca73ddbe296",
+    "bytes": 2554
+  },
+  {
+    "path": "snapshot-spatial.json",
+    "sha256": "211a4da6882bbbd40ae7b2d623296b92843fe4eac95edc5db7b63ca73ddbe296",
+    "bytes": 2554
+  },
+  {
+    "path": "snapshot.cs",
+    "sha256": "496c6c9fddfaf7a0f08fc090ae4bfb112d88de072478fd4deb9e0295cc9043d1",
+    "bytes": 1914
+  },
+  {
+    "path": "summary.json",
+    "sha256": "f03738eb3d78951e3538e1703067393235bdc93675d8ad28be25f9e0ee9275c1",
+    "bytes": 2333
+  }
+]
