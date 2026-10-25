@@ -1,0 +1,493 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 30,
+        "y": 23,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 30,
+        "y": 46,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 24
+    },
+    {
+      "text": "World atlas",
+      "rect": {
+        "x": 24,
+        "y": 754,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Economic",
+      "rect": {
+        "x": 974,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "49.9 <size=50%>/100</size>\n<size=50%>Change  -0.2</size>",
+      "rect": {
+        "x": 950,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 47.54999923706055,
+      "availableHeight": 56
+    },
+    {
+      "text": "Social",
+      "rect": {
+        "x": 1134,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "58.0 <size=50%>/100</size>\n<size=50%>Change  0.0</size>",
+      "rect": {
+        "x": 1110,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 47.54999923706055,
+      "availableHeight": 56
+    },
+    {
+      "text": "Environmental",
+      "rect": {
+        "x": 1294,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "38.8 <size=50%>/100</size>\n<size=50%>Change  0.0</size>",
+      "rect": {
+        "x": 1270,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 11,
+      "preferredHeight": 47.54999923706055,
+      "availableHeight": 56
+    },
+    {
+      "text": "YEAR 1/10 · REVIEW",
+      "rect": {
+        "x": 30,
+        "y": 88,
+        "width": 190,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "$6,000,000",
+      "rect": {
+        "x": 62,
+        "y": 110,
+        "width": 250,
+        "height": 38
+      },
+      "bodyCssPx": 28,
+      "minGlyphCssPx": 28,
+      "preferredHeight": 31.290000915527344,
+      "availableHeight": 38
+    },
+    {
+      "text": "Budget",
+      "rect": {
+        "x": 242,
+        "y": 88,
+        "width": 66,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Available to plan",
+      "rect": {
+        "x": 62,
+        "y": 152,
+        "width": 250,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "TOWN GOALS · CURRENT / TARGET",
+      "rect": {
+        "x": 30,
+        "y": 199,
+        "width": 280,
+        "height": 18
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 18
+    },
+    {
+      "text": "Homes filled",
+      "rect": {
+        "x": 52,
+        "y": 220,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 16",
+      "rect": {
+        "x": 222,
+        "y": 220,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "Local jobs",
+      "rect": {
+        "x": 52,
+        "y": 243,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 36",
+      "rect": {
+        "x": 222,
+        "y": 243,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "Green land",
+      "rect": {
+        "x": 52,
+        "y": 266,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "22.5 / 65%",
+      "rect": {
+        "x": 222,
+        "y": 266,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "Year 1 complete",
+      "rect": {
+        "x": 30,
+        "y": 184,
+        "width": 316,
+        "height": 28
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 22,
+      "preferredHeight": 24.579999923706055,
+      "availableHeight": 28
+    },
+    {
+      "text": "Select a change to find it on the map",
+      "rect": {
+        "x": 30,
+        "y": 210,
+        "width": 316,
+        "height": 18
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 18
+    },
+    {
+      "text": "High-density housing",
+      "rect": {
+        "x": 418,
+        "y": 757,
+        "width": 282,
+        "height": 34
+      },
+      "bodyCssPx": 15,
+      "minGlyphCssPx": 15,
+      "preferredHeight": 16.760000228881836,
+      "availableHeight": 34
+    },
+    {
+      "text": "Open plot 8 · 6 · Building",
+      "rect": {
+        "x": 418,
+        "y": 793,
+        "width": 282,
+        "height": 36
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 36
+    },
+    {
+      "text": "Year-end balance",
+      "rect": {
+        "x": 774,
+        "y": 757,
+        "width": 282,
+        "height": 34
+      },
+      "bodyCssPx": 15,
+      "minGlyphCssPx": 15,
+      "preferredHeight": 16.760000228881836,
+      "availableHeight": 34
+    },
+    {
+      "text": "$6,000,000 cash · $600,000 committed",
+      "rect": {
+        "x": 774,
+        "y": 793,
+        "width": 282,
+        "height": 36
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 36
+    },
+    {
+      "text": "Local summary · no AI",
+      "rect": {
+        "x": 364,
+        "y": 850,
+        "width": 156,
+        "height": 32
+      },
+      "bodyCssPx": 15,
+      "minGlyphCssPx": 15,
+      "preferredHeight": 16.760000228881836,
+      "availableHeight": 32
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 542,
+        "y": 850,
+        "width": 156,
+        "height": 32
+      },
+      "bodyCssPx": 15,
+      "minGlyphCssPx": 15,
+      "preferredHeight": 16.760000228881836,
+      "availableHeight": 32
+    },
+    {
+      "text": "Plan year 2 →",
+      "rect": {
+        "x": 720,
+        "y": 850,
+        "width": 356,
+        "height": 32
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 32
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button World atlas",
+      "enabled": true,
+      "rect": {
+        "x": 16,
+        "y": 752,
+        "width": 116,
+        "height": 36
+      }
+    },
+    {
+      "name": "Button Budget",
+      "enabled": true,
+      "rect": {
+        "x": 234,
+        "y": 86,
+        "width": 82,
+        "height": 24
+      }
+    },
+    {
+      "name": "Year highlight 1",
+      "enabled": true,
+      "rect": {
+        "x": 370,
+        "y": 750,
+        "width": 344,
+        "height": 84
+      }
+    },
+    {
+      "name": "Year highlight 2",
+      "enabled": true,
+      "rect": {
+        "x": 726,
+        "y": 750,
+        "width": 344,
+        "height": 84
+      }
+    },
+    {
+      "name": "Button Year story",
+      "enabled": true,
+      "rect": {
+        "x": 356,
+        "y": 848,
+        "width": 172,
+        "height": 36
+      }
+    },
+    {
+      "name": "Button Budget & meters",
+      "enabled": true,
+      "rect": {
+        "x": 534,
+        "y": 848,
+        "width": 172,
+        "height": 36
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 712,
+        "y": 848,
+        "width": 372,
+        "height": 36
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 1120,
+      "y": 114,
+      "width": 304,
+      "height": 348
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=2; cash=600000000; queued=0; assets=1\n"
+}

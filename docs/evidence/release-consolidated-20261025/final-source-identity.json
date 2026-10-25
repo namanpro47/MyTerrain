@@ -1,7 +1,7 @@
 {
   "buildSource": "eb8cf166d76ba3436099467d31d07f96314c0cf3",
-  "main": "8874226",
-  "runtimeBuildInputsIdentical": false,
+  "main": "c6e918e6cc1f334cd910623e19f97c827a74b0be",
+  "runtimeBuildInputsIdentical": true,
   "outstandingNewExperiments": [
     {
       "ref": "codex/community-locations",
@@ -15,5 +15,5 @@
     }
   ],
   "previousBuildSource": "a3eea780f36e852e29203bf55125cdea93693246",
-  "note": "Combined source adds ready browser companion aabd2fe beyond latest Peter8874226; normal main push follows native gate."
+  "note": "Fresh final fetch confirms all runtime/build inputs match the frozen eb8cf16 export; later release evidence changes no runtime."
 }

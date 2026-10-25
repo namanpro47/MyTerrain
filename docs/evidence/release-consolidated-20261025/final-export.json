@@ -1,0 +1,176 @@
+{
+  "source": "eb8cf166d76ba3436099467d31d07f96314c0cf3",
+  "files": [
+    {
+      "path": "Build/5f64f3c283450fa5c12f7f2c154b1033.wasm.unityweb",
+      "bytes": 9797650,
+      "sha256": "7b117c70b2b0f65c50a8b08b3a56dcfeaa940ae5fd6a0492f05277fa1c9248bd"
+    },
+    {
+      "path": "Build/6b29c95b88dc8f84978b7c37607f9227.loader.js",
+      "bytes": 118806,
+      "sha256": "401d4850efa06aa449198d00793305d98511728489c42babcf182f31b132d74a"
+    },
+    {
+      "path": "Build/a5b41dc55aa09d9aba3500a99216f910.data.unityweb",
+      "bytes": 48036762,
+      "sha256": "50e08f54390f8c8cc6570a0705220d0b7504bbbbe4c477d33a83417d9a0025ad"
+    },
+    {
+      "path": "Build/bfe83b66f3a9156b0069b5940dc987cb.framework.js.unityweb",
+      "bytes": 83891,
+      "sha256": "d99296ae20df49d87a0539256a956d07ef7d0cdfad1188dffd38aea45f4cc70f"
+    },
+    {
+      "path": "StreamingAssets/Communities/catalog.json",
+      "bytes": 340,
+      "sha256": "4ad15a506b22186e96c01a50772dada28fd4ab2e056a68a52fa9e73b1481d234"
+    },
+    {
+      "path": "StreamingAssets/Communities/coon-valley-community-v1/community.json",
+      "bytes": 195490,
+      "sha256": "8750991c7cbbd6db9f5da8ac56055cdebcdad8c72369718a8e24147602ff8f7f"
+    },
+    {
+      "path": "StreamingAssets/Communities/coon-valley-community-v1/imagery.jpg",
+      "bytes": 597167,
+      "sha256": "4d3822da0c3c6db17a8246b86ec099330496498bff0488df519c7202c5a30cd2"
+    },
+    {
+      "path": "StreamingAssets/Communities/tomales-community-v1/community.json",
+      "bytes": 203260,
+      "sha256": "39895789c0dedd7035241c9a9ba08237b1956150054f0fc77fd3b8849b306770"
+    },
+    {
+      "path": "StreamingAssets/Communities/tomales-community-v1/imagery.jpg",
+      "bytes": 525913,
+      "sha256": "c05237cbb94321df6f15eb1593b2c62c1fff2cbbab20595cf72f4d88377b5faa"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a"
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d"
+    },
+    {
+      "path": "api/narration.js",
+      "bytes": 6008,
+      "sha256": "9cb3ec7beecb77532e521e0863b098b32b709dc670934972fb748f3137a95a9c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4128,
+      "sha256": "d517af6b93c7cd10faa7f9e0973ceed42b5a6fabbf05fd21f6d5c2424ee78a8e"
+    },
+    {
+      "path": "licenses/LILITA-OFL.txt",
+      "bytes": 4392,
+      "sha256": "255d5debbb80eb2ea762644311f266a279e8778f00156655a516e2b7781a63e1"
+    },
+    {
+      "path": "licenses/WATER-LICENSE.txt",
+      "bytes": 1066,
+      "sha256": "2def5a93859d1a8d868996bae6a8fc9d70fa81a2068398ccd0488870e1b8ac87"
+    },
+    {
+      "path": "licenses/fflate-0.8.2.txt",
+      "bytes": 1270,
+      "sha256": "8dcf4a3bc3be12bc2ebbaf50f9982adc8d681b81560a091945bb208194761fe1"
+    },
+    {
+      "path": "loading-landscape.webp",
+      "bytes": 426548,
+      "sha256": "a6fe9be86678a3356660de99fcb58c695db6ca7c6ee87e08fa1406b0f8aef028"
+    },
+    {
+      "path": "narration.js",
+      "bytes": 5443,
+      "sha256": "d0fec036c5c78d6940b78294f390d617056ebf4c96610f43baf334cec7dadd83"
+    },
+    {
+      "path": "player.js",
+      "bytes": 4041,
+      "sha256": "ee7551ce05b15678a669209ec3ce6432f0eccf718c75d352f462bd53baa59062"
+    },
+    {
+      "path": "take-local/app.js",
+      "bytes": 26153,
+      "sha256": "6ed9060bb66f15f2d378ea055ecc9e4d70d758d6736ddbfe7d657a24d954631a"
+    },
+    {
+      "path": "take-local/index.html",
+      "bytes": 752,
+      "sha256": "3653435a4ee5d1cdf6af8430861c7b14b8c0c1cf62fd0316d140a3319dd2b2f0"
+    },
+    {
+      "path": "take-local/style.css",
+      "bytes": 5355,
+      "sha256": "7e5780c377bb220f642d9fa4869f58c0fcc5ef4167de7b8a4826303b9a992131"
+    },
+    {
+      "path": "take-local-link.js",
+      "bytes": 1223,
+      "sha256": "7f08713e1e175abab4bba525143f7eba841fbf439507aca0383a191d9c5b67d2"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 248,
+      "sha256": "aadab8bba521a5bd804ab5b5f6aaedc5967e26bbd5c5caa904a9acd556cdabb6"
+    }
+  ],
+  "totalBytes": 61541719
+}

@@ -1,0 +1,20 @@
+{
+  "source": "eb8cf166d76ba3436099467d31d07f96314c0cf3",
+  "deploymentId": "dpl_AuQvPLnSKxNAh9CGY9Z2ptGdDyuA",
+  "deploymentUrl": "https://terra-browser-ifp5x6nv2-namanpro47s-projects.vercel.app",
+  "publicUrls": [
+    "https://www.myterrain.io",
+    "https://terra-browser.vercel.app"
+  ],
+  "frozenExport": "Builds/Verified/eb8cf16",
+  "exportFiles": 34,
+  "exportBytes": 61541719,
+  "verifiedPublicStaticFiles": 32,
+  "verifiedPublicStaticBytes": 61535463,
+  "nativeAssertions": 2138,
+  "chapterAssertions": 16,
+  "chromeAssertions": 11,
+  "chromeVersion": "155.0.8059.85",
+  "chromeScope": "Local exact-export Begin, one apartment, End Year and reload; identical year, phase, revision, cash, queued and asset counts. Hosted chapter endpoints intentionally aborted for deterministic local-summary fallback; one expected ERR_FAILED transport console message. No runtime save failure.",
+  "narration": "Public GET configured Matilda and POST200 audio/mpeg; receipt public-narration.json."
+}

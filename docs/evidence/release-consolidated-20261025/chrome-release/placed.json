@@ -1,0 +1,1141 @@
+{
+  "cssWidth": 1440,
+  "cssHeight": 900,
+  "pixelRatio": 1,
+  "modal": false,
+  "largeText": false,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "Meadowbrook Valley",
+      "rect": {
+        "x": 30,
+        "y": 23,
+        "width": 278,
+        "height": 28
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 28
+    },
+    {
+      "text": "Wisconsin · real geography",
+      "rect": {
+        "x": 30,
+        "y": 46,
+        "width": 276,
+        "height": 24
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 24
+    },
+    {
+      "text": "Land & Nature",
+      "rect": {
+        "x": 298,
+        "y": 636,
+        "width": 197.33331298828125,
+        "height": 40
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 40
+    },
+    {
+      "text": "Homes & Community",
+      "rect": {
+        "x": 507.3333435058594,
+        "y": 636,
+        "width": 197.33334350585938,
+        "height": 40
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 40
+    },
+    {
+      "text": "Work & Utilities",
+      "rect": {
+        "x": 716.6666259765625,
+        "y": 636,
+        "width": 197.3333740234375,
+        "height": 40
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 40
+    },
+    {
+      "text": "Reserved, not paid · Undo edits; End Year reviews.",
+      "rect": {
+        "x": 300,
+        "y": 800,
+        "width": 660,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Undo",
+      "rect": {
+        "x": 256,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "View",
+      "rect": {
+        "x": 484,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Guide",
+      "rect": {
+        "x": 598,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Settings",
+      "rect": {
+        "x": 712,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "QUEUED · Open plot 8 · 6",
+      "rect": {
+        "x": 1134,
+        "y": 122,
+        "width": 276,
+        "height": 18
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 18
+    },
+    {
+      "text": "High-density housing",
+      "rect": {
+        "x": 1134,
+        "y": 143,
+        "width": 234,
+        "height": 27
+      },
+      "bodyCssPx": 20,
+      "minGlyphCssPx": 20,
+      "preferredHeight": 22.350000381469727,
+      "availableHeight": 27
+    },
+    {
+      "text": "Redo",
+      "rect": {
+        "x": 370,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Move  V",
+      "rect": {
+        "x": 1146,
+        "y": 494,
+        "width": 106,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "Remove",
+      "rect": {
+        "x": 1292,
+        "y": 494,
+        "width": 106,
+        "height": 44
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 44
+    },
+    {
+      "text": "World atlas",
+      "rect": {
+        "x": 24,
+        "y": 754,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Homes",
+      "rect": {
+        "x": 345,
+        "y": 748,
+        "width": 133.5,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "$1M",
+      "rect": {
+        "x": 415.5,
+        "y": 705,
+        "width": 60,
+        "height": 25
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 25
+    },
+    {
+      "text": "Apartments",
+      "rect": {
+        "x": 490.5,
+        "y": 748,
+        "width": 133.5,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "$5M",
+      "rect": {
+        "x": 561,
+        "y": 705,
+        "width": 60,
+        "height": 25
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 25
+    },
+    {
+      "text": "Public park",
+      "rect": {
+        "x": 636,
+        "y": 748,
+        "width": 133.5,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "$50K",
+      "rect": {
+        "x": 706.5,
+        "y": 705,
+        "width": 60,
+        "height": 25
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 25
+    },
+    {
+      "text": "Village center",
+      "rect": {
+        "x": 781.5,
+        "y": 748,
+        "width": 133.5,
+        "height": 38
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 38
+    },
+    {
+      "text": "$4M",
+      "rect": {
+        "x": 852,
+        "y": 705,
+        "width": 60,
+        "height": 25
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 25
+    },
+    {
+      "text": "Economic",
+      "rect": {
+        "x": 974,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "50.1 <size=14>/100</size>\n<size=65%><b><color=#FFBA87>-0.2 forecast</color></b></size>",
+      "rect": {
+        "x": 950,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 48.25,
+      "availableHeight": 56
+    },
+    {
+      "text": "Social",
+      "rect": {
+        "x": 1134,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "58.0 <size=14>/100</size>\n<size=14>Starting condition</size>",
+      "rect": {
+        "x": 1110,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 48.189998626708984,
+      "availableHeight": 56
+    },
+    {
+      "text": "Environmental",
+      "rect": {
+        "x": 1294,
+        "y": 27,
+        "width": 124,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "38.8 <size=14>/100</size>\n<size=14>Starting condition</size>",
+      "rect": {
+        "x": 1270,
+        "y": 46,
+        "width": 150,
+        "height": 56
+      },
+      "bodyCssPx": 22,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 48.189998626708984,
+      "availableHeight": 56
+    },
+    {
+      "text": "YEAR 1/10 · PLANNING",
+      "rect": {
+        "x": 30,
+        "y": 88,
+        "width": 190,
+        "height": 22
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 22
+    },
+    {
+      "text": "$5,000,000",
+      "rect": {
+        "x": 62,
+        "y": 110,
+        "width": 250,
+        "height": 38
+      },
+      "bodyCssPx": 28,
+      "minGlyphCssPx": 28,
+      "preferredHeight": 31.290000915527344,
+      "availableHeight": 38
+    },
+    {
+      "text": "End Year",
+      "rect": {
+        "x": 1051,
+        "y": 846,
+        "width": 158,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Details & assumptions",
+      "rect": {
+        "x": 1152,
+        "y": 465,
+        "width": 240,
+        "height": 30
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 30
+    },
+    {
+      "text": "More",
+      "rect": {
+        "x": 826,
+        "y": 846,
+        "width": 76,
+        "height": 32
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 32
+    },
+    {
+      "text": "Budget",
+      "rect": {
+        "x": 242,
+        "y": 88,
+        "width": 66,
+        "height": 20
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 20
+    },
+    {
+      "text": "Housing → Social",
+      "rect": {
+        "x": 1134,
+        "y": 169,
+        "width": 234,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "$5,600,000 lifetime public cost\nIncludes 10 yr upkeep",
+      "rect": {
+        "x": 1134,
+        "y": 426,
+        "width": 276,
+        "height": 34
+      },
+      "bodyCssPx": 12.5,
+      "minGlyphCssPx": 12.5,
+      "preferredHeight": 28.34000015258789,
+      "availableHeight": 34
+    },
+    {
+      "text": "?",
+      "rect": {
+        "x": 930,
+        "y": 636,
+        "width": 28,
+        "height": 40
+      },
+      "bodyCssPx": 18,
+      "minGlyphCssPx": 18,
+      "preferredHeight": 20.110000610351562,
+      "availableHeight": 40
+    },
+    {
+      "text": "Available to plan",
+      "rect": {
+        "x": 62,
+        "y": 152,
+        "width": 250,
+        "height": 18
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 18
+    },
+    {
+      "text": "Upfront",
+      "rect": {
+        "x": 1155,
+        "y": 197,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "$5M",
+      "rect": {
+        "x": 1324,
+        "y": 197,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Yearly cost",
+      "rect": {
+        "x": 1155,
+        "y": 223,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "$60K",
+      "rect": {
+        "x": 1324,
+        "y": 223,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Build time",
+      "rect": {
+        "x": 1155,
+        "y": 249,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "2 yr",
+      "rect": {
+        "x": 1324,
+        "y": 249,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Full benefit",
+      "rect": {
+        "x": 1155,
+        "y": 275,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "Y3",
+      "rect": {
+        "x": 1324,
+        "y": 275,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Economic",
+      "rect": {
+        "x": 1155,
+        "y": 323,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "-0.2 pts",
+      "rect": {
+        "x": 1324,
+        "y": 323,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Social",
+      "rect": {
+        "x": 1155,
+        "y": 349,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "+27.3 pts",
+      "rect": {
+        "x": 1324,
+        "y": 349,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "Environment",
+      "rect": {
+        "x": 1155,
+        "y": 375,
+        "width": 77,
+        "height": 24
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 24
+    },
+    {
+      "text": "-6.2 pts",
+      "rect": {
+        "x": 1324,
+        "y": 375,
+        "width": 86,
+        "height": 24
+      },
+      "bodyCssPx": 14,
+      "minGlyphCssPx": 14,
+      "preferredHeight": 15.649999618530273,
+      "availableHeight": 24
+    },
+    {
+      "text": "SCORE IMPACT · Y3 · ESTIMATE",
+      "rect": {
+        "x": 1134,
+        "y": 302,
+        "width": 276,
+        "height": 20
+      },
+      "bodyCssPx": 12.5,
+      "minGlyphCssPx": 12.5,
+      "preferredHeight": 13.970000267028809,
+      "availableHeight": 20
+    },
+    {
+      "text": "12 homes · Opens Y3",
+      "rect": {
+        "x": 1134,
+        "y": 404,
+        "width": 276,
+        "height": 20
+      },
+      "bodyCssPx": 12.5,
+      "minGlyphCssPx": 12.5,
+      "preferredHeight": 13.970000267028809,
+      "availableHeight": 20
+    },
+    {
+      "text": "TOWN GOALS · CURRENT / TARGET",
+      "rect": {
+        "x": 30,
+        "y": 199,
+        "width": 280,
+        "height": 18
+      },
+      "bodyCssPx": 12,
+      "minGlyphCssPx": 12,
+      "preferredHeight": 13.40999984741211,
+      "availableHeight": 18
+    },
+    {
+      "text": "Homes filled",
+      "rect": {
+        "x": 52,
+        "y": 220,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 16",
+      "rect": {
+        "x": 222,
+        "y": 220,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "Local jobs",
+      "rect": {
+        "x": 52,
+        "y": 243,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "4 / 36",
+      "rect": {
+        "x": 222,
+        "y": 243,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "Green land",
+      "rect": {
+        "x": 52,
+        "y": 266,
+        "width": 84,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "22.5 / 65%",
+      "rect": {
+        "x": 222,
+        "y": 266,
+        "width": 90,
+        "height": 20
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 14.529999732971191,
+      "availableHeight": 20
+    },
+    {
+      "text": "-$5,000,000",
+      "rect": {
+        "x": 566,
+        "y": 174,
+        "width": 308,
+        "height": 36
+      },
+      "bodyCssPx": 29,
+      "minGlyphCssPx": 29,
+      "preferredHeight": 32.400001525878906,
+      "availableHeight": 36
+    },
+    {
+      "text": "Queued · High-density housing",
+      "rect": {
+        "x": 566,
+        "y": 130,
+        "width": 308,
+        "height": 40
+      },
+      "bodyCssPx": 16,
+      "minGlyphCssPx": 16,
+      "preferredHeight": 17.8799991607666,
+      "availableHeight": 40
+    },
+    {
+      "text": "Reserved from available funds\nYear-end forecast changes",
+      "rect": {
+        "x": 566,
+        "y": 212,
+        "width": 308,
+        "height": 36
+      },
+      "bodyCssPx": 13,
+      "minGlyphCssPx": 13,
+      "preferredHeight": 29.479999542236328,
+      "availableHeight": 36
+    },
+    {
+      "text": "Economic  <b><color=#FFBA87>-0.2</color></b> <size=85%>→ 49.9</size>\nSocial  <b><color=#A8C4CC>0.0</color></b> <size=85%>→ 58.0</size>\nEnvironment  <b><color=#A8C4CC>0.0</color></b> <size=85%>→ 38.8</size>",
+      "rect": {
+        "x": 566,
+        "y": 255,
+        "width": 308,
+        "height": 66
+      },
+      "bodyCssPx": 15,
+      "minGlyphCssPx": 12.75,
+      "preferredHeight": 51.2599983215332,
+      "availableHeight": 66
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Farming",
+      "enabled": true,
+      "rect": {
+        "x": 294,
+        "y": 634,
+        "width": 205.33331298828125,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Residential",
+      "enabled": true,
+      "rect": {
+        "x": 503.33331298828125,
+        "y": 634,
+        "width": 205.33331298828125,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Community",
+      "enabled": true,
+      "rect": {
+        "x": 712.6666259765625,
+        "y": 634,
+        "width": 205.33331298828125,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Undo  Z",
+      "enabled": true,
+      "rect": {
+        "x": 226,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Valley view  R",
+      "enabled": true,
+      "rect": {
+        "x": 454,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Field guide  G",
+      "enabled": true,
+      "rect": {
+        "x": 568,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Controls  ?",
+      "enabled": true,
+      "rect": {
+        "x": 682,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Redo  Y",
+      "enabled": false,
+      "rect": {
+        "x": 340,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Move  V",
+      "enabled": true,
+      "rect": {
+        "x": 1138,
+        "y": 498,
+        "width": 122,
+        "height": 36
+      }
+    },
+    {
+      "name": "Button Remove",
+      "enabled": true,
+      "rect": {
+        "x": 1284,
+        "y": 498,
+        "width": 122,
+        "height": 36
+      }
+    },
+    {
+      "name": "Button World atlas",
+      "enabled": true,
+      "rect": {
+        "x": 16,
+        "y": 752,
+        "width": 116,
+        "height": 36
+      }
+    },
+    {
+      "name": "Build Low-density housing",
+      "enabled": true,
+      "rect": {
+        "x": 342,
+        "y": 684,
+        "width": 139.5,
+        "height": 110
+      }
+    },
+    {
+      "name": "Build High-density housing",
+      "enabled": true,
+      "rect": {
+        "x": 487.5,
+        "y": 684,
+        "width": 139.5,
+        "height": 110
+      }
+    },
+    {
+      "name": "Build Public park",
+      "enabled": true,
+      "rect": {
+        "x": 633,
+        "y": 684,
+        "width": 139.5,
+        "height": 110
+      }
+    },
+    {
+      "name": "Build Village center",
+      "enabled": true,
+      "rect": {
+        "x": 778.5,
+        "y": 684,
+        "width": 139.5,
+        "height": 110
+      }
+    },
+    {
+      "name": "Button Review year →",
+      "enabled": true,
+      "rect": {
+        "x": 1046,
+        "y": 840,
+        "width": 168,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Costs, services & trade-offs",
+      "enabled": true,
+      "rect": {
+        "x": 1134,
+        "y": 468,
+        "width": 276,
+        "height": 24
+      }
+    },
+    {
+      "name": "Button More",
+      "enabled": true,
+      "rect": {
+        "x": 796,
+        "y": 840,
+        "width": 112,
+        "height": 44
+      }
+    },
+    {
+      "name": "Button Budget",
+      "enabled": true,
+      "rect": {
+        "x": 234,
+        "y": 86,
+        "width": 82,
+        "height": 24
+      }
+    },
+    {
+      "name": "Placement help",
+      "enabled": true,
+      "rect": {
+        "x": 922,
+        "y": 634,
+        "width": 44,
+        "height": 44
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 286,
+      "y": 628,
+      "width": 688,
+      "height": 198
+    },
+    {
+      "x": 1120,
+      "y": 114,
+      "width": 304,
+      "height": 426
+    },
+    {
+      "x": 16,
+      "y": 752,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 220,
+      "y": 834,
+      "width": 1000,
+      "height": 56
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 936,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 1120,
+      "y": 114,
+      "width": 304,
+      "height": 348
+    },
+    {
+      "x": 550,
+      "y": 118,
+      "width": 340,
+      "height": 214
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=1; cash=1000000000; queued=1; assets=0\n"
+}

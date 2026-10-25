@@ -1,0 +1,9 @@
+{
+  "assertions": 11,
+  "source": "eb8cf16",
+  "version": "155.0.8059.85",
+  "errors": [
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "saved": "TERRA_ANNUAL_STATE: year=1; phase=Reviewing; revision=2; cash=600000000; queued=0; assets=1\n"
+}

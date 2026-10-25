@@ -31,3 +31,11 @@ The user requested a very quick Chrome check: load, Begin, one apartment, End Ye
 ## Latest Peter push and completed local companion
 
 The user explicitly requested the later Peter push after the ongoing build finished. The completed `a3eea78` export is preserved locally and was not published. The next frozen source is `eb8cf166d76ba3436099467d31d07f96314c0cf3`: Peter's planning/forecast/render-preview optimization `8874226` plus the completed browser resource companion `aabd2fe`. Combined native checks pass 2,138 + 16 again. Peter's source handoff separately records 2,080 forecast parity assertions / 416 comparisons and 3,062 native lifecycle assertions; this release does not claim a new foreground FPS measurement. The resource companion has its own passed Chrome and storage/privacy tests.
+
+## Published result
+
+**Live:** https://www.myterrain.io and https://terra-browser.vercel.app. Deployment `dpl_AuQvPLnSKxNAh9CGY9Z2ptGdDyuA` publishes frozen source `eb8cf16`, 34 export files / 61,541,719 bytes. [Release identity](published-release.json). The independent anonymous audit matches all 32 public static files / 61,535,463 bytes on both aliases, validates Brotli and the decoded WebAssembly header, and includes the resource companion, wrapper scripts, loading artwork and licenses. [Public receipts](../final-submission-audit/public-assets.json). The two excluded files are server function source and hosting configuration.
+
+[Chrome smoke](chrome-release/checks.json) passes 11 assertions in installed Chrome155.0.8059.85: Begin, one apartment, End Year, reload with unchanged year1/reviewing/revision2/cash600000000/queue0/assets1. [Placed](chrome-release/placed.png), [accepted](chrome-release/year-accepted.png), [reloaded](chrome-release/reload.png). Hosted chapter requests were intentionally aborted to exercise labelled local summaries; the expected transport error is recorded. No runtime/save exception occurred. This is the user-requested short check, not a new full replay, FPS or scenery acceptance claim.
+
+Live narration GET reports configured Matilda; the short POST returns200 audio/mpeg,30,136 bytes. [Receipt](public-narration.json). Chapter custom-domain preflights also pass as recorded above. Both earlier frozen candidates remain preserved; rejected `e74496b` and staged `2aeca9a` were never promoted to the canonical public domains.

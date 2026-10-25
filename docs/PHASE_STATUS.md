@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Consolidated production release — October 25, 2026
+
+Live on [myterrain.io](https://www.myterrain.io/) and [Vercel](https://terra-browser.vercel.app/): frozen source `eb8cf16`, deployment `dpl_AuQvPLnSKxNAh9CGY9Z2ptGdDyuA`. Completed branches and Peter’s latest optimization are reconciled on main, including the final Take it local resources. Native2,138+16 checks, the user-requested quick Chrome11-assertion save/reload smoke, all32 static-file hashes on both aliases, Brotli/WASM validation and public narration pass. [Release evidence and explicit limits](evidence/release-consolidated-20261025/README.md). TN-03/04/05/06/08, CS-01/02/04 and AX-01 guide the review; this publishes the combined gameplay, not Phase2A scenery or foreground FPS acceptance. Unfinished map reconstruction and unapplied texture compression remain deferred.
+
 ## User-selected loading artwork — October 25, 2026
 
 The user's supplied MyTerrain / “Shape your world.” illustration replaces the temporary globe preview during browser startup. Optimized WebP retains the original artwork and baked title; small progress/retry controls remain readable, and narrow screens preserve the complete image. The existing readiness handoff into the native globe is unchanged. [Chrome evidence and scope](evidence/loading-artwork/README.md). TN-01/03, AX-01. Source/template update only; not publicly deployed.
