@@ -69,6 +69,7 @@ namespace Terra.Core
                 : "Over ten years, you reshaped " + changed + (changed == 1 ? " plot" : " plots") + " through " + string.Join(", ", groups) + ". "
                   + (conversions > 0 ? "You also changed direction on " + conversions + (conversions == 1 ? " occasion" : " occasions") + ", paying to replace earlier uses and allowing the new landscape time to establish. " : "")
                   + "Those choices changed how the community uses its limited land.";
+            story += "\n\n";
             var e = end.outcomes.economy;
             if (e != null)
             {

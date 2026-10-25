@@ -69,7 +69,7 @@ public static class ActionFeedbackChecks
             for(int i=0;i<3;i++)Check(Field<string[]>("annualScoreReadout")[i].Contains("Last year "+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(before[i],after[i]))),"placement headline agrees with receipt");
             hud.AnnualReport(town,baseline,()=>{});
             string[] names={"Economic","Social","Environment"};
-            for(int i=0;i<3;i++)Check(Field<TextMeshProUGUI>("modalText").text.Contains(names[i]+" "+AnnualFeedback.Score(after[i])+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(before[i],after[i]))+")"),"accepted ledger agrees with receipt");
+            for(int i=0;i<3;i++)Check(Field<TextMeshProUGUI>("fieldNotesBody").text.Contains(names[i]+" "+AnnualFeedback.Score(after[i])+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(before[i],after[i]))+")"),"accepted ledger agrees with receipt");
             hud.CloseModal();
             var restored=new AnnualTown(definition,"feedback-ui-restored");
             hud.AnnualState(restored,AnnualGameplay.Baseline(definition),AnnualGameplay.Forecast(restored).outcomes);
