@@ -162,7 +162,7 @@ namespace Terra.Gameplay
                 pointerHeld=false;pressedButton=null;
             }
         }
-        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(-distance*globeCamera.aspect*.105f,-.10f,-distance);globeCamera.transform.localRotation=Quaternion.identity;}
+        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(-distance*globeCamera.aspect*.105f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-.10f,-distance);globeCamera.transform.localRotation=Quaternion.identity;}
         static Vector3 Geo(Vector2 p){float a=p.x*Mathf.Deg2Rad,b=p.y*Mathf.Deg2Rad;return new Vector3(-Mathf.Cos(a)*Mathf.Sin(b),Mathf.Sin(a),Mathf.Cos(a)*Mathf.Cos(b));}
         void PositionPins()
         {
