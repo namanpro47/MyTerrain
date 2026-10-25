@@ -240,7 +240,7 @@ namespace Terra.UI
                 "<b>erces · Free Stylized 3D Tree Pack</b>\nerces.itch.io/free-stylized-3d-tree-pack\nCreator permits free project use.\n\n"+
                 "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\n\n"+
                 "<b>Atapataco · Handpainted Grass & Ground</b>\natapataco.itch.io/handpainted-grass-ground-textures\n"+
-                "Scale, materials, tiling and instancing adapted for Terra.");
+                "Scale, materials, tiling and instancing adapted for MyTerrain.");
             else if(dataPage==4)ShowModal("Plants & sound credits",
                 "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nelijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted geometry, palette, materials and instancing.\n\n"+
                 "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com · adapted geometry/materials.\n\n"+
