@@ -55,12 +55,13 @@ public static class MainGameChapterChecks
         try
         {
             count+=PlayFirstHudChecks.Run(hud,definition,world);
+            count+=FieldNotesChecks.Run(hud,definition);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;
             hud.AnnualConfirmation(town.Engine,AnnualGameplay.Forecast(town.Engine),()=>chapters.ResolveOffline(),true);
             Check(town.State.cashCents==opening&&town.State.history.Length==0,"Budget review spent money.");
-            Click("End year 1");
+            Click("End Year");
             Check(acceptedNotification,"Accepted notification arrived before its chapter was available.");
             Check(town.State.history.Length==1&&town.State.phase==TownPhase.Reviewing,"Year was not accepted exactly once.");
             var receipt=chapters.ForYear(1);
