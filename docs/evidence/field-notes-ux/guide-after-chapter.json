@@ -1,0 +1,136 @@
+{
+  "cssWidth": 1024,
+  "cssHeight": 576,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "MyTerrain   /   FIELD NOTES",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 34.41229248046875,
+        "width": 610.953857421875,
+        "height": 20.086181640625
+      },
+      "bodyCssPx": 13.12297248840332,
+      "minGlyphCssPx": 13.12297248840332,
+      "preferredHeight": 17.520000457763672,
+      "availableHeight": 24
+    },
+    {
+      "text": "<size=140%><b>Real land. Hypothetical choices.</b></size>\n\n<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\nReal terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\nEleven management opportunities (including a hypothetical wind site) and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.",
+      "rect": {
+        "x": 204.01229858398438,
+        "y": 67.05230712890625,
+        "width": 615.975341796875,
+        "height": 368.24615478515625
+      },
+      "bodyCssPx": 18.7470760345459,
+      "minGlyphCssPx": 18.7470760345459,
+      "preferredHeight": 447.1700134277344,
+      "availableHeight": 440
+    },
+    {
+      "text": "Return to landscape  Esc",
+      "rect": {
+        "x": 393.15692138671875,
+        "y": 496.3938293457031,
+        "width": 237.6861572265625,
+        "height": 43.52000427246094
+      },
+      "bodyCssPx": 15.935018539428711,
+      "minGlyphCssPx": 15.935018539428711,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    },
+    {
+      "text": "Terrain & cover →",
+      "rect": {
+        "x": 388.9723205566406,
+        "y": 442.83074951171875,
+        "width": 246.05538940429688,
+        "height": 43.519996643066406
+      },
+      "bodyCssPx": 15.935014724731445,
+      "minGlyphCssPx": 15.935014724731445,
+      "preferredHeight": 21.280000686645508,
+      "availableHeight": 52
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 386.4615478515625,
+        "y": 494.7200012207031,
+        "width": 251.076904296875,
+        "height": 46.86769104003906
+      }
+    },
+    {
+      "name": "Button Sources & limits →",
+      "enabled": true,
+      "rect": {
+        "x": 382.27691650390625,
+        "y": 441.15692138671875,
+        "width": 259.4461669921875,
+        "height": 46.86769104003906
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 162,
+      "y": 370,
+      "width": 520,
+      "height": 140
+    },
+    {
+      "x": 16,
+      "y": 428,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 518,
+      "width": 992,
+      "height": 48
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 86
+    },
+    {
+      "x": 520,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1024,
+      "height": 576
+    },
+    {
+      "x": 177.23077392578125,
+      "y": 16,
+      "width": 669.5384521484375,
+      "height": 544
+    }
+  ],
+  "state": "TERRA_ANNUAL_STATE: year=2; phase=Planning; revision=5; cash=1069400000; queued=0; assets=3\n"
+}
