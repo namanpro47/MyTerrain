@@ -1,0 +1,26 @@
+{
+  "source": "Wheat Crop.obj",
+  "sha256": "04eae888b28eeb312bc6f5cb93bea49fa181aedb85c3da44f0e5a65b4450dad9",
+  "vertices": 910,
+  "trianglesAfterFan": 1672,
+  "boundsMin": [
+    -0.4,
+    0.0,
+    -0.21
+  ],
+  "boundsMax": [
+    0.4,
+    1.119997,
+    0.22
+  ],
+  "materialAssignments": [
+    "Wheat_|_Green_culm",
+    "Wheat_|_Green_gold_leaf",
+    "Wheat_|_Husk_shadow.001",
+    "Wheat_|_Leaf_folds",
+    "Wheat_|_Leaf_reverse",
+    "Wheat_|_Lit_gold.001",
+    "Wheat_|_Ripe_amber.001"
+  ],
+  "scope": "Source inspection only; not imported or rendered; source files not redistributed."
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "Scale/density preflight only; imported bounds, actual camera projection and visible silhouette still require Unity inspection. Raw longest axis is Z.",
+  "uniformIllustrativeHeightM": 1.2,
+  "rawDerivedMaximumWidthM": 0.12385416434816758,
+  "preparedPatchM": [
+    24,
+    24
+  ],
+  "spacingM": 0.14,
+  "maximumPlantsBeforeMasks": 29584,
+  "priorCombinedMeshTrianglesPerSourcePlant": 102,
+  "maximumPatchTrianglesBeforeMasks": 3017568,
+  "reason": "Test a bounded patch, not a full-map mesh. Original narrow stalk geometry cannot inherit the sparse .5m spacing of the earlier widened plants. A distant representation is still required; no performance pass inferred."
+}
