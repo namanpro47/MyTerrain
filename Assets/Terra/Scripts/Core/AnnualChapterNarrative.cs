@@ -55,6 +55,41 @@ namespace Terra.Core
                 }
             };
         }
+        public static string Decade(AnnualTownDefinition definition, TownYearReport[] history)
+        {
+            if (history == null || history.Length == 0) return "The landscape is waiting for its first decisions.";
+            var end = history.Last();
+            var choices = history.SelectMany(r => r.acceptedRequest.actions).ToArray();
+            var changed = choices.Select(q => q.siteId).Distinct().Count();
+            var conversions = choices.Length - changed;
+            var groups = choices.GroupBy(q => q.actionId).OrderByDescending(g => g.Count()).Take(3)
+                .Select(g => definition.actions.First(a => a.actionId == g.Key).title.ToLowerInvariant()).ToArray();
+            string story = choices.Length == 0
+                ? "You let the decade unfold without adding new projects. The community continued to rely on its existing homes, work and services while the land experienced each year's conditions."
+                : "Over ten years, you reshaped " + changed + (changed == 1 ? " plot" : " plots") + " through " + string.Join(", ", groups) + ". "
+                  + (conversions > 0 ? "You also changed direction on " + conversions + (conversions == 1 ? " occasion" : " occasions") + ", paying to replace earlier uses and allowing the new landscape time to establish. " : "")
+                  + "Those choices changed how the community uses its limited land.";
+            var e = end.outcomes.economy;
+            if (e != null)
+            {
+                story += e.occupiedHomes > definition.economy.baselineHomes
+                    ? " More people can be housed than at the beginning, provided those homes keep receiving the water, energy and services they need."
+                    : " Housing remains an important question for the community's next decade.";
+                if (e.jobs > definition.economy.baselineJobs) story += " The accepted projects support additional local work, with ongoing costs and resource needs.";
+                if (e.resourceFraction < .999) story += " Energy or water shortages still limit what those investments can deliver.";
+            }
+            var opening = AnnualGameplay.Baseline(definition);
+            story += end.outcomes.vegetatedAreaM2 > opening.vegetatedAreaM2
+                ? " More vegetated land could support cover and water management as it matures."
+                : end.outcomes.vegetatedAreaM2 < opening.vegetatedAreaM2
+                    ? " Some vegetated land has given way to other uses, leaving a lasting trade-off for land and water management." : " The overall vegetated area remains close to its starting extent.";
+            if (end.outcomes.sites.Any(s => s.actionId != null && (s.phase == TownAssetPhase.Building || s.phase == TownAssetPhase.Establishing)))
+                story += " Some late choices are still building or establishing; their full effects lie beyond this review.";
+            story += end.ledger.closingArrearsCents > 0
+                ? " Unpaid bills also carry forward, so the community's next choices start with a financial constraint."
+                : " Keeping these benefits requires continuing to fund the services and care they depend on.";
+            return story + " These are possible consequences within this game, not a forecast for the real community.";
+        }
         static AnnualChapterCard Card(string title, string text, params string[] facts)
             => new AnnualChapterCard { title = title, explanation = text, factIds = facts };
     }

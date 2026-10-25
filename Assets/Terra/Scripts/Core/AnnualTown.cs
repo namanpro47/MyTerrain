@@ -29,7 +29,7 @@ namespace Terra.Core
         public bool CanUndo => Phase == TownPhase.Planning && undo.Count > 0;
         public long CommittedCents => checked(ArrearsCents + FutureCosts(assets, Phase == TownPhase.Reviewing || Phase == TownPhase.Completed ? Year + 1 : Year));
         public long QueuedCommitmentCents => NewCommitments(queue);
-        public long AvailableCents => checked(CashCents - CommittedCents - QueuedCommitmentCents);
+        public long AvailableCents => checked(CashCents - DueForPlan(queue));
         public AnnualTownDefinition Definition => TownCopies.Copy(definition);
         public TownPlannedAction[] Queue => TownCopies.Copy(queue);
         public TownAsset[] Assets => TownCopies.Copy(assets);
@@ -58,24 +58,27 @@ namespace Terra.Core
         void Planning() { if (Phase != TownPhase.Planning) throw new InvalidOperationException("This year is not open for planning."); }
         void Current(int expectedRevision) { if (expectedRevision != Revision) throw new InvalidOperationException("Stale town revision. Refresh the state."); }
 
-        // Previews and queue changes reserve the full public commitment, not future appropriations.
+        // Reserve current-year costs only; future obligations remain visible separately.
         public long Preview(string siteId, string actionId)
         {
             Planning();
             var next = ProposedQueue(siteId, actionId);
-            return checked(CashCents - CommittedCents - NewCommitments(next));
+            return checked(CashCents - DueForPlan(next));
         }
         TownPlannedAction[] ProposedQueue(string siteId, string actionId)
         {
             Action(siteId, actionId);
-            Require(!assets.Any(a => a.siteId == siteId), "This site is already committed. Redevelopment is outside this foundation.");
+            Require(Year <= PlanningYears, "The decision years are complete. Advance to the Year 10 review.");
+            var existing = assets.FirstOrDefault(a => a.siteId == siteId);
+            Require(existing == null || existing.actionId != actionId, "This land already has that use. Choose a different land use.");
+            Require(existing == null || definition.simulation == null, "Conversion is unavailable in the experimental numeric rules.");
             return queue.Where(q => q.siteId != siteId).Concat(new[] { new TownPlannedAction { siteId = siteId, actionId = actionId } }).ToArray();
         }
         public void QueueAction(string siteId, string actionId, int expectedRevision)
         {
             Planning(); Current(expectedRevision);
             var next = ProposedQueue(siteId, actionId);
-            Require(checked(CashCents - CommittedCents - NewCommitments(next)) >= 0, "Insufficient uncommitted public money for the full commitment.");
+            Require(checked(CashCents - DueForPlan(next)) >= 0, "Not enough cash for this year’s projects, conversion work, upkeep and unpaid bills.");
             if (queue.Any(q => q.siteId == siteId && q.actionId == actionId)) return;
             RememberQueue(); queue = next; Revision++;
         }
@@ -100,7 +103,7 @@ namespace Terra.Core
             return queue.Where(q => q.siteId != source).Concat(new[] { new TownPlannedAction { siteId = destination, actionId = proposal.actionId } }).ToArray();
         }
         public long PreviewMove(string source, string destination)
-        { Planning(); return checked(CashCents - CommittedCents - NewCommitments(MovedQueue(source, destination))); }
+        { Planning(); return checked(CashCents - DueForPlan(MovedQueue(source, destination))); }
         public void MoveQueuedAction(string source, string destination, int expectedRevision)
         {
             Planning(); Current(expectedRevision); var next = MovedQueue(source, destination);
@@ -167,16 +170,14 @@ namespace Terra.Core
             ValidateConsequences(consequences);
 
             // Everything below is staged. Overflow, invalid effects, or computation failure cannot partially publish a year.
-            var nextAssets = TownCopies.Copy(assets).Concat(pending.actions.Select(q => new TownAsset {
-                siteId = q.siteId, actionId = q.actionId, startedYear = Year, condition = 1
-            })).ToArray();
+            var nextAssets = AssetsForPlan(pending.actions);
             if(numericState!=null)
                 foreach(var asset in nextAssets)asset.condition=numericState.sites.Single(s=>s.siteId==asset.siteId).condition;
             var ledger = new TownYearLedger { currency = definition.currency, priceYear = definition.priceYear,
                 openingCashCents = CashCents, openingArrearsCents = ArrearsCents };
             long cash = CashCents;
             long Pay(long due) { long paid = Math.Min(cash, due); cash = checked(cash - paid); return paid; }
-            long upfront = Sum(pending.actions.Select(q => Action(q.siteId, q.actionId).upfrontPublicCostCents));
+            long upfront = Sum(pending.actions.Select(q => checked(Action(q.siteId, q.actionId).upfrontPublicCostCents + ConversionCost(q.siteId))));
             Require(upfront <= cash, "The committed plan is not affordable.");
             ledger.upfrontPaidCents = Pay(upfront);
             ledger.arrearsPaidCents = Pay(ArrearsCents);
@@ -261,15 +262,16 @@ namespace Terra.Core
                 if (asset != null)
                 {
                     var recipe = Action(asset.siteId, asset.actionId);
-                    int operationYear = asset.startedYear + recipe.constructionYears;
+                    int operationYear = asset.startedYear + recipe.constructionYears + asset.conversionDelayYears;
                     row.maturity = Clamp01((Year - operationYear + 1.0) / recipe.establishmentYears);
                     bool active = IsOperating(asset, Year) && funded[asset.siteId];
                     row.phase = Year < operationYear ? TownAssetPhase.Building : Year >= operationYear + recipe.operatingYears ? TownAssetPhase.Retired : !active ? TownAssetPhase.Suspended
                         : row.maturity < 1 ? TownAssetPhase.Establishing : TownAssetPhase.Operating;
                     row.productionUnits = active ? recipe.productionUnits * row.maturity * row.condition : 0;
                     row.serviceUnits = active ? recipe.serviceUnits * row.maturity * row.condition : 0;
-                    row.vegetatedAreaM2 = site.areaM2 * (site.baselineVegetatedFraction
-                        + (recipe.vegetatedFraction - site.baselineVegetatedFraction) * row.maturity * row.condition);
+                    double openingCover = string.IsNullOrEmpty(asset.previousActionId) ? site.baselineVegetatedFraction : asset.conversionOpeningVegetation;
+                    row.vegetatedAreaM2 = site.areaM2 * (openingCover
+                        + (recipe.vegetatedFraction - openingCover) * row.maturity * row.condition);
                     row.retentionCapacityM3 = active ? recipe.retentionCapacityM3 * row.maturity * row.condition : 0;
                 }
                 if (asset != null && definition.economy != null)
@@ -313,7 +315,7 @@ namespace Terra.Core
         }
         bool IsOperating(TownAsset asset, int year)
         {
-            var a = Action(asset.siteId, asset.actionId); int start = asset.startedYear + a.constructionYears;
+            var a = Action(asset.siteId, asset.actionId); int start = asset.startedYear + a.constructionYears + asset.conversionDelayYears;
             return year >= start && year < start + a.operatingYears;
         }
         long OperatingDue(TownAsset asset, int year) => IsOperating(asset, year) ? Action(asset.siteId, asset.actionId).annualPublicOperatingCents : 0;
@@ -324,7 +326,7 @@ namespace Terra.Core
             {
                 var a = Action(asset.siteId, asset.actionId);
                 int payments = Math.Max(0, asset.startedYear + a.paymentYears - Math.Max(fromYear, asset.startedYear));
-                int start = asset.startedYear + a.constructionYears;
+                int start = asset.startedYear + a.constructionYears + asset.conversionDelayYears;
                 int operations = Math.Max(0, start + a.operatingYears - Math.Max(fromYear, start));
                 total = checked(total + a.annualPublicPaymentCents * payments + a.annualPublicOperatingCents * operations);
             }
@@ -360,9 +362,62 @@ namespace Terra.Core
             }
         }
 
+        int planningYears;
+        public int PlanningYears => planningYears == 0 ? definition.years : planningYears;
+        public bool DecisionsFinished => Year > PlanningYears || (Year >= PlanningYears && Phase != TownPhase.Planning && Phase != TownPhase.Resolving);
+        public bool AllPlotsAssigned => definition.actions.Length > 0 && definition.sites.Where(s => !s.protectedSite && definition.actions.Any(a => a.siteId == s.id))
+            .All(s => assets.Any(a => a.siteId == s.id) || queue.Any(q => q.siteId == s.id));
+        public long CurrentYearReservedCents => DueForPlan(queue);
+
+        public void ConfigurePlanningYears(int years, int expectedRevision)
+        {
+            Planning(); Current(expectedRevision);
+            Require(Year == 1 && history.Count == 0 && queue.Length == 0 && undo.Count == 0 && redo.Count == 0,
+                "Choose the number of decision years before making a plan.");
+            Require(years >= 1 && years <= definition.years, "Decision years must be within the ten-year horizon.");
+            int value = years == definition.years ? 0 : years;
+            if (value == planningYears) return;
+            planningYears = value; Revision++;
+        }
+
+        // Removing a use never refunds an accepted payment. Remaining program payments
+        // are settled, and removal/site preparation costs 10% of the old public price,
+        // with a $25K minimum. These are disclosed authored game assumptions.
+        public long ConversionCost(string siteId)
+        {
+            var old = assets.FirstOrDefault(a => a.siteId == siteId);
+            if (old == null) return 0;
+            var recipe = Action(old.siteId, old.actionId);
+            int remaining = Math.Max(0, old.startedYear + recipe.paymentYears - Math.Max(Year, old.startedYear));
+            return checked(Math.Max(2500000L, recipe.upfrontPublicCostCents / 10) + recipe.annualPublicPaymentCents * remaining);
+        }
+
+        TownAsset[] AssetsForPlan(TownPlannedAction[] plan)
+        {
+            return TownCopies.Copy(assets.Where(a => !plan.Any(q => q.siteId == a.siteId)).ToArray())
+                .Concat(plan.Select(q => {
+                    var old = assets.FirstOrDefault(a => a.siteId == q.siteId);
+                    var recipe = Action(q.siteId, q.actionId);
+                    var previous = history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s => s.siteId == q.siteId);
+                    return new TownAsset { siteId=q.siteId, actionId=q.actionId, startedYear=Year, condition=1,
+                        previousActionId=old?.actionId,
+                        conversionDelayYears=old==null?0:Math.Max(0,1-recipe.constructionYears),
+                        conversionOpeningVegetation=old==null?0:(previous?.vegetatedAreaM2??0)/sites[q.siteId].areaM2 };
+                })).ToArray();
+        }
+
+        long DueForPlan(TownPlannedAction[] plan)
+        {
+            int budgetYear = Phase == TownPhase.Reviewing || Phase == TownPhase.Completed ? Year + 1 : Year;
+            if (budgetYear > definition.years) return ArrearsCents;
+            var next = AssetsForPlan(plan);
+            long upfront = Sum(plan.Select(q => checked(Action(q.siteId,q.actionId).upfrontPublicCostCents + ConversionCost(q.siteId))));
+            return checked(ArrearsCents + upfront + Sum(next.Select(a => checked(ProgramDue(a,budgetYear) + OperatingDue(a,budgetYear)))));
+        }
+
         public AnnualTownSnapshot Snapshot() => new AnnualTownSnapshot {
             schemaVersion = definition.simulation == null ? 1 : 2,
-            runId = RunId, definitionHash = DefinitionHash, phase = Phase, year = Year, revision = Revision,
+            runId = RunId, definitionHash = DefinitionHash, phase = Phase, year = Year, revision = Revision, planningYears = planningYears,
             cashCents = CashCents, arrearsCents = ArrearsCents, queue = Queue, assets = Assets,
             undo = TownCopies.Copy(undo.Reverse().ToArray()), redo = TownCopies.Copy(redo.Reverse().ToArray()), history = History, pendingRequest = PendingRequest,
             simulation=TownCopies.Copy(numericState)
@@ -378,6 +433,8 @@ namespace Terra.Core
             var town = new AnnualTown(rules, save.runId);
             Require(save.definitionHash == town.DefinitionHash && save.history != null && save.queue != null && save.assets != null && save.undo != null, "Save belongs to different rules/data, or is incomplete.");
             Require(save.history.Length <= rules.years, "Too many saved years.");
+            Require(save.planningYears >= 0 && save.planningYears <= rules.years, "Invalid decision horizon.");
+            town.planningYears = save.planningYears;
             if(rules.schemaVersion==3)AnnualSimulation.ValidateState(rules,save.simulation,save.history.Length,save.arrearsCents);
             foreach (var record in save.history)
             {
@@ -420,8 +477,8 @@ namespace Terra.Core
         void ValidateSavedQueue(TownPlannedAction[] plan)
         {
             var used = new HashSet<string>(StringComparer.Ordinal);
-            foreach (var q in plan) { Require(q != null && used.Add(q.siteId) && !assets.Any(a => a.siteId == q.siteId), "Invalid saved plan."); Action(q.siteId, q.actionId); }
-            Require(plan.Length == 0 || checked(CashCents - CommittedCents - NewCommitments(plan)) >= 0, "Saved plan is unaffordable.");
+            foreach (var q in plan) { Require(q != null && used.Add(q.siteId), "Invalid saved plan."); ProposedQueue(q.siteId, q.actionId); }
+            Require(plan.Length == 0 || checked(CashCents - DueForPlan(plan)) >= 0, "Saved plan is unaffordable.");
         }
 
         internal static void Require(bool valid, string message) { if (!valid) throw new ArgumentException(message); }
