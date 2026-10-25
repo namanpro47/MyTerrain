@@ -1,5 +1,14 @@
 # Terra — phase status and evidence
 
+## Lossless browser download reduction — October 25, 2026
+
+The existing Web export now uses Brotli with local/static-server fallback. [Build and actual Chrome verification](evidence/full-game/web-compression/README.md) pin clean source `7db6a5d`, 31 anonymously byte-verified files totaling **39,988,802 bytes**, three fresh arrivals **12.631 / 10.373 / 11.700 seconds**, and a successful project → offline annual chapter → Year 10 → replay smoke test. This main-based export is frozen locally. Art and frame pacing are unchanged; the separate terrain candidate's visual/frame-time gate and final public/rehearsal work remain open.
+
+## Integrated terrain browser diagnostic — October 25, 2026
+
+The isolated `987d440` export now has [actual Chrome camera/editing and catalog undo/redo evidence](evidence/full-game/relief-browser/README.md). Previews ≤43.8 ms and placement feedback 43.4 ms pass the bounded input checks. Candidate p95 frame times 39/41 ms fail stable 30 FPS; sequential control `67f867e` measured 30 ms with matching viewport and focused telemetry. Actual initial Wisconsin responses total 52,557,275 bytes, above the 50 MB budget. Evidence is on main; candidate scenery remains isolated and unaccepted. Final quality/public release/rehearsal gates remain open.
+
+
 **Latest visual checkpoint, study54:** Connected Wisconsin grass swaths replace the fine mapped scatter, using the existing free source model.20,770 roots pass cover/road/site/ground checks; actual normal/close/wide Editor comparisons are preserved. Browser, treatment consistency and the whole-scene visual gate remain open. [Findings](evidence/phase2a/visual-rebuild/study54-findings.md).
 
 **Latest visual checkpoint, study53:** Wisconsin paths gain subdued wear and grass shoulders from a free artist texture, with visible attribution. All1,048,576 outer-mask pixels match the prior renderer; credits fit both text sizes. [Candidate, controls and limitations](evidence/phase2a/visual-rebuild/study53-findings.md). The crop-canopy trial is rejected; meadow/field quality and browser gates remain open.
@@ -25,6 +34,7 @@
 **Previous checkpoint: study36, not accepted.** [Broad grassland findings](evidence/phase2a/visual-rebuild/study36-findings.md) and [exact export/Chrome evidence](evidence/phase2a/visual-rebuild/study36-build.json) now cover source `a54d2fe`, including main through `a686a5b`. Opening, close and overview captures show larger grass patches, but coarse repetition, weak transitions and forest-floor gaps remain. One foreground 1280×720 route averaged **46.34 FPS**, p95 **32ms**, p99 **40ms**, with no error-level logs; queue/undo preserved cash. This is slower than study34b and is retained on the working branch for revision, not ready for main. Compilation and209 lifecycle assertions pass; established/mature grass shader colors and full performance acceptance remain pending. Phase 2A stays open. Free resources only; no image generation.
 
 **Previous checkpoint: study34b, still unaccepted.** Corrected forest export `f88b6f6` passed exact local byte verification at **47.8 MB**. One foreground Chrome route measured **19ms p95/p99**; queue/undo preserved cash, with no error-level browser logs. Distant foliage is recovered, but overview repetition, bare lower layers and the broad flat grass surface remain substantial gaps. [Actual Chrome evidence](evidence/phase2a/visual-rebuild/study34b-build.json) · [rejected understory/material/composition trials and next direction](evidence/phase2a/visual-rebuild/study35-findings.md). Phase 2A remains open. No dimension is certified at 4.5/5; no purchase or image generation.
+
 ## Swale preview query optimization — October 25, 2026
 
 Narrow fix `ed2055b` skips distant basin samples and avoids repeated route square roots without changing depth, footprint, density or annual rules.78,000 sampled comparisons preserve the profile within0.00000024m; actual ground/undo/Year10/save/comparison checks pass on both current main and the isolated selective-terrain candidate. Candidate ground refresh drops40–61→8–9ms in single Editor samples. Main preview+flush still measures111ms; Chrome and the broader performance gate remain open. [Source identities, before/after measurements and validation](evidence/full-game/selective-relief/README.md). No unaccepted scenery was merged or deployed.

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "53ded5d44d10790fb5fe1c172e58641f.data.unityweb",
+    "raw": 48677250,
+    "gzip": 37287481,
+    "brotli": 33606558,
+    "saved": 3680923,
+    "seconds": 172.66
+  },
+  {
+    "file": "3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb",
+    "raw": 331329,
+    "gzip": 76732,
+    "brotli": 67776,
+    "saved": 8956,
+    "seconds": 0.58
+  },
+  {
+    "file": "c39db0965e71ec7a84d298b73f140555.wasm.unityweb",
+    "raw": 40431260,
+    "gzip": 11135263,
+    "brotli": 7525053,
+    "saved": 3610210,
+    "seconds": 157.2
+  }
+]

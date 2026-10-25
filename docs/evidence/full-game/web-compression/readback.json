@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "UnityEditor.AssetDatabase.Refresh(); return new { compression = UnityEditor.PlayerSettings.WebGL.compressionFormat.ToString(), fallback = UnityEditor.PlayerSettings.WebGL.decompressionFallback, codeOptimization = UnityEditor.WebGL.UserBuildSettings.codeOptimization.ToString() };"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "compression": "Brotli",
+        "fallback": true,
+        "codeOptimization": "RuntimeSpeedLTO"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
