@@ -1,0 +1,14 @@
+{
+  "passed": false,
+  "stage": "dense compiled player; exact stage not instrumented",
+  "observedError": "abort(\"OOM\") at abortOnCannotGrowMemory / _emscripten_resize_heap",
+  "observation": "Chrome accessibility tree displayed Unity error alert; subsequent browser commands timed out and the tab became blank. Closed only the owned test tab through native Chrome Cmd-W. No dense result callback was received.",
+  "sourceCommit": "ec39e38",
+  "runId": "dense-projection/suusamyr-v1",
+  "initialMemoryMiB": 32,
+  "maximumMemoryMiB": 2048,
+  "growthMode": "Geometric",
+  "settingsSource": "Generated ProjectSettings and Bee WebGLPlayerBuildConfig",
+  "recordedUtc": "2026-10-25T19:55:17.626606+00:00",
+  "limitations": "No measured peak heap or exact failing managed operation yet; other builds/user tabs present. Not a quiet performance run."
+}

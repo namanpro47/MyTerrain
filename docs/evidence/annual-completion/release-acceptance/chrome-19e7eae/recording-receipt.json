@@ -1,0 +1,33 @@
+{
+  "source": "19e7eae835ed4c06a21d42887a9a53ed28cc4fc2",
+  "date": "2026-10-25",
+  "files": [
+    {
+      "path": "/Users/naman/.codex/worktrees/annual-release-acceptance/Terra/Builds/Recording/terra-recorded-2026-10-25-19e7eae-local-canvas.webm",
+      "bytes": 52869842,
+      "sha256": "26aab3e375e3b8d57de1d662181d91a811c40090014df24edd23c9def6f3a6e6"
+    },
+    {
+      "path": "/Users/naman/.codex/worktrees/annual-release-acceptance/Terra/Builds/Recording/terra-recorded-2026-10-25-19e7eae-fallback.mp4",
+      "bytes": 13974873,
+      "sha256": "ef80732eb248f8a3757795c7ca66ff895725a44398c6426727e3c0966340b855"
+    }
+  ],
+  "wrapperSeconds": 207.0,
+  "decodedSeconds": 206.7,
+  "sourceFrames": 1707,
+  "sourceResolution": [
+    3456,
+    1880
+  ],
+  "sourceCodec": "VP9",
+  "deliveryResolution": [
+    1728,
+    940
+  ],
+  "deliveryCodec": "H264",
+  "deliveryContainerFPS": 30,
+  "deliveryFrames": 6201,
+  "audio": false,
+  "note": "Actual local Chrome canvas. Captured frame cadence averages about8.3fps under concurrent work; output repeats captured frames to normalize30fps timing and does not imply30fps gameplay. Silent labelled fallback, not public hosted-AI footage. No cuts, gameplay injections, or synthesized frames. Source and final output fully decoded with exit0; source varied-frame-rate first MP4 intermediate gave null-mux timestamp warnings, final30fps output has no decode warnings."
+}

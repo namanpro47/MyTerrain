@@ -3,7 +3,7 @@ using System.Text.Json;
 namespace UnityEngine {
  public class MonoBehaviour { public GameObject gameObject = null; }
  public class GameObject { public string name; public GameObject(string value) { name=value; } public T AddComponent<T>() where T : MonoBehaviour,new() => new T {gameObject=this}; }
- public static class Debug { public static void Log(object value) {} public static void LogWarning(object value) {} public static void LogException(Exception e, object context) {} }
+ public static class Debug { public static readonly List<string> Logs=new(); public static void Log(object value) {Logs.Add(value.ToString());} public static void LogWarning(object value) {} public static void LogException(Exception e, object context) {} }
  public static class Time { public static float realtimeSinceStartup; public static double realtimeSinceStartupAsDouble; }
  public static class JsonUtility {
  static readonly JsonSerializerOptions Options = new JsonSerializerOptions {IncludeFields=true};

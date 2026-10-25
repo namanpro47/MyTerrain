@@ -98,6 +98,15 @@ Check(gain.social<=.000001,"Saturated recreation promised social gain");
 var growth=new AnnualTown(rulesV5,"growing");var grass=rulesV5.actions.First(a=>a.actionId=="restore-grass");growth.QueueAction(grass.siteId,grass.actionId,0);End(growth);growth.ContinuePlanning(growth.Revision);
 Compare(growth,rulesV5.actions.First(a=>a.actionId=="public-park"&&a.siteId!=grass.siteId));
 var legacy=new AnnualTown(d,"legacy");Check(AnnualProjectPreview.Create(d,legacy.Snapshot(),d.actions.First(a=>a.actionId=="data-center")).available,"Legacy rules unsupported");
+// Main now permits changing an accepted use; previews must share conversion delay and vegetation.
+var conversion=new AnnualTown(rulesV5,"conversion");conversion.QueueAction(park.siteId,park.actionId,0);End(conversion);conversion.ContinuePlanning(conversion.Revision);
+var immediate=rulesV5.actions.First(a=>a.siteId==park.siteId&&a.actionId=="cover-crop");
+Compare(conversion,immediate);
+Check(AnnualProjectPreview.Create(rulesV5,conversion.Snapshot(),immediate).openingYear==conversion.Year+Math.Max(1,immediate.constructionYears),"Conversion opening delay");
+conversion.QueueAction(immediate.siteId,immediate.actionId,conversion.Revision);Compare(conversion,immediate);
+End(conversion);conversion.ContinuePlanning(conversion.Revision);
+Check(AnnualProjectPreview.CompletedConstruction(immediate,conversion.Assets.First(a=>a.siteId==immediate.siteId),conversion.Snapshot())==1,"Conversion construction progress");
+Compare(conversion,replacement);
 var benchmarkState=new AnnualTown(rulesV5,"timing").Snapshot();
 var sw=System.Diagnostics.Stopwatch.StartNew();for(int i=0;i<100;i++)AnnualProjectPreview.Create(rulesV5,benchmarkState,park);sw.Stop();
 Console.WriteLine("Project preview checks passed: "+checks+"; uncached comparison mean "+(sw.Elapsed.TotalMilliseconds/100).ToString("0.0")+" ms");

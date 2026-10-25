@@ -1,36 +1,33 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09131a"><title>MyTerrain</title>
-<link rel="preload" as="image" href="globe-preview.webp" fetchpriority="high">
-<link rel="preload" as="font" href="LilitaOne-Regular.ttf" type="font/ttf" crossorigin>
+<link rel="preload" as="image" href="loading-landscape.webp" fetchpriority="high">
 <style>
-@font-face{font-family:Lilita;src:url('LilitaOne-Regular.ttf') format('truetype');font-display:swap}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#071219;color:#fff7d7;font-family:system-ui,sans-serif}
 canvas{display:block;width:100%;height:100%;outline:none;touch-action:none}
-#loading{position:fixed;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 46%,#10272e 0,#09181f 49%,#050f15 100%)}
+#loading{position:fixed;inset:0;overflow:hidden;background:#10261c}
+#loading::before{content:"";position:absolute;inset:-30px;background:url("loading-landscape.webp") center/cover;filter:blur(24px) brightness(.4)}
+#loading::after{content:"";position:absolute;inset:65% 0 0;background:linear-gradient(transparent,rgba(5,20,14,.85));pointer-events:none}
 #loading[hidden]{display:none}
-.stars{position:absolute;inset:0;opacity:.6;background-image:radial-gradient(circle,#a9d7d4 1px,transparent 1.5px),radial-gradient(circle,#fff0b5 1px,transparent 1.5px),radial-gradient(circle,#69989a 1px,transparent 1.5px);background-size:197px 173px,337px 293px,269px 229px;background-position:23px 51px,119px 81px,61px 139px}
-h1{position:absolute;top:3.7%;left:0;right:0;margin:0;text-align:center;font-family:Lilita,system-ui,sans-serif;font-weight:400;font-size:clamp(30px,5.1vh,54px);line-height:1.1}
-.globe{position:absolute;width:min(71vh,90vw);height:min(71vh,90vw);left:50%;top:45.2%;transform:translate(-50%,-50%);border-radius:50%;object-fit:cover;box-shadow:0 0 65px #24515a28;user-select:none}
-.arrival{position:absolute;top:84%;left:50%;transform:translateX(-50%);width:min(320px,80vw);text-align:center}
-#status{margin:0 0 16px;font-size:14px;line-height:1.5;letter-spacing:.02em;color:#c7dbd6}
+.loading-art{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center top;user-select:none}
+.arrival{position:absolute;z-index:1;bottom:max(32px,6vh);left:50%;transform:translateX(-50%);width:min(280px,80vw);text-align:center}
+#status{margin:0 0 16px;font-size:14px;line-height:1.5;letter-spacing:.02em;color:#fff7d7;text-shadow:0 1px 8px #061b11}
 progress{display:block;appearance:none;border:0;width:100%;height:3px;overflow:hidden;border-radius:3px;background:#294047;color:#f5d178}
 progress::-webkit-progress-bar{background:#294047;border-radius:3px}progress::-webkit-progress-value{background:#f5d178;border-radius:3px}progress::-moz-progress-bar{background:#f5d178}
 .arrival[data-stage="starting"] progress{background:linear-gradient(90deg,#294047 20%,#f5d178 50%,#294047 80%);background-size:200% 100%;animation:drift 2s linear infinite}
 .arrival[data-stage="starting"] progress::-webkit-progress-bar{background:transparent}
 @keyframes drift{to{background-position:-200% 0}}
 button{padding:10px 24px;border:0;border-radius:8px;background:#f5d178;color:#09131a;font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #fff7d7;outline-offset:4px}button[hidden]{display:none}
-#loading.failed .arrival{top:auto;bottom:5%}#loading.failed progress{display:none}
+#loading.failed progress{display:none}
 noscript{position:fixed;left:10%;right:10%;bottom:5%;text-align:center;background:#071219;padding:20px;color:#fff7d7}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-@media(max-aspect-ratio:3/4){.globe{top:44%}.arrival{top:76%}h1{top:10%}}
+@media(max-aspect-ratio:3/2){.loading-art{object-fit:contain;object-position:center center}}
 @media(prefers-reduced-motion:reduce){.arrival[data-stage="starting"] progress{animation:none}}
 </style></head>
 <body><canvas id="unity-canvas" tabindex="-1" aria-hidden="true" aria-label="MyTerrain. Drag the globe to rotate. Use 1, 2 or 3 to choose a location, then Enter to descend. Shift Escape returns to the globe." aria-describedby="instructions"></canvas>
 <p id="instructions" class="sr-only">All map selection and gameplay run inside Unity. Arrow keys rotate the globe; plus and minus zoom. In the landscape, B opens projects, Tab cycles sites, Enter queues a proposal and E reviews the year. Question mark opens controls and accessibility settings.</p>
 <div id="loading" aria-busy="true">
-  <div class="stars" aria-hidden="true"></div>
-  <h1>MyTerrain</h1>
-  <img class="globe" src="globe-preview.webp" width="668" height="668" alt="" fetchpriority="high" draggable="false">
+  <h1 class="sr-only">MyTerrain — Shape your world.</h1>
+  <img class="loading-art" src="loading-landscape.webp" width="1536" height="1024" alt="" fetchpriority="high" draggable="false">
   <div class="arrival" data-stage="starting">
     <p id="status" role="status" aria-live="polite">Opening your world…</p>
     <progress id="progress" max="1" aria-label="Loading your world"></progress>
@@ -38,4 +35,4 @@ noscript{position:fixed;left:10%;right:10%;bottom:5%;text-align:center;backgroun
   </div>
 </div>
 <noscript>MyTerrain needs JavaScript to run. Please enable it and reload.</noscript>
-<script>window.TERRA_BUILD={loader:'Build/{{{ LOADER_FILENAME }}}',data:'Build/{{{ DATA_FILENAME }}}',framework:'Build/{{{ FRAMEWORK_FILENAME }}}',code:'Build/{{{ CODE_FILENAME }}}'};</script><script src="player.js"></script></body></html>
+<script>window.TERRA_BUILD={loader:'Build/{{{ LOADER_FILENAME }}}',data:'Build/{{{ DATA_FILENAME }}}',framework:'Build/{{{ FRAMEWORK_FILENAME }}}',code:'Build/{{{ CODE_FILENAME }}}'};</script><script src="narration.js"></script><script src="player.js"></script></body></html>

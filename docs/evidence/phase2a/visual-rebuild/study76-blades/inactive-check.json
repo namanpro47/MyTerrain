@@ -1,0 +1,6 @@
+{
+  "studyGuids": 16,
+  "outsideStudyReferences": [],
+  "inactive": true,
+  "scope": "Tracked Assets references to study GUIDs; all study content is outside Resources and production scenes."
+}

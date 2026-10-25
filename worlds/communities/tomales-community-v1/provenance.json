@@ -1,0 +1,30 @@
+{
+  "retrievedUtc": "2026-10-25T18:49:44.976128+00:00",
+  "locationEvidence": "https://www.marincounty.gov/sites/g/files/fdkgoe241/files/2024-03/tomales_community_plan_1997.pdf",
+  "licenseUrl": "https://www.usgs.gov/centers/eros/science/usgs-eros-archive-aerial-photography-national-agriculture-imagery-program-naip",
+  "serviceUrl": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer?f=json",
+  "catalogUrl": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/query?f=json&where=Category%3D1&geometry=507663.7619482949%2C4232557.293069109%2C508863.7619482949%2C4233757.293069109&geometryType=esriGeometryEnvelope&inSR=32610&spatialRel=esriSpatialRelIntersects&outFields=%2A&returnGeometry=true&outSR=32610",
+  "imageryRequest": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=507663.7619482949%2C4232557.293069109%2C508863.7619482949%2C4233757.293069109&bboxSR=32610&imageSR=32610&size=2048%2C2048&format=jpg&bandIds=0%2C1%2C2&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicLockRaster%22%2C+%22lockRasterIds%22%3A+%5B22619%2C+22649%5D%2C+%22mosaicOperation%22%3A+%22MT_FIRST%22%7D&noData=0&f=json&adjustAspectRatio=false&interpolation=RSP_BilinearInterpolation",
+  "elevationRequest": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?bbox=507658.7619482949%2C4232552.293069109%2C508868.7619482949%2C4233762.293069109&bboxSR=32610&imageSR=32610&size=121%2C121&format=tiff&pixelType=F32&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&f=image&interpolation=RSP_BilinearInterpolation&adjustAspectRatio=false",
+  "sourceHashes": {
+    "imagery": "c05237cbb94321df6f15eb1593b2c62c1fff2cbbab20595cf72f4d88377b5faa",
+    "elevation": "d6520aead9e188e024a89388e7de8f8b38e56f03a4b48c46bdb90cf732ff4249",
+    "catalog": "1ec64f10b68403ea53f9863fa452d25c66266a282e6b99073adb2dc98dce0cab"
+  },
+  "processing": "NAIP RGB mosaic locked to source IDs, reprojected by USGS to local UTM. 3DEP unrendered float elevation sampled at 10 m; north-to-south rows flipped. No height exaggeration. Image UVs share the exact projected extent.",
+  "elevationDate": "Mixed USGS 3DEP mosaic; acquisition date not resolved. Retrieval is not acquisition.",
+  "imageExport": {
+    "width": 2048,
+    "height": 2048,
+    "extent": {
+      "xmin": 507663.7619482949,
+      "ymin": 4232557.293069109,
+      "xmax": 508863.7619482949,
+      "ymax": 4233757.293069109,
+      "spatialReference": {
+        "wkid": 32610,
+        "latestWkid": 32610
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "source": "https://github.com/gdquest-demos/godot-shaders",
+  "revision": "f8fbea9cc6dd69cf74a56c2fc41b0ba6c3362265",
+  "tag": "1.0.0",
+  "license": "Code MIT; art CC BY4.0, credit GDQuest and contributors (https://www.gdquest.com/). Preserve both notices when adapting geometry.",
+  "localSource": "Builds/ArtResearch/Study75/gdquest-src",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1476,
+      "sha256": "571ec1d87f266565d599dbeff1ba59ad24416b6c2703fe8cd70f867e4ce4dc8a"
+    },
+    {
+      "path": "godot/Shaders/wind_grass.shader",
+      "bytes": 3363,
+      "sha256": "88128391dad05e3e2e1bdbcf0b5cd1fe9d7055ac38c27c21c74ce1c4fb298496"
+    },
+    {
+      "path": "godot/Demos/WindGrass/GrassMesh.gd",
+      "bytes": 1289,
+      "sha256": "c4244e6594067f4b501f0f8a16491a8b128df8c62ce9869ef941174b5085f063"
+    },
+    {
+      "path": "godot/Demos/WindGrass/grass_triangle.obj",
+      "bytes": 671,
+      "sha256": "e23d5b1a8934efd6cc6195a6e98c7c136a014eb02f5c0d181e604c160b9f8b35"
+    },
+    {
+      "path": "godot/Demos/WindGrass/wind_grass.tres",
+      "bytes": 1320,
+      "sha256": "473801bbbce2df687fe1fa65aadac245629e4a93a588e339195a22a8186f3357"
+    },
+    {
+      "path": "godot/Demos/WindGrass/WindGrassScene.tscn",
+      "bytes": 110158,
+      "sha256": "f7eccaa76bbb154f0353918f98ad3ecc82ac4ec948780e326c408a2f2a3076d3"
+    }
+  ],
+  "inspection": {
+    "bladeTriangles": 7,
+    "bladePositions": 9,
+    "sourceBladeHeight": 2.013708,
+    "shader": "unshaded two-sided blade with source gradient and world-driven wind",
+    "unityPort": "not implemented or rendered",
+    "nativeGodotDemo": "source inspected, not executed"
+  },
+  "scope": "Substantial alternative to detailed wheat meshes. No acquisition cost, generated image or production import."
+}

@@ -40,8 +40,7 @@ namespace Terra.Core
                 newProjects = added, continuingProjects = report.acceptedRequest.assets.Count(a=>a.cancelledYear==0)-cancelled,
                 headline = cancelled>0 ? cancelled+" project(s) cancelled; "+added+" new project(s) committed." : added == 0 ? "No new projects. Existing land and commitments still advanced."
                     : added + (added == 1 ? " new project committed." : " new projects committed."),
-                scenario = report.acceptedRequest.driver.description + " (" + report.acceptedRequest.driver.evidenceLevel + "). Output multiplier: "
-                    + Number(report.acceptedRequest.driver.productionFactor) + ".",
+                scenario = report.acceptedRequest.driver.description + " (" + report.acceptedRequest.driver.evidenceLevel + ").",
                 simulationNotice = PlaceholderNotice,
                 ledger = ledger,
                 spentCents = checked(ledger.upfrontPaidCents + ledger.programPaidCents + ledger.operatingPaidCents + ledger.repairPaidCents + ledger.arrearsPaidCents),
@@ -49,7 +48,7 @@ namespace Terra.Core
                 cashChangeCents = checked(ledger.closingCashCents - ledger.openingCashCents),
                 freeAfterCommitmentsCents = checked(ledger.closingCashCents - ledger.futureCommitmentsCents),
                 economic = Metric("Economic", outcome.economicScore, previous?.outcomes.economicScore,
-                    Number(outcome.productionUnits) + " illustrative production units; operating payments " + Money(ledger.operatingPaidCents) + " / " + Money(ledger.operatingDueCents) + " due.", outcome.economicExplanation),
+                    "Public operating payments " + Money(ledger.operatingPaidCents) + " / " + Money(ledger.operatingDueCents) + " due.", outcome.economicExplanation),
                 social = Metric("Social", outcome.socialScore, previous?.outcomes.socialScore,
                     Number(outcome.serviceUnits) + " illustrative service units; " + outcome.disruptedSites + " disrupted sites. " + (definition.actions.All(a => a.servicesFollowProduction) ? "Services use the configured production proxy." : "Food, housing and recreation use separate authored capacities."), outcome.socialExplanation),
                 environmental = Metric("Environmental", outcome.environmentalScore, previous?.outcomes.environmentalScore,
@@ -61,8 +60,7 @@ namespace Terra.Core
                     string phase = site.actionId == null ? "Existing use" : site.phase.ToString();
                     string transition = old != null && old.actionId != null && old.phase != site.phase ? old.phase + " -> " + phase : phase;
                     string project = site.actionId == null ? "" : " / " + definition.actions.First(a => a.siteId == site.siteId && a.actionId == site.actionId).title;
-                    return name + project + ": " + transition + "; production " + Number(site.productionUnits)
-                        + (old == null ? "" : " (" + Signed(site.productionUnits - old.productionUnits) + " vs last year)")
+                    return name + project + ": " + transition
                         + (site.actionId == null ? "" : "; establishment " + (site.maturity * 100).ToString("0", CultureInfo.InvariantCulture) + "%")
                         + ". " + site.explanation;
                 }).ToArray()

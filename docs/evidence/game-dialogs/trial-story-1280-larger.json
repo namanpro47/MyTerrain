@@ -1,0 +1,165 @@
+{
+  "cssWidth": 1280,
+  "cssHeight": 720,
+  "pixelRatio": 1,
+  "modal": true,
+  "largeText": true,
+  "reducedMotion": false,
+  "muted": false,
+  "labels": [
+    {
+      "text": "YEAR 1  /  local summary",
+      "rect": {
+        "x": 312,
+        "y": 143.04998779296875,
+        "width": 470,
+        "height": 22
+      },
+      "bodyCssPx": 13.440000534057617,
+      "minGlyphCssPx": 13.440000534057617,
+      "preferredHeight": 15.020000457763672,
+      "availableHeight": 22
+    },
+    {
+      "text": "A year takes shape",
+      "rect": {
+        "x": 312,
+        "y": 183.04998779296875,
+        "width": 656,
+        "height": 44
+      },
+      "bodyCssPx": 33.599998474121094,
+      "minGlyphCssPx": 33.599998474121094,
+      "preferredHeight": 37.540000915527344,
+      "availableHeight": 44
+    },
+    {
+      "text": "Close · Esc",
+      "rect": {
+        "x": 872,
+        "y": 137.04998779296875,
+        "width": 100,
+        "height": 32
+      },
+      "bodyCssPx": 14.5600004196167,
+      "minGlyphCssPx": 14.5600004196167,
+      "preferredHeight": 16.270000457763672,
+      "availableHeight": 32
+    },
+    {
+      "text": "Read chapter →",
+      "rect": {
+        "x": 656,
+        "y": 532.9500122070312,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 44
+    },
+    {
+      "text": "Budget & meters",
+      "rect": {
+        "x": 322,
+        "y": 532.9500122070312,
+        "width": 302,
+        "height": 44
+      },
+      "bodyCssPx": 17.920000076293945,
+      "minGlyphCssPx": 17.920000076293945,
+      "preferredHeight": 20.030000686645508,
+      "availableHeight": 44
+    },
+    {
+      "text": "AI unavailable. This year, you gave the existing landscape time. No new projects were added, but the community's needs and the costs of caring for earlier choices continued.\n\nThe year's results reflect the land and services already in use.\n\n<b>Cash  $11,000,000</b>\nReserved for later years  $0\n\nIllustrative game outcomes · not a forecast.",
+      "rect": {
+        "x": 312,
+        "y": 243.04998779296875,
+        "width": 656,
+        "height": 247.89999389648438
+      },
+      "bodyCssPx": 20.15999984741211,
+      "minGlyphCssPx": 20.15999984741211,
+      "preferredHeight": 247.89999389648438,
+      "availableHeight": 247.89999389648438
+    }
+  ],
+  "controls": [
+    {
+      "name": "Button Return to landscape  Esc",
+      "enabled": true,
+      "rect": {
+        "x": 868,
+        "y": 137.04998779296875,
+        "width": 108,
+        "height": 32
+      }
+    },
+    {
+      "name": "Button ",
+      "enabled": true,
+      "rect": {
+        "x": 646,
+        "y": 530.9500122070312,
+        "width": 322,
+        "height": 48
+      }
+    },
+    {
+      "name": "Button All proposals",
+      "enabled": true,
+      "rect": {
+        "x": 312,
+        "y": 530.9500122070312,
+        "width": 322,
+        "height": 48
+      }
+    }
+  ],
+  "panels": [
+    {
+      "x": 16,
+      "y": 16,
+      "width": 310,
+      "height": 54
+    },
+    {
+      "x": 16,
+      "y": 572,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "x": 16,
+      "y": 78,
+      "width": 310,
+      "height": 100
+    },
+    {
+      "x": 776,
+      "y": 16,
+      "width": 488,
+      "height": 94
+    },
+    {
+      "x": 468,
+      "y": 592,
+      "width": 344,
+      "height": 128
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "x": 280,
+      "y": 117.04998779296875,
+      "width": 720,
+      "height": 485.9000244140625
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Build Report - Content Size Statistics
+Note: this shows uncompressed sizes.  Actual sizes may be smaller because of Unity Archive compression.
+Serialized File count                      6
+Resource file count                        0
+Object count                            2544
+Serialized Files                     107.3 mb	 100.0%
+Serialized Files Headers              77.1 kb	   0.1%
+Resource data (Texture,Audio...)       0.0 bytes	   0.0%
+Total build size                     107.3 mb
+
+Largest Types:
+    81.3 mb	  75.8% Texture2D
+    12.1 mb	  11.3% Mesh
+     9.9 mb	   9.2% AudioClip
+     1.5 mb	   1.4% Shader
+     1.1 mb	   1.0% TextAsset
+
+Largest Assets:
+     5.3 mb	   5.0% Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Textures/Trees/T_fwOF_Leaf_Branch_BC.png
+     5.3 mb	   5.0% Assets/Terra/Resources/JulioGround/MeadowNormal.jpg
+     5.3 mb	   5.0% Assets/Terra/Resources/JulioGround/StonesNormal.jpg
+     5.3 mb	   5.0% Assets/Terra/Resources/JulioGround/EdgeNormal.jpg
+     5.3 mb	   5.0% Assets/Terra/Resources/JulioGround/EarthNormal.jpg
+     5.3 mb	   5.0% Assets/Terra/Resources/Atlas/Earth.jpg
+     3.0 mb	   2.8% Assets/Terra/Resources/Audio/music-vaporware.ogg
+     2.7 mb	   2.5% Assets/Terra/Resources/JulioGround/EarthColor.jpg
+     2.7 mb	   2.5% Assets/Terra/Resources/JulioGround/StonesColor.jpg
+     2.7 mb	   2.5% Assets/Terra/Resources/JulioGround/EdgeColor.jpg
+     2.7 mb	   2.5% Assets/Terra/Resources/JulioGround/MeadowColor.jpg
+     1.8 mb	   1.7% Assets/Terra/Resources/Audio/music-mystical.ogg
+     1.4 mb	   1.3% Assets/Terra/Art/ExternalKit/BuildActions/Meshes/stewardship-agreement-leafLight.asset
+     1.4 mb	   1.3% Assets/Terra/Audio/ExternalKit/Clips/ambient-wind.wav
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Bark_Normal.png
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Leaves.png
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark_Normal.png
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Leaves.png
+     1.3 mb	   1.2% Assets/Terra/Resources/Water/SurfaceNormal.png
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusNature/Textures/Leaves.png
+     1.3 mb	   1.2% Assets/Terra/Art/QuaterniusNature/Textures/Flowers.png
+     1.3 mb	   1.2% Assets/Terra/Art/ExternalKit/BuildActions/Meshes/ground-cover-restoration-leafLight.asset
+-------------------------------------------------------------------------------

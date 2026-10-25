@@ -1,0 +1,19 @@
+{
+  "preparedAt": "2026-10-25T19:59:44.661245+00:00",
+  "candidate": "225680bfa1c72d886b340c9002df74c69186c72e",
+  "runtimePreparationCommit": "124393c",
+  "worldBase": "19e7eae835ed4c06a21d42887a9a53ed28cc4fc2",
+  "latestFetchedMain": "06f51b2e4ee5e1ca55d0b8d8b90a5e6bf321aa82",
+  "worktree": "/Users/naman/.codex/worktrees/terra-field76/Terra",
+  "sourceFiles": {
+    "Assets/Terra/Art/FieldBladeStudy/Blade.shader": "467292897c2ff31d987f5139f7395bf7bdfabf7a66d4634a7b2518b19956a72f",
+    "Assets/Terra/Art/FieldBladeStudy/Editor/Study76Builder.cs": "56b6254049bce50dda8aa7900fadb1ae9de7afe4c8ec283816dac2e7341fa9e2",
+    "Assets/Terra/Art/FieldBladeStudy/Editor/Study76Scene.cs": "cc82a6e62dca0c88a1c3a756f3f4514e5ef442802983a67206c34872d20dc63a",
+    "Assets/Terra/Art/FieldBladeStudy/GDQuest/LICENSE.txt": "571ec1d87f266565d599dbeff1ba59ad24416b6c2703fe8cd70f867e4ce4dc8a",
+    "Assets/Terra/Art/FieldBladeStudy/GDQuest/SOURCE.md": "f14be712dbace9a86cf37ae18ff35814b25a0e14f693a5183e5c45328e027229",
+    "Assets/Terra/Art/FieldBladeStudy/GDQuest/grass_triangle.obj": "e23d5b1a8934efd6cc6195a6e98c7c136a014eb02f5c0d181e604c160b9f8b35",
+    "Assets/Terra/Art/FieldBladeStudy/GDQuest/wind_grass.godot.txt": "88128391dad05e3e2e1bdbcf0b5cd1fe9d7055ac38c27c21c74ce1c4fb298496",
+    "Assets/Terra/Art/FieldBladeStudy/GDQuest/wind_grass.material.txt": "473801bbbce2df687fe1fa65aadac245629e4a93a588e339195a22a8186f3357"
+  },
+  "verification": "Pre-import identity only; no rendering or compilation claim."
+}

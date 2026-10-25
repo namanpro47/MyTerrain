@@ -24,6 +24,7 @@ namespace Terra.Core
                 var titles=report.acceptedRequest.actions.Where(q=>q.actionId!=AnnualPlayerRules.CancelAction).Select(q=>definition.actions.First(a=>a.siteId==q.siteId&&a.actionId==q.actionId).title).Distinct().Take(2);
                 opening+=" Your commitments include "+string.Join(" and ",titles)+".";
             }
+            if(cancelled>0)opening+=" You also ended "+cancelled+(cancelled==1?" project":" projects")+"; their services and future upkeep stop, leaving disturbed ground for another choice.";
             string pace = building > 0 ? "Some projects are still under construction. Their promised services must wait until they open."
                 : growing > 0 ? "Some projects are still establishing. Their benefits will develop over time rather than arriving all at once."
                 : "The year's results reflect the land and services already in use.";
@@ -58,6 +59,46 @@ namespace Terra.Core
                     Card("The land carries the choices", land, "environmental", "weather")
                 }
             };
+        }
+        public static string Decade(AnnualTownDefinition definition, TownYearReport[] history)
+        {
+            if (history == null || history.Length == 0) return "The landscape is waiting for its first decisions.";
+            var end = history.Last();
+            var choices = history.SelectMany(r => r.acceptedRequest.actions).Where(q=>q.actionId!=AnnualPlayerRules.CancelAction).ToArray();
+            int cancelled = history.Sum(r=>r.acceptedRequest.actions.Count(q=>q.actionId==AnnualPlayerRules.CancelAction));
+            var changed = choices.Select(q => q.siteId).Distinct().Count();
+            var conversions = history.Sum(r=>r.acceptedRequest.actions.Count(q=>q.actionId!=AnnualPlayerRules.CancelAction && r.acceptedRequest.assets.Any(a=>a.siteId==q.siteId&&a.cancelledYear==0)));
+            var groups = choices.GroupBy(q => q.actionId).OrderByDescending(g => g.Count()).Take(3)
+                .Select(g => definition.actions.First(a => a.actionId == g.Key).title.ToLowerInvariant()).ToArray();
+            string story = choices.Length == 0
+                ? "You let the decade unfold without adding new projects. The community continued to rely on its existing homes, work and services while the land experienced each year's conditions."
+                : "Over ten years, you reshaped " + changed + (changed == 1 ? " plot" : " plots") + " through " + string.Join(", ", groups) + ". "
+                  + (conversions > 0 ? "You also changed direction on " + conversions + (conversions == 1 ? " occasion" : " occasions") + ", paying to replace earlier uses and allowing the new landscape time to establish. " : "")
+                  + "Those choices changed how the community uses its limited land.";
+            if(cancelled>0)story+=" You also cancelled "+cancelled+(cancelled==1?" project":" projects")+", ending its services and upkeep and leaving land to be reconsidered.";
+            story += "\n\n";
+            var e = end.outcomes.economy;
+            if (e != null)
+            {
+                story += e.occupiedHomes > definition.economy.baselineHomes
+                    ? " More people can be housed than at the beginning, provided those homes keep receiving the water, energy and services they need."
+                    : " Housing remains an important question for the community's next decade.";
+                if (e.jobs > definition.economy.baselineJobs) story += " The accepted projects support additional local work, with ongoing costs and resource needs.";
+                if (e.resourceFraction < .999) story += " Energy or water shortages still limit what those investments can deliver.";
+            }
+            var opening = AnnualGameplay.Baseline(definition);
+            story += end.outcomes.vegetatedAreaM2 > opening.vegetatedAreaM2
+                ? " More vegetated land could support cover and water management as it matures."
+                : end.outcomes.vegetatedAreaM2 < opening.vegetatedAreaM2
+                    ? " Some vegetated land has given way to other uses, leaving a lasting trade-off for land and water management." : " The overall vegetated area remains close to its starting extent.";
+            if (end.outcomes.sites.Any(s => s.actionId != null && (s.phase == TownAssetPhase.Building || s.phase == TownAssetPhase.Establishing)))
+                story += " Some late choices are still building or establishing; their full effects lie beyond this review.";
+            story += end.ledger.closingCashCents < 0
+                ? " The public budget ends in debt, so future funding must repay it before more construction begins."
+                : end.ledger.closingArrearsCents > 0
+                ? " Unpaid bills also carry forward, so the community's next choices start with a financial constraint."
+                : " Keeping these benefits requires continuing to fund the services and care they depend on.";
+            return story + " These are possible consequences within this game, not a forecast for the real community.";
         }
         static AnnualChapterCard Card(string title, string text, params string[] facts)
             => new AnnualChapterCard { title = title, explanation = text, factIds = facts };

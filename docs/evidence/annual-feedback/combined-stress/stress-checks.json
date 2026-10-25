@@ -1,0 +1,5047 @@
+{
+  "definitionHash": "537ce0315da62c6899452978f05d51854ce6432d0a01b19757a1882d623b0363",
+  "checks": 1791,
+  "targets": [
+    75,
+    75,
+    60
+  ],
+  "baselineScores": [
+    42.333333333333336,
+    58.00000000000001,
+    41.9527948562176
+  ],
+  "scope": "Deterministic real-map model checks; no browser, human or global balance optimality claim.",
+  "repeatedFamilies": [
+    {
+      "family": "all-regenerative-variants",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "all-regenerative-variants",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "all-regenerative-variants",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cover-crop",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        49.3864864909594
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cover-crop"
+            }
+          ],
+          "closingCashCents": 977000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1074000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1171000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1268000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1365000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1462000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1544000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1641000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1738000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cover-crop",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        49.3864864909594
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cover-crop"
+            }
+          ],
+          "closingCashCents": 977000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1074000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1171000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1268000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1365000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1462000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1544000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1641000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1738000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cover-crop",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        49.3864864909594
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cover-crop"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cover-crop"
+            }
+          ],
+          "closingCashCents": 977000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1074000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1171000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1268000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1365000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1462000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1544000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1641000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1738000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cultivate-margin",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cultivate-margin",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "cultivate-margin",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        44.987404618021664
+      ],
+      "targetsMet": 1,
+      "cashCents": 1835000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-margin"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-margin"
+            }
+          ],
+          "closingCashCents": 972500000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1070000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1167500000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1265000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1362500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1460000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1542500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1640000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1737500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1835000000
+        }
+      ]
+    },
+    {
+      "family": "data-center",
+      "order": "site-id",
+      "projects": 5,
+      "scores": [
+        75.8119658119658,
+        30.791208791208792,
+        23.38950296267939
+      ],
+      "targetsMet": 1,
+      "cashCents": 245000000,
+      "commitmentsCents": 160000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 376000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 152000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 228000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 296000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 349000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 117000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 245000000
+        }
+      ]
+    },
+    {
+      "family": "data-center",
+      "order": "smallest-first",
+      "projects": 5,
+      "scores": [
+        75.8119658119658,
+        30.791208791208792,
+        23.485933115420284
+      ],
+      "targetsMet": 1,
+      "cashCents": 245000000,
+      "commitmentsCents": 160000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 376000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 152000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 228000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 296000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 349000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 117000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 245000000
+        }
+      ]
+    },
+    {
+      "family": "data-center",
+      "order": "largest-first",
+      "projects": 5,
+      "scores": [
+        75.8119658119658,
+        30.791208791208792,
+        23.38950296267939
+      ],
+      "targetsMet": 1,
+      "cashCents": 245000000,
+      "commitmentsCents": 160000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "data-center"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 376000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 152000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 228000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 296000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 349000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "data-center"
+            }
+          ],
+          "closingCashCents": 117000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 245000000
+        }
+      ]
+    },
+    {
+      "family": "downtown-center",
+      "order": "site-id",
+      "projects": 4,
+      "scores": [
+        91.52088888888889,
+        61.26495726495727,
+        32.887999135305634
+      ],
+      "targetsMet": 1,
+      "cashCents": 275000000,
+      "commitmentsCents": 90000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "village-center"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 400000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 490000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 180000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 355000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 425000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 110000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 195000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 275000000
+        }
+      ]
+    },
+    {
+      "family": "downtown-center",
+      "order": "smallest-first",
+      "projects": 4,
+      "scores": [
+        91.45925925925926,
+        61.26495726495727,
+        32.887999135305634
+      ],
+      "targetsMet": 1,
+      "cashCents": 275000000,
+      "commitmentsCents": 90000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "village-center"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 400000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 490000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 180000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 355000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 425000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 110000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 195000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 275000000
+        }
+      ]
+    },
+    {
+      "family": "downtown-center",
+      "order": "largest-first",
+      "projects": 4,
+      "scores": [
+        91.02785185185185,
+        61.26495726495727,
+        32.825319536024054
+      ],
+      "targetsMet": 1,
+      "cashCents": 275000000,
+      "commitmentsCents": 90000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "village-center"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 300000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 400000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 490000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 180000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 355000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 425000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "village-center"
+            }
+          ],
+          "closingCashCents": 110000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 195000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 275000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-regenerative",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        98.33333333333334,
+        58.00000000000001,
+        47.1980002941891
+      ],
+      "targetsMet": 1,
+      "cashCents": 1793000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "conservation-rotation"
+            }
+          ],
+          "closingCashCents": 936800000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1033600000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1130400000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1227200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1324000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420800000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1502600000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1599400000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1696200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1793000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-regenerative",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        98.33333333333334,
+        58.00000000000001,
+        47.1980002941891
+      ],
+      "targetsMet": 1,
+      "cashCents": 1793000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "conservation-rotation"
+            }
+          ],
+          "closingCashCents": 936800000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1033600000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1130400000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1227200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1324000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420800000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1502600000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1599400000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1696200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1793000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-regenerative",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        98.33333333333334,
+        58.00000000000001,
+        47.1980002941891
+      ],
+      "targetsMet": 1,
+      "cashCents": 1793000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "conservation-rotation"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "conservation-rotation"
+            }
+          ],
+          "closingCashCents": 936800000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1033600000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1130400000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1227200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1324000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420800000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1502600000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1599400000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1696200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1793000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-traditional",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        35.32010618551526
+      ],
+      "targetsMet": 1,
+      "cashCents": 1865000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-standard"
+            }
+          ],
+          "closingCashCents": 998000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1096000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1194000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1292000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1390000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1488000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1571000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1669000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1767000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1865000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-traditional",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        35.32010618551526
+      ],
+      "targetsMet": 1,
+      "cashCents": 1865000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-standard"
+            }
+          ],
+          "closingCashCents": 998000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1096000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1194000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1292000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1390000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1488000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1571000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1669000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1767000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1865000000
+        }
+      ]
+    },
+    {
+      "family": "farmland-traditional",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        89.99999999999999,
+        58.00000000000001,
+        35.32010618551526
+      ],
+      "targetsMet": 1,
+      "cashCents": 1865000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "cultivate-standard"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "cultivate-standard"
+            }
+          ],
+          "closingCashCents": 998000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1096000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1194000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1292000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1390000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1488000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1571000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1669000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1767000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1865000000
+        }
+      ]
+    },
+    {
+      "family": "housing-high",
+      "order": "site-id",
+      "projects": 3,
+      "scores": [
+        40.885544973544974,
+        67.68472906403942,
+        30.42781399699168
+      ],
+      "targetsMet": 0,
+      "cashCents": 480246740,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "high-density-housing"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 301636362
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 403272724
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 504909086
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 606545448
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 193181810
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 294818172
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 387532456
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 480246740
+        }
+      ]
+    },
+    {
+      "family": "housing-high",
+      "order": "smallest-first",
+      "projects": 3,
+      "scores": [
+        41.10228571428571,
+        67.68472906403942,
+        30.3106106870887
+      ],
+      "targetsMet": 0,
+      "cashCents": 480246740,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-07",
+              "actionId": "high-density-housing"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 301636362
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 403272724
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 504909086
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 606545448
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 193181810
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 294818172
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 387532456
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 480246740
+        }
+      ]
+    },
+    {
+      "family": "housing-high",
+      "order": "largest-first",
+      "projects": 3,
+      "scores": [
+        40.63784126984127,
+        67.68472906403942,
+        30.42781399699168
+      ],
+      "targetsMet": 0,
+      "cashCents": 480246740,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "high-density-housing"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 301636362
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 403272724
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 504909086
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 606545448
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "high-density-housing"
+            }
+          ],
+          "closingCashCents": 193181810
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 294818172
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 387532456
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 480246740
+        }
+      ]
+    },
+    {
+      "family": "housing-low",
+      "order": "site-id",
+      "projects": 9,
+      "scores": [
+        41.578370370370365,
+        77.76315789473685,
+        35.72476364893157
+      ],
+      "targetsMet": 1,
+      "cashCents": 1166000000,
+      "commitmentsCents": 9000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "low-density-housing"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 309000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 418000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 527000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 636000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 745000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 839000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 948000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1057000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1166000000
+        }
+      ]
+    },
+    {
+      "family": "housing-low",
+      "order": "smallest-first",
+      "projects": 9,
+      "scores": [
+        41.578370370370365,
+        77.76315789473685,
+        35.72476364893157
+      ],
+      "targetsMet": 1,
+      "cashCents": 1166000000,
+      "commitmentsCents": 9000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-07",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "low-density-housing"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 309000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 418000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 527000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 636000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 745000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 839000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 948000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1057000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1166000000
+        }
+      ]
+    },
+    {
+      "family": "housing-low",
+      "order": "largest-first",
+      "projects": 9,
+      "scores": [
+        41.578370370370365,
+        77.76315789473685,
+        35.72476364893157
+      ],
+      "targetsMet": 1,
+      "cashCents": 1166000000,
+      "commitmentsCents": 9000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "low-density-housing"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "low-density-housing"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 309000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 418000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 527000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 636000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 745000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 839000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 948000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1057000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1166000000
+        }
+      ]
+    },
+    {
+      "family": "power-nonrenewable",
+      "order": "site-id",
+      "projects": 3,
+      "scores": [
+        61.053333333333335,
+        55.714285714285715,
+        30.52860269334555
+      ],
+      "targetsMet": 0,
+      "cashCents": 281000000,
+      "commitmentsCents": 156000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "non-renewable-power"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 276000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 352000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 428000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 504000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 565000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 217000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 281000000
+        }
+      ]
+    },
+    {
+      "family": "power-nonrenewable",
+      "order": "smallest-first",
+      "projects": 3,
+      "scores": [
+        60.973333333333336,
+        55.714285714285715,
+        30.52860269334555
+      ],
+      "targetsMet": 0,
+      "cashCents": 281000000,
+      "commitmentsCents": 156000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "non-renewable-power"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 276000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 352000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 428000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 504000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 565000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 217000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 281000000
+        }
+      ]
+    },
+    {
+      "family": "power-nonrenewable",
+      "order": "largest-first",
+      "projects": 3,
+      "scores": [
+        60.41333333333334,
+        55.714285714285715,
+        30.52860269334555
+      ],
+      "targetsMet": 0,
+      "cashCents": 281000000,
+      "commitmentsCents": 156000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "non-renewable-power"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 276000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 352000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 428000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 504000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 565000000
+        },
+        {
+          "year": 8,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "non-renewable-power"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 217000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 281000000
+        }
+      ]
+    },
+    {
+      "family": "power-renewable",
+      "order": "site-id",
+      "projects": 5,
+      "scores": [
+        46.30133333333333,
+        58.00000000000001,
+        67.75882066236866
+      ],
+      "targetsMet": 1,
+      "cashCents": 385500000,
+      "commitmentsCents": 40500000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "annual-wind-13",
+              "actionId": "wind"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "solar"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 295000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 386000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 177000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 265500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 354000000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 127500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 213500000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 299500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 385500000
+        }
+      ]
+    },
+    {
+      "family": "power-renewable",
+      "order": "smallest-first",
+      "projects": 5,
+      "scores": [
+        48.78933333333333,
+        58.00000000000001,
+        55.45509343578079
+      ],
+      "targetsMet": 0,
+      "cashCents": 395000000,
+      "commitmentsCents": 35000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "solar"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "solar"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 292500000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 385000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-03",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 177500000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 267500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 357500000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 132500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 220000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 307500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 395000000
+        }
+      ]
+    },
+    {
+      "family": "power-renewable",
+      "order": "largest-first",
+      "projects": 5,
+      "scores": [
+        45.846222222222224,
+        58.00000000000001,
+        67.6793690211251
+      ],
+      "targetsMet": 1,
+      "cashCents": 385500000,
+      "commitmentsCents": 40500000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "annual-wind-13",
+              "actionId": "wind"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "solar"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 295000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 386000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 177000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 265500000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 354000000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "solar"
+            }
+          ],
+          "closingCashCents": 127500000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 213500000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 299500000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 385500000
+        }
+      ]
+    },
+    {
+      "family": "public-park",
+      "order": "site-id",
+      "projects": 8,
+      "scores": [
+        47.257777777777775,
+        64.00000000000001,
+        47.263635652602744
+      ],
+      "targetsMet": 0,
+      "cashCents": 1930600000,
+      "commitmentsCents": 1600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "public-park"
+            }
+          ],
+          "closingCashCents": 1060000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1158400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1256800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1355200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1453600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1552000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1635400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1733800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1832200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1930600000
+        }
+      ]
+    },
+    {
+      "family": "public-park",
+      "order": "smallest-first",
+      "projects": 8,
+      "scores": [
+        47.257777777777775,
+        64.00000000000001,
+        47.263635652602744
+      ],
+      "targetsMet": 0,
+      "cashCents": 1930600000,
+      "commitmentsCents": 1600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "public-park"
+            }
+          ],
+          "closingCashCents": 1060000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1158400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1256800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1355200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1453600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1552000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1635400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1733800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1832200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1930600000
+        }
+      ]
+    },
+    {
+      "family": "public-park",
+      "order": "largest-first",
+      "projects": 8,
+      "scores": [
+        47.257777777777775,
+        64.00000000000001,
+        47.263635652602744
+      ],
+      "targetsMet": 0,
+      "cashCents": 1930600000,
+      "commitmentsCents": 1600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "public-park"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "public-park"
+            }
+          ],
+          "closingCashCents": 1060000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1158400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1256800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1355200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1453600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1552000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1635400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1733800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1832200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1930600000
+        }
+      ]
+    },
+    {
+      "family": "restore-grass",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        36.33333333333333,
+        58.00000000000001,
+        72.1134261342553
+      ],
+      "targetsMet": 1,
+      "cashCents": 1890000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "restore-grass"
+            }
+          ],
+          "closingCashCents": 1023000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1121000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1219000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1317000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1415000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1513000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1596000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1694000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1792000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1890000000
+        }
+      ]
+    },
+    {
+      "family": "restore-grass",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        36.33333333333333,
+        58.00000000000001,
+        72.1134261342553
+      ],
+      "targetsMet": 1,
+      "cashCents": 1890000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "restore-grass"
+            }
+          ],
+          "closingCashCents": 1023000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1121000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1219000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1317000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1415000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1513000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1596000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1694000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1792000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1890000000
+        }
+      ]
+    },
+    {
+      "family": "restore-grass",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        36.33333333333333,
+        58.00000000000001,
+        72.1134261342553
+      ],
+      "targetsMet": 1,
+      "cashCents": 1890000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "restore-grass"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "restore-grass"
+            }
+          ],
+          "closingCashCents": 1023000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1121000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1219000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1317000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1415000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1513000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1596000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1694000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1792000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1890000000
+        }
+      ]
+    },
+    {
+      "family": "stewardship-agreement",
+      "order": "site-id",
+      "projects": 10,
+      "scores": [
+        53,
+        64.00000000000001,
+        71.60339806968767
+      ],
+      "targetsMet": 1,
+      "cashCents": 1785000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "stewardship-agreement"
+            }
+          ],
+          "closingCashCents": 945000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1040000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1135000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1230000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1325000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1500000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1595000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1690000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1785000000
+        }
+      ]
+    },
+    {
+      "family": "stewardship-agreement",
+      "order": "smallest-first",
+      "projects": 10,
+      "scores": [
+        53,
+        64.00000000000001,
+        71.60339806968767
+      ],
+      "targetsMet": 1,
+      "cashCents": 1785000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "west-10",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "stewardship-agreement"
+            }
+          ],
+          "closingCashCents": 945000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1040000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1135000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1230000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1325000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1500000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1595000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1690000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1785000000
+        }
+      ]
+    },
+    {
+      "family": "stewardship-agreement",
+      "order": "largest-first",
+      "projects": 10,
+      "scores": [
+        53,
+        64.00000000000001,
+        71.60339806968767
+      ],
+      "targetsMet": 1,
+      "cashCents": 1785000000,
+      "commitmentsCents": 0,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-08",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "stewardship-agreement"
+            },
+            {
+              "siteId": "west-10",
+              "actionId": "stewardship-agreement"
+            }
+          ],
+          "closingCashCents": 945000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1040000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1135000000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1230000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1325000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1420000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1500000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1595000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1690000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1785000000
+        }
+      ]
+    },
+    {
+      "family": "warehouse",
+      "order": "site-id",
+      "projects": 8,
+      "scores": [
+        100,
+        50.51282051282051,
+        31.99390829077735
+      ],
+      "targetsMet": 1,
+      "cashCents": 217000000,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 155000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 237000000
+        },
+        {
+          "year": 6,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 119000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 183000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 262000000
+        },
+        {
+          "year": 9,
+          "actions": [
+            {
+              "siteId": "south-08",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 217000000
+        }
+      ]
+    },
+    {
+      "family": "warehouse",
+      "order": "smallest-first",
+      "projects": 8,
+      "scores": [
+        100,
+        50.51282051282051,
+        31.99390829077735
+      ],
+      "targetsMet": 1,
+      "cashCents": 217000000,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-01",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 155000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 237000000
+        },
+        {
+          "year": 6,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 119000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 183000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 262000000
+        },
+        {
+          "year": 9,
+          "actions": [
+            {
+              "siteId": "south-08",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 217000000
+        }
+      ]
+    },
+    {
+      "family": "warehouse",
+      "order": "largest-first",
+      "projects": 8,
+      "scores": [
+        100,
+        50.51282051282051,
+        31.99390829077735
+      ],
+      "targetsMet": 1,
+      "cashCents": 217000000,
+      "commitmentsCents": 72000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-01",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "agricultural-storage"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 185000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 270000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-08",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 155000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 237000000
+        },
+        {
+          "year": 6,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 119000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 183000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 262000000
+        },
+        {
+          "year": 9,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "agricultural-storage"
+            }
+          ],
+          "closingCashCents": 141000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 217000000
+        }
+      ]
+    },
+    {
+      "family": "water-processing",
+      "order": "site-id",
+      "projects": 6,
+      "scores": [
+        53.13985185185185,
+        52.28571428571429,
+        37.801163433809826
+      ],
+      "targetsMet": 0,
+      "cashCents": 329000000,
+      "commitmentsCents": 84000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 284000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 118000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 202000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 282000000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 177000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 253000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 329000000
+        }
+      ]
+    },
+    {
+      "family": "water-processing",
+      "order": "smallest-first",
+      "projects": 6,
+      "scores": [
+        53.13985185185185,
+        52.28571428571429,
+        37.801163433809826
+      ],
+      "targetsMet": 0,
+      "cashCents": 329000000,
+      "commitmentsCents": 84000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-06",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-02",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 284000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-04",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 118000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 202000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 282000000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "south-05",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 177000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 253000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 329000000
+        }
+      ]
+    },
+    {
+      "family": "water-processing",
+      "order": "largest-first",
+      "projects": 6,
+      "scores": [
+        53.13985185185185,
+        52.28571428571429,
+        37.801163433809826
+      ],
+      "targetsMet": 0,
+      "cashCents": 329000000,
+      "commitmentsCents": 84000000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-02",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-03",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-04",
+              "actionId": "wastewater-upgrade"
+            },
+            {
+              "siteId": "south-05",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 200000000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 284000000
+        },
+        {
+          "year": 4,
+          "actions": [
+            {
+              "siteId": "south-06",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 118000000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 202000000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 282000000
+        },
+        {
+          "year": 7,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "wastewater-upgrade"
+            }
+          ],
+          "closingCashCents": 100000000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 177000000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 253000000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 329000000
+        }
+      ]
+    },
+    {
+      "family": "water-swale",
+      "order": "site-id",
+      "projects": 2,
+      "scores": [
+        42.333333333333336,
+        58.00000000000001,
+        48.652055037870625
+      ],
+      "targetsMet": 0,
+      "cashCents": 1959600000,
+      "commitmentsCents": 600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "water-swale"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "water-swale"
+            }
+          ],
+          "closingCashCents": 1080000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1179400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1278800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1378200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1477600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1577000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1661400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1760800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1860200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1959600000
+        }
+      ]
+    },
+    {
+      "family": "water-swale",
+      "order": "smallest-first",
+      "projects": 2,
+      "scores": [
+        42.333333333333336,
+        58.00000000000001,
+        48.652055037870625
+      ],
+      "targetsMet": 0,
+      "cashCents": 1959600000,
+      "commitmentsCents": 600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "south-07",
+              "actionId": "water-swale"
+            },
+            {
+              "siteId": "east-09",
+              "actionId": "water-swale"
+            }
+          ],
+          "closingCashCents": 1080000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1179400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1278800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1378200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1477600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1577000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1661400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1760800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1860200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1959600000
+        }
+      ]
+    },
+    {
+      "family": "water-swale",
+      "order": "largest-first",
+      "projects": 2,
+      "scores": [
+        42.333333333333336,
+        58.00000000000001,
+        48.652055037870625
+      ],
+      "targetsMet": 0,
+      "cashCents": 1959600000,
+      "commitmentsCents": 600000,
+      "actions": [
+        {
+          "year": 1,
+          "actions": [
+            {
+              "siteId": "east-09",
+              "actionId": "water-swale"
+            },
+            {
+              "siteId": "south-07",
+              "actionId": "water-swale"
+            }
+          ],
+          "closingCashCents": 1080000000
+        },
+        {
+          "year": 2,
+          "actions": [],
+          "closingCashCents": 1179400000
+        },
+        {
+          "year": 3,
+          "actions": [],
+          "closingCashCents": 1278800000
+        },
+        {
+          "year": 4,
+          "actions": [],
+          "closingCashCents": 1378200000
+        },
+        {
+          "year": 5,
+          "actions": [],
+          "closingCashCents": 1477600000
+        },
+        {
+          "year": 6,
+          "actions": [],
+          "closingCashCents": 1577000000
+        },
+        {
+          "year": 7,
+          "actions": [],
+          "closingCashCents": 1661400000
+        },
+        {
+          "year": 8,
+          "actions": [],
+          "closingCashCents": 1760800000
+        },
+        {
+          "year": 9,
+          "actions": [],
+          "closingCashCents": 1860200000
+        },
+        {
+          "year": 10,
+          "actions": [],
+          "closingCashCents": 1959600000
+        }
+      ]
+    }
+  ],
+  "interruptedFastForward": [
+    {
+      "failedYear": 1,
+      "acceptedYearsBeforeFailure": 0,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 2,
+      "acceptedYearsBeforeFailure": 1,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 3,
+      "acceptedYearsBeforeFailure": 2,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 4,
+      "acceptedYearsBeforeFailure": 3,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 5,
+      "acceptedYearsBeforeFailure": 4,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 6,
+      "acceptedYearsBeforeFailure": 5,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 7,
+      "acceptedYearsBeforeFailure": 6,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 8,
+      "acceptedYearsBeforeFailure": 7,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 9,
+      "acceptedYearsBeforeFailure": 8,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    },
+    {
+      "failedYear": 10,
+      "acceptedYearsBeforeFailure": 9,
+      "frozenRequestPreserved": true,
+      "finalSnapshotIdentical": true
+    }
+  ],
+  "lateProjectCommitmentsCents": 60000000,
+  "maintenanceRecovery": [
+    {
+      "year": 1,
+      "phase": "Operating",
+      "affordableOffers": 127,
+      "cashCents": 1089800000,
+      "arrearsCents": 0
+    },
+    {
+      "year": 2,
+      "phase": "Operating",
+      "affordableOffers": 117,
+      "cashCents": 100000000,
+      "arrearsCents": 910400000
+    },
+    {
+      "year": 3,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 810600000
+    },
+    {
+      "year": 4,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 710800000
+    },
+    {
+      "year": 5,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 611000000
+    },
+    {
+      "year": 6,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 511200000
+    },
+    {
+      "year": 7,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 426400000
+    },
+    {
+      "year": 8,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 326600000
+    },
+    {
+      "year": 9,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 226800000
+    },
+    {
+      "year": 10,
+      "phase": "Suspended",
+      "affordableOffers": 0,
+      "cashCents": 100000000,
+      "arrearsCents": 127000000
+    }
+  ],
+  "affordableChoiceReturnedByEnding": false,
+  "recoverableShortfall": {
+    "firstSuspendedYear": 3,
+    "firstAffordableRecoveryYear": 4,
+    "recoveryAction": "public-park",
+    "recoverySite": "south-02",
+    "finalCashCents": 766800000,
+    "finalArrearsCents": 0,
+    "scores": [
+      54.18222222222222,
+      61.00000000000001,
+      42.077864657648824
+    ]
+  }
+}

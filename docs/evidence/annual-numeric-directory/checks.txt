@@ -1,0 +1,1 @@
+Annual numeric directory: 145 assertions passed; fake atomic store, no runtime activation.

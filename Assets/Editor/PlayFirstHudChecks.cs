@@ -32,7 +32,7 @@ public static class PlayFirstHudChecks
                 var text=Text();
                 Check(text.Contains((string)typeof(TerraHud).GetMethod("StatMoney",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{offer.upfrontPublicCostCents})),"Missing upfront cost for "+offer.actionId);
                 Check(text.Contains("Opens Y"+(town.Year+offer.constructionYears)),"Opening year hidden for "+offer.actionId);
-                Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents+offer.annualPublicOperatingCents*offer.operatingYears+offer.annualPublicPaymentCents*offer.paymentYears)+" total reserved"),"Full commitment hidden for "+offer.actionId);
+                Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents+offer.annualPublicOperatingCents*offer.operatingYears+offer.annualPublicPaymentCents*offer.paymentYears)+" lifetime cost"),"Lifetime cost hidden for "+offer.actionId);
                 Check(text.Contains(offer.operatingYears+" yr"),"Upkeep term hidden");
                 Canvas.ForceUpdateCanvases();
                 foreach(var label in GameObject.Find("Project at a glance").GetComponentsInChildren<TextMeshProUGUI>())
@@ -77,7 +77,7 @@ public static class PlayFirstHudChecks
         var fresh=new AnnualTown(definition,"program-inspection");
         hud.AnnualPreview(world.sites.First(s=>s.id==program.siteId),program,fresh.Snapshot(),"place",null,()=>{},false);
         Check(Text().Contains("$300/yr program · 5 yr"),"Program payment was folded into upkeep");
-        Check(Text().Contains(TerraHud.Money(program.upfrontPublicCostCents+program.annualPublicOperatingCents*program.operatingYears+150000)+" total reserved"),"Program term missing from reservation");
+        Check(Text().Contains(TerraHud.Money(program.upfrontPublicCostCents+program.annualPublicOperatingCents*program.operatingYears+150000)+" lifetime cost"),"Program term missing from reservation");
         AnnualTownDemo.Finish(empty,new AuthoredAnnualConsequenceProvider());bool future=false;
         hud.AnnualOverview(empty,()=>future=true,null,()=>{},_=>{});Click("See ten-year future →");
         Check(future&&empty.Year==10,"Completed overview did not hand off without Year 11");hud.CloseAnnualOverview();

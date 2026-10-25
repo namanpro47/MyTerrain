@@ -33,11 +33,14 @@ namespace Terra.Gameplay
             if (definition?.schemaVersion == 3) throw new InvalidOperationException("Numeric runs require InitializeNumericAsync and acknowledged storage.");
             var next = new AnnualTown(definition, runId);
             if (restoreSaved && PlayerPrefs.HasKey(saveKey))
-                next = AnnualTown.Restore(definition, JsonUtility.FromJson<AnnualTownSnapshot>(PlayerPrefs.GetString(saveKey)));
+                next = AnnualTown.Restore(definition, AnnualNumericJson.ReadTownSave(ReadStored(saveKey)));
             town = next; Publish();
         }
         public void InitializeFromWorldPack(WorldData world, Scenario scenario, string packId, string runId, bool restoreSaved = false)
             => Initialize(AnnualTownDemo.FromWorldPack(world, scenario, packId), runId, restoreSaved);
+
+        public void ConfigurePlanningYears(int years, int expectedRevision)
+        { RequireLegacyMutation(); RequireTown().ConfigurePlanningYears(years, expectedRevision); Publish(); }
 
         public void QueueAction(string siteId, string actionId, int expectedRevision)
         { RequireLegacyMutation(); RequireTown().QueueAction(siteId, actionId, expectedRevision); Publish(); }
@@ -86,14 +89,51 @@ namespace Terra.Gameplay
         public void ImportSave(string json)
         {
             RequireLegacyMutation();
-            var next = AnnualTown.Restore(RequireTown().Definition, JsonUtility.FromJson<AnnualTownSnapshot>(json));
+            var next = AnnualTown.Restore(RequireTown().Definition, AnnualNumericJson.ReadTownSave(json));
             town = next; Publish();
         }
         public void Save()
         {
             RequireLegacyMutation();
             if (string.IsNullOrWhiteSpace(saveKey)) throw new InvalidOperationException("Set a run-specific save key before saving.");
-            PlayerPrefs.SetString(saveKey, ExportSave()); PlayerPrefs.Save();
+            WriteStored(saveKey, ExportSave()); PlayerPrefs.Save();
+        }
+        // PlayerPrefs WebGL has a small per-origin quota. Keep full accepted history,
+        // losslessly compressed; legacy plain JSON saves remain readable.
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [System.Runtime.InteropServices.DllImport("__Internal")] static extern string TerraSaveEncode(string json);
+        [System.Runtime.InteropServices.DllImport("__Internal")] static extern string TerraSaveDecode(string encoded);
+#endif
+        internal static void WriteStored(string key, string json)
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            string encoded = TerraSaveEncode(json);
+            if (encoded == null) throw new InvalidOperationException("Unable to compress this browser save.");
+            PlayerPrefs.SetString(key, encoded);
+#else
+            using (var bytes = new System.IO.MemoryStream())
+            {
+                using (var zip = new System.IO.Compression.GZipStream(bytes, System.IO.Compression.CompressionMode.Compress, true))
+                {
+                    var data = System.Text.Encoding.UTF8.GetBytes(json);
+                    zip.Write(data, 0, data.Length);
+                }
+                PlayerPrefs.SetString(key, "terra-gzip-v1:" + Convert.ToBase64String(bytes.ToArray()));
+            }
+#endif
+        }
+        internal static string ReadStored(string key)
+        {
+            string value = PlayerPrefs.GetString(key);
+            const string prefix = "terra-gzip-v1:";
+            if (!value.StartsWith(prefix, StringComparison.Ordinal)) return value;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            return TerraSaveDecode(value) ?? throw new ArgumentException("The browser save is corrupt or exceeds its supported size.");
+#else
+            using (var bytes = new System.IO.MemoryStream(Convert.FromBase64String(value.Substring(prefix.Length))))
+            using (var zip = new System.IO.Compression.GZipStream(bytes, System.IO.Compression.CompressionMode.Decompress))
+            using (var reader = new System.IO.StreamReader(zip, System.Text.Encoding.UTF8)) return reader.ReadToEnd();
+#endif
         }
         AnnualTown RequireTown() => town ?? throw new InvalidOperationException("Initialize the annual town before binding controls.");
         void Publish()

@@ -1,0 +1,47 @@
+<!doctype html><meta charset="utf-8"><title>Terra numeric storage verification</title>
+<style>body{font:17px system-ui;max-width:980px;margin:40px auto;background:#f4f5ed;color:#22322e}button{font:inherit;padding:12px;margin:6px}pre{white-space:pre-wrap;background:white;padding:18px;border:1px solid #bdc6bb}</style>
+<h1>Numeric storage bridge · isolated test origin</h1>
+<p>Runs the committed JavaScript bridge against Chrome IndexedDB. Synthetic data tests storage only; this is not a linked Unity player or game acceptance.</p>
+<button id="run">Run real storage checks</button><button id="reload">Verify saved record after reload</button><button id="clean">Delete this test record</button>
+<pre id="output" aria-live="polite">Ready. Only the named test key on this localhost origin is used.</pre>
+<script>
+var LibraryManager={library:{}};function mergeInto(a,b){Object.assign(a,b)}function UTF8ToString(x){return x}
+var calls=new Map();function SendMessage(receiver,method,json){if(receiver!=='StorageHarness'||method!=='OnNumericStorageReply')throw Error('Wrong callback');const reply=JSON.parse(json);const complete=calls.get(reply.operationId);calls.delete(reply.operationId);if(complete)complete(reply)}
+</script><script src="/bridge.js"></script><script>
+const output=document.querySelector('#output');
+const key='myterrain.numeric.v1/browser-verification/schema-3/isolated-fixture/run';
+const expectedSize=25*1024*1024;
+let checks=[];
+function log(text){output.textContent+='\n'+text}
+function check(ok,name){if(!ok)throw Error(name);checks.push(name);log('PASS '+name)}
+function call(operation,expectedHash=null,value=null){return new Promise((resolve,reject)=>{
+ const operationId=crypto.randomUUID();let timeout=setTimeout(()=>{calls.delete(operationId);reject(Error('Bridge callback timed out'))},60000);
+ calls.set(operationId,reply=>{clearTimeout(timeout);resolve(reply)});
+ LibraryManager.library.TerraNumericStorage('StorageHarness',JSON.stringify({operationId,key,operation,expectedHash,value:value?JSON.stringify(value):null}));
+})}
+function value(letter,sequence,padding=''){return {schemaVersion:1,sequence,saveHash:letter.repeat(64),town:{runId:'isolated-storage-fixture',padding},narration:[]}}
+async function clean(){await new Promise((resolve,reject)=>{const open=indexedDB.open('MyTerrainNumericSavesV1',1);open.onupgradeneeded=()=>open.result.createObjectStore('runs');open.onerror=()=>reject(open.error);open.onsuccess=()=>{const db=open.result;const tx=db.transaction('runs','readwrite');tx.objectStore('runs').delete(key);tx.oncomplete=()=>{db.close();resolve()};tx.onabort=()=>{db.close();reject(tx.error)}}})}
+async function evidence(kind){await fetch('/evidence',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,checks,userAgent:navigator.userAgent,at:new Date().toISOString(),syntheticPaddingBytes:expectedSize,unityLinked:false})})}
+document.querySelector('#run').onclick=async()=>{
+ output.textContent='Running real IndexedDB checks…';checks=[];
+ try {
+  await clean();let r=await call('read');check(r.ok&&r.value==='','Absent key is acknowledged as empty');
+  r=await call('write',null,value('a',1));check(r.ok,'Initial record acknowledged after transaction completion');
+  const race=await Promise.all([call('write','a'.repeat(64),value('b',2)),call('write','a'.repeat(64),value('c',2))]);
+  check(race.filter(x=>x.ok).length===1&&race.filter(x=>x.error==='write-conflict').length===1,'Independent connections: exactly one stale-hash writer wins');
+  r=await call('read');const winner=JSON.parse(r.value);check(r.ok&&winner.sequence===2&&['b'.repeat(64),'c'.repeat(64)].includes(winner.saveHash),'Read returns winning complete record');
+  const put=IDBObjectStore.prototype.put;
+  IDBObjectStore.prototype.put=function(...args){const request=put.apply(this,args);const tx=this.transaction;request.addEventListener('success',()=>tx.abort(),{once:true});return request};
+  let aborted;try{aborted=await call('write',winner.saveHash,value('d',3))}finally{IDBObjectStore.prototype.put=put}
+  check(!aborted.ok,'Abort after put success is not acknowledged as a commit');
+  r=await call('read');check(r.ok&&JSON.parse(r.value).saveHash===winner.saveHash,'Aborted transaction preserves prior record');
+  const large=value('e',3,'x'.repeat(expectedSize));
+  r=await call('write',winner.saveHash,large);check(r.ok,'25 MiB payload is acknowledged');
+  r=await call('read');const loaded=JSON.parse(r.value);
+  check(r.ok&&loaded.saveHash===large.saveHash&&loaded.town.padding.length===expectedSize&&loaded.town.padding===large.town.padding,'25 MiB payload reads back exactly');
+  await evidence('real-indexeddb');log('COMPLETE '+checks.length+' checks. Reload the page, then verify the saved record.');
+ }catch(error){log('FAIL '+error.message);await evidence('failure')}
+};
+document.querySelector('#reload').onclick=async()=>{output.textContent='Checking durable record after navigation/reload…';checks=[];try{const r=await call('read');const record=JSON.parse(r.value);check(r.ok&&record.sequence===3&&record.saveHash==='e'.repeat(64)&&record.town.padding.length===expectedSize&&/^x+$/.test(record.town.padding),'Record survives page reload with exact 25 MiB payload');await evidence('after-reload');log('COMPLETE')}catch(error){log('FAIL '+error.message);await evidence('failure')}};
+document.querySelector('#clean').onclick=async()=>{await clean();output.textContent='Deleted only this test key. No production save keys used.'};
+</script>

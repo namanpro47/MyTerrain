@@ -22,6 +22,7 @@ namespace Terra.Core
     {
         readonly AnnualTownDefinition definition;
         readonly IAnnualNumericStore store;
+        readonly Func<CancellationToken, Task> checkpoint;
         readonly SemaphoreSlim gate = new SemaphoreSlim(1, 1);
         AnnualNumericSave saved;
         bool recoveryRequired;
@@ -39,28 +40,28 @@ namespace Terra.Core
             return index < 0 ? null : TownCopies.Copy(saved.narration[index]);
         }
 
-        AnnualNumericTransactions(AnnualTownDefinition rules, IAnnualNumericStore persistence)
+        AnnualNumericTransactions(AnnualTownDefinition rules, IAnnualNumericStore persistence, Func<CancellationToken, Task> checkpoint)
         {
             AnnualTown.ValidateDefinition(rules);
             Require(rules.schemaVersion == 3 && persistence != null, "Numeric transactions require schema 3 and an acknowledged store.");
-            definition = TownCopies.Copy(rules); store = persistence;
+            definition = TownCopies.Copy(rules); store = persistence; this.checkpoint = checkpoint;
         }
 
         public static async Task<AnnualNumericTransactions> Open(AnnualTownDefinition rules, string runId,
-            IAnnualNumericStore store, CancellationToken cancellation = default)
+            IAnnualNumericStore store, CancellationToken cancellation = default, Func<CancellationToken, Task> checkpoint = null)
         {
-            var session = new AnnualNumericTransactions(rules, store);
+            var session = new AnnualNumericTransactions(rules, store, checkpoint);
             var existing = await store.Read(cancellation);
             if (existing != null)
             {
-                existing = session.Validate(existing);
+                existing = await session.Validate(existing, cancellation);
                 Require(existing.town.runId == runId, "This store contains another run; choose a separate save key.");
                 session.saved = existing;
                 return session;
             }
             var candidate = new AnnualNumericSave { sequence = 1, town = new AnnualTown(session.definition, runId).Snapshot() };
             candidate.saveHash = Hash(candidate);
-            session.Validate(candidate);
+            await session.Validate(candidate, cancellation);
             // No live session is returned if creation is unacknowledged. A later Open
             // can discover an already committed result after a lost acknowledgement.
             await store.Write(null, Copy(candidate), cancellation);
@@ -86,6 +87,7 @@ namespace Terra.Core
             try
             {
                 await Recover(cancellation);
+                await Checkpoint(cancellation);
                 var candidate = Copy(saved); var town = AnnualTown.Restore(definition, candidate.town);
                 command(town); candidate.town = town.Snapshot();
                 await Persist(candidate, cancellation);
@@ -100,6 +102,7 @@ namespace Terra.Core
             try
             {
                 await Recover(cancellation);
+                await Checkpoint(cancellation);
                 var town = AnnualTown.Restore(definition, saved.town);
                 var accepted = town.History.FirstOrDefault(r => r.acceptedRequest.requestId == requestId);
                 if (accepted != null)
@@ -194,7 +197,7 @@ namespace Terra.Core
         async Task Recover(CancellationToken cancellation)
         {
             if (!recoveryRequired) return;
-            var value = Validate(await store.Read(cancellation));
+            var value = await Validate(await store.Read(cancellation), cancellation);
             Require(value.town.runId == saved.town.runId && value.sequence >= saved.sequence,
                 "Stored run was replaced or rolled back; do not overwrite it.");
             Require(value.sequence != saved.sequence || value.saveHash == saved.saveHash, "Stored sequence has conflicting contents.");
@@ -206,7 +209,7 @@ namespace Terra.Core
         {
             candidate.sequence = checked(saved.sequence + 1);
             candidate.saveHash = Hash(candidate);
-            candidate = Validate(candidate);
+            candidate = await Validate(candidate, cancellation);
             cancellation.ThrowIfCancellationRequested();
             try { await store.Write(saved.saveHash, Copy(candidate), cancellation); }
             catch { recoveryRequired = true; throw; }
@@ -221,15 +224,28 @@ namespace Terra.Core
                 try { listener(Copy(saved)); } catch { /* A UI listener cannot undo an acknowledged save. */ }
         }
 
-        AnnualNumericSave Validate(AnnualNumericSave input)
+        Task Checkpoint(CancellationToken cancellation)
+        {
+            cancellation.ThrowIfCancellationRequested();
+            return checkpoint == null ? Task.CompletedTask : checkpoint(cancellation);
+        }
+
+        async Task<AnnualNumericSave> Validate(AnnualNumericSave input, CancellationToken cancellation)
         {
             var value = Copy(input);
             Require(value != null && value.schemaVersion == 1 && value.sequence >= 1 && value.town != null
                 && value.narration != null && value.saveHash == Hash(value), "Incomplete or changed numeric save envelope.");
-            var town = AnnualTown.Restore(definition, value.town); var history = town.History;
+            // Freeze first, then give WebGL a frame boundary between the expensive
+            // full-envelope hash, committed replay and each report projection.
+            // No validation is skipped and no state is published by a checkpoint.
+            await Checkpoint(cancellation);
+            var town = AnnualTown.Restore(definition, value.town);
+            await Checkpoint(cancellation);
+            var history = town.History;
             Require(value.narration.Length == history.Length, "Each accepted year needs its own narration state.");
             for (int i = 0; i < history.Length; i++)
             {
+                await Checkpoint(cancellation);
                 var item = value.narration[i];
                 Require(item != null && (item.status == "unprojected" || item.status == "pending" || item.status == "visible"), "Unknown narration state.");
                 if (item.status == "unprojected")
@@ -243,6 +259,7 @@ namespace Terra.Core
                 if (item.status == "visible") ReportNarration.ValidateReceipt(item.request, item.receipt);
                 else Require(item.receipt == null, "Pending narration cannot contain an uncommitted receipt.");
             }
+            await Checkpoint(cancellation);
             return value;
         }
         public static string Hash(AnnualNumericSave value)

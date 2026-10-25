@@ -1,0 +1,13 @@
+{
+  "builtSource": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "evidenceHead": "df52a9bd4c7e6470dbe8089027c9575eb2657c2b",
+  "equalPaths": [
+    "Assets",
+    "Packages",
+    "ProjectSettings",
+    "services",
+    "scripts",
+    "worlds"
+  ],
+  "method": "git diff --quiet"
+}

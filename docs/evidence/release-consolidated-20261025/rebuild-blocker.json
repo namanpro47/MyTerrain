@@ -1,0 +1,15 @@
+{
+  "rejectedSource": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "published": false,
+  "observed": "Actual Chrome Begin ten decision years traps unreachable at first save after successful intro/narration",
+  "stackFirstFunction": 31126,
+  "diagnosisStatus": "Compression native callback path suspected; runtime owner reproducing and replacing with managed lossless codec if confirmed",
+  "symbolAudit": "Uncompressed shipped wasm has no custom/name section or separate symbol map",
+  "upstreamReferences": [
+    "https://issuetracker.unity.com/issues/8454/uncaught-runtimeerror-error-when-gzipstream-is-initialized-with-compressionmodedecompress-and-code-optimization-is-set-to-with-lto-in-webgl",
+    "https://issuetracker.unity.com/issues/22545/runtime-error-unreachable-during-initialization-when-building-the-project-for-webgl-with-code-optimization"
+  ],
+  "incomingMainReconciled": "8b988fc4d29d6bca92613c932fb9c841f3b8e5ac",
+  "chapterSessionTests": 30,
+  "independentAudit": "Other release chat confirms loading/preparing/Busy behavior and artwork preserved; narration Node9pass"
+}

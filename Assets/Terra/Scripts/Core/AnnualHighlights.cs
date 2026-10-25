@@ -25,7 +25,7 @@ namespace Terra.Core
                 if(action==null)continue;
                 string place=definition.sites.First(s=>s.id==site.siteId).name;
                 if(site.phase==TownAssetPhase.Suspended)Add("warning",action.title+" paused",place+" · payments not fully funded",site.siteId);
-                else if(site.disrupted)Add("warning",action.title+" disrupted",place+" · inspect the saved year story",site.siteId);
+                else if(site.disrupted)Add("warning",action.title+" disrupted",place+" · review the year’s conditions",site.siteId);
                 else if(before==null||before.phase!=site.phase)
                 {
                     string phase=site.phase==TownAssetPhase.Building?"Building":site.phase==TownAssetPhase.Establishing?"Growing":site.phase==TownAssetPhase.Operating?"Operating":"Retired";

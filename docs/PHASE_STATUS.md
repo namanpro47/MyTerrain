@@ -1,15 +1,26 @@
 # Terra — phase status and evidence
 
+## User-selected loading artwork — October 25, 2026
+
+The user's supplied MyTerrain / “Shape your world.” illustration replaces the temporary globe preview during browser startup. Optimized WebP retains the original artwork and baked title; small progress/retry controls remain readable, and narrow screens preserve the complete image. The existing readiness handoff into the native globe is unchanged. [Chrome evidence and scope](evidence/loading-artwork/README.md). TN-01/03, AX-01. Source/template update only; not publicly deployed.
+
+
 ## Globe-first browser opening — October 25, 2026
 
 Replaces the plain startup screen with a 42 KB preview of the actual native globe, matching Lilita One title, stars and small download/status line. No added wait or click; the live selector appears after native readiness, player binding and a rendered-frame opportunity. Retry and reduced-motion behavior remain available. Chrome verifies normal handoff, Point Reyes entry, compact/portrait layout and download-error retry; transport lifecycle checks pass. [Exact evidence and limits](evidence/globe-first-loading/README.md). TN-01/03/06, AX-01. Unity download size is unchanged; this is a template update, not a new engine export or public deployment.
 
+## Community imagery import — isolated candidate, October 25, 2026
+
+The installed `terra-community-import` skill resolves a place, reviews licensed imagery, imports metric elevation and stages an independent native selector preview. Two 1.2 km studies preserve real Coon Valley and Tomales NAIP aerial images on USGS terrain. Five Python tests, skill validation and Unity geometry/image-registration checks pass; initial Chrome loads, source comparison, rotation, zoom and close pass. [Sources, captures and exact limits](evidence/community-import/README.md). The latest gear-menu integration is awaiting the separately owned selector release and final combined-source browser verification. Automatic search is a stub; editable 3D buildings and annual community scenarios are not implemented. Existing annual scenarios and Phase 2A acceptance remain independent.
 
 ## Pinned Wisconsin weather reference — October 25, 2026
 
 [Data preparation and consumer contract](../simulation-data/weather/README.md) provides 24 complete years of nearby La Crosse airport PRCP/TMAX/TMIN observations, 15 contiguous ten-year schedules, exact source/pack hashes and a daily companion for crop-season timing. **19 data/derivation tests pass** and all four products rebuild byte-for-byte offline. [Coverage, reproducibility and limitations](evidence/weather-reference/README.md). The common Coon Valley reference is regional, not on-site measurement; thresholds and later crop/exposure/recovery responses remain authored. This data-only delivery does not activate a new simulation, change legacy saves or certify browser behavior. The numeric/report-v2 consumer and visual/release gates remain open.
 
-**Current visual implementation, study65:** Four metric homes now depict Wisconsin's already-counted fictional starting community, with house foundations and terrain-following road access. Square raised lawns were rejected. Compilation and35Editor checks pass, including source/state preservation and no-new-action Year10 display. [Captures, checks and remaining gaps](evidence/phase2a/visual-rebuild/study65-findings.md). Chrome/full-HUD/replay verification is pending; no visual acceptance or public release. The approved free BigRookGames pack is downloaded and inventoried; in-engine evaluation remains pending. [Acquisition checkpoint](evidence/phase2a/visual-rebuild/study66-findings.md).
+**Latest isolated visual comparison, study74:** continuous crop canopy plus native edge plants is rejected after six matched normal/close/detail Editor captures. The field gains broad shape but remains a patterned floor up close;3,119 edge plants add5.21M triangles. [Evidence and next decision](evidence/phase2a/visual-rebuild/study74-canopy/README.md), checkpoint `df8adce`. No production/Chrome/performance acceptance. [Visible comparison](CURRENT_VISUAL_REVIEW.md). Desktop and owned Editor released for the combined release review.
+
+
+**Historical isolated visual implementation, study65:** Four metric homes now depict Wisconsin's already-counted fictional starting community, with house foundations and terrain-following road access. Square raised lawns were rejected. Compilation and35Editor checks pass, including source/state preservation and no-new-action Year10 display. [Captures, checks and remaining gaps](evidence/phase2a/visual-rebuild/study65-findings.md). Chrome/full-HUD/replay verification is pending; no visual acceptance or public release. The approved free BigRookGames pack was acquired and evaluated in its supplied URP demo and the game; the replacement was rejected. [Acquisition and rendered comparison](evidence/phase2a/visual-rebuild/study66-findings.md).
 
 **Current visual candidate, study64:** Quieter shared soil shading and clearer crop leaves run in Chrome. Opening/field focus/living-margin preview/queue/undo are inspected, cash unchanged; first entry9.46s. Compilation and15 collector checks pass. The192m collector is integrated; the subsequent combined Chrome paths fail at37/41/34ms p95. [Actual captures and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Phase2A stays open; study65 adds the scenario's existing fictional community as an Editor candidate.
 

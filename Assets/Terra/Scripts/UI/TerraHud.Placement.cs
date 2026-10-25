@@ -56,12 +56,12 @@ namespace Terra.UI
             placementAnchor.obstacles=new[]{(RectTransform)budgetPanel,(RectTransform)annualIndicators,(RectTransform)tooltip.transform,(RectTransform)actionDock,(RectTransform)commandBar};
             placementAnchor.show=()=>!ModalOpen&&!AnnualOverviewOpen&&!ShowingToolHint();
             placementCapsule.gameObject.SetActive(false);
-            toolHint=Panel(root,"Project tool explanation",new Vector2(.5f,0),Vector2.zero,new Vector2(344,128),Ink);
+            toolHint=Panel(root,"Project tool explanation",new Vector2(1,1),new Vector2(-16,-114),new Vector2(304,348),Ink);
             toolHint.SetSiblingIndex(modalShade.transform.GetSiblingIndex());
             var hintGroup=toolHint.gameObject.AddComponent<CanvasGroup>();hintGroup.blocksRaycasts=false;hintGroup.interactable=false;hintGroup.alpha=0;
-            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-10),new Vector2(316,24),17,Paper,FontStyles.Bold);
-            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-38),new Vector2(316,36),16,Paper);
-            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-78),new Vector2(316,42),16,Soft);
+            toolHintTitle=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-14),new Vector2(276,48),18,Paper,FontStyles.Bold);
+            toolHintPurpose=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-70),new Vector2(276,44),16,Paper);
+            toolHintReservation=Label(toolHint,"",new Vector2(0,1),new Vector2(14,-124),new Vector2(276,204),16,Soft);
             var hintAnchor=toolHint.gameObject.AddComponent<HudPlacementAnchor>();hintAnchor.show=ShowingToolHint;hintAnchor.tick=UpdateToolHint;
         }
 
@@ -70,28 +70,33 @@ namespace Terra.UI
             AnnualDialog("Place a project", "<b>1  Choose a project</b>\nSelect a pictured tool. Quiet outlines mark fields that accept it.\n\n<b>2  Preview the land</b>\nHover a field, or use Tab. The dashed footprint shows what the project uses. Read the reservation and any blocking reason beside it.\n\n<b>3  Click to queue</b>\nA Queued label marks your plan. Inspect it to move or remove it; Undo reverses an unsubmitted change. End Year accepts the plan.\n\nEsc cancels your current tool. Drag to pan, scroll to zoom, F to focus a field. Accepted projects remain in history.","Back to landscape",CloseModal);
         }
 
-        bool ShowingToolHint()=>focus!=null&&actionButtons.ContainsKey(focus)&&!ModalOpen&&!AnnualOverviewOpen&&!annualCompleted;
+        bool ShowingToolHint()=>!ModalOpen&&!AnnualOverviewOpen&&!annualCompleted&&!tooltip.activeSelf
+            &&((focus!=null&&actionButtons.ContainsKey(focus))||!string.IsNullOrEmpty(activeTool));
         void UpdateToolHint()
         {
             if(!ShowingToolHint())return;
-            string id=actionButtons[focus];
+            string id=focus!=null&&actionButtons.ContainsKey(focus)?actionButtons[focus]:activeTool;
             if(shownHintTool!=id)
             {
                 shownHintTool=id;var rule=actionRules.Find(id);var recipes=annualRules.actions.Where(a=>a.actionId==id).ToArray();
                 toolHintTitle.text=rule?.title??id;toolHintPurpose.text=PlacementPurpose(id);
                 if(recipes.Length>0)
                 {
-                    long Total(TownActionDefinition r)=>r.upfrontPublicCostCents+r.annualPublicOperatingCents*r.operatingYears+r.annualPublicPaymentCents*r.paymentYears;
-                    long min=recipes.Min(Total),max=recipes.Max(Total);
-                    toolHintReservation.text=(min==max?Money(min):Money(min)+"–"+Money(max))+" total reservation\nSelect, then preview a marked field";
+                    long min=recipes.Min(r=>r.upfrontPublicCostCents),max=recipes.Max(r=>r.upfrontPublicCostCents);
+                    var recipe=recipes[0];
+                    toolHintReservation.text=(min==max?Money(min):Money(min)+"–"+Money(max))+" upfront\n"+
+                        Money(recipe.annualPublicOperatingCents)+" / year upkeep\n"+
+                        (recipe.constructionYears==0?"Starts this year":recipe.constructionYears+" years before opening")+
+                        " · "+recipe.establishmentYears+" years to establish\n"+
+                        (recipe.services!=null&&(recipe.services.energyDemand>0||recipe.services.waterDemand>0)?"Needs energy or water; uses limited land.":"Uses limited land and needs continuing care.")+"\nPreview a field for exact costs and effects.";
                 }
                 else toolHintReservation.text="Unavailable in this scenario";
             }
-            var dock=(RectTransform)actionDock;var hint=(RectTransform)toolHint;
-            hint.anchoredPosition=new Vector2(dock.anchoredPosition.x,dock.anchoredPosition.y+dock.sizeDelta.y*dock.localScale.y+12);
+            toolHintTitle.fontSize=LargeText?20:18;
+            toolHintPurpose.fontSize=toolHintReservation.fontSize=LargeText?17.5f:16;
         }
 
-        public void HidePlacementFeedback(){if(placementCapsule!=null)placementCapsule.gameObject.SetActive(false);}
+        public void HidePlacementFeedback(){if(placementCapsule!=null)placementCapsule.gameObject.SetActive(false);if(actionSummary!=null)actionSummary.gameObject.SetActive(true);}
         public bool IsPlacementCommand(UnityEngine.UI.Button button)=>button!=null&&button==confirmEditButton;
 
         public void PlacementFeedback(string status,string title,string site,string instruction,string space,
@@ -105,6 +110,7 @@ namespace Terra.UI
             placementInstruction.fontSize=LargeText?16.5f:15;
             placementAnchor.points=points;placementAnchor.view=camera;
             placementCapsule.gameObject.SetActive(true);
+            actionSummary.gameObject.SetActive(false);
             // Candidate guidance owns this space; an earlier camera/action toast must not cover it.
             toastPanel.SetActive(false);
             previewKind.text=(status=="REPLACE PREVIEW"?"REPLACE":status=="MOVE PREVIEW"?"MOVE":status)+" · "+site;

@@ -3,12 +3,14 @@
 **Approved player-rule revision — October 25, 2026:** Peter approved charging upkeep into a negative public cash balance, blocking new construction until repayment, cancelling accepted projects for the unfinished fraction of upfront public capital (completed projects return $0), signed Environmental scores down to -100, and explicitly inferred regional hazard chances. These decisions supersede the earlier no-borrowing, permanent-project, all-scores-0–100 and unverified-hazards-disabled requirements below for new player-rules-v5 runs. Use upkeep rather than a second utility rationing simulation. Existing rule versions and saves keep their original behaviour. See [exact rules, limits and validation](docs/ANNUAL_PLAYER_RULES.md).
 
 **Product & Implementation Specification**
-**Status:** Active north star — three rural locations, annual land-use strategy
+**Status:** Active north star — three annual landscapes plus community import studies
 **Revised:** October 25, 2026, by explicit user direction
 **Target:** Hack for Social Impact — UNCCD youth land-use education challenge
 **Audience:** Ages 15–24
 **Platform:** Unity 6 + URP, desktop browser delivery
 **Business model:** Free, nonprofit/public-benefit; no ads, purchases, subscriptions or profit-driven features
+
+**Community-import decision (October 25):** The user explicitly authorized a reusable skill that resolves a named community, finds representative licensed satellite/aerial imagery, imports geographically aligned terrain into the game, and tests additional locations against their source images. Add the future self-service flow to the native selector as a clearly labelled stub; automatic search/API generation is not implemented yet. The first proof uses Coon Valley village and Tomales as separate terrain studies. Preserve real metric alignment, acquisition dates, source resolution and reuse rights. A source photograph draped on elevation is not a reconstructed or playable annual community; semantic objects, opportunities and local assumptions need separate authoring and validation. [Workflow and limits](docs/COMMUNITY_IMPORT.md). This supersedes the blanket prohibition on additional locations for this bounded import workflow and leaves Phase 2A open.
 
 **Placement and inhabited-opening decision (October 25):** Peter authorized a denser uniform grid of suitable open land on all three maps, excluding woodland, river corridors and other protected areas. Use 60 m base cells, joined envelopes for larger real-scale projects, and visible inherited community buildings on reserved slots. The three places have distinct fictional opening briefs with the same disclosed numerical reference; prior-layout saves remain separate. See [parcel layout and starting community](docs/MAP_PARCELS.md).
 
@@ -20,7 +22,7 @@
 
 **Annual-gameplay decision:** The user asked to make [Peter's annual proposal](docs/PRD_ANNUAL_GAMEPLAY.md) the core loop and incorporate the full supplied [Actions & Effects table](docs/ACTIONS_AND_EFFECTS.md). This replaces the former immediate-only placement puzzle, abstract-credit economy, optional time progression, three-tools-only completion gate, and Continue Building after an untimed win. Annual commitment, ongoing public finances, economic/social/environmental meters, and a ten-year result are now required product behavior. This is a vision change, not a claim of implementation.
 
-**What stays fixed:** rural land-use strategy; Meadowbrook Valley as its fictional display name; the selected Wisconsin AOI, source provenance and stable `coon-valley-brye-v1` identifier; accessible youth education; scientific honesty; Terra Nil-led whole-scene quality; free licensed assets only; no further image generation in the current pass; Chrome verification. No extra locations beyond the authorized three, city level, live generator, real transactions or mandatory online AI service.
+**What stays fixed:** rural land-use strategy; Meadowbrook Valley as its fictional display name; the selected Wisconsin AOI, source provenance and stable `coon-valley-brye-v1` identifier; accessible youth education; scientific honesty; Terra Nil-led whole-scene quality; free licensed assets only; no further image generation in the current pass; Chrome verification. The three annual scenarios retain separate saves. Requested community terrain studies are now allowed; no broad city simulator, hosted live generator, real transactions or mandatory online AI service.
 
 **Document roles:** this spec governs vision; [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) governs sequence and acceptance; [PHASE_STATUS.md](docs/PHASE_STATUS.md) records observed implementation; [ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) preserves the chart and defines catalog/budget/meter requirements. Peter's PRD remains the source proposal, with an adoption notice identifying superseded draft restrictions and optional extensions.
 
@@ -64,7 +66,7 @@ Learning comes from benefits, costs, uncertainty and repeated decisions. Geograp
 
 No detailed crop seasons/harvesting, supply chains, traffic simulation, construction logistics, realistic land markets, ownership inference, municipal legal simulator, exact flood inundation or calibrated ten-year yield forecast. Ten years means ten concise decisions, not an elaborate management dashboard. Do not implement a city zoning/road network to support the chart.
 
-Locations beyond the authorized three, geocoding and a live generator require another separate decision. The original Wisconsin scenery quality gate remains open. Optional LLM narration may explain accepted facts later; it must not be needed to play or become an unbounded author of scores, cash, weather or causality. Generated ending imagery is not part of this pass.
+Codex-assisted community terrain imports and a selector stub are authorized. A hosted geocoder/live generator and automatic promotion to fully authored annual scenarios remain deferred. The original Wisconsin scenery quality gate remains open. Optional LLM narration may explain accepted facts later; it must not be needed to play or become an unbounded author of scores, cash, weather or causality. Generated ending imagery is not part of this pass.
 
 ## 3. Core game loop and commitment boundary
 
@@ -142,7 +144,7 @@ Use the selected rural landscape throughout all ten years of each run; changing 
 
 Four evidence classes: **observed/mapped**, **benchmark**, **scenario assumption**, **simulated**. A county benchmark is not a measurement for a site; a subsidy is not total construction cost; an illustrative pressure index is not a health or ecosystem forecast. Missing quantities remain unavailable, never silently zero.
 
-The October 25 decision authorizes the three-location selector and regional scenarios alongside the existing annual loop. Each must load correctly, preserve separate saves and identify evidence honestly. The full action catalog, finances, meters, consequences, ending/replay, visual quality and accessibility gates remain required; selector completion does not accept the broader scenery rebuild. Any fourth location still needs an explicit separate decision.
+The October 25 decision authorizes the three-location selector and regional scenarios alongside the existing annual loop. Each must load correctly, preserve separate saves and identify evidence honestly. The full action catalog, finances, meters, consequences, ending/replay, visual quality and accessibility gates remain required; selector completion does not accept the broader scenery rebuild. The community-import decision separately permits additional source-aligned terrain studies; these do not count as validated annual scenarios or waive the same source, visual and gameplay gates.
 
 ## 9. Geographic Data Sources & Licensing
 
@@ -187,9 +189,9 @@ WorldPack records immutable terrain/cover/context, stable site IDs, metric coord
 
 Do not silently reinterpret old credits as production USD. Peter's credit conversion is a compatibility fixture, not the new catalog. Pin every run to its definition/hash and rules version. Reject or explicitly migrate incompatible saves. Runtime history records accepted requests and results so reload never rerolls or rewrites the past.
 
-## 11. Future locations and live generation — deferred
+## 11. Community imports and future live generation
 
-No level picker, second map, geocoder, geolocation prompt, GIS server or live world generator in the active plan. Refine the one valley as mechanics change. Runtime AI location selection and generalized scenario infrastructure do not improve the required first game.
+The native selector supports three annual landscapes and a separate community-import flow. A reusable Codex skill prepares bounded source-aligned terrain studies; the eventual in-app place search is a visible stub. The long-term intent is for players to represent their own community. A terrain study must not be presented as a complete playable local scenario: surveyed/mapped objects, authored choices, consent assumptions, financial rules and consequence tests remain explicit work. No browser geolocation prompt, hosted GIS/AI generator or automatic local-policy model is authorized by this prototype.
 
 ## 12. Annual model, meters and scientific limits
 

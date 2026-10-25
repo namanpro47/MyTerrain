@@ -17,12 +17,13 @@ namespace Terra.Core
         {
             var result=new AnnualProjectPreview();
             if(rules==null||state==null||candidate==null||candidate.actionId==AnnualPlayerRules.CancelAction)return result;
-            result.openingYear=state.year+candidate.constructionYears;
+            var existing=state.assets.FirstOrDefault(a=>a.siteId==candidate.siteId&&a.cancelledYear==0);
+            result.openingYear=state.year+Math.Max(existing==null?0:1,candidate.constructionYears);
             result.matureYear=result.openingYear+candidate.establishmentYears-1;
             result.year=Math.Min(rules.years,result.matureYear);
             result.beyondRun=result.matureYear>rules.years;
             if(rules.economy==null||rules.simulation!=null||state.phase!=TownPhase.Planning||state.year>rules.years
-                ||state.assets.Any(a=>a.siteId==candidate.siteId&&a.cancelledYear==0))return result;
+                ||existing?.actionId==candidate.actionId)return result;
             var queued=state.queue.FirstOrDefault(q=>q.siteId==candidate.siteId);
             if(queued?.actionId==AnnualPlayerRules.CancelAction)return result;
             var before=state.queue.Where(q=>queued?.actionId!=candidate.actionId||q.siteId!=candidate.siteId).ToArray();
@@ -40,7 +41,7 @@ namespace Terra.Core
         public static int CompletedConstruction(TownActionDefinition recipe,TownAsset asset,AnnualTownSnapshot state)
         {
             int last=state.history.LastOrDefault()?.year??0;
-            return Math.Max(0,Math.Min(recipe.constructionYears,last-asset.startedYear+1));
+            return Math.Max(0,Math.Min(recipe.constructionYears+asset.conversionDelayYears,last-asset.startedYear+1));
         }
     }
 
@@ -60,25 +61,12 @@ namespace Terra.Core
         // maturity, retirement, capped needs and versioned industrial pressure stay identical.
         internal TownYearOutcomes ProjectReference(AnnualTownSnapshot state,TownPlannedAction[] plan,int year)
         {
+            Year=state.year;
+            assets=TownCopies.Copy(state.assets);
+            history.Clear();history.AddRange(state.history);
+            var next=AssetsForPlan(plan);
             Year=year;
             pending=new TownYearRequest{driver=new TownYearDriver{year=year,productionFactor=1,regionalEvents=Array.Empty<TownRegionalEvent>()}};
-            var next=TownCopies.Copy(state.assets).ToList();
-            foreach(var q in plan)
-            {
-                var old=next.FirstOrDefault(a=>a.siteId==q.siteId);
-                if(q.actionId==AnnualPlayerRules.CancelAction)
-                {
-                    if(old==null)continue;
-                    var previous=state.history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==q.siteId);
-                    old.cancelledYear=state.year;
-                    old.clearedVegetatedFraction=Math.Min(.25,previous==null?sites[q.siteId].baselineVegetatedFraction:previous.vegetatedAreaM2/sites[q.siteId].areaM2);
-                }
-                else
-                {
-                    if(old!=null)next.Remove(old);
-                    next.Add(new TownAsset{siteId=q.siteId,actionId=q.actionId,startedYear=state.year,condition=1});
-                }
-            }
             var funded=next.ToDictionary(a=>a.siteId,a=>true);
             return EvaluateOutcomes(next.ToArray(),funded,new TownYearConsequences{effects=Array.Empty<TownSiteEffect>()},new TownYearLedger());
         }

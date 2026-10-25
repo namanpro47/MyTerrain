@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Study65](study65-findings.md) — existing fictional community, terrain-following yards and35Editor checks; Chrome pending. [Study64](study64-findings.md) remains the latest completed Chrome material/interaction checkpoint. **Visual and browser gates remain open.**
+Latest actual study: [Study75](study75-distance/README.md) — near-field geometry and distant canopy, rejected after matched views and a60-sample zoom sequence for fine speckling, representation mismatch and excessive submitted geometry. [Current visible review](../../../CURRENT_VISUAL_REVIEW.md). Free GDQuest blade/gradient source is acquired for a materially different construction; no runtime adoption or quality acceptance. Study65 remains the historical isolated runtime candidate and study64 its Chrome checkpoint; the combined release owner separately verifies current-main integration.
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

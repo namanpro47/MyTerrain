@@ -46,11 +46,15 @@ AnnualTownSession Town(string key,bool restore=false){var t=new AnnualTownSessio
 AnnualChapterSession Chapter(AnnualTownSession t,string key)=>new AnnualChapterSession{town=t,saveKey=key,endpoint="http://127.0.0.1:8787/chapter",useJavaScriptBackend=false};
 var town=Town("rules-town");var chapters=Chapter(town,"rules-chapters");
 UnityWebRequest.OnSend=()=>{
- var saved=JsonUtility.FromJson<AnnualTownSnapshot>(PlayerPrefs.GetString(town.saveKey));
+ var saved=JsonUtility.FromJson<AnnualTownSnapshot>(AnnualTownSession.ReadStored(town.saveKey));
  Check(saved.history.Length==1&&saved.phase==TownPhase.Reviewing,"numerical year saved before transport starts");
  Check(PlayerPrefs.HasKey(chapters.saveKey),"local chapter saved before transport starts");
 };
-chapters.ResolveOnline();Check(chapters.Busy&&town.State.history.Length==1,"AI prose pending while year accepted");
+bool stayedWaitingDuringSave=false;
+chapters.StateChanged+=()=>{if(chapters.Latest?.mode=="offline"&&town.State.history.Length==1)stayedWaitingDuringSave=chapters.Busy;};
+chapters.ResolveOnline();Check(stayedWaitingDuringSave,"saved local receipt keeps online waiting state visible");
+Check(Debug.Logs.Any(line=>line.StartsWith("TERRA_ANNUAL_SAVED:"))&&!Debug.Logs.Any(line=>line.Contains("offline year 1 accepted")),"initial save is logged as pending AI, not terminal offline completion");
+Check(chapters.Busy&&town.State.history.Length==1,"AI prose pending while year accepted");
 string accepted=TownCopies.Hash(town.State);long acceptedCash=town.State.cashCents;
 var transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.ProtocolError;transport.responseCode=429;transport.downloadHandler.text="{}";transport.operation.isDone=true;
 chapters.Poll();Check(!chapters.Busy&&chapters.Latest.mode=="offline","quota failure retains local chapter");
@@ -63,7 +67,7 @@ restoredChapters.Continue();UnityWebRequest.OnSend=null;restoredChapters.Resolve
 var receipt=restoredChapters.ForYear(2);receipt.mode="gemini";receipt.model="test-narrator";receipt.chapter.title="Saved year explained";
 string accepted2=TownCopies.Hash(restored.State);
 transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.Success;transport.responseCode=200;transport.downloadHandler.text=JsonUtility.ToJson(receipt);transport.operation.isDone=true;restoredChapters.Poll();
-Check(restoredChapters.ForYear(2).mode=="gemini","AI replaces prose only");Check(TownCopies.Hash(restored.State)==accepted2,"AI cannot reapply money/events");
+Check(restoredChapters.ForYear(2).mode=="gemini","AI replaces prose only");Check(Debug.Logs.Any(line=>line.Contains("gemini year 2 accepted")),"final AI completion is logged");Check(TownCopies.Hash(restored.State)==accepted2,"AI cannot reapply money/events");
 // Simulate a crash after saving the new annual key but before saving the chapter key.
 PlayerPrefs.SetString("rules-chapters",oldChapterSave);
 var newest=Town("rules-town",true);var stale=Chapter(newest,"rules-chapters");stale.RestoreSaved();
@@ -76,11 +80,41 @@ Check(!AnnualChapterSession.UsesHostedProtocol("http://127.0.0.1:8787/chapter")&
 Check(AnnualChapterSession.UsesHostedProtocol("https://terra-chapters.vercel.app/chapter"),"hosted uses facts protocol");
 // Finish locally, then request only the ending prose without replaying live cash/events.
 stale.StopRequest();stale.FinishOffline();Check(newest.State.phase==TownPhase.Completed,"offline fast-forward reaches accepted ending");
-var endingHash=TownCopies.Hash(newest.State);stale.ResolveOnline();
+var endingHash=TownCopies.Hash(newest.State);bool endingStayedWaiting=false;stale.StateChanged+=()=>{if(stale.Latest?.consequences.year==10&&stale.Latest.mode=="offline")endingStayedWaiting=stale.Busy;};stale.ResolveOnline();Check(endingStayedWaiting,"Year 10 keeps the waiting state through local save");
 Check(stale.Busy&&TownCopies.Hash(newest.State)==endingHash,"accepted Year 10 can request AI without changing state");
 var endingRequest=JsonUtility.FromJson<AnnualChapterRequest>(System.Text.Encoding.UTF8.GetString(UnityWebRequest.Last.uploadHandler.data));
 Check(endingRequest.snapshot.pendingRequest.year==10&&endingRequest.snapshot.history.Length==9,"ending request retains nine earlier years and original frozen Year 10");
 var endingReceipt=stale.ForYear(10);endingReceipt.mode="gemini";endingReceipt.model="ending-test";
 transport=UnityWebRequest.Last;transport.result=UnityWebRequest.Result.Success;transport.responseCode=200;transport.downloadHandler.text=JsonUtility.ToJson(endingReceipt);transport.operation.isDone=true;stale.Poll();
 Check(stale.ForYear(10).mode=="gemini"&&TownCopies.Hash(newest.State)==endingHash,"AI ending replaces prose only");
+// Storage remains exact, while compressed backups fit alongside current saves.
+newest.Save();stale.Save();
+string fullSave=newest.ExportSave(), fullChapter=stale.ExportSave();
+AnnualTownSession.WriteStored(newest.saveKey+".previous",fullSave);
+AnnualTownSession.WriteStored(stale.saveKey+".previous",fullChapter);
+AnnualTownSession.WriteStored(newest.saveKey+".previous.definition",JsonUtility.ToJson(definition));
+Check(AnnualTownSession.ReadStored(newest.saveKey+".previous")==fullSave,"compressed complete history is lossless");
+Check(AnnualTownSession.ReadStored(stale.saveKey+".previous")==fullChapter,"compressed chapters are lossless");
+Check(PlayerPrefs.Values.Sum(kv=>System.Text.Encoding.UTF8.GetByteCount(kv.Key+kv.Value))<1024*1024,"current and archived ten-year runs fit WebGL quota");
+PlayerPrefs.SetString("legacy-json",fullSave);
+var legacy=Town("legacy-json",true);Check(TownCopies.Hash(legacy.State)==endingHash,"legacy plain JSON still restores exactly");
+var compressed=Town(newest.saveKey,true);Check(TownCopies.Hash(compressed.State)==endingHash,"compressed current save restores exactly");
+var failedTown=Town("failed-send-town");var failedChapter=Chapter(failedTown,"failed-send-chapter");
+UnityWebRequest.OnSend=()=>throw new InvalidOperationException("Transport failed before dispatch");failedChapter.ResolveOnline();UnityWebRequest.OnSend=null;
+Check(!failedChapter.Busy&&failedChapter.Latest.mode=="offline","immediate transport failure clears preparing/waiting and shows fallback");
+Check(failedTown.State.history.Length==1&&failedTown.State.phase==TownPhase.Reviewing,"failed transport preserves accepted numeric year");
+// Real Unity-written fractional v5 fixture; exact reader never relaxes report hashes.
+string ReadFixture(string name){using var stream=File.OpenRead("docs/evidence/annual-feedback/restore-fixture/"+name+".json.gz");using var zip=new System.IO.Compression.GZipStream(stream,System.IO.Compression.CompressionMode.Decompress);using var reader=new StreamReader(zip);return reader.ReadToEnd();}
+var preciseDefinition=AnnualNumericJson.ReadTownDefinition(ReadFixture("save-roundtrip-definition"));
+string preciseJson=ReadFixture("save-roundtrip-original");
+var precise=AnnualNumericJson.ReadTownSave(preciseJson);
+var preciseTown=AnnualTown.Restore(preciseDefinition,precise);
+Check(TownCopies.Hash(preciseTown.History)==TownCopies.Hash(precise.history),"real fractional v5 history retains exact hash");
+Check(BitConverter.DoubleToInt64Bits(precise.history[0].outcomes.sites[1].vegetatedAreaM2)==4668317464170332160L,"exact fractional bit pattern");
+foreach(bool money in new[]{true,false}){
+ var altered=AnnualNumericJson.ReadTownSave(preciseJson);if(money)altered.history[0].ledger.closingCashCents++;else altered.history[0].outcomes.sites[1].vegetatedAreaM2+=0.01;
+ bool rejected=false;try{AnnualTown.Restore(preciseDefinition,altered);}catch(ArgumentException){rejected=true;}Check(rejected,"tampered ledger/outcome rejected");
+}
+bool unknownRejected=false;try{AnnualNumericJson.ReadTownSave("{\"unknown\":1}");}catch(Newtonsoft.Json.JsonSerializationException){unknownRejected=true;}Check(unknownRejected,"unknown save members rejected");
+bool nullRejected=false;try{AnnualNumericJson.ReadTownSave("null");}catch(ArgumentException){nullRejected=true;}Check(nullRejected,"null save rejected");
 Console.WriteLine("Save-first chapter session checks passed: "+checks+" (transport/Unity stubs, no live provider)");

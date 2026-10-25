@@ -1,0 +1,10 @@
+test_corrupt_image_rejected (test_import.CommunityImportChecks.test_corrupt_image_rejected) ... ok
+test_missing_elevation_rejected (test_import.CommunityImportChecks.test_missing_elevation_rejected) ... ok
+test_real_imports_and_projection (test_import.CommunityImportChecks.test_real_imports_and_projection) ... ok
+test_refuses_overwrite_and_unsupported_region (test_import.CommunityImportChecks.test_refuses_overwrite_and_unsupported_region) ... ok
+test_wrong_orientation_rejected (test_import.CommunityImportChecks.test_wrong_orientation_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.204s
+
+OK

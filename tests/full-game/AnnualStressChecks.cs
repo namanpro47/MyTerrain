@@ -55,7 +55,9 @@ static class AnnualStressChecks
                     if (town.Preview(offer.siteId, offer.actionId) >= 0) town.QueueAction(offer.siteId, offer.actionId, town.Revision);
                 }
                 var report = AnnualTownDemo.Advance(town, town.RunId + "/year-" + year, provider);
-                Check(report.ledger.closingArrearsCents == 0, "Reserved repeated-family plan incurred arrears: " + town.RunId);
+                var ledger=report.ledger;
+                long expectedArrears=Math.Max(0,ledger.openingArrearsCents+ledger.programDueCents+ledger.operatingDueCents+ledger.repairDueCents-(ledger.openingCashCents-ledger.upfrontPaidCents));
+                Check(ledger.closingArrearsCents==expectedArrears, "Current-year planning must retain unfunded later obligations: " + town.RunId);
                 Check(report.ledger.closingCashCents >= 0, "Negative treasury: " + town.RunId);
                 var economy = report.outcomes.economy;
                 Check(economy.occupiedHomes <= rubric.householdDemand && economy.recreation <= rubric.recreationTarget

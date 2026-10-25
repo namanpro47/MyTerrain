@@ -28,6 +28,12 @@ namespace Terra.UI
                 "\n\nPublic spending "+Money(h.Sum(r=>r.ledger.upfrontPaidCents+r.ledger.operatingPaidCents+r.ledger.programPaidCents+r.ledger.repairPaidCents+r.ledger.arrearsPaidCents))+"\nClosing cash "+Money(town.CashCents)+" · no-action cash "+Money(comparison.CashCents)+"\nReceipts "+Money(h.Sum(r=>r.ledger.publicReceiptsCents))+" · appropriations "+Money(h.Sum(r=>r.ledger.appropriationCents))+"\nOutstanding beyond Year 10: "+Money(ours.ledger.futureCommitmentsCents)+" (includes arrears "+Money(ours.ledger.closingArrearsCents)+")\n\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>";
             AnnualDialog("Ten years in "+location.Name,text,"Compare the landscape",compare);
             AnnualSecondary("History & takeaway",timeline);
+            SetButtonText(closeButton,"Take it local →");
+            closeButton.onClick.RemoveAllListeners();
+            closeButton.onClick.AddListener(()=>LocalFollowup.Show(location.Name,
+                "Your accepted Year 10 · "+town.Snapshot().assets.Count(a=>a.cancelledYear==0)+" projects shaped this place.",
+                new[]{o.economicScore,o.socialScore,o.environmentalScore},"Results",
+                ()=>AnnualFuture(town,comparison,compare,timeline,takeaway)));
         }
     }
 }

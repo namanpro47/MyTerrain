@@ -1,0 +1,7 @@
+{
+  "source": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "remainingRefs": [
+    "codex/community-locations d3e278dbffc9ca1d4dc748a2ca2bbed994df58d2"
+  ],
+  "deferred": "community-locations advanced AFTER initial completed checkpoint1ca43cf; d3e278d is newly committed unfinished regional reconstruction, explicitly not ready per owner. Completed community feature1ca43cf is included."
+}

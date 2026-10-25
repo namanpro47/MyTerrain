@@ -1,0 +1,14 @@
+{
+  "voice_id": "XrExE9yKIg1WjnnlVkGX",
+  "name": "Matilda - Knowledgable, Professional",
+  "labels": {
+    "gender": "female",
+    "descriptive": "upbeat",
+    "language": "en",
+    "use_case": "informative_educational",
+    "age": "middle_aged",
+    "accent": "american"
+  },
+  "description": "A professional woman with a pleasing alto pitch. Suitable for many use cases.",
+  "category": "premade"
+}

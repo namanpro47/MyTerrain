@@ -1,0 +1,11 @@
+{
+  "site": "south-01",
+  "canopyVertices": 21460,
+  "canopyTriangles": 39258,
+  "edgePlants": 3119,
+  "edgeTriangles": 5214968,
+  "cells": 40,
+  "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "sourceUnchanged": true,
+  "scope": "Play-only single full parcel continuous canopy and source-eligible native edge plants; no runtime/browser acceptance."
+}

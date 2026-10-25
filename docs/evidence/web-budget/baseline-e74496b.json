@@ -1,0 +1,35 @@
+{
+  "source": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+  "export": "/Users/naman/.codex/worktrees/annual-feedback/Terra/Builds/Web",
+  "requiredUnityPayloadBytes": 57950802,
+  "budgetBytes": 50000000,
+  "bytesOverBudget": 7950802,
+  "belowBudget": false,
+  "files": [
+    {
+      "role": "loader",
+      "path": "Build/fb51365d01dcd9104dcce32d70795018.loader.js",
+      "bytes": 118806,
+      "sha256": "ebba1da500e826637d9e457668d91c4d07fd31d18059c593fb47af8156a45cef"
+    },
+    {
+      "role": "data",
+      "path": "Build/bd3f140ba3137dc6a46ef6e870d0f66f.data.unityweb",
+      "bytes": 47992122,
+      "sha256": "8068369cb8377d20264eaa495567936d2ce380d906f7e1237e74378e279c69fe"
+    },
+    {
+      "role": "framework",
+      "path": "Build/c0ce64269624586fd943320380f94b5e.framework.js.unityweb",
+      "bytes": 71870,
+      "sha256": "073b81105da5a5352c1f5288b83274e4763a844f03071f5c40ca2d76e9ec74e0"
+    },
+    {
+      "role": "code",
+      "path": "Build/01dcde782a7903e8013678f7960e05f1.wasm.unityweb",
+      "bytes": 9768004,
+      "sha256": "914fafcdf79d97ff9511f7b9ce003d1a54954c7256648ad3dd28c3ac30618a81"
+    }
+  ],
+  "note": "File-body bytes for wrapper-referenced Unity payloads only. Excludes wrapper, artwork, map downloads, HTTP headers, cache effects and timing. A subtotal below budget does not prove the full initial-transfer gate."
+}

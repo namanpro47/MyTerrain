@@ -1,0 +1,27 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'Builds/Recording/terra-recorded-2026-10-25-19e7eae-fallback.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:03:26.70, start: 0.000000, bitrate: 540 kb/s
+  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt709/bt709/iec61966-2-1, progressive), 1728x940 [SAR 1:1 DAR 432:235], 537 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 libx264
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.100
+  Stream #0:0(eng): Video: wrapped_avframe, yuvj420p(pc, bt709/bt709/iec61966-2-1, progressive), 1728x940 [SAR 1:1 DAR 432:235], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.100 wrapped_avframe
+frame=  603 fps=0.0 q=-0.0 size=N/A time=00:00:20.10 bitrate=N/A speed=40.2x    frame= 1284 fps=1277 q=-0.0 size=N/A time=00:00:42.80 bitrate=N/A speed=42.6x    frame= 1977 fps=1312 q=-0.0 size=N/A time=00:01:05.90 bitrate=N/A speed=43.7x    frame= 2567 fps=1278 q=-0.0 size=N/A time=00:01:25.56 bitrate=N/A speed=42.6x    frame= 3199 fps=1275 q=-0.0 size=N/A time=00:01:46.63 bitrate=N/A speed=42.5x    frame= 3854 fps=1279 q=-0.0 size=N/A time=00:02:08.46 bitrate=N/A speed=42.6x    frame= 4496 fps=1278 q=-0.0 size=N/A time=00:02:29.86 bitrate=N/A speed=42.6x    frame= 5211 fps=1296 q=-0.0 size=N/A time=00:02:53.70 bitrate=N/A speed=43.2x    frame= 5887 fps=1301 q=-0.0 size=N/A time=00:03:16.23 bitrate=N/A speed=43.4x    [out#0/null @ 0x121704bc0] video:2664KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 6201 fps=1308 q=-0.0 Lsize=N/A time=00:03:26.70 bitrate=N/A speed=43.6x    

@@ -1,0 +1,17 @@
+{
+  "captureOwner": "Complete remaining implementation",
+  "sourceBuildTag": "19e7eae",
+  "inspection": "Actual PNG review: dock instruction clears cards at1728x940; normal map-edge wedge remains. No timing or accessibility claim from these stills.",
+  "files": [
+    {
+      "source": "/Users/naman/.codex/worktrees/annual-release-acceptance/Terra/docs/evidence/annual-completion/release-acceptance/chrome-19e7eae/public-year2-housing-preview.png",
+      "copy": "release19e7eae-public-year2-housing-preview.png",
+      "sha256": "9ec1c21830a017dcca576ee591345db562f6ab9d2c3a068ec06345884370abb5"
+    },
+    {
+      "source": "/Users/naman/.codex/worktrees/annual-release-acceptance/Terra/docs/evidence/annual-completion/release-acceptance/chrome-19e7eae/public-opening.png",
+      "copy": "release19e7eae-public-opening.png",
+      "sha256": "a8c9fa712192b434e5a4324f6f3e4f5da34fb282450b50b9359bc0ae26cbc62c"
+    }
+  ]
+}

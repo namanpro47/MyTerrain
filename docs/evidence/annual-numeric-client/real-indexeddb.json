@@ -1,0 +1,18 @@
+{
+  "kind": "real-indexeddb",
+  "checks": [
+    "Absent key is acknowledged as empty",
+    "Initial record acknowledged after transaction completion",
+    "Independent connections: exactly one stale-hash writer wins",
+    "Read returns winning complete record",
+    "Abort after put success is not acknowledged as a commit",
+    "Aborted transaction preserves prior record",
+    "25 MiB payload is acknowledged",
+    "25 MiB payload reads back exactly"
+  ],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "at": "2026-10-25T18:53:36.724Z",
+  "syntheticPaddingBytes": 26214400,
+  "unityLinked": false,
+  "bridgeSha256": "b4e401afbaa6a90e877379f0b32ec41195ba9d694919704f4345ae4a37124084"
+}

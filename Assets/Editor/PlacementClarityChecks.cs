@@ -59,7 +59,7 @@ public static class PlacementClarityChecks
                 Invoke(hud,"LayoutAnnual",size.x,size.y,size.x<1120||size.y<680);
                 hud.HideAnnualPreview();var dock=(RectTransform)Field<Transform>(hud,"actionDock");
                 Vector2 position=dock.anchoredPosition,dimensions=dock.sizeDelta;Vector3 scale=dock.localScale;
-                foreach(var offer in definition.actions.GroupBy(a=>a.actionId).Select(group=>group.First()))
+                foreach(var offer in definition.actions.Where(a=>a.actionId!="cultivate-margin").GroupBy(a=>a.actionId).Select(group=>group.First()))
                 {
                     var site=world.sites.First(s=>s.id==offer.siteId);hud.Selected(offer.actionId);
                     Canvas.ForceUpdateCanvases();

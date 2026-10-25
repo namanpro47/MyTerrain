@@ -55,9 +55,9 @@ namespace Terra.UI
             var before=history.Length>1?history[history.Length-2].outcomes:AnnualGameplay.Baseline(annualRules);
             double[] scores={report.outcomes.economicScore,report.outcomes.socialScore,report.outcomes.environmentalScore};
             double[] previous={before.economicScore,before.socialScore,before.environmentalScore};
-            for(int i=0;i<3;i++)annualScores[i].text=scores[i].ToString("0.0")+" <size=50%>/100</size>\n<size=50%>Change  "+Signed(scores[i]-previous[i])+"</size>";
+            for(int i=0;i<3;i++)annualScores[i].text=AnnualFeedback.Score(scores[i])+" <size=50%>/100</size>\n<size=50%>Change  "+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(previous[i],scores[i]))+"</size>";
             yearOverviewTitle.text="Year "+report.year+" complete";
-            SetButtonText(overviewNext,town.Phase==TownPhase.Completed?"See ten-year future →":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan →");
+            SetButtonText(overviewNext,town.Phase==TownPhase.Completed?"See ten-year future →":town.DecisionsFinished?"Review Year 10 →":town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1)+" →":"Return to plan →");
             for(int i=0;i<highlightButtons.Length;i++)
             {
                 var b=highlightButtons[i];b.gameObject.SetActive(i<cards.Length);if(i>=cards.Length)continue;

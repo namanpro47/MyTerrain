@@ -4,6 +4,7 @@ namespace UnityEngine {
  public class MonoBehaviour { public GameObject gameObject = null; }
  public class GameObject { public string name; public GameObject(string value) { name=value; } public T AddComponent<T>() where T : MonoBehaviour,new() => new T {gameObject=this}; }
  public static class Debug { public static void LogException(Exception e, object context) {} }
+ public static class Awaitable { public static Task NextFrameAsync(CancellationToken cancellation=default) { cancellation.ThrowIfCancellationRequested(); return Task.CompletedTask; } }
  public static class Time { public static float realtimeSinceStartup; }
  public static class JsonUtility {
  static readonly JsonSerializerOptions Options = new JsonSerializerOptions {IncludeFields=true};

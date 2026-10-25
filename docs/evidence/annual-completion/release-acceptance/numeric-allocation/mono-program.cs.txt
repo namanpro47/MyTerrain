@@ -1,0 +1,39 @@
+using System;
+using System.IO;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Terra.Core;
+using Terra.Contracts;
+class MonoProbe {
+ static MethodInfo allocation=typeof(GC).GetMethod("GetAllocatedBytesForCurrentThread",Type.EmptyTypes);
+ static Type copies=typeof(AnnualTown).Assembly.GetType("Terra.Core.TownCopies");
+ static T Copy<T>(T x){return (T)copies.GetMethod("Copy").MakeGenericMethod(typeof(T)).Invoke(null,new object[]{x});}
+ static T Measure<T>(string label,Func<T> action) {
+  GC.Collect();GC.WaitForPendingFinalizers();GC.Collect();
+  long retained=GC.GetTotalMemory(false),start=(long)allocation.Invoke(null,null);
+  var timer=System.Diagnostics.Stopwatch.StartNew();T value=action();timer.Stop();
+  Console.WriteLine(JsonConvert.SerializeObject(new{label,allocatedBytes=(long)allocation.Invoke(null,null)-start,retainedBefore=retained,retainedAfter=GC.GetTotalMemory(false),milliseconds=timer.Elapsed.TotalMilliseconds}));return value;
+ }
+ static void Main(){
+  if(allocation==null)throw new Exception("Runtime allocation counter unavailable");
+  string source="/Users/naman/.codex/worktrees/annual-numeric-client/Terra/Builds/AnnualNumericClientVectors/";
+  var rules=JsonConvert.DeserializeObject<AnnualTownDefinition>(File.ReadAllText(source+"dense-definition.json"));
+  var save=JsonConvert.DeserializeObject<AnnualNumericSave>(File.ReadAllText(source+"dense-save.json"));
+  Measure("Copy envelope",()=>Copy(save));
+  Measure("Hash envelope",()=>AnnualNumericTransactions.Hash(save));
+  Measure("Copy definition",()=>Copy(rules));
+  Measure("Hash definition",()=>copies.GetMethod("Hash").Invoke(null,new object[]{rules}));
+  Measure("Create engine",()=>new AnnualTown(rules,save.town.runId));
+  Measure("Restore ten years",()=>AnnualTown.Restore(rules,save.town));
+  var tx=Measure("Transactions.Open existing",()=>AnnualNumericTransactions.Open(rules,save.town.runId,new ReadStore(save)).GetAwaiter().GetResult());
+  Measure("ReadEngine after open",()=>tx.ReadEngine());
+  Console.WriteLine("Installed Unity Mono allocation diagnostic; not linked WebAssembly peak or performance acceptance.");
+ }
+ sealed class ReadStore:IAnnualNumericStore {
+  readonly AnnualNumericSave save;public ReadStore(AnnualNumericSave x){save=x;}
+  public Task<AnnualNumericSave> Read(CancellationToken cancellation){return Task.FromResult(Copy(save));}
+  public Task Write(string expectedHash,AnnualNumericSave candidate,CancellationToken cancellation){throw new Exception("Read only");}
+ }
+}

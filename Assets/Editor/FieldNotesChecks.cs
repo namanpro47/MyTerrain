@@ -46,7 +46,7 @@ public static class FieldNotesChecks
                 label.ForceMeshUpdate();
                 Check(label.preferredHeight<=label.rectTransform.rect.height+2,"Text overflows its content row: "+label.text);
             }
-            Check(scroll.verticalNormalizedPosition>=.99f,"New chapter did not open at top.");
+            Check(scroll.content.rect.height<=scroll.viewport.rect.height+1||Mathf.Abs(scroll.content.anchoredPosition.y)<1,"New chapter did not open at top: page "+page+" offset "+scroll.content.anchoredPosition.y);
             if(page==2)Check(scroll.content.Find("Economic progress")!=null&&scroll.content.Find("Social progress")!=null,"People card needs both meter bars.");
             if(page==3)Check(scroll.content.Find("Environmental progress")!=null,"Land card needs an environmental bar.");
         }
@@ -55,7 +55,23 @@ public static class FieldNotesChecks
         hud.AnnualChapterReport(town,receipt,()=>{},()=>{},0);
         Check(Visible().Contains("AI unavailable."),"Hosted fallback disclosure lost in the readable narrative.");
         hud.ShowHelp();
-        Check(!GameObject.Find("Terra HUD").GetComponentsInChildren<UnityEngine.UI.ScrollRect>().Any(s=>s.gameObject.name=="Field notes reading area"),"Chapter content leaked into help.");
+        Check(!Visible().Contains("AI unavailable.")&&!GameObject.Find("Field notes reading area").GetComponentsInChildren<RectTransform>().Any(r=>r.name=="Economic progress"),"Chapter content leaked into help.");
+        Check(GameObject.Find("Field notes reading area").activeInHierarchy,"Help must use the readable dialog surface.");
+        bool explored=false;
+        hud.AnnualWelcome("Scenario details","Fictional choices on real terrain.",()=>explored=true);
+        Check(Visible().Contains("$10M")&&Visible().Contains("4 / 16")&&Visible().Contains("4 / 36"),"Opening resources differ from the definition.");
+        Check(!Visible().Contains("Return to landscape"),"Opening repeats its exit action.");
+        var modal=GameObject.Find("Field guide");
+        Check(modal.GetComponent<UnityEngine.UI.Image>().color.r<.2f&&modal.GetComponent<UnityEngine.UI.Image>().color.a==1,"Dialog reverted to the bright document surface.");
+        var primary=modal.GetComponentsInChildren<UnityEngine.UI.Button>().Single(b=>b.GetComponentInChildren<TextMeshProUGUI>().text=="Choose your run  →");
+        primary.onClick.Invoke();Check(explored,"Opening primary action is disconnected.");
+        hud.AnnualDialog("A long report",string.Join("\n\n",Enumerable.Repeat("A saved result that must remain readable.",35)),"Continue",()=>{});
+        var continueButton=modal.GetComponentsInChildren<UnityEngine.UI.Button>().Single(b=>b.GetComponentInChildren<TextMeshProUGUI>().text=="Continue");
+        Check(Mathf.Abs(continueButton.GetComponent<RectTransform>().anchoredPosition.y-24)<1,"Single primary action overlaps reading content.");
+        var reading=GameObject.Find("Field notes reading area").GetComponent<UnityEngine.UI.ScrollRect>();
+        Check(reading.content.rect.height>reading.viewport.rect.height,"Long generic dialog is not scrollable.");
+        hud.ScrollFieldNotes(5);Check(reading.verticalNormalizedPosition<.99f,"Reading scroll does not move.");
+        Check(accepted==JsonUtility.ToJson(town.Snapshot()),"Dialog navigation changed accepted history.");
         hud.CloseModal();
         return count;
     }

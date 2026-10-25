@@ -1,0 +1,11 @@
+{
+  "assertions": 1106,
+  "existingChapterAssertions": 16,
+  "liveProviderTested": false,
+  "testedCombinedSource": "d32915851fdbb657876f9050131c0f12333f4e6e",
+  "presentationSource": "cb78b65",
+  "initialChromeSource": "8b60b15",
+  "handoffOwner": "annual-feedback",
+  "finalCombinedChrome": "Pending downstream export and verification; not claimed here",
+  "deployment": "Not deployed by this task"
+}

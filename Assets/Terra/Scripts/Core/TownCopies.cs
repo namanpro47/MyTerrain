@@ -68,6 +68,10 @@ namespace Terra.Core
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance).OrderBy(f => f.Name, StringComparer.Ordinal))
             {
                 var fieldValue = field.GetValue(value);
+                if (value is AnnualTownSnapshot && field.Name == "planningYears" && (int)fieldValue == 0) continue;
+                if (value is TownAsset && ((field.Name == "previousActionId" && string.IsNullOrEmpty((string)fieldValue))
+                    || (field.Name == "conversionDelayYears" && (int)fieldValue == 0)
+                    || (field.Name == "conversionOpeningVegetation" && (double)fieldValue == 0))) continue;
                 // Numeric-v4 additions are absent on all previously published definitions,
                 // requests/reports and snapshots. Preserve their exact legacy fingerprints.
                 if ((field.Name == "simulation" || field.Name == "playerRules") && EmptyExtension(fieldValue)) continue;

@@ -57,10 +57,10 @@ public static class AnnualTownChecks
         var rules = Fixture(); var town = new AnnualTown(rules, "accounting-run");
         Check(town.Phase == TownPhase.Planning && town.Year == 1, "Town opens in Year 1 Planning");
         long preview = town.Preview("a", "single-species");
-        Check(preview == 820000 && town.CashCents == 1000000 && town.Queue.Length == 0 && town.Revision == 0, "Preview is pure and reserves all three installments");
+        Check(preview == 940000 && town.CashCents == 1000000 && town.Queue.Length == 0 && town.Revision == 0, "Preview is pure and reserves the current installment");
         town.QueueAction("a", "single-species", town.Revision);
         town.QueueAction("b", "multi-species", town.Revision);
-        Check(town.QueuedCommitmentCents == 292500 && town.AvailableCents == 707500 && town.CashCents == 1000000, "PRD $2,925 commitment reserved; cash remains $10,000");
+        Check(town.QueuedCommitmentCents == 292500 && town.AvailableCents == 902500 && town.CashCents == 1000000, "$2,925 lifetime obligation remains visible; $975 reserved now and cash stays $10,000");
         Reject(() => town.QueueAction("a", "alternate", 0), "Stale plan revision");
         Check(town.UndoPlan(town.Revision) && town.QueuedCommitmentCents == 180000, "Queue-only undo frees the second commitment");
         town.QueueAction("b", "multi-species", town.Revision);
@@ -77,7 +77,7 @@ public static class AnnualTownChecks
         Check(town.PendingRequest.actions[0].actionId == "single-species", "Provider cannot mutate the frozen request");
         var first = town.CompleteResolution(clean);
         Check(town.Phase == TownPhase.Reviewing && first.ledger.programPaidCents == 97500 && town.CashCents == 902500, "Year 1 pays $975 exactly once");
-        Check(first.ledger.futureCommitmentsCents == 195000 && town.CommittedCents == 195000 && town.AvailableCents == 707500, "Review reserves only the remaining $1,950");
+        Check(first.ledger.futureCommitmentsCents == 195000 && town.CommittedCents == 195000 && town.AvailableCents == 805000, "Review shows $1,950 later obligations and reserves $975 for the coming year");
         Near(first.outcomes.productionUnits, 10, "Operational actions contribute illustrative production");
         Near(first.outcomes.economicScore, 100, "Economic rubric uses its named components");
         Near(first.outcomes.socialScore, 100, "Social rubric uses its named components");
@@ -119,7 +119,7 @@ public static class AnnualTownChecks
 
         var poorRules = Fixture(); poorRules.startingCashCents = 1000;
         var poor = new AnnualTown(poorRules, "poor");
-        Reject(() => poor.QueueAction("a", "single-species", poor.Revision), "Cannot fund just the first installment of an unaffordable full commitment");
+        Reject(() => poor.QueueAction("a", "single-species", poor.Revision), "Cannot fund the current installment");
         Check(poor.Revision == 0 && poor.CashCents == 1000 && poor.Queue.Length == 0, "Overspend leaves state unchanged");
         Reject(() => poor.QueueAction("protected", "single-species", poor.Revision), "Protected site has no eligible action");
         Reject(() => poor.QueueAction("missing", "single-species", poor.Revision), "Unknown site rejected");
@@ -183,7 +183,7 @@ public static class AnnualTownChecks
             && firstSummary.freeAfterCommitmentsCents == 707500, "Summary distinguishes cash spent from the full reserved commitment");
         Check(!firstSummary.economic.hasPreviousYear && !firstSummary.social.hasPreviousYear && !firstSummary.environmental.hasPreviousYear, "Year 1 does not invent a previous annual score");
         var wetSummary = AnnualTownSummary.Create(town.Definition, town.History, 2);
-        Check(wetSummary.newProjects == 0 && wetSummary.continuingProjects == 2 && wetSummary.scenario.Contains("0.8"), "Waiting summary retains projects and discloses the authored output driver");
+        Check(wetSummary.newProjects == 0 && wetSummary.continuingProjects == 2 && wetSummary.scenario.Contains("Authored reference conditions"), "Waiting summary retains projects and discloses the authored output driver");
         Near(wetSummary.economic.change, -16, "Summary economic delta is measured against the actual previous year");
         Near(wetSummary.social.change, -16, "Summary social delta follows accepted illustrative services");
         Near(wetSummary.environmental.change, 0, "Output setback does not fabricate environmental change");

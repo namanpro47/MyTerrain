@@ -1,0 +1,13 @@
+{
+  "site": "south-01",
+  "plants": 28029,
+  "cells": 6,
+  "sourceTriangles": 102,
+  "plantBounds": "Center: (0.00, 0.60, 0.00), Extents: (1.05, 0.60, 10.18)",
+  "uniformScale": 2148.19824,
+  "spacing": 0.14,
+  "color": "RGBA(0.700, 0.630, 0.370, 1.000)",
+  "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+  "sourceUnchanged": true,
+  "scope": "Play-only 24m square near patch of original CC0 mesh, uniform metric scale, irregular lane edges. No production or browser performance acceptance."
+}

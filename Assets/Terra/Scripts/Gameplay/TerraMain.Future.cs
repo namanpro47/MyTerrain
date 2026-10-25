@@ -22,8 +22,9 @@ namespace Terra.Gameplay
             if(annual.State.phase==TownPhase.Resolving){ShowPendingChapter();return;}
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             if(annual.State.phase==TownPhase.Reviewing){ShowAcceptedReport();return;}
+            if(annual.Engine.DecisionsFinished){StartCoroutine(FinishYears());return;}
             if(!introPending)return;introPending=false;
-            hud.AnnualDialog(parcelPack.title+" · "+location.Name,parcelPack.story+"\n\n"+world.sites.Count(s=>!s.protectedSite)+" open plots · 60 m grid; large projects use joined cells. Seven existing community plots remain in place. Woodland, water and protected areas cannot be built over.\n\nYou have $10M in public funds and ten years. The community starts with 4 of 16 needed homes and 4 of 36 target jobs. Queue a plan, then End Year to pay and advance construction. Upkeep reserves future funds.\n\nFictional scenario · shared weather and economic reference: Coon Valley, Wisconsin; other parameters are authored. Previous-layout saves are retained separately.","Explore the landscape",()=>{hud.CloseModal();SuppressMapPointer();SaveAnnual();});
+            hud.AnnualWelcome(parcelPack.title+" · "+location.Name,parcelPack.story+"\n\n"+world.sites.Count(s=>!s.protectedSite)+" open plots · 60 m grid; large projects use joined cells. Seven existing community plots remain in place. Woodland, water and protected areas cannot be built over.\n\nYou have $10M in public funds and ten years. The community starts with 4 of 16 needed homes and 4 of 36 target jobs. Queue a plan, then End Year to pay and advance construction. Each year pays for projects and upkeep; future costs remain obligations.\n\nFictional scenario · shared weather and economic reference: Coon Valley, Wisconsin; other parameters are authored. Previous-layout saves are retained separately.",()=>hud.AnnualRunSetup(annual.Engine.PlanningYears,years=>{annual.ConfigurePlanningYears(years,annual.State.revision);hud.CloseModal();SuppressMapPointer();SaveAnnual();Refresh();}));
         }
         void ReviewFuture()
         {

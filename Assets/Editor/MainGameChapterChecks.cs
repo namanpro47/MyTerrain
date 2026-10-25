@@ -22,7 +22,7 @@ public static class MainGameChapterChecks
     {
         try
         {
-            count=0;CheckSessionAndHud();
+            count=0;CheckExactSaveRestore();CheckSessionAndHud();
             Directory.CreateDirectory("Logs/AnnualTown");
             int sessionChecks=AnnualChapterChecks.Run();
             File.WriteAllText("Logs/AnnualTown/main-game-chapter-checks.json","{\"assertions\":"+count+",\"existingChapterAssertions\":"+sessionChecks+",\"liveProviderTested\":false}");
@@ -31,6 +31,42 @@ public static class MainGameChapterChecks
             EditorApplication.Exit(0);
         }
         catch(Exception error){Debug.LogException(error);EditorApplication.Exit(1);}
+    }
+    static string ExactSaveHash(object value)=>(string)typeof(AnnualTown).Assembly.GetType("Terra.Core.TownCopies").GetMethod("Hash").Invoke(null,new[]{value});
+    static void CheckExactSaveRestore()
+    {
+        const string key="terra.checks.feedback.precision";
+        string Fixture(string name)
+        {
+            using(var stream=File.OpenRead("docs/evidence/annual-feedback/restore-fixture/"+name+".json.gz"))
+            using(var gzip=new System.IO.Compression.GZipStream(stream,System.IO.Compression.CompressionMode.Decompress))
+            using(var reader=new StreamReader(gzip))return reader.ReadToEnd();
+        }
+        var go=new GameObject("Exact annual restore checks");
+        var session=go.AddComponent<AnnualTownSession>();
+        try
+        {
+            var definition=AnnualNumericJson.ReadTownDefinition(Fixture("save-roundtrip-definition"));
+            string original=Fixture("save-roundtrip-original");
+            var saved=AnnualNumericJson.ReadTownSave(original);
+            var restored=AnnualTown.Restore(definition,saved);
+            Check(ExactSaveHash(restored.History)==ExactSaveHash(saved.history),"Fractional v5 report history changed after exact restore.");
+            Check(BitConverter.DoubleToInt64Bits(saved.history[0].outcomes.sites[1].vegetatedAreaM2)==4668317464170332160L,"Fractional save number lost a bit during JSON parsing.");
+            session.Initialize(definition,"precision");session.ImportSave(original);session.saveKey=key;session.Save();
+            string expected=ExactSaveHash(session.State);
+            session.Initialize(definition,"gzip-restore",true);
+            Check(ExactSaveHash(session.State)==expected,"Native compressed v5 restore changed accepted state.");
+            PlayerPrefs.SetString(key,original);session.Initialize(definition,"plain-restore",true);
+            Check(ExactSaveHash(session.State)==expected,"Native old plain v5 restore changed accepted state.");
+            foreach(bool money in new[]{true,false})
+            {
+                var tampered=AnnualNumericJson.ReadTownSave(original);
+                if(money)tampered.history[0].ledger.closingCashCents++;else tampered.history[0].outcomes.sites[1].vegetatedAreaM2+=0.01;
+                bool rejected=false;try{AnnualTown.Restore(definition,tampered);}catch(ArgumentException){rejected=true;}
+                Check(rejected,"Exact restore accepted a changed "+(money?"ledger":"outcome")+".");
+            }
+        }
+        finally {PlayerPrefs.DeleteKey(key);UnityEngine.Object.DestroyImmediate(go);}
     }
     static void CheckSessionAndHud()
     {
@@ -57,6 +93,12 @@ public static class MainGameChapterChecks
             count+=PlayFirstHudChecks.Run(hud,definition,world);
             count+=FieldNotesChecks.Run(hud,definition);
             count+=ActionFeedbackChecks.Run(hud);
+            count+=AnnualFeedbackWaveChecks.Run(hud,definition,world);
+            var playerDefinition=AnnualPlayerRules.Create(definition,"meadowbrook-v1","native-feedback");
+            var rulesField=typeof(TerraHud).GetField("annualRules",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);
+            rulesField.SetValue(hud,playerDefinition);
+            count+=AnnualFeedbackWaveChecks.Run(hud,playerDefinition,world);
+            rulesField.SetValue(hud,definition);
             var offer=definition.actions.First(a=>a.actionId=="public-park");
             town.QueueAction(offer.siteId,offer.actionId,town.State.revision);
             long opening=town.State.cashCents;
@@ -99,6 +141,22 @@ public static class MainGameChapterChecks
             Check(town.State.phase==TownPhase.Completed&&chapters.ForYear(10)!=null,"Fast-forward lost its final offline chapter.");
             var completed=chapters.ExportSave();chapters.ImportSave(completed);
             Check(chapters.ExportSave()==completed,"Full completed chapter envelope did not restore.");
+            string priorTownKey=town.saveKey,priorChapterKey=chapters.saveKey;
+            town.saveKey="terra.checks.feedback.storage.town";chapters.saveKey="terra.checks.feedback.storage.chapter";
+            try
+            {
+                town.Save();chapters.Save();
+                Check(PlayerPrefs.GetString(town.saveKey).StartsWith("terra-gzip-v1:"),"Annual browser save is not compressed.");
+                Check(PlayerPrefs.GetString(chapters.saveKey).Length<completed.Length/2,"Chapter save did not reduce browser quota pressure.");
+                string exact=town.ExportSave();
+                town.Initialize(definition,"restore-compressed",true);chapters.RestoreSaved();
+                Check(town.ExportSave()==exact&&chapters.ExportSave()==completed,"Compressed native save lost accepted history or chapters.");
+                PlayerPrefs.SetString(town.saveKey,exact);
+                town.Initialize(definition,"restore-legacy",true);
+                Check(town.ExportSave()==exact,"Legacy plain JSON save is no longer readable.");
+            }
+            finally{PlayerPrefs.DeleteKey(town.saveKey);PlayerPrefs.DeleteKey(chapters.saveKey);town.saveKey=priorTownKey;chapters.saveKey=priorChapterKey;}
+
             bool futureOpened=false;
             hud.AnnualChapterReport(town.Engine,chapters.ForYear(10),()=>futureOpened=true,()=>{});
             Click("Read chapter →");Click("Next card →");Click("Next card →");Click("See ten-year future");

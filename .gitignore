@@ -60,3 +60,7 @@ __pycache__/
 # Standalone .NET verification outputs
 /tests/**/bin/
 /tests/**/obj/
+
+# Generated from checksum-verified community studies before each Unity build.
+/Assets/StreamingAssets/Communities/
+/Assets/StreamingAssets/Communities.meta

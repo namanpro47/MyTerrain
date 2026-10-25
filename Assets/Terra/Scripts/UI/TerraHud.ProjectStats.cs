@@ -120,7 +120,7 @@ namespace Terra.UI
             else if(projectStatsCatalog)recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
             projectStatsQueued=recipe!=null&&proposal?.actionId==recipe.actionId&&(string.IsNullOrEmpty(activeTool)||activeTool==recipe.actionId);
             projectFactsVisible=recipe?.services!=null&&recipe.actionId!=AnnualPlayerRules.CancelAction&&mode=="place"
-                &&(projectStatsAccepted||projectStatsCatalog||((rejection==null||projectStatsQueued)&&asset==null));
+                &&(projectStatsAccepted||projectStatsCatalog||((rejection==null||projectStatsQueued)));
             projectFacts.gameObject.SetActive(projectFactsVisible);previewBody.gameObject.SetActive(!projectFactsVisible);
             if(!projectFactsVisible)return;
             inspectedRecipe=recipe;tooltip.SetActive(true);
@@ -132,24 +132,27 @@ namespace Terra.UI
             projectBenefit.text=ProjectScorePurpose(recipe.actionId);
             var card=actionButtons.FirstOrDefault(p=>p.Value==recipe.actionId).Key;
             projectArt.sprite=card?.transform.Find("Model icon")?.GetComponent<Image>().sprite;projectArt.enabled=projectArt.sprite!=null;
+            bool converting=!projectStatsAccepted&&asset!=null&&asset.actionId!=recipe.actionId;
+            long upfront=recipe.upfrontPublicCostCents+(converting?(annualTown?.ConversionCost(site.id)??0):0);
+            int construction=recipe.constructionYears+(projectStatsAccepted?asset.conversionDelayYears:converting?Math.Max(0,1-recipe.constructionYears):0);
             long maxCost=annualRules.actions.Max(a=>a.upfrontPublicCostCents),maxUpkeep=annualRules.actions.Max(a=>a.annualPublicOperatingCents);
-            SetProjectStat(0,projectStatsAccepted?"Upfront paid":"Upfront","coin",maxCost==0?0:(double)recipe.upfrontPublicCostCents/maxCost,StatMoney(recipe.upfrontPublicCostCents),projectCostColor);
+            SetProjectStat(0,projectStatsAccepted?"Base upfront":converting?"Upfront + change":"Upfront","coin",maxCost==0?0:(double)upfront/maxCost,StatMoney(upfront),projectCostColor);
             SetProjectStat(1,"Yearly cost","coin",maxUpkeep==0?0:(double)recipe.annualPublicOperatingCents/maxUpkeep,StatMoney(recipe.annualPublicOperatingCents),projectCostColor);
-            int start=projectStatsAccepted?asset.startedYear:state.year,opens=start+recipe.constructionYears;
+            int start=projectStatsAccepted?asset.startedYear:state.year,opens=start+construction;
             int full=opens+recipe.establishmentYears-1;
             if(projectStatsAccepted)
             {
                 int done=AnnualProjectPreview.CompletedConstruction(recipe,asset,state);
-                if(done==recipe.constructionYears&&outcome?.phase==TownAssetPhase.Building)previewKind.text="BUILT · OPENS Y"+opens+" · "+site.name;
-                SetProjectStat(2,"Built","calendar",recipe.constructionYears==0?1:(double)done/recipe.constructionYears,recipe.constructionYears==0?"Complete":done+"/"+recipe.constructionYears+" yr",Accent,false,true,recipe.constructionYears);
+                if(done==construction&&outcome?.phase==TownAssetPhase.Building)previewKind.text="BUILT · OPENS Y"+opens+" · "+site.name;
+                SetProjectStat(2,"Built","calendar",construction==0?1:(double)done/construction,construction==0?"Complete":done+"/"+construction+" yr",Accent,false,true,construction);
                 double maturity=outcome?.maturity??0;
                 double working=outcome!=null&&(outcome.phase==TownAssetPhase.Operating||outcome.phase==TownAssetPhase.Establishing)?maturity*outcome.condition:0;
                 SetProjectStat(3,"Working at","leaf",working,(working*100).ToString("0",CultureInfo.InvariantCulture)+"%",Accent);
             }
             else
             {
-                SetProjectStat(2,"Build time","calendar",recipe.constructionYears/10.0,recipe.constructionYears==0?"This year":recipe.constructionYears+" yr",projectCostColor,false,true);
-                SetProjectStat(3,"Full benefit","leaf",(recipe.constructionYears+recipe.establishmentYears-1)/10.0,full==state.year?"This year":"Y"+full,full>annualRules.years?projectLossColor:Accent,false,true);
+                SetProjectStat(2,"Build time","calendar",construction/10.0,construction==0?"This year":construction+" yr",projectCostColor,false,true);
+                SetProjectStat(3,"Full benefit","leaf",(construction+recipe.establishmentYears-1)/10.0,full==state.year?"This year":"Y"+full,full>annualRules.years?projectLossColor:Accent,false,true);
             }
             var capacities=ProjectCapacities(recipe);
             projectCapacity.text=ProjectConcreteBenefit(recipe)+" · Opens Y"+opens;
@@ -187,8 +190,8 @@ namespace Terra.UI
                 for(int i=0;i<3;i++)SetProjectStat(4+i,new[]{"Economic","Social","Environment"}[i],new[]{"work","people","leaf"}[i],delta[i]/25,
                     estimate?.available==true?(Math.Abs(delta[i])<.05?0:delta[i]).ToString("+0.0;-0.0;0.0",CultureInfo.InvariantCulture)+" pts":"—",delta[i]<0?projectLossColor:i==0?projectCostColor:i==1?projectSocialColor:Accent,true);
             }
-            long reserve=recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
-            projectReserve.text=projectStatsAccepted?"Upkeep term · "+recipe.operatingYears+" operating years":Money(reserve)+" total reserved";
+            long reserve=upfront+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears;
+            projectReserve.text=projectStatsAccepted?"Upkeep term · "+recipe.operatingYears+" operating years":Money(reserve)+" lifetime public cost";
             if(recipe.annualPublicPaymentCents>0)projectReserve.text+="\n"+StatMoney(recipe.annualPublicPaymentCents)+"/yr program · "+recipe.paymentYears+" yr";
             else if(!projectStatsAccepted)projectReserve.text+="\nIncludes "+recipe.operatingYears+" yr upkeep";
             recipeDetails.gameObject.SetActive(true);SetButtonText(recipeDetails,"Details & assumptions");previewAction.gameObject.SetActive(false);
