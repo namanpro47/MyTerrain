@@ -1,0 +1,17 @@
+from pathlib import Path
+import subprocess,json,sys,shutil,hashlib
+p=Path.cwd(); f=p/'Builds/ArtResearch/Study75'; e=p/'docs/evidence/phase2a/visual-rebuild/study75-distance'
+def run(*names):
+ subprocess.run(['python3',str(f/'run.py'),*names],check=True)
+def capture(name):
+ run('capture');shutil.copyfile(f/'latest.png',e/(name+'.png'))
+ d=json.loads((f/'capture-result.json').read_text());d['sha256']=hashlib.sha256((e/(name+'.png')).read_bytes()).hexdigest();(e/(name+'-receipt.json')).write_text(json.dumps(d,indent=2)+'\n')
+run('setup');capture('control-normal')
+run('close');capture('control-close')
+run('detail');capture('control-detail')
+run('apply');capture('distance-detail');run('metrics');shutil.copyfile(f/'metrics.json',e/'detail-geometry.json')
+run('close');capture('distance-close')
+run('setup');capture('distance-normal');run('metrics');shutil.copyfile(f/'metrics.json',e/'normal-geometry.json')
+for zoom in [80,60,45,30]:
+ (f/'zoom.txt').write_text(str(zoom));run('view');capture('transition-'+str(zoom));run('metrics');shutil.copyfile(f/'metrics.json',e/('transition-'+str(zoom)+'-geometry.json'))
+run('inspect')

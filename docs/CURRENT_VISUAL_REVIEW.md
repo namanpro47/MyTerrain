@@ -1,6 +1,28 @@
 # Current visual review — Phase 2A remains open
 
-**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). The subsequent focused Chrome opening/editing/Year10 paths fail the stable-30 limit at37/41/34ms p95. [Timing and annual checks](evidence/phase2a/combined-crops-browser-01/README.md).
+**Latest actual comparison: [study75 — near plants and distant field](evidence/phase2a/visual-rebuild/study75-distance/README.md), evidence `22e3741`. Rejected.** Close interiors now contain plants, but fine speckling and the distant flat surface remain conspicuous across a60-sample zoom sequence. Reduced single-material meshes still submit an estimated11.52M plant triangles at normal zoom; this is geometry accounting, not measured frame time. The custom color fade also lacks a matching shadow fade. No runtime adoption or visual/browser/performance pass. The next substantial construction uses an acquired free GDQuest blade/gradient demo; its source is inspected, not yet ported or accepted.
+
+![Study75 close field — rejected fine speckling](evidence/phase2a/visual-rebuild/study75-distance/distance-close.png)
+
+[Open the diagnostic zoom sequence](evidence/phase2a/visual-rebuild/study75-distance/zoom-diagnostic.mp4). Sampled Editor renders, not real-time Chrome performance or the final motion gate.
+
+
+**Previous actual comparison: [study74 — continuous canopy and native edges](evidence/phase2a/visual-rebuild/study74-canopy/README.md), evidence `df8adce`. Rejected.** Normal zoom gains a continuous field, but close views reveal a flat patterned surface lined with taller plants. Edge geometry alone adds5.21M triangles to one parcel. Six matched actual Editor captures, source/state preservation and clean shader/cleanup checks are recorded; no runtime adoption, Chrome/performance pass or visual acceptance. The next version must provide convincing near-field structure with an economical distant representation and a tested transition, not another surface/tint adjustment.
+
+![Study74 normal — readable field mass, rejected close structure](evidence/phase2a/visual-rebuild/study74-canopy/canopy-normal.png)
+
+![Study74 detail — patterned floor and detached edge plants](evidence/phase2a/visual-rebuild/study74-canopy/canopy-detail.png)
+
+**Scope of this page:** these are source-pinned visual-branch studies. The combined release owner separately integrates current-main parcels, settlement placement and HUD changes. Historical four-house checks below are not requirements to overwrite that newer work. The scenery quality gate remains open across both.
+
+
+**Previous actual comparison: [study73 — authored crop family](evidence/phase2a/visual-rebuild/study73-authored/README.md), evidence `8eaebba`.** Native leaf/stalk/grain materials give clearer detail forms, but the actual normal view still reads as scattered marks. A24m patch uses1.94M triangles. Not adopted. The single-specimen capture is invalid because the game camera's35m terrain clearance pushed it out of frame; this is explicitly separated from the valid patch captures. Stop individual-model swaps as the field strategy: the next renderer must maintain a continuous distant field and convincing close plants/edges together. Whole-scene and Chrome gates remain open. This evidence changes no runtime content in the frozen release.
+
+
+**Preceding geometry study: [study72](evidence/phase2a/visual-rebuild/study72-geometry/README.md), evidence `91e8d1f`.** Original narrow wheat geometry at uniform metric scale gives real stalk edges but remains granular in the actual normal/close/detail captures. Its24m patch already uses28,029 plants /2.86M triangles. Reject full-map expansion; no runtime adoption or performance/visual pass. This closes the original-geometry question left by study71. A different free, artist-authored crop family has been acquired and inspected, but has not rendered yet; preserve its native material distinctions in the next comparison. Do not return to density/tint/normal-only tuning. The combined-release runtime checkpoint is unchanged by this evidence.
+
+
+**Latest browser evidence from this isolated visual branch: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). The subsequent focused Chrome opening/editing/Year10 paths fail the stable-30 limit at37/41/34ms p95. [Timing and annual checks](evidence/phase2a/combined-crops-browser-01/README.md).
 
 ![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
 

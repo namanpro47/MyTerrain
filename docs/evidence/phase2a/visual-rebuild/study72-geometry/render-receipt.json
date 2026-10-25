@@ -1,0 +1,36 @@
+{
+  "source": "8d9d9235c53372393f17afe9aef6c88e8181679d",
+  "scope": "Actual1280x720 Editor Camera.Render; no HUD, no Chrome/performance claim. 24m patch, entire south-01 baseline hidden, bare remainder is diagnostic scaffolding.",
+  "captures": [
+    {
+      "file": "control-normal.png",
+      "frame": 415,
+      "sha256": "19c85f5ddbece677eaafea0bfb63aa34126645c4d2fdf01fe3f2baed21bc8a85"
+    },
+    {
+      "file": "control-close.png",
+      "frame": 1433,
+      "sha256": "8fb17d1fee8956df3955e1d3c0e5fcc8224fa14f3303916da577767eecb04c7a"
+    },
+    {
+      "file": "control-detail.png",
+      "frame": 1975,
+      "sha256": "cc32307b7ee2a89f184f43be0471c4ad5ce3fae7d99d622363d9d4d9ebcefc25"
+    },
+    {
+      "file": "native-detail.png",
+      "frame": 5461,
+      "sha256": "da9b2299d2a33cfac22b64cd045a8e2bc9566a25a2b9b98168b3c7acc940768b"
+    },
+    {
+      "file": "native-close.png",
+      "frame": 7075,
+      "sha256": "12588961c572344317f7eae710733190a91ca5bd0380f5f30238d32070ed115c"
+    },
+    {
+      "file": "native-normal.png",
+      "frame": 7290,
+      "sha256": "9e1b5df67e5d30108af477aff89bcfaa6c657969427d5ebb447e8d868dc49899"
+    }
+  ]
+}

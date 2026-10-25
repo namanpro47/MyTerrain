@@ -1,0 +1,10 @@
+{
+  "log": "Logs/study74-editor.log",
+  "patterns": [
+    "error CS[0-9]+",
+    "Shader error",
+    "Exception:",
+    "TERRA_PACK_ERROR"
+  ],
+  "matches": []
+}

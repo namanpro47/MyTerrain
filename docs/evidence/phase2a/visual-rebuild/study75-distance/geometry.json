@@ -1,0 +1,31 @@
+{
+  "sourceTriangles": 1672,
+  "sourceMaterials": 7,
+  "levels": [
+    {
+      "level": 0,
+      "triangles": 508,
+      "vertices": 1453,
+      "materials": 1,
+      "bounds": "Center: (-0.05, 0.60, 0.00), Extents: (0.38, 0.60, 0.23)",
+      "path": "Assets/Terra/Art/FieldMassStudy/Dglopez/Study75-lod0.asset"
+    },
+    {
+      "level": 1,
+      "triangles": 242,
+      "vertices": 656,
+      "materials": 1,
+      "bounds": "Center: (-0.05, 0.58, 0.01), Extents: (0.38, 0.58, 0.20)",
+      "path": "Assets/Terra/Art/FieldMassStudy/Dglopez/Study75-lod1.asset"
+    },
+    {
+      "level": 2,
+      "triangles": 0,
+      "vertices": 0,
+      "materials": 1,
+      "bounds": "Center: (0.00, 0.60, 0.00), Extents: (0.43, 0.60, 0.23)",
+      "path": "Assets/Terra/Art/FieldMassStudy/Dglopez/Study75-lod2.asset"
+    }
+  ],
+  "scope": "Local licensed derivative; no standalone source redistribution. Reduced source geometry and linear native vertex colors, not new generated art."
+}

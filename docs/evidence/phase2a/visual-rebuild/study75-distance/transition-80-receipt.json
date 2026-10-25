@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study75/capture.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "path": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study75/latest.png",
+        "width": 1280,
+        "height": 720,
+        "frame": 2230
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7805,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "sha256": "ec55b3e1f0f5906925a8d4c997cab153e5d39401b45bc5b7802528cc6f8b5c01"
+}

@@ -1,0 +1,48 @@
+{
+  "source": "95d882e1f75f8d0ab2b2d3a823286595fe3bc4b9",
+  "scope": "Actual1280x720 Editor Camera.Render; no HUD/browser/performance acceptance; 24m bounded patch with remaining parcel bare as diagnostic scaffolding",
+  "captures": [
+    {
+      "file": "control-normal.png",
+      "frame": 763,
+      "sha256": "00966c4feaa4f5d3bbd1f4794ed3f008d7c81dd31eea4467ad14d049d90dd3a3",
+      "valid": true,
+      "note": null
+    },
+    {
+      "file": "control-detail.png",
+      "frame": 970,
+      "sha256": "cc32307b7ee2a89f184f43be0471c4ad5ce3fae7d99d622363d9d4d9ebcefc25",
+      "valid": true,
+      "note": null
+    },
+    {
+      "file": "authored-detail.png",
+      "frame": 1188,
+      "sha256": "cf18a82ad40d2b5bcd33df326169fee8356159d67124d0db131818eaf2ec78e3",
+      "valid": true,
+      "note": null
+    },
+    {
+      "file": "authored-close.png",
+      "frame": 1359,
+      "sha256": "d0dcc48d88900969bb68a55a9b1bc185becf87bdea0c3033d8b78c1ed51c327d",
+      "valid": true,
+      "note": null
+    },
+    {
+      "file": "authored-normal.png",
+      "frame": 1501,
+      "sha256": "b5140066371b9fd4773c083f0ced8dcb7f7bae929f7abfd9c78ea64777129fa4",
+      "valid": true,
+      "note": null
+    },
+    {
+      "file": "specimen.png",
+      "frame": 1720,
+      "sha256": "b24d54a0b972b219cd0f085f4d6694d0fdbc7c08fdd7a5727bc3654f932fc414",
+      "valid": false,
+      "note": "Single plant outside frame because RenderView enforces35m terrain clearance; not an asset failure"
+    }
+  ]
+}

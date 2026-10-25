@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study73/specimen.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 1594,
+        "scope": "Single original-shape specimen; original material regions adapted to URP Simple Lit; uniformly normalized1.2m height."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

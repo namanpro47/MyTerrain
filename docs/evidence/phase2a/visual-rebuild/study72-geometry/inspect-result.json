@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study72/inspect.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "Wheat_3",
+          "parts": [
+            {
+              "mesh": "Wheat_3",
+              "vertices": 484,
+              "triangles": 246,
+              "bounds": "Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)",
+              "scale": "(100.00, 100.00, 100.00)",
+              "materials": [
+                {
+                  "name": "Green",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.519, 0.700, 0.391, 1.000)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wheat_4",
+          "parts": [
+            {
+              "mesh": "Wheat_4",
+              "vertices": 184,
+              "triangles": 102,
+              "bounds": "Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)",
+              "scale": "(100.00, 100.00, 100.00)",
+              "materials": [
+                {
+                  "name": "Yellow",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.700, 0.630, 0.370, 1.000)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Wheat_Crop",
+          "parts": [
+            {
+              "mesh": "Wheat_Crop",
+              "vertices": 1114,
+              "triangles": 612,
+              "bounds": "Center: (0.00, 0.00, 0.00), Extents: (0.00, 0.00, 0.00)",
+              "scale": "(100.00, 100.00, 100.00)",
+              "materials": [
+                {
+                  "name": "Yellow",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.700, 0.630, 0.370, 1.000)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
