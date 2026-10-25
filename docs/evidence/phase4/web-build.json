@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "job status",
+  "data": {
+    "jobId": "17dd8d9718a64b168c7630ac17971898",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": "Final Phase 4 verified layout export",
+      "executionTimeMs": 92989,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T01:06:59.913419Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}

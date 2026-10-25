@@ -11,6 +11,7 @@ namespace Terra.Rendering
         // Illustrated plant communities; their density and species are not field observations or model inputs.
         void BuildTreatment(Site site,string treatment,Transform parent,bool preview)
         {
+            if(BuildCatalogAction(site,treatment,parent,preview))return;
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             bool cultivated=treatment.StartsWith("cultivate");
             Color ground=cultivated?new Color(.67f,.56f,.30f):new Color(.39f,.56f,.25f);

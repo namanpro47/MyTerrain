@@ -1,0 +1,23 @@
+{
+  "result": "Succeeded",
+  "seconds": 112.300697,
+  "reportedBytes": 970451,
+  "errors": 0,
+  "warnings": 5,
+  "exportBytes": 22566745,
+  "exportFileCount": 12,
+  "editorVersion": "6000.6.6f1",
+  "cliVersion": "1.0.0-beta.14",
+  "url": "http://127.0.0.1:8083/",
+  "publicProductionChanged": false,
+  "jobId": "32d1b966d6e84d459f6203c279dbbb7b",
+  "runtimeFiles": {
+    "Assets/Terra/Scripts/Core/WorldStateStore.cs": "1687e9162eac3095a5f122d494fda09792dec972d21e178d021ea54c487e9c84",
+    "Assets/Terra/Scripts/Gameplay/TerraMain.cs": "ffac0351708398474bcc240d48ad7ea89a47c6fb9529ae33ee1e5b34e66cd557",
+    "Assets/Terra/Scripts/Gameplay/TerraMain.Editing.cs": "5a5c4277f1be57dc660a1446b980e860da886f08b6d670128a552562390ea193",
+    "Assets/Terra/Scripts/UI/TerraHud.cs": "9bdbe2c082299774023637ab75b424ac74181f207afc7f6cd3a3a0da606be538",
+    "Assets/Terra/Scripts/UI/TerraHud.Editing.cs": "b25f9b1f7a26929ac4403f242b4c8ae4946b4f56565f9f7264af879a42812b26",
+    "Assets/Terra/Scripts/Rendering/LandscapeRenderer.Editing.cs": "27c1436e3b6dcad421493019c107093afe95cfd41e2c7d04540020c4ea13e34f",
+    "Assets/WebGLTemplates/Terra/index.html": "d53fd49d05f89260ecf6ebdfceca897940fed9957fa5c28a69bfc9a11ef39d34"
+  }
+}

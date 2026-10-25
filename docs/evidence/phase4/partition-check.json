@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "units": 1711,
+  "areaM2": 1486800.0,
+  "gapM2": 0.0,
+  "outsideM2": 0.0,
+  "overlapM2": -4.656612873077393e-10,
+  "toleranceM2": 0.1,
+  "method": "GEOS geometry union and declared-area checks; normalization matches source partition and world SHA256."
+}

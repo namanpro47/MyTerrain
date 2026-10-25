@@ -1,0 +1,70 @@
+{
+    "year": 10,
+    "newProjects": 0,
+    "continuingProjects": 2,
+    "finalYear": true,
+    "headline": "No new projects. Existing land and commitments still advanced.",
+    "scenario": "Authored reference year (scenario-assumption). Output multiplier: 1.",
+    "simulationNotice": "SIMULATION PLACEHOLDER - authored rules, not a forecast. No LLM, crop-yield model or flood simulation is connected.",
+    "spentCents": 210000,
+    "receivedCents": 2000000,
+    "cashChangeCents": 1790000,
+    "freeAfterCommitmentsCents": 19700000,
+    "ledger": {
+        "currency": "USD",
+        "priceYear": 2026,
+        "openingCashCents": 18210000,
+        "upfrontPaidCents": 0,
+        "programDueCents": 0,
+        "programPaidCents": 0,
+        "operatingDueCents": 210000,
+        "operatingPaidCents": 210000,
+        "repairDueCents": 0,
+        "repairPaidCents": 0,
+        "openingArrearsCents": 0,
+        "arrearsPaidCents": 0,
+        "closingArrearsCents": 0,
+        "appropriationCents": 2000000,
+        "publicReceiptsCents": 0,
+        "closingCashCents": 20000000,
+        "futureCommitmentsCents": 300000
+    },
+    "economic": {
+        "label": "Economic",
+        "evidence": "16 illustrative production units; operating payments $2,100.00 / $2,100.00 due.",
+        "rubric": "Illustrative production against target plus funded public operation; private production is not treasury income.",
+        "score": 84.00000000000001,
+        "change": 0.0,
+        "hasPreviousYear": true
+    },
+    "social": {
+        "label": "Social",
+        "evidence": "16 illustrative service units; 0 disrupted sites. Services currently use production as a proxy.",
+        "rubric": "Illustrative community service target and sites without disruption; not measured employment, health or households.",
+        "score": 84.00000000000001,
+        "change": 0.0,
+        "hasPreviousYear": true
+    },
+    "environmental": {
+        "label": "Environmental",
+        "evidence": "3.71 / 8.85 managed hectares vegetated; 0 m3 configured retention capacity. This is not a flood-risk estimate.",
+        "rubric": "Vegetated share of management sites plus configured operational retention capacity; not a flood, biodiversity or water-quality forecast.",
+        "score": 33.545789915008314,
+        "change": 0.0,
+        "hasPreviousYear": true
+    },
+    "siteChanges": [
+        "West field / Open plot: Operating; production 12 (0 vs last year); establishment 100%. Lifecycle and funding follow the configured action recipe.",
+        "Central field / Restore meadow: Operating; production 0 (0 vs last year); establishment 100%. Lifecycle and funding follow the configured action recipe.",
+        "East field: Existing use; production 1 (0 vs last year). Existing use under the saved annual scenario.",
+        "Lower west field: Existing use; production 1 (0 vs last year). Existing use under the saved annual scenario.",
+        "Lower central field: Existing use; production 1 (0 vs last year). Existing use under the saved annual scenario.",
+        "Lower east field: Existing use; production 1 (0 vs last year). Existing use under the saved annual scenario.",
+        "Meadow edge: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario.",
+        "Southern field: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario.",
+        "Brye-side field: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario.",
+        "Western terrace: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario.",
+        "Wooded slope: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario.",
+        "Stream corridor: Existing use; production 0 (0 vs last year). Existing use under the saved annual scenario."
+    ]
+}

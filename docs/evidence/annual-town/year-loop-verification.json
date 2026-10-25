@@ -1,0 +1,37 @@
+{
+  "verifiedUtc": "2026-10-25T00:09:42.4880033Z",
+  "baseCommit": "a4ba01e28bf0af4300ea77c66723f2c49fb1e954",
+  "unityVersion": "6000.6.6f1",
+  "plainSourceAssertions": 94,
+  "unity": {
+    "passed": true,
+    "checks": 106,
+    "legacyChecks": 139,
+    "mapActions": 32,
+    "historyYears": 10,
+    "closingCashCents": 22520000
+  },
+  "actualUiVerification": [
+    "Windows Editor: start actual-map run; queue West field Open plot; conclude Year 1",
+    "Continue Year 2 preserves $56,000 cash and $12,000 commitments; no new action advances Building to Operating",
+    "Year 2 closes at $74,800; Year 3 0.8 authored multiplier changes production 17 to 13.6 and closes at $93,600"
+  ],
+  "captures": [
+    "year1-summary.png",
+    "year2-planning.png",
+    "year2-summary.png",
+    "year3-summary.png"
+  ],
+  "scope": "Editor-only technical playtest and reusable accepted-history summary; no main scene/HUD/rendering changes, live LLM, calibrated crop/flood model or browser annual-gameplay acceptance",
+  "sourceHashEncoding": "UTF-8 text normalized to LF",
+  "sourceSha256": {
+    "Assets/Terra/Scripts/Contracts/AnnualTownContracts.cs": "33e7225c3f1277e9486c8c715563f2b5c51f97f835753fd0fae73e15cd41ee44",
+    "Assets/Terra/Scripts/Core/AnnualTown.cs": "7c3f3c24cba9cfc0b7a2fdd3e790914cab4d205bf0289c0d271a45ac1432ae78",
+    "Assets/Terra/Scripts/Core/AnnualTownDemo.cs": "dc04c6e8f6f8f893e0e7f7c6422c70818ed6949c5a9ca3e8025eeceba59dd2f9",
+    "Assets/Terra/Scripts/Core/AnnualTownSummary.cs": "100655863060a2854f0fc920ea649cbaf3e73a8b4688e46e905c1ea493c9cc73",
+    "Assets/Terra/Scripts/Core/TownCopies.cs": "d6778fa37cf110ba59a84fdd757b95ee8ee1211cf4fb241d2df31e916bf9e836",
+    "Assets/Terra/Scripts/Gameplay/AnnualTownSession.cs": "c2b1bc682b14143bffd8e505bf7094b0169cb0eedcca947b1e134379f64296e0",
+    "Assets/Editor/AnnualTownChecks.cs": "59aa938e9e99cfef149b19238058e8a6ab6713c4c87a19effab7c28fad6b088a",
+    "Assets/Editor/AnnualTownPlaytestWindow.cs": "6da72eebb8281e9391fd34b9addb513e0216c751c9ec1bb5a97d18f4a0b50b99"
+  }
+}

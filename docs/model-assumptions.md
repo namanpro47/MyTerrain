@@ -1,6 +1,6 @@
 # Package B: deterministic direct-runoff model v1
 
-Status: implemented and independently verified as a pure C# package. Not integrated into Core, previews, the HUD, objectives, or the public build. This document is package B's model contract/evidence, not Phase 4 acceptance. It applies only to Meadowbrook Valley and its existing technical fixtures.
+Status: implemented and independently verified as a pure C# package. Phase 4 now integrates it into Core, previews and the HUD in the isolated consequences branch; see [integration and spatial assumptions](PHASE_4_CONSEQUENCES.md). Objectives and production deployment remain separate. The original package handoff below records its historical seams. This document is package B's model contract/evidence, not Phase 4 acceptance. It applies only to Meadowbrook Valley and its existing technical fixtures.
 
 ## Formula and evidence
 
@@ -23,7 +23,7 @@ The integration owner derives scalar site CN before constructing `SimulationInpu
 
 The frozen v1 rule is **mix CN first, evaluate runoff second**. At 50 mm rain and 1,000 m², the margin yields 8.32860257558 m³. Computing the two cover components separately and adding their volumes yields 9.31981694633 m³. The nonlinear formula makes these different. Neither the evaluator nor the helper silently switches aggregation conventions. The same rule must be used for baseline, preview, commit, restored history, and any unchanged context. Changing this rule is a versioned integration/science decision that requires retuning objectives.
 
-**New mapping request to the contract owner:** actual `worlds/meadowbrook-v1/world.json` contains `sealed` cover in `reserve-12`, but the frozen runtime note does not define its CN. TR-55 table 2-2a lists CN98 for impervious areas. A disclosed illustrative `sealed=98` mapping is a supported proposal, not an accepted contract change in this package. Unknown mappings fail explicitly; do not omit that cover or substitute zero. The technical CN100 test is a numerical limit, not a proposed land-cover parameter.
+**Phase 4 resolution:** `sealed=98` is accepted only as a disclosed high-runoff educational approximation; the display class is not measured imperviousness. See the integration note. **Historical package request:** actual `worlds/meadowbrook-v1/world.json` contains `sealed` cover in `reserve-12`, but the frozen runtime note does not define its CN. TR-55 table 2-2a lists CN98 for impervious areas. A disclosed illustrative `sealed=98` mapping is a supported proposal, not an accepted contract change in this package. Unknown mappings fail explicitly; do not omit that cover or substitute zero. The technical CN100 test is a numerical limit, not a proposed land-cover parameter.
 
 ## Retention and bookkeeping
 

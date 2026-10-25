@@ -2,6 +2,16 @@
 
 **Annual gameplay direction — October 24, 2026:** The user explicitly made the annual plan → budget → End Year → consequences → adapt loop the core product, including all twelve actions from their table, ongoing USD public finances, three economic/social/environmental meters and a ten-year ending/replay. Read [docs/ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) alongside the spec and plan. Same-map housing, industry, community and utility projects are now intentional scope; earlier blanket “no city content” wording does not exclude these actions. No second city/location or broad city simulator is authorized. Reuse Peter's annual foundation and action art after reviewing their integration status; do not create a competing ledger or allow legacy refunds to rewrite committed years. This planning revision does not itself start later phases or waive Phase 2A's visual gate.
 
+## Start from current remote state
+
+Before each new implementation task, inspect local status, run `git fetch --prune origin`, and record the latest `origin/main` commit. Create a fresh isolated worktree from that refreshed ref unless Peter explicitly chooses another base. Do not reset, overwrite or pull over an existing worktree's uncommitted work. For continuing feature work, fetch and review incoming changes before integrating them. Never force-push or deploy as part of this synchronization instruction.
+
+## Authorized annual foundation
+
+Peter's project-specific delivery instruction: merge validated work directly into the current default branch (`main`); do not create pull requests. Fetch first, work in a fresh isolated worktree, preserve teammate changes, and use normal fast-forward pushes (never force-push). On October 24 he also authorized an isolated annual playtest/end-year summary and placeholder simulation while the teammate overhauls the main UI. Keep this test harness separate from TerraMain/TerraHud/scenes; leave integration comments for the owner.
+
+Peter explicitly requested annual town state, the public budget and three yearly outcomes on October 24, 2026, after agreeing that undo/refunds end when the year is submitted. Follow `docs/PRD_ANNUAL_GAMEPLAY.md` for this bounded module. It supersedes the old immediate-only/no-annual-model assumption for this task. Keep scenes, renderer, HUD and the ongoing visual rebuild with the engine owner; this module is an additive state/session handoff, not approval to complete later phases or certify Phase 2A.
+
 Read [TERRA_PROJECT_SPEC.md](TERRA_PROJECT_SPEC.md) before planning features or making product, gameplay, architecture, or scope decisions. It is Terra's north star for the intended vision, priorities, and constraints.
 
 Keep work aligned with that vision within the user's requested scope. The spec's implementation directives and task lists describe the roadmap; they are not authorization to execute the entire roadmap on every request. Follow the current user's instructions if they change or narrow the scope, and surface material conflicts with the spec.

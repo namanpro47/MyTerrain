@@ -1,0 +1,168 @@
+{
+  "browser": "Chrome",
+  "localDate": "2026-10-24",
+  "url": "http://127.0.0.1:8093/?phase4=final",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "route": [
+    {
+      "action": "TERRA_EDIT: add",
+      "revision": 1,
+      "production": 18.0,
+      "credits": 36,
+      "dischargedM3": 9754.669,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_EDIT: add",
+      "revision": 2,
+      "production": 18.0,
+      "credits": 8,
+      "dischargedM3": 9700.148,
+      "retainedM3": 8.0
+    },
+    {
+      "action": "TERRA_EDIT: move",
+      "revision": 3,
+      "production": 18.0,
+      "credits": 8,
+      "dischargedM3": 9687.283,
+      "retainedM3": 8.0
+    },
+    {
+      "action": "TERRA_EDIT: remove",
+      "revision": 4,
+      "production": 18.0,
+      "credits": 36,
+      "dischargedM3": 9754.669,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_UNDO",
+      "revision": 5,
+      "production": 18.0,
+      "credits": 8,
+      "dischargedM3": 9687.283,
+      "retainedM3": 8.0
+    },
+    {
+      "action": "TERRA_REDO",
+      "revision": 6,
+      "production": 18.0,
+      "credits": 36,
+      "dischargedM3": 9754.669,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_UNDO",
+      "revision": 7,
+      "production": 18.0,
+      "credits": 8,
+      "dischargedM3": 9687.283,
+      "retainedM3": 8.0
+    },
+    {
+      "action": "TERRA_EDIT: reset",
+      "revision": 8,
+      "production": 6.0,
+      "credits": 60,
+      "dischargedM3": 9701.926,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_EDIT: add",
+      "revision": 9,
+      "production": 14.0,
+      "credits": 30,
+      "dischargedM3": 9678.104,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_EDIT: replace",
+      "revision": 10,
+      "production": 5.0,
+      "credits": 42,
+      "dischargedM3": 9633.404,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_UNDO",
+      "revision": 11,
+      "production": 14.0,
+      "credits": 30,
+      "dischargedM3": 9678.104,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_REDO",
+      "revision": 12,
+      "production": 5.0,
+      "credits": 42,
+      "dischargedM3": 9633.404,
+      "retainedM3": 0.0
+    },
+    {
+      "action": "TERRA_EDIT: reset",
+      "revision": 13,
+      "production": 6.0,
+      "credits": 60,
+      "dischargedM3": 9701.926,
+      "retainedM3": 0.0
+    }
+  ],
+  "newLabelsFit": true,
+  "layoutNote": "Five audit messages truncated after the labels array; complete labels recovered offline. Inherited location title preferred height exceeds its box by 0.78 CSS px in large text; screenshots show no visible clipping. All Phase 4 labels fit.",
+  "inheritedTitleDiagnostics": [
+    {
+      "capture": "reset-large-text-1280",
+      "text": "Meadowbrook Valley",
+      "excessPx": 0.7800006866455078
+    },
+    {
+      "capture": "living-margin-large-text-1280",
+      "text": "Meadowbrook Valley",
+      "excessPx": 0.7800006866455078
+    },
+    {
+      "capture": "restore-replacement-large-text-1280",
+      "text": "Meadowbrook Valley",
+      "excessPx": 0.7800006866455078
+    },
+    {
+      "capture": "connected-swale-large-text-1440",
+      "text": "Meadowbrook Valley",
+      "excessPx": 0.7800006866455078
+    },
+    {
+      "capture": "connected-swale-final",
+      "text": "Meadowbrook Valley",
+      "excessPx": 0.7800006866455078
+    }
+  ],
+  "pointerConfirmed": [
+    "cultivation",
+    "swale",
+    "replacement"
+  ],
+  "invalidEditsRejected": [
+    "insufficient credits",
+    "protected wooded slope"
+  ],
+  "modalGameplayInputBlocked": true,
+  "consoleErrors": 0,
+  "consoleWarnings": [
+    "Inherited stripped FSR upscaling shader; no consequences-model warning."
+  ],
+  "interactiveMs": 9277,
+  "performanceAcceptance": false,
+  "phase2AVisualAcceptance": false,
+  "humanNoviceReview": false
+}

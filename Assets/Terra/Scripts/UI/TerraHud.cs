@@ -11,7 +11,7 @@ using UnityEngine.InputSystem.UI;
 namespace Terra.UI
 {
     // TN-03/04/05/06, CS-01/04, AX-01. One visual language for the entire slice.
-    public sealed class TerraHud
+    public sealed partial class TerraHud
     {
         readonly Transform root;readonly UnityEngine.UI.CanvasScaler scaler;
         UnityEngine.UI.Button viewButton,controlsButton;
@@ -23,11 +23,10 @@ namespace Terra.UI
         readonly TMP_FontAsset font;readonly Sprite rounded;readonly Action resume,retryLoad;bool loadFailed,compactLayout;
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
-        readonly List<UnityEngine.UI.Image> cards=new List<UnityEngine.UI.Image>();
-        TextMeshProUGUI production,credits,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
-        GameObject tooltip,loading,modal,modalShade,toastPanel,variants,guideSummary;
+        TextMeshProUGUI production,credits,runoffStatus,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
+        GameObject tooltip,loading,modal,modalShade,toastPanel,guideSummary;
         UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton;
-        UnityEngine.UI.Image standard,margin; UnityEngine.UI.Button focus; int dataPage;string activeTool="";
+        UnityEngine.UI.Button focus; int dataPage;string activeTool="";
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
         public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume)
@@ -48,34 +47,22 @@ namespace Terra.UI
             Label(identity,"Meadowbrook Valley",new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
             Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
-            Label(stats,"PRODUCTIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
+            Label(stats,"ILLUSTRATIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(18,-35),new Vector2(230,32),25,Paper,FontStyles.Bold);
-            Label(stats,"Runoff: not modeled yet",new Vector2(0,1),new Vector2(18,-69),new Vector2(250,22),14,Soft);
+            runoffStatus=Label(stats,"Preparing runoff estimate",new Vector2(0,1),new Vector2(18,-69),new Vector2(250,22),14,Soft);
             Label(stats,"CREDITS",new Vector2(0,1),new Vector2(282,-14),new Vector2(104,22),14,Soft);
             credits=Label(stats,"—",new Vector2(0,1),new Vector2(282,-39),new Vector2(96,36),29,Accent,FontStyles.Bold);
-            var dock=Panel(root,"Treatments",new Vector2(.5f,0),new Vector2(0,20),new Vector2(724,112),Ink);
-            string[] names={"Cultivate","Restore","Manage water"},descriptions={"Productive land","Meadow cover","Vegetated swale"},ids={"cultivate-standard","restore-grass","water-swale"};
-            for(int i=0;i<3;i++){
-                string id=ids[i];var button=Button(dock,"",new Vector2(0,0),new Vector2(8+i*238,8),new Vector2(232,96),()=>choose(id),18);
-                button.name="Tool "+names[i];cards.Add(button.GetComponent<UnityEngine.UI.Image>());
-                var art=Rect(button.transform,"Treatment illustration",new Vector2(0,.5f),new Vector2(5,5),new Vector2(76,72));art.gameObject.AddComponent<TreatmentIllustration>().Kind=i;
-                Label(button.transform,names[i],new Vector2(0,1),new Vector2(88,-22),new Vector2(138,28),17,Paper,FontStyles.Bold);
-                Label(button.transform,descriptions[i],new Vector2(0,1),new Vector2(88,-52),new Vector2(138,38),14,Soft);
-                Label(button.transform,(i+1).ToString(),new Vector2(0,1),new Vector2(10,-5),new Vector2(22,20),14,Accent);
-            }
-            variants=Panel(root,"Cultivation variants",new Vector2(.5f,0),new Vector2(0,140),new Vector2(340,60),PanelColor).gameObject;
-            standard=Button(variants.transform,"Open plot",new Vector2(0,0),new Vector2(2,2),new Vector2(164,56),()=>choose("cultivate-standard"),16).GetComponent<UnityEngine.UI.Image>();
-            margin=Button(variants.transform,"Living margin",new Vector2(1,0),new Vector2(-2,2),new Vector2(168,56),()=>choose("cultivate-margin"),16).GetComponent<UnityEngine.UI.Image>();
+            CreateActionDock(choose);
             var guidance=Panel(root,"Context guidance",new Vector2(0,1),new Vector2(24,-126),new Vector2(310,56),PanelColor);
             tip=Label(guidance,"Choose a treatment\nto shape a proposal",new Vector2(.5f,.5f),Vector2.zero,new Vector2(286,48),16,Paper);tip.alignment=TextAlignmentOptions.Center;
             undoButton=Button(root,"Undo  Z",new Vector2(0,0),new Vector2(24,20),new Vector2(130,56),undo,16);
             viewButton=Button(root,"Valley view  R",new Vector2(0,0),new Vector2(24,84),new Vector2(130,56),reset,16);
             guideButton=Button(root,"Field guide  G",new Vector2(1,0),new Vector2(-24,20),new Vector2(148,56),()=>{dataPage=0;ShowData();},16);
             controlsButton=Button(root,"Controls  ?",new Vector2(1,0),new Vector2(-24,84),new Vector2(148,56),ShowHelp,16);
-            tooltip=Panel(root,"Site preview",new Vector2(1,.5f),new Vector2(-24,-10),new Vector2(292,288),PanelColor).gameObject;
+            tooltip=Panel(root,"Site preview",new Vector2(1,1),new Vector2(-24,-132),new Vector2(292,320),PanelColor).gameObject;
             previewKind=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-16),new Vector2(256,24),14,Accent);
             previewTitle=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-45),new Vector2(256,52),22,Paper,FontStyles.Bold);
-            previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-105),new Vector2(256,133),17,Paper);
+            previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-105),new Vector2(256,160),17,Paper);
             previewAction=Label(tooltip.transform,"",new Vector2(0,0),new Vector2(18,13),new Vector2(256,30),16,Accent);
             tooltip.SetActive(false);
             toastPanel=Panel(root,"Action feedback",new Vector2(.5f,1),new Vector2(0,-132),new Vector2(570,52),PanelColor).gameObject;toastPanel.SetActive(false);
@@ -93,7 +80,7 @@ namespace Terra.UI
             motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");},16);
             muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
-            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%4;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
+            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%5;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
             loading=Panel(root,"Loading",new Vector2(.5f,.5f),Vector2.zero,new Vector2(540,250),PanelColor).gameObject;
             loadText=Label(loading.transform,"Preparing the landscape",new Vector2(0,1),new Vector2(28,-28),new Vector2(484,142),23,Paper);
             Button(loading.transform,"Try again",new Vector2(.5f,0),new Vector2(0,24),new Vector2(180,56),retry,17).name="Retry loading";
@@ -110,6 +97,7 @@ namespace Terra.UI
             void Utility(UnityEngine.UI.Button b,bool right,int row){var r=b.GetComponent<RectTransform>();if(compact){r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(24+row*(right?156:138),right?-194:-130);}else{r.anchorMin=r.anchorMax=r.pivot=new Vector2(right?1:0,0);r.anchoredPosition=new Vector2(right?-24:24,20+row*64);}}
             Utility(undoButton,false,0);Utility(viewButton,false,1);Utility(guideButton,true,0);Utility(controlsButton,true,1);
             modal.transform.localScale=Vector3.one*Mathf.Min(1,(height-32)/650,(width-32)/800);
+            actionDock.localScale=Vector3.one*Mathf.Min(1,(width-48)/760);
         }
         // F10 reports the rendered canvas for evidence; it never changes gameplay state.
         public string Audit()
@@ -129,29 +117,31 @@ namespace Terra.UI
         public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
         public void Error(string message){loadFailed=true;loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
         public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;}
-        public void Selected(string id){activeTool=id;int index=id.StartsWith("cultivate")?0:id=="restore-grass"?1:id=="water-swale"?2:-1;variants.SetActive(index==0);tip.text=index<0?"Choose a treatment\nto shape a proposal":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
+        public void Selected(string id){activeTool=id;SelectCatalog(id);tip.text=string.IsNullOrEmpty(id)?"Choose a category\nand an action":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
         public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
         {
             tooltip.SetActive(site!=null);tip.transform.parent.gameObject.SetActive(site==null&&!compactLayout);if(site==null)return;
             previewTitle.text=site.name;previewKind.color=Accent;previewKind.text=site.protectedSite?"PROTECTED LEARNING ZONE":"HYPOTHETICAL SITE";
-            if(treatment==null){previewBody.text="Inspect the land, then choose a treatment to explore a change.";previewAction.text="1 Cultivate · 2 Restore · 3 Water";return;}
+            if(treatment==null){previewBody.text=LandRules(site);previewAction.text="Choose a category and action";return;}
             if(!result.valid){bool placed=result.reason=="This proposal is already placed.";previewKind.text=placed?"CURRENT PROPOSAL":"UNAVAILABLE";previewKind.color=placed?Accent:new Color(1,.69f,.55f);previewBody.text=placed?treatment.title+"\n\nThis treatment is already here.":result.reason;previewAction.text=placed?"Choose a tool or Z to undo":"Try another site or treatment";return;}
             previewKind.color=Accent;
             float delta=result.result.production-current.production;int cost=result.result.spentCredits-current.spentCredits;
-            previewBody.text=treatment.title+"\n\n<size=141%><b>"+cost+"</b></size> credits  ·  <size=141%><b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b></size> units\n<size=82%>Illustrative productive capacity</size>\n<size=82%>Runoff estimate: not available</size>";
+            var action=actionRules?.Find(treatment.id);
+            previewBody.text=treatment.title+"\n"+(action==null?"":$"{action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+"\n")+"\n<b>"+cost+"</b> prototype credits  ·  <b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b> farm units\n<size=82%>Other benefits / runoff: not modeled</size>";
             previewAction.text="Click / Enter to place   ·   Esc";
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
-            "<b>01   Choose → inspect → place</b>\nUse the three treatments to explore a proposal. Inspect a site to see its exact cost and productive change. All production units are illustrative game accounting.\n\n"+
+            "<b>01   Choose → inspect → place</b>\nBrowse five categories and 17 actions. Field counts show physical/scenario eligibility before budget. Inspect a field for its cost and restriction. New costs are prototype assumptions.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Experiment freely</b>\n1 / 2 / 3: tools · M: living margin · Tab: next site\nEnter: place · Z: undo · Escape: cancel or close\nG: field guide · ?: controls");
+            "<b>03   Experiment freely</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: select/place · Z: undo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nG: field guide · ?: controls");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
         public bool KeyboardInput(Keyboard k)
         {
             if(k==null)return ModalOpen;
             if(loading.activeSelf){if(loadFailed&&k.enterKey.wasPressedThisFrame)retryLoad();return true;}
+            if(!ModalOpen&&BuildMenuKeyboard(k))return true;
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
             if(!ModalOpen){if(k.gKey.wasPressedThisFrame){dataPage=0;ShowData();return true;}if(k.slashKey.wasPressedThisFrame){ShowHelp();return true;}return false;}
             var available=buttons.Where(b=>b.gameObject.activeInHierarchy&&b.IsInteractable()&&b.transform.IsChildOf(modal.transform)).ToArray();
@@ -168,7 +158,7 @@ namespace Terra.UI
         void Focus(UnityEngine.UI.Button button){focus=button;Paint();}
         void Paint()
         {
-            foreach(var b in buttons){bool selected=(cards.Count>0&&b.GetComponent<UnityEngine.UI.Image>()==cards[0]&&activeTool.StartsWith("cultivate"))||(cards.Count>1&&b.GetComponent<UnityEngine.UI.Image>()==cards[1]&&activeTool=="restore-grass")||(cards.Count>2&&b.GetComponent<UnityEngine.UI.Image>()==cards[2]&&activeTool=="water-swale")||(b.GetComponent<UnityEngine.UI.Image>()==standard&&activeTool=="cultivate-standard")||(b.GetComponent<UnityEngine.UI.Image>()==margin&&activeTool=="cultivate-margin");
+            foreach(var b in buttons){bool selected=CatalogSelected(b);
                 b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.24f,.34f,.24f):Raised;
                 var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
                 foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
@@ -180,7 +170,7 @@ namespace Terra.UI
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
                 "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
-                "Ten management sites and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is unavailable; no flood or yield forecast.");
+                "Ten management sites and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.");
             else if(dataPage==1)ShowModal("Reading the terrain & cover",
                 "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m grid, without vertical exaggeration.\n\n"+
                 "<b>02   Land cover · USGS / MRLC NLCD 2021</b>\n30 m classes, June 2023 release. Narrow margins are unresolved. Simplified display groups do not measure ecological condition.\n\n"+
@@ -189,14 +179,19 @@ namespace Terra.UI
                 "<b>03   Water & roads · USGS National Map</b>\nNHD flowlines and transportation layers 30–32, retrieved October 24, 2026. Feature dates vary; drawn widths are illustrative. Federal source data are public domain.\n\n"+
                 "<b>What is not included</b>\nNo parcel, structure, tree, ownership or local soil survey. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.\n\n"+
                 "<b>Use this game to ask better questions</b>\nThe proposals are educational choices, not recommendations for real farms. Production units are illustrative accounting, not measured yields.");
-            else ShowModal("Art & acknowledgements",
+            else if(dataPage==3)ShowModal("Art & acknowledgements",
                 "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.\n\n"+
                 "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nelijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted geometry, palette, materials and instancing.\n\n"+
                 "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com · adapted geometry/materials.\n\n"+
                 "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
+            else ShowModal("One storm. Connected choices.",
+                "<b>50 mm rain · assumed soil B</b>\nEducational TR-55 estimate. Cover CN: crops 78, grass 61, woods 55, high-runoff cover 98 (assumed, not measured imperviousness).\n\n"+
+                "<b>Each area counts once</b>\nSites + unchanged context: 1.49 km² with display margin. Volumes summed. "+runoffContextSummary+"\n\n"+
+                "<b>Swales have limits</b>\nEach holds ≤8 m³ beyond its grass-cover effect, only from its highlighted hypothetical group. No measured drainage, outside inflow, flood or water-quality forecast.\n"+
+                "<size=80%>Source: USDA TR-55 (1986), chapter 2. Tables reproduced by USACE: hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables</size>");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
             guideSummary.SetActive(dataPage==0&&!LargeText);
-            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":"← Place & assumptions");
+            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":dataPage==3?"Runoff & connections →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
         {guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}

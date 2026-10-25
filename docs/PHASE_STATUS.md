@@ -1,5 +1,36 @@
 # Terra — phase status and evidence
 
+## Categorized action UI — separately authorized October 24, 2026
+
+Peter requested the 17 PRD actions in the playable UI, grouped by use, plus an explanation of land/water restrictions. The [catalog integration](build-action-ui.md) adds **Farming, Residential, Community, Utilities and Nature** tabs, matching model icons, full-scale previews/placement, eligibility counts and explicit restriction feedback. All 17 are selectable; 16 fit at least one existing field. The 150 × 150 m wind site fits none and is not rescaled. Swales retain their two authored eligible sites, and protected/background land stays unavailable.
+
+**Verification:** 826 catalog/placement/accounting assertions; 27 original Phase 1 checks; 139 original Phase 2 checks; successful Unity Web export. Chrome checks cover all five category menus, house placement/undo/repeated placement, both swale sites, water/wind/protected rejections, park placement, keyboard catalog navigation and the help modal. Standard-text label audits passed at 1280×720 and 1440×900 CSS pixels on the first browser export. The final export includes centered landscape samples and the compact Sewage works label; Peter reserved final visual QA for himself. Browser slowness remains unprofiled. Evidence: [rules](evidence/build-action-ui/rules.json), [house](evidence/build-action-ui/housing-placement-1280.png), [water restriction](evidence/build-action-ui/swale-restriction-1280.png), [park](evidence/build-action-ui/park-placement-1440.png), [browser logs](evidence/build-action-ui/interaction-logs.json).
+
+New costs are prototype assumptions and use existing per-parcel proposal accounting. Housing, jobs, energy, wastewater capacity, runoff and annual effects are not simulated by this integration. The canonical geographic pack and separate annual playtest remain unchanged. The current scene's visual-quality gate remains open; the build logs a Web FSR/post-processing shader warning and this work does not certify performance or Phase 2A acceptance. No public deployment was performed. TN-04, TN-05, CS-02 and AX-01 guide this bounded change.
+## PRD build-action art — separately authorized October 24, 2026
+
+Peter requested new UI icons and matching realistically scaled 3D assets, then selected the PRD's full action list. The additive [build-action art kit](build-action-art.md) supplies **17 Unity prefabs, transparent 512px Sprite icons, portable GLB models and a serialized lookup catalog**. Farming variants and solar/wind remain separate. Building/site dimensions are representative authored assumptions in metres, not surveyed local structures; landscape actions remain terrain-treatment samples. [Contact sheet](evidence/build-action-art/contact-sheet.png).
+
+**Verification:** 230 Unity generation/render checks plus 41 saved-catalog checks; 17 GLBs passed Khronos glTF Validator with zero errors/warnings. The local Chrome art-review page displayed all cards, resolved wind selection and its download target, rotated its footprint to 45° and moved it against real map polygons. [Chrome evidence](evidence/build-action-art/chrome-scale-preview.png), [Unity receipt](evidence/build-action-art/verification.json), [catalog checks](evidence/build-action-art/catalog-lookup-verification.json), [GLB validation](evidence/build-action-art/gltf-validation.json). Source is isolated under `Assets/Terra/Art/ExternalKit/BuildActions/`; main scene/HUD/renderer and gameplay eligibility/costs are unchanged. Playable-map integration and in-game URP/Web visual/performance acceptance remain pending with the engine owner. This does not complete Phase 2A or enable deferred gameplay actions. TN-04, TN-05 and CS-02 guide the art/scale handoff.
+
+## Annual loop playtest — separately authorized October 24, 2026
+
+Peter requested direct integration to the repository's default branch (`main`, no new PR), an end-year summary and placeholder simulation while the teammate overhauls the main UI. The annual foundation `a4ba01e` was fast-forwarded into `main`; GitHub marked the existing draft PR #1 merged.
+
+The new **Terra → Annual Town → Playtest Year Loop** Editor window exercises the real map's eligible offers with the existing annual session. It supports current-year queue/replace/remove/undo, concluding or waiting, accepted summary, next-year planning, ten-year completion and save JSON export/import. `AnnualTownSummary` derives spend/receipts, remaining commitments, score deltas and site lifecycle explanations solely from accepted history. Integration TODOs mark the future game HUD, animation and async consequence-provider seams.
+
+**Verification:** 94 plain-source assertions; 106 annual Unity assertions (including the 94); 139 existing map/legacy-accounting assertions. Session checks cover a Year 2 additional project, a frozen Year 3 request restored/retried, exact summary restore and Year 10 completion. Actual Windows Editor interaction also verified Year 1 queue/conclude, Year 2 continued planning/wait, and Year 3's authored 0.8 output factor. [Year 1 summary](evidence/annual-town/year1-summary.png), [Year 2 planning](evidence/annual-town/year2-planning.png), [Year 2 summary](evidence/annual-town/year2-summary.png), [Year 3 summary](evidence/annual-town/year3-summary.png). [Current-source verification receipt](evidence/annual-town/year-loop-verification.json).
+
+Observed single-project UI path: $60,000 starting cash → $56,000 after Year 1's $24,000 upfront and $20,000 closing appropriation → $74,800 after Year 2's $1,200 upkeep and $20,000 appropriation → $93,600 after Year 3. West field progresses Building → Operating; total illustrative production goes 5 → 17 → 13.6. These are authored demo settings, not local cost/yield estimates.
+
+This is an **Editor-only technical fixture**, without map rendering or production styling. Main scene/HUD/renderer controls and player builds were not changed. There is no live LLM, calibrated yield/flood model, randomized event generation, AI final image or browser annual-flow acceptance. The ongoing Phase 2A gate remains unchanged. Reference patterns TN-03, TN-08 and CS-01 guide the eventual owner integration; screenshots establish usable technical controls only.
+
+## Annual state foundation — separately authorized October 24, 2026
+
+Peter requested annual town state, a USD public ledger and three yearly outcomes while the main engineer continues the basics. The [additive state/session module](annual-town-runtime.md) implements Planning/Resolving/Reviewing/Completed, pre-submission queue-only undo, full-term public commitments and annual payments, funded lifecycle effects, derived contextual scores, idempotent annual history, save/replay and offline continuation to Year 10. It does not modify the main scene, renderer or HUD, finish the wider action catalog, connect a live LLM, or certify Phase 2A/later-phase completion.
+
+The updated public-budget PRD is preserved in [PRD_ANNUAL_GAMEPLAY.md](PRD_ANNUAL_GAMEPLAY.md). Initial base `e355fa1` was refreshed to the teammate's `08092a1` checkpoint before handoff. On that latest base: **81 plain-source checks**, **86 annual Unity checks** (including the 81), **139 legacy map/transaction checks**, 32 existing map offers, real Unity JSON/session round-trips and ten saved years pass. [Verification scope/hashes](evidence/annual-town/verification.json). Demo costs, annual drivers and score weights remain explicitly authored, uncalibrated assumptions. Main-game annual controls and their browser/visual acceptance remain pending with the engine owner.
+
 **Browser preference — October 24, 2026:** The user confirmed Chrome is sufficient throughout this project. Use Chrome for current and future phase acceptance; do not launch or retest Safari or request Private Browsing unlocks unless explicitly asked. Phase 2 Safari retesting was waived. Earlier Chrome/Safari records below remain historical evidence, not recurring requirements.
 
 **Last updated:** October 24, 2026, annual gameplay planning adopted; Phase 2A still unaccepted. This ledger tracks observed implementation; [the spec](../TERRA_PROJECT_SPEC.md) tracks intended vision and [the plan](../IMPLEMENTATION_PLAN.md) defines gates.
@@ -18,6 +49,22 @@
 | 6 — Future comparison and replay | Planned | Same-driver no-new-action future, final world/history, optional learning and new-run replay required |
 | 7 — Polish | Planned | Visual/interaction review and measured performance required |
 | 8 — Release/refinement | Planned | Full single-location build, rehearsed demo, and focused refinement backlog |
+
+## Phase 4 isolated consequences work — October 24, 2026
+
+The user requested the **next phase while Phase 2A continues in parallel**. Completed Phase 3 (`c49a3c2`) already existed at goal start but had not reached the primary ledger. It is integrated here as `2f74c40`/`d17925d`; this goal therefore completes Phase 4 on `codex/phase4-consequences`. The visual worker's checkout and Editor remain untouched.
+
+The fixed 50 mm model now drives preview, placement, replacement, movement, removal, reset and history. Twelve sites plus unchanged context count every square metre once; authored groups and finite 8 m³ storage prevent global bonuses or double retention. UI shows production, credits, rounded runoff, baseline delta, storage use, hypothetical group outlines and sourced limitations. Current-site and unchanged-context contributions remain explicit. [Architecture, assumptions and integration hooks](PHASE_4_CONSEQUENCES.md).
+
+Standalone integration checks (1,372), package B suites (19), Unity regressions (2,022 including 98 Phase 4 checks), geometry partition audit, final Web build and exact local asset checks pass. Chrome's 13-step route matches expected numeric results; mouse confirmations, invalid actions, keyboard/modal isolation, larger text and 1280×720 / 1440×900 captures are verified. The new explanation page and feedback overlap found during review were fixed. [Full evidence and limitations](evidence/phase4/README.md).
+
+This completes the authorized isolated consequences slice. No Phase 2A scenery approval, combined performance acceptance, human novice study or production deployment is claimed. Phase 5 has not started.
+
+## Phase 3 isolated editing work — October 24, 2026
+
+The user explicitly clarified this chat's goal to **Phase 3 editing alongside the other worker's Phase 2A rebuild**, in a separate worktree. Branch `codex/phase3-editing` starts at `08092a1`. This is an authorized ordering exception for the editing slice, not Phase 2A visual acceptance or permission to begin Phase 4. The original checkout, other worker's uncommitted changes, and production deployment remain outside this worktree's mutations.
+
+Transaction implementation and final Chrome verification are complete. All 1,924 Unity checks and 34 geography checks pass; browser coverage includes move/replace/remove/clear, history, invalid actions, pointer capture, larger text and both target viewports. The 9.75 FPS sample is below target and is explicitly not performance acceptance; [full audit](PHASE_3_AUDIT.md). [Integration handoff](PHASE_3_HANDOFF.md) records the narrow hooks to carry into the rebuilt presentation. Phase 2A visuals and external novice usability remain unverified by this work.
 
 ## Annual direction and action-table adoption — October 24, 2026
 
@@ -50,11 +97,11 @@ All 11 checked files returned HTTP 200 and matched the local export, including g
 
 ## Historical Phase 2 handoff (superseded by current records above)
 
-- **Next action:** rebuild Phase 2A visuals from first principles; compare new scene/camera/asset studies before refining the interface. Phase 3 is not authorized.
-- **Goal outcome:** Phases 0–2 complete. Phase 2A implementation is in progress; later phases have not started.
+- **Next action:** finish the separate Phase 2A visual rebuild, carry the integrated Phase 3/4 hooks from `codex/phase4-consequences` into it, and verify the combined browser result against the visual and performance gates. Phase 5 needs its own requested work.
+- **Goal outcome:** Phases 0–2 complete. Phase 2A remains in progress. Phase 3 editing and Phase 4 consequences are complete together in the isolated `codex/phase4-consequences` branch; combined presentation acceptance remains pending. Phases 5–8 have not started.
 - **Parallel packages:** package A geography work was completed locally by the primary engineer for Phase 2; none delegated.
 - **Phase 2 result:** real `meadowbrook-v1` pack ingested; 34 source/alignment/determinism checks and 139 Unity contract/site checks pass. Final Chrome reviews at 1280×720 and 1440×900, transformations/rejections/undo, source panel, recovery and measured performance pass. [Geography](geography.md), [requirement-by-requirement audit](PHASE_2_AUDIT.md).
-- **Latest verified build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
+- **Historical Phase 2 public build:** `Builds/Web/`, 14,696,090 bytes; [public real landscape](https://terra-browser.vercel.app/), runtime source `35fb7e8edf7c92b37acebfee5656b0bf4991544b`, deployment `dpl_GKsY1WYbABEgANa7at2uDsq3JRs8`. [Identity](evidence/phase2/identity.json). Portable checkout `Builds/Handoff/terra-phase2.bundle`; no Git remote/push.
 - **Scope decision:** one rural location is the primary product. Complete and refine all game systems, UI/UX, learning, and replay there through phases 0–8. Former expansion phases 9–11 are removed from the active roadmap.
 - **Location decision:** **Meadowbrook Valley** (fictional game name), `coon-valley-brye-v1`, approximately 0.97 km² in Wisconsin. [Selected bounds, data path and source previews](location-selection.md).
 - **Expansion:** additional rural/city levels and live generation are deferred until the full one-location quality gate and a separate explicit decision.
