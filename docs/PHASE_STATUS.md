@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Swale preview query optimization — October 25, 2026
+
+Narrow fix `ed2055b` skips distant basin samples and avoids repeated route square roots without changing depth, footprint, density or annual rules.78,000 sampled comparisons preserve the profile within0.00000024m; actual ground/undo/Year10/save/comparison checks pass on both current main and the isolated selective-terrain candidate. Candidate ground refresh drops40–61→8–9ms in single Editor samples. Main preview+flush still measures111ms; Chrome and the broader performance gate remain open. [Source identities, before/after measurements and validation](evidence/full-game/selective-relief/README.md). No unaccepted scenery was merged or deployed.
+
 ## Isolated terrain integration and overlay optimization — October 25, 2026
 
 Candidate `1bd75c2` combined with main `667f482` passes678model/save,34lifecycle,349display and394project checks. Sharing interior overlay vertices reduces observed Ghost construction from28–159ms to7–26ms in the Editor. An old/new reference comparison covers167,282triangles on both fine/source grids, with explicit floating-point-sliver tolerances. Code `a03d0d8` is retained on `codex/relief-validation` for the visual owner; **main contains evidence only**, not the unaccepted terrain candidate. [Exact source, fixtures, measurements and limitations](evidence/full-game/relief-validation/README.md). The owner is revising the terrain shape beyond this tested6m-band checkpoint; these results must not be relabelled as validation of that revision. Final combined Chrome, visual and release gates remain open.
