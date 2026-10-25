@@ -1,0 +1,8 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Requires Edit mode");
+const string folder="Assets/Terra/Art/QuaterniusCrops";
+if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Terra/Art","QuaterniusCrops");
+string path=folder+"/Lettuce_4.fbx";
+System.IO.File.Copy("docs/evidence/phase2a/crop-forms-01/Lettuce_4.fbx",path,true);
+UnityEditor.AssetDatabase.ImportAsset(path,UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var importer=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(path);importer.isReadable=true;importer.importAnimation=false;importer.importLights=false;importer.importCameras=false;importer.SaveAndReimport();
+return CultivatedCropAssets.Build();

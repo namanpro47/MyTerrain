@@ -504,3 +504,5 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 
 - [Study61 bank profile](study61-findings.md) — rejected runtime-only comparison.
 - [Study62 conifer groves](study62-findings.md) — compiled, baked unfinished checkpoint; integrated/Chrome checks pending.
+
+- [Study63 cultivated beds and leaf crops](study63-findings.md) — integrated Wisconsin baseline/context and reversible cultivation; Editor verified, Chrome pending.

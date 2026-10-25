@@ -1,5 +1,16 @@
 # Current visual review — Phase 2A remains open
 
+**Latest playable browser evidence: study62.** Conifer groves add silhouette contrast, but the paired camera sample fails at40ms p95 (previous-build control34ms). [Chrome captures, queue/undo and limits](evidence/phase2a/visual-rebuild/study62-findings.md).
+
+![Current Chrome conifer candidate](evidence/phase2a/visual-rebuild/study62-chrome-normal.jpg)
+
+**Newer Editor candidate: study63.** The foreground now uses curved soil beds and broad-leaf plants across Wisconsin, including cultivation previews. This is not yet a Chrome result. [Implementation and verification](evidence/phase2a/visual-rebuild/study63-findings.md).
+
+![Current Editor crop candidate, without HUD](evidence/phase2a/visual-rebuild/study63-integrated-normal.png)
+
+The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
+
+
 **Latest candidate: study60, source `d04f7d4`, October 25, 2026.** This page presents the current rendered game; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
 
 [Latest unfinished investigation: study59 cultivated soil beds](evidence/phase2a/visual-rebuild/study59-findings.md). Saved for continuity; it does not replace the retained candidate below.

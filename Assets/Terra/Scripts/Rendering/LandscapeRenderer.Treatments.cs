@@ -78,6 +78,7 @@ namespace Terra.Rendering
 
         void PlantCultivation(Point[] polygon,Transform parent,bool baseline)
         {
+            if(clusteredWoodland){PlantCropBeds(polygon,parent,baseline);return;}
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);
             var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
@@ -104,6 +105,12 @@ namespace Terra.Rendering
         }
         void BuildCultivatedContext()
         {
+            if(clusteredWoodland)
+            {
+                for(float z=zmin;z<zmax;z+=150)for(float x=xmin;x<xmax;x+=150)
+                    PlantCropBeds(Rectangle(x,z,Mathf.Min(x+150,xmax),Mathf.Min(z+150,zmax)),root,true,true);
+                return;
+            }
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
