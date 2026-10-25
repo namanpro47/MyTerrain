@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "// Run against the isolated Editor in Play mode; changes only the disposable runtime HUD.\nvar main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();\nvar flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;\nvar hud=(Terra.UI.TerraHud)main.GetType().GetField(\"hud\",flags).GetValue(main);\nvar world=(Terra.Contracts.WorldData)main.GetType().GetField(\"world\",flags).GetValue(main);\nvar session=(Terra.Gameplay.AnnualTownSession)main.GetType().GetField(\"annual\",flags).GetValue(main);\nvar ui=typeof(Terra.UI.TerraHud);\nvar root=(UnityEngine.Transform)ui.GetField(\"root\",flags).GetValue(hud);\nvar layout=ui.GetMethod(\"LayoutAnnual\",flags);\nint checks=0;var failures=new System.Collections.Generic.List<string>();\nvoid Check(bool ok,string reason){if(!ok)failures.Add(reason);checks++;}\nvar cases=new System.Collections.Generic.List<object>();\nforeach(bool large in new[]{false,true})\n{\n    ui.GetProperty(\"LargeText\").SetValue(hud,large);\n    foreach(var size in new[]{new UnityEngine.Vector2(1440,900),new UnityEngine.Vector2(1024,576),new UnityEngine.Vector2(1280,720),new UnityEngine.Vector2(1440,900)})\n    {\n        bool compact=size.x<1120||size.y<680;\n        for(int repeat=0;repeat<3;repeat++)layout.Invoke(hud,new object[]{size.x,size.y,compact});\n        var identity=root.Find(\"Place\").GetComponentsInChildren<TMPro.TextMeshProUGUI>(true);\n        Check(identity.Any(t=>t.text.Contains(\"Meadowbrook\")&&t.gameObject.activeSelf),\"Location disappeared after reflow\");\n        foreach(var title in root.GetComponentsInChildren<TMPro.TextMeshProUGUI>(true).Where(t=>t.name==\"Action title\"))\n        {\n            var price=title.transform.parent.Find(\"Action price\").GetComponent<TMPro.TextMeshProUGUI>();\n            Check(price.rectTransform.anchoredPosition.y>title.rectTransform.anchoredPosition.y,\"Price overlaps title: \"+title.text);\n        }\n        foreach(var offer in session.Definition.actions.GroupBy(a=>a.actionId).Select(g=>g.First()))\n        {\n            hud.AnnualPreview(world.sites.First(s=>s.id==offer.siteId),offer,session.State,\"place\",null,()=>{},false);\n            var body=(TMPro.TextMeshProUGUI)ui.GetField(\"previewBody\",flags).GetValue(hud);body.ForceMeshUpdate(true,true);\n            Check(body.preferredHeight<=body.rectTransform.rect.height+.1f,\"Preview overflow: \"+offer.actionId+\" \"+size+\" large=\"+large+\" needs \"+body.preferredHeight+\" has \"+body.rectTransform.rect.height);\n        }\n        cases.Add(new{width=size.x,height=size.y,large,compact});\n    }\n}\nreturn new{checks,failures,cases};\n"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "checks": 280,
+        "failures": [],
+        "cases": [
+          {
+            "width": 1440,
+            "height": 900,
+            "large": false,
+            "compact": false
+          },
+          {
+            "width": 1024,
+            "height": 576,
+            "large": false,
+            "compact": true
+          },
+          {
+            "width": 1280,
+            "height": 720,
+            "large": false,
+            "compact": false
+          },
+          {
+            "width": 1440,
+            "height": 900,
+            "large": false,
+            "compact": false
+          },
+          {
+            "width": 1440,
+            "height": 900,
+            "large": true,
+            "compact": false
+          },
+          {
+            "width": 1024,
+            "height": 576,
+            "large": true,
+            "compact": true
+          },
+          {
+            "width": 1280,
+            "height": 720,
+            "large": true,
+            "compact": false
+          },
+          {
+            "width": 1440,
+            "height": 900,
+            "large": true,
+            "compact": false
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-hud-continuous/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

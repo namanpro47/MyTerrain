@@ -105,11 +105,11 @@ namespace Terra.UI
         void LayoutAnnualPreview()
         {
             if(recipeDetails==null)return;
-            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?248:320);r.anchoredPosition=new Vector2(-16,-120);
+            var r=(RectTransform)tooltip.transform;r.sizeDelta=new Vector2(292,annualCompact?248:LargeText?350:320);r.anchoredPosition=new Vector2(-16,-120);
             previewTitle.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-34:-45);previewTitle.rectTransform.sizeDelta=new Vector2(256,annualCompact?28:52);
             previewKind.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-10:-16);
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);
-            previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?104:120);
+            previewBody.rectTransform.anchoredPosition=new Vector2(18,annualCompact?-67:-95);previewBody.rectTransform.sizeDelta=new Vector2(256,annualCompact?104:LargeText?152:120);
             previewBody.fontSize=(annualCompact?13:16)*(LargeText?1.12f:1);
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,annualCompact?49:68);
             recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(256,annualCompact?28:34);
