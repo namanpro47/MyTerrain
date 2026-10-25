@@ -11,3 +11,14 @@ Analytical16:9 target without margin: x263.6, z−282.9. At1440×900: x285.7. A2
 Acceptance: matched opening, focused park and overview at1280×720 and normal desktop; town, at least two actionable fields, creek/bridge and woodland context remain recognizable. No empty wedge dominating the normal view; full pan/zoom remains available. Verify that all preview footprints and local capsules remain readable. If the analytical adjustment obscures landmarks or places them behind HUD, revise from actual output rather than declaring the geometry sufficient.
 
 The current Main owner has been asked for a ResetView-only handoff. No Main/camera source has been changed by this analysis.
+
+## Renderer candidate
+
+`LandscapeRenderer.PlacementOpeningTarget` now computes the inward target using the four perspective rays and the terrain's actual bounds. It preserves the supplied target height, scale and orientation. The helper is not yet invoked by Main and has no effect in the shipped game. Required Wisconsin-only ResetView handoff after the settlement target assignment:
+
+```csharp
+if(location.IsWisconsin)
+    target=landscape.PlacementOpeningTarget(target,pitch,yaw,zoom,view.fieldOfView,view.aspect);
+```
+
+Apply only after the current Main owner approves the section handoff. The helper requires actual rendered acceptance; analytical frustum coverage is not a scenery-quality claim.

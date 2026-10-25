@@ -12,6 +12,32 @@ namespace Terra.Rendering
         readonly List<LineRenderer> placementLines=new List<LineRenderer>();
         Material previewBoundary,queuedBoundary,blockedBoundary;
 
+        public Vector3 PlacementOpeningTarget(Vector3 settlement,float pitch,float yaw,float zoom,float fieldOfView,float aspect)
+        {
+            // Frame the opening on playable ground without changing camera scale or normal pan limits.
+            var rotation=Quaternion.Euler(pitch,yaw,0);
+            float tangent=Mathf.Tan(fieldOfView*.5f*Mathf.Deg2Rad);
+            var camera=rotation*Vector3.back*(zoom/tangent);
+            var min=new Vector2(float.PositiveInfinity,float.PositiveInfinity);
+            var max=new Vector2(float.NegativeInfinity,float.NegativeInfinity);
+            foreach(float x in new[]{-1f,1f})foreach(float y in new[]{-1f,1f})
+            {
+                var ray=rotation*new Vector3(x*aspect*tangent,y*tangent,1);
+                if(ray.y>=-.001f)return settlement;
+                var point=camera+ray*(-camera.y/ray.y);
+                min=Vector2.Min(min,new Vector2(point.x,point.z));
+                max=Vector2.Max(max,new Vector2(point.x,point.z));
+            }
+            var terrain=world.terrain;const float margin=24;
+            float east=terrain.xMin+(terrain.columns-1)*terrain.cellSizeM;
+            float north=terrain.zMin+(terrain.rows-1)*terrain.cellSizeM;
+            float left=terrain.xMin+margin-min.x,right=east-margin-max.x;
+            float bottom=terrain.zMin+margin-min.y,top=north-margin-max.y;
+            settlement.x=left<=right?Mathf.Clamp(settlement.x,left,right):(terrain.xMin+east)*.5f;
+            settlement.z=bottom<=top?Mathf.Clamp(settlement.z,bottom,top):(terrain.zMin+north)*.5f;
+            return settlement;
+        }
+
         public Vector3[] PlacementWorldPoints(Site site,string treatment)
         {
             var rule=buildRules?.Find(treatment);
