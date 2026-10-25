@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Study65](study65-findings.md) — existing fictional community, terrain-following yards and35Editor checks; Chrome pending. [Study64](study64-findings.md) remains the latest completed Chrome material/interaction checkpoint. **Visual and browser gates remain open.**
+Latest actual study: [Study74](study74-canopy/README.md) — continuous field surface and native edge plants, rejected after six matched captures for flat close appearance and excessive edge geometry. [Current visible review](../../../CURRENT_VISUAL_REVIEW.md). No runtime adoption; all visual gates remain open. Study65 is the historical isolated runtime candidate and study64 its latest Chrome checkpoint; the combined release owner separately verifies current-main integration.
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 
