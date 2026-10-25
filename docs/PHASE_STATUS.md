@@ -1,5 +1,13 @@
 # Terra — phase status and evidence
 
+## Live Gemini chapter connection — October 24, 2026
+
+Peter supplied the local key and requested a connection test. Model listing accepted the key, but `gemini-2.5-flash-lite` generation returned 404 with Google's explanation that it is unavailable to new users. The default and example settings now use `gemini-3.5-flash-lite`; Peter's local model setting was updated while preserving the key. Unavailable-model errors now identify the configuration to change without exposing provider response details. The prompt also clarifies that lifecycle `Building` means under construction, not evidence of a physical building.
+
+**Live result:** one full chapter request returned HTTP 200 in 2.01 seconds with three cards passing the shared validator and the exact engine consequences. Repeat delivery reused the identical saved receipt in 0.055 seconds; server restart reused it in 0.107 seconds. The restarted server loaded the real key and supported model from the existing local `.env`. **35 standalone chapter/service checks pass.** [Connection evidence](evidence/annual-town/gemini-live-verification.json), [generated technical-fixture chapter](evidence/annual-town/gemini-live-chapter.json).
+
+Peter chose **keep local for now** after granting read access to his Vercel scope. No Vercel project, deployment or environment variable was created, and no Gemini key was uploaded. This validates the local provider connection, not a public backend, browser annual integration, narrative-quality acceptance or calibrated consequences.
+
 ## Branch integration — October 24, 2026
 
 At the user's request, merged the annual foundation, 17-action catalog/art, published Phase 3 editing and completed Phase 4 runoff into the primary checkout. Current visual studies and the revised annual product direction were checkpointed first (`3684a40`). Integration merges are `d74c8d3` (prepared annual/editing/runoff branch plus latest visuals) and `6add1df` (original published Phase 3 history). Package B/D/C3 was already included. The abandoned `codex/phase3-review-study` experiment was excluded because the completed delivery supersedes it.

@@ -10,7 +10,7 @@ builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 
 builder.Logging.ClearProviders(); // No prompt, save data, or credential-bearing HTTP logs.
 var app = builder.Build();
 var apiKey = Environment.GetEnvironmentVariable("GEMINI_API_KEY");
-var model = Environment.GetEnvironmentVariable("GEMINI_MODEL") ?? "gemini-2.5-flash-lite";
+var model = Environment.GetEnvironmentVariable("GEMINI_MODEL") ?? "gemini-3.5-flash-lite";
 var cache = Environment.GetEnvironmentVariable("TERRA_CHAPTER_CACHE") ?? Path.Combine(app.Environment.ContentRootPath, "data");
 var origins = (Environment.GetEnvironmentVariable("TERRA_ALLOWED_ORIGINS") ?? "http://localhost:8080,http://127.0.0.1:8080")
     .Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
