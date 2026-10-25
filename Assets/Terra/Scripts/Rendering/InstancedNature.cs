@@ -12,6 +12,9 @@ namespace Terra.Rendering
         readonly List<Material> ownedMaterials=new List<Material>();
         static int cameraFrame=-1;static bool cameraValid,orthographic;
         static Vector3 cameraPosition,cameraForward;static float pixelFactor,viewSpan;
+        static readonly Plane[] viewPlanes=new Plane[6];
+        public int LastSubmittedBatches{get;private set;}
+        public int LastCulledGroundcoverBatches{get;private set;}
         public static float DisplayPixelRatio{get;set;}=1;
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
@@ -68,7 +71,7 @@ namespace Terra.Rendering
                     }
                     // Dense crop clusters use larger batches; woodland retains smaller spatial groups.
                     // RenderMeshInstanced stores both transform matrices: stay below its default 511-instance limit.
-                    int batchSize=(prefab.name=="GeometricWheat"||prefab.name=="FieldCluster")?500:128;
+                    int batchSize=(softGroundCover||prefab.name=="GeometricWheat"||prefab.name=="FieldCluster")?500:128;
                     for(int start=0;start<transforms.Count;start+=batchSize)
                     {
                         var matrices=new Matrix4x4[Mathf.Min(batchSize,transforms.Count-start)];
@@ -98,13 +101,25 @@ namespace Terra.Rendering
                 cameraFrame=Time.frameCount;var camera=Camera.main;cameraValid=camera!=null;
                 if(cameraValid)
                 {
+                    GeometryUtility.CalculateFrustumPlanes(camera,viewPlanes);
                     var transform=camera.transform;cameraPosition=transform.position;cameraForward=transform.forward;
                     orthographic=camera.orthographic;pixelFactor=camera.pixelHeight/(2*Mathf.Max(1,DisplayPixelRatio));
                     viewSpan=orthographic?camera.orthographicSize:Mathf.Tan(camera.fieldOfView*.5f*Mathf.Deg2Rad);
                 }
             }
+            LastSubmittedBatches=0;LastCulledGroundcoverBatches=0;
             foreach(var b in batches)
             {
+                if(cameraValid&&b.groundcover&&!ShadowsOnly)
+                {
+                    // Low plants cannot cast into the view from across the map. Keep a
+                    // generous border for their shadows on the fixed 52-degree sun and
+                    // sloping terrain; tall canopy retains Unity's native shadow culling.
+                    var shadowBounds=b.bounds;
+                    shadowBounds.Expand(b.maxHeight*8+b.bounds.size.y*2+16);
+                    if(!GeometryUtility.TestPlanesAABB(viewPlanes,shadowBounds))
+                    {LastCulledGroundcoverBatches++;continue;}
+                }
                 float pixels=float.MaxValue;
                 if(cameraValid&&(b.crop||b.groundcover||b.medium!=null))
                 {
@@ -134,6 +149,7 @@ namespace Terra.Rendering
                     matrices=b.animated;
                 }
                 Graphics.RenderMeshInstanced(parameters,mesh,b.submesh,matrices);
+                LastSubmittedBatches++;
             }
             if(revealStarted>=0&&Time.unscaledTime-revealStarted>revealDuration+.2f)revealStarted=-1;
         }

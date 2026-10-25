@@ -153,48 +153,20 @@ namespace Terra.Rendering
         void BuildVegetation()
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
-            meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            var forestTree=Resources.Load<GameObject>("Forest/ForestOak");
-            var bush=Resources.Load<GameObject>("Forest/ForestSapling");
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
             var stone=Resources.Load<GameObject>("Nature/Rock_Medium_1");
-            // Canopy cohorts and low edge growth are illustration, not surveyed species or stem locations.
-            // Independent 150m clusters preserve culling and create groups instead of a regular canopy carpet.
+            // Low plants and stones are decorative; woodland cohorts are built separately.
+            // Spatial patches keep detail cullable without changing analytical cover.
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
-                var mature=new List<Matrix4x4>();
-                var shrubs=new List<Matrix4x4>();var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
+                var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
                 for(float z=cz+8;z<Mathf.Min(cz+150,zmax-6);z+=13)for(float x=cx+8;x<Mathf.Min(cx+150,xmax-6);x+=13)
                 {
                     float px=x+Range(-5,5),pz=z+Range(-5,5);string cover=CoverAt(px,pz);
                     if(NearLine(px,pz,4))continue;
                     float grouping=Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);
-                    if(cover=="woodland")
-                    {
-                        // Smaller edge trees step up into overlapping mature crowns. Broad gaps stay legible.
-                        bool edge=CoverAt(px-18,pz)!="woodland"||CoverAt(px+18,pz)!="woodland"||CoverAt(px,pz-18)!="woodland"||CoverAt(px,pz+18)!="woodland";
-                        bool clearing=grouping<.34f;
-                        if(!clearing||random.NextDouble()<.12)
-                        {
-                            float scale=edge?Range(.75f,1.0f):Range(.95f,1.4f);
-                            if(clearing)scale*=.65f;
-                            // Creator root origin is the intended soil plane; lower root geometry stays buried.
-                            mature.Add(Matrix4x4.TRS(new Vector3(px,Height(px,pz),pz),Quaternion.Euler(0,Range(0,360),0),Vector3.one*scale));
-                            forestFootprints.Add(new Vector3(px,pz,scale*11));
-                        }
-                        if(edge||clearing)
-                        {
-                            int count=edge?4:2;
-                            for(int n=0;n<count;n++)
-                            {
-                                float sx=px+Range(-9,9),sz=pz+Range(-9,9);
-                                if(CoverAt(sx,sz)!="woodland"||NearLine(sx,sz,4))continue;
-                                shrubs.Add(Matrix4x4.TRS(new Vector3(sx,Height(sx,sz),sz),Quaternion.Euler(0,Range(0,360),0),Vector3.one*Range(1.4f,3f)));
-                            }
-                        }
-                    }
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
                     {
                         if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
@@ -218,11 +190,10 @@ namespace Terra.Rendering
                         if(grouping<.30f && random.NextDouble()<.18)rocks.Add(PlantMatrix(stone,px,pz,Range(1.1f,2.2f),Range(0,360)));
                     }
                 }
-                canopy.Add(forestTree,mature,Color.white);
-                canopy.Add(bush,shrubs,Color.white);
                 nature.Add(tuft,grasses,Color.white,true);
                 nature.Add(wispy,fine,Color.white,true);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }
+            BuildWoodlandCohorts();
             BuildForestFloor();
             BuildGrassland();
         }
