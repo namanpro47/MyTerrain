@@ -438,3 +438,15 @@ Actual final Chrome evidence at1280×720 CSS/buffer: [opening](study31b-default.
 [Final source/export/browser record](study31b-build.json). Build job `5b801ab68e41440e823c05cd50798620` succeeded in11.207s; anonymous exact serving checks pass. One30s moving/placement route: p50=17ms,p95=19ms,p99=27ms,max30ms;1769frames,zero>33ms,zero>200ms,1053cameraevents,zero unfocused frames. Presentation opportunities: two previews23.6/18.7ms and one placement21.5ms, not physical display latency or a robust p95 sample. Final candidate has only one route; three fresh-cache loads, complete viewport suite and public delivery remain pending. Shader compilation reports no errors; the ground's existing GLES3x potentially-uninitialized warning remains. Study31a's separate route is retained as historical evidence, not substituted for another final-source run.
 
 **Visual gate still fails.** The meadow is more coherent but too low in relief at normal scale; crop repetition, sparse forest-edge context, flat opening composition, schematic overview and the coarse exposed swale bed remain substantial reference gaps. No4.5 score, accepted art direction or full-game quality claim. Next materially change composition and environment scale hierarchy rather than continue tint/density adjustments to this same framing. Preserve source terrain, mapped routes and accounting. Annual integration remains owned by the full-game task.
+
+
+## Study32 — camera and canopy experiments (checkpoint only)
+
+TN-01/02/09/10/11/12. Four camera-only Editor captures preserve the next composition investigation; these omit the HUD and are not Chrome acceptance evidence. Runtime source remains the Chrome-verified study31b at `0a770c5`. No study32 camera change was adopted or exported.
+
+- [32a: west crossing, orthographic](study32a-composition.png): target x/z (-90,-70), height +8m, zoom105, pitch34, yaw-32. Fields, bridge and woodland form a clearer composition, but canopy and grass remain weak.
+- [32b: west crossing, perspective](study32b-perspective.png): same target/angles/zoom, perspective FOV36. Promising depth candidate requiring actual HUD, movement and integrated annual-game review.
+- [32c: original leaf normals mixed into volume normals](study32c-authored-normals.png): same perspective camera; 65% original normals and35% radial normals. Rejected for jagged, dark leaf planes. Shader change reverted before this checkpoint.
+- [32d: east crossing](study32d-east-crossing.png): target x/z (270,-50), height +8m, zoom105, pitch34, yaw25, perspective. Weaker composition with visible map edge; not adopted.
+
+A free TriForge Fantasy Worlds Forest candidate was investigated through its official Unity listing; acquisition/import was not confirmed at this checkpoint. No purchase, generated image, new location or annual gameplay change. Visual gate remains unaccepted. These captures preserve investigation, not a new playable build.
