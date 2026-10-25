@@ -1,0 +1,439 @@
+{
+  "sourceCommit": "e25c5d3",
+  "receipt": [
+    {
+      "level": "log",
+      "message": "TERRA_UI_PART 0/2: {\"cssWidth\":1024.0,\"cssHeight\":576.0,\"pixelRatio\":1.0,\"modal\":false,\"largeText\":true,\"reducedMotion\":false,\"muted\":false,\"labels\":[{\"text\":\"T E R R A\",\"rect\":{\"x\":42.0,\"y\":36.0,\"width\":270.0,\"height\":24.0},\"bodyCssPx\":17.920000076293945,\"minGlyphCssPx\":17.920000076293945,\"preferredHeight\":20.030000686645508,\"availableHeight\":24.0},{\"text\":\"Meadowbrook Valley\",\"rect\":{\"x\":42.0,\"y\":59.0,\"width\":278.0,\"height\":28.0},\"bodyCssPx\":25.760000228881836,\"minGlyphCssPx\":25.760000228881836,\"preferredHeight\":28.780000686645508,\"availableHeight\":28.0},{\"text\":\"Wisconsin · real geography\",\"rect\":{\"x\":42.0,\"y\":89.0,\"width\":276.0,\"height\":24.0},\"bodyCssPx\":17.920000076293945,\"minGlyphCssPx\":17.920000076293945,\"preferredHeight\":20.030000686645508,\"availableHeight\":24.0},{\"text\":\"Valley view  R\",\"rect\":{\"x\":32.0,\"y\":438.0,\"width\":114.0,\"height\":52.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":52.0},{\"text\":\"Field guide  G\",\"rect\":{\"x\":860.0,\"y\":502.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":52.0},{\"text\":\"Controls  ?\",\"rect\":{\"x\":860.0,\"y\":438.0,\"width\":132.0,\"height\":52.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":52.0},{\"text\":\"YEAR 10 · READ-ONLY\",\"rect\":{\"x\":726.0,\"y\":136.0,\"width\":256.0,\"height\":24.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":24.0},{\"text\":\"Lower central field\",\"rect\":{\"x\":726.0,\"y\":160.0,\"width\":256.0,\"height\":28.0},\"bodyCssPx\":21.280000686645508,\"minGlyphCssPx\":21.280000686645508,\"preferredHeight\":23.780000686645508,\"availableHeight\":28.0},{\"text\":\"Existing land use. No new project was accepted here.\\n\\nInspect other sites, compare the landscape or start a new run.\",\"rect\":{\"x\":726.0,\"y\":193.0,\"width\":256.0,\"height\":112.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":89.63999938964844,\"availableHeight\":112.0},{\"text\":\"Future · compare, learn or replay.\",\"rect\":{\"x\":726.0,\"y\":309.0,\"width\":256.0,\"height\":35.0},\"bodyCssPx\":14.5600004196167,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":16.270000457763672,\"availableHeight\":35.0},{\"text\":\"Focused site · Scroll to zoom · R returns to the valley\",\"rect\":{\"x\":371.0,\"y\":135.0,\"width\":300.0,\"height\":70.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":35.54999923706055,\"availableHeight\":70.0},{\"text\":\"ECONOMIC\",\"rect\":{\"x\":366.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":14.5600004196167,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":16.270000457763672,\"availableHeight\":18.0},{\"text\":\"85.4 <size=65%>/100 · last yr +22.7</size>\",\"rect\":{\"x\":366.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":22.399999618530273,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":25.030000686645508,\"availableHeight\":28.0},{\"text\":\"SOCIAL\",\"rect\":{\"x\":578.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":14.5600004196167,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":16.270000457763672,\"availableHeight\":18.0},{\"text\":\"99.0 <size=65%>/100 · last yr +8.0</size>\",\"rect\":{\"x\":578.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":22.399999618530273,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":25.030000686645508,\"availableHeight\":28.0},{\"text\":\"ENVIRONMENTAL\",\"rect\":{\"x\":790.0,\"y\":34.0,\"width\":202.0,\"height\":18.0},\"bodyCssPx\":14.5600004196167,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":16.270000457763672,\"availableHeight\":18.0},{\"text\":\"54.8 <size=65%>/100 · last yr -0.1</size>\",\"rect\":{\"x\":790.0,\"y\":55.0,\"width\":200.0,\"height\":28.0},\"bodyCssPx\":22.399999618530273,\"minGlyphCssPx\":14.5600004196167,\"preferredHeight\":25.030000686645508,\"availableHeight\":28.0},{\"text\":\"YEAR 10/10 · COMPLETE\",\"rect\":{\"x\":40.0,\"y\":138.0,\"width\":278.0,\"height\":22.0},\"bodyCssPx\":1\n",
+      "timestamp": "2026-10-25T05:28:37.687Z",
+      "url": "blob:http://127.0.0.1:8855/3a445808-1e8f-4079-8ec6-b8eb2542e8c4"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_UI_PART 1/2: 9.040000915527344,\"minGlyphCssPx\":19.040000915527344,\"preferredHeight\":21.280000686645508,\"availableHeight\":22.0},{\"text\":\"Cash  $5,240,000\\nExisting obligations  $797,000\\nQueued reserve  $0\\n<b>Available  $4,443,000</b>\",\"rect\":{\"x\":40.0,\"y\":166.0,\"width\":278.0,\"height\":96.0},\"bodyCssPx\":17.920000076293945,\"minGlyphCssPx\":17.920000076293945,\"preferredHeight\":81.83999633789063,\"availableHeight\":96.0},{\"text\":\"Last report\",\"rect\":{\"x\":192.0,\"y\":278.0,\"width\":118.0,\"height\":34.0},\"bodyCssPx\":17.920000076293945,\"minGlyphCssPx\":17.920000076293945,\"preferredHeight\":20.030000686645508,\"availableHeight\":34.0},{\"text\":\"New run\",\"rect\":{\"x\":208.0,\"y\":332.0,\"width\":114.0,\"height\":34.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":34.0},{\"text\":\"Ten-year future\",\"rect\":{\"x\":32.0,\"y\":332.0,\"width\":148.0,\"height\":34.0},\"bodyCssPx\":15.680000305175781,\"minGlyphCssPx\":15.680000305175781,\"preferredHeight\":17.520000457763672,\"availableHeight\":34.0}],\"controls\":[{\"name\":\"Button Valley view  R\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":436.0,\"width\":130.0,\"height\":56.0}},{\"name\":\"Button Field guide  G\",\"enabled\":true,\"rect\":{\"x\":852.0,\"y\":500.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Controls  ?\",\"enabled\":true,\"rect\":{\"x\":852.0,\"y\":436.0,\"width\":148.0,\"height\":56.0}},{\"name\":\"Button Last report\",\"enabled\":true,\"rect\":{\"x\":184.0,\"y\":276.0,\"width\":134.0,\"height\":38.0}},{\"name\":\"Button New run\",\"enabled\":true,\"rect\":{\"x\":200.0,\"y\":330.0,\"width\":130.0,\"height\":38.0}},{\"name\":\"Button Ten-year future\",\"enabled\":true,\"rect\":{\"x\":24.0,\"y\":330.0,\"width\":164.0,\"height\":38.0}}],\"panels\":[{\"x\":24.0,\"y\":24.0,\"width\":310.0,\"height\":94.0},{\"x\":708.0,\"y\":126.0,\"width\":292.0,\"height\":264.0},{\"x\":359.0,\"y\":132.0,\"width\":324.0,\"height\":76.0},{\"x\":24.0,\"y\":126.0,\"width\":310.0,\"height\":196.0},{\"x\":350.0,\"y\":24.0,\"width\":650.0,\"height\":94.0},{\"x\":200.0,\"y\":330.0,\"width\":130.0,\"height\":38.0},{\"x\":24.0,\"y\":330.0,\"width\":164.0,\"height\":38.0},{\"x\":852.0,\"y\":436.0,\"width\":148.0,\"height\":56.0},{\"x\":852.0,\"y\":500.0,\"width\":148.0,\"height\":56.0},{\"x\":24.0,\"y\":436.0,\"width\":130.0,\"height\":56.0}]}\n",
+      "timestamp": "2026-10-25T05:28:37.687Z",
+      "url": "blob:http://127.0.0.1:8855/3a445808-1e8f-4079-8ec6-b8eb2542e8c4"
+    }
+  ],
+  "audit": {
+    "cssWidth": 1024,
+    "cssHeight": 576,
+    "pixelRatio": 1,
+    "modal": false,
+    "largeText": true,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "T E R R A",
+        "rect": {
+          "x": 42,
+          "y": 36,
+          "width": 270,
+          "height": 24
+        },
+        "bodyCssPx": 17.920000076293945,
+        "minGlyphCssPx": 17.920000076293945,
+        "preferredHeight": 20.030000686645508,
+        "availableHeight": 24
+      },
+      {
+        "text": "Meadowbrook Valley",
+        "rect": {
+          "x": 42,
+          "y": 59,
+          "width": 278,
+          "height": 28
+        },
+        "bodyCssPx": 25.760000228881836,
+        "minGlyphCssPx": 25.760000228881836,
+        "preferredHeight": 28.780000686645508,
+        "availableHeight": 28
+      },
+      {
+        "text": "Wisconsin · real geography",
+        "rect": {
+          "x": 42,
+          "y": 89,
+          "width": 276,
+          "height": 24
+        },
+        "bodyCssPx": 17.920000076293945,
+        "minGlyphCssPx": 17.920000076293945,
+        "preferredHeight": 20.030000686645508,
+        "availableHeight": 24
+      },
+      {
+        "text": "Valley view  R",
+        "rect": {
+          "x": 32,
+          "y": 438,
+          "width": 114,
+          "height": 52
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 52
+      },
+      {
+        "text": "Field guide  G",
+        "rect": {
+          "x": 860,
+          "y": 502,
+          "width": 132,
+          "height": 52
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 52
+      },
+      {
+        "text": "Controls  ?",
+        "rect": {
+          "x": 860,
+          "y": 438,
+          "width": 132,
+          "height": 52
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 52
+      },
+      {
+        "text": "YEAR 10 · READ-ONLY",
+        "rect": {
+          "x": 726,
+          "y": 136,
+          "width": 256,
+          "height": 24
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 24
+      },
+      {
+        "text": "Lower central field",
+        "rect": {
+          "x": 726,
+          "y": 160,
+          "width": 256,
+          "height": 28
+        },
+        "bodyCssPx": 21.280000686645508,
+        "minGlyphCssPx": 21.280000686645508,
+        "preferredHeight": 23.780000686645508,
+        "availableHeight": 28
+      },
+      {
+        "text": "Existing land use. No new project was accepted here.\n\nInspect other sites, compare the landscape or start a new run.",
+        "rect": {
+          "x": 726,
+          "y": 193,
+          "width": 256,
+          "height": 112
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 89.63999938964844,
+        "availableHeight": 112
+      },
+      {
+        "text": "Future · compare, learn or replay.",
+        "rect": {
+          "x": 726,
+          "y": 309,
+          "width": 256,
+          "height": 35
+        },
+        "bodyCssPx": 14.5600004196167,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 16.270000457763672,
+        "availableHeight": 35
+      },
+      {
+        "text": "Focused site · Scroll to zoom · R returns to the valley",
+        "rect": {
+          "x": 371,
+          "y": 135,
+          "width": 300,
+          "height": 70
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 35.54999923706055,
+        "availableHeight": 70
+      },
+      {
+        "text": "ECONOMIC",
+        "rect": {
+          "x": 366,
+          "y": 34,
+          "width": 202,
+          "height": 18
+        },
+        "bodyCssPx": 14.5600004196167,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 16.270000457763672,
+        "availableHeight": 18
+      },
+      {
+        "text": "85.4 <size=65%>/100 · last yr +22.7</size>",
+        "rect": {
+          "x": 366,
+          "y": 55,
+          "width": 200,
+          "height": 28
+        },
+        "bodyCssPx": 22.399999618530273,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 25.030000686645508,
+        "availableHeight": 28
+      },
+      {
+        "text": "SOCIAL",
+        "rect": {
+          "x": 578,
+          "y": 34,
+          "width": 202,
+          "height": 18
+        },
+        "bodyCssPx": 14.5600004196167,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 16.270000457763672,
+        "availableHeight": 18
+      },
+      {
+        "text": "99.0 <size=65%>/100 · last yr +8.0</size>",
+        "rect": {
+          "x": 578,
+          "y": 55,
+          "width": 200,
+          "height": 28
+        },
+        "bodyCssPx": 22.399999618530273,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 25.030000686645508,
+        "availableHeight": 28
+      },
+      {
+        "text": "ENVIRONMENTAL",
+        "rect": {
+          "x": 790,
+          "y": 34,
+          "width": 202,
+          "height": 18
+        },
+        "bodyCssPx": 14.5600004196167,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 16.270000457763672,
+        "availableHeight": 18
+      },
+      {
+        "text": "54.8 <size=65%>/100 · last yr -0.1</size>",
+        "rect": {
+          "x": 790,
+          "y": 55,
+          "width": 200,
+          "height": 28
+        },
+        "bodyCssPx": 22.399999618530273,
+        "minGlyphCssPx": 14.5600004196167,
+        "preferredHeight": 25.030000686645508,
+        "availableHeight": 28
+      },
+      {
+        "text": "YEAR 10/10 · COMPLETE",
+        "rect": {
+          "x": 40,
+          "y": 138,
+          "width": 278,
+          "height": 22
+        },
+        "bodyCssPx": 19.040000915527344,
+        "minGlyphCssPx": 19.040000915527344,
+        "preferredHeight": 21.280000686645508,
+        "availableHeight": 22
+      },
+      {
+        "text": "Cash  $5,240,000\nExisting obligations  $797,000\nQueued reserve  $0\n<b>Available  $4,443,000</b>",
+        "rect": {
+          "x": 40,
+          "y": 166,
+          "width": 278,
+          "height": 96
+        },
+        "bodyCssPx": 17.920000076293945,
+        "minGlyphCssPx": 17.920000076293945,
+        "preferredHeight": 81.83999633789062,
+        "availableHeight": 96
+      },
+      {
+        "text": "Last report",
+        "rect": {
+          "x": 192,
+          "y": 278,
+          "width": 118,
+          "height": 34
+        },
+        "bodyCssPx": 17.920000076293945,
+        "minGlyphCssPx": 17.920000076293945,
+        "preferredHeight": 20.030000686645508,
+        "availableHeight": 34
+      },
+      {
+        "text": "New run",
+        "rect": {
+          "x": 208,
+          "y": 332,
+          "width": 114,
+          "height": 34
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 34
+      },
+      {
+        "text": "Ten-year future",
+        "rect": {
+          "x": 32,
+          "y": 332,
+          "width": 148,
+          "height": 34
+        },
+        "bodyCssPx": 15.680000305175781,
+        "minGlyphCssPx": 15.680000305175781,
+        "preferredHeight": 17.520000457763672,
+        "availableHeight": 34
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Valley view  R",
+        "enabled": true,
+        "rect": {
+          "x": 24,
+          "y": 436,
+          "width": 130,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button Field guide  G",
+        "enabled": true,
+        "rect": {
+          "x": 852,
+          "y": 500,
+          "width": 148,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button Controls  ?",
+        "enabled": true,
+        "rect": {
+          "x": 852,
+          "y": 436,
+          "width": 148,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button Last report",
+        "enabled": true,
+        "rect": {
+          "x": 184,
+          "y": 276,
+          "width": 134,
+          "height": 38
+        }
+      },
+      {
+        "name": "Button New run",
+        "enabled": true,
+        "rect": {
+          "x": 200,
+          "y": 330,
+          "width": 130,
+          "height": 38
+        }
+      },
+      {
+        "name": "Button Ten-year future",
+        "enabled": true,
+        "rect": {
+          "x": 24,
+          "y": 330,
+          "width": 164,
+          "height": 38
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 24,
+        "y": 24,
+        "width": 310,
+        "height": 94
+      },
+      {
+        "x": 708,
+        "y": 126,
+        "width": 292,
+        "height": 264
+      },
+      {
+        "x": 359,
+        "y": 132,
+        "width": 324,
+        "height": 76
+      },
+      {
+        "x": 24,
+        "y": 126,
+        "width": 310,
+        "height": 196
+      },
+      {
+        "x": 350,
+        "y": 24,
+        "width": 650,
+        "height": 94
+      },
+      {
+        "x": 200,
+        "y": 330,
+        "width": 130,
+        "height": 38
+      },
+      {
+        "x": 24,
+        "y": 330,
+        "width": 164,
+        "height": 38
+      },
+      {
+        "x": 852,
+        "y": 436,
+        "width": 148,
+        "height": 56
+      },
+      {
+        "x": 852,
+        "y": 500,
+        "width": 148,
+        "height": 56
+      },
+      {
+        "x": 24,
+        "y": 436,
+        "width": 130,
+        "height": 56
+      }
+    ]
+  },
+  "overflow": []
+}
