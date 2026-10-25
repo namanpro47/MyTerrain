@@ -61,6 +61,8 @@ namespace Terra.UI
             foreach(var row in fieldNotesRows)
             {
                 foreach(var label in row.GetComponentsInChildren<TextMeshProUGUI>(true))sizes.Remove(label);
+                foreach(var button in row.GetComponentsInChildren<UnityEngine.UI.Button>(true))
+                {buttons.Remove(button);if(focus==button)focus=null;if(returnFocus==button)returnFocus=null;}
                 row.SetActive(false);
                 if(Application.isPlaying)UnityEngine.Object.Destroy(row);else UnityEngine.Object.DestroyImmediate(row);
             }

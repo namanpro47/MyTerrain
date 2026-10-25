@@ -22,7 +22,7 @@ namespace Terra.UI
             foreach(int years in new[]{1,3,5,10})
             {
                 int choice=years;
-                var button=Button(row,years+(years==1?" year":" years"),Vector2.zero,Vector2.zero,new Vector2(150,58),()=>AnnualRunSetup(choice,begin),18);
+                var button=Button(row,years+(years==1?" year":" years")+(selected==years?" · selected":""),Vector2.zero,Vector2.zero,new Vector2(150,58),()=>AnnualRunSetup(choice,begin),18);
                 button.name="Choose "+years+" decision years";
                 button.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().flexibleWidth=1;
                 button.GetComponent<UnityEngine.UI.Image>().color=selected==years?new Color(.17f,.49f,.37f):Raised;

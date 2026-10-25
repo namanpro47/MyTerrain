@@ -27,11 +27,17 @@ public static class AnnualFeedbackWaveChecks
         int chosen=0;
         foreach(int years in new[]{1,3,5,10})
         {
-            hud.AnnualRunSetup(10,n=>chosen=n);Click(years==1?"1 year":years+" years");
+            hud.AnnualRunSetup(10,n=>chosen=n);
+            Field<Transform>("root").GetComponentsInChildren<Button>().Single(b=>b.name=="Choose "+years+" decision years").onClick.Invoke();
+            Check(Visible().Contains(years+(years==1?" year":" years")+" · selected"),"Duration selection has no persistent label.");
+            Check(Field<System.Collections.Generic.List<Button>>("buttons").All(b=>b!=null),"Rebuilt duration leaves destroyed navigation buttons.");
+            foreach(var label in GameObject.Find("Decision years").GetComponentsInChildren<TextMeshProUGUI>())
+            {label.ForceMeshUpdate();Check(label.preferredHeight<=label.rectTransform.rect.height+2,"Duration label clips.");}
             Check(chosen==0,"Selecting a duration started play before Begin.");
             Click("Begin · "+years+(years==1?" decision year":" decision years"));
             Check(chosen==years,"Begin did not retain selected decision years.");chosen=0;
         }
+        hud.ShowHelp();Check(Field<System.Collections.Generic.List<Button>>("buttons").All(b=>b!=null),"Leaving setup leaves destroyed navigation buttons.");
         hud.CloseModal();
         foreach(bool large in new[]{false,true})
         {
