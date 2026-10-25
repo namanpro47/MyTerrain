@@ -65,6 +65,7 @@ namespace Terra.Contracts
         public TownSimulationState closingState;
         public TownCropResult[] crops;
         public TownEventImpact[] impacts;
+        // Only groups with a device or carried stored water; absent groups have zero storage reduction.
         public TownEventStorage[] storage;
         public TownPublicPayment[] payments;
         public double economicDelta, socialDelta, environmentalDelta;

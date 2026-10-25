@@ -7,10 +7,21 @@ namespace Terra.Core
     public static class AnnualSimulationFactory
     {
         // A new definition/save identity. The supplied legacy definition is never mutated.
-        public static AnnualTownDefinition Create(AnnualTownDefinition legacy, AnnualSimulationWeather weather, string seed, string sensitivity = "central")
+        public static AnnualTownDefinition Create(AnnualTownDefinition legacy, AnnualSimulationWeather weather, string seed, string sensitivity = "central", WorldData baselineWorld = null)
         {
             AnnualTown.Require(legacy != null && legacy.schemaVersion == 2 && legacy.simulation == null, "Upgrade an explicit legacy full-game definition once.");
             AnnualTown.Require(new[]{"low","central","high"}.Contains(sensitivity), "Choose a pinned low/central/high response sensitivity.");
+            AnnualTown.Require(legacy.version!="4.0.0"||baselineWorld!=null,"Dense parcels require their source cultivated-cover partition; output presence cannot imply a whole cropped field.");
+            if(baselineWorld!=null)
+                AnnualTown.Require(baselineWorld.sites!=null&&baselineWorld.sites.Length==legacy.sites.Length&&baselineWorld.sites.All(s=>s!=null)&&legacy.sites.All(s=>baselineWorld.sites.Count(w=>w.id==s.id&&Math.Abs(w.analysisAreaM2-s.areaM2)<.01)==1),"Source cover must match every numeric site and area.");
+            double CroppedFraction(TownSiteDefinition site)
+            {
+                if(baselineWorld==null)return site.baselineProductionUnits>0?1:0; // Explicit sparse-fixture authored assumption.
+                var source=baselineWorld.sites.Single(w=>w.id==site.id);
+                AnnualTown.Require(source.baselineCover!=null&&source.baselineCover.Select(c=>c?.coverId).Distinct().Count()==source.baselineCover.Length&&source.baselineCover.All(c=>c!=null&&!float.IsNaN(c.fraction)&&!float.IsInfinity(c.fraction)&&c.fraction>=0&&c.fraction<=1)
+                    &&Math.Abs(source.baselineCover.Sum(c=>(double)c.fraction)-1)<.00001,"Incomplete source cover partition.");
+                return Math.Min(1,source.baselineCover.Where(c=>c.coverId=="cultivated").Sum(c=>(double)c.fraction));
+            }
             var d = TownCopies.Copy(legacy);
             d.schemaVersion = 3; d.version = "4.0.0";
             d.assumptions = AnnualSimulationWeather.Disclosure + " Crop output, exposure, response curves and repair duties are illustrative scenario rules. No calibrated yield, flood depth, probability or private crop income enters public cash.";
@@ -23,11 +34,11 @@ namespace Terra.Core
             var schedule = weather.Select(seed);
             d.simulation = new TownSimulationDefinition {
                 version="annual-numeric-v4.0.0",disclosure=AnnualSimulationWeather.Disclosure,sensitivity=sensitivity,sensitivityFactor=sensitivity=="low"?.7:sensitivity=="high"?1.3:1,
-                assumptions="All crop calendars/curves, site exposure and recovery coefficients are authored sensitivity assumptions. PRCP is liquid equivalent; May–October events with nonfreezing daily minimum are interpreted as illustrative rain. Other seasons/phase combinations are outside this disruption model, not zero real-world risk. Connections are existing hypothetical drainage groups. No adjacency health effect is inferred. Solar and wind have separate constant generation assumptions because observations are unavailable.",
+                assumptions="All crop calendars/curves, site exposure and recovery coefficients are authored sensitivity assumptions. PRCP is liquid equivalent; May–October events with nonfreezing daily minimum are interpreted as illustrative rain. Other seasons/phase combinations are outside this disruption model, not zero real-world risk. Connections are existing hypothetical drainage groups. Source cultivated-cover fractions preserve partial fields when supplied; the sparse legacy fixture fallback explicitly assumes full cropped fields where prior output exists. No adjacency health effect is inferred. Solar and wind have separate constant generation assumptions because observations are unavailable.",
                 weather=schedule,crops=crops,drivers=Enumerable.Range(1,10).Select(y=>weather.Driver(schedule,y,crops)).ToArray(),
                 practices=new[]{Practice("cultivate-standard",new[]{"corn"},1,0,1,0),Practice("cover-crop",new[]{"corn"},1,.3,.75,.08),Practice("conservation-rotation",new[]{"corn","soy"},1,.2,.8,.06),Practice("cultivate-margin",new[]{"corn"},.75,.1,.65,.04)},
                 sites=d.sites.Select(s=>new TownExposureDefinition {siteId=s.id,connectionGroupId=d.economy.referenceStorm.sites.Single(r=>r.siteId==s.id).contributingAreaId,
-                    baselineCropId=s.baselineProductionUnits>0?"corn":null,baselineCroppedFraction=s.baselineProductionUnits>0?1:0,exposure=.6,ruleId="authored-uniform-exposure-connected-groups-v1"}).ToArray(),
+                    baselineCropId=CroppedFraction(s)>0?"corn":null,baselineCroppedFraction=CroppedFraction(s),exposure=.6,ruleId="authored-uniform-exposure-connected-groups-v1"}).ToArray(),
                 publicResponsibilities=new[]{
                     new TownPublicResponsibility {actionId="water-swale",responsibility="Scenario public drainage asset",repairCentsPerConditionUnit=5000000,ruleId="public-repair-duty-v1"},
                     new TownPublicResponsibility {actionId="public-park",responsibility="Scenario public park asset",repairCentsPerConditionUnit=2500000,ruleId="public-repair-duty-v1"},

@@ -1,18 +1,21 @@
 {
   "status": "standalone-only-unready-for-release",
-  "numericAssertions": 2356,
+  "numericAssertions": 885,
   "legacyAssertions": 2399,
   "sourceSha256": {
-    "Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs": "b7b41341d43145a3aca2640f992b3ff16eef76f7fe796caff843fca800ef5eb9",
+    "Assets/Terra/Scripts/Contracts/AnnualSimulationContracts.cs": "18115f41992f767b3bf823b7c42cc67acdc021ac9e9622fcf4d55617de4feda0",
     "Assets/Terra/Scripts/Core/AnnualSimulation.cs": "39f6504e302735d9183845683706a9ee9cc9ab5d71605d3de6c0bdf15ecf6820",
-    "Assets/Terra/Scripts/Core/AnnualSimulationFactory.cs": "5a0b5a53bd09c2fa5c2c320a0fc885401a5edf7e2116d1dccab9a37683839489",
-    "Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs": "ff33a0adadd0b855e36dba9edb7975b4970debbc6a71114746b075ee5210a997",
+    "Assets/Terra/Scripts/Core/AnnualSimulationFactory.cs": "bf40c0bf7dc278b2c351ebdf9ac483ebe6695202b2178b8624c5c39b389e704a",
+    "Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs": "6e0019257d60eb7c64a9ab74077dc15023c03c940ca35b706325cffacdc5a159",
     "Assets/Terra/Scripts/Core/AnnualTown.cs": "6207af9407a4cf2024651c36e033b2f19055ba5ad83c36301fea38c759ba9bdd",
-    "tests/annual-simulation/Program.cs": "4af4cf130f3c5f38d712de3ef489e2d923f03dcbd2f7b517591a52fb37776d1a",
+    "tests/annual-simulation/Program.cs": "39de57ac599e7e6cc09cec5cd998877597c666d0b183954d6c38902b4edcaea4",
     "Assets/Terra/Scripts/Core/AnnualEconomy.cs": "893c92b3fb032a5708e7fa535d3f0f177456a0480bf05db3de7d6a474e442122"
   },
   "unity": false,
   "chrome": false,
   "saveFirstClient": false,
-  "projectionAssertions": 435
+  "projectionAssertions": 435,
+  "denseReadOnlySpikeAssertions": 36,
+  "reportNarrationAssertions": 95,
+  "assertionCountNote": "Sparse storage removes1476 redundant checks over nonexistent devices; real storage/remote/upstream/replay cases remain."
 }

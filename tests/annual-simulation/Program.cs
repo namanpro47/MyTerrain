@@ -176,6 +176,8 @@ Check(otherRun.History.Sum(r=>r.outcomes.productionUnits)!=numeric.History.Sum(r
 Console.WriteLine("Numeric replay/debt/calendar checks passed: "+count);
 
 // Validate semantic structure even when a caller recomputes a digest over bad data.
+var semanticRun=new AnnualTown(numericRules,"semantic-storage");var semanticSwale=numericRules.actions.First(a=>a.actionId=="water-swale");
+semanticRun.QueueAction(semanticSwale.siteId,semanticSwale.actionId,0);AnnualTownDemo.Finish(semanticRun,provider);
 foreach(var mutation in new Action<TownYearReport>[] {
  r=>r.simulation.crops[0].outputUnits+=1,
  r=>r.simulation.crops[0].harvestDay++,
@@ -187,7 +189,7 @@ foreach(var mutation in new Action<TownYearReport>[] {
  r=>r.simulation.closingState.sites[0].outstandingDamage=.123
 })
 {
- var invalid=Read<TownYearReport>(JsonSerializer.Serialize(publicRun.History[1],options));mutation(invalid);
+ var invalid=Read<TownYearReport>(JsonSerializer.Serialize(semanticRun.History[1],options));mutation(invalid);
  Reject(()=>AnnualSimulation.ValidateReport(parkRules,invalid),"Malformed numeric report accepted");
 }
 foreach(var mutation in new Action<TownSimulationState>[] {
@@ -424,3 +426,14 @@ try
 }
 finally{System.Globalization.CultureInfo.CurrentCulture=originalCulture;}
 Console.WriteLine("Numeric cross-locale transition checks passed: "+count);
+
+var sourceWorld=new WorldData{sites=legacyRules.sites.Select(s=>new Site{id=s.id,analysisAreaM2=(float)s.areaM2,baselineCover=new[]{new CoverFraction{coverId="cultivated",fraction=s.baselineProductionUnits>0?.25f:0},new CoverFraction{coverId="grass",fraction=s.baselineProductionUnits>0?.75f:1}}}).ToArray()};
+var sourceRules=AnnualSimulationFactory.Create(legacyRules,weather,"source-cover",baselineWorld:sourceWorld);
+Check(sourceRules.simulation.sites.All(s=>s.baselineCroppedFraction==(legacyRules.sites.Single(x=>x.id==s.siteId).baselineProductionUnits>0?.25:0)),"Source partial crop partition lost");
+Check(sourceRules.sites.All(s=>s.baselineProductionUnits==s.areaM2/10000*4*sourceRules.simulation.sites.Single(x=>x.siteId==s.id).baselineCroppedFraction),"Baseline crop area benchmark differs");
+var denseLegacy=Read<AnnualTownDefinition>(JsonSerializer.Serialize(legacyRules,options));denseLegacy.version="4.0.0";
+Reject(()=>AnnualSimulationFactory.Create(denseLegacy,weather,"dense-missing-cover"),"Dense parcels accepted full-field inference");
+sourceWorld.sites[0].baselineCover[1].coverId="cultivated";
+Reject(()=>AnnualSimulationFactory.Create(legacyRules,weather,"duplicate-cover",baselineWorld:sourceWorld),"Duplicate source cover accepted");
+Check(numeric.History.All(r=>r.simulation.storage.Length==0),"No-device groups bloated numeric reports");
+Console.WriteLine("Numeric source-cover and sparse-storage checks passed: "+count);
