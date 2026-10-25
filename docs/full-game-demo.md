@@ -16,7 +16,9 @@ Record two actual runs with start/end times, selected projects/sites, mistakes a
 
 ## Current local checkpoint (not the accepted release)
 
-The newest engineering backup is `Builds/Verified/7db6a5d` in the full-implementation worktree: 31 runtime files / 39,988,802 bytes, three fresh Chrome arrivals under 15 seconds, and an actual annual/fast-forward/replay smoke test. [Exact compression/build/browser evidence](evidence/full-game/web-compression/README.md). This main-based export does not accept the separate visual rebuild.
+The newest combined engineering backup is `Builds/Verified/2f8543d`: 31 runtime files / 46,425,461 bytes, three stable-30 fallback routes, and three fresh entries of 12.306 / 12.342 / 12.013 seconds at 1280×720 in Chrome. [Exact evidence](evidence/full-game/consolidation-browser/README.md). It includes provisional study55 scenery and nature submission consolidation; it is not the accepted visual release. A [60-second recorder preflight](evidence/full-game/recording-preflight/README.md) decodes successfully and shows real controls, but stops at the future confirmation and is not the final fallback.
+
+The newest main-based engineering backup is `Builds/Verified/7db6a5d` in the full-implementation worktree: 31 runtime files / 39,988,802 bytes, three fresh Chrome arrivals under 15 seconds, and an actual annual/fast-forward/replay smoke test. [Exact compression/build/browser evidence](evidence/full-game/web-compression/README.md). This main-based export does not accept the separate visual rebuild.
 
 The prior water/performance control is `Builds/Verified/67f867e` in the full-implementation worktree: the Living Atlas, connected Wisconsin fields, current HUD and verified stream material. Its 31 served files total 45,867,155 bytes; [exact identities and Chrome checks](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). It is not the final visual release. Prior checkpoints below remain historical recovery options.
 
