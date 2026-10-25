@@ -8,16 +8,19 @@ Base: refreshed `origin/main` `13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c`, isolat
 - Economic, Social and Environmental rows show signed one-decimal changes and their resulting values. Plan edits compare successive year-end forecasts; accepted years compare accepted outcomes. Continuing to a new planning year explains changed forecasts from conditions/project ages.
 - Changed indicator labels show an adjacent signed badge for seven seconds; available money briefly changes color. A short entrance/fade is removed under reduced motion. Signs and text preserve meaning without color or sound.
 - Distinct original, synthesized two-note cues cover reserving funds, releasing funds, neutral plan edits, positive/negative/mixed annual outcomes. A dedicated source replaces rapid cues instead of stacking them. Existing mute, focus and user-gesture behavior applies.
-- Budget → Recent changes retains the last eight receipts, with before/after funds, cash delta and accepted paid/income totals. A modal or background tab pauses receipt visibility; validation errors take priority. Receipts do not intercept pointer input.
+- Budget → Recent changes retains the last eight receipts, with before/after funds, cash delta and accepted paid/income totals. A modal hides the receipt and pauses its timer; an unfocused window retains the receipt and pauses its timer; validation errors take priority. Receipts do not intercept pointer input.
 - Initial load, saved reload, report navigation and new runs do not generate fake changes. Repeated refreshes and chapter retries do not duplicate outcomes. Fast-forward is summarized from the previously observed accepted state.
 
 ## Verification
 
 - 345 new deterministic feedback assertions across all 17 action variants; full-game suite totals 953 assertions with connected-field fixtures.
-- 837 Unity HUD/session assertions, including 28 new receipt/audio checks and 787 existing project/overview checks. Checks cover readable standard/larger text, signed values, mixed outcomes, history bounds, input passthrough, error priority and nonclipping/click-free cue samples.
+- 839 Unity HUD/session assertions, including 30 new receipt/audio checks and 787 existing project/overview checks. Checks cover readable standard/larger text, signed values, mixed outcomes, history bounds, input passthrough, error priority and nonclipping/click-free cue samples.
 - 50 chapter assertions after reconciliation. The old HUD test wording was updated to the incoming “local summary” labels.
 - Unity 6000.6.6f1, CLI 1.0.0-beta.14: compilation passes without errors/warnings.
-- Actual Chrome captures and export receipt are recorded below after browser verification.
+- Standalone Web export succeeded from d6e0a80: 20 files / 40,149,226 bytes; hashes in [build.json](build.json).
+- Chrome 1440×900: [queue](queued-1440.png), [undo](undo-1440.png), [accepted year](accepted-1440.png), [recent changes](recent-1440.png). Exact observed reservation -$120,000; undo +$120,000; accepted available +$1,000,000 with cash +$898,000 and scores +12.7 / 0.0 / -0.5.
+- Chrome 1024×576: [silent saved reload](reload-1024.png), [accessibility settings](accessibility-1024.png), [second-year larger-text state](queued-larger-1024.png). The last capture lacks the receipt because focus hid it; the subsequent bounded source fix keeps it visible and caps timer consumption. Combined-build compact verification remains required.
+- [Wide Chrome log](chrome-wide-log.json): zero errors; one stripped/unsupported EASU shader warning. Audio cue dispatch and signal are covered programmatically; no claim of a human listening test.
 
 Commands (the local machine has .NET 10; the suites target .NET 8):
 
