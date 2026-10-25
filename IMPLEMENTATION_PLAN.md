@@ -8,6 +8,8 @@
 
 ## 1. Reconcile the work already done
 
+**Merge update — October 24:** The primary checkout now contains `origin/main` through `e247431`, the published Phase 3 editing history, and the completed Phase 4 runoff delivery via `ee7e0ef`. The table below records the earlier planning inspection. [Current integration evidence](docs/evidence/branch-integration/README.md) supersedes its “remote/absent” status. Annual state remains an isolated module; connecting the annual player loop is still Phase 3A/3B work.
+
 | Work inspected | Current evidence / integration consequence |
 |---|---|
 | Local Phases 0–2 | Completed browser/geography foundations in the status ledger; retain same pack and source IDs |

@@ -59,7 +59,7 @@ namespace Terra.UI
             viewButton=Button(root,"Valley view  R",new Vector2(0,0),new Vector2(24,84),new Vector2(130,56),reset,16);
             guideButton=Button(root,"Field guide  G",new Vector2(1,0),new Vector2(-24,20),new Vector2(148,56),()=>{dataPage=0;ShowData();},16);
             controlsButton=Button(root,"Controls  ?",new Vector2(1,0),new Vector2(-24,84),new Vector2(148,56),ShowHelp,16);
-            tooltip=Panel(root,"Site preview",new Vector2(1,1),new Vector2(-24,-132),new Vector2(292,320),PanelColor).gameObject;
+            tooltip=Panel(root,"Site preview",new Vector2(1,1),new Vector2(-24,-132),new Vector2(292,374),PanelColor).gameObject;
             previewKind=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-16),new Vector2(256,24),14,Accent);
             previewTitle=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-45),new Vector2(256,52),22,Paper,FontStyles.Bold);
             previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-105),new Vector2(256,160),17,Paper);
@@ -116,7 +116,7 @@ namespace Terra.UI
         public void Ready()=>loading.SetActive(false);
         public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
         public void Error(string message){loadFailed=true;loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
-        public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;}
+        public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;RunoffResult(r);Paint();}
         public void Selected(string id){activeTool=id;SelectCatalog(id);tip.text=string.IsNullOrEmpty(id)?"Choose a category\nand an action":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
         public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
         {
@@ -127,7 +127,7 @@ namespace Terra.UI
             previewKind.color=Accent;
             float delta=result.result.production-current.production;int cost=result.result.spentCredits-current.spentCredits;
             var action=actionRules?.Find(treatment.id);
-            previewBody.text=treatment.title+"\n"+(action==null?"":$"{action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+"\n")+"\n<b>"+cost+"</b> prototype credits  ·  <b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b> farm units\n<size=82%>Other benefits / runoff: not modeled</size>";
+            previewBody.text=treatment.title+"\n"+(action==null?"":$"{action.width:0} × {action.depth:0} m "+(action.landscape?"sample":"site")+"\n")+"<b>"+cost+"</b> credits · <b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b> farm units\n<size=82%>Other benefits: not modeled</size>";
             previewAction.text="Click / Enter to place   ·   Esc";
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
@@ -135,7 +135,7 @@ namespace Terra.UI
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Choose → inspect → place</b>\nBrowse five categories and 17 actions. Field counts show physical/scenario eligibility before budget. Inspect a field for its cost and restriction. New costs are prototype assumptions.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Experiment freely</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: select/place · Z: undo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nG: field guide · ?: controls");
+            "<b>03   Experiment freely</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: select/place · Z: undo · Y: redo\nV: move · Delete: remove · X: clear · Esc: cancel\n1 / 2 / 3: tools · M: margin · G: guide");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
         public bool KeyboardInput(Keyboard k)
         {

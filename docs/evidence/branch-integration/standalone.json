@@ -1,0 +1,12 @@
+{
+  "annual": {
+    "command": "DOTNET_ROLL_FORWARD=Major dotnet run --project tests/annual/Terra.AnnualChecks.csproj",
+    "checksPassed": 94,
+    "runtime": "Installed .NET 10; project targets .NET 8"
+  },
+  "consequences": {
+    "command": "dotnet run --project tests/consequences/ConsequencesChecks.csproj -- /Users/naman/Documents/GitHub/Terra",
+    "checksPassed": 1372,
+    "output": "Phase 4: 1372 integration checks passed; baseline discharge 9701.926 m\u00b3."
+  }
+}

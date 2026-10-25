@@ -31,6 +31,12 @@ public static class Phase3Checks
         Passed.Clear();const string root="worlds/meadowbrook-v1/";
         var world=Read<WorldData>(root+"world.json");var scenario=Read<Scenario>(root+"scenario.json");
         string originalWorld=JsonUtility.ToJson(world),originalScenario=JsonUtility.ToJson(scenario);
+        // The catalog validator must survive composition with the reversible editor.
+        var restricted=new WorldStateStore(world,scenario,(site,treatment)=>site.id=="south-02"||treatment=="restore-grass"?"Fixture placement restriction":null);
+        Reject(restricted,Command(restricted,"add","south-02","cultivate-standard"),"Placement callback rejects add without mutation");
+        Edit(restricted,Command(restricted,"add","south-01","cultivate-standard"),"Allowed callback placement");
+        Reject(restricted,Command(restricted,"replace","south-01","restore-grass"),"Placement callback rejects replacement without refund");
+        Reject(restricted,Command(restricted,"move","south-01",null,"south-02"),"Placement callback validates move destination");
         var store=new WorldStateStore(world,scenario);string baseline=State(store);
         Check(store.Result.production==6&&store.Result.remainingCredits==60&&!store.Result.runoffAvailable,"Baseline: 6 illustrative units, 60 credits, runoff unavailable");
         Check(!store.Undo()&&!store.Redo()&&store.Revision==0,"Empty history is a no-op");

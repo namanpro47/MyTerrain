@@ -1,5 +1,16 @@
 # Terra — phase status and evidence
 
+## Branch integration — October 24, 2026
+
+At the user's request, merged the annual foundation, 17-action catalog/art, published Phase 3 editing and completed Phase 4 runoff into the primary checkout. Current visual studies and the revised annual product direction were checkpointed first (`3684a40`). Integration merges are `d74c8d3` (prepared annual/editing/runoff branch plus latest visuals) and `6add1df` (original published Phase 3 history). Package B/D/C3 was already included. The abandoned `codex/phase3-review-study` experiment was excluded because the completed delivery supersedes it.
+
+Resolved controller/HUD conflicts by retaining display-scale rendering, the latest tree credits, the catalog, reversible editing and runoff connections. Restored the dropped footprint-validation callback, runoff HUD initialization/refresh and recoverable runoff-loading errors; corrected stale help/accessibility copy. Preserved the canonical annual spec/plan and historical evidence. The consequences test project now includes the annual contracts needed by its shared Core source set.
+
+Verification: 3,073 Unity assertions (27 Phase 1, 139 Phase 2, 1,763 editing including callback regressions, 98 runoff, 94 annual, 952 catalog including runoff conservation), 1,372 standalone consequences assertions, 94 standalone annual assertions, and all B/D/C3 package suites pass. Final Web export: 240.39 s, zero errors/eight warnings; all 12 local assets match. Chrome verifies catalog, placement/history and connected runoff, and the preview overlap found during integration is fixed. See [integration evidence](evidence/branch-integration/README.md) for exact results and scope.
+
+This source merge does not complete the annual player loop, accept Phase 2A visuals, or publish a new website. Annual state and its Editor playtest are present; the playable scene still uses prototype proposal credits. New visual-study files created concurrently were left outside this merge's follow-up changes. TN-01/03/04/05, CS-02/04 and AX-01 remain the presentation reference. The historical module and planning entries below describe their original verification contexts.
+
+
 ## Categorized action UI — separately authorized October 24, 2026
 
 Peter requested the 17 PRD actions in the playable UI, grouped by use, plus an explanation of land/water restrictions. The [catalog integration](build-action-ui.md) adds **Farming, Residential, Community, Utilities and Nature** tabs, matching model icons, full-scale previews/placement, eligibility counts and explicit restriction feedback. All 17 are selectable; 16 fit at least one existing field. The 150 × 150 m wind site fits none and is not rescaled. Swales retain their two authored eligible sites, and protected/background land stays unavailable.

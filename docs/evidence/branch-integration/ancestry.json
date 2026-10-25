@@ -1,0 +1,33 @@
+[
+  {
+    "ref": "origin/main",
+    "commit": "e247431eebb6a2c4c3a5d48cc0bb911a02e54f25",
+    "ancestorOfMergedHead": true
+  },
+  {
+    "ref": "origin/codex/annual-town-state",
+    "commit": "a4ba01e28bf0af4300ea77c66723f2c49fb1e954",
+    "ancestorOfMergedHead": true
+  },
+  {
+    "ref": "origin/codex/phase3-editing",
+    "commit": "c49a3c22722148b1f645963ef0a8b27e9eb63d8f",
+    "ancestorOfMergedHead": true
+  },
+  {
+    "ref": "codex/phase4-consequences",
+    "commit": "5e9621bc721ae7365a9198812746b33ddafbfd3d",
+    "ancestorOfMergedHead": true
+  },
+  {
+    "ref": "codex/annual-gameplay-integration",
+    "commit": "ee7e0ef9ab6d27718eb8f80df746614a0deaf54c",
+    "ancestorOfMergedHead": true,
+    "note": "Delivered tip at task start. Worker later advanced this branch with an annual UI loop still undergoing verification; those new commits are excluded."
+  },
+  {
+    "ref": "codex/parallel-package-integration",
+    "commit": "9304ba88e409e30565f7ec34b7cd443a00a3d8da",
+    "ancestorOfMergedHead": true
+  }
+]

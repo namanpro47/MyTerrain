@@ -57,8 +57,11 @@ namespace Terra.Gameplay
             hud.Progress("Shaping the terrain and woodland…");yield return null;
             try{buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
             catch(Exception e){Error(e.Message);yield break;}
-            world=w;scenario=s;runoff=new LandscapeRunoff(w,s,runoffConfiguration);state=new WorldStateStore(w,s,runoff,buildActionRules.Rejection);
+            world=w;scenario=s;
+            try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);state=new WorldStateStore(w,s,runoff,buildActionRules.Rejection);}
+            catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
+            hud.ConfigureRunoff(runoff.RainfallMm);
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}

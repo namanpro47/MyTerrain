@@ -36,7 +36,7 @@ public static class BuildActionIntegrationChecks
             Check(!site.protectedSite||site.offers.Length==0,"protected zone unchanged");
             foreach(var action in rules.actions)
             {
-                var state=new WorldStateStore(world,scenario,rules.Rejection);
+                var state=new WorldStateStore(world,scenario,new LandscapeRunoff(world,scenario,Read<RunoffConfiguration>("hydrology")),rules.Rejection);
                 var command=new EditCommand{operation="add",siteId=site.id,treatmentId=action.id,expectedRevision=0};
                 string rejection=rules.Rejection(site,action.id);var evaluation=state.Preview(command);
                 Check(evaluation.valid==(rejection==null),"availability agrees with authoritative preview: "+site.id+" / "+action.id);
@@ -46,6 +46,8 @@ public static class BuildActionIntegrationChecks
                 Check(action.landscape||layout.relief<=BuildActionRules.MaximumFoundationRelief,"bounded foundation");
                 int cost=site.offers.Single(o=>o.treatmentId==action.id).cost;
                 Check(state.Commit(command).valid&&state.Result.spentCredits==cost,"commit charges matching site offer");
+                var runoff=state.Result;
+                Check(runoff.runoffAvailable&&Math.Abs(runoff.generatedM3-runoff.retainedM3-runoff.dischargedM3)<.01f,"catalog action preserves runoff conservation");
                 Check(state.Undo()&&state.Result.spentCredits==0&&state.TreatmentAt(site.id)==null,"undo restores budget and baseline");
             }
         }
