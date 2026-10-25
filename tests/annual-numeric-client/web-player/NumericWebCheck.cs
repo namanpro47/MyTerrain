@@ -17,7 +17,7 @@ public sealed class NumericWebCheck : MonoBehaviour
   var result=new Result {unity=Application.unityVersion};
   void Check(bool ok,string why){result.checks++;if(!ok)throw new Exception(why);}
   try {
-   var definition=JsonUtility.FromJson<AnnualTownDefinition>(Resources.Load<TextAsset>("definition").text);
+   var definition=AnnualNumericJson.ReadDefinition(Resources.Load<TextAsset>("definition").text);
    result.runId=new Uri(Application.absoluteURL).Fragment.TrimStart('#');
    if(string.IsNullOrEmpty(result.runId))throw new Exception("Use an explicit isolated test run in the URL fragment");
    var store=AnnualNumericBrowserStore.Create(definition,result.runId);

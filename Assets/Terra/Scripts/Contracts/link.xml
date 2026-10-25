@@ -1,0 +1,4 @@
+<linker>
+  <!-- Numeric save/definition DTOs are constructed and populated through Json.NET. -->
+  <assembly fullname="Terra.Contracts" preserve="all" />
+</linker>

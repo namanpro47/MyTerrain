@@ -21,13 +21,13 @@ namespace Terra.EditorChecks
             public string json;
             public int writes;
             public Task<AnnualNumericSave> Read(CancellationToken cancellation)
-                => Task.FromResult(string.IsNullOrEmpty(json) ? null : JsonUtility.FromJson<AnnualNumericSave>(json));
+                => Task.FromResult(string.IsNullOrEmpty(json) ? null : AnnualNumericJson.ReadSave(json));
             public Task Write(string expectedHash, AnnualNumericSave candidate, CancellationToken cancellation)
             {
                 cancellation.ThrowIfCancellationRequested();
-                var current = string.IsNullOrEmpty(json) ? null : JsonUtility.FromJson<AnnualNumericSave>(json);
+                var current = string.IsNullOrEmpty(json) ? null : AnnualNumericJson.ReadSave(json);
                 if (current?.saveHash != expectedHash) throw new IOException("Stale check store");
-                json = JsonUtility.ToJson(candidate); writes++;
+                json = AnnualNumericJson.WriteSave(candidate); writes++;
                 return Task.CompletedTask;
             }
         }
@@ -41,9 +41,9 @@ namespace Terra.EditorChecks
             {
                 string root = Environment.GetEnvironmentVariable("TERRA_NUMERIC_SOURCE_ROOT") ?? Directory.GetCurrentDirectory();
                 string vectors = Path.Combine(root, "Builds/AnnualNumericClientVectors");
-                var definition = JsonUtility.FromJson<AnnualTownDefinition>(File.ReadAllText(Path.Combine(vectors, "definition.json")));
+                var definition = AnnualNumericJson.ReadDefinition(File.ReadAllText(Path.Combine(vectors, "definition.json")));
                 var store = new JsonStore { json = File.ReadAllText(Path.Combine(vectors, "save.json")) };
-                var original = JsonUtility.FromJson<AnnualNumericSave>(store.json);
+                var original = AnnualNumericJson.ReadSave(store.json);
                 var session = host.AddComponent<AnnualTownSession>();
                 session.InitializeNumericAsync(definition, original.town.runId, store).GetAwaiter().GetResult();
                 Check(session.State.phase == TownPhase.Completed && session.State.history.Length == 10, "Ten-year .NET save replays through Unity");
@@ -56,7 +56,7 @@ namespace Terra.EditorChecks
                 evidence.definitionHash = session.State.definitionHash;
                 evidence.finalReportHash = session.State.history[9].simulation.transitionHash;
                 evidence.saveHash = session.NumericSaveState.saveHash;
-                // Exercise new Unity writes, including inline-null expansion.
+                // Exercise new exact Unity writes, preserving absent optional DTOs.
                 var freshStore = new JsonStore();
                 var fresh = second.AddComponent<AnnualTownSession>();
                 fresh.InitializeNumericAsync(definition, "unity-client-live", freshStore).GetAwaiter().GetResult();
@@ -67,10 +67,10 @@ namespace Terra.EditorChecks
                     modelVersion: "invalid model with spaces").GetAwaiter().GetResult();
                 Check(fresh.State.history.Length == 1 && fresh.NumericNarrationForYear(1).status == "unprojected", "Projection failure preserves saved numeric year");
                 var reopened = AnnualNumericTransactions.Open(definition, "unity-client-live", freshStore).GetAwaiter().GetResult();
-                Check(reopened.ForYear(1).request == null, "Unity JsonUtility empty request normalizes on reopen");
+                Check(reopened.ForYear(1).request == null, "Exact JSON preserves absent unprojected request");
                 reopened.PrepareNarration(1, "local-selected").GetAwaiter().GetResult();
                 fresh.ReloadNumericAsync().GetAwaiter().GetResult();
-                Check(fresh.NumericNarrationForYear(1).receipt.mode == "local", "Saved local prose reloads through Unity adapter");
+                Check(fresh.NumericNarrationForYear(1).receipt.mode == "local", "Saved local prose reloads through exact Unity adapter");
                 Check(fresh.State.history[0].simulation.transitionHash == result.simulation.transitionHash, "Presentation never rewrites numeric result");
                 evidence.passed = true;
                 string destination = Path.Combine(root, "docs/evidence/annual-numeric-client/unity-checks.json");

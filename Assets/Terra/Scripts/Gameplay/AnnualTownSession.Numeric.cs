@@ -59,7 +59,7 @@ namespace Terra.Gameplay
             => RequireNumeric().UseLocal(request, reason, cancellation);
         public Task ReloadNumericAsync(CancellationToken cancellation = default) => RequireNumeric().Reload(cancellation);
         public AnnualNumericNarration NumericNarrationForYear(int year) => RequireNumeric().ForYear(year);
-        public string ExportNumericSave() => JsonUtility.ToJson(RequireNumeric().SaveState, true);
+        public string ExportNumericSave() => AnnualNumericJson.WriteSave(RequireNumeric().SaveState);
 
         AnnualNumericTransactions RequireNumeric()
         {

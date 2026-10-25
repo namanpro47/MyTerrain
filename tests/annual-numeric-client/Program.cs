@@ -52,6 +52,24 @@ var dying=new AnnualTownSession(); var slow=new Store {Block=true}; var pending=
 typeof(AnnualTownSession).GetMethod("OnDestroy",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(dying,null);
 slow.Release(); bool disposed=false; try { await pending; } catch(ObjectDisposedException) { disposed=true; }
 Check(disposed && !dying.Initialized && slow.Value!=null,"Teardown does not publish or claim storage rollback");
+// Exact numeric transport regression from the real Unity JsonUtility failure.
+const double changedByJsonUtility=0.024625792811839322;
+var decimalFixture=AnnualNumericJson.ReadDefinition("{\"schemaVersion\":3,\"actions\":[{\"vegetatedFraction\":0.024625792811839322}]}");
+Check(BitConverter.DoubleToInt64Bits(decimalFixture.actions[0].vegetatedFraction)==BitConverter.DoubleToInt64Bits(changedByJsonUtility),"Exact decimal-to-double transport preserves regression bits");
+string numericDefinition=AnnualNumericJson.WriteDefinition(rules);
+var numericDefinitionAgain=AnnualNumericJson.ReadDefinition(numericDefinition);
+Check(new AnnualTown(rules,"codec").DefinitionHash==new AnnualTown(numericDefinitionAgain,"codec").DefinitionHash,"Exact definition codec hash");
+var savedCopy=AnnualNumericJson.ReadSave(AnnualNumericJson.WriteSave(session.NumericSaveState));
+Check(AnnualNumericTransactions.Hash(savedCopy)==session.NumericSaveState.saveHash,"Exact numeric envelope codec hash");
+var culture=System.Globalization.CultureInfo.CurrentCulture;
+try {System.Globalization.CultureInfo.CurrentCulture=new System.Globalization.CultureInfo("fr-FR");
+ Check(AnnualNumericJson.WriteDefinition(rules)==numericDefinition,"Numeric codec ignores current culture");}
+finally {System.Globalization.CultureInfo.CurrentCulture=culture;}
+foreach(var invalid in new[]{"null", "{} {}", "{\"$type\":\"System.IO.FileInfo,mscorlib\",\"schemaVersion\":3}", "{\"schemaVersion\":3,\"unknown\":true}"})
+{
+ bool rejected=false;try{AnnualNumericJson.ReadDefinition(invalid);}catch(Exception e)when(e is ArgumentException||e is Newtonsoft.Json.JsonException){rejected=true;}
+ Check(rejected,"Reject null, extra content, dynamic type metadata and unknown fields");
+}
 if(args.Contains("--unity-vectors"))
 {
  while(session.State.phase!=TownPhase.Completed)
@@ -60,7 +78,7 @@ if(args.Contains("--unity-vectors"))
   await session.ResolveNumericYearAsync("client-run/year"+session.State.year,session.State.revision,"missing-config");
  }
  Directory.CreateDirectory("Builds/AnnualNumericClientVectors");
- File.WriteAllText("Builds/AnnualNumericClientVectors/definition.json",JsonSerializer.Serialize(rules,options));
+ File.WriteAllText("Builds/AnnualNumericClientVectors/definition.json",AnnualNumericJson.WriteDefinition(rules));
  File.WriteAllText("Builds/AnnualNumericClientVectors/save.json",session.ExportNumericSave());
  Console.WriteLine("Unity cross-runtime vectors: "+session.NumericSaveState.saveHash);
 }
