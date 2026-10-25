@@ -14,6 +14,7 @@ Shader "Terra/Illustrated Ground"
         _Cutoff("Cutoff",Range(0,1))=0.5
         _SurfaceKind("Decorative surface",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
+        _CanopyMap("Illustrative tree footprint",2D)="black"{}
         _TreatmentMap("Reversible surface changes",2D)="black"{}
         _RiverMap("Illustrative bank distance",2D)="white"{}
         _PathMap("Mapped route union",2D)="white"{}
@@ -41,6 +42,7 @@ Shader "Terra/Illustrated Ground"
                 float4 _LandBounds;
             CBUFFER_END
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
+            TEXTURE2D(_CanopyMap); SAMPLER(sampler_CanopyMap);
             TEXTURE2D(_TreatmentMap); SAMPLER(sampler_TreatmentMap);
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BankMap); SAMPLER(sampler_BankMap);
@@ -144,6 +146,11 @@ Shader "Terra/Illustrated Ground"
                     // Keep the source brushwork inside a controlled meadow value range.
                     living=lerp(half3(.23,.38,.12),living,.15)*lerp(half3(1,1,1),grassStrokes,.55);
                     living*=lerp(1,.70,cover.r);
+                    float canopy=SAMPLE_TEXTURE2D(_CanopyMap,sampler_CanopyMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
+                    canopy=saturate(canopy+(Noise(p*.32)-.5)*.25)*cover.r;
+                    half3 litter=earthPaint*half3(.35,.37,.29);
+                    litter=lerp(litter,edgePaint*half3(.24,.40,.23),communities*.45);
+                    living=lerp(living,litter,canopy*.85);
                     float fieldU=p.x-12*sin(p.y*.012)-5*sin(p.y*.029);
                     float row=pow(.5+.5*sin(fieldU*4.654211),3);
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.6);

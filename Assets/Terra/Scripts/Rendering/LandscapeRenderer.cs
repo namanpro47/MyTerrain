@@ -154,8 +154,8 @@ namespace Terra.Rendering
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
             meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            var trees=new[]{Resources.Load<GameObject>("Nature/ErceTree01"),Resources.Load<GameObject>("Nature/ErceTree02"),Resources.Load<GameObject>("Nature/ErceTree05"),Resources.Load<GameObject>("Nature/ErceTree03")};
-            var bush=Resources.Load<GameObject>("Nature/ErceTree01");
+            var forestTree=Resources.Load<GameObject>("Forest/ForestOak");
+            var bush=Resources.Load<GameObject>("Forest/ForestSapling");
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
@@ -164,7 +164,7 @@ namespace Terra.Rendering
             // Independent 150m clusters preserve culling and create groups instead of a regular canopy carpet.
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
-                var groups=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};
+                var mature=new List<Matrix4x4>();
                 var shrubs=new List<Matrix4x4>();var grasses=new List<Matrix4x4>();var fine=new List<Matrix4x4>();var flowers=new List<Matrix4x4>();var rocks=new List<Matrix4x4>();
                 for(float z=cz+8;z<Mathf.Min(cz+150,zmax-6);z+=13)for(float x=cx+8;x<Mathf.Min(cx+150,xmax-6);x+=13)
                 {
@@ -175,14 +175,14 @@ namespace Terra.Rendering
                     {
                         // Smaller edge trees step up into overlapping mature crowns. Broad gaps stay legible.
                         bool edge=CoverAt(px-18,pz)!="woodland"||CoverAt(px+18,pz)!="woodland"||CoverAt(px,pz-18)!="woodland"||CoverAt(px,pz+18)!="woodland";
-                        float cohort=Mathf.PerlinNoise((px+820)*.008f,(pz+430)*.008f);
                         bool clearing=grouping<.34f;
                         if(!clearing||random.NextDouble()<.12)
                         {
-                            int species=cohort>.64f?3:cohort<.40f?0:random.NextDouble()<.75?2:1;
-                            float scale=edge?Range(1.15f,1.8f):Range(1.8f,2.7f);
+                            float scale=edge?Range(.75f,1.0f):Range(.95f,1.4f);
                             if(clearing)scale*=.65f;
-                            groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360)));
+                            // Creator root origin is the intended soil plane; lower root geometry stays buried.
+                            mature.Add(Matrix4x4.TRS(new Vector3(px,Height(px,pz),pz),Quaternion.Euler(0,Range(0,360),0),Vector3.one*scale));
+                            forestFootprints.Add(new Vector3(px,pz,scale*11));
                         }
                         if(edge||clearing)
                         {
@@ -191,7 +191,7 @@ namespace Terra.Rendering
                             {
                                 float sx=px+Range(-9,9),sz=pz+Range(-9,9);
                                 if(CoverAt(sx,sz)!="woodland"||NearLine(sx,sz,4))continue;
-                                shrubs.Add(PlantMatrix(bush,sx,sz,Range(.25f,.55f),Range(0,360)));
+                                shrubs.Add(Matrix4x4.TRS(new Vector3(sx,Height(sx,sz),sz),Quaternion.Euler(0,Range(0,360),0),Vector3.one*Range(1.4f,3f)));
                             }
                         }
                     }
@@ -218,14 +218,12 @@ namespace Terra.Rendering
                         if(grouping<.30f && random.NextDouble()<.18)rocks.Add(PlantMatrix(stone,px,pz,Range(1.1f,2.2f),Range(0,360)));
                     }
                 }
-                for(int i=0;i<4;i++)
-                {
-                    canopy.Add(trees[i],groups[i],Color.white);
-                }
+                canopy.Add(forestTree,mature,Color.white);
                 canopy.Add(bush,shrubs,Color.white);
                 nature.Add(tuft,grasses,Color.white,true);
                 nature.Add(wispy,fine,Color.white,true);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }
+            BuildForestFloor();
         }
         bool NearLine(float x,float z,float margin)
         {
@@ -438,6 +436,6 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>(true))if(meshes.Remove(f.sharedMesh))Object.Destroy(f.sharedMesh);Object.Destroy(group.gameObject);}
-        public void Dispose(){if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        public void Dispose(){if(forestFloor!=null)Object.Destroy(forestFloor);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
     }
 }

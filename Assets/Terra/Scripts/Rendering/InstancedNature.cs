@@ -19,13 +19,23 @@ namespace Terra.Rendering
         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
         {
             if(prefab==null||transforms.Count==0)return;
-            var filters=prefab.GetComponentsInChildren<MeshFilter>(true);
+            var lodGroup=prefab.GetComponent<LODGroup>();
+            var lods=lodGroup!=null?lodGroup.GetLODs():null;
+            var filters=lods!=null&&lods.Length>0?System.Array.ConvertAll(lods[0].renderers,r=>r.GetComponent<MeshFilter>()):prefab.GetComponentsInChildren<MeshFilter>(true);
             bool hasOakLods=prefab.name.StartsWith("SolidOak");
             foreach(var filter in filters)
             {
                 if(hasOakLods&&!filter.name.EndsWith("LOD0"))continue;
                 var medium=hasOakLods?System.Array.Find(filters,f=>f.name==filter.name.Replace("LOD0","LOD1"))?.sharedMesh:null;
                 var distant=hasOakLods?System.Array.Find(filters,f=>f.name==filter.name.Replace("LOD0","LOD2"))?.sharedMesh:null;
+                // Baked forest assets align renderer/material slots across all three levels.
+                // Submit one level per batch; never traverse and draw every LOD together.
+                if(lods!=null&&lods.Length>1)
+                {
+                    int part=System.Array.IndexOf(filters,filter);
+                    medium=lods[1].renderers[part].GetComponent<MeshFilter>().sharedMesh;
+                    if(lods.Length>2)distant=lods[2].renderers[part].GetComponent<MeshFilter>().sharedMesh;
+                }
                 var materials=filter.GetComponent<MeshRenderer>().sharedMaterials;
                 var local=prefab.transform.worldToLocalMatrix*filter.transform.localToWorldMatrix;
                 for(int sub=0;sub<filter.sharedMesh.subMeshCount;sub++)
