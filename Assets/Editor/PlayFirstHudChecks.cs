@@ -32,6 +32,11 @@ public static class PlayFirstHudChecks
                 Check(text.Contains("Opens Y"+(town.Year+offer.constructionYears)),"Opening year hidden for "+offer.actionId);
                 Check(text.Contains(TerraHud.Money(offer.upfrontPublicCostCents+offer.annualPublicOperatingCents*offer.operatingYears+offer.annualPublicPaymentCents*offer.paymentYears)+" total reserved"),"Full commitment hidden for "+offer.actionId);
                 Check(text.Contains(offer.operatingYears+" yr"),"Upkeep term hidden");
+                Canvas.ForceUpdateCanvases();
+                foreach(var label in GameObject.Find("Project at a glance").GetComponentsInChildren<TextMeshProUGUI>())
+                {label.ForceMeshUpdate();Check(label.preferredHeight<=label.rectTransform.rect.height+2,"Clipped fact for "+offer.actionId+": "+label.text);}
+                var visibleCards=UnityEngine.Object.FindObjectsByType<Button>().Where(b=>b.gameObject.activeInHierarchy&&b.name.StartsWith("Build ")).ToArray();
+                Check(visibleCards.Length<=(compact?3:4),"Compact catalog did not paginate");
             }
         }
         typeof(TerraHud).GetMethod("ToggleText",flags).Invoke(hud,null);
@@ -54,6 +59,14 @@ public static class PlayFirstHudChecks
         Check(AnnualHighlights.Create(definition,quiet,null).All(c=>c.siteId==null),"Quiet year fabricated a project");
         var problem=JsonUtility.FromJson<TownYearReport>(JsonUtility.ToJson(second));problem.ledger.closingArrearsCents=100;
         Check(AnnualHighlights.Create(definition,problem,first)[0].title=="Unpaid commitments","Unpaid commitments did not take priority");
+        var program=JsonUtility.FromJson<TownActionDefinition>(JsonUtility.ToJson(park));program.annualPublicPaymentCents=30000;program.paymentYears=5;
+        var fresh=new AnnualTown(definition,"program-inspection");
+        hud.AnnualPreview(world.sites.First(s=>s.id==program.siteId),program,fresh.Snapshot(),"place",null,()=>{},false);
+        Check(Text().Contains("$300/yr program · 5 yr"),"Program payment was folded into upkeep");
+        Check(Text().Contains(TerraHud.Money(program.upfrontPublicCostCents+program.annualPublicOperatingCents*program.operatingYears+150000)+" total reserved"),"Program term missing from reservation");
+        AnnualTownDemo.Finish(empty,new AuthoredAnnualConsequenceProvider());bool future=false;
+        hud.AnnualOverview(empty,()=>future=true,null,()=>{},_=>{});Click("See ten-year future →");
+        Check(future&&empty.Year==10,"Completed overview did not hand off without Year 11");hud.CloseAnnualOverview();
         hud.HideAnnualPreview();hud.AnnualState(new AnnualTown(definition,"reset-ui"),baseline,baseline);
         Debug.Log("PLAY_FIRST_HUD_CHECKS_PASSED: "+checks);return checks;
     }
