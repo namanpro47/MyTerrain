@@ -30,3 +30,15 @@ At combined tip `f819fac`, the release owner has addressed both placement findin
 [Actual walkthrough](COMBINED_CHROME.md) records Chrome770d4c0 at1728×940, reservation96. This is real game evidence, distinct from the P0 schematic board. Both the dock/card overlap and transient toast/capsule collision were reproduced; fixes56e1940 and9b5e14a are handed to the combined owner for native rerun and next export. Large empty map-edge framing remains a P4 observation, not an accepted scene. Preview left the ledger unchanged; protected Enter was rejected; queue/move-cancel/undo/redo retained the existing cash/commit semantics.
 
 The second Chrome pass and DevTools input-error boundary are documented in COMBINED_CHROME.md. Combined native suite subsequently passed4,115 assertions (receipt inspected in release worktree at19e7eae); the owner added fixture cleanup before later combined checks. No quiet performance claim yet.
+
+## Final export and remaining handoff — October 25
+
+The frozen `19e7eae835ed4c06a21d42887a9a53ed28cc4fc2` export was copied byte-for-byte to the placement QA origin. `final-export.json` records all 22 hashes. No claim that the older screenshots verify this export.
+
+A final source/capture audit found a remaining P1 instruction conflict: the dock still says “Hover a marked field” while the local capsule says “Click to queue.” The authorized Field Notes/HUD owner accepted this correction in the next presentation work: suppress the dock instruction while the capsule is active and restore it when hidden. This is a handoff, not a verified fix in frozen19e7eae.
+
+The opening capture's large blank map-edge wedge was also handed to that owner as a P4 composition finding. Preserve settlement context and camera freedom; do not restore the obsolete legacy-parcel arrival target. The park-focused capture already makes the footprint, reserved field and creek context legible. Opening/close/overview acceptance remains open.
+
+Queued identity currently uses a named world label and dashed boundary. The plan's miniature/check pin is not implemented and must not be claimed as delivered. Both this visual detail and the P4 composition need a coordinated follow-through; the frozen release is not being modified during its verification.
+
+Final Chrome request123 follows short dialog/numeric checks and the community build. It reserves desktop plus heavy-work exclusion for two30-second F9 samples. No timing result is inferred from native assertions or from a busy-machine walkthrough.
