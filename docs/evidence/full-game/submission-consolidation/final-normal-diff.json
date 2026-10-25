@@ -1,0 +1,11 @@
+{
+  "comparison": "final lazy allocation candidate vs separate pre-lazy normal control across Play sessions",
+  "changedPixels": 30,
+  "totalPixels": 921600,
+  "maxChannel": 5,
+  "meanChannels": [
+    3.689236111111111e-05,
+    3.7977430555555556e-05,
+    2.0616319444444445e-05
+  ]
+}

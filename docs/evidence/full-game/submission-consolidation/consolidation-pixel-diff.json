@@ -1,0 +1,40 @@
+{
+  "normal": {
+    "bounds": [
+      19,
+      36,
+      1232,
+      331
+    ],
+    "meanChannels": [
+      1.736111111111111e-05,
+      1.0850694444444445e-05,
+      4.340277777777778e-06
+    ],
+    "changedPixels": 11,
+    "maxChannel": 3,
+    "totalPixels": 921600
+  },
+  "close": {
+    "bounds": null,
+    "meanChannels": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "changedPixels": 0,
+    "maxChannel": 0,
+    "totalPixels": 921600
+  },
+  "mature": {
+    "bounds": null,
+    "meanChannels": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "changedPixels": 0,
+    "maxChannel": 0,
+    "totalPixels": 921600
+  }
+}

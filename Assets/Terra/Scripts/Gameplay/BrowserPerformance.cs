@@ -45,6 +45,8 @@ namespace Terra.Gameplay
             Debug.Log("TERRA_PERFORMANCE: "+JsonUtility.ToJson(report));
             var nature=UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(FindObjectsSortMode.None);
             Debug.Log($"TERRA_RENDER_SUBMISSIONS: submitted={nature.Sum(n=>n.LastSubmittedBatches)}; culled={nature.Sum(n=>n.LastCulledBatches)}; groundcoverCulled={nature.Sum(n=>n.LastCulledGroundcoverBatches)}; groups={nature.Length}");
+            var combined=UnityEngine.Object.FindFirstObjectByType<Terra.Rendering.NatureSubmission>();
+            if(combined!=null)Debug.Log($"TERRA_RENDER_CONSOLIDATION: sourceBatches={combined.LastSourceBatches}; drawCalls={combined.LastDrawCalls}; savedDrawCalls={combined.LastSourceBatches-combined.LastDrawCalls}");
 #if UNITY_WEBGL && !UNITY_EDITOR
             TerraMetricsEnd();
 #endif

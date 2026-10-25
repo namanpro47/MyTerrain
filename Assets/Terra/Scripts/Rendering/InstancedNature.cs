@@ -23,6 +23,7 @@ namespace Terra.Rendering
         public static float DisplayPixelRatio{get;set;}=1;
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
+        void OnEnable(){NatureSubmission.Ensure();}
         public void Reveal(float duration){revealStarted=Time.unscaledTime;revealDuration=duration;foreach(var batch in batches)batch.animated=new Matrix4x4[batch.transforms.Length];}
         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
         {
@@ -156,7 +157,7 @@ namespace Terra.Rendering
                     }
                     matrices=b.animated;
                 }
-                Graphics.RenderMeshInstanced(parameters,mesh,b.submesh,matrices);
+                NatureSubmission.Submit(parameters,mesh,b.submesh,matrices);
                 LastSubmittedBatches++;
             }
             if(revealStarted>=0&&Time.unscaledTime-revealStarted>revealDuration+.2f)revealStarted=-1;

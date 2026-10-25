@@ -1,0 +1,167 @@
+{
+  "base": "b21dc5c",
+  "candidate": "InstancedNature/NatureSubmission/BrowserPerformance diff in this commit",
+  "status": "Editor verification only; browser performance pending",
+  "files": [
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/combined-close-capture.json",
+      "bytes": 699,
+      "sha256": "a915071f105380bde8cad8603bb454cce1210fa87f6b3a02ba0f50fb660811b8"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/combined-lazy-normal-capture.json",
+      "bytes": 695,
+      "sha256": "c8868df59dd80dd0ac876db529b40f3c74f936959451eac2f0d82c93372eade4"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/combined-mature-capture.json",
+      "bytes": 699,
+      "sha256": "5f61b12f7e754b111157edfd975f918062c0f37c536b1c70f8687ae3270801ea"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/combined-study55-verify.json",
+      "bytes": 4627,
+      "sha256": "83520e570f1b91ea166311c1a6324871c1c6ffca281e1e7d6903a43e38413cbe"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-camera.cs.txt",
+      "bytes": 1432,
+      "sha256": "c031a3a7539269d4690e02d1499cfc03c479a4f68af8818a0f8c179498ce3583"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-camera.json",
+      "bytes": 898,
+      "sha256": "72b55cc2a4c7df0f1e923a363f8e1298ff43fa815851d92f023cd8e596255b7c"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-capture.cs.txt",
+      "bytes": 856,
+      "sha256": "e72e014919327fab7d2c2d3778bf1f921b17937dc4be2b69f4cd367936bd7580"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-checks.cs.txt",
+      "bytes": 4226,
+      "sha256": "544a5af1c05bbf5b1a9989224a13fd2adeefa6c5e73e6b26e967d6b740a5a80c"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-checks.json",
+      "bytes": 1449,
+      "sha256": "3e4a84700004e299561e7c97854a3f13f6f51b49bdf86251321528548d0eb330"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-close.png",
+      "bytes": 1823303,
+      "sha256": "ade8f66adebaf789f43455d025814007dfebdf36f1228a554043d1a024f2fae5"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-focus.cs.txt",
+      "bytes": 1074,
+      "sha256": "951e57bda0c05b70d108cdd210188f00119723bca9442a703992e212a1dee90e"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-lazy-normal.png",
+      "bytes": 1708628,
+      "sha256": "e2bf20a455447d0df9c1d75b3284a49f7700e35ed8ce79b3e1a21a7bc5721c86"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-material-lifecycle.json",
+      "bytes": 2431,
+      "sha256": "48f17e07f38425ad9f6f1a3d6d3f3e5d7ff97f84f4a735c279b9de1decba9f9b"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-mature.cs.txt",
+      "bytes": 2690,
+      "sha256": "e4c4406ecab0549e65ba6dc53e64bc826cb222f3dfc38593a20579e2f06b10ee"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-mature.png",
+      "bytes": 1867936,
+      "sha256": "91f127bbd8798dcda32fccec4a705ee227bb2e3ba7e0d8924eed0a79faaf616d"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-model-checks.json",
+      "bytes": 620,
+      "sha256": "35fb2bd8bbaca85dd3d69083f5bb94bc725ba17f06d35a55bc1cb2c5422d72a6"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-normal-counts.json",
+      "bytes": 1184,
+      "sha256": "d61076a633045efb4ebd69b9d2343dfc74e4e9b9c5b33bc7d9eeee6310129761"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-normal.png",
+      "bytes": 1708632,
+      "sha256": "0ed537ee962f7032629640cb5df69ffbcf19629f86a3ac6a36da7486f6beb704"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/consolidation-pixel-diff.json",
+      "bytes": 616,
+      "sha256": "a3c658a1ee62e266bdffb901160fa02f785a9ad094a55b29185333786a59fe4e"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/final-normal-diff.json",
+      "bytes": 285,
+      "sha256": "0324b0f51910ed5b7037ee92264c7b9dce0d488b16848f7bd4c01d809c00ece8"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/final-session-log-check.json",
+      "bytes": 441,
+      "sha256": "d603574e2a891b4d969034053a6a447cc3cd3f0be8739135406d8694aea37ddd"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/mature-counts.json",
+      "bytes": 705,
+      "sha256": "b5e310cfa6f7763385e0835124f13914d147debeba61b5ac3464cec8ae33e7da"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/mature-fixture.json",
+      "bytes": 1445,
+      "sha256": "c6970a75643f4bbbdef53c433031724c613d63767634ecdf3a3fde24f4c48301"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-close-capture.json",
+      "bytes": 699,
+      "sha256": "bfff24b97aab18dc4f3a03ca631e62f83f62c516dab3fa290783a35478d94ef5"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-close.png",
+      "bytes": 1823303,
+      "sha256": "ade8f66adebaf789f43455d025814007dfebdf36f1228a554043d1a024f2fae5"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-mature-capture.json",
+      "bytes": 699,
+      "sha256": "db50fb556dfe6192dee1d14712c3e9ee6b512a9055df952dca5a64a64713c2f3"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-mature.png",
+      "bytes": 1867936,
+      "sha256": "91f127bbd8798dcda32fccec4a705ee227bb2e3ba7e0d8924eed0a79faaf616d"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-normal-capture.json",
+      "bytes": 698,
+      "sha256": "ce8cd6dcd86ce4e93f4e6ec1d2dbf893e8bc51609db39f7c0290347f3f73d8bb"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/separate-normal.png",
+      "bytes": 1708644,
+      "sha256": "048e0c4e8c8b4faefc3b5a358bb25425b689bff88c45f363e2f36caee9679886"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/submission-1280.json",
+      "bytes": 7740,
+      "sha256": "ef112a81429685fed48670a2ea17b0159f8faedd396155568d40e52c0f3c8d0b"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/submission-opening.json",
+      "bytes": 7320,
+      "sha256": "024c675e3bc274567365d41481c7338ea7bb143887a373746ba1eb30da8e3fa1"
+    },
+    {
+      "path": "docs/evidence/full-game/submission-consolidation/submission-profile.cs.txt",
+      "bytes": 4182,
+      "sha256": "46143b984c59d792f147afb71f2ed20ce9c9ae0e98b4f660ead6aa8d8df2e233"
+    }
+  ]
+}
