@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Study36 Chrome checkpoint](study36-findings.md) — broader grass stands,46.34FPS diagnostic, visual/performance gate still open.
+Latest: [Studies 47–48 checkpoint](study48-checkpoint.md) — rejected meadow trials and an integrated terrain-relief candidate; compile passes, fresh gameplay/browser validation pending. **Visual gate remains open.**
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

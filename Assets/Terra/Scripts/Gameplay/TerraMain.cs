@@ -210,7 +210,7 @@ namespace Terra.Gameplay
             foreach(var p in site.polygon)points.Add(new Vector3(p.x,landscape.Height(p.x,p.z),p.z));
             if(rule!=null&&!rule.landscape&&art!=null)
             {
-                var layout=buildActionRules.Layout(site,rule);
+                var layout=landscape.VisualLayout(buildActionRules.Layout(site,rule));
                 if(layout.Valid)
                 {
                     var bounds=art.meshBoundsMetres;var rotation=Quaternion.Euler(0,layout.yaw,0);

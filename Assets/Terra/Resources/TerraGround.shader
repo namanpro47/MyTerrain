@@ -179,6 +179,15 @@ Shader "Terra/Illustrated Ground"
                     surfaceNormal=normalize(lerp(half3(0,0,1),surfaceNormal,.45*fade));
 
                 }
+                if(_SurfaceKind>2.5) {
+                    half face=1-smoothstep(.62,.92,input.normalWS.y);
+                    float2 faceUV=abs(input.normalWS.x)>abs(input.normalWS.z)?float2(p.y,input.positionWS.y):float2(p.x,input.positionWS.y);
+                    // The artist earth map supplies broad sediment marks; projection
+                    // follows the face rather than stretching the horizontal grass paint.
+                    half3 facePaint=PaintedSample(TEXTURE2D_ARGS(_BankMap,sampler_BankMap),faceUV/float2(10,6)).rgb;
+                    albedo=lerp(albedo,facePaint*half3(.34,.35,.32),face);
+                    surfaceNormal=lerp(surfaceNormal,half3(0,0,1),face);
+                }
                 half3 normal=normalize(input.normalWS);
                 half3 tangent=normalize(half3(normal.y,-normal.x,0));
                 half3 bitangent=cross(tangent,normal);

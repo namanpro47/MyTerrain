@@ -43,7 +43,24 @@ namespace Terra.Rendering
         }
         int IndexX(float x)=>Mathf.Clamp((int)((x-xmin)/cell),0,world.terrain.columns-2);
         int IndexZ(float z)=>Mathf.Clamp((int)((z-zmin)/cell),0,world.terrain.rows-2);
+        // Rendering and picking share this display surface. Analytical rules read
+        // WorldData through the core terrain sampler, never this visual abstraction.
         public float Height(float x,float z)
+        {
+            if(!clusteredWoodland)return SourceHeight(x,z);
+            float dx=(xmax-xmin)/Mathf.Ceil((xmax-xmin)/1.5f),dz=(zmax-zmin)/Mathf.Ceil((zmax-zmin)/1.5f);
+            float gx=Mathf.Clamp((x-xmin)/dx,0,(xmax-xmin)/dx),gz=Mathf.Clamp((z-zmin)/dz,0,(zmax-zmin)/dz);
+            int ix=Mathf.Min(Mathf.FloorToInt(gx),Mathf.RoundToInt((xmax-xmin)/dx)-1),iz=Mathf.Min(Mathf.FloorToInt(gz),Mathf.RoundToInt((zmax-zmin)/dz)-1);
+            float px=xmin+ix*dx,pz=zmin+iz*dz,u=gx-ix,v=gz-iz;
+            float a=ReliefControl(px,pz),b=ReliefControl(px+dx,pz),c=ReliefControl(px,pz+dz),d=ReliefControl(px+dx,pz+dz);
+            return u+v<=1?a+(b-a)*u+(c-a)*v:d+(c-d)*(1-u)+(b-d)*(1-v);
+        }
+        float ReliefControl(float x,float z)
+        {
+            float bands=SourceHeight(x,z)/6f,part=bands-Mathf.Floor(bands);
+            return (Mathf.Floor(bands)+Mathf.SmoothStep(0,1,Mathf.InverseLerp(.38f,.62f,part)))*6f;
+        }
+        public float SourceHeight(float x,float z)
         {
             var t=world.terrain;float fx=Mathf.Clamp((x-xmin)/cell,0,t.columns-1),fz=Mathf.Clamp((z-zmin)/cell,0,t.rows-1);
             int ix=Mathf.Min((int)fx,t.columns-2),iz=Mathf.Min((int)fz,t.rows-2),n=iz*t.columns+ix;float u=fx-ix,v=fz-iz;
@@ -323,11 +340,17 @@ namespace Terra.Rendering
         // Clip every overlay against terrain triangles. Shared boundaries therefore share heights.
         void Surface(Point[] points,float lift,Geometry g)
         {
-            int x0=IndexX(points.Min(p=>p.x)),x1=IndexX(points.Max(p=>p.x)),z0=IndexZ(points.Min(p=>p.z)),z1=IndexZ(points.Max(p=>p.z));
+            // Overlays use the same grid as the displayed terrain. Coarse source
+            // triangles would bridge across the illustrative slopes and float above them.
+            float dx=clusteredWoodland?(xmax-xmin)/Mathf.Ceil((xmax-xmin)/1.5f):cell;
+            float dz=clusteredWoodland?(zmax-zmin)/Mathf.Ceil((zmax-zmin)/1.5f):cell;
+            int nx=Mathf.RoundToInt((xmax-xmin)/dx),nz=Mathf.RoundToInt((zmax-zmin)/dz);
+            int x0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.x)-xmin)/dx),0,nx-1),x1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.x)-xmin)/dx),0,nx-1);
+            int z0=Mathf.Clamp(Mathf.FloorToInt((points.Min(p=>p.z)-zmin)/dz),0,nz-1),z1=Mathf.Clamp(Mathf.FloorToInt((points.Max(p=>p.z)-zmin)/dz),0,nz-1);
             var polygon=points.Select(p=>new Vector2(p.x,p.z)).ToList();
             for(int z=z0;z<=z1;z++)for(int x=x0;x<=x1;x++)
             {
-                float px=xmin+x*cell,pz=zmin+z*cell;var a=new Vector2(px,pz);var b=new Vector2(px+cell,pz);var c=new Vector2(px,pz+cell);var d=new Vector2(px+cell,pz+cell);
+                float px=xmin+x*dx,pz=zmin+z*dz;var a=new Vector2(px,pz);var b=new Vector2(px+dx,pz);var c=new Vector2(px,pz+dz);var d=new Vector2(px+dx,pz+dz);
                 Add(ClipTriangle(polygon,a,b,c));Add(ClipTriangle(polygon,b,d,c));
             }
             void Add(List<Vector2> poly)
