@@ -150,19 +150,29 @@ namespace Terra.UI
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Plan → End Year → adapt</b>\nQueue projects and reserve their public costs. End Year pays once and advances them. Accepted years stay in history. Three categories contain all twelve families; arrows show more options.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters\nG: field guide · ?: controls · Shift+Esc: world atlas");
+            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters · O: more\nG: field guide · ?: controls · Shift+Esc: world atlas");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");lastScreen=Vector2.zero;Layout();}
         public bool KeyboardInput(Keyboard k)
         {
             if(k==null)return ModalOpen;
             if(loading.activeSelf){if(loadFailed&&k.enterKey.wasPressedThisFrame)retryLoad();return true;}
-            if(!ModalOpen&&BuildMenuKeyboard(k))return true;
+            if(OverviewKeyboard(k))return true;
+            if(!ModalOpen&&!AnnualOverviewOpen&&!(moreMenu?.gameObject.activeSelf??false)&&BuildMenuKeyboard(k))return true;
             if(!ModalOpen && annualRules!=null)
             {
+                if(k.oKey.wasPressedThisFrame&&!AnnualOverviewOpen){moreButton.onClick.Invoke();return true;}
                 if(k.eKey.wasPressedThisFrame){reviewYearShortcut?.Invoke();return true;}
                 if(k.lKey.wasPressedThisFrame){reportShortcut?.Invoke();return true;}
-                if(k.tKey.wasPressedThisFrame){futureShortcut?.Invoke();return true;}
+                if(k.tKey.wasPressedThisFrame){CloseAnnualOverview();futureShortcut?.Invoke();return true;}
                 if(k.iKey.wasPressedThisFrame&&acceptedOutcomes?.economy!=null){AnnualMetrics(acceptedOutcomes,CloseModal);return true;}
+            }
+            if(!ModalOpen&&moreMenu!=null&&moreMenu.gameObject.activeSelf)
+            {
+                if(k.escapeKey.wasPressedThisFrame){moreMenu.gameObject.SetActive(false);Focus(moreButton);return true;}
+                var choices=buttons.Where(b=>b.gameObject.activeInHierarchy&&b.IsInteractable()&&b.transform.IsChildOf(moreMenu)).ToArray();
+                if(k.tabKey.wasPressedThisFrame){int index=Array.IndexOf(choices,focus),step=k.shiftKey.isPressed?-1:1;Focus(choices[(index+step+choices.Length)%choices.Length]);return true;}
+                if((k.enterKey.wasPressedThisFrame||k.spaceKey.wasPressedThisFrame)&&focus!=null&&choices.Contains(focus))focus.onClick.Invoke();
+                return true; // A menu key never falls through to a world edit.
             }
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
             if(!ModalOpen){if(k.gKey.wasPressedThisFrame){dataPage=0;ShowData();return true;}if(k.slashKey.wasPressedThisFrame){ShowHelp();return true;}return false;}
@@ -182,10 +192,11 @@ namespace Terra.UI
         void Focus(UnityEngine.UI.Button button){focus=button;Paint();}
         void Paint()
         {
-            foreach(var b in buttons){bool selected=CatalogSelected(b);
-                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):b==endYearButton?new Color(.20f,.39f,.32f):Raised;
+            foreach(var b in buttons){bool selected=CatalogSelected(b)||b==selectedHighlight;
+                b.GetComponent<UnityEngine.UI.Image>().color=!b.IsInteractable()?PanelColor:selected?new Color(.20f,.38f,.38f):(b==endYearButton||b==overviewNext||b==confirmEditButton)?new Color(.20f,.39f,.32f):Raised;
                 var line=b.GetComponent<UnityEngine.UI.Outline>();line.enabled=b==focus||selected;line.effectColor=b==focus?(modal!=null&&b.transform.IsChildOf(modal.transform)?Ink:Paper):Accent;
                 foreach(var label in b.GetComponentsInChildren<TextMeshProUGUI>())label.alpha=b.IsInteractable()?1:.48f;
+                foreach(var glyph in b.GetComponentsInChildren<HudGlyph>())glyph.canvasRenderer.SetAlpha(b.IsInteractable()?1:.48f);
             }
         }
         public void SetReducedMotion(bool value){ReducedMotion=value;SetButtonText(motionButton,value?"Motion: reduced":"Motion: full");}
@@ -231,7 +242,7 @@ namespace Terra.UI
             SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Landscape art →":dataPage==3?"Plants & sound →":dataPage==4?"Runoff & connections →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
-        {closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);SetButtonText(closeButton,"Return to landscape  Esc");if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
+        {if(moreMenu!=null)moreMenu.gameObject.SetActive(false);closeButton.onClick.RemoveAllListeners();closeButton.onClick.AddListener(CloseModal);SetButtonText(closeButton,"Return to landscape  Esc");if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
         static void SetButtonText(UnityEngine.UI.Button b,string text)=>b.GetComponentInChildren<TextMeshProUGUI>().text=text;
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}
         Transform Panel(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect(parent,name,anchor,pos,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=color;return r;}

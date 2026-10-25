@@ -8,6 +8,10 @@
 
 Status: Phase 1 visual contract frozen; browser review passed. One Meadowbrook Valley landscape (fictional game name for the selected Wisconsin AOI) is the intended full game. At that checkpoint the scene was explicitly an invented technical fixture, not real geography. Current real-landscape integration status is recorded in [PHASE_STATUS.md](PHASE_STATUS.md); the historical v1 details below are not a statement that Phase 2 still uses synthetic terrain.
 
+## Approved play-first interaction direction — October 25, 2026
+
+Peter approved the icon-led planning, project inspector and map-linked year-end mockups: Cities: Skylines clarity with Minecraft's approachable learning-by-doing feel. The implementation keeps the landscape central, uses original vector icons beside short labels and existing project miniatures, and moves detailed explanations into optional panels. Budget commitments, delays, blocked actions and scientific assumptions remain inspectable. See [the HUD contract and checks](PLAY_FIRST_HUD.md). This updates interaction and information hierarchy; it does not certify or replace the separate scenery acceptance gate.
+
 ## Current HUD and connected-field revision — October 25, 2026
 
 The user requested a much closer Terra Nil / Cities: Skylines interface and continuous development. The annual HUD now uses compact slate/navy panels, a prominent USD available balance, three equally weighted colored indicators, pictorial project cards with upfront price badges, and one bottom command bar. Cream remains the field-note/report surface. The older green-panel layout below is historical. Patterns TN-03/04/05, CS-01/02 and AX-01; [implementation, reference images and Chrome evidence](evidence/hud-connected/README.md).

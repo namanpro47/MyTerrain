@@ -1,0 +1,1687 @@
+{
+  "schemaVersion": 1,
+  "sourceLockSha256": "74c3770d190ad0e33dd7155d00b6520a8551881416dcaf2f0580da037e883579",
+  "stations": [
+    {
+      "eligibleWindows": [],
+      "station": {
+        "distanceFromReferenceKm": 21.25,
+        "elevationM": 194.8,
+        "id": "USC00473038",
+        "latitude": 43.5706,
+        "longitude": -91.2294,
+        "name": "GENOA DAM 8"
+      },
+      "years": [
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 1
+            },
+            "TMAX": {
+              "quality:I": 6
+            },
+            "TMIN": {
+              "quality:I": 2
+            }
+          },
+          "invalidPreceding7Days": 4,
+          "minAboveMaxDays": 0,
+          "year": 2001
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "presumed-or-unreported-zero:P": 7
+            },
+            "TMAX": {
+              "missing": 5,
+              "quality:I": 9
+            },
+            "TMIN": {
+              "quality:I": 3
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2002
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "presumed-or-unreported-zero:P": 2
+            },
+            "TMAX": {
+              "quality:I": 22
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:I": 10
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2003
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "presumed-or-unreported-zero:P": 2
+            },
+            "TMAX": {
+              "missing": 2,
+              "quality:I": 16
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:I": 7
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2004
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 1
+            },
+            "TMAX": {
+              "missing": 1,
+              "quality:I": 13
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:I": 5
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2005
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 14,
+              "quality:I": 4
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:I": 3
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2006
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 4
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2007
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 3
+            },
+            "TMAX": {
+              "missing": 1,
+              "quality:I": 2
+            },
+            "TMIN": {
+              "missing": 6,
+              "quality:I": 1
+            }
+          },
+          "invalidPreceding7Days": 2,
+          "minAboveMaxDays": 0,
+          "year": 2008
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 3
+            },
+            "TMAX": {
+              "missing": 2,
+              "quality:I": 3
+            },
+            "TMIN": {
+              "missing": 2,
+              "quality:I": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2009
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 2,
+              "quality:I": 1
+            },
+            "TMIN": {
+              "missing": 5
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2010
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 4,
+              "quality:I": 1
+            },
+            "TMIN": {
+              "missing": 4
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2011
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2012
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "quality:I": 1
+            },
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2013
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 1,
+              "quality:I": 2
+            },
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2014
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 2
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:S": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2015
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 24
+            },
+            "TMIN": {
+              "missing": 24
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2016
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 4,
+              "quality:I": 1
+            },
+            "TMIN": {
+              "missing": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2017
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 5
+            },
+            "TMIN": {
+              "missing": 21
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2018
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 1
+            },
+            "TMAX": {
+              "missing": 36
+            },
+            "TMIN": {
+              "missing": 38
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2019
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 5
+            },
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2020
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 1
+            },
+            "TMIN": {
+              "missing": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2021
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 4
+            },
+            "TMIN": {
+              "missing": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2022
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "missing": 1
+            },
+            "TMIN": {
+              "missing": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2023
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "eligibleWindows": [
+        {
+          "recordIds": [
+            "USC00474373:2015",
+            "USC00474373:2016",
+            "USC00474373:2017",
+            "USC00474373:2018",
+            "USC00474373:2019",
+            "USC00474373:2020",
+            "USC00474373:2021",
+            "USC00474373:2022",
+            "USC00474373:2023",
+            "USC00474373:2024"
+          ],
+          "startYear": 2015
+        }
+      ],
+      "station": {
+        "distanceFromReferenceKm": 18.3,
+        "elevationM": 398.4,
+        "id": "USC00474373",
+        "latitude": 43.8225,
+        "longitude": -91.1914,
+        "name": "LA CROSSE WFO"
+      },
+      "years": [
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2001
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2002
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "quality:I": 1
+            },
+            "TMIN": {
+              "quality:I": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2003
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {
+              "quality:I": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2004
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 2
+            },
+            "TMAX": {
+              "missing": 1
+            },
+            "TMIN": {
+              "missing": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2005
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2006
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {
+              "quality:I": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2007
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2008
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2009
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2010
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2011
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {
+              "quality:I": 1
+            },
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2012
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 61
+            },
+            "TMAX": {
+              "missing": 61
+            },
+            "TMIN": {
+              "missing": 61
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2013
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 31
+            },
+            "TMAX": {
+              "missing": 32
+            },
+            "TMIN": {
+              "missing": 31
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2014
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2015
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2016
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2017
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2018
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2019
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2020
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2021
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2022
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2023
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "eligibleWindows": [],
+      "station": {
+        "distanceFromReferenceKm": 20.43,
+        "elevationM": 382.5,
+        "id": "USC00478827",
+        "latitude": 43.5594,
+        "longitude": -90.8761,
+        "name": "VIROQUA"
+      },
+      "years": [
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 12,
+              "presumed-or-unreported-zero:P": 208
+            },
+            "TMAX": {
+              "missing": 2
+            },
+            "TMIN": {
+              "missing": 1,
+              "quality:I": 5
+            }
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2001
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "presumed-or-unreported-zero:P": 109
+            },
+            "TMAX": {
+              "quality:I": 3
+            },
+            "TMIN": {
+              "quality:I": 4
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2002
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "presumed-or-unreported-zero:P": 99
+            },
+            "TMAX": {
+              "missing": 1,
+              "quality:I": 3
+            },
+            "TMIN": {
+              "quality:I": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2003
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 92,
+              "presumed-or-unreported-zero:P": 27
+            },
+            "TMAX": {
+              "missing": 100,
+              "quality:I": 2
+            },
+            "TMIN": {
+              "missing": 100,
+              "quality:I": 3
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2004
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 66
+            },
+            "TMAX": {
+              "missing": 105,
+              "quality:I": 9
+            },
+            "TMIN": {
+              "missing": 108,
+              "quality:I": 63
+            }
+          },
+          "invalidPreceding7Days": 7,
+          "minAboveMaxDays": 0,
+          "year": 2005
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 13
+            },
+            "TMAX": {
+              "quality:I": 7
+            },
+            "TMIN": {
+              "quality:I": 27
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2006
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 5
+            },
+            "TMAX": {
+              "missing": 2
+            },
+            "TMIN": {
+              "missing": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2007
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 9
+            },
+            "TMAX": {
+              "missing": 3
+            },
+            "TMIN": {
+              "missing": 2
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2008
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 13
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2009
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 10
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2010
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 22,
+              "quality:L": 1
+            },
+            "TMAX": {
+              "missing": 1
+            },
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2011
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 4,
+              "quality:L": 2
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 6,
+          "minAboveMaxDays": 0,
+          "year": 2012
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 10
+            },
+            "TMAX": {},
+            "TMIN": {
+              "missing": 1
+            }
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2013
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 20
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 6,
+          "minAboveMaxDays": 0,
+          "year": 2014
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 5
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2015
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 22
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2016
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 18
+            },
+            "TMAX": {},
+            "TMIN": {
+              "missing": 1
+            }
+          },
+          "invalidPreceding7Days": 5,
+          "minAboveMaxDays": 0,
+          "year": 2017
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 14
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2018
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 3
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2019
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 1,
+          "minAboveMaxDays": 0,
+          "year": 2020
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 15
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2021
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 19
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2022
+        },
+        {
+          "days": 365,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 15
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 6,
+          "minAboveMaxDays": 0,
+          "year": 2023
+        },
+        {
+          "days": 366,
+          "eligible": false,
+          "invalidByElement": {
+            "PRCP": {
+              "missing": 20
+            },
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 3,
+          "minAboveMaxDays": 0,
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "eligibleWindows": [
+        {
+          "recordIds": [
+            "USW00014920:2001",
+            "USW00014920:2002",
+            "USW00014920:2003",
+            "USW00014920:2004",
+            "USW00014920:2005",
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010"
+          ],
+          "startYear": 2001
+        },
+        {
+          "recordIds": [
+            "USW00014920:2002",
+            "USW00014920:2003",
+            "USW00014920:2004",
+            "USW00014920:2005",
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011"
+          ],
+          "startYear": 2002
+        },
+        {
+          "recordIds": [
+            "USW00014920:2003",
+            "USW00014920:2004",
+            "USW00014920:2005",
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012"
+          ],
+          "startYear": 2003
+        },
+        {
+          "recordIds": [
+            "USW00014920:2004",
+            "USW00014920:2005",
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013"
+          ],
+          "startYear": 2004
+        },
+        {
+          "recordIds": [
+            "USW00014920:2005",
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014"
+          ],
+          "startYear": 2005
+        },
+        {
+          "recordIds": [
+            "USW00014920:2006",
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015"
+          ],
+          "startYear": 2006
+        },
+        {
+          "recordIds": [
+            "USW00014920:2007",
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016"
+          ],
+          "startYear": 2007
+        },
+        {
+          "recordIds": [
+            "USW00014920:2008",
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017"
+          ],
+          "startYear": 2008
+        },
+        {
+          "recordIds": [
+            "USW00014920:2009",
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018"
+          ],
+          "startYear": 2009
+        },
+        {
+          "recordIds": [
+            "USW00014920:2010",
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019"
+          ],
+          "startYear": 2010
+        },
+        {
+          "recordIds": [
+            "USW00014920:2011",
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019",
+            "USW00014920:2020"
+          ],
+          "startYear": 2011
+        },
+        {
+          "recordIds": [
+            "USW00014920:2012",
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019",
+            "USW00014920:2020",
+            "USW00014920:2021"
+          ],
+          "startYear": 2012
+        },
+        {
+          "recordIds": [
+            "USW00014920:2013",
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019",
+            "USW00014920:2020",
+            "USW00014920:2021",
+            "USW00014920:2022"
+          ],
+          "startYear": 2013
+        },
+        {
+          "recordIds": [
+            "USW00014920:2014",
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019",
+            "USW00014920:2020",
+            "USW00014920:2021",
+            "USW00014920:2022",
+            "USW00014920:2023"
+          ],
+          "startYear": 2014
+        },
+        {
+          "recordIds": [
+            "USW00014920:2015",
+            "USW00014920:2016",
+            "USW00014920:2017",
+            "USW00014920:2018",
+            "USW00014920:2019",
+            "USW00014920:2020",
+            "USW00014920:2021",
+            "USW00014920:2022",
+            "USW00014920:2023",
+            "USW00014920:2024"
+          ],
+          "startYear": 2015
+        }
+      ],
+      "station": {
+        "distanceFromReferenceKm": 26.29,
+        "elevationM": 198.1,
+        "id": "USW00014920",
+        "latitude": 43.8792,
+        "longitude": -91.2531,
+        "name": "LA CROSSE MUNI AP"
+      },
+      "years": [
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2001
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2002
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2003
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2004
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2005
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2006
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2007
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2008
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2009
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2010
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2011
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2012
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2013
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2014
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2015
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2016
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2017
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2018
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2019
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2020
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2021
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2022
+        },
+        {
+          "days": 365,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2023
+        },
+        {
+          "days": 366,
+          "eligible": true,
+          "invalidByElement": {
+            "PRCP": {},
+            "TMAX": {},
+            "TMIN": {}
+          },
+          "invalidPreceding7Days": 0,
+          "minAboveMaxDays": 0,
+          "year": 2024
+        }
+      ]
+    }
+  ]
+}

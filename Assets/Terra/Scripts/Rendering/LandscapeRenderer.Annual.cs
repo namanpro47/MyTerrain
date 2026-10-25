@@ -13,7 +13,11 @@ namespace Terra.Rendering
         { foreach(var label in annualLabels.Values)if(label!=null){label.transform.localScale=Vector3.one*worldPerCssPixel;if(Camera.main!=null)label.transform.rotation=Camera.main.transform.rotation;} }
         public void AnnualStage(Site site,string stage,double maturity)
         {
+            if(annualLabels.TryGetValue(site.id,out var previous)&&previous!=null)
+            {if(Application.isPlaying)Object.Destroy(previous.gameObject);else Object.DestroyImmediate(previous.gameObject);}
             annualLabels.Remove(site.id);
+            // Finished projects speak through their models; only transitional/warning labels stay on the map.
+            if(stage=="OPERATING")return;
             if(stage==null||!proposals.TryGetValue(site.id,out var holder))return;
             // Construction hides the finished model while retaining its accurately sized foundation.
             if(stage=="BUILDING")
@@ -42,7 +46,7 @@ namespace Terra.Rendering
             var go=new GameObject("Annual status");go.transform.SetParent(holder,false);
             go.transform.position=new Vector3(x,Height(x,z)+12,z);go.transform.rotation=Quaternion.Euler(37,-32,0);
             var text=go.AddComponent<TextMeshPro>();text.font=TMP_Settings.defaultFontAsset;
-            text.text=stage=="ESTABLISHING"?"ESTABLISHING "+(maturity*100).ToString("0")+"%":stage;
+            text.text=stage=="ESTABLISHING"?"Growing "+(maturity*100).ToString("0")+"%":stage=="PROPOSED"?"Queued":stage=="BUILDING"?"Building":stage=="SUSPENDED"?"Paused":stage=="OPERATING"?"Operating":stage;
             text.fontSize=140;annualLabels[site.id]=text;text.alignment=TextAlignmentOptions.Center;text.color=stage=="PROPOSED"?new Color(1,.86f,.46f):Color.white;
             text.rectTransform.sizeDelta=new Vector2(800,180);text.renderer.sortingOrder=5;
         }

@@ -1,5 +1,7 @@
 # Hackpack and simulation data — October 25, 2026
 
+**Later implementation update:** the [pinned Wisconsin weather reference](../simulation-data/weather/README.md) now supplies a fully audited NOAA station subset, derived yearly drivers, a daily companion and coherent ten-year selection. [Evidence](evidence/weather-reference/README.md). The discovery notes below describe the earlier bounded audit; no hackpack bundle or new economic calibration has been found, and the runtime consumer remains separate work.
+
 ## Decision
 
 Use one **Coon Valley / Vernon County, Wisconsin** numerical reference for weather, farming and economic benchmarks across fictional scenario names and selected terrain. Terrain source provenance and per-location saves stay separate. County/state series retain their true geography; scenario budgets, construction prices, local exposure and response curves remain authored where evidence is missing.

@@ -1,0 +1,126 @@
+{
+  "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+  "samplerVersion": "terra-weather-contiguous-v1",
+  "vectors": [
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021",
+        "USW00014920:2022",
+        "USW00014920:2023",
+        "USW00014920:2024"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": "coon-valley-demo-1",
+      "startYear": 2015
+    },
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": "same-weather-comparison",
+      "startYear": 2012
+    },
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": "scenario-0",
+      "startYear": 2011
+    },
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": "scenario-1",
+      "startYear": 2006
+    },
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": "Wisconsin \ud83c\udf27",
+      "startYear": 2007
+    },
+    {
+      "packId": "coon-valley-weather-v1",
+      "packSha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+      "recordIds": [
+        "USW00014920:2003",
+        "USW00014920:2004",
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012"
+      ],
+      "samplerVersion": "terra-weather-contiguous-v1",
+      "schemaVersion": 1,
+      "sharedScenarioSeed": " leading/trailing ",
+      "startYear": 2003
+    }
+  ]
+}

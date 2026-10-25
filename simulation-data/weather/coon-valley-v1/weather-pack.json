@@ -1,0 +1,3020 @@
+{
+  "dailyCompanion": {
+    "bytes": 2109320,
+    "path": "daily-observations.json",
+    "purpose": "Exact ordered observations, including warmup year, for separately versioned crop calendars and event timing; no post-harvest inference from annual aggregates",
+    "sha256": "ce1128972981490c28c74bb4e291725345e7c0a4674781c460a4d987fbbbc840"
+  },
+  "derivationVersion": "terra-weather-drivers-v1",
+  "disclosure": "Fictional scenario \u00b7 weather and economic references: Coon Valley, Wisconsin \u00b7 other parameters are authored game assumptions.",
+  "eligibleWindows": [
+    {
+      "recordIds": [
+        "USW00014920:2001",
+        "USW00014920:2002",
+        "USW00014920:2003",
+        "USW00014920:2004",
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010"
+      ],
+      "startYear": 2001
+    },
+    {
+      "recordIds": [
+        "USW00014920:2002",
+        "USW00014920:2003",
+        "USW00014920:2004",
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011"
+      ],
+      "startYear": 2002
+    },
+    {
+      "recordIds": [
+        "USW00014920:2003",
+        "USW00014920:2004",
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012"
+      ],
+      "startYear": 2003
+    },
+    {
+      "recordIds": [
+        "USW00014920:2004",
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013"
+      ],
+      "startYear": 2004
+    },
+    {
+      "recordIds": [
+        "USW00014920:2005",
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014"
+      ],
+      "startYear": 2005
+    },
+    {
+      "recordIds": [
+        "USW00014920:2006",
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015"
+      ],
+      "startYear": 2006
+    },
+    {
+      "recordIds": [
+        "USW00014920:2007",
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016"
+      ],
+      "startYear": 2007
+    },
+    {
+      "recordIds": [
+        "USW00014920:2008",
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017"
+      ],
+      "startYear": 2008
+    },
+    {
+      "recordIds": [
+        "USW00014920:2009",
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018"
+      ],
+      "startYear": 2009
+    },
+    {
+      "recordIds": [
+        "USW00014920:2010",
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019"
+      ],
+      "startYear": 2010
+    },
+    {
+      "recordIds": [
+        "USW00014920:2011",
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020"
+      ],
+      "startYear": 2011
+    },
+    {
+      "recordIds": [
+        "USW00014920:2012",
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021"
+      ],
+      "startYear": 2012
+    },
+    {
+      "recordIds": [
+        "USW00014920:2013",
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021",
+        "USW00014920:2022"
+      ],
+      "startYear": 2013
+    },
+    {
+      "recordIds": [
+        "USW00014920:2014",
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021",
+        "USW00014920:2022",
+        "USW00014920:2023"
+      ],
+      "startYear": 2014
+    },
+    {
+      "recordIds": [
+        "USW00014920:2015",
+        "USW00014920:2016",
+        "USW00014920:2017",
+        "USW00014920:2018",
+        "USW00014920:2019",
+        "USW00014920:2020",
+        "USW00014920:2021",
+        "USW00014920:2022",
+        "USW00014920:2023",
+        "USW00014920:2024"
+      ],
+      "startYear": 2015
+    }
+  ],
+  "evidenceLevel": "derived-from-observed-daily-weather",
+  "packId": "coon-valley-weather-v1",
+  "records": [
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 8188,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 318,
+        "PRCP:T 0": 47,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 7,
+      "growingSeasonLongestDrySpellDays": 25,
+      "growingSeasonPrecipTenthsMm": 5081,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 427,
+          "date": "2001-04-11",
+          "dayOfYear": 101,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 368,
+          "recordId": "USW00014920:2001-04-11:PRCP",
+          "tmaxTenthsC": 206,
+          "tminTenthsC": 89
+        },
+        {
+          "antecedent7DaysTenthsMm": 165,
+          "date": "2001-05-02",
+          "dayOfYear": 122,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 404,
+          "recordId": "USW00014920:2001-05-02:PRCP",
+          "tmaxTenthsC": 161,
+          "tminTenthsC": 122
+        },
+        {
+          "antecedent7DaysTenthsMm": 168,
+          "date": "2001-06-14",
+          "dayOfYear": 165,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 267,
+          "recordId": "USW00014920:2001-06-14:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 127,
+          "date": "2001-09-06",
+          "dayOfYear": 249,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 447,
+          "recordId": "USW00014920:2001-09-06:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 447,
+          "date": "2001-09-07",
+          "dayOfYear": 250,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 485,
+          "recordId": "USW00014920:2001-09-07:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 178
+        }
+      ],
+      "recordId": "USW00014920:2001",
+      "stationId": "USW00014920",
+      "year": 2001
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7752,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 298,
+        "PRCP:T 0": 67,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 2,
+      "growingSeasonLongestDrySpellDays": 13,
+      "growingSeasonPrecipTenthsMm": 4531,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 89,
+          "date": "2002-04-11",
+          "dayOfYear": 101,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2002-04-11:PRCP",
+          "tmaxTenthsC": 189,
+          "tminTenthsC": 72
+        },
+        {
+          "antecedent7DaysTenthsMm": 152,
+          "date": "2002-04-27",
+          "dayOfYear": 117,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 292,
+          "recordId": "USW00014920:2002-04-27:PRCP",
+          "tmaxTenthsC": 83,
+          "tminTenthsC": 6
+        },
+        {
+          "antecedent7DaysTenthsMm": 249,
+          "date": "2002-06-03",
+          "dayOfYear": 154,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 345,
+          "recordId": "USW00014920:2002-06-03:PRCP",
+          "tmaxTenthsC": 178,
+          "tminTenthsC": 94
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2002-06-21",
+          "dayOfYear": 172,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 338,
+          "recordId": "USW00014920:2002-06-21:PRCP",
+          "tmaxTenthsC": 233,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 73,
+          "date": "2002-07-21",
+          "dayOfYear": 202,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 338,
+          "recordId": "USW00014920:2002-07-21:PRCP",
+          "tmaxTenthsC": 372,
+          "tminTenthsC": 228
+        },
+        {
+          "antecedent7DaysTenthsMm": 332,
+          "date": "2002-10-04",
+          "dayOfYear": 277,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 302,
+          "recordId": "USW00014920:2002-10-04:PRCP",
+          "tmaxTenthsC": 206,
+          "tminTenthsC": 83
+        }
+      ],
+      "recordId": "USW00014920:2002",
+      "stationId": "USW00014920",
+      "year": 2002
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 5706,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 303,
+        "PRCP:T 0": 62,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 3,
+      "growingSeasonLongestDrySpellDays": 20,
+      "growingSeasonPrecipTenthsMm": 3277,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 155,
+          "date": "2003-04-19",
+          "dayOfYear": 109,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 295,
+          "recordId": "USW00014920:2003-04-19:PRCP",
+          "tmaxTenthsC": 150,
+          "tminTenthsC": 61
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2003-09-12",
+          "dayOfYear": 255,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2003-09-12:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 363,
+          "date": "2003-09-18",
+          "dayOfYear": 261,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 251,
+          "recordId": "USW00014920:2003-09-18:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 111
+        }
+      ],
+      "recordId": "USW00014920:2003",
+      "stationId": "USW00014920",
+      "year": 2003
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 10532,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  0": 322,
+        "PRCP:T 0": 44,
+        "TMAX:  0": 366,
+        "TMIN:  0": 366
+      },
+      "growingSeasonHotDays": 0,
+      "growingSeasonLongestDrySpellDays": 9,
+      "growingSeasonPrecipTenthsMm": 7480,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 107,
+          "date": "2004-05-21",
+          "dayOfYear": 142,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 404,
+          "recordId": "USW00014920:2004-05-21:PRCP",
+          "tmaxTenthsC": 183,
+          "tminTenthsC": 94
+        },
+        {
+          "antecedent7DaysTenthsMm": 668,
+          "date": "2004-05-23",
+          "dayOfYear": 144,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 333,
+          "recordId": "USW00014920:2004-05-23:PRCP",
+          "tmaxTenthsC": 178,
+          "tminTenthsC": 89
+        },
+        {
+          "antecedent7DaysTenthsMm": 538,
+          "date": "2004-05-30",
+          "dayOfYear": 151,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 503,
+          "recordId": "USW00014920:2004-05-30:PRCP",
+          "tmaxTenthsC": 217,
+          "tminTenthsC": 144
+        },
+        {
+          "antecedent7DaysTenthsMm": 231,
+          "date": "2004-06-09",
+          "dayOfYear": 161,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 612,
+          "recordId": "USW00014920:2004-06-09:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 974,
+          "date": "2004-06-16",
+          "dayOfYear": 168,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 429,
+          "recordId": "USW00014920:2004-06-16:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 97,
+          "date": "2004-07-03",
+          "dayOfYear": 185,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 445,
+          "recordId": "USW00014920:2004-07-03:PRCP",
+          "tmaxTenthsC": 267,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 201,
+          "date": "2004-08-03",
+          "dayOfYear": 216,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 455,
+          "recordId": "USW00014920:2004-08-03:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2004-09-14",
+          "dayOfYear": 258,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 635,
+          "recordId": "USW00014920:2004-09-14:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 178
+        }
+      ],
+      "recordId": "USW00014920:2004",
+      "stationId": "USW00014920",
+      "year": 2004
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7709,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 298,
+        "PRCP:T 0": 67,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 6,
+      "growingSeasonLongestDrySpellDays": 14,
+      "growingSeasonPrecipTenthsMm": 5223,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 26,
+          "date": "2005-03-18",
+          "dayOfYear": 77,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 305,
+          "recordId": "USW00014920:2005-03-18:PRCP",
+          "tmaxTenthsC": -11,
+          "tminTenthsC": -33
+        },
+        {
+          "antecedent7DaysTenthsMm": 175,
+          "date": "2005-04-19",
+          "dayOfYear": 109,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 287,
+          "recordId": "USW00014920:2005-04-19:PRCP",
+          "tmaxTenthsC": 194,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 94,
+          "date": "2005-07-21",
+          "dayOfYear": 202,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 622,
+          "recordId": "USW00014920:2005-07-21:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 711,
+          "date": "2005-07-25",
+          "dayOfYear": 206,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 389,
+          "recordId": "USW00014920:2005-07-25:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 23,
+          "date": "2005-08-26",
+          "dayOfYear": 238,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 498,
+          "recordId": "USW00014920:2005-08-26:PRCP",
+          "tmaxTenthsC": 217,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 185,
+          "date": "2005-09-13",
+          "dayOfYear": 256,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 663,
+          "recordId": "USW00014920:2005-09-13:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 163,
+          "date": "2005-09-25",
+          "dayOfYear": 268,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 589,
+          "recordId": "USW00014920:2005-09-25:PRCP",
+          "tmaxTenthsC": 200,
+          "tminTenthsC": 161
+        }
+      ],
+      "recordId": "USW00014920:2005",
+      "stationId": "USW00014920",
+      "year": 2005
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7645,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 316,
+        "PRCP:T 0": 49,
+        "TMAX:  0": 364,
+        "TMAX:  W": 1,
+        "TMIN:  0": 364,
+        "TMIN:  W": 1
+      },
+      "growingSeasonHotDays": 7,
+      "growingSeasonLongestDrySpellDays": 11,
+      "growingSeasonPrecipTenthsMm": 4279,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 312,
+          "date": "2006-04-07",
+          "dayOfYear": 97,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 399,
+          "recordId": "USW00014920:2006-04-07:PRCP",
+          "tmaxTenthsC": 111,
+          "tminTenthsC": 0
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2006-05-08",
+          "dayOfYear": 128,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 432,
+          "recordId": "USW00014920:2006-05-08:PRCP",
+          "tmaxTenthsC": 194,
+          "tminTenthsC": 106
+        },
+        {
+          "antecedent7DaysTenthsMm": 86,
+          "date": "2006-06-25",
+          "dayOfYear": 176,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 381,
+          "recordId": "USW00014920:2006-06-25:PRCP",
+          "tmaxTenthsC": 200,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 170,
+          "date": "2006-08-24",
+          "dayOfYear": 236,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 259,
+          "recordId": "USW00014920:2006-08-24:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 162,
+          "date": "2006-09-11",
+          "dayOfYear": 254,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2006-09-11:PRCP",
+          "tmaxTenthsC": 139,
+          "tminTenthsC": 117
+        }
+      ],
+      "recordId": "USW00014920:2006",
+      "stationId": "USW00014920",
+      "year": 2006
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 10444,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 295,
+        "PRCP:T 0": 70,
+        "TMAX:  0": 363,
+        "TMAX:  W": 2,
+        "TMIN:  0": 363,
+        "TMIN:  W": 2
+      },
+      "growingSeasonHotDays": 2,
+      "growingSeasonLongestDrySpellDays": 17,
+      "growingSeasonPrecipTenthsMm": 6980,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 399,
+          "date": "2007-03-31",
+          "dayOfYear": 90,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 251,
+          "recordId": "USW00014920:2007-03-31:PRCP",
+          "tmaxTenthsC": 117,
+          "tminTenthsC": 67
+        },
+        {
+          "antecedent7DaysTenthsMm": 46,
+          "date": "2007-05-23",
+          "dayOfYear": 143,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 394,
+          "recordId": "USW00014920:2007-05-23:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 440,
+          "date": "2007-05-24",
+          "dayOfYear": 144,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 272,
+          "recordId": "USW00014920:2007-05-24:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 89
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2007-07-03",
+          "dayOfYear": 184,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 432,
+          "recordId": "USW00014920:2007-07-03:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 38,
+          "date": "2007-07-26",
+          "dayOfYear": 207,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 378,
+          "recordId": "USW00014920:2007-07-26:PRCP",
+          "tmaxTenthsC": 356,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2007-08-04",
+          "dayOfYear": 216,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 333,
+          "recordId": "USW00014920:2007-08-04:PRCP",
+          "tmaxTenthsC": 200,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 468,
+          "date": "2007-08-11",
+          "dayOfYear": 223,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 338,
+          "recordId": "USW00014920:2007-08-11:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 762,
+          "date": "2007-08-18",
+          "dayOfYear": 230,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 1029,
+          "recordId": "USW00014920:2007-08-18:PRCP",
+          "tmaxTenthsC": 167,
+          "tminTenthsC": 144
+        },
+        {
+          "antecedent7DaysTenthsMm": 1453,
+          "date": "2007-08-19",
+          "dayOfYear": 231,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 688,
+          "recordId": "USW00014920:2007-08-19:PRCP",
+          "tmaxTenthsC": 183,
+          "tminTenthsC": 144
+        },
+        {
+          "antecedent7DaysTenthsMm": 114,
+          "date": "2007-09-30",
+          "dayOfYear": 273,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 254,
+          "recordId": "USW00014920:2007-09-30:PRCP",
+          "tmaxTenthsC": 267,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 315,
+          "date": "2007-10-02",
+          "dayOfYear": 275,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 325,
+          "recordId": "USW00014920:2007-10-02:PRCP",
+          "tmaxTenthsC": 206,
+          "tminTenthsC": 144
+        },
+        {
+          "antecedent7DaysTenthsMm": 33,
+          "date": "2007-12-01",
+          "dayOfYear": 335,
+          "inAnalysisWindow": false,
+          "month": 12,
+          "precipTenthsMm": 307,
+          "recordId": "USW00014920:2007-12-01:PRCP",
+          "tmaxTenthsC": 17,
+          "tminTenthsC": -111
+        }
+      ],
+      "recordId": "USW00014920:2007",
+      "stationId": "USW00014920",
+      "year": 2007
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 9312,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  0": 313,
+        "PRCP:T 0": 53,
+        "TMAX:  0": 366,
+        "TMIN:  0": 366
+      },
+      "growingSeasonHotDays": 0,
+      "growingSeasonLongestDrySpellDays": 11,
+      "growingSeasonPrecipTenthsMm": 5114,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 3,
+          "date": "2008-03-31",
+          "dayOfYear": 91,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 318,
+          "recordId": "USW00014920:2008-03-31:PRCP",
+          "tmaxTenthsC": 50,
+          "tminTenthsC": 0
+        },
+        {
+          "antecedent7DaysTenthsMm": 82,
+          "date": "2008-04-10",
+          "dayOfYear": 101,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 305,
+          "recordId": "USW00014920:2008-04-10:PRCP",
+          "tmaxTenthsC": 61,
+          "tminTenthsC": 28
+        },
+        {
+          "antecedent7DaysTenthsMm": 214,
+          "date": "2008-04-18",
+          "dayOfYear": 109,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 401,
+          "recordId": "USW00014920:2008-04-18:PRCP",
+          "tmaxTenthsC": 89,
+          "tminTenthsC": 56
+        },
+        {
+          "antecedent7DaysTenthsMm": 627,
+          "date": "2008-04-24",
+          "dayOfYear": 115,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 328,
+          "recordId": "USW00014920:2008-04-24:PRCP",
+          "tmaxTenthsC": 178,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 10,
+          "date": "2008-05-29",
+          "dayOfYear": 150,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 368,
+          "recordId": "USW00014920:2008-05-29:PRCP",
+          "tmaxTenthsC": 144,
+          "tminTenthsC": 72
+        },
+        {
+          "antecedent7DaysTenthsMm": 125,
+          "date": "2008-06-07",
+          "dayOfYear": 159,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 378,
+          "recordId": "USW00014920:2008-06-07:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 495,
+          "date": "2008-06-08",
+          "dayOfYear": 160,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 739,
+          "recordId": "USW00014920:2008-06-08:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 1211,
+          "date": "2008-06-12",
+          "dayOfYear": 164,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 330,
+          "recordId": "USW00014920:2008-06-12:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 20,
+          "date": "2008-07-07",
+          "dayOfYear": 189,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2008-07-07:PRCP",
+          "tmaxTenthsC": 306,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 391,
+          "date": "2008-07-11",
+          "dayOfYear": 193,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 411,
+          "recordId": "USW00014920:2008-07-11:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 490,
+          "date": "2008-07-16",
+          "dayOfYear": 198,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 635,
+          "recordId": "USW00014920:2008-07-16:PRCP",
+          "tmaxTenthsC": 322,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2008-09-24",
+          "dayOfYear": 268,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 282,
+          "recordId": "USW00014920:2008-09-24:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 106
+        }
+      ],
+      "recordId": "USW00014920:2008",
+      "stationId": "USW00014920",
+      "year": 2008
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7724,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 302,
+        "PRCP:T 0": 63,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 1,
+      "growingSeasonLongestDrySpellDays": 24,
+      "growingSeasonPrecipTenthsMm": 3908,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 252,
+          "date": "2009-04-26",
+          "dayOfYear": 116,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 338,
+          "recordId": "USW00014920:2009-04-26:PRCP",
+          "tmaxTenthsC": 167,
+          "tminTenthsC": 56
+        },
+        {
+          "antecedent7DaysTenthsMm": 249,
+          "date": "2009-05-27",
+          "dayOfYear": 147,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 310,
+          "recordId": "USW00014920:2009-05-27:PRCP",
+          "tmaxTenthsC": 139,
+          "tminTenthsC": 106
+        },
+        {
+          "antecedent7DaysTenthsMm": 241,
+          "date": "2009-08-08",
+          "dayOfYear": 220,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 648,
+          "recordId": "USW00014920:2009-08-08:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 86,
+          "date": "2009-10-21",
+          "dayOfYear": 294,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 406,
+          "recordId": "USW00014920:2009-10-21:PRCP",
+          "tmaxTenthsC": 106,
+          "tminTenthsC": 61
+        }
+      ],
+      "recordId": "USW00014920:2009",
+      "stationId": "USW00014920",
+      "year": 2009
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 10894,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  0": 302,
+        "PRCP:T 0": 63,
+        "TMAX:  0": 365,
+        "TMIN:  0": 365
+      },
+      "growingSeasonHotDays": 0,
+      "growingSeasonLongestDrySpellDays": 10,
+      "growingSeasonPrecipTenthsMm": 7960,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 370,
+          "date": "2010-05-13",
+          "dayOfYear": 133,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2010-05-13:PRCP",
+          "tmaxTenthsC": 150,
+          "tminTenthsC": 83
+        },
+        {
+          "antecedent7DaysTenthsMm": 447,
+          "date": "2010-06-17",
+          "dayOfYear": 168,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 328,
+          "recordId": "USW00014920:2010-06-17:PRCP",
+          "tmaxTenthsC": 306,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 463,
+          "date": "2010-06-23",
+          "dayOfYear": 174,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 490,
+          "recordId": "USW00014920:2010-06-23:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 625,
+          "date": "2010-06-25",
+          "dayOfYear": 176,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 419,
+          "recordId": "USW00014920:2010-06-25:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 84,
+          "date": "2010-07-14",
+          "dayOfYear": 195,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 381,
+          "recordId": "USW00014920:2010-07-14:PRCP",
+          "tmaxTenthsC": 333,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 64,
+          "date": "2010-07-22",
+          "dayOfYear": 203,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 406,
+          "recordId": "USW00014920:2010-07-22:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2010-08-08",
+          "dayOfYear": 220,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 536,
+          "recordId": "USW00014920:2010-08-08:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 602,
+          "date": "2010-08-13",
+          "dayOfYear": 225,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 467,
+          "recordId": "USW00014920:2010-08-13:PRCP",
+          "tmaxTenthsC": 306,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2010-08-31",
+          "dayOfYear": 243,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 290,
+          "recordId": "USW00014920:2010-08-31:PRCP",
+          "tmaxTenthsC": 278,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 20,
+          "date": "2010-09-15",
+          "dayOfYear": 258,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 460,
+          "recordId": "USW00014920:2010-09-15:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 652,
+          "date": "2010-09-22",
+          "dayOfYear": 265,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 376,
+          "recordId": "USW00014920:2010-09-22:PRCP",
+          "tmaxTenthsC": 228,
+          "tminTenthsC": 100
+        },
+        {
+          "antecedent7DaysTenthsMm": 568,
+          "date": "2010-09-23",
+          "dayOfYear": 266,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 607,
+          "recordId": "USW00014920:2010-09-23:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2010-10-23",
+          "dayOfYear": 296,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 251,
+          "recordId": "USW00014920:2010-10-23:PRCP",
+          "tmaxTenthsC": 172,
+          "tminTenthsC": 111
+        },
+        {
+          "antecedent7DaysTenthsMm": 104,
+          "date": "2010-12-11",
+          "dayOfYear": 345,
+          "inAnalysisWindow": false,
+          "month": 12,
+          "precipTenthsMm": 251,
+          "recordId": "USW00014920:2010-12-11:PRCP",
+          "tmaxTenthsC": -17,
+          "tminTenthsC": -56
+        }
+      ],
+      "recordId": "USW00014920:2010",
+      "stationId": "USW00014920",
+      "year": 2010
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 8921,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 1,
+        "PRCP:  X": 274,
+        "PRCP:  Z": 6,
+        "PRCP:T X": 76,
+        "PRCP:T Z": 8,
+        "TMAX:  W": 1,
+        "TMAX:  X": 362,
+        "TMAX:  Z": 2,
+        "TMIN:  W": 1,
+        "TMIN:  X": 362,
+        "TMIN:  Z": 2
+      },
+      "growingSeasonHotDays": 7,
+      "growingSeasonLongestDrySpellDays": 16,
+      "growingSeasonPrecipTenthsMm": 5396,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 132,
+          "date": "2011-03-22",
+          "dayOfYear": 81,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 462,
+          "recordId": "USW00014920:2011-03-22:PRCP",
+          "tmaxTenthsC": 56,
+          "tminTenthsC": 11
+        },
+        {
+          "antecedent7DaysTenthsMm": 193,
+          "date": "2011-04-10",
+          "dayOfYear": 100,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 361,
+          "recordId": "USW00014920:2011-04-10:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 106
+        },
+        {
+          "antecedent7DaysTenthsMm": 277,
+          "date": "2011-04-26",
+          "dayOfYear": 116,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 282,
+          "recordId": "USW00014920:2011-04-26:PRCP",
+          "tmaxTenthsC": 100,
+          "tminTenthsC": 44
+        },
+        {
+          "antecedent7DaysTenthsMm": 20,
+          "date": "2011-05-22",
+          "dayOfYear": 142,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 305,
+          "recordId": "USW00014920:2011-05-22:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 261,
+          "date": "2011-06-18",
+          "dayOfYear": 169,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 1143,
+          "recordId": "USW00014920:2011-06-18:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 29,
+          "date": "2011-07-23",
+          "dayOfYear": 204,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 328,
+          "recordId": "USW00014920:2011-07-23:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 328,
+          "date": "2011-07-27",
+          "dayOfYear": 208,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 292,
+          "recordId": "USW00014920:2011-07-27:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 20,
+          "date": "2011-08-13",
+          "dayOfYear": 225,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 259,
+          "recordId": "USW00014920:2011-08-13:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 167
+        }
+      ],
+      "recordId": "USW00014920:2011",
+      "stationId": "USW00014920",
+      "year": 2011
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 6781,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  X": 317,
+        "PRCP:  Z": 2,
+        "PRCP:T X": 47,
+        "TMAX:  X": 366,
+        "TMIN:  X": 366
+      },
+      "growingSeasonHotDays": 13,
+      "growingSeasonLongestDrySpellDays": 22,
+      "growingSeasonPrecipTenthsMm": 3185,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 307,
+          "date": "2012-04-19",
+          "dayOfYear": 110,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 406,
+          "recordId": "USW00014920:2012-04-19:PRCP",
+          "tmaxTenthsC": 111,
+          "tminTenthsC": 28
+        },
+        {
+          "antecedent7DaysTenthsMm": 236,
+          "date": "2012-06-16",
+          "dayOfYear": 168,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 257,
+          "recordId": "USW00014920:2012-06-16:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 460,
+          "date": "2012-06-20",
+          "dayOfYear": 172,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 305,
+          "recordId": "USW00014920:2012-06-20:PRCP",
+          "tmaxTenthsC": 333,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 74,
+          "date": "2012-07-24",
+          "dayOfYear": 206,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 333,
+          "recordId": "USW00014920:2012-07-24:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 48,
+          "date": "2012-08-04",
+          "dayOfYear": 217,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 335,
+          "recordId": "USW00014920:2012-08-04:PRCP",
+          "tmaxTenthsC": 267,
+          "tminTenthsC": 183
+        }
+      ],
+      "recordId": "USW00014920:2012",
+      "stationId": "USW00014920",
+      "year": 2012
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 9124,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 234,
+        "PRCP:  X": 64,
+        "PRCP:  Z": 1,
+        "PRCP:T W": 39,
+        "PRCP:T X": 24,
+        "PRCP:T Z": 3,
+        "TMAX:  W": 275,
+        "TMAX:  X": 90,
+        "TMIN:  W": 275,
+        "TMIN:  X": 90
+      },
+      "growingSeasonHotDays": 7,
+      "growingSeasonLongestDrySpellDays": 22,
+      "growingSeasonPrecipTenthsMm": 4655,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 54,
+          "date": "2013-04-09",
+          "dayOfYear": 99,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 465,
+          "recordId": "USW00014920:2013-04-09:PRCP",
+          "tmaxTenthsC": 61,
+          "tminTenthsC": 17
+        },
+        {
+          "antecedent7DaysTenthsMm": 651,
+          "date": "2013-04-14",
+          "dayOfYear": 104,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2013-04-14:PRCP",
+          "tmaxTenthsC": 50,
+          "tminTenthsC": 0
+        },
+        {
+          "antecedent7DaysTenthsMm": 218,
+          "date": "2013-05-19",
+          "dayOfYear": 139,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 297,
+          "recordId": "USW00014920:2013-05-19:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 338,
+          "date": "2013-05-29",
+          "dayOfYear": 149,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 419,
+          "recordId": "USW00014920:2013-05-29:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 627,
+          "date": "2013-05-30",
+          "dayOfYear": 150,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 284,
+          "recordId": "USW00014920:2013-05-30:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 67,
+          "date": "2013-06-21",
+          "dayOfYear": 172,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 386,
+          "recordId": "USW00014920:2013-06-21:PRCP",
+          "tmaxTenthsC": 278,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 450,
+          "date": "2013-06-22",
+          "dayOfYear": 173,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2013-06-22:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 269,
+          "date": "2013-10-04",
+          "dayOfYear": 277,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 373,
+          "recordId": "USW00014920:2013-10-04:PRCP",
+          "tmaxTenthsC": 194,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 642,
+          "date": "2013-10-05",
+          "dayOfYear": 278,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2013-10-05:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 94
+        },
+        {
+          "antecedent7DaysTenthsMm": 46,
+          "date": "2013-11-05",
+          "dayOfYear": 309,
+          "inAnalysisWindow": false,
+          "month": 11,
+          "precipTenthsMm": 272,
+          "recordId": "USW00014920:2013-11-05:PRCP",
+          "tmaxTenthsC": 78,
+          "tminTenthsC": 11
+        }
+      ],
+      "recordId": "USW00014920:2013",
+      "stationId": "USW00014920",
+      "year": 2013
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 9582,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 315,
+        "PRCP:T W": 49,
+        "PRCP:T Z": 1,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 0,
+      "growingSeasonLongestDrySpellDays": 10,
+      "growingSeasonPrecipTenthsMm": 5435,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 3,
+          "date": "2014-04-12",
+          "dayOfYear": 102,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 450,
+          "recordId": "USW00014920:2014-04-12:PRCP",
+          "tmaxTenthsC": 117,
+          "tminTenthsC": 67
+        },
+        {
+          "antecedent7DaysTenthsMm": 453,
+          "date": "2014-04-13",
+          "dayOfYear": 103,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 310,
+          "recordId": "USW00014920:2014-04-13:PRCP",
+          "tmaxTenthsC": 83,
+          "tminTenthsC": 11
+        },
+        {
+          "antecedent7DaysTenthsMm": 112,
+          "date": "2014-04-24",
+          "dayOfYear": 114,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 345,
+          "recordId": "USW00014920:2014-04-24:PRCP",
+          "tmaxTenthsC": 89,
+          "tminTenthsC": 44
+        },
+        {
+          "antecedent7DaysTenthsMm": 25,
+          "date": "2014-06-16",
+          "dayOfYear": 167,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 330,
+          "recordId": "USW00014920:2014-06-16:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 132,
+          "date": "2014-07-12",
+          "dayOfYear": 193,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 759,
+          "recordId": "USW00014920:2014-07-12:PRCP",
+          "tmaxTenthsC": 250,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 18,
+          "date": "2014-08-18",
+          "dayOfYear": 230,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 274,
+          "recordId": "USW00014920:2014-08-18:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 3,
+          "date": "2014-10-02",
+          "dayOfYear": 275,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 345,
+          "recordId": "USW00014920:2014-10-02:PRCP",
+          "tmaxTenthsC": 200,
+          "tminTenthsC": 139
+        }
+      ],
+      "recordId": "USW00014920:2014",
+      "stationId": "USW00014920",
+      "year": 2014
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 8762,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 328,
+        "PRCP:T W": 37,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 2,
+      "growingSeasonLongestDrySpellDays": 9,
+      "growingSeasonPrecipTenthsMm": 4892,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 81,
+          "date": "2015-04-07",
+          "dayOfYear": 97,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 345,
+          "recordId": "USW00014920:2015-04-07:PRCP",
+          "tmaxTenthsC": 89,
+          "tminTenthsC": 33
+        },
+        {
+          "antecedent7DaysTenthsMm": 439,
+          "date": "2015-04-09",
+          "dayOfYear": 99,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 361,
+          "recordId": "USW00014920:2015-04-09:PRCP",
+          "tmaxTenthsC": 72,
+          "tminTenthsC": 11
+        },
+        {
+          "antecedent7DaysTenthsMm": 264,
+          "date": "2015-05-26",
+          "dayOfYear": 146,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 279,
+          "recordId": "USW00014920:2015-05-26:PRCP",
+          "tmaxTenthsC": 211,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 545,
+          "date": "2015-05-29",
+          "dayOfYear": 149,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 424,
+          "recordId": "USW00014920:2015-05-29:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 137,
+          "date": "2015-06-11",
+          "dayOfYear": 162,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 328,
+          "recordId": "USW00014920:2015-06-11:PRCP",
+          "tmaxTenthsC": 189,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2015-08-28",
+          "dayOfYear": 240,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 378,
+          "recordId": "USW00014920:2015-08-28:PRCP",
+          "tmaxTenthsC": 194,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 91,
+          "date": "2015-09-08",
+          "dayOfYear": 251,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 292,
+          "recordId": "USW00014920:2015-09-08:PRCP",
+          "tmaxTenthsC": 267,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 54,
+          "date": "2015-10-27",
+          "dayOfYear": 300,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 251,
+          "recordId": "USW00014920:2015-10-27:PRCP",
+          "tmaxTenthsC": 150,
+          "tminTenthsC": 78
+        },
+        {
+          "antecedent7DaysTenthsMm": 15,
+          "date": "2015-12-13",
+          "dayOfYear": 347,
+          "inAnalysisWindow": false,
+          "month": 12,
+          "precipTenthsMm": 434,
+          "recordId": "USW00014920:2015-12-13:PRCP",
+          "tmaxTenthsC": 78,
+          "tminTenthsC": 56
+        },
+        {
+          "antecedent7DaysTenthsMm": 449,
+          "date": "2015-12-14",
+          "dayOfYear": 348,
+          "inAnalysisWindow": false,
+          "month": 12,
+          "precipTenthsMm": 368,
+          "recordId": "USW00014920:2015-12-14:PRCP",
+          "tmaxTenthsC": 83,
+          "tminTenthsC": 17
+        }
+      ],
+      "recordId": "USW00014920:2015",
+      "stationId": "USW00014920",
+      "year": 2015
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 11372,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  W": 312,
+        "PRCP:T W": 54,
+        "TMAX:  W": 366,
+        "TMIN:  W": 366
+      },
+      "growingSeasonHotDays": 2,
+      "growingSeasonLongestDrySpellDays": 11,
+      "growingSeasonPrecipTenthsMm": 8342,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 30,
+          "date": "2016-03-15",
+          "dayOfYear": 75,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 302,
+          "recordId": "USW00014920:2016-03-15:PRCP",
+          "tmaxTenthsC": 122,
+          "tminTenthsC": 72
+        },
+        {
+          "antecedent7DaysTenthsMm": 319,
+          "date": "2016-05-31",
+          "dayOfYear": 152,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 366,
+          "recordId": "USW00014920:2016-05-31:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 657,
+          "date": "2016-06-14",
+          "dayOfYear": 166,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 488,
+          "recordId": "USW00014920:2016-06-14:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 56,
+          "date": "2016-06-30",
+          "dayOfYear": 182,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 287,
+          "recordId": "USW00014920:2016-06-30:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 462,
+          "date": "2016-07-07",
+          "dayOfYear": 189,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 272,
+          "recordId": "USW00014920:2016-07-07:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 437,
+          "date": "2016-07-23",
+          "dayOfYear": 205,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2016-07-23:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 222
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2016-08-04",
+          "dayOfYear": 217,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 340,
+          "recordId": "USW00014920:2016-08-04:PRCP",
+          "tmaxTenthsC": 333,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 391,
+          "date": "2016-08-16",
+          "dayOfYear": 229,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 262,
+          "recordId": "USW00014920:2016-08-16:PRCP",
+          "tmaxTenthsC": 306,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 518,
+          "date": "2016-08-19",
+          "dayOfYear": 232,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 358,
+          "recordId": "USW00014920:2016-08-19:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 127,
+          "date": "2016-09-06",
+          "dayOfYear": 250,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 361,
+          "recordId": "USW00014920:2016-09-06:PRCP",
+          "tmaxTenthsC": 306,
+          "tminTenthsC": 217
+        },
+        {
+          "antecedent7DaysTenthsMm": 689,
+          "date": "2016-09-09",
+          "dayOfYear": 253,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 447,
+          "recordId": "USW00014920:2016-09-09:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 202,
+          "date": "2016-09-21",
+          "dayOfYear": 265,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 805,
+          "recordId": "USW00014920:2016-09-21:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 1004,
+          "date": "2016-09-22",
+          "dayOfYear": 266,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 389,
+          "recordId": "USW00014920:2016-09-22:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 107,
+          "date": "2016-10-26",
+          "dayOfYear": 300,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 328,
+          "recordId": "USW00014920:2016-10-26:PRCP",
+          "tmaxTenthsC": 94,
+          "tminTenthsC": 61
+        }
+      ],
+      "recordId": "USW00014920:2016",
+      "stationId": "USW00014920",
+      "year": 2016
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 10064,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 300,
+        "PRCP:T W": 57,
+        "PRCP:T Z": 8,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 6,
+      "growingSeasonLongestDrySpellDays": 13,
+      "growingSeasonPrecipTenthsMm": 5648,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 61,
+          "date": "2017-04-03",
+          "dayOfYear": 93,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 279,
+          "recordId": "USW00014920:2017-04-03:PRCP",
+          "tmaxTenthsC": 106,
+          "tminTenthsC": 89
+        },
+        {
+          "antecedent7DaysTenthsMm": 302,
+          "date": "2017-04-19",
+          "dayOfYear": 109,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2017-04-19:PRCP",
+          "tmaxTenthsC": 144,
+          "tminTenthsC": 94
+        },
+        {
+          "antecedent7DaysTenthsMm": 234,
+          "date": "2017-05-16",
+          "dayOfYear": 136,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 325,
+          "recordId": "USW00014920:2017-05-16:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 546,
+          "date": "2017-05-17",
+          "dayOfYear": 137,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 607,
+          "recordId": "USW00014920:2017-05-17:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 241,
+          "date": "2017-06-16",
+          "dayOfYear": 167,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2017-06-16:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 448,
+          "date": "2017-06-22",
+          "dayOfYear": 173,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2017-06-22:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 195,
+          "date": "2017-07-19",
+          "dayOfYear": 200,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 724,
+          "recordId": "USW00014920:2017-07-19:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 739,
+          "date": "2017-07-20",
+          "dayOfYear": 201,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 584,
+          "recordId": "USW00014920:2017-07-20:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 211
+        },
+        {
+          "antecedent7DaysTenthsMm": 185,
+          "date": "2017-10-06",
+          "dayOfYear": 279,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 396,
+          "recordId": "USW00014920:2017-10-06:PRCP",
+          "tmaxTenthsC": 172,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 581,
+          "date": "2017-10-07",
+          "dayOfYear": 280,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 376,
+          "recordId": "USW00014920:2017-10-07:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 139
+        }
+      ],
+      "recordId": "USW00014920:2017",
+      "stationId": "USW00014920",
+      "year": 2017
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 10828,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 316,
+        "PRCP:T W": 49,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 7,
+      "growingSeasonLongestDrySpellDays": 11,
+      "growingSeasonPrecipTenthsMm": 6909,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2018-04-13",
+          "dayOfYear": 103,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 307,
+          "recordId": "USW00014920:2018-04-13:PRCP",
+          "tmaxTenthsC": 78,
+          "tminTenthsC": 17
+        },
+        {
+          "antecedent7DaysTenthsMm": 295,
+          "date": "2018-05-03",
+          "dayOfYear": 123,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 310,
+          "recordId": "USW00014920:2018-05-03:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 117
+        },
+        {
+          "antecedent7DaysTenthsMm": 211,
+          "date": "2018-05-11",
+          "dayOfYear": 131,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 269,
+          "recordId": "USW00014920:2018-05-11:PRCP",
+          "tmaxTenthsC": 139,
+          "tminTenthsC": 39
+        },
+        {
+          "antecedent7DaysTenthsMm": 94,
+          "date": "2018-05-30",
+          "dayOfYear": 150,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 282,
+          "recordId": "USW00014920:2018-05-30:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 194
+        },
+        {
+          "antecedent7DaysTenthsMm": 77,
+          "date": "2018-06-09",
+          "dayOfYear": 160,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 287,
+          "recordId": "USW00014920:2018-06-09:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 186,
+          "date": "2018-08-27",
+          "dayOfYear": 239,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 772,
+          "recordId": "USW00014920:2018-08-27:PRCP",
+          "tmaxTenthsC": 322,
+          "tminTenthsC": 217
+        },
+        {
+          "antecedent7DaysTenthsMm": 884,
+          "date": "2018-08-28",
+          "dayOfYear": 240,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2018-08-28:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 648,
+          "date": "2018-09-04",
+          "dayOfYear": 247,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 366,
+          "recordId": "USW00014920:2018-09-04:PRCP",
+          "tmaxTenthsC": 311,
+          "tminTenthsC": 222
+        },
+        {
+          "antecedent7DaysTenthsMm": 58,
+          "date": "2018-09-18",
+          "dayOfYear": 261,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2018-09-18:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 167
+        },
+        {
+          "antecedent7DaysTenthsMm": 413,
+          "date": "2018-09-20",
+          "dayOfYear": 263,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 284,
+          "recordId": "USW00014920:2018-09-20:PRCP",
+          "tmaxTenthsC": 261,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 297,
+          "date": "2018-10-08",
+          "dayOfYear": 281,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 310,
+          "recordId": "USW00014920:2018-10-08:PRCP",
+          "tmaxTenthsC": 178,
+          "tminTenthsC": 100
+        },
+        {
+          "antecedent7DaysTenthsMm": 91,
+          "date": "2018-11-04",
+          "dayOfYear": 308,
+          "inAnalysisWindow": false,
+          "month": 11,
+          "precipTenthsMm": 450,
+          "recordId": "USW00014920:2018-11-04:PRCP",
+          "tmaxTenthsC": 78,
+          "tminTenthsC": 33
+        }
+      ],
+      "recordId": "USW00014920:2018",
+      "stationId": "USW00014920",
+      "year": 2018
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 11358,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 310,
+        "PRCP:T W": 53,
+        "PRCP:T Z": 2,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 1,
+      "growingSeasonLongestDrySpellDays": 7,
+      "growingSeasonPrecipTenthsMm": 6695,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 201,
+          "date": "2019-04-11",
+          "dayOfYear": 101,
+          "inAnalysisWindow": false,
+          "month": 4,
+          "precipTenthsMm": 267,
+          "recordId": "USW00014920:2019-04-11:PRCP",
+          "tmaxTenthsC": 33,
+          "tminTenthsC": 0
+        },
+        {
+          "antecedent7DaysTenthsMm": 85,
+          "date": "2019-05-08",
+          "dayOfYear": 128,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 262,
+          "recordId": "USW00014920:2019-05-08:PRCP",
+          "tmaxTenthsC": 106,
+          "tminTenthsC": 67
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2019-05-16",
+          "dayOfYear": 136,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 257,
+          "recordId": "USW00014920:2019-05-16:PRCP",
+          "tmaxTenthsC": 289,
+          "tminTenthsC": 161
+        },
+        {
+          "antecedent7DaysTenthsMm": 280,
+          "date": "2019-05-18",
+          "dayOfYear": 138,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 297,
+          "recordId": "USW00014920:2019-05-18:PRCP",
+          "tmaxTenthsC": 161,
+          "tminTenthsC": 89
+        },
+        {
+          "antecedent7DaysTenthsMm": 201,
+          "date": "2019-05-27",
+          "dayOfYear": 147,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 287,
+          "recordId": "USW00014920:2019-05-27:PRCP",
+          "tmaxTenthsC": 178,
+          "tminTenthsC": 122
+        },
+        {
+          "antecedent7DaysTenthsMm": 44,
+          "date": "2019-06-12",
+          "dayOfYear": 163,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 259,
+          "recordId": "USW00014920:2019-06-12:PRCP",
+          "tmaxTenthsC": 211,
+          "tminTenthsC": 117
+        },
+        {
+          "antecedent7DaysTenthsMm": 3,
+          "date": "2019-06-23",
+          "dayOfYear": 174,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2019-06-23:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 71,
+          "date": "2019-07-18",
+          "dayOfYear": 199,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 521,
+          "recordId": "USW00014920:2019-07-18:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 222
+        },
+        {
+          "antecedent7DaysTenthsMm": 592,
+          "date": "2019-07-19",
+          "dayOfYear": 200,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 417,
+          "recordId": "USW00014920:2019-07-19:PRCP",
+          "tmaxTenthsC": 361,
+          "tminTenthsC": 228
+        },
+        {
+          "antecedent7DaysTenthsMm": 455,
+          "date": "2019-09-12",
+          "dayOfYear": 255,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 429,
+          "recordId": "USW00014920:2019-09-12:PRCP",
+          "tmaxTenthsC": 211,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 421,
+          "date": "2019-09-24",
+          "dayOfYear": 267,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 312,
+          "recordId": "USW00014920:2019-09-24:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 139
+        },
+        {
+          "antecedent7DaysTenthsMm": 368,
+          "date": "2019-10-01",
+          "dayOfYear": 274,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 404,
+          "recordId": "USW00014920:2019-10-01:PRCP",
+          "tmaxTenthsC": 267,
+          "tminTenthsC": 144
+        },
+        {
+          "antecedent7DaysTenthsMm": 23,
+          "date": "2019-10-21",
+          "dayOfYear": 294,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 409,
+          "recordId": "USW00014920:2019-10-21:PRCP",
+          "tmaxTenthsC": 183,
+          "tminTenthsC": 78
+        }
+      ],
+      "recordId": "USW00014920:2019",
+      "stationId": "USW00014920",
+      "year": 2019
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7836,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  W": 319,
+        "PRCP:T W": 42,
+        "PRCP:T Z": 5,
+        "TMAX:  W": 366,
+        "TMIN:  W": 366
+      },
+      "growingSeasonHotDays": 6,
+      "growingSeasonLongestDrySpellDays": 19,
+      "growingSeasonPrecipTenthsMm": 5040,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 122,
+          "date": "2020-05-25",
+          "dayOfYear": 146,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 274,
+          "recordId": "USW00014920:2020-05-25:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 191,
+          "date": "2020-06-02",
+          "dayOfYear": 154,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 358,
+          "recordId": "USW00014920:2020-06-02:PRCP",
+          "tmaxTenthsC": 356,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 520,
+          "date": "2020-06-09",
+          "dayOfYear": 161,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 485,
+          "recordId": "USW00014920:2020-06-09:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 213,
+          "date": "2020-08-31",
+          "dayOfYear": 244,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 503,
+          "recordId": "USW00014920:2020-08-31:PRCP",
+          "tmaxTenthsC": 250,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 3,
+          "date": "2020-09-24",
+          "dayOfYear": 268,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 338,
+          "recordId": "USW00014920:2020-09-24:PRCP",
+          "tmaxTenthsC": 211,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 150,
+          "date": "2020-11-10",
+          "dayOfYear": 315,
+          "inAnalysisWindow": false,
+          "month": 11,
+          "precipTenthsMm": 274,
+          "recordId": "USW00014920:2020-11-10:PRCP",
+          "tmaxTenthsC": 67,
+          "tminTenthsC": 6
+        }
+      ],
+      "recordId": "USW00014920:2020",
+      "stationId": "USW00014920",
+      "year": 2020
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 9492,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 317,
+        "PRCP:T W": 48,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 8,
+      "growingSeasonLongestDrySpellDays": 16,
+      "growingSeasonPrecipTenthsMm": 7252,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 138,
+          "date": "2021-05-02",
+          "dayOfYear": 122,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 297,
+          "recordId": "USW00014920:2021-05-02:PRCP",
+          "tmaxTenthsC": 294,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 84,
+          "date": "2021-05-23",
+          "dayOfYear": 143,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 295,
+          "recordId": "USW00014920:2021-05-23:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2021-06-17",
+          "dayOfYear": 168,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 376,
+          "recordId": "USW00014920:2021-06-17:PRCP",
+          "tmaxTenthsC": 333,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 61,
+          "date": "2021-06-26",
+          "dayOfYear": 177,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 704,
+          "recordId": "USW00014920:2021-06-26:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 189
+        },
+        {
+          "antecedent7DaysTenthsMm": 84,
+          "date": "2021-07-14",
+          "dayOfYear": 195,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 531,
+          "recordId": "USW00014920:2021-07-14:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 36,
+          "date": "2021-07-27",
+          "dayOfYear": 208,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 343,
+          "recordId": "USW00014920:2021-07-27:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 379,
+          "date": "2021-07-28",
+          "dayOfYear": 209,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 257,
+          "recordId": "USW00014920:2021-07-28:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 48,
+          "date": "2021-08-07",
+          "dayOfYear": 219,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 1420,
+          "recordId": "USW00014920:2021-08-07:PRCP",
+          "tmaxTenthsC": 233,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 1463,
+          "date": "2021-08-08",
+          "dayOfYear": 220,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 450,
+          "recordId": "USW00014920:2021-08-08:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 217
+        },
+        {
+          "antecedent7DaysTenthsMm": 338,
+          "date": "2021-08-27",
+          "dayOfYear": 239,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 640,
+          "recordId": "USW00014920:2021-08-27:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 200
+        }
+      ],
+      "recordId": "USW00014920:2021",
+      "stationId": "USW00014920",
+      "year": 2021
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7605,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 321,
+        "PRCP:T W": 44,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 5,
+      "growingSeasonLongestDrySpellDays": 13,
+      "growingSeasonPrecipTenthsMm": 4679,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 76,
+          "date": "2022-05-19",
+          "dayOfYear": 139,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 358,
+          "recordId": "USW00014920:2022-05-19:PRCP",
+          "tmaxTenthsC": 233,
+          "tminTenthsC": 122
+        },
+        {
+          "antecedent7DaysTenthsMm": 523,
+          "date": "2022-05-25",
+          "dayOfYear": 145,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 300,
+          "recordId": "USW00014920:2022-05-25:PRCP",
+          "tmaxTenthsC": 139,
+          "tminTenthsC": 100
+        },
+        {
+          "antecedent7DaysTenthsMm": 140,
+          "date": "2022-06-08",
+          "dayOfYear": 159,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2022-06-08:PRCP",
+          "tmaxTenthsC": 250,
+          "tminTenthsC": 133
+        },
+        {
+          "antecedent7DaysTenthsMm": 343,
+          "date": "2022-06-13",
+          "dayOfYear": 164,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 531,
+          "recordId": "USW00014920:2022-06-13:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 30,
+          "date": "2022-07-15",
+          "dayOfYear": 196,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 371,
+          "recordId": "USW00014920:2022-07-15:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 178
+        },
+        {
+          "antecedent7DaysTenthsMm": 15,
+          "date": "2022-07-23",
+          "dayOfYear": 204,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 267,
+          "recordId": "USW00014920:2022-07-23:PRCP",
+          "tmaxTenthsC": 322,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 160,
+          "date": "2022-08-27",
+          "dayOfYear": 239,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 282,
+          "recordId": "USW00014920:2022-08-27:PRCP",
+          "tmaxTenthsC": 244,
+          "tminTenthsC": 178
+        }
+      ],
+      "recordId": "USW00014920:2022",
+      "stationId": "USW00014920",
+      "year": 2022
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 7033,
+      "days": 365,
+      "flagCounts": {
+        "PRCP:  W": 328,
+        "PRCP:T W": 37,
+        "TMAX:  W": 365,
+        "TMIN:  W": 365
+      },
+      "growingSeasonHotDays": 5,
+      "growingSeasonLongestDrySpellDays": 28,
+      "growingSeasonPrecipTenthsMm": 3107,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 13,
+          "date": "2023-03-31",
+          "dayOfYear": 90,
+          "inAnalysisWindow": false,
+          "month": 3,
+          "precipTenthsMm": 424,
+          "recordId": "USW00014920:2023-03-31:PRCP",
+          "tmaxTenthsC": 78,
+          "tminTenthsC": 28
+        },
+        {
+          "antecedent7DaysTenthsMm": 18,
+          "date": "2023-06-18",
+          "dayOfYear": 169,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 460,
+          "recordId": "USW00014920:2023-06-18:PRCP",
+          "tmaxTenthsC": 278,
+          "tminTenthsC": 183
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2023-07-03",
+          "dayOfYear": 184,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 371,
+          "recordId": "USW00014920:2023-07-03:PRCP",
+          "tmaxTenthsC": 344,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 127,
+          "date": "2023-07-26",
+          "dayOfYear": 207,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 267,
+          "recordId": "USW00014920:2023-07-26:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 18,
+          "date": "2023-08-11",
+          "dayOfYear": 223,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 264,
+          "recordId": "USW00014920:2023-08-11:PRCP",
+          "tmaxTenthsC": 317,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 193,
+          "date": "2023-10-13",
+          "dayOfYear": 286,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 318,
+          "recordId": "USW00014920:2023-10-13:PRCP",
+          "tmaxTenthsC": 106,
+          "tminTenthsC": 89
+        }
+      ],
+      "recordId": "USW00014920:2023",
+      "stationId": "USW00014920",
+      "year": 2023
+    },
+    {
+      "analysisWindowDays": 153,
+      "annualPrecipTenthsMm": 9558,
+      "days": 366,
+      "flagCounts": {
+        "PRCP:  W": 307,
+        "PRCP:T W": 59,
+        "TMAX:  W": 366,
+        "TMIN:  W": 366
+      },
+      "growingSeasonHotDays": 1,
+      "growingSeasonLongestDrySpellDays": 16,
+      "growingSeasonPrecipTenthsMm": 5847,
+      "heavyPrecipitationEvents": [
+        {
+          "antecedent7DaysTenthsMm": 262,
+          "date": "2024-05-21",
+          "dayOfYear": 142,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 333,
+          "recordId": "USW00014920:2024-05-21:PRCP",
+          "tmaxTenthsC": 239,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 447,
+          "date": "2024-05-26",
+          "dayOfYear": 147,
+          "inAnalysisWindow": true,
+          "month": 5,
+          "precipTenthsMm": 417,
+          "recordId": "USW00014920:2024-05-26:PRCP",
+          "tmaxTenthsC": 183,
+          "tminTenthsC": 122
+        },
+        {
+          "antecedent7DaysTenthsMm": 326,
+          "date": "2024-06-22",
+          "dayOfYear": 174,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 277,
+          "recordId": "USW00014920:2024-06-22:PRCP",
+          "tmaxTenthsC": 272,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 364,
+          "date": "2024-06-28",
+          "dayOfYear": 180,
+          "inAnalysisWindow": true,
+          "month": 6,
+          "precipTenthsMm": 371,
+          "recordId": "USW00014920:2024-06-28:PRCP",
+          "tmaxTenthsC": 222,
+          "tminTenthsC": 156
+        },
+        {
+          "antecedent7DaysTenthsMm": 427,
+          "date": "2024-07-02",
+          "dayOfYear": 184,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 511,
+          "recordId": "USW00014920:2024-07-02:PRCP",
+          "tmaxTenthsC": 200,
+          "tminTenthsC": 150
+        },
+        {
+          "antecedent7DaysTenthsMm": 18,
+          "date": "2024-07-13",
+          "dayOfYear": 195,
+          "inAnalysisWindow": true,
+          "month": 7,
+          "precipTenthsMm": 401,
+          "recordId": "USW00014920:2024-07-13:PRCP",
+          "tmaxTenthsC": 322,
+          "tminTenthsC": 206
+        },
+        {
+          "antecedent7DaysTenthsMm": 0,
+          "date": "2024-08-29",
+          "dayOfYear": 242,
+          "inAnalysisWindow": true,
+          "month": 8,
+          "precipTenthsMm": 513,
+          "recordId": "USW00014920:2024-08-29:PRCP",
+          "tmaxTenthsC": 300,
+          "tminTenthsC": 200
+        },
+        {
+          "antecedent7DaysTenthsMm": 20,
+          "date": "2024-09-19",
+          "dayOfYear": 263,
+          "inAnalysisWindow": true,
+          "month": 9,
+          "precipTenthsMm": 356,
+          "recordId": "USW00014920:2024-09-19:PRCP",
+          "tmaxTenthsC": 283,
+          "tminTenthsC": 172
+        },
+        {
+          "antecedent7DaysTenthsMm": 102,
+          "date": "2024-10-30",
+          "dayOfYear": 304,
+          "inAnalysisWindow": false,
+          "month": 10,
+          "precipTenthsMm": 429,
+          "recordId": "USW00014920:2024-10-30:PRCP",
+          "tmaxTenthsC": 256,
+          "tminTenthsC": 111
+        },
+        {
+          "antecedent7DaysTenthsMm": 513,
+          "date": "2024-11-03",
+          "dayOfYear": 308,
+          "inAnalysisWindow": false,
+          "month": 11,
+          "precipTenthsMm": 315,
+          "recordId": "USW00014920:2024-11-03:PRCP",
+          "tmaxTenthsC": 111,
+          "tminTenthsC": 78
+        }
+      ],
+      "recordId": "USW00014920:2024",
+      "stationId": "USW00014920",
+      "year": 2024
+    }
+  ],
+  "reference": {
+    "coordinateSource": "worlds/meadowbrook-v1/provenance.json contextWgs84Envelope center",
+    "latitude": 43.7015,
+    "longitude": -91.037,
+    "name": "Coon Valley / Vernon County, Wisconsin",
+    "terrainElevationRangeM": [
+      213.19700622558594,
+      360.593017578125
+    ]
+  },
+  "rules": {
+    "analysisWindow": {
+      "endMonthDay": "09-30",
+      "inclusive": true,
+      "startMonthDay": "05-01",
+      "status": "authored fixed analysis calendar, not observed crop phenology"
+    },
+    "completeness": "Every actual calendar day must have PRCP/TMAX/TMIN, no -9999, blank QFLAG, nonblank SFLAG, no P/I measurement flags, nonnegative PRCP and TMIN<=TMAX; preceding seven PRCP days also required. Reject the full year otherwise; no infill.",
+    "continuity": "Ten adjacent historical calendar years at one station; preceding observed December supplies January antecedent. No repeated/wrapped or spliced years.",
+    "dryDay": {
+      "longestSpellBoundary": "reset at May 1; count through September 30",
+      "precipLessThanTenthsMm": 10
+    },
+    "eventSelection": {
+      "antecedentDays": 7,
+      "antecedentIncludesEventDay": false,
+      "grouping": "one event per qualifying day; consecutive events remain ordered",
+      "period": "all calendar days",
+      "precipAtLeastTenthsMm": 250,
+      "status": "authored extraction threshold, not a flood or rain-phase classification"
+    },
+    "hotDay": {
+      "tmaxAtLeastTenthsC": 350
+    },
+    "limitations": [
+      "Station weather is a shared regional reference, not parcel or other-terrain measurement.",
+      "Daily precipitation does not establish rain/snow phase, subdaily intensity, flood depth, frequency or damage.",
+      "Warm-season rain interpretation and crop/exposure/recovery response belong to separately versioned authored rules.",
+      "No soil-water stock, solar or wind generation driver is inferred.",
+      "Historical windows are illustrative scenarios, not future climate predictions or independent probability samples."
+    ],
+    "trace": "Retain source flag T; numeric zero represents an unquantified trace, not measured no precipitation.",
+    "units": {
+      "precipTenthsMm": "0.1 mm liquid-equivalent precipitation",
+      "temperatureTenthsC": "0.1 degrees Celsius"
+    }
+  },
+  "schemaVersion": 1,
+  "sourceLockSha256": "74c3770d190ad0e33dd7155d00b6520a8551881416dcaf2f0580da037e883579",
+  "station": {
+    "distanceFromReferenceKm": 26.29,
+    "elevationM": 198.1,
+    "id": "USW00014920",
+    "latitude": 43.8792,
+    "longitude": -91.2531,
+    "name": "LA CROSSE MUNI AP"
+  }
+}

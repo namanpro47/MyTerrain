@@ -1,0 +1,76 @@
+US1IAAL0005  43.4017  -91.2851  341.4 IA LANSING 4.1 NW                              
+US1MNHS0001  43.8350  -91.3140  255.1 MN LA CRESCENT 0.7 WNW                         
+US1MNHS0006  43.7420  -91.4369  231.6 MN HOKAH 4.5 WSW                               
+US1MNHS0007  43.8349  -91.3138  237.7 MN LA CRESCENT 0.7 WNW                         
+US1MNHS0008  43.8381  -91.3079  228.0 MN LA CRESCENT 0.7 NNW                         
+US1MNHS0009  43.8387  -91.3044  239.0 MN LA CRESCENT 0.7 N                           
+US1MNHS0010  43.6541  -91.2789  228.6 MN BROWNSVILLE 3.1 S                           
+US1MNHS0012  43.8253  -91.3209  245.7 MN LA CRESCENT 1.0 WSW                         
+US1MNHS0013  43.7817  -91.3882  244.1 MN LA CRESCENT 5.4 SW                          
+US1MNHS0017  43.6543  -91.3246  364.2 MN BROWNSVILLE 3.8 SW                          
+US1MNHS0025  43.7051  -91.4590  366.1 MN CALEDONIA 5.3 NNE                           
+US1MNHS0027  43.5011  -91.3889  350.5 MN EITZEN 3.8 E                                
+US1MNHS0029  43.5681  -91.3772  358.7 MN CALEDONIA 7.7 SE                            
+US1MNHS0030  43.7488  -91.2856  248.7 MN LA CRESCENT 5.6 S                           
+US1MNWN0024  43.8797  -91.3402  265.2 MN LA CRESCENT 4.0 NNW                         
+US1MNWN0042  43.9019  -91.4087  387.1 MN DAKOTA 2.5 WSW                              
+US1WILC0001  43.8963  -91.0963  224.9 WI WEST SALEM 0.7 W                            
+US1WILC0004  44.0228  -91.0620  255.1 WI MELROSE 8.2 SSW                             
+US1WILC0007  43.7870  -91.2090  203.9 WI LA CROSSE 3.0 SSE                           
+US1WILC0008  43.7662  -91.1660  209.4 WI LA CROSSE 5.4 SE                            
+US1WILC0010  43.9040  -91.2397  218.8 WI ONALASKA 1.6 NW                             
+US1WILC0011  43.9705  -91.2594  243.8 WI HOLMEN 0.9 N                                
+US1WILC0015  43.8856  -91.1016  225.2 WI WEST SALEM 1.3 SW                           
+US1WILC0017  43.8230  -91.1271  249.0 WI LA CROSSE 5.3 E                             
+US1WILC0018  43.8816  -91.2273  213.1 WI ONALASKA 0.6 SW                             
+US1WILC0020  43.7658  -91.2060  196.3 WI LA CROSSE 4.4 SSE                           
+US1WILC0021  43.7567  -91.0594  248.1 WI COON VALLEY 4.5 NNW                         
+US1WILC0022  43.9344  -91.2449  215.2 WI HOLMEN 1.7 SSE                              
+US1WILC0025  44.0407  -90.9722  272.5 WI MINDORO 6.6 E                               
+US1WILC0027  43.7922  -91.2289  205.1 WI LA CROSSE 2.4 S                             
+US1WILC0028  43.8090  -91.2235  206.0 WI LA CROSSE 1.3 SSE                           
+US1WILC0030  43.8919  -91.1815  242.3 WI ONALASKA 1.9 E                              
+US1WILC0037  43.7883  -91.0383  391.1 WI LA CROSSE 10.1 ESE                          
+US1WILC0038  43.8851  -91.2291  211.8 WI ONALASKA 0.5 WSW                            
+US1WILC0039  43.8074  -91.2199  205.4 WI LA CROSSE 1.5 SSE                           
+US1WIMN0001  43.9122  -90.7828  259.1 WI SPARTA 2.5 SSE                              
+US1WIMN0003  43.9540  -90.8048  256.0 WI SPARTA 0.8 NNE                              
+US1WIMN0005  43.8110  -90.7629  262.7 WI CASHTON 4.8 N                               
+US1WIVR0002  43.5530  -90.8710  370.0 WI VIROQUA 0.8 ESE                             
+US1WIVR0003  43.5268  -90.7385  244.1 WI VIOLA 3.5 WNW                               
+US1WIVR0004  43.7012  -91.0128  228.9 WI COON VALLEY 0.1 WSW                         
+US1WIVR0005  43.5605  -90.8993  379.8 WI VIROQUA 0.7 WNW                             
+US1WIVR0006  43.6605  -91.2193  199.9 WI STODDARD 0.1 SW                             
+US1WIVR0007  43.7187  -91.1682  226.2 WI STODDARD 4.7 NNE                            
+US1WIVR0008  43.4245  -90.8731  356.6 WI VIROQUA 9.3 S                               
+US1WIVR0010  43.6745  -91.1948  218.5 WI STODDARD 1.5 NE                             
+US1WIVR0011  43.6538  -90.8502  391.1 WI WESTBY 0.4 E                                
+US1WIVR0016  43.7176  -90.7715  397.5 WI WESTBY 6.2 NE                               
+US1WIVR0017  43.6999  -90.9531  251.5 WI WESTBY 5.8 NW                               
+US1WIVR0018  43.6236  -90.7511  367.3 WI LA FARGE 6.5 WNW                            
+USC00211198  43.6308  -91.5028  344.7 MN CALEDONIA                                   
+USC00213808  43.7636  -91.3481  197.2 MN HOKAH WWTP                                  
+USC00213812  43.7953  -91.4269  209.1 MN HOKAH 4NW                                   
+USC00214418  43.8658  -91.3100  197.2 MN LA CRESCENT DAM 7                           
+USC00471280  43.7447  -90.7783  417.6 WI CASHTON                                     
+USC00471282  43.7167  -90.7667  406.0 WI CASHTON 2 S                                 
+USC00471283  43.7000  -90.7000  409.0 WI CASHTON 5 SE                                
+USC00471284  43.6833  -90.7500  378.0 WI CASHTON 4 SSE                               
+USC00471287  43.7861  -90.7953  286.2 WI CASHTON 3NNW                                
+USC00471806  43.7500  -91.0167  392.9 WI COON VALLEY EXP FARM                        
+USC00473038  43.5706  -91.2294  194.8 WI GENOA DAM 8                                 
+USC00474365  43.8167  -91.1833  384.0 WI LA CROSSE EXP FARM                          
+USC00474366  43.8669  -91.2725  201.2 WI LA CROSSE 4NNW                              
+USC00474367  43.8167  -91.2333  198.1 WI LA CROSSE STATE UNIV                        
+USC00474373  43.8225  -91.1914  398.4 WI LA CROSSE WFO                               
+USC00474375  43.8167  -91.2500  207.9 WI LA CROSSE WB CITY                           
+USC00474379  43.8122  -91.2578  192.0 WI LA CROSSE RIVER                             
+USC00474404  43.5733  -90.6319  243.5 WI LA FARGE                                    
+USC00477015  43.4494  -90.7650  225.6 WI READSTOWN                                   
+USC00477016  43.4797  -90.6933  232.3 WI READSTOWN 4NE                               
+USC00477997  43.9364  -90.8164  238.4 WI SPARTA                                      
+USC00478827  43.5594  -90.8761  382.5 WI VIROQUA                            HCN      
+USC00479062  43.6750  -90.8078  390.8 WI WESTBY 3ENE                                 
+USC00479119  43.9000  -91.0833  225.9 WI WEST SALEM                                  
+USW00014920  43.8792  -91.2531  198.1 WI LA CROSSE MUNI AP                      72643
+USW00094940  43.9667  -90.7333  252.7 WI SPARTA FT MCCOY                             
