@@ -1,0 +1,25 @@
+{
+  "format": "glTF 2.0 binary",
+  "metres": true,
+  "models": {
+    "cultivation": 39104,
+    "cover-crop": 97468,
+    "conservation-rotation": 40544,
+    "living-margin": 322532,
+    "ground-cover-restoration": 788564,
+    "vegetated-swale": 18840,
+    "low-density-housing": 111460,
+    "high-density-housing": 228932,
+    "public-park": 342628,
+    "agricultural-storage": 42248,
+    "data-center": 72248,
+    "village-center": 198016,
+    "non-renewable-power": 47380,
+    "solar": 264496,
+    "wind": 31620,
+    "stewardship-agreement": 885360,
+    "wastewater-upgrade": 40880
+  },
+  "structuralChecksPassed": true,
+  "note": "Container/accessor validation; separate Khronos validator and browser rendering are not claimed."
+}

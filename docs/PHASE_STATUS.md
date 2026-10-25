@@ -1,5 +1,11 @@
 # Terra — phase status and evidence
 
+## PRD build-action art — separately authorized October 24, 2026
+
+Peter requested new UI icons and matching realistically scaled 3D assets, then selected the PRD's full action list. The additive [build-action art kit](build-action-art.md) supplies **17 Unity prefabs, transparent 512px Sprite icons, portable GLB models and a serialized lookup catalog**. Farming variants and solar/wind remain separate. Building/site dimensions are representative authored assumptions in metres, not surveyed local structures; landscape actions remain terrain-treatment samples. [Contact sheet](evidence/build-action-art/contact-sheet.png).
+
+**Verification:** 230 Unity generation/render checks plus 41 saved-catalog checks; 17 GLBs passed Khronos glTF Validator with zero errors/warnings. The local Chrome art-review page displayed all cards, resolved wind selection and its download target, rotated its footprint to 45° and moved it against real map polygons. [Chrome evidence](evidence/build-action-art/chrome-scale-preview.png), [Unity receipt](evidence/build-action-art/verification.json), [catalog checks](evidence/build-action-art/catalog-lookup-verification.json), [GLB validation](evidence/build-action-art/gltf-validation.json). Source is isolated under `Assets/Terra/Art/ExternalKit/BuildActions/`; main scene/HUD/renderer and gameplay eligibility/costs are unchanged. Playable-map integration and in-game URP/Web visual/performance acceptance remain pending with the engine owner. This does not complete Phase 2A or enable deferred gameplay actions. TN-04, TN-05 and CS-02 guide the art/scale handoff.
+
 ## Annual loop playtest — separately authorized October 24, 2026
 
 Peter requested direct integration to the repository's default branch (`main`, no new PR), an end-year summary and placeholder simulation while the teammate overhauls the main UI. The annual foundation `a4ba01e` was fast-forwarded into `main`; GitHub marked the existing draft PR #1 merged.
