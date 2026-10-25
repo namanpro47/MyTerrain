@@ -66,6 +66,8 @@ public static class FieldNotesChecks
         var primary=modal.GetComponentsInChildren<UnityEngine.UI.Button>().Single(b=>b.GetComponentInChildren<TextMeshProUGUI>().text=="Explore the landscape  →");
         primary.onClick.Invoke();Check(explored,"Opening primary action is disconnected.");
         hud.AnnualDialog("A long report",string.Join("\n\n",Enumerable.Repeat("A saved result that must remain readable.",35)),"Continue",()=>{});
+        var continueButton=modal.GetComponentsInChildren<UnityEngine.UI.Button>().Single(b=>b.GetComponentInChildren<TextMeshProUGUI>().text=="Continue");
+        Check(Mathf.Abs(continueButton.GetComponent<RectTransform>().anchoredPosition.y-24)<1,"Single primary action overlaps reading content.");
         var reading=GameObject.Find("Field notes reading area").GetComponent<UnityEngine.UI.ScrollRect>();
         Check(reading.content.rect.height>reading.viewport.rect.height,"Long generic dialog is not scrollable.");
         hud.ScrollFieldNotes(5);Check(reading.verticalNormalizedPosition<.99f,"Reading scroll does not move.");

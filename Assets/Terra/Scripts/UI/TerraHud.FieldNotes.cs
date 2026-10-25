@@ -151,9 +151,9 @@ namespace Terra.UI
         {
             AnnualDialog("What will you leave behind?",
                 "<b>"+annualRules.years+" years. One landscape. Your choices.</b>\n"+
-                "Make room for homes and livelihoods while caring for the land and water.\n\n"+
+                "Balance homes and livelihoods with land and water.\n\n"+
                 "<color=#87D9B0><b>Choose a project  →  Find a place  →  End Year</b></color>\n"+
-                "Change your plan freely before ending the year. Once accepted, projects take time and upkeep carries forward.",
+                "Edit freely until End Year. Accepted projects take time and need upkeep.\n\n<color=#A8C4CC>Real terrain · fictional community and outcomes.</color>",
                 "Explore the landscape  →",explore);
             modalEyebrow.text=location.Name.ToUpperInvariant()+"  /  YEAR 1";
             var row=Rect(fieldNotesContent,"Starting resources",new Vector2(0,1),Vector2.zero,new Vector2(656,110));
