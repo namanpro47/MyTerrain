@@ -35,7 +35,7 @@ namespace Terra.UI
             void Place(Button button,Transform parent,Vector2 position,float w)
             {
                 if(button==null)return;button.transform.SetParent(parent,false);
-                Position(button.transform,Vector2.zero,position,new Vector2(w,36));
+                Position(button.transform,Vector2.zero,position,new Vector2(w,44));
                 foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>(true))
                 {label.rectTransform.sizeDelta=new Vector2(w-(button.transform.GetComponentInChildren<HudGlyph>()!=null?36:10),32);label.fontSize=14*(LargeText?1.12f:1);}
             }
@@ -46,7 +46,7 @@ namespace Terra.UI
             identityLabels[1].rectTransform.anchoredPosition=new Vector2(14,-7);identityLabels[1].fontSize=20;
             placeSubtitle.rectTransform.anchoredPosition=new Vector2(14,-30);placeSubtitle.fontSize=12;placeSubtitle.enableAutoSizing=true;placeSubtitle.fontSizeMin=10.5f;placeSubtitle.fontSizeMax=12;placeSubtitle.textWrappingMode=TextWrappingModes.NoWrap;
             Position(budgetPanel,new Vector2(0,1),new Vector2(16,-78),new Vector2(310,100));
-            annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=13;annualYear.rectTransform.sizeDelta=new Vector2(190,22);
+            annualYear.rectTransform.anchoredPosition=new Vector2(14,-10);annualYear.fontSize=14;annualYear.rectTransform.sizeDelta=new Vector2(190,22);
             annualAvailable.rectTransform.anchoredPosition=new Vector2(46,-32);annualAvailable.rectTransform.sizeDelta=new Vector2(250,38);annualAvailable.fontSize=28*(LargeText?1.12f:1);
             annualAvailable.enableAutoSizing=true;annualAvailable.fontSizeMin=24;annualAvailable.fontSizeMax=28*(LargeText?1.12f:1);annualAvailable.textWrappingMode=TextWrappingModes.NoWrap;
             annualBudget.rectTransform.anchoredPosition=new Vector2(14,-77);annualBudget.rectTransform.sizeDelta=new Vector2(286,40);annualBudget.fontSize=12*(LargeText?1.12f:1);
@@ -62,11 +62,11 @@ namespace Terra.UI
             var indicatorLabels=annualIndicators.GetComponentsInChildren<TextMeshProUGUI>();
             for(int i=0;i<3;i++)
             {
-                var title=indicatorLabels[i*2];title.rectTransform.anchoredPosition=new Vector2(38+i*160,-11);title.rectTransform.sizeDelta=new Vector2(124,18);title.fontSize=11;
+                var title=indicatorLabels[i*2];title.rectTransform.anchoredPosition=new Vector2(38+i*160,-11);title.rectTransform.sizeDelta=new Vector2(124,18);title.fontSize=14;
                 ((RectTransform)annualBars[i].transform.parent).sizeDelta=new Vector2(140,5);
             }
             float barWidth=Mathf.Min(width-32,1000);
-            Position(commandBar,new Vector2(.5f,0),new Vector2(0,10),new Vector2(barWidth,48));
+            Position(commandBar,new Vector2(.5f,0),new Vector2(0,10),new Vector2(barWidth,56));
             var utilities=new[]{undoButton,redoButton,viewButton,guideButton,controlsButton,moreButton};
             float unit=Mathf.Min(112,(barWidth-194)/6);
             for(int i=0;i<utilities.Length;i++)
@@ -88,7 +88,7 @@ namespace Terra.UI
             float dockWidth=688,cardHeight=compact?70:86;
             actionDock.localScale=Vector3.one*Mathf.Min(1,(width-220)/dockWidth);
             Position(actionDock,new Vector2(.5f,0),new Vector2(0,66),new Vector2(dockWidth,compact?140:158));
-            actionSummary.gameObject.SetActive(true);actionSummary.rectTransform.anchoredPosition=new Vector2(14,6);actionSummary.rectTransform.sizeDelta=new Vector2(660,20);actionSummary.fontSize=12;
+            actionSummary.gameObject.SetActive(true);actionSummary.rectTransform.anchoredPosition=new Vector2(14,6);actionSummary.rectTransform.sizeDelta=new Vector2(660,20);actionSummary.fontSize=14;
             int ci=0;
             foreach(var category in categoryButtons.Keys)
             {Position(category.transform,new Vector2(0,1),new Vector2(8+ci++*224,-6),new Vector2(220,30));foreach(var label in category.GetComponentsInChildren<TextMeshProUGUI>()){label.rectTransform.sizeDelta=new Vector2(210,28);label.fontSize=14;}}
@@ -106,13 +106,13 @@ namespace Terra.UI
                         if(label.name=="Selected tool badge"){label.gameObject.SetActive(pair.Value==activeTool);continue;}
                         bool price=label.name=="Action price";
                         label.gameObject.SetActive(!string.IsNullOrEmpty(label.text));
-                        if(price){Position(label.transform,new Vector2(1,1),new Vector2(-6,-21),new Vector2(54,25));label.alignment=TextAlignmentOptions.Right;label.fontSize=12;}
-                        else if(label.name=="Action title"){Position(label.transform,new Vector2(.5f,1),new Vector2(0,compact?-45:-61),new Vector2(143,24));label.fontSize=13;}
+                        if(price){Position(label.transform,new Vector2(1,1),new Vector2(-6,-21),new Vector2(60,25));label.alignment=TextAlignmentOptions.Right;label.fontSize=14;}
+                        else if(label.name=="Action title"){Position(label.transform,new Vector2(.5f,1),new Vector2(0,compact?-45:-61),new Vector2(143,24));label.fontSize=14;}
                     }
                 }
             }
             foreach(var b in catalogPageButtons)
-            {b.GetComponent<RectTransform>().sizeDelta=new Vector2(24,cardHeight);b.GetComponentInChildren<TextMeshProUGUI>().rectTransform.sizeDelta=new Vector2(24,cardHeight-4);}
+            {if(b.name=="Placement help")continue;b.GetComponent<RectTransform>().sizeDelta=new Vector2(24,cardHeight);b.GetComponentInChildren<TextMeshProUGUI>().rectTransform.sizeDelta=new Vector2(24,cardHeight-4);}
             float feedbackWidth=Mathf.Clamp(width-680,250,520);
             Position(toastPanel.transform,new Vector2(.5f,1),new Vector2(0,-118),new Vector2(feedbackWidth,52));
             toast.rectTransform.sizeDelta=new Vector2(feedbackWidth-24,46);toast.fontSize=14;
@@ -129,12 +129,12 @@ namespace Terra.UI
             previewTitle.fontSize=(annualCompact?19:22)*(LargeText?1.12f:1);
             previewTitle.enableAutoSizing=true;previewTitle.fontSizeMin=15;previewTitle.fontSizeMax=previewTitle.fontSize;previewTitle.textWrappingMode=TextWrappingModes.NoWrap;
             previewBody.rectTransform.anchoredPosition=new Vector2(18,-95);previewBody.rectTransform.sizeDelta=new Vector2(268,190);
-            previewBody.fontSize=(annualCompact?13:16)*(LargeText?1.12f:1);
+            previewBody.fontSize=16*(LargeText?1.12f:1);
             recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,annualCompact?49:68);
             recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(256,annualCompact?28:34);
-            previewAction.rectTransform.anchoredPosition=new Vector2(18,annualCompact?46:68);previewAction.fontSize=(annualCompact?13:14)*(LargeText?1.12f:1);
+            previewAction.rectTransform.anchoredPosition=new Vector2(18,annualCompact?46:68);previewAction.fontSize=14*(LargeText?1.12f:1);
             foreach(var button in new[]{confirmEditButton,moveButton,removeButton})
-            {var br=button.GetComponent<RectTransform>();br.anchoredPosition=new Vector2(br.anchoredPosition.x,annualCompact?8:16);br.sizeDelta=new Vector2(br.sizeDelta.x,annualCompact?34:48);}
+            {var br=button.GetComponent<RectTransform>();br.anchoredPosition=new Vector2(br.anchoredPosition.x,annualCompact?8:16);br.sizeDelta=new Vector2(br.sizeDelta.x,44);}
             LayoutPlayFirstInspector();
         }
     }

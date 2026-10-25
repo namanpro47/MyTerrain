@@ -7,7 +7,52 @@ namespace Terra.Gameplay
 {
     public sealed partial class TerraMain
     {
+        bool placementIntentPending;
+        string placementIntentSite,placementIntentTool,placementIntentMode,placementIntentSource;
+        int placementIntentRevision;
+
+        // Called on pointer-down by the shared input owner. Keyboard commands use the current preview.
+        void CapturePlacementIntent(string siteId)
+        {
+            placementIntentPending=ready&&annual!=null;
+            if(!placementIntentPending)return;
+            placementIntentSite=siteId;placementIntentTool=treatmentId;placementIntentMode=editMode;
+            placementIntentSource=moveSourceId;placementIntentRevision=annual.State.revision;
+        }
+        void ClearPlacementIntent(){placementIntentPending=false;}
+        bool ConsumePlacementIntent()
+        {
+            if(!placementIntentPending)return true;placementIntentPending=false;
+            return placementIntentRevision==annual.State.revision&&placementIntentSite==PreviewSiteId
+                &&placementIntentTool==treatmentId&&placementIntentMode==editMode&&placementIntentSource==moveSourceId;
+        }
+
+        void ReviewPlacementReplacement()
+        {
+            if(!ConsumePlacementIntent()){Toast("The target or plan changed. Preview it again.");return;}
+            string id=PreviewSiteId,action=treatmentId;var site=world.sites.FirstOrDefault(s=>s.id==id);
+            string reason=Rejection(site);if(reason!=null){Toast(reason);BlockedCue();return;}
+            int revision=annual.State.revision;
+            string previous=QueuedAt(id);long delta=annual.Engine.AvailableCents-annual.Preview(id,action);
+            string funds=delta>=0?"Reserve "+TerraHudMoney(delta)+" more.":"Release "+TerraHudMoney(-delta)+" from the current reservation.";
+            hud.AnnualDialog("Replace this queued project?",
+                site.name+"\n\n"+buildActionRules.Find(previous).title+" → "+buildActionRules.Find(action).title+"\n\n"+funds+
+                "\nCash is unchanged until End Year. Esc keeps the original proposal.","Replace project",()=>
+                {
+                    hud.CloseModal();
+                    if(annual.State.revision!=revision||treatmentId!=action||QueuedAt(id)!=previous)
+                    {Toast("The plan changed. Review the replacement again.");return;}
+                    hoverId=id;ConfirmEdit();
+                });
+        }
         static string TerraHudMoney(long cents)=>TerraHud.Money(cents);
+        void PlacementArrivalView()
+        {
+            if(!location.IsWisconsin)return;
+            // Put West and Central fields into the decision area; retain the creek/bridge context.
+            // This changes the opening composition only. Existing overview, close-up and pan remain.
+            target=new UnityEngine.Vector3(10,30,-145);zoom=165;pitch=42;focusHeightOffset=0;
+        }
 
         void PresentPlacement(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string reason)
         {
@@ -32,7 +77,7 @@ namespace Terra.Gameplay
                 after=editMode=="move"?annual.Engine.PreviewMove(moveSourceId,site.id):annual.Preview(site.id,treatmentId);
                 delta=annual.Engine.AvailableCents-after.Value;
                 string funds=delta>0?"Reserve "+TerraHudMoney(delta.Value):delta<0?"Release "+TerraHudMoney(-delta.Value):"Reservation unchanged";
-                instruction=funds+" · "+(editMode=="move"?"Click to move":queued!=null?"Choose Replace to confirm":"Click to queue");
+                instruction=funds+" · "+(editMode=="move"?"Click to move":queued!=null?"Click to review replacement":"Click to queue");
             }
             else instruction=PlacementReason(reason,site,accepted!=null,queued==treatmentId);
             string space=rule==null?"":rule.landscape?"Treats this whole field":

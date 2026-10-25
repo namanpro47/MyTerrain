@@ -12,9 +12,11 @@ namespace Terra.UI
         public Vector3[] points;
         public RectTransform[] obstacles;
         public Func<bool> show;
+        public Action tick;
         readonly Vector3[] corners=new Vector3[4];
         void LateUpdate()
         {
+            tick?.Invoke();
             var group=GetComponent<CanvasGroup>();group.alpha=show==null||show()?1:0;
             if(view==null||canvas==null||points==null||points.Length==0)return;
             var rect=(RectTransform)transform;float scale=canvas.scaleFactor;

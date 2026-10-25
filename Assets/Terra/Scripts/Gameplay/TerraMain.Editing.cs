@@ -25,7 +25,7 @@ namespace Terra.Gameplay
         {
             if(hud.ModalOpen){hud.CloseModal();return;}if(hud.AnnualOverviewOpen){hud.CloseAnnualOverview();return;}if(!ready)return;
             if(!string.IsNullOrEmpty(treatmentId)||editMode!="place")Cue(cancelSound);
-            pressed=false;uiDown=null;editMode="place";moveSourceId=null;treatmentId="";hoverId=null;
+            pressed=false;uiDown=null;ClearPlacementIntent();editMode="place";moveSourceId=null;treatmentId="";hoverId=null;
             landscape.ClearGhost();hud.Selected("");UpdatePreview();
         }
         void SetHover(Site site){string id=site?.id;if(id==hoverId)return;hoverId=id;UpdatePreview();BrowserPerformance.Feedback(0);}
@@ -105,12 +105,13 @@ namespace Terra.Gameplay
             // Replacing a proposal is deliberate; a land click opens the existing Replace control.
             string prior=QueuedAt(PreviewSiteId);
             if(editMode=="place"&&prior!=null&&prior!=treatmentId)
-            {selectedId=PreviewSiteId;UpdatePreview();Toast("Review the replacement, then choose Replace. Esc keeps the original plan.");return;}
+            {ReviewPlacementReplacement();return;}
             ConfirmEdit();
         }
         void ConfirmEdit()
         {
             if(!ready||hud.ModalOpen||hud.AnnualOverviewOpen)return;
+            if(!ConsumePlacementIntent()){Toast("The target or plan changed. Preview it again before queueing.");UpdatePreview();return;}
             var site=world.sites.FirstOrDefault(s=>s.id==PreviewSiteId);string reason=Rejection(site);
             if(reason!=null){Toast(reason);BlockedCue();return;}
             var timer=System.Diagnostics.Stopwatch.StartNew();int revision=annual.State.revision;
@@ -169,6 +170,7 @@ namespace Terra.Gameplay
         void InitializeAnnual(string packId)
         {
             treatmentId=""; // Arrival always starts in Browse, including restored plans.
+            PlacementArrivalView();
             annualDefinition=FullAnnualGameplay.Create(world,scenario,packId,buildActionRules,runoff);
             annualBaseline=AnnualGameplay.Baseline(annualDefinition);
             annual=gameObject.AddComponent<AnnualTownSession>();annual.saveKey=location.IsWisconsin?"terra.meadowbrook.annual-full.v3.2":location.AnnualSaveKey;

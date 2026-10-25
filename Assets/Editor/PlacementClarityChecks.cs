@@ -48,6 +48,15 @@ public static class PlacementClarityChecks
                 foreach(var offer in definition.actions.GroupBy(a=>a.actionId).Select(group=>group.First()))
                 {
                     var site=world.sites.First(s=>s.id==offer.siteId);hud.Selected(offer.actionId);
+                    Canvas.ForceUpdateCanvases();
+                    var cards=Field<System.Collections.Generic.Dictionary<UnityEngine.UI.Button,string>>(hud,"actionButtons");
+                    var card=cards.First(pair=>pair.Value==offer.actionId).Key;
+                    Check(card.gameObject.activeInHierarchy,"Selected tool is hidden on another page: "+offer.actionId);
+                    foreach(var text in card.GetComponentsInChildren<TextMeshProUGUI>())
+                    {
+                        text.ForceMeshUpdate();
+                        Check(text.preferredHeight<=text.rectTransform.rect.height+2,"Clipped tool label at "+size+": "+text.text);
+                    }
                     foreach(string reason in new string[]{null,"Ground too uneven. Choose another marked field."})
                     {
                         hud.AnnualPreview(site,offer,town.Snapshot(),"place",reason,()=>{},false);
@@ -69,6 +78,21 @@ public static class PlacementClarityChecks
             }
         }
         Check(before==JsonUtility.ToJson(town.Snapshot()),"Inspection changed the annual ledger");
+        var inputObject=new GameObject("Placement intent checks");
+        var main=inputObject.AddComponent<TerraMain>();var session=inputObject.AddComponent<AnnualTownSession>();session.Initialize(definition,"placement-input");
+        void Set(string name,object value)=>typeof(TerraMain).GetField(name,Private).SetValue(main,value);
+        bool Consume()=>(bool)typeof(TerraMain).GetMethod("ConsumePlacementIntent",Private).Invoke(main,null);
+        var inputOffer=definition.actions.First(a=>a.actionId=="public-park");
+        Set("ready",true);Set("annual",session);Set("treatmentId",inputOffer.actionId);Set("hoverId",inputOffer.siteId);
+        Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Set("hoverId","another-field");
+        Check(!Consume(),"A pointer press silently retargeted another field");
+        Set("hoverId",inputOffer.siteId);Invoke(main,"CapturePlacementIntent",inputOffer.siteId);
+        session.QueueAction(inputOffer.siteId,inputOffer.actionId,session.State.revision);
+        Check(!Consume(),"An old pointer press accepted a changed plan revision");
+        Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Set("treatmentId","cultivate-standard");
+        Check(!Consume(),"An old pointer press switched tools");
+        Invoke(main,"CapturePlacementIntent",inputOffer.siteId);Check(Consume(),"An unchanged target was rejected");
+        UnityEngine.Object.DestroyImmediate(inputObject);
         Check(!Field<TextMeshProUGUI[]>(hud,"annualScores").Any(t=>t.text.Contains("Year-end")),"Persistent meters show prospective values as accepted");
         var shader=Resources.Load<Shader>("TerraProposalBoundary");Check(shader!=null&&!ShaderUtil.ShaderHasError(shader),"Proposal boundary shader unavailable or invalid");
         var owner=new GameObject("Placement geometry checks");var material=new Material(Shader.Find("Universal Render Pipeline/Lit"));
