@@ -32,7 +32,7 @@ namespace Terra.UI
                 narrationReplay=Button(modal.transform,"Replay voice",new Vector2(1,1),new Vector2(-32,-14),new Vector2(130,30),()=>TerraNarration.Ensure().Replay(),14);
             }
             var voice=TerraNarration.Ensure();SetButtonText(narrationToggle,voice.Enabled?"Voice: on":"Voice: off");
-            SetButtonText(narrationReplay,voice.Status==4?"Retry voice":"Replay voice");
+            SetButtonText(narrationReplay,voice.Status==4?"Retry voice":voice.Status==1?"Loading voice…":"Replay voice");
             narrationReplay.interactable=voice.Enabled;
         }
     }
