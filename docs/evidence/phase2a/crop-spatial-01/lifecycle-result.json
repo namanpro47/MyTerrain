@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "command": "job status",
+  "data": {
+    "jobId": "f43bc810adef4352a15f9e97880d443e",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": {
+        "checks": 3631354,
+        "plants": 43553,
+        "corners": 348424,
+        "soilVertices": 1464388,
+        "unchangedOtherBatches": 2025,
+        "actions": [
+          "cultivate-standard",
+          "cultivate-margin",
+          "conservation-rotation"
+        ],
+        "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "shaderErrors": [],
+        "scope": "Editor geometry and renderer lifecycle. No financial transitions or Chrome performance claim. Includes context plant bounds and management-site exclusion."
+      },
+      "executionTimeMs": 6574,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T15:33:55.712566Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}

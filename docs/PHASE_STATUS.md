@@ -6,6 +6,10 @@ The annual-completion chat independently extends the existing full-game suite: *
 
 The user explicitly chose to continue with **human playtesting unavailable**; no novice comprehension or duration claim is made. The existing implementation chat retains rendering/performance and integration; this chat owns the final public manual run and two rehearsals after the accepted visual export. These model checks do not close Phase 2A, final Chrome/release gates or certify a deployment.
 
+## Crop spatial grouping — isolated candidate, October 25, 2026
+
+[Candidate `d4ae4f2`](evidence/phase2a/crop-spatial-01/README.md) groups existing crop plants into 32m source cells before unchanged culling/LOD selection. Exact plant/soil content fingerprints and all three crop lifecycles pass. Normal/close selected leaf triangles fall 2.76M→1.60M and 5.34M→2.28M; total nature draws fall 499→452 and 295→261. Expected LOD silhouette differences are documented in matched captures. Chrome timing remains pending; **main contains evidence only**, not this runtime/art candidate.
+
 ## Combined crop browser regression — October 25, 2026
 
 [Frozen Web64, reported source `e3f4905`](evidence/phase2a/combined-crops-browser-01/README.md) has 31 byte-verified files /48,126,445 bytes. Actual focused Chrome 1280×720 opening, moving-editing and bounded Year 10 samples fail the stable-30 frame-time limit at 37/41/34ms p95. Preview/placement feedback passes; two-project fast-forward, read-only comparison, reload and replay preserve or reset state correctly. This does not replace a manual ten-year run or final performance/visual/public acceptance. Main/runtime promotion remains deferred while the combined rendering cost is investigated.

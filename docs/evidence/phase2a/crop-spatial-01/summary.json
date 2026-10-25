@@ -1,0 +1,102 @@
+{
+  "normal": {
+    "control": {
+      "submittedLeafGroups": 70,
+      "leafTriangles": 2761524,
+      "leafInstancesByLod": [
+        640,
+        4064,
+        3401
+      ],
+      "maxBatchSpan": 150.598053,
+      "totalDraws": 499,
+      "collectorDraws": 352,
+      "bypassDraws": 147
+    },
+    "spatial": {
+      "submittedLeafGroups": 117,
+      "leafTriangles": 1603806,
+      "leafInstancesByLod": [
+        0,
+        3559,
+        2569
+      ],
+      "maxBatchSpan": 34.8475342,
+      "totalDraws": 452,
+      "collectorDraws": 365,
+      "bypassDraws": 87
+    }
+  },
+  "close": {
+    "control": {
+      "submittedLeafGroups": 47,
+      "leafTriangles": 5344236,
+      "leafInstancesByLod": [
+        3173,
+        2378,
+        0
+      ],
+      "maxBatchSpan": 150.598053,
+      "totalDraws": 295,
+      "collectorDraws": 217,
+      "bypassDraws": 78
+    },
+    "spatial": {
+      "submittedLeafGroups": 75,
+      "leafTriangles": 2282274,
+      "leafInstancesByLod": [
+        592,
+        3739,
+        0
+      ],
+      "maxBatchSpan": 34.8475342,
+      "totalDraws": 261,
+      "collectorDraws": 224,
+      "bypassDraws": 37
+    }
+  },
+  "exactContent": {
+    "soilVertices": 1282588,
+    "plants": 38435,
+    "records": 38483,
+    "hash": "a1df3b13074c1840862e21717a5db658b5096e51fa17b477aa7809bd0e37fcf9"
+  },
+  "pixelComparison": {
+    "normal": {
+      "changedPixels": 3167,
+      "over2": 1782,
+      "max": 133,
+      "mean": [
+        0.04185438368055556,
+        0.04174696180555556,
+        0.020018446180555555
+      ]
+    },
+    "close": {
+      "changedPixels": 86554,
+      "over2": 37899,
+      "max": 140,
+      "mean": [
+        0.6589398871527777,
+        0.6694303385416667,
+        0.335283203125
+      ]
+    }
+  },
+  "lifecycle": {
+    "checks": 3631354,
+    "plants": 43553,
+    "corners": 348424,
+    "soilVertices": 1464388,
+    "unchangedOtherBatches": 2025,
+    "actions": [
+      "cultivate-standard",
+      "cultivate-margin",
+      "conservation-rotation"
+    ],
+    "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+    "shaderErrors": [],
+    "scope": "Editor geometry and renderer lifecycle. No financial transitions or Chrome performance claim. Includes context plant bounds and management-site exclusion."
+  },
+  "baselineSource": "2d68e8c"
+}
