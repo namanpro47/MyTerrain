@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "var rows=new System.Collections.Generic.List<object>();foreach(var name in new[]{\"NormalTree_Bark\",\"NormalTree_Bark_Normal\"}){var path=\"Assets/Terra/Art/QuaterniusUltimateNature/Textures/\"+name+\".png\";var importer=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(path);importer.maxTextureSize=1024;importer.SaveAndReimport();var tex=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>(path);rows.Add(new{name,width=tex.width,height=tex.height});}return rows;",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "NormalTree_Bark",
+          "width": 1024,
+          "height": 1024
+        },
+        {
+          "name": "NormalTree_Bark_Normal",
+          "width": 1024,
+          "height": 1024
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

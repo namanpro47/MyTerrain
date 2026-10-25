@@ -1,5 +1,7 @@
 # Visual rebuild worktree handoff
 
+**Study45 unfinished integration checkpoint:** Wisconsin now uses the clustered woodland candidate with three distance levels per tree. Compilation and 96 asset checks passed; full-scene, annual and Chrome validation remain pending. [Saved work and evidence](evidence/phase2a/visual-rebuild/study45-checkpoint.md). Phase 2A remains open.
+
 **Study44 canopy construction:** Corrected free tree imports, continuous woodland and clustered leaf shading produce a stronger bounded forest study. Three metric prefabs and their shader are saved; production rendering and the Phase 2A gate remain unchanged. [Captures, comparisons, replay and next integration step](evidence/phase2a/visual-rebuild/study44-findings.md).
 
 **Study43 unfinished checkpoint:** Current atlas/HUD main is merged; connected-meadow scripts and Editor captures are saved for review. No production adoption, new Chrome verification or visual acceptance. [Checkpoint and replay](evidence/phase2a/visual-rebuild/study43-checkpoint.md).

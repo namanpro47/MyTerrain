@@ -6,6 +6,7 @@ Shader "Terra/Illustrated Ground"
         _BaseMap("Base",2D)="white"{}
         _BankMap("Artist earth surface",2D)="white"{}
         _MeadowPaint("Painted meadow",2D)="white"{}
+        _MeadowScale("Meadow paint metres per tile",Float)=40
         _MeadowRelief("Matching painted meadow relief",2D)="bump"{}
         _GrassNormal("Artist grass relief",2D)="bump"{}
         _EarthNormal("Artist earth relief",2D)="bump"{}
@@ -39,6 +40,7 @@ Shader "Terra/Illustrated Ground"
                 float4 _BaseMap_ST;
                 half _Cutoff;
                 half _SurfaceKind;
+                float _MeadowScale;
                 float4 _LandBounds;
             CBUFFER_END
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
@@ -127,7 +129,7 @@ Shader "Terra/Illustrated Ground"
                     cover=lerp(cover,half4(0,treatmentWeights.x,treatmentWeights.y,0),treatment.a);
                     // Readable painted plant/earth communities replace flat color classes.
                     // All relief remains shading: source heights, routes and analytical cover are unchanged.
-                    float2 uv=p/40;
+                    float2 uv=p/max(1,_MeadowScale);
                     half3 grassPaint=PaintedSample(TEXTURE2D_ARGS(_MeadowPaint,sampler_MeadowPaint),uv).rgb;
                     half3 edgePaint=PaintedSample(TEXTURE2D_ARGS(_BaseMap,sampler_BaseMap),uv).rgb;
                     half3 earthPaint=PaintedSample(TEXTURE2D_ARGS(_BankMap,sampler_BankMap),p/9).rgb;

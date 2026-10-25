@@ -11,6 +11,7 @@ namespace Terra.Rendering
     public sealed partial class LandscapeRenderer : IDisposable
     {
         readonly WorldData world; readonly Material template; readonly Transform root;
+        readonly bool clusteredWoodland;
         readonly GameObject tree,crop,grass; readonly System.Random random=new System.Random(418);
         readonly Dictionary<string,Transform> proposals=new Dictionary<string,Transform>();
         readonly Dictionary<string,Transform> baselines=new Dictionary<string,Transform>();
@@ -29,9 +30,9 @@ namespace Terra.Rendering
         static readonly Color Wood=new Color(.20f,.35f,.24f),Field=new Color(.64f,.60f,.34f),Meadow=new Color(.46f,.59f,.34f),Water=new Color(.22f,.48f,.51f);
         sealed class Geometry
         {public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector3> normals=new List<Vector3>();public readonly List<int> triangles=new List<int>();public readonly List<Vector2> uv=new List<Vector2>();}
-        public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub)
+        public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub,bool clusteredWoodland=false)
         {
-            world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;
+            world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;this.clusteredWoodland=clusteredWoodland;
             var t=w.terrain;cell=t.cellSizeM;xmin=t.xMin;zmin=t.zMin;xmax=xmin+(t.columns-1)*cell;zmax=zmin+(t.rows-1)*cell;
             coverIndex=new List<CoverPatch>[t.columns-1,t.rows-1];
             foreach(var c in w.covers)
@@ -57,7 +58,7 @@ namespace Terra.Rendering
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
         Material GroundMat(Color color)
-        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_MeadowScale",clusteredWoodland?12:40);material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
