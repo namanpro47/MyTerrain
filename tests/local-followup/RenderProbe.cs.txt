@@ -1,0 +1,48 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Terra.Core;
+using Terra.UI;
+using TMPro;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
+[InitializeOnLoad]
+public static class RenderProbe {
+ static readonly BindingFlags flags=BindingFlags.Instance|BindingFlags.NonPublic;
+ static int tick,index; static LocalFollowup ui; static Camera camera; static RenderTexture target; static Canvas canvas;
+ static string output; static readonly string[] names={"where","level","learn","habit","speak","send","organize","plan","share","checkin","saved"};
+ static RenderProbe(){ if(SessionState.GetBool("followup-capture",false))EditorApplication.update+=Update; }
+ public static void Start(){PlayerSettings.companyName="CodexValidation";PlayerSettings.productName="MyTerrainFollowupPreview";SessionState.SetBool("followup-capture",true);EditorApplication.update-=Update;EditorApplication.update+=Update;EditorApplication.isPlaying=true;}
+ static void Set(string field,object value)=>typeof(LocalFollowup).GetField(field,flags).SetValue(ui,value);
+ static void Update(){
+  if(!EditorApplication.isPlaying||EditorApplication.isCompiling)return;
+  try {
+   if(++tick<60)return;
+   if(ui==null){
+    PlayerPrefs.DeleteKey("myterrain.local-action.v1");
+    new GameObject("Events",typeof(EventSystem),typeof(InputSystemUIInputModule));EventSystem.current.sendNavigationEvents=false;
+    LocalFollowup.Show("Point Reyes","Your accepted Year 10 · 5 projects shaped this place.",new[]{57.5,62.3,68.1},"Results",null);
+    ui=UnityEngine.Object.FindAnyObjectByType<LocalFollowup>();
+    camera=new GameObject("Capture camera",typeof(Camera)).GetComponent<Camera>();camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=Color.white;camera.orthographic=true;camera.cullingMask=~0;camera.transform.position=new Vector3(0,0,-10);
+    target=new RenderTexture(1920,1080,24);camera.targetTexture=target;
+    canvas=ui.GetComponentInChildren<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=1;canvas.GetComponent<CanvasScaler>().uiScaleMode=CanvasScaler.ScaleMode.ConstantPixelSize;canvas.scaleFactor=1;
+    output=Path.GetFullPath(Path.Combine(Application.dataPath,"../../../../docs/evidence/local-followup"));Directory.CreateDirectory(output);index=0;Prepare();return;
+   }
+   if(tick%15!=0)return;
+   Canvas.ForceUpdateCanvases();foreach(var t in ui.GetComponentsInChildren<TextMeshProUGUI>())t.ForceMeshUpdate();camera.Render();
+   RenderTexture.active=target;var image=new Texture2D(1920,1080,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1920,1080),0,0);image.Apply();File.WriteAllBytes(Path.Combine(output,"unity-"+names[index]+".png"),image.EncodeToPNG());UnityEngine.Object.Destroy(image);RenderTexture.active=null;
+   var overflow=ui.GetComponentsInChildren<TextMeshProUGUI>().Where(t=>t.isTextOverflowing).Select(t=>t.text).ToArray();File.AppendAllText(Path.Combine(output,"render-checks.txt"),names[index]+": "+overflow.Length+" overflowing labels\n"+string.Join("\n",overflow)+"\n");
+   if(++index>=names.Length){SessionState.SetBool("followup-capture",false);EditorApplication.Exit(0);return;}Prepare();
+  }catch(Exception e){Debug.LogException(e);SessionState.SetBool("followup-capture",false);EditorApplication.Exit(1);}
+ }
+ static void Prepare(){
+  var plan=new LocalActionPlan{level=0,action="read a local plan and ask the planning team one question",when="after my next meal"};plan.SaveAt(DateTime.UtcNow,true);Set("plan",plan);Set("city","Point Reyes");Set("sendScreen",false);
+  int step=index<2?index:index<7?2:index-4;
+  if(index==3)plan.level=1;if(index==4||index==5)plan.level=2;if(index==5)Set("sendScreen",true);if(index==6)plan.level=3;
+  Set("step",step);typeof(LocalFollowup).GetMethod("Draw",flags).Invoke(ui,null);
+ }
+}

@@ -1,0 +1,12 @@
+{
+  "source": "2aeca9a7fd9c4bbf3292c7286fb2fc4815c7c18a",
+  "nativeAssertions": 1322,
+  "existingChapterAssertions": 16,
+  "codecAssertions": 24,
+  "chapterSessionAssertions": 36,
+  "includesExactFractionalRestore": true,
+  "hashValidation": "unchanged, exact",
+  "fix": "WebGL synchronous gzip bridge retains terra-gzip-v1 and old plain JSON; strict existing Json.NET reads/copies replace lossy JsonUtility reads",
+  "review": "Independent source audit found no blocker; native assembly boundary corrected in2aeca9a",
+  "runtimeInputsEqualToReleaseHead": true
+}

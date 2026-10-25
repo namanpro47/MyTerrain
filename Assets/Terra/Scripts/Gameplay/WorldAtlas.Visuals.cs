@@ -48,6 +48,8 @@ namespace Terra.Gameplay
             BuildSky(panel);
             displayFont=Resources.Load<TMP_FontAsset>("Atlas/Fonts/LilitaOne SDF")??TMP_Settings.defaultFontAsset;
             Display(panel,"MyTerrain",new Vector2(.5f,1),new Vector2(0,-25),new Vector2(400,66),44,Cream);
+            Button(panel,"Take it local →",new Vector2(0,1),new Vector2(28,-28),new Vector2(220,48),()=>
+                Terra.UI.LocalFollowup.Show(LocationProfile.At(Selected).Name,null,null,"Home",null));
             var settings=Button(panel,"",new Vector2(1,1),new Vector2(-28,-28),new Vector2(46,46),()=>options.SetActive(!options.activeSelf));
             settings.gameObject.name="Atlas settings";settings.image.color=Color.clear;
             // A quiet native gear keeps options available without filling the selection scene.
@@ -70,12 +72,13 @@ namespace Terra.Gameplay
                 choiceUnderline[i]=Box(choices[i].transform,"Focus diamond",new Vector2(.5f,0),new Vector2(0,0),new Vector2(6,6)).gameObject.AddComponent<Image>();choiceUnderline[i].transform.localRotation=Quaternion.Euler(0,0,45);choiceUnderline[i].color=Gold;choiceUnderline[i].raycastTarget=false;
             }
             BuildStartNudge();
-            var optionsRect=Box(uiRoot,"Atlas options",new Vector2(1,1),new Vector2(-28,-86),new Vector2(238,216));options=optionsRect.gameObject;
+            var optionsRect=Box(uiRoot,"Atlas options",new Vector2(1,1),new Vector2(-28,-86),new Vector2(238,280));options=optionsRect.gameObject;
             var optionsBackground=options.AddComponent<Image>();optionsBackground.sprite=rounded;optionsBackground.type=Image.Type.Sliced;optionsBackground.color=new Color(.07f,.14f,.17f,.98f);
             motion=Button(optionsRect,"Motion: full",new Vector2(.5f,1),new Vector2(0,-15),new Vector2(208,48),()=>SetMotion(!ReducedMotion));
             motion.GetComponentInChildren<TextMeshProUGUI>().text=ReducedMotion?"Motion: reduced":"Motion: full";
             Button(optionsRect,"Sound",new Vector2(.5f,1),new Vector2(0,-79),new Vector2(208,48),()=>{options.SetActive(false);Terra.Audio.TerraAudioPanel.Show();});
             Button(optionsRect,"Field notes & credits",new Vector2(.5f,1),new Vector2(0,-143),new Vector2(208,48),()=>{options.SetActive(false);notes.SetActive(true);});options.SetActive(false);
+            Button(optionsRect,"Take it local",new Vector2(.5f,1),new Vector2(0,-207),new Vector2(208,48),()=>{options.SetActive(false);Terra.UI.LocalFollowup.Show(LocationProfile.At(Selected).Name,null,null,"Home",null);});
             var notesRect=Box(uiRoot,"Atlas field notes",Vector2.one*.5f,Vector2.zero,new Vector2(700,580));notes=notesRect.gameObject;
             var notesBackground=notes.AddComponent<UnityEngine.UI.Image>();notesBackground.sprite=rounded;notesBackground.type=UnityEngine.UI.Image.Type.Sliced;notesBackground.color=new Color(.09f,.16f,.19f);
             Text(notesRect,"MyTerrain  /  FIELD NOTES",new Vector2(0,1),new Vector2(36,-28),new Vector2(620,30),14,Mint);

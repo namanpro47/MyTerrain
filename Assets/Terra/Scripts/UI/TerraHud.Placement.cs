@@ -116,7 +116,7 @@ namespace Terra.UI
             previewKind.text=(status=="REPLACE PREVIEW"?"REPLACE":status=="MOVE PREVIEW"?"MOVE":status)+" · "+site;
             previewKind.color=blocked?blockedPlacement:Accent;
             // Even a failed replacement must identify the intended candidate and its first cause.
-            if(blocked)
+            if(blocked && !(projectFactsVisible && projectStatsQueued))
             {
                 projectFacts.gameObject.SetActive(false);projectFactsVisible=false;previewBody.gameObject.SetActive(true);
                 previewTitle.text=title;previewBody.text=rejection;annualPreviewBody=rejection;
@@ -127,6 +127,7 @@ namespace Terra.UI
             else if(projectFactsVisible)
             {
                 placementSpace.text=space;
+                if(projectStatsQueued){previewKind.text="QUEUED · "+site;previewKind.color=Accent;}
                 projectReserve.text=reservationDelta==null?projectReserve.text:
                     reservationDelta>0?"Reserve "+Money(reservationDelta.Value)+" more":
                     reservationDelta<0?"Release "+Money(-reservationDelta.Value):"Reservation unchanged";
@@ -155,25 +156,7 @@ namespace Terra.UI
             }
         }
 
-        void LayoutPlacementFacts()
-        {
-            if(!projectFactsVisible)return;
-            // Same dimensions for every recipe/state at this viewport; payment rows never move the dock.
-            if(placementSpace==null)return;
-            var panel=(RectTransform)tooltip.transform;panel.sizeDelta=new Vector2(304,400);
-            projectUpkeep.rectTransform.anchoredPosition=new Vector2(48,-114);projectUpkeep.rectTransform.sizeDelta=new Vector2(238,40);
-            upkeepGlyph.rectTransform.anchoredPosition=new Vector2(18,-114);
-            projectBenefit.rectTransform.anchoredPosition=new Vector2(48,-158);benefitGlyph.rectTransform.anchoredPosition=new Vector2(18,-158);projectBenefit.rectTransform.sizeDelta=new Vector2(238,26);
-            projectTradeoff.rectTransform.anchoredPosition=new Vector2(48,-188);tradeoffGlyph.rectTransform.anchoredPosition=new Vector2(18,-188);projectTradeoff.rectTransform.sizeDelta=new Vector2(238,42);
-            projectTiming.gameObject.SetActive(false);timingGlyph.gameObject.SetActive(false); // Opening year is beside upfront cost; full timing stays in Details.
-            placementSpace.rectTransform.anchoredPosition=new Vector2(18,-234);placementSpace.rectTransform.sizeDelta=new Vector2(268,40);
-            placementSpace.fontSize=LargeText?15.5f:14;
-            projectReserve.rectTransform.anchoredPosition=new Vector2(18,-276);projectReserve.rectTransform.sizeDelta=new Vector2(268,42);
-            foreach(var text in new[]{projectUpkeep,projectBenefit,projectTradeoff,projectReserve})text.fontSize=LargeText?17.5f:16;
-            recipeDetails.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,56);recipeDetails.GetComponent<RectTransform>().sizeDelta=new Vector2(268,24);
-            foreach(var button in new[]{confirmEditButton,moveButton,removeButton})
-            {var rect=button.GetComponent<RectTransform>();rect.anchoredPosition=new Vector2(rect.anchoredPosition.x,8);rect.sizeDelta=new Vector2(rect.sizeDelta.x,44);}
-        }
+        void LayoutPlacementFacts() => LayoutVisualProjectStats();
 
         public void PlacementAcceptedState(AnnualTown town,TownYearOutcomes baseline)
         {

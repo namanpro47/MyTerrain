@@ -1,0 +1,30 @@
+{
+  "source": "19e7eae835ed4c06a21d42887a9a53ed28cc4fc2",
+  "export": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Builds/Verified/myterrain-19e7eae",
+  "measuredAt": "2026-10-25",
+  "requiredUnityPayloadBytes": 55606953,
+  "budgetBytes": 50000000,
+  "files": [
+    {
+      "path": "Build/200fd07af8fe5a7451a6e0b932483579.framework.js.unityweb",
+      "bytes": 68455,
+      "sha256": "7e5d8aaec6e70fd4988d2819e6f86982991125a0eb29e01a8d97993c9e6a4a1e"
+    },
+    {
+      "path": "Build/9d6cc4ef23e055fc6da97d331a7f8c15.wasm.unityweb",
+      "bytes": 8062251,
+      "sha256": "13d5acc359735696fe90624cacaa3058851a6f2c1565ecd565723b6fb78b72b7"
+    },
+    {
+      "path": "Build/9f81a12839a876635f834e4e67cb430b.data.unityweb",
+      "bytes": 47357441,
+      "sha256": "91a3d0b3959b281c506d05d44bb4c382900da5aa6163877f1dd4e3638bf34419"
+    },
+    {
+      "path": "Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js",
+      "bytes": 118806,
+      "sha256": "e427e4ea0df767e994ac11f6f9bb7801606a8d59819c792347ece179895c155e"
+    }
+  ],
+  "note": "File-body bytes already Brotli compressed where .unityweb; excludes map JSON, optional community downloads, HTTP headers and cache effects. Actual network transfer not remeasured in this audit. No settings/runtime edits."
+}

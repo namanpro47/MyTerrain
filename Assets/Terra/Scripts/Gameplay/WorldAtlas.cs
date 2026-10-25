@@ -109,7 +109,7 @@ namespace Terra.Gameplay
         void SetVeil(float alpha){veil.color=new Color(Navy.r,Navy.g,Navy.b,alpha);veil.raycastTarget=alpha>.98f;}
         void Update()
         {
-            if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(!Visible)return;var k=Keyboard.current;
+            if(Terra.UI.LocalFollowup.ConsumedInput||Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(!Visible)return;var k=Keyboard.current;
             if(k!=null)
             {
                 if(k.escapeKey.wasPressedThisFrame){if(notes.activeSelf){notes.SetActive(false);return;}if(options.activeSelf){options.SetActive(false);return;}if(Traveling)Show();}

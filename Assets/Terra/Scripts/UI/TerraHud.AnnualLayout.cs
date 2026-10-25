@@ -29,7 +29,7 @@ namespace Terra.UI
         // Secondary actions share the bottom bar; each catalog card keeps its price badge.
         void LayoutAnnual(float width,float height,bool compact)
         {
-            annualCompact=compact;annualLayoutWidth=width;actionDock.gameObject.SetActive(!annualCompleted);commandBar.gameObject.SetActive(true);
+            annualCompact=compact;annualLayoutWidth=width;annualLayoutHeight=height;actionDock.gameObject.SetActive(!annualCompleted);commandBar.gameObject.SetActive(true);
             void Position(Transform t,Vector2 anchor,Vector2 position,Vector2 size)
             {var r=(RectTransform)t;r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=position;r.sizeDelta=size;}
             void Place(Button button,Transform parent,Vector2 position,float w)
