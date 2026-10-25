@@ -1,0 +1,2 @@
+ D Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta
+ D Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta
