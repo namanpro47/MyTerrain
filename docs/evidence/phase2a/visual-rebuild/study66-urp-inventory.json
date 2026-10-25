@@ -1,0 +1,46 @@
+[
+  {
+    "id": "027592bb398e7bb499bfb5547de836cf",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/leafs.mat"
+  },
+  {
+    "id": "7b878b89ce2c55e468c8a34e06790053",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/road_borders_dif.mat"
+  },
+  {
+    "id": "876ce700e3b41c44cb689112a89a2467",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_01d.mat"
+  },
+  {
+    "id": "8e4cfcbc086602f42aafdcdf1d90bf6c",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_01.mat"
+  },
+  {
+    "id": "976681b1d63abb64a8c8f8d80ee9563a",
+    "path": "Assets/BigRookGames/Nature Pack/Materials"
+  },
+  {
+    "id": "b27d2848fbd9299418a09f6aa4d6fa33",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/leafs 1.mat"
+  },
+  {
+    "id": "c7f48c0acf0547843b5d9a25b74583f2",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/bush_tile.mat"
+  },
+  {
+    "id": "c96f4bd3c8b2b97478877d72508818f2",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/tree_albedo_01.mat"
+  },
+  {
+    "id": "d0a85c28254596945a2d7fa25a9e079e",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/bush__albedo.mat"
+  },
+  {
+    "id": "f9b8503de0005744d9e731e8946d7b4d",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/URP_default.mat"
+  },
+  {
+    "id": "fb099960a5cb41945b66d4d25ea8ba66",
+    "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_02.mat"
+  }
+]

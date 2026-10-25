@@ -1,0 +1,14 @@
+{
+  "playing": false,
+  "scene": "Assets/Terra/Scenes/TerraMain.unity",
+  "dirty": false,
+  "remainingStudyObjects": 0,
+  "temporaryMaterialsRemoved": 0,
+  "shaderMessages": [
+    {
+      "shader": "Study69/Shared Meadow Ground",
+      "message": "use of potentially uninitialized variable (PaintedFilteredSample)",
+      "severity": "Warning"
+    }
+  ]
+}

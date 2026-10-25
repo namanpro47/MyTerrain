@@ -1,0 +1,58 @@
+{
+  "source": "399ff46",
+  "originMainInspected": "67c0141",
+  "editor": "6000.6.6f1",
+  "renders": {
+    "control-normal.png": {
+      "frame": 91,
+      "width": 1280,
+      "height": 720,
+      "sha256": "7d14e849fec5ec5e7555f5e85d7fd29471ca3bcc7aedea67f5ac7dfd4acbaae1"
+    },
+    "shared-normal.png": {
+      "frame": 1712,
+      "width": 1280,
+      "height": 720,
+      "sha256": "f0d6cb6502938936b749408275e4108699913227a14aae5cebf1388facfb4edd"
+    },
+    "shared-close.png": {
+      "frame": 4714,
+      "width": 1280,
+      "height": 720,
+      "sha256": "e91a6fc263fa8aff9bfd5f0db85aa8265b7e54faf1acf7a38faf87f0d447fbe3"
+    },
+    "connected-close.png": {
+      "frame": 23845,
+      "width": 1280,
+      "height": 720,
+      "sha256": "8bb1a4857b928aff421c8023f2b9f8ee165fc15a48e2680e053a6640b1817b11"
+    },
+    "connected-normal.png": {
+      "frame": 26250,
+      "width": 1280,
+      "height": 720,
+      "sha256": "89649b50e24c420a5017d0e41269c0bca345f67815206598f4115782718e2eec"
+    },
+    "layer-normal.png": {
+      "frame": 35830,
+      "width": 1280,
+      "height": 720,
+      "sha256": "d30fe1d4a5116631d8514d16293cd96728ad5f1b642306b27d3d5c4151ee8dab"
+    },
+    "layer-close.png": {
+      "frame": 39177,
+      "width": 1280,
+      "height": 720,
+      "sha256": "1349912dca02e4aec46d05a564aa1c4b97b717f7aa9f6ce86fa279ee686967d0"
+    },
+    "connected-wide.png": {
+      "frame": 53563,
+      "width": 1280,
+      "height": 720,
+      "sha256": "e63aa7c655683ef2b50c8e5f3911028bc50321d7ccdeeec6a5437db8300d4c92"
+    }
+  },
+  "shaderWarning": "Study69/Shared Meadow Ground: use of potentially uninitialized variable (PaintedFilteredSample). Final post-render ShaderUtil query; no error-level messages. Must diagnose before promotion.",
+  "cleanup": "Play stopped; TerraMain clean; zero study runtime objects; Editor49694/launcher49688 absent; reservation34 released.",
+  "decision": "Shared shading is a limited candidate improvement; initial cloudy paint and added low geometry rejected. No production shader/renderer changes or acceptance."
+}

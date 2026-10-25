@@ -1,0 +1,212 @@
+{
+  "productId": 177775,
+  "archive": "/Users/naman/Library/Unity/Asset Store-5.x/BigRookGames/3D ModelsVegetationTrees/Stylized Hand Painted Nature Pack - Free.unitypackage",
+  "bytes": 53124420,
+  "sha256": "233fc839ec098e654ec1672887acb3b426f760afbb186ab9ea5e61acf8250cab",
+  "files": [
+    {
+      "id": "00e4b2ee0379ffb4c9aaacd7e89155e9",
+      "path": "Assets/BigRookGames/Nature Pack/Textures"
+    },
+    {
+      "id": "027592bb398e7bb499bfb5547de836cf",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/leafs.mat"
+    },
+    {
+      "id": "034123b49c8d43441b94d2fd4b0a71fd",
+      "path": "Assets/BigRookGames/Nature Pack/Models"
+    },
+    {
+      "id": "063510dd85a3d824c9af24cdd120d435",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_01.prefab"
+    },
+    {
+      "id": "067a0169e73eff247bbb5b3918934f03",
+      "path": "Assets/BigRookGames/Nature Pack/Models/tree_common_04.fbx"
+    },
+    {
+      "id": "0cd681d52de2eb94893ceb676ab178f2",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/bush__albedo.tga"
+    },
+    {
+      "id": "10c59084370d3c5408de126abea2e44b",
+      "path": "Assets/BigRookGames/Nature Pack/Models/bush_01.fbx"
+    },
+    {
+      "id": "12664264496fea24896a852873329e3b",
+      "path": "Assets/BigRookGames/Nature Pack/Models/bush_02.fbx"
+    },
+    {
+      "id": "18dfe9523ed0d394494355ada2a1450a",
+      "path": "Assets/BigRookGames/Nature Pack/Nature Pack Demo.unity"
+    },
+    {
+      "id": "292ceffdb137c6c4d86729b076c93c21",
+      "path": "Assets/BigRookGames/Nature Pack/HDRP URP/Import for URP.unitypackage"
+    },
+    {
+      "id": "329d6218f8b48ae4aa30c5d0641831da",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/tree_metalness.tga"
+    },
+    {
+      "id": "383aa81c14dee844aad47715becbe754",
+      "path": "Assets/BigRookGames/Nature Pack/Models/bush_03.fbx"
+    },
+    {
+      "id": "3cf4c59178b8cc642b15c64c267c3e1e",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/tree_common_03.prefab"
+    },
+    {
+      "id": "502e46cc0acfb0a469ca5a19de05cca9",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/tree_normals.tga"
+    },
+    {
+      "id": "5325d76787063d348bd20518c3ff44c1",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/grass_tile_01d.tga"
+    },
+    {
+      "id": "5c0269edb0cbc2c418a1388fd0ccf72a",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_04.prefab"
+    },
+    {
+      "id": "5e0e97d6f37f6d3408f5a9c93366af0e",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/tree_albedo_01.tga"
+    },
+    {
+      "id": "5f9e17e893f048d408706cd920e93cc1",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/Grass_Plane_01c.tif"
+    },
+    {
+      "id": "66d3abc13c6482d46b32e4ca22199c93",
+      "path": "Assets/BigRookGames/Nature Pack/Nature Pack Demo URP.unity"
+    },
+    {
+      "id": "6c7b80fa2ce95284282a3b580939e013",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/bush__normals.tga"
+    },
+    {
+      "id": "7b493be75c4a7654d8175a063f06c9f7",
+      "path": "Assets/BigRookGames/Nature Pack/Models/tree_common_02.fbx"
+    },
+    {
+      "id": "7b878b89ce2c55e468c8a34e06790053",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/road_borders_dif.mat"
+    },
+    {
+      "id": "8172efba1a833df44808fee8d80448d7",
+      "path": "Assets/BigRookGames/Nature Pack/HDRP URP"
+    },
+    {
+      "id": "83ad7ae98615fb14685c2d44b7034c62",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/tree_gloss.tga"
+    },
+    {
+      "id": "876ce700e3b41c44cb689112a89a2467",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_01d.mat"
+    },
+    {
+      "id": "8a26de1e73de36249a2e401ec09d41b0",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/tree_common_02.prefab"
+    },
+    {
+      "id": "8c5974bab11e895469af08025de3733f",
+      "path": "Assets/BigRookGames/Nature Pack/Nature Pack Demo HDRP.unity"
+    },
+    {
+      "id": "8e4cfcbc086602f42aafdcdf1d90bf6c",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_01.mat"
+    },
+    {
+      "id": "909c2815a4d62cd4497adace252b13c6",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs"
+    },
+    {
+      "id": "9598fbdf328171a4c923ceba077e47e0",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/road_borders_dif.psd"
+    },
+    {
+      "id": "95efc80214a60894c9f1055b090c89c0",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/road_borders_dif 1.psd"
+    },
+    {
+      "id": "964a3cb83c8ad974b8da5a1ccd404e04",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_05.prefab"
+    },
+    {
+      "id": "96f024162c5b50848980d37681a40483",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/dirt_tile_02.psd"
+    },
+    {
+      "id": "976681b1d63abb64a8c8f8d80ee9563a",
+      "path": "Assets/BigRookGames/Nature Pack/Materials"
+    },
+    {
+      "id": "996418bf8ccd1164bba3a99ca0003b01",
+      "path": "Assets/BigRookGames/Nature Pack/Models/tree_common_03.fbx"
+    },
+    {
+      "id": "a9cf011c772eda64bb9b5b785bfe15b7",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_03.prefab"
+    },
+    {
+      "id": "b27d2848fbd9299418a09f6aa4d6fa33",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/leafs 1.mat"
+    },
+    {
+      "id": "b4e1f9fc62c0ede459622628686eee6a",
+      "path": "Assets/BigRookGames/Nature Pack/Models/tree_common.fbx"
+    },
+    {
+      "id": "c130271838c9d50409670a49a29a94bd",
+      "path": "Assets/BigRookGames/Nature Pack/Models/road_borders.fbx"
+    },
+    {
+      "id": "c3578b9c12ab7c748976bc3d44891e71",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_border.prefab"
+    },
+    {
+      "id": "c7a4ea8a74f648e40ab335254e7329b1",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/bush_02.prefab"
+    },
+    {
+      "id": "c7f48c0acf0547843b5d9a25b74583f2",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/bush_tile.mat"
+    },
+    {
+      "id": "c96f4bd3c8b2b97478877d72508818f2",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/tree_albedo_01.mat"
+    },
+    {
+      "id": "d0a85c28254596945a2d7fa25a9e079e",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/bush__albedo.mat"
+    },
+    {
+      "id": "d533b2b08f90bac4d84b809b0f161190",
+      "path": "Assets/BigRookGames/Nature Pack/HDRP URP/Import for HDRP.unitypackage"
+    },
+    {
+      "id": "dbbb74b127c5af8489aa1c828a6054cf",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/bush_tile.png"
+    },
+    {
+      "id": "ead4c7b45f9aabb428c30a60972ef98a",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/leaf_normals.tga"
+    },
+    {
+      "id": "eb850426a5e5f41478acb97e79d92212",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/leaf_albedo_01.tga"
+    },
+    {
+      "id": "edec04221354c1341a6f8b20532c9efe",
+      "path": "Assets/BigRookGames/Nature Pack/Prefabs/tree_common_01.prefab"
+    },
+    {
+      "id": "fb099960a5cb41945b66d4d25ea8ba66",
+      "path": "Assets/BigRookGames/Nature Pack/Materials/grass_tile_02.mat"
+    },
+    {
+      "id": "fbd5d5bcad347704db1bf6b34d5de154",
+      "path": "Assets/BigRookGames/Nature Pack/Textures/dirt_tile_01.psd"
+    }
+  ]
+}

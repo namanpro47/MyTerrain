@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study71/validate-normals.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "alphaMismatch": 0,
+        "covered": 1299243,
+        "minimumLength": 0.993906856,
+        "maximumLength": 1.00645363,
+        "meanNormalY": -0.04054289005722833,
+        "scope": "Raw normal bake must cover the exact original color silhouette and retain unit vectors; catches gamma/postprocessing corruption."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7804,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

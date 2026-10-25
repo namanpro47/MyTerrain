@@ -1,15 +1,33 @@
 # Current visual review — Phase 2A remains open
 
-**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Combined performance is still pending.
+**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). The subsequent focused Chrome opening/editing/Year10 paths fail the stable-30 limit at37/41/34ms p95. [Timing and annual checks](evidence/phase2a/combined-crops-browser-01/README.md).
 
 ![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
 
-Camera comparisons did not solve the broad empty-ground problem and were not promoted. Next structural study: depict the annual scenario's four existing fictional homes outside project footprints, using metric art and preserving all baseline accounting. This is an unimplemented scene hypothesis, not observed buildings or additional gameplay.
+**Latest Editor candidate: study65, source `3b28015`.** Four metric homes depict the already-counted fictional starting community, with foundations and terrain-following road access. Compilation and35 source/state/lifecycle checks pass. This capture excludes the HUD and has not been verified in Chrome; repeated houses, sparse yards and whole-scene weaknesses remain. [Study65 evidence](evidence/phase2a/visual-rebuild/study65-findings.md).
+
+![Latest Editor candidate — fictional starting community, not browser acceptance](evidence/phase2a/visual-rebuild/study65-integrated-normal.png)
+
+[Study66 rendered asset comparison](evidence/phase2a/visual-rebuild/study66-findings.md): the approved free BigRookGames family was inspected in its supplied URP demo and in Wisconsin. Native and adapted leaf materials yield fuller crowns, but dense repeated rounded layers and weak edge structure remain. The swap is not adopted; production scenery is unchanged.
+
+**Latest structural and asset comparisons: studies67–68, both rejected.** [Study67](evidence/phase2a/visual-rebuild/study67-rendered/README.md) tests fewer mature trees, actual low shrubs and larger glades using the coherent BigRook family. Repeated layered crowns and disconnected shrubs remain. [Study68](evidence/phase2a/visual-rebuild/study68-environment/README.md) evaluates the free RG Poly environment in its native scene and substitutes its supplied grass geometry/material in Terra. At play distance it becomes separated green marks; the replacement is not adopted. These are actual Editor camera renders, not Chrome acceptance.
+
+![Rejected study68 — native grass shader and geometry in the actual retained landscape](evidence/phase2a/visual-rebuild/study68-environment/terra-native-grass-normal.png)
+
+**Latest material investigation: [study69](evidence/phase2a/visual-rebuild/study69-surface/README.md).** Shared world-space artist paint reduces detached grass contrast and improves close ground detail with the original planting layout. The initial cloudy texture treatment and an additional 15,874 low plants are rejected. The corrected material remains a limited candidate, with its inherited Metal shader warning now resolved in the isolated experiment. Actual normal/close/wide Editor captures are recorded; no Chrome or visual-gate acceptance. Production scenery remains the study65 candidate above.
+
+**Latest field construction: [study70](evidence/phase2a/visual-rebuild/study70-field/README.md), checkpoint `449341a`.** Actual source-derived crop-volume renders replace repeated vegetable dots with broad planted masses. The [combined normal view](evidence/phase2a/visual-rebuild/study70-field/combined-normal.png) is a useful direction, but [wide filtering](evidence/phase2a/visual-rebuild/study70-field/all-wide.png) exposes crosshatching and the [coverage-preserving alternative](evidence/phase2a/visual-rebuild/study70-field/coverage-close.png) becomes too flat and bright. No production adoption, browser/performance pass, or Phase2A acceptance. Study71 below tests source normals and shows that shading alone does not answer the gap. Frozen release branch `codex/visual-study20` is unchanged; this experiment is on `codex/visual-field70`.
+
+**Latest controlled comparison: [study71 — original plant normals](evidence/phase2a/visual-rebuild/study71-normals/README.md), checkpoint `2fb4c49`.** Nine matched actual Editor captures compare upward, original and softened normals at normal/close/wide distances. [Original normals](evidence/phase2a/visual-rebuild/study71-normals/lit-normal.png) create harsh dark speckling; [softened normals](evidence/phase2a/visual-rebuild/study71-normals/soft-close.png) return toward a flat slab. Both are rejected as finished scenery. The bake and shaders pass their data checks, which does not establish visual quality. Next: change field-edge structure and the near-view plant representation, then verify a coherent distant form. No more normal-weight, density or tint-only passes. No runtime integration or Chrome/performance acceptance is claimed.
+
+![Study69 shared ground and vegetation — limited candidate, not accepted scenery](evidence/phase2a/visual-rebuild/study69-surface/connected-normal.png)
+
+The persistent failure is the whole field–meadow surface, not the lack of another plant model. Crop rows, weak forest/field structure and the broad overview remain substantial gaps. Carry forward the useful shared-surface relationship; do not pursue more density or texture-only polish as a substitute for better field construction.
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 
 
-**Latest candidate: study60, source `d04f7d4`, October 25, 2026.** This page presents the current rendered game; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
+**Historical candidate: study60, source `d04f7d4`, October 25, 2026.** The sections below preserve earlier rendered evidence; [the earlier review](ARCHIVED_VISUAL_REVIEW_46.md) preserves historical studies and their original claims. [Persistent design library](DESIGN_REFERENCE.md) · [unchanged visual gate](PHASE_2A_GOAL.md) · [current evidence](evidence/phase2a/visual-rebuild/study60-findings.md).
 
 [Latest unfinished investigation: study59 cultivated soil beds](evidence/phase2a/visual-rebuild/study59-findings.md). Saved for continuity; it does not replace the retained candidate below.
 
