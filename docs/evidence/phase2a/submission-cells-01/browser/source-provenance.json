@@ -1,0 +1,13 @@
+{
+  "source": "d620ff21f59f30bf7dcf0825e15bf3b9654af3b7",
+  "cleanBeforeEditorOpen": true,
+  "trackedDifferencesDuringExport": [
+    "Deleted Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+    "Deleted Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta"
+  ],
+  "restoredAfterEditorClose": true,
+  "buildMethod": "Terra/Build Web via editor invoke_menu",
+  "editor": "6000.6.6f1",
+  "ignoredInputAudit": "ignored-assets.json",
+  "mainAtExport": "9b1a667e2e41679c15e5b9b7dcac996a616783cf"
+}
