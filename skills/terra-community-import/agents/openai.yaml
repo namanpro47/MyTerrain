@@ -1,0 +1,4 @@
+interface:
+  display_name: "Terra Community Import"
+  short_description: "Bring real community imagery and terrain into Terra"
+  default_prompt: "Use $terra-community-import to find representative imagery for a community, import its terrain into Terra, and test the geographic match."

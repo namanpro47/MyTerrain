@@ -1,0 +1,11 @@
+{
+  "runtimeSourceCommit": "a0eac774f9cb3dc886a9d945e68bc97b86d652a7",
+  "releasedBase": "ce27355",
+  "unity": "6000.6.6f1",
+  "result": "Succeeded",
+  "jobId": "4d031f00fe4845bc9480bd433f43cc91",
+  "filesVerified": 26,
+  "servedBytes": 58644012,
+  "url": "http://127.0.0.1:49923",
+  "scope": "Community flow on released minimal selector; excludes later Point Reyes/Suusamyr geographic reconstruction."
+}

@@ -4,6 +4,9 @@
 
 Replaces the plain startup screen with a 42 KB preview of the actual native globe, matching Lilita One title, stars and small download/status line. No added wait or click; the live selector appears after native readiness, player binding and a rendered-frame opportunity. Retry and reduced-motion behavior remain available. Chrome verifies normal handoff, Point Reyes entry, compact/portrait layout and download-error retry; transport lifecycle checks pass. [Exact evidence and limits](evidence/globe-first-loading/README.md). TN-01/03/06, AX-01. Unity download size is unchanged; this is a template update, not a new engine export or public deployment.
 
+## Community imagery import — isolated candidate, October 25, 2026
+
+The installed `terra-community-import` skill resolves a place, reviews licensed imagery, imports metric elevation and stages an independent native selector preview. Two 1.2 km studies preserve real Coon Valley and Tomales NAIP aerial images on USGS terrain. Five Python tests, skill validation and Unity geometry/image-registration checks pass; initial Chrome loads, source comparison, rotation, zoom and close pass. [Sources, captures and exact limits](evidence/community-import/README.md). The latest gear-menu integration is awaiting the separately owned selector release and final combined-source browser verification. Automatic search is a stub; editable 3D buildings and annual community scenarios are not implemented. Existing annual scenarios and Phase 2A acceptance remain independent.
 
 ## Pinned Wisconsin weather reference — October 25, 2026
 
