@@ -494,3 +494,6 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 - [Study 55: layered restoration with annual establishment](study55-findings.md) — retained candidate with actual three-year Chrome/reload evidence; visual/performance gate open.
 
 - [Study56: rejected crop mass and sparse-band controls](study56-findings.md) — matched Editor captures, unchanged production rendering, and two free solid-leaf crop sources acquired for the next comparison.
+
+- [Study57: solid-leaf crop comparison](study57-findings.md) — corn import/scene trials rejected; verified submission collector integrated.
+- [Study58: grain-geometry surface bake](study58-findings.md) — offline artist-model bake and close/normal controls rejected for floor-like appearance; experimental shader removed.
