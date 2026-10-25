@@ -16,7 +16,7 @@ Next work extends `AnnualTown` as the same authoritative queue/ledger/history ow
 
 At the release owner's user-authorized checkpoint request, work stops at a preserved draft. Weather consumer commits `58e58e3` and `821a022` are additive, tested, and inactive; they do not change gameplay. Subsequent draft changes add numeric DTOs, optional legacy-compatible hash/copy handling, a rule factory, and validation scaffolding. **Do not merge the whole annual-simulation branch into the release.** The v4 factory is intentionally unusable until `AnnualTown` accepts/implements schema 3; this prevents a new definition from silently running the old transition.
 
-Current checks: **124** weather/legacy compatibility assertions, including two previously published ten-year save fixtures and Unity-style empty DTO expansion. No new numeric transition, public repair, crop/event resolution, session save-first commit, v2 client, browser acceptance or balance is implemented. The draft constants are authored proposals awaiting sensitivity and edge-case tests, not accepted calibration.
+Current checks: **2,399** existing connected full-game/stress assertions and **124** weather/legacy compatibility assertions, including two previously published ten-year save fixtures and Unity-style empty DTO expansion. No new numeric transition, public repair, crop/event resolution, session save-first commit, v2 client, browser acceptance or balance is implemented. The draft constants are authored proposals awaiting sensitivity and edge-case tests, not accepted calibration.
 
 ### Continuation boundary
 
