@@ -7,17 +7,25 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds; }
+        sealed class Batch { public Mesh mesh,medium,distant;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight;public bool crop; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
+        static int cameraFrame=-1;static bool cameraValid,orthographic;
+        static Vector3 cameraPosition,cameraForward;static float pixelFactor,viewSpan;
+        public static float DisplayPixelRatio{get;set;}=1;
         public bool ShadowsOnly {get;set;}
         float revealStarted=-1,revealDuration;
         public void Reveal(float duration){revealStarted=Time.unscaledTime;revealDuration=duration;foreach(var batch in batches)batch.animated=new Matrix4x4[batch.transforms.Length];}
         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint)
         {
             if(prefab==null||transforms.Count==0)return;
-            foreach(var filter in prefab.GetComponentsInChildren<MeshFilter>())
+            var filters=prefab.GetComponentsInChildren<MeshFilter>(true);
+            bool hasOakLods=prefab.name.StartsWith("SolidOak");
+            foreach(var filter in filters)
             {
+                if(hasOakLods&&!filter.name.EndsWith("LOD0"))continue;
+                var medium=hasOakLods?System.Array.Find(filters,f=>f.name==filter.name.Replace("LOD0","LOD1"))?.sharedMesh:null;
+                var distant=hasOakLods?System.Array.Find(filters,f=>f.name==filter.name.Replace("LOD0","LOD2"))?.sharedMesh:null;
                 var materials=filter.GetComponent<MeshRenderer>().sharedMaterials;
                 var local=prefab.transform.worldToLocalMatrix*filter.transform.localToWorldMatrix;
                 for(int sub=0;sub<filter.sharedMesh.subMeshCount;sub++)
@@ -32,9 +40,11 @@ namespace Terra.Rendering
                     {
                         var matrices=new Matrix4x4[Mathf.Min(batchSize,transforms.Count-start)];
                         for(int i=0;i<matrices.Length;i++)matrices[i]=transforms[start+i]*local;
-                        var bounds=TransformBounds(filter.sharedMesh.bounds,matrices[0]);
-                        for(int i=1;i<matrices.Length;i++)bounds.Encapsulate(TransformBounds(filter.sharedMesh.bounds,matrices[i]));
-                        batches.Add(new Batch{mesh=filter.sharedMesh,submesh=sub,material=material,transforms=matrices,bounds=bounds});
+                        var localBounds=filter.sharedMesh.bounds;
+                        if(medium!=null)localBounds.Encapsulate(medium.bounds);if(distant!=null)localBounds.Encapsulate(distant.bounds);
+                        var bounds=TransformBounds(localBounds,matrices[0]);float maxHeight=bounds.size.y;
+                        for(int i=1;i<matrices.Length;i++){var plantBounds=TransformBounds(localBounds,matrices[i]);bounds.Encapsulate(plantBounds);maxHeight=Mathf.Max(maxHeight,plantBounds.size.y);}
+                        batches.Add(new Batch{mesh=filter.sharedMesh,medium=medium,distant=distant,submesh=sub,material=material,transforms=matrices,bounds=bounds,maxHeight=maxHeight,crop=prefab.name=="FieldCluster"});
                     }
                 }
             }
@@ -50,8 +60,29 @@ namespace Terra.Rendering
         }
         void LateUpdate()
         {
+            if(cameraFrame!=Time.frameCount)
+            {
+                cameraFrame=Time.frameCount;var camera=Camera.main;cameraValid=camera!=null;
+                if(cameraValid)
+                {
+                    var transform=camera.transform;cameraPosition=transform.position;cameraForward=transform.forward;
+                    orthographic=camera.orthographic;pixelFactor=camera.pixelHeight/(2*Mathf.Max(1,DisplayPixelRatio));
+                    viewSpan=orthographic?camera.orthographicSize:Mathf.Tan(camera.fieldOfView*.5f*Mathf.Deg2Rad);
+                }
+            }
             foreach(var b in batches)
             {
+                float pixels=float.MaxValue;
+                if(cameraValid&&(b.crop||b.medium!=null))
+                {
+                    // RenderMeshInstanced retains its native bounds/frustum and shadow culling.
+                    // Use the nearest part of a spatial batch, retaining detail conservatively at its near edge.
+                    float depth=Mathf.Max(1,Vector3.Dot(b.bounds.center-cameraPosition,cameraForward)-b.bounds.extents.magnitude);
+                    pixels=b.maxHeight*pixelFactor/(orthographic?viewSpan:depth*viewSpan);
+                    // The crop shader fades individual stalks before this conservative batch cutoff.
+                    if(b.crop&&pixels<=2.4f)continue;
+                }
+                var mesh=pixels<18&&b.distant!=null?b.distant:pixels<42&&b.medium!=null?b.medium:b.mesh;
                 var parameters=new RenderParams(b.material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
                 var matrices=b.transforms;
                 if(revealStarted>=0)
@@ -66,7 +97,7 @@ namespace Terra.Rendering
                     }
                     matrices=b.animated;
                 }
-                Graphics.RenderMeshInstanced(parameters,b.mesh,b.submesh,matrices);
+                Graphics.RenderMeshInstanced(parameters,mesh,b.submesh,matrices);
             }
             if(revealStarted>=0&&Time.unscaledTime-revealStarted>revealDuration+.2f)revealStarted=-1;
         }

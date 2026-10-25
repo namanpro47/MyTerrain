@@ -5,6 +5,48 @@ using UnityEngine;
 // Reproducible selected-subset import. The source archive/license is recorded in the visual rebuild register.
 public static class VisualRebuildAssets
 {
+    public static void PrepareGroundNormals()
+    {
+        foreach(string kind in new[]{"Grass","Dirt"})
+        {
+            string destination="Assets/Terra/Resources/Artist"+kind+"Normal.png";
+            if(AssetDatabase.LoadAssetAtPath<Texture2D>(destination)==null)
+                AssetDatabase.CopyAsset("Assets/Stylised Nature/Materials/Textures/Terrain/Stylised"+kind+"Normal.png",destination);
+            var importer=(TextureImporter)AssetImporter.GetAtPath(destination);
+            importer.textureType=TextureImporterType.NormalMap;importer.maxTextureSize=1024;
+            importer.wrapMode=TextureWrapMode.Repeat;importer.filterMode=FilterMode.Trilinear;importer.anisoLevel=4;
+            importer.SaveAndReimport();
+        }
+    }
+    public static void PrepareSolidOaks()
+    {
+        const string sourceRoot="Assets/Terra/Art/SymphonieOak/";
+        for(int i=1;i<=4;i++)
+        {
+            var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(sourceRoot+"URP/Prefabs/Oak0"+i+".prefab"));
+            var lod=source.GetComponent<LODGroup>();if(lod!=null)Object.DestroyImmediate(lod);
+            foreach(var renderer in source.GetComponentsInChildren<MeshRenderer>(true))
+            {
+                var original=renderer.sharedMaterial;
+                string path="Assets/Terra/Resources/Nature/SolidOak0"+i+".mat";
+                var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+                if(material==null){material=new Material(Shader.Find("Universal Render Pipeline/Lit"));AssetDatabase.CreateAsset(material,path);}
+                material.SetTexture("_BaseMap",original.GetTexture("_BaseMap"));
+                material.SetTexture("_BumpMap",original.GetTexture("_BumpMap"));
+                material.SetTexture("_OcclusionMap",original.GetTexture("_OcclusionMap"));
+                // Supplied metallic setup rendered almost black without a reflection environment.
+                // Keep the artist's sculpted forms and painted maps in a matte foliage material.
+                material.SetFloat("_Metallic",0);material.SetFloat("_Smoothness",.15f);material.SetFloat("_BumpScale",.65f);
+                material.color=new Color(.72f,.84f,.68f);material.EnableKeyword("_NORMALMAP");material.EnableKeyword("_OCCLUSIONMAP");
+                material.enableInstancing=true;EditorUtility.SetDirty(material);renderer.sharedMaterial=material;renderer.enabled=true;
+            }
+            var bounds=System.Array.Find(source.GetComponentsInChildren<MeshRenderer>(true),r=>r.name.EndsWith("LOD0")).bounds;
+            var wrapper=new GameObject("SolidOak0"+i);source.transform.SetParent(wrapper.transform,false);
+            float scale=8/bounds.size.y;source.transform.localScale*=scale;source.transform.localPosition=Vector3.down*bounds.min.y*scale;
+            PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Resources/Nature/SolidOak0"+i+".prefab");Object.DestroyImmediate(wrapper);
+        }
+        AssetDatabase.SaveAssets();
+    }
     public static void PrepareFieldCluster()
     {
         var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Resources/Nature/ArtistWheat.prefab"));

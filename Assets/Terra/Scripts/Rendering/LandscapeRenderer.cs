@@ -26,7 +26,7 @@ namespace Terra.Rendering
         Transform ghost;string ghostSiteId;Material glintMaterial;LineRenderer settlingOutline;float settleStarted;
         static readonly Color Wood=new Color(.20f,.35f,.24f),Field=new Color(.64f,.60f,.34f),Meadow=new Color(.46f,.59f,.34f),Water=new Color(.22f,.48f,.51f);
         sealed class Geometry
-        {public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector3> normals=new List<Vector3>();public readonly List<int> triangles=new List<int>();}
+        {public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector3> normals=new List<Vector3>();public readonly List<int> triangles=new List<int>();public readonly List<Vector2> uv=new List<Vector2>();}
         public LandscapeRenderer(WorldData w,Material material,Transform parent,GameObject tree,GameObject crop,GameObject grass,GameObject shrub)
         {
             world=w;template=material;root=parent;this.tree=tree;this.crop=crop;this.grass=grass;
@@ -63,7 +63,7 @@ namespace Terra.Rendering
             BuildVisualGround();
             BuildEdge();
             foreach(var f in world.features.Where(f=>f.kind=="water"))
-            {Ribbon(RoundedWaterRoute(f.points),f.widthM+5.2f,new Color(.13f,.48f,.49f),-2.1f,root,"Mapped stream centreline");}
+            {Ribbon(RoundedWaterRoute(f.points),f.widthM+5.2f,new Color(.13f,.48f,.49f),-.9f,root,"Mapped stream centreline");}
             foreach(var f in world.features.Where(f=>f.kind=="path"))
             {BuildPath(f.points,f.widthM);}
             BuildCrossings();
@@ -133,6 +133,8 @@ namespace Terra.Rendering
             var material=GroundMat(Color.white);material.SetFloat("_SurfaceKind",3);
             material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));
             material.SetTexture("_BankMap",Resources.Load<Texture2D>("ArtistDirtGround"));
+            material.SetTexture("_GrassNormal",Resources.Load<Texture2D>("ArtistGrassNormal"));
+            material.SetTexture("_EarthNormal",Resources.Load<Texture2D>("ArtistDirtNormal"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
             BuildChannelTerrain(material);
         }
@@ -145,8 +147,8 @@ namespace Terra.Rendering
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
             meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            var trees=new[]{Resources.Load<GameObject>("Nature/ArtistSTOak1"),Resources.Load<GameObject>("Nature/ArtistSTOak2"),Resources.Load<GameObject>("Nature/ArtistSTOak4"),Resources.Load<GameObject>("Nature/ArtistSTWillow2")};
-            var bush=Resources.Load<GameObject>("Nature/ArtistSTOak4");
+            var trees=new[]{Resources.Load<GameObject>("Nature/SolidOak01"),Resources.Load<GameObject>("Nature/SolidOak02"),Resources.Load<GameObject>("Nature/SolidOak03"),Resources.Load<GameObject>("Nature/SolidOak04")};
+            var bush=trees[2];
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
@@ -164,9 +166,8 @@ namespace Terra.Rendering
                     float grouping=Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);
                     if(cover=="woodland" && !(grouping<.36f&&random.NextDouble()<.82))
                     {
-                        bool streamside=world.features.Any(f=>f.kind=="water"&&DistanceToRoute(f.points,px,pz)<32);
-                        int species=streamside?3:random.Next(3);float scale=grouping>.54f?Range(3.0f,4.0f):Range(1.8f,2.7f);
-                        groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360))*Matrix4x4.Scale(new Vector3(1.05f,1.15f,1.05f)));
+                        int species=grouping>.6f?1:random.Next(4);float scale=grouping>.54f?Range(3.0f,4.0f):Range(1.8f,2.7f);
+                        groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360))*Matrix4x4.Scale(new Vector3(Range(.85f,1.1f),1.1f,Range(.85f,1.1f))));
                         if(random.NextDouble()<.42)shrubs.Add(PlantMatrix(bush,px+Range(-7,7),pz+Range(-7,7),Range(.35f,.7f),Range(0,360)));
                     }
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
@@ -362,10 +363,20 @@ namespace Terra.Rendering
                 var miter=(n1+n2).normalized;float length=width*.5f/Mathf.Max(.65f,Vector2.Dot(miter,n2));
                 left[i]=current-miter*length;right[i]=current+miter*length;
             }
+            float along=0;
             for(int i=1;i<points.Length;i++)
             {
                 var p=new[]{left[i-1],left[i],right[i],right[i-1]};
+                int first=geometry.vertices.Count;
                 Surface(p.Select(v=>new Point(v.x,v.y)).ToArray(),lift,geometry);
+                var start=new Vector2(points[i-1].x,points[i-1].z);var segment=new Vector2(points[i].x,points[i].z)-start;
+                var direction=segment.normalized;var across=new Vector2(-direction.y,direction.x);
+                for(int j=first;j<geometry.vertices.Count;j++)
+                {
+                    var vertex=geometry.vertices[j];var delta=new Vector2(vertex.x,vertex.z)-start;
+                    geometry.uv.Add(new Vector2(Vector2.Dot(delta,across)/width+.5f,along+Vector2.Dot(delta,direction)));
+                }
+                along+=segment.magnitude;
             }
             MeshObject(name,geometry,(name=="Mapped stream centreline"||name=="Illustrative swale water")?StreamMaterial(name=="Mapped stream centreline"):Mat(color),parent);
         }
@@ -382,7 +393,7 @@ namespace Terra.Rendering
         void MeshObject(string name,Geometry geometry,Material material,Transform parent)
         {
             if(geometry.vertices.Count==0)return;
-            var mesh=new Mesh{name=name,indexFormat=IndexFormat.UInt32};mesh.SetVertices(geometry.vertices);mesh.SetTriangles(geometry.triangles,0);mesh.SetNormals(geometry.normals);mesh.RecalculateBounds();meshes.Add(mesh);
+            var mesh=new Mesh{name=name,indexFormat=IndexFormat.UInt32};mesh.SetVertices(geometry.vertices);mesh.SetTriangles(geometry.triangles,0);mesh.SetNormals(geometry.normals);if(geometry.uv.Count==geometry.vertices.Count)mesh.SetUVs(0,geometry.uv);mesh.RecalculateBounds();meshes.Add(mesh);
             var go=new GameObject(name);go.transform.SetParent(parent,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=material;
         }
         void DestroyGroup(Transform group)

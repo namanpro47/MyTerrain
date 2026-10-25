@@ -180,8 +180,9 @@ namespace Terra.UI
                 "<b>What is not included</b>\nNo parcel, structure, tree, ownership or local soil survey. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.\n\n"+
                 "<b>Use this game to ask better questions</b>\nThe proposals are educational choices, not recommendations for real farms. Production units are illustrative accounting, not measured yields.");
             else if(dataPage==3)ShowModal("Art & acknowledgements",
-                "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nSources: elijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted proportions, palette, import settings and instancing.\n\n"+
-                "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com\nWheat meshes combined and scaled into illustrative field groups.\n\n"+
+                "<b>Symphonie Studio · Free Oak sample</b>\nsymphonie-studio.itch.io/stylizedforestkit\nAdapted scale, matte materials and instancing.\n\n"+
+                "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nelijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted geometry, palette, materials and instancing.\n\n"+
+                "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com · adapted geometry/materials.\n\n"+
                 "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
             else ShowModal("One storm. Connected choices.",
                 "<b>50 mm rain · assumed soil B</b>\nEducational TR-55 estimate. Cover CN: crops 78, grass 61, woods 55, high-runoff cover 98 (assumed, not measured imperviousness).\n\n"+

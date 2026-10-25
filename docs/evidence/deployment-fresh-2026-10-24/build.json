@@ -1,0 +1,11 @@
+{
+  "result": "Succeeded",
+  "errors": 0,
+  "warnings": 8,
+  "durationSeconds": 87.94933,
+  "startedUtc": "2026-10-25T01:10:49.510044Z",
+  "endedUtc": "2026-10-25T01:12:17.459374Z",
+  "note": "Build was already running in the primary checkout when this request began; its completion and latest BuildReport were verified before publication.",
+  "export": "Builds/Publish/2026-10-24-1812",
+  "sourceChangeCheck": "Only generated PerformanceTestRunInfo/Settings files changed between source snapshot and build completion."
+}

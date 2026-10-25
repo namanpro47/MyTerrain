@@ -120,6 +120,6 @@ namespace Terra.Rendering
             }
         }
         // Illustrative access lanes, aligned across baseline and proposed planting, not surveyed tracks.
-        static bool FieldTrackAt(float x)=>Mathf.Repeat(x+1200,38.4f)<2.4f;
+        static bool FieldTrackAt(float x)=>((Mathf.RoundToInt(x/2.4f)%16)+16)%16==0;
     }
 }

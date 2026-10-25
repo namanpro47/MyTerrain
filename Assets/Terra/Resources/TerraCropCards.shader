@@ -25,19 +25,25 @@ Shader "Terra/Artist Grain Field"
             CBUFFER_START(UnityPerMaterial)
                 half4 _BaseColor;float4 _BaseMap_ST;half _Cutoff;
             CBUFFER_END
+            float _TerraDisplayPixelRatio;
             TEXTURE2D(_BaseMap);SAMPLER(sampler_BaseMap);
             struct A {float4 positionOS:POSITION;float2 uv:TEXCOORD0;UNITY_VERTEX_INPUT_INSTANCE_ID};
-            struct V {float4 positionCS:SV_POSITION;float3 positionWS:TEXCOORD0;float2 uv:TEXCOORD1;};
+            struct V {float4 positionCS:SV_POSITION;float3 positionWS:TEXCOORD0;float2 uv:TEXCOORD1;float plantPixels:TEXCOORD2;};
             V Vert(A i)
             {
                 UNITY_SETUP_INSTANCE_ID(i);
-                V o;o.positionWS=TransformObjectToWorld(i.positionOS.xyz);o.positionCS=TransformWorldToHClip(o.positionWS);o.uv=i.uv;return o;
+                V o;o.positionWS=TransformObjectToWorld(i.positionOS.xyz);o.positionCS=TransformWorldToHClip(o.positionWS);o.uv=i.uv;
+                float3 root=TransformObjectToWorld(float3(0,0,0));
+                float height=distance(root,TransformObjectToWorld(float3(0,2.3,0)));
+                o.plantPixels=height*_ScreenParams.y*abs(UNITY_MATRIX_P._m11)*.5/(max(.001,abs(TransformWorldToHClip(root).w))*max(1,_TerraDisplayPixelRatio));
+                return o;
             }
             half4 Frag(V i):SV_Target
             {
                 half4 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,i.uv);
                 // Feed coverage to MSAA, retaining clipping on targets without multisampling.
                 half coverage=saturate((painted.a-_Cutoff)/max(fwidth(painted.a),.001)+.5);
+                coverage*=smoothstep(2.4,4.2,i.plantPixels);
                 clip(coverage-.01);
                 Light sun=GetMainLight(TransformWorldToShadowCoord(i.positionWS));
                 half3 light=SampleSH(half3(0,1,0))+sun.color*.85*lerp(.5,1,sun.shadowAttenuation);
