@@ -5,7 +5,7 @@ var landscape=(Terra.Rendering.LandscapeRenderer)typeof(Terra.Gameplay.TerraMain
 var materials=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).Where(r=>r.name=="Mapped stream centreline").Select(r=>r.sharedMaterial).Distinct().ToArray();
 if(materials.Length!=1)throw new System.Exception("Expected one shared stream material");
 var material=materials.Single();var normal=material.GetTexture("_SurfaceNormal");
-if(normal==null)throw new System.Exception("Default shader texture was not bound in the actual runtime material");
+if(normal==null)throw new System.Exception("Runtime surface normal was not bound in the actual runtime material");
 if(UnityEditor.ShaderUtil.ShaderHasError(material.shader))throw new System.Exception("Stream shader failed compilation");
 var camera=UnityEngine.Camera.main;var data=camera.GetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
 if(data!=null&&(data.requiresDepthTexture||data.requiresColorTexture))throw new System.Exception("Unexpected camera depth/color copy");

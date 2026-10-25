@@ -1,0 +1,10 @@
+{
+  "source": "b49e6386405923a80c0661a3bace576be52cf208",
+  "success": true,
+  "jobId": "7c1f90fd2eb74b04b88b66a803058943",
+  "durationMs": 392447,
+  "completedAt": "2026-10-25T09:18:58.56903Z",
+  "servedFiles": 31,
+  "servedBytes": 45006970,
+  "url": "http://127.0.0.1:65254/"
+}

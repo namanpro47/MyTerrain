@@ -9,6 +9,13 @@ Matched Editor diagnostics: actual connected-field Wisconsin scene, frame716,160
 - Control: [close](control-55.jpg), [normal](control-145.jpg), [wide](control-450.jpg).
 - Candidate: [close](candidate-55.jpg), [normal](candidate-145.jpg), [wide](candidate-450.jpg).
 
-The initial trial replay names temporary Editor-only asset paths. The final shader is `Resources/TerraWater.shader`, with its default texture bound through ShaderImporter to `Art/ExternalKit/StreamSurface/SurfaceNormal.png`. [Running-Editor check](editor-check.json) confirms the shared runtime material has the real1024×1024 texture, shader compilation succeeds, no extra camera passes are requested, motion advances/freezes, and the annual diagnostic is unchanged. Actual frames advance667→716 in the study and1948 after final binding.
+The initial trial replay names temporary Editor-only asset paths. The final shader is `Resources/TerraWater.shader`, with an explicit runtime texture binding to `Resources/Water/SurfaceNormal.png`. [Running-Editor check](editor-check.json) confirms the shared runtime material has the real1024×1024 texture, shader compilation succeeds, no extra camera passes are requested, motion advances/freezes, and the annual diagnostic is unchanged. Actual frames advance667→716 in the study and1948 after final binding.
 
 Exact WebGL build, Chrome appearance/motion and matched cost checks are pending. This is an unaccepted local candidate, not a completed phase.
+
+
+## Export binding correction
+
+The first export, `b49e638`, compiles and serves31 matching files (45,006,970bytes), but [actual Chrome](chrome-importer-default-missing.png) lacks the Editor surface detail. The importer default did not establish the intended runtime texture binding; the export grew by only500bytes including its new license/HTML. Reject this export; no timing acceptance is claimed. Startup16.435s under shared load, zero error-level logs; [log](chrome-importer-default-console.json), [build](importer-default-build.json), [served files](importer-default-web-assets.json).
+
+The correction moves the unmodified texture into Resources and explicitly binds it when constructing the runtime stream material. A single `TERRA_STREAM_SURFACE` startup diagnostic records the loaded name and width in the actual player. The shader-importer default is removed. The corrected export still requires Chrome appearance/motion/performance verification.

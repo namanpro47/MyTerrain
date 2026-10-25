@@ -11,9 +11,9 @@
       "diagnostics": [],
       "success": true,
       "result": {
-        "frame": 1948,
+        "frame": 456,
         "shader": "Terra/Painted Stream",
-        "texture": "Assets/Terra/Art/ExternalKit/StreamSurface/SurfaceNormal.png",
+        "texture": "Assets/Terra/Resources/Water/SurfaceNormal.png",
         "textureSize": [
           1024,
           1024

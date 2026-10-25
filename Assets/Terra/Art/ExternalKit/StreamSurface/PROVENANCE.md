@@ -5,3 +5,5 @@ Source: MatrixRex/Uber-Stylized-Water, MIT, pinned commit `1fdd16c6312611fef7fb2
 Terra samples the normal texture in world space in its existing one-pass stream shader. It does not use the upstream shader, planar-reflection script, scene-color/refraction copy, or camera-depth pass. The generated channel mesh has no tangent attribute. Texture movement follows the existing reduced-motion clock. The surface is illustrative; no measured depth or flow claim.
 
 Source SHA-256: `49b823e8072e4848e9af63440cfb663c40d04a4fc265214792db00365dd94112`.
+
+Runtime file: `Assets/Terra/Resources/Water/SurfaceNormal.png`, explicitly bound by StreamMaterial. Shader-importer defaults are insufficient proof of player binding.
