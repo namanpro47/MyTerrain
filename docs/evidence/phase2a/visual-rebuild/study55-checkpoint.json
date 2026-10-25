@@ -1,74 +1,39 @@
 {
-  "sourceBase": "c5e314c",
-  "scope": "Wisconsin restoration and stewardship planting; Editor diagnostic, browser pending",
+  "implementation": "26282ed",
+  "combinedSource": "5139ba3",
+  "scope": "Wisconsin restoration/stewardship; three-year browser growth verified, full visual gate open",
   "files": [
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-focus.cs.txt",
-      "sha256": "951e57bda0c05b70d108cdd210188f00119723bca9442a703992e212a1dee90e"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year1.json",
-      "sha256": "c22f95b617fdd012d1738d033d38713d8b311137cd5479ea210cbf4fd2edc21d"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-compile.json",
-      "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-ticking.json",
-      "sha256": "92faa10d7e49b55aad16312ec7f5bb6d31301ed3f8527222329f529c1249be9f"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-control-normal.png",
-      "sha256": "e506e5adeadb21c43583b361bfdc47baf0f83f327727133a0360591ea5f1be9c"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year0.json",
-      "sha256": "94a82e72eea1b62f75b3093c863d1533c58eb557f36aec58a671e45f864030f3"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-fixture.cs.txt",
+      "sha256": "73357ba6b37f78d82d5f3d3116d5873b094b843bf1e1d5072bd0cb298f7558f8"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year0-close.png",
       "sha256": "5b0205674248d8ac381d5da2b62d7ecc7832a7f80a69ec46b1fde21ac7f011e9"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-verify.json",
-      "sha256": "e24e0c3045cf90030e2ed7a78558694cba586c79a74b332c8f051a29548752da"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-normal.json",
-      "sha256": "512d1cae85df2a769dc947bf22b8ad60698ee3f411dac639f3e8bf50166dc92b"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year0.json",
+      "sha256": "94a82e72eea1b62f75b3093c863d1533c58eb557f36aec58a671e45f864030f3"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year1-close.png",
       "sha256": "3c99a9c9bf2304dc29c096a847d932be4a1fc2614083fa83e31a4ce0dd778890"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-normal.cs.txt",
-      "sha256": "5d67f09f88665d50f14e41fd11423b9f2538366d915e941ce26752b801643306"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-restoration.cs.txt",
-      "sha256": "393f0f85019f3729da8ddde38579e8550db561c0af41f89f80ec09c50a328e84"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-fixture.cs.txt",
-      "sha256": "73357ba6b37f78d82d5f3d3116d5873b094b843bf1e1d5072bd0cb298f7558f8"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-focus.json",
-      "sha256": "acce3cab14a4277645596dda60f6d0b0fbdc5ef24c29818a6b771c7db4b51c3e"
-    },
-    {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-control.cs.txt",
-      "sha256": "e32263afc33eb712833db336e56a9a8a916039998264119c1554eb7b62d541ad"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year1.json",
+      "sha256": "c22f95b617fdd012d1738d033d38713d8b311137cd5479ea210cbf4fd2edc21d"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year2-close.png",
       "sha256": "76d94ea92e2e484436a23979947093a961357a32a9ef5174df08a75bb1ac8fd5"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-candidate-close.png",
-      "sha256": "181dcd4469ae6a556461e43df30957eb851cb7ef2adfbb99ef3a2698d6a9afdd"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year2.json",
+      "sha256": "e2ca6b830ff84f2eee8e2f38ad3560286346be2b97ad8ab9bc40924e313278b6"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year3-close.png",
+      "sha256": "cd33ad062281d1c085d610ed23c2add2882f36f0cc94d5dc12ca35eb3750f0ae"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year3-normal.png",
@@ -79,28 +44,152 @@
       "sha256": "24bad21ffb7d9a2cc67349581bc5a977461a7669d4ae497c33658ea9c845b4c2"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-verify.cs.txt",
-      "sha256": "327bf213ebcf9eff3452321f1d7639ff98f88993f4f8a09c30d29dc7703123fd"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-build-inputs.json",
+      "sha256": "8321edc7a062e758950c9c9b2849dcfa1fdedd10b4b3c2ed14b77054bde5df9c"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year3-close.png",
-      "sha256": "cd33ad062281d1c085d610ed23c2add2882f36f0cc94d5dc12ca35eb3750f0ae"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-build-inventory.json",
+      "sha256": "a715a13075da0901ad5f23fe2cc8ef3fb4c4c8a96f62d6c3099447bd6b684226"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-capture.cs.txt",
-      "sha256": "951260539f090a530b558e80dc11cbc96fe1b545bc778bba323428104551c820"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-build-report.json",
+      "sha256": "178d457b0dc270200fbb85985d9315894d48260232fe3a45e597e9ae150faeb1"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-build-scope.json",
+      "sha256": "5d3b27d5abf85c7b50f0aa95f8e8d54c1984ffecbef6b24d40fd6b8044d90c5a"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-candidate-close.png",
+      "sha256": "181dcd4469ae6a556461e43df30957eb851cb7ef2adfbb99ef3a2698d6a9afdd"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-candidate-normal.png",
       "sha256": "97b978efe639c395a81e3999ee1eb9a910169671f41acd3370fe27366656a683"
     },
     {
-      "path": "docs/evidence/phase2a/visual-rebuild/study55-annual-year2.json",
-      "sha256": "e2ca6b830ff84f2eee8e2f38ad3560286346be2b97ad8ab9bc40924e313278b6"
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-capture.cs.txt",
+      "sha256": "951260539f090a530b558e80dc11cbc96fe1b545bc778bba323428104551c820"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-final.json",
+      "sha256": "c1dee7581e7e319839962ac0a80ffb47391f3f3ca154136210cc902489215dc9"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-proposed-close.jpg",
+      "sha256": "8d00e3a01a1bc795fd5e363731cd55154c67cd0e5ad7dcefd0ad41af1a778456"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-proposed.jpg",
+      "sha256": "8b1195c407f0a49879d85fde6c5d1b270bb09f15d3a5c707ffbc7c2481341c2d"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-reloaded.jpg",
+      "sha256": "4e3ccf1b373697979016ec488928b58516622760c786a9dc5e9c83d7e0c5c41b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-reloaded.json",
+      "sha256": "f16ea2a115f0bce3ad7c5f46ec0976deac8a92f686ec491d4806a8ac86a4046f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year1-close.jpg",
+      "sha256": "98006f006a7dcde3e90caaadcafcb0536f8a25e33bac13cf4432ad0c4d6186e4"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year2-close.jpg",
+      "sha256": "20c2dfe16b04689d97083e89e1c592cb2ed1850cbc509d021b766177eb5bd3db"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year3-1440.jpg",
+      "sha256": "d3f4544916202a7362aa7dcec8b249c4ec3d205264be2a833d863aea42d3e0b2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year3-1920.jpg",
+      "sha256": "027b527c5764b5ab24876ea6543b5a8589cae01c3dacf9547b5d4a33a1ed7b5c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year3-close.jpg",
+      "sha256": "249420e5cc2f71da6f8b1c7d91baa5d20195437b776ed73f135cdce924ade1c2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year3-focus.jpg",
+      "sha256": "3e902c5d1b74c46cc742b7d877ab912e82b611fb87153f9be2dc1edaa48590d0"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-year3-normal.jpg",
+      "sha256": "07fad71e0c065dd2f31e361dd8d538415c328b20e67f9d26cc35c16cdee70544"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-chrome-years.json",
+      "sha256": "e5789c13724b588be575f9f95d99e978aaf957200119ce14a97aaafd5347340a"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-compile.json",
+      "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
     },
     {
       "path": "docs/evidence/phase2a/visual-rebuild/study55-control-close.png",
       "sha256": "c04ca329e518dbd0eda2b47afcfa583d599880aa42f25c85f58b5d0386da7980"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-control-normal.png",
+      "sha256": "e506e5adeadb21c43583b361bfdc47baf0f83f327727133a0360591ea5f1be9c"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-control.cs.txt",
+      "sha256": "e32263afc33eb712833db336e56a9a8a916039998264119c1554eb7b62d541ad"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-findings.md",
+      "sha256": "bfd7c8d94e90b5c5efc146417d2c78a4ac64b7e6a714e06a7442829b04d7d67f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-focus.cs.txt",
+      "sha256": "951e57bda0c05b70d108cdd210188f00119723bca9442a703992e212a1dee90e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-focus.json",
+      "sha256": "acce3cab14a4277645596dda60f6d0b0fbdc5ef24c29818a6b771c7db4b51c3e"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-integrated-compile.json",
+      "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-integrated-verify.json",
+      "sha256": "74807519ad4e0b098d96ea1f3006f52532d53019badccad0b7e4ed856a7f96b7"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-material-lifecycle.json",
+      "sha256": "940cfe2cdcf3dbd251c7b4181ebbafe9e4240bd4d9a306d1dbface33cc4beeec"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-normal.cs.txt",
+      "sha256": "5d67f09f88665d50f14e41fd11423b9f2538366d915e941ce26752b801643306"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-normal.json",
+      "sha256": "512d1cae85df2a769dc947bf22b8ad60698ee3f411dac639f3e8bf50166dc92b"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-restoration.cs.txt",
+      "sha256": "393f0f85019f3729da8ddde38579e8550db561c0af41f89f80ec09c50a328e84"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-ticking.json",
+      "sha256": "92faa10d7e49b55aad16312ec7f5bb6d31301ed3f8527222329f529c1249be9f"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-verify.cs.txt",
+      "sha256": "327bf213ebcf9eff3452321f1d7639ff98f88993f4f8a09c30d29dc7703123fd"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-verify.json",
+      "sha256": "e24e0c3045cf90030e2ed7a78558694cba586c79a74b332c8f051a29548752da"
+    },
+    {
+      "path": "docs/evidence/phase2a/visual-rebuild/study55-web-assets.json",
+      "sha256": "5324656656f1d62304cf5e7a93d1d17a8b3d8c7a3b417e7b9f87077e6cd17dae"
     }
   ]
 }

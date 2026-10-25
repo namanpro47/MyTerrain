@@ -491,4 +491,6 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 
 - [Study54 connected grassland](study54-findings.md): larger overlapping swaths replace fine scatter in the Wisconsin candidate; source-backed normal/close/wide captures, placement checks and actual Chrome queue/undo. The 46.45 MB diagnostic export is verified; one 34 ms p95 camera run fails the stable-30 budget. Visual acceptance remains open.
 
-- [Study 55: layered restoration with annual establishment](study55-findings.md) — retained Editor candidate; browser gate pending.
+- [Study 55: layered restoration with annual establishment](study55-findings.md) — retained candidate with actual three-year Chrome/reload evidence; visual/performance gate open.
+
+- [Study56: rejected crop mass and sparse-band controls](study56-findings.md) — matched Editor captures, unchanged production rendering, and two free solid-leaf crop sources acquired for the next comparison.
