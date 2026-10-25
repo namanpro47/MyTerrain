@@ -1,0 +1,17 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var type=main.GetType();
+object Field(string n)=>type.GetField(n,flags).GetValue(main);
+void Set(string n,object v)=>type.GetField(n,flags).SetValue(main,v);
+var original=(Terra.Gameplay.AnnualTownSession)Field("annual");
+var fixture=new UnityEngine.GameObject("Project ground visual fixture").AddComponent<Terra.Gameplay.AnnualTownSession>();
+fixture.Initialize(original.Definition,"project-ground-visual-fixture");
+fixture.QueueAction("south-07","water-swale",fixture.State.revision);fixture.FinishOffline();
+main.enabled=false;Set("annual",fixture);
+var hud=(Terra.UI.TerraHud)Field("hud");hud.CloseModal();
+type.GetMethod("RefreshLandscape",flags).Invoke(main,null);type.GetMethod("Refresh",flags).Invoke(main,null);
+Set("hoverId","south-07");Set("treatmentId","");
+type.GetMethod("UpdatePreview",flags).Invoke(main,null);type.GetMethod("FocusSite",flags).Invoke(main,null);
+foreach(var pair in new[]{("shownYaw","yaw"),("shownPitch","pitch"),("shownZoom","zoom"),("shownTarget","target")})Set(pair.Item1,Field(pair.Item2));
+type.GetMethod("RenderView",flags).Invoke(main,null);
+return new {fixture=fixture.State.runId,cash=fixture.State.cashCents,originalRun=original.State.runId,originalStillInitialized=original.Initialized,frame=UnityEngine.Time.frameCount};

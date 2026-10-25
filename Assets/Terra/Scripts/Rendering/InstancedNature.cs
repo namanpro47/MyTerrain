@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 namespace Terra.Rendering
 {
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
-    public sealed class InstancedNature : MonoBehaviour
+    public sealed partial class InstancedNature : MonoBehaviour
     {
         sealed class Batch { public Mesh mesh,medium,distant;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds;public float maxHeight;public bool crop,groundcover; }
         readonly List<Batch> batches=new List<Batch>();
