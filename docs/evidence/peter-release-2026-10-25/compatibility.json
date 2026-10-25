@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-25T18:43:31.260058+00:00",
+  "base": "ea37af047f4d8d167f88b802e76827c82a6c8183",
+  "peterCommits": [
+    "c382c7a",
+    "df78fee",
+    "af7bd68",
+    "f701ebf",
+    "7382272"
+  ],
+  "combinedCandidateObserved": "4257a7a",
+  "baseChapterAssertions": 50,
+  "providerCalled": false,
+  "backendHealth": {
+    "status": "ready",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "configured": true,
+    "runtime": "node",
+    "protocol": "terra-narration-v1"
+  },
+  "cors": {
+    "status": 204,
+    "origin": "https://terra-browser.vercel.app",
+    "allowedHeaders": [
+      "Content-Type",
+      "Authorization",
+      "X-Unity-Version"
+    ]
+  },
+  "scope": "Independent integration review. Combined build, push and deployment owned by Build animated globe map selection; final artifact/public browser checks pending.",
+  "review": [
+    "All Peter commits through ea37af0 are ancestors of combined candidate4257a7a.",
+    "HostedChapterBuild and AnnualChapterSession unchanged from Peter main.",
+    "New numeric-schema guard prevents inactive numeric years entering legacy chapter endpoint.",
+    "Field Notes preserves AI unavailable introduction and labels local summary; accepted receipt is not rewritten."
+  ]
+}
