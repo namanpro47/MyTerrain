@@ -154,6 +154,7 @@ namespace Terra.Contracts
         public double baselineEnergySupply, baselineCleanEnergySupply, baselineWaterSupply, baselineWastewaterCapacity;
         public double baselineEnergyDemand, baselineWaterDemand, baselineWastewaterLoad, emissionsLimit;
         public double coverTargetFraction, runoffReductionTarget;
+        public double finalEconomicTarget, finalSocialTarget, finalEnvironmentalTarget;
         public SimulationInput referenceStorm;
     }
     [Serializable] public sealed class TownEconomyOutcome

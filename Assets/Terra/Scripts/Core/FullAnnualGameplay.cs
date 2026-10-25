@@ -10,7 +10,7 @@ namespace Terra.Core
         public static AnnualTownDefinition Create(WorldData world, Scenario scenario, string packId, BuildActionRules rules, LandscapeRunoff runoff)
         {
             var d=AnnualTownDemo.FromWorldPack(world,scenario,packId);
-            d.schemaVersion=2;d.id="meadowbrook-full-annual";d.version="3.0.0";
+            d.schemaVersion=2;d.id="meadowbrook-full-annual";d.version="3.1.0";
             d.startingCashCents=1000000000;d.appropriationsCents=Enumerable.Repeat(100000000L,10).ToArray();
             d.assumptions="USD 2026 authored educational scenario. All capacities, occupancy, service connections, consent, jobs and costs are fictional. Public contributions are not total construction costs; private output is not cash. One project per named management site; no redevelopment refunds.";
             d.economy=new TownEconomyDefinition {version="services-v2",assumptions="Scenario units, not measured population or utilities. Existing community outside project footprints: 4 homes, 4 jobs, 4 recreation, 4 local-service units. All eligible sites have fictional willing operators, access and utility connections. Drinking-water supply remains fixed; wastewater plants do not produce drinking water.",
@@ -18,7 +18,7 @@ namespace Terra.Core
                 baselineHomes=4,baselineJobs=4,baselineRecreation=4,baselineLocalServices=4,
                 baselineEnergySupply=40,baselineCleanEnergySupply=10,baselineWaterSupply=100,baselineWastewaterCapacity=20,
                 baselineEnergyDemand=20,baselineWaterDemand=20,baselineWastewaterLoad=16,emissionsLimit=100,
-                coverTargetFraction=.65,runoffReductionTarget=.2,referenceStorm=runoff.AnnualBaseline()};
+                coverTargetFraction=.65,runoffReductionTarget=.2,finalEconomicTarget=75,finalSocialTarget=75,finalEnvironmentalTarget=60,referenceStorm=runoff.AnnualBaseline()};
             d.rubric=new TownScoreRubric {version="full-rubric-v2",productionTargetUnits=40,serviceTargetUnits=16,retentionTargetM3=100,
                 explanation="Economic: output/jobs/funded obligations 40/30/30. Social: occupied housing/essential services/resilience 40/40/20; five equal service subweights. Environment: cover/reference-storm reduction/low-emissions supply/water pressure 40/25/20/15. All components cap at demand; no placement points. Targets and scenario quantities are pinned in this definition."};
             d.actions=d.actions.Where(a=>Supported.Contains(a.actionId)&&rules.Rejection(world.sites.First(s=>s.id==a.siteId),a.actionId)==null).ToArray();

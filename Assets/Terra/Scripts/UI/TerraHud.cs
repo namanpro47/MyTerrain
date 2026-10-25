@@ -23,10 +23,11 @@ namespace Terra.UI
         readonly TMP_FontAsset font;readonly Sprite rounded;readonly Action resume,retryLoad;bool loadFailed,compactLayout;
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
+        TextMeshProUGUI placeSubtitle;
         TextMeshProUGUI production,credits,runoffStatus,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
         GameObject tooltip,loading,modal,modalShade,toastPanel,guideSummary;
         UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton;
-        UnityEngine.UI.Button focus; int dataPage;string activeTool="";
+        UnityEngine.UI.Button focus,returnFocus; int dataPage;string activeTool="";
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
         public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume)
@@ -45,7 +46,7 @@ namespace Terra.UI
             var identity=Panel(root,"Place",new Vector2(0,1),new Vector2(24,-24),new Vector2(310,94),PanelColor);
             Label(identity,"T E R R A",new Vector2(0,1),new Vector2(18,-12),new Vector2(270,24),16,Accent,FontStyles.Bold);
             Label(identity,"Meadowbrook Valley",new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
-            Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
+            placeSubtitle=Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
             var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
             Label(stats,"ILLUSTRATIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(18,-35),new Vector2(230,32),25,Paper,FontStyles.Bold);
@@ -98,6 +99,7 @@ namespace Terra.UI
             Utility(undoButton,false,0);Utility(viewButton,false,1);Utility(guideButton,true,0);Utility(controlsButton,true,1);
             modal.transform.localScale=Vector3.one*Mathf.Min(1,(height-32)/650,(width-32)/800);
             actionDock.localScale=Vector3.one*Mathf.Min(1,(width-48)/760);
+            if(annualRules!=null)LayoutAnnual(width,height,compact||height<680);
         }
         // F10 reports the rendered canvas for evidence; it never changes gameplay state.
         public string Audit()
@@ -131,17 +133,24 @@ namespace Terra.UI
             previewAction.text="Click / Enter to place   ·   Esc";
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
-        public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(null);resume?.Invoke();}
+        public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(returnFocus!=null&&returnFocus.gameObject.activeInHierarchy&&returnFocus.IsInteractable()?returnFocus:null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
-            "<b>01   Plan → End Year → adapt</b>\nQueue a supported action on a field. Reserve construction and upkeep from the public budget. Review and submit the year to pay once and advance projects. Muted assets await annual recipes.\n\n"+
+            "<b>01   Plan → End Year → adapt</b>\nQueue projects and reserve their public costs. End Year pays once and advances them. Accepted years stay in history. Three categories contain all twelve families; arrows show more options.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\n1 / 2 / 3: original tools · M: margin · F: focus\nG: field guide · ?: controls");
-        void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
+            "<b>03   Edit this year’s proposals</b>\nB: keyboard build menu · Tab/arrows: browse\nEnter: queue · Z: undo · Y: redo · Esc: cancel\nE: End Year · L: report · T: future · I: meters\nG: field guide · ?: controls");
+        void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");lastScreen=Vector2.zero;Layout();}
         public bool KeyboardInput(Keyboard k)
         {
             if(k==null)return ModalOpen;
             if(loading.activeSelf){if(loadFailed&&k.enterKey.wasPressedThisFrame)retryLoad();return true;}
             if(!ModalOpen&&BuildMenuKeyboard(k))return true;
+            if(!ModalOpen && annualRules!=null)
+            {
+                if(k.eKey.wasPressedThisFrame){reviewYearShortcut?.Invoke();return true;}
+                if(k.lKey.wasPressedThisFrame){reportShortcut?.Invoke();return true;}
+                if(k.tKey.wasPressedThisFrame){futureShortcut?.Invoke();return true;}
+                if(k.iKey.wasPressedThisFrame&&acceptedOutcomes?.economy!=null){AnnualMetrics(acceptedOutcomes,CloseModal);return true;}
+            }
             if(k.escapeKey.wasPressedThisFrame&&ModalOpen){CloseModal();return true;}
             if(!ModalOpen){if(k.gKey.wasPressedThisFrame){dataPage=0;ShowData();return true;}if(k.slashKey.wasPressedThisFrame){ShowHelp();return true;}return false;}
             var available=buttons.Where(b=>b.gameObject.activeInHierarchy&&b.IsInteractable()&&b.transform.IsChildOf(modal.transform)).ToArray();
@@ -170,7 +179,7 @@ namespace Terra.UI
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
                 "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
-                "Ten management sites and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.");
+                "Eleven management opportunities (including a hypothetical wind site) and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.");
             else if(dataPage==1)ShowModal("Reading the terrain & cover",
                 "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m grid, without vertical exaggeration.\n\n"+
                 "<b>02   Land cover · USGS / MRLC NLCD 2021</b>\n30 m classes, June 2023 release. Narrow margins are unresolved. Simplified display groups do not measure ecological condition.\n\n"+
@@ -194,7 +203,7 @@ namespace Terra.UI
             SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":dataPage==3?"Runoff & connections →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
-        {if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
+        {if(!ModalOpen)returnFocus=focus;if(annualPrimary!=null)annualPrimary.gameObject.SetActive(false);if(annualDetails!=null)annualDetails.gameObject.SetActive(false);guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}
         static void SetButtonText(UnityEngine.UI.Button b,string text)=>b.GetComponentInChildren<TextMeshProUGUI>().text=text;
         RectTransform Rect(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;return r;}
         Transform Panel(Transform parent,string name,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect(parent,name,anchor,pos,size);var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.sprite=rounded;image.type=UnityEngine.UI.Image.Type.Sliced;image.color=color;return r;}

@@ -18,6 +18,7 @@ namespace Terra.Core
             foreach (var field in typeof(TownEconomyDefinition).GetFields().Where(f => f.FieldType == typeof(double)))
             { double n = (double)field.GetValue(e); AnnualTown.Require(!double.IsNaN(n) && !double.IsInfinity(n) && n >= 0 && n <= 1e12, "Invalid economy quantity: " + field.Name); }
             AnnualTown.Require(e.householdDemand > 0 && e.jobsTarget > 0 && e.recreationTarget > 0 && e.localServicesTarget > 0 && e.emissionsLimit > 0 && e.coverTargetFraction > 0 && e.coverTargetFraction <= 1 && e.runoffReductionTarget > 0 && e.runoffReductionTarget <= 1, "Economy targets must be positive and bounded.");
+            AnnualTown.Require(new[]{e.finalEconomicTarget,e.finalSocialTarget,e.finalEnvironmentalTarget}.All(t=>t>0&&t<=100), "Final assessment targets must be explicit scores in (0,100].");
             AnnualTown.Require(e.referenceStorm != null, "Full meters require a reference storm.");
             RunoffEvaluator.Evaluate(e.referenceStorm);
             foreach (var site in definition.sites)

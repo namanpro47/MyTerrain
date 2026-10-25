@@ -39,7 +39,7 @@ namespace Terra.Gameplay
             var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.20f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(38,-105,0);}
             hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
             hud.ConfigureEditing(BeginMove,BeginRemove,Redo,BeginReset);
-            sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;
+            sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;InitializeAudio();
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput=true;
 #endif
@@ -65,11 +65,12 @@ namespace Terra.Gameplay
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
             InitializeAnnual(m.packId);ready=true;ApplyView();hud.Ready();RefreshLandscape();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
-            BrowserPerformance.Ready();
+            BrowserPerformance.Ready();BeginAnnualArrival();
         }
         void Update()
         {
-            hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();var k=Keyboard.current;
+            hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
+            if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
             {
                 bool uiHandled=hud.KeyboardInput(k);
@@ -125,6 +126,7 @@ namespace Terra.Gameplay
         }
         void Pointer(int kind,Vector2 position,bool panning)
         {
+            if(kind==0)AudioGesture();
             hud.PointerHover(position);
             if(kind==0)
             {
@@ -189,7 +191,16 @@ namespace Terra.Gameplay
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
-        void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
+        void FocusSite()
+        {
+            var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];
+            string action=QueuedAt(site.id)??annual.State.assets.FirstOrDefault(a=>a.siteId==site.id)?.actionId??treatmentId;
+            var art=buildActionCatalog.Find(action);float height=art!=null&&!art.landscapeSample?art.meshBoundsMetres.size.y:0;
+            float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);
+            target=new Vector3(x,landscape.Height(x,z)+Mathf.Max(8,height*.45f),z);
+            zoom=Mathf.Max(72,height*.85f+(art!=null?art.siteSizeMetres.y*.25f:0));
+            ApplyView();Toast("Focused site · Scroll to zoom · R returns to the valley");
+        }
         void OnDestroy(){landscape?.Dispose();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }

@@ -16,24 +16,20 @@ namespace Terra.Rendering
         bool BuildCatalogAction(Site site,string id,Transform parent,bool preview)
         {
             var action=buildRules?.Find(id);if(action==null)return false;
+            if(action.landscape){BuildAnnualLand(site,id,parent,preview);return true;}
             var entry=buildCatalog.Find(action.artId);var layout=buildRules.Layout(site,action);
             if(entry?.prefab==null||!layout.Valid)return false;
+            if(id=="wind")BuildWindMeadow(site,layout,parent);else BuildRemainingSite(site,layout,parent);
             var instance=Object.Instantiate(entry.prefab,parent);instance.name=entry.title+(preview?" preview":"");
             instance.transform.localPosition=new Vector3(layout.x,action.landscape?0:layout.groundY,layout.z);
             instance.transform.localRotation=Quaternion.Euler(0,layout.yaw,0);instance.transform.localScale=Vector3.one;
-            if(action.landscape)
+            if(id=="wind")
             {
-                Patch("Managed ground",site.polygon,action.category=="Farming"?new Color(.43f,.35f,.22f):new Color(.45f,.57f,.33f),.09f,parent);
-                // A metric sample illustrates each landscape practice; conform its vertices to the
-                // actual terrain instead of making a floating flat board or stretching a building.
-                foreach(var filter in instance.GetComponentsInChildren<MeshFilter>())
-                {
-                    var mesh=Object.Instantiate(filter.sharedMesh);meshes.Add(mesh);var vertices=mesh.vertices;
-                    for(int i=0;i<vertices.Length;i++){var worldPoint=filter.transform.TransformPoint(vertices[i]);worldPoint.y+=Height(worldPoint.x,worldPoint.z)+.12f;vertices[i]=filter.transform.InverseTransformPoint(worldPoint);}
-                    mesh.vertices=vertices;mesh.RecalculateBounds();mesh.RecalculateNormals();filter.sharedMesh=mesh;
-                }
+                var oldPath=instance.transform.Find("path");if(oldPath!=null)oldPath.gameObject.SetActive(false);
+                var pad=new Geometry();var corners=layout.foundation;
+                Wall(pad,new Vector3(corners[0].x,layout.groundY+.07f,corners[0].z),new Vector3(corners[3].x,layout.groundY+.07f,corners[3].z),new Vector3(corners[2].x,layout.groundY+.07f,corners[2].z),new Vector3(corners[1].x,layout.groundY+.07f,corners[1].z));
+                MeshObject("Wind pad",pad,Mat(new Color(.57f,.54f,.43f)),parent);
             }
-            else
             {
                 // A level foundation with terrain-following sides fills the bounded gap. Existing
                 // terrain heights stay intact; the rules reject >3 m fill and protected land.

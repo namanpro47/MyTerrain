@@ -367,12 +367,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242bc10d2e325455cb93ffe6292c2afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Terra.Gameplay.TerraMain
+  ambientSound: {fileID: 8300000, guid: 7ac9f84a964053edbdc7415a6d90f272, type: 3}
+  undoSound: {fileID: 8300000, guid: 00364d3c0b6f54f49e57b91be97aee3d, type: 3}
+  cancelSound: {fileID: 8300000, guid: 24631019e8fe5a3398ecbcc83031bd37, type: 3}
+  blockedSound: {fileID: 8300000, guid: b92b897e9d575242b486ce57ee3e7e85, type: 3}
   terrainMaterial: {fileID: 2100000, guid: eab0c23500c5749daa1973c90ade71f2, type: 2}
   treePrefab: {fileID: 4885108544228941155, guid: 7bd07c7c09c604067a462e4325d4c777, type: 3}
   cropPrefab: {fileID: 7458993023241536582, guid: 969ceead38f0b4ee7a8fe5796348a661, type: 3}
   grassPrefab: {fileID: 255656563288966521, guid: 34db6b28707394f4ab33f464c315af9d, type: 3}
   shrubPrefab: {fileID: 6624010253755102361, guid: ee85e4c34cec04f2b9e313e9f8c18a61, type: 3}
-  placementSound: {fileID: 8300000, guid: 156557b88f22c43208d2f412d17c652d, type: 3}
+  placementSound: {fileID: 8300000, guid: cb374441448f5f7e9d5dd1cf3ff8b114, type: 3}
   buildActionCatalog: {fileID: 11400000, guid: 9aa4fa18eb9e7434a9ef8306303779f3, type: 2}
 --- !u!4 &2024268996
 Transform:
