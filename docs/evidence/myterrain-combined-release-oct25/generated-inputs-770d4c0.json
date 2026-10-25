@@ -1,0 +1,11 @@
+{
+  "importedFont": {
+    "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+    "sha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52"
+  },
+  "removedObsoleteDebugMeta": [
+    "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+    "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta"
+  ],
+  "note": "Unity-generated differences restored after build; no runtime source edits during export."
+}

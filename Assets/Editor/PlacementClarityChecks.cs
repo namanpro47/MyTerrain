@@ -27,6 +27,12 @@ public static class PlacementClarityChecks
         return Rect.MinMaxRect(corners.Min(p=>p.x),corners.Min(p=>p.y),corners.Max(p=>p.x),corners.Max(p=>p.y));
     }
 
+    public static void BuildVerifiedWeb()
+    {
+        try {RunBatch();MainGameChapterChecks.BuildVerifiedWeb();}
+        catch(Exception error){Debug.LogException(error);EditorApplication.Exit(1);}
+    }
+
     public static void RunBatch()
     {
         checks=0;
@@ -134,6 +140,9 @@ public static class PlacementClarityChecks
         Directory.CreateDirectory("docs/evidence/placement-clarity");
         File.WriteAllText("docs/evidence/placement-clarity/structural-checks.json",JsonUtility.ToJson(new Receipt{checks=checks,passed=true,scope="HUD state/layout, ledger immutability, actual placement geometry and shader; not browser or novice acceptance"},true));
         Debug.Log("PLACEMENT_CLARITY_CHECKS_PASSED: "+checks);
+        // Permit the chapter/HUD build checks to run in the same Editor process.
+        UnityEngine.Object.DestroyImmediate(Field<Transform>(hud,"root").gameObject);
+        UnityEngine.Object.DestroyImmediate(events.gameObject);
     }
     [Serializable] sealed class Receipt{public bool passed;public int checks;public string scope;}
 }

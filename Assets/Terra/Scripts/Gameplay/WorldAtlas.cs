@@ -23,12 +23,10 @@ namespace Terra.Gameplay
         public string Diagnostic=>$"native-atlas visible={Visible} traveling={Traveling} selected={Selected} ready={landscapeReady} lat={latitude:F1} lon={longitude:F1}";
         TerraMain main;Camera globeCamera;Transform earth;GameObject geometry;Canvas canvas;
         CanvasGroup selection;UnityEngine.UI.Image veil;TextMeshProUGUI journeyTitle,journeyStatus;
-        UnityEngine.UI.Button retry,back,motion;GameObject notes;RectTransform[] pins=new RectTransform[3];UnityEngine.UI.Button[] choices=new UnityEngine.UI.Button[3];
-        TextMeshProUGUI region,nameLabel,description,coordinates;RectTransform uiRoot;
+        UnityEngine.UI.Button retry,back,motion;GameObject notes,options;RectTransform[] pins=new RectTransform[3];UnityEngine.UI.Button[] choices=new UnityEngine.UI.Button[3];
+        RectTransform uiRoot;int hovered=-1;bool keyboardFocus;
         readonly List<Object> owned=new List<Object>();
         readonly Vector2[] places={new Vector2(43.7015f,-91.037f),new Vector2(38.066f,-122.810f),new Vector2(42.18f,73.96f)};
-        readonly string[] regions={"WISCONSIN · UNITED STATES","CALIFORNIA · UNITED STATES","KYRGYZSTAN · CENTRAL ASIA"};
-        readonly string[] descriptions={"Wooded ridges, working fields and a winding creek.","Coastal grasslands at the edge of the Pacific.","An open mountain valley beneath the Tian Shan."};
         float latitude=25,longitude=-100,distance=4.65f,targetDistance=4.65f;Vector2 velocity,last,down;
         bool pointerHeld,dragged,landscapeReady,chosen,pointerOverUI;string failure;UnityEngine.UI.Button pressedButton;Coroutine journey;
         static readonly Color Cream=new Color(.98f,.96f,.86f),Mint=new Color(.52f,.85f,.76f),Muted=new Color(.63f,.76f,.76f),Navy=new Color(.025f,.065f,.09f),Gold=new Color(1f,.79f,.38f);
@@ -63,7 +61,7 @@ namespace Terra.Gameplay
         }
         public void Show()
         {
-            notes?.SetActive(false);Visible=true;Traveling=false;velocity=Vector2.zero;pointerHeld=false;
+            notes?.SetActive(false);options?.SetActive(false);hovered=-1;keyboardFocus=false;Visible=true;Traveling=false;velocity=Vector2.zero;pointerHeld=false;
             if(journey!=null){StopCoroutine(journey);journey=null;}
             geometry.SetActive(true);globeCamera.enabled=true;canvas.gameObject.SetActive(true);selection.alpha=1;selection.interactable=true;selection.blocksRaycasts=true;
             veil.color=new Color(Navy.r,Navy.g,Navy.b,0);veil.raycastTarget=false;journeyTitle.gameObject.SetActive(false);journeyStatus.gameObject.SetActive(false);back.gameObject.SetActive(false);retry.gameObject.SetActive(false);
@@ -73,15 +71,15 @@ namespace Terra.Gameplay
         {
             if(notes!=null&&notes.activeSelf)return;
             if(!snap&&Selected!=(index+3)%3)Terra.Audio.TerraAudio.Ensure().Request("atlas-select",3);
-            Selected=(index+3)%3;var place=LocationProfile.At(Selected);region.text=regions[Selected];nameLabel.text=place.Name;description.text=descriptions[Selected];
-            var p=places[Selected];coordinates.text=$"{p.x:0.00}° N    {Mathf.Abs(p.y):0.00}° {(p.y<0?"W":"E")}";
-            for(int i=0;i<3;i++){choices[i].image.color=i==Selected?new Color(.18f,.32f,.33f,.98f):new Color(.06f,.13f,.17f,.78f);choiceUnderline[i].enabled=i==Selected;}
+            Selected=(index+3)%3;var p=places[Selected];
+            keyboardFocus=!snap;
             if(snap){latitude=p.x-12;longitude=p.y;ApplyGlobe();}else{velocity=Vector2.zero;focusTime=0;focusFrom=new Vector2(latitude,longitude);focusing=true;}
         }
         bool focusing;float focusTime;Vector2 focusFrom;
+        public void TravelTo(int index){if(Traveling||notes.activeSelf||options.activeSelf)return;Select(index);StartJourney();}
         public void StartJourney()
         {
-            if(Traveling||notes.activeSelf)return;if(!Visible)Show();Traveling=true;Visible=true;chosen=true;failure=null;focusing=false;pointerHeld=false;velocity=Vector2.zero;
+            if(Traveling||notes.activeSelf||options.activeSelf)return;if(!Visible)Show();Traveling=true;Visible=true;chosen=true;failure=null;focusing=false;pointerHeld=false;velocity=Vector2.zero;
             Terra.Audio.TerraAudio.Ensure().Request("travel",6);journey=StartCoroutine(Travel());
         }
         IEnumerator Travel()
@@ -114,10 +112,10 @@ namespace Terra.Gameplay
             if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(!Visible)return;var k=Keyboard.current;
             if(k!=null)
             {
-                if(k.escapeKey.wasPressedThisFrame){if(notes.activeSelf){notes.SetActive(false);return;}if(Traveling)Show();}
+                if(k.escapeKey.wasPressedThisFrame){if(notes.activeSelf){notes.SetActive(false);return;}if(options.activeSelf){options.SetActive(false);return;}if(Traveling)Show();}
                 if(Traveling&&failure!=null&&k.enterKey.wasPressedThisFrame)Retry();
                 if(!Traveling&&k.iKey.wasPressedThisFrame)notes.SetActive(!notes.activeSelf);
-                if(!Traveling&&!notes.activeSelf)
+                if(!Traveling&&!notes.activeSelf&&!options.activeSelf)
                 {
                     if(k.mKey.wasPressedThisFrame)motion.onClick.Invoke();
                     if(k.digit1Key.wasPressedThisFrame)Select(0);if(k.digit2Key.wasPressedThisFrame)Select(1);if(k.digit3Key.wasPressedThisFrame)Select(2);
@@ -145,7 +143,7 @@ namespace Terra.Gameplay
             ReducedMotion=reduced;PlayerPrefs.SetInt("myterrain.reduced-motion",reduced?1:0);PlayerPrefs.Save();
             motion.GetComponentInChildren<TextMeshProUGUI>().text=reduced?"Motion: reduced":"Motion: full";
         }
-        public void Zoom(float amount){if(!Traveling&&!notes.activeSelf)targetDistance=Mathf.Clamp(targetDistance+amount*.25f,2.5f,5.5f);}
+        public void Zoom(float amount){if(!Traveling&&!notes.activeSelf&&!options.activeSelf)targetDistance=Mathf.Clamp(targetDistance+amount*.25f,2.5f,5.5f);}
         UnityEngine.UI.Button ButtonAt(Vector2 point)
         {
             if(EventSystem.current==null)return null;var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=point},hits);
@@ -153,9 +151,9 @@ namespace Terra.Gameplay
         }
         public void Pointer(int kind,Vector2 point)
         {
-            if(kind==0){pressedButton=ButtonAt(point);pointerOverUI=notes.activeSelf;pointerHeld=true;dragged=false;down=last=point;velocity=Vector2.zero;return;}
+            if(kind==0){pressedButton=ButtonAt(point);pointerOverUI=notes.activeSelf||options.activeSelf;pointerHeld=true;dragged=false;down=last=point;velocity=Vector2.zero;return;}
             if(kind==3){pointerHeld=false;pressedButton=null;return;}
-            if(kind==1){if(pointerHeld&&!pointerOverUI&&pressedButton==null&&!Traveling){var delta=point-last;if((point-down).magnitude>5)dragged=true;if(dragged){focusing=false;var rotation=new Vector2(-delta.x,-delta.y)*180/Screen.height;velocity=Vector2.ClampMagnitude(rotation/Mathf.Max(Time.unscaledDeltaTime,.008f),150);longitude+=rotation.x;latitude+=rotation.y;}}last=point;return;}
+            if(kind==1){var hit=ButtonAt(point);hovered=-1;for(int i=0;i<3;i++)if(hit==choices[i]||hit==pins[i].GetComponent<UnityEngine.UI.Button>())hovered=i;keyboardFocus=false;if(pointerHeld&&!pointerOverUI&&pressedButton==null&&!Traveling){var delta=point-last;if((point-down).magnitude>5)dragged=true;if(dragged){focusing=false;var rotation=new Vector2(-delta.x,-delta.y)*180/Screen.height;velocity=Vector2.ClampMagnitude(rotation/Mathf.Max(Time.unscaledDeltaTime,.008f),150);longitude+=rotation.x;latitude+=rotation.y;}}last=point;return;}
             if(kind==2){
 #if UNITY_WEBGL && !UNITY_EDITOR
                 if(pointerHeld&&!dragged&&(point-down).sqrMagnitude<36&&pressedButton!=null&&pressedButton==ButtonAt(point)&&pressedButton.IsInteractable())pressedButton.onClick.Invoke();
@@ -163,7 +161,7 @@ namespace Terra.Gameplay
                 pointerHeld=false;pressedButton=null;
             }
         }
-        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(-distance*globeCamera.aspect*.105f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-.23f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-distance);globeCamera.transform.localRotation=Quaternion.identity;}
+        void ApplyGlobe(){globeCamera.aspect=(float)Screen.width/Mathf.Max(1,Screen.height);earth.rotation=Quaternion.AngleAxis(-latitude,Vector3.right)*Quaternion.AngleAxis(180+longitude,Vector3.up);globeCamera.transform.localPosition=new Vector3(0,-.14f*Mathf.SmoothStep(0,1,Mathf.InverseLerp(1.12f,4.65f,distance)),-distance);globeCamera.transform.localRotation=Quaternion.identity;}
         static Vector3 Geo(Vector2 p){float a=p.x*Mathf.Deg2Rad,b=p.y*Mathf.Deg2Rad;return new Vector3(-Mathf.Cos(a)*Mathf.Sin(b),Mathf.Sin(a),Mathf.Cos(a)*Mathf.Cos(b));}
         void PositionPins()
         {
@@ -177,7 +175,7 @@ namespace Terra.Gameplay
                 pins[i].gameObject.SetActive(front&&inView&&!Traveling);
                 pins[i].GetComponent<UnityEngine.UI.Image>().color=i==Selected?new Color(1,.79f,.38f,.32f):new Color(.25f,.85f,.85f,.25f);
                 var pennant=(RectTransform)pinLabels[i].transform.parent;
-                pennant.gameObject.SetActive(i==Selected);
+                pennant.gameObject.SetActive(i==hovered||(keyboardFocus&&i==Selected));
                 if(!front||!inView)continue;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(uiRoot,screen,null,out var point);
                 pins[i].anchoredPosition=point;

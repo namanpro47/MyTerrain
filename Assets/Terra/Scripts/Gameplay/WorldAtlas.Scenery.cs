@@ -9,6 +9,8 @@ namespace Terra.Gameplay
         // TN-01/03/08: the world is the stage. Art here is native geometry, not a webpage.
         readonly TextMeshProUGUI[] pinLabels=new TextMeshProUGUI[3];
         readonly UnityEngine.UI.Image[] choiceUnderline=new UnityEngine.UI.Image[3];
+        readonly TextMeshProUGUI[] choiceNames=new TextMeshProUGUI[3];
+        readonly RectTransform[] miniatures=new RectTransform[3];
         Transform stars;
         Material ink;
         void BuildSky(Transform panel)
@@ -30,17 +32,16 @@ namespace Terra.Gameplay
             }
             mesh.vertices=vertices;mesh.colors=colors;mesh.triangles=triangles;mesh.RecalculateBounds();owned.Add(mesh);
             stars.gameObject.layer=30;stars.gameObject.AddComponent<MeshFilter>().sharedMesh=mesh;stars.gameObject.AddComponent<MeshRenderer>().sharedMaterial=ink;
-            for(int destination=1;destination<3;destination++)
-            {
-                var route=new GameObject("Journey arc "+destination,typeof(LineRenderer));route.layer=30;route.transform.SetParent(earth,false);
-                var line=route.GetComponent<LineRenderer>();line.sharedMaterial=ink;line.useWorldSpace=false;line.widthMultiplier=.0032f;line.positionCount=101;
-                line.startColor=new Color(.95f,.71f,.27f);line.endColor=new Color(.43f,.68f,.60f);
-                Vector3 a=Geo(places[0]),b=Geo(places[destination]);
-                for(int j=0;j<=100;j++){float t=j/100f;line.SetPosition(j,Vector3.Slerp(a,b,t)*(1.008f+.14f*Mathf.Sin(t*Mathf.PI)));}
-            }
         }
+
         void AnimateScenery()
         {
+            for(int i=0;i<3;i++) {
+                bool active=i==hovered||(keyboardFocus&&i==Selected);
+                choiceNames[i].color=active?Gold:Cream;choiceUnderline[i].enabled=active;
+                var target=new Vector2(active?-83.2f:-78,active?43:35);miniatures[i].anchoredPosition=ReducedMotion?target:Vector2.Lerp(miniatures[i].anchoredPosition,target,1-Mathf.Exp(-Time.unscaledDeltaTime*14));
+                miniatures[i].localScale=Vector3.one*(active?1.6f:1.5f);
+            }
             if(stars!=null&&!ReducedMotion)stars.localRotation=Quaternion.Euler(0,0,Mathf.Sin(Time.unscaledTime*.035f)*.25f);
         }
         void Polygon(Transform parent,Color color,params Vector2[] vertices)
@@ -56,7 +57,7 @@ namespace Terra.Gameplay
         }
         void AddLandscapeStamp(Transform parent,int kind)
         {
-            var p=Box(parent,"Landscape miniature",new Vector2(0,.5f),new Vector2(2,-45),new Vector2(104,100));p.pivot=Vector2.zero;
+            var p=Box(parent,"Landscape miniature",new Vector2(.5f,0),new Vector2(-78,35),new Vector2(104,100));p.pivot=Vector2.zero;p.localScale=Vector3.one*1.5f;miniatures[kind]=p;
             // Each tiny isometric diorama is an illustration of the biome, not sourced terrain.
             Polygon(p,new Color(.12f,.23f,.22f),new Vector2(6,37),new Vector2(52,9),new Vector2(98,37),new Vector2(52,66));
             Polygon(p,new Color(.30f,.41f,.29f),new Vector2(6,45),new Vector2(52,17),new Vector2(98,45),new Vector2(52,73));

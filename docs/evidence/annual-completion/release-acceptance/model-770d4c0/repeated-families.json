@@ -1,0 +1,720 @@
+{
+  "checks": 51,
+  "source": "770d4c05b7f50f366275c036cd769a0c91414644",
+  "routes": [
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cultivate-standard",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1601000000,
+      "CommittedCents": 0,
+      "scores": [
+        96.98412698412699,
+        41.691119691119695,
+        21.658831921361603
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "conservation-rotation",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1370600000,
+      "CommittedCents": 0,
+      "scores": [
+        100,
+        53.07692307692309,
+        43.76694139251378
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cultivate-margin",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1505000000,
+      "CommittedCents": 0,
+      "scores": [
+        99.7563950866461,
+        51.973474801061016,
+        39.19081335770422
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "cover-crop",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1505000000,
+      "CommittedCents": 0,
+      "scores": [
+        100,
+        53.07692307692309,
+        47.249881356557545
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "restore-grass",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1681000000,
+      "CommittedCents": 0,
+      "scores": [
+        35.829727028807,
+        58.00000000000001,
+        83.08380105735624
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "water-swale",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1578600000,
+      "CommittedCents": 9600000,
+      "scores": [
+        35.829727028807,
+        58.00000000000001,
+        86.70410585853992
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "public-park",
+      "added": 29,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1787800000,
+      "CommittedCents": 5800000,
+      "scores": [
+        64.21847675313496,
+        60.32653061224491,
+        49.69377155227585
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "low-density-housing",
+      "added": 18,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 245079403,
+      "CommittedCents": 63000000,
+      "scores": [
+        48.0772080446774,
+        69.78052126200274,
+        28.082820539529813
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "high-density-housing",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 503896094,
+      "CommittedCents": 90000000,
+      "scores": [
+        48.7280192330508,
+        67.68472906403942,
+        26.841229637466046
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "agricultural-storage",
+      "added": 8,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 235000000,
+      "CommittedCents": 90000000,
+      "scores": [
+        100,
+        52.463768115942045,
+        29.855766670417598
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "data-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 909000000,
+      "CommittedCents": 64000000,
+      "scores": [
+        75.86666666666666,
+        36.08,
+        22.16972475743663
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "village-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 685000000,
+      "CommittedCents": 50000000,
+      "scores": [
+        93.92299355544553,
+        65.05571847507332,
+        30.164232058455465
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "non-renewable-power",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 329000000,
+      "CommittedCents": 204000000,
+      "scores": [
+        62.335625976774224,
+        56.666666666666664,
+        27.824685194593823
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "solar",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1017500000,
+      "CommittedCents": 7500000,
+      "scores": [
+        54.321884113382204,
+        58.00000000000001,
+        48.8009587963215
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "wind",
+      "added": 1,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1653000000,
+      "CommittedCents": 8000000,
+      "scores": [
+        49.5252374686663,
+        58.00000000000001,
+        56.52079921896412
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "stewardship-agreement",
+      "added": 32,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1345000000,
+      "CommittedCents": 0,
+      "scores": [
+        62.496393695473664,
+        64.00000000000001,
+        81.7287743511937
+      ]
+    },
+    {
+      "pack": "meadowbrook-v1",
+      "action": "wastewater-upgrade",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1139000000,
+      "CommittedCents": 24000000,
+      "scores": [
+        59.25632688877885,
+        58.00000000000001,
+        34.07640986367232
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cultivate-standard",
+      "added": 157,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 174800000,
+      "CommittedCents": 73800000,
+      "scores": [
+        100,
+        26.827382272492056,
+        32.69267327446447
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "conservation-rotation",
+      "added": 98,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 177640000,
+      "CommittedCents": 74240000,
+      "scores": [
+        100,
+        36.59128736987599,
+        47.139272562077736
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cultivate-margin",
+      "added": 125,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 182500000,
+      "CommittedCents": 72500000,
+      "scores": [
+        100,
+        32.251769685470336,
+        43.44215699695147
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "cover-crop",
+      "added": 125,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 197000000,
+      "CommittedCents": 87000000,
+      "scores": [
+        100,
+        33.48100725565514,
+        45.48175416133163
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "restore-grass",
+      "added": 198,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 196800000,
+      "CommittedCents": 92800000,
+      "scores": [
+        35.76853338380654,
+        58.00000000000001,
+        90
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "water-swale",
+      "added": 145,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 246100000,
+      "CommittedCents": 146100000,
+      "scores": [
+        36.648533364137016,
+        58.00000000000001,
+        90
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "public-park",
+      "added": 258,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 336600000,
+      "CommittedCents": 157600000,
+      "scores": [
+        74.91520047187805,
+        35.27272727272728,
+        44.81818181818182
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "low-density-housing",
+      "added": 18,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 245079403,
+      "CommittedCents": 63000000,
+      "scores": [
+        55.44940322347629,
+        69.78052126200274,
+        53.775720164609055
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "high-density-housing",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 503896094,
+      "CommittedCents": 90000000,
+      "scores": [
+        56.012553159452615,
+        67.68472906403942,
+        52.91871921182266
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "agricultural-storage",
+      "added": 8,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 235000000,
+      "CommittedCents": 90000000,
+      "scores": [
+        100,
+        52.463768115942045,
+        55.934782608695656
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "data-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 909000000,
+      "CommittedCents": 64000000,
+      "scores": [
+        75.86666666666666,
+        36.08,
+        48.51200000000001
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "village-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 685000000,
+      "CommittedCents": 50000000,
+      "scores": [
+        100,
+        65.05571847507332,
+        56.03519061583578
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "non-renewable-power",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 329000000,
+      "CommittedCents": 204000000,
+      "scores": [
+        70.16586743990581,
+        56.666666666666664,
+        53.75000000000001
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "solar",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1017500000,
+      "CommittedCents": 7500000,
+      "scores": [
+        61.89493410905202,
+        58.00000000000001,
+        73.80000000000001
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "wind",
+      "added": 1,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1653000000,
+      "CommittedCents": 8000000,
+      "scores": [
+        58.715200781822205,
+        58.00000000000001,
+        74.4
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "stewardship-agreement",
+      "added": 94,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 214000000,
+      "CommittedCents": 109000000,
+      "scores": [
+        68.83520022034645,
+        64.00000000000001,
+        90
+      ]
+    },
+    {
+      "pack": "point-reyes-v1",
+      "action": "wastewater-upgrade",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1139000000,
+      "CommittedCents": 24000000,
+      "scores": [
+        66.8821341085434,
+        58.00000000000001,
+        59.94736842105264
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cultivate-standard",
+      "added": 157,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 174800000,
+      "CommittedCents": 73800000,
+      "scores": [
+        100,
+        26.827382272492056,
+        36.37656830285444
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "conservation-rotation",
+      "added": 98,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 177640000,
+      "CommittedCents": 74240000,
+      "scores": [
+        100,
+        36.59128736987599,
+        47.139272562077736
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cultivate-margin",
+      "added": 125,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 182500000,
+      "CommittedCents": 72500000,
+      "scores": [
+        100,
+        32.251769685470336,
+        44.58385025176968
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "cover-crop",
+      "added": 125,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 197000000,
+      "CommittedCents": 87000000,
+      "scores": [
+        100,
+        33.48100725565514,
+        45.48175416133163
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "restore-grass",
+      "added": 198,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 196800000,
+      "CommittedCents": 92800000,
+      "scores": [
+        33.33333333333333,
+        58.00000000000001,
+        65
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "water-swale",
+      "added": 145,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 246100000,
+      "CommittedCents": 146100000,
+      "scores": [
+        33.33333333333333,
+        58.00000000000001,
+        90
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "public-park",
+      "added": 269,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 281600000,
+      "CommittedCents": 179600000,
+      "scores": [
+        60,
+        35.27272727272728,
+        44.81818181818182
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "low-density-housing",
+      "added": 18,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 245079403,
+      "CommittedCents": 63000000,
+      "scores": [
+        32.46913580246913,
+        69.78052126200274,
+        53.775720164609055
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "high-density-housing",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 503896094,
+      "CommittedCents": 90000000,
+      "scores": [
+        32.38095238095238,
+        67.68472906403942,
+        52.91871921182266
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "agricultural-storage",
+      "added": 8,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 235000000,
+      "CommittedCents": 90000000,
+      "scores": [
+        100,
+        52.463768115942045,
+        55.934782608695656
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "data-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 909000000,
+      "CommittedCents": 64000000,
+      "scores": [
+        75.86666666666666,
+        36.08,
+        48.51200000000001
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "village-center",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 685000000,
+      "CommittedCents": 50000000,
+      "scores": [
+        78,
+        65.05571847507332,
+        56.03519061583578
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "non-renewable-power",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 329000000,
+      "CommittedCents": 204000000,
+      "scores": [
+        46.666666666666664,
+        56.666666666666664,
+        53.75000000000001
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "solar",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1017500000,
+      "CommittedCents": 7500000,
+      "scores": [
+        38.33333333333333,
+        58.00000000000001,
+        73.80000000000001
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "wind",
+      "added": 1,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1653000000,
+      "CommittedCents": 8000000,
+      "scores": [
+        35,
+        58.00000000000001,
+        74.4
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "stewardship-agreement",
+      "added": 94,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 214000000,
+      "CommittedCents": 109000000,
+      "scores": [
+        60,
+        64.00000000000001,
+        65
+      ]
+    },
+    {
+      "pack": "suusamyr-v1",
+      "action": "wastewater-upgrade",
+      "added": 3,
+      "allTargets": false,
+      "largestDebt": 0,
+      "CashCents": 1139000000,
+      "CommittedCents": 24000000,
+      "scores": [
+        43.333333333333336,
+        58.00000000000001,
+        59.94736842105264
+      ]
+    }
+  ]
+}
