@@ -1,6 +1,6 @@
 # Terra — phase status and evidence
 
-**Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Matched Editor captures and 42 lifecycle/render checks pass; Chrome and whole-scene acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
+**Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Actual Chrome proposal→Year3→reload and 42 lifecycle/render checks pass; full-scene visual and performance acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
 
 ## Combined grass/material browser check — October 25, 2026
 
