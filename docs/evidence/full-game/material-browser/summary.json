@@ -1,0 +1,185 @@
+{
+  "source": "16691f28cbab07e673da81d617d1e12729faff88",
+  "runtimeBytes": 46414718,
+  "performanceViewport": [
+    1280,
+    720
+  ],
+  "samples": [
+    {
+      "seconds": 30.0260009765625,
+      "averageFps": 48.691131591796875,
+      "frameP50Ms": 18.0,
+      "frameP95Ms": 35.0,
+      "frameP99Ms": 52.0,
+      "maxFrameMs": 77.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1462,
+      "framesOver33Ms": 116,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 989,
+      "unfocusedFrames": 0
+    },
+    {
+      "seconds": 30.02100372314453,
+      "averageFps": 35.1087532043457,
+      "frameP50Ms": 25.0,
+      "frameP95Ms": 46.0,
+      "frameP99Ms": 69.0,
+      "maxFrameMs": 84.0,
+      "maxPreviewCpuMs": 11.0,
+      "maxPlacementCpuMs": 24.299999237060547,
+      "frames": 1054,
+      "framesOver33Ms": 311,
+      "framesOver200Ms": 0,
+      "previewEvents": 12,
+      "placementEvents": 2,
+      "cameraEvents": 173,
+      "unfocusedFrames": 0
+    },
+    {
+      "seconds": 30.012008666992188,
+      "averageFps": 46.28147506713867,
+      "frameP50Ms": 19.0,
+      "frameP95Ms": 34.0,
+      "frameP99Ms": 53.0,
+      "maxFrameMs": 76.0,
+      "maxPreviewCpuMs": -1.0,
+      "maxPlacementCpuMs": -1.0,
+      "frames": 1389,
+      "framesOver33Ms": 80,
+      "framesOver200Ms": 0,
+      "previewEvents": 0,
+      "placementEvents": 0,
+      "cameraEvents": 1038,
+      "unfocusedFrames": 0
+    }
+  ],
+  "inputLatency": [
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 46.19999998807907
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 23.099999964237213
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 24.80000001192093
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 22.30000001192093
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 21.600000023841858
+        },
+        {
+          "kind": "preview",
+          "source": "keyboard",
+          "milliseconds": 39.30000001192093
+        },
+        {
+          "kind": "placement",
+          "source": "keyboard",
+          "milliseconds": 42.80000001192093
+        }
+      ],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    },
+    {
+      "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+      "samples": [],
+      "discardedStale": 0,
+      "visibility": {
+        "hiddenAtStart": false,
+        "focusedAtStart": true,
+        "hiddenAtEnd": false,
+        "focusedAtEnd": true,
+        "changes": [],
+        "blurEvents": 0
+      }
+    }
+  ],
+  "states": [
+    "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=25; cash=1966000000; queued=0; assets=2",
+    "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=25; cash=1966000000; queued=0; assets=2",
+    "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+  ],
+  "arrivals": [
+    {
+      "sample": 1,
+      "viewport": [
+        1280,
+        720
+      ],
+      "navigationToInteractiveMs": [
+        17169
+      ],
+      "note": "Fresh origin, navigation-to-ready includes manual Explore delay.",
+      "consoleErrors": 0
+    },
+    {
+      "sample": 2,
+      "viewport": [
+        1728,
+        940
+      ],
+      "navigationToInteractiveMs": [
+        14281
+      ],
+      "note": "Fresh origin; viewport reverted to native size, not a matched viewport.",
+      "consoleErrors": 0
+    },
+    {
+      "sample": 3,
+      "viewport": [
+        1280,
+        720
+      ],
+      "navigationToInteractiveMs": [
+        20095
+      ],
+      "note": "First Unity load at this origin after reloading atlas to restore viewport; atlas resources may be warm.",
+      "consoleErrors": 0
+    }
+  ],
+  "consoleErrors": 0,
+  "performanceGatePassed": false,
+  "threeFreshArrivalGatePassed": false,
+  "publicDeployment": false
+}

@@ -1,0 +1,190 @@
+{
+  "sourceRevision": "16691f28cbab07e673da81d617d1e12729faff88",
+  "ignoredAssetFiles": [
+    {
+      "path": "Assets/Resources/PerformanceTestRunInfo.json",
+      "bytes": 2162,
+      "sha256": "0941e89821fde1043dc2f6bba310a7bc87b01041acc8c59f59f51e5e8d11c477"
+    },
+    {
+      "path": "Assets/Resources/PerformanceTestRunInfo.json.meta",
+      "bytes": 158,
+      "sha256": "e2c4a70239b06ddd967ad979480fcb1a3e722c5e4b49cd06315240a4f4da87a8"
+    },
+    {
+      "path": "Assets/Resources/PerformanceTestRunSettings.json",
+      "bytes": 23,
+      "sha256": "600c5c3dab7e18e51c28aad096457da91fcf60a3eedd908b6bf30194dae2b55b"
+    },
+    {
+      "path": "Assets/Resources/PerformanceTestRunSettings.json.meta",
+      "bytes": 158,
+      "sha256": "835bf6cd31b0abb2497e5a64850d88214310a23004fefffdb22bccc047e42b45"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks.meta",
+      "bytes": 172,
+      "sha256": "cda8d138e08d3d038e3601e279f131ad0b69123986fd3a34a6c449ec35f9f852"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1.meta",
+      "bytes": 172,
+      "sha256": "7bc718083f7c98d7a612ed9d0aa4f825bbf5867c71496c44bf7b569c562e7245"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "sourcePath": "worlds/meadowbrook-v1/hydrology.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json.meta",
+      "bytes": 155,
+      "sha256": "61329a0a17c427746fd67b9fd5b8e8337763cf34db25af9bf24b43064ac2569b"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "sourcePath": "worlds/meadowbrook-v1/manifest.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json.meta",
+      "bytes": 155,
+      "sha256": "d3a2d09c6140b498253f84c5f8f798f66d0496c7eae10f74dc28f1ca26ef3a80"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "sourcePath": "worlds/meadowbrook-v1/scenario.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json.meta",
+      "bytes": 155,
+      "sha256": "9add6d974291198b384a5b01229059d2640a6ba9db9135f73102fcf831100975"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "sourcePath": "worlds/meadowbrook-v1/world.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/world.json.meta",
+      "bytes": 155,
+      "sha256": "a1977ad57e187d9cb21c406b406aa1d34b97c6cfc88778dd2fb281b19a4ec462"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1.meta",
+      "bytes": 172,
+      "sha256": "92e956d47fb8c48c57f4dc527e0c0ccfdbee59a5e80c2af43d2ba3a767d394ea"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+      "sourcePath": "worlds/point-reyes-v1/hydrology.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json.meta",
+      "bytes": 155,
+      "sha256": "787c877087a2382cf0fb78419a820d37a9e857b0b979c8a93f3ee37e65075ea6"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+      "sourcePath": "worlds/point-reyes-v1/manifest.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/manifest.json.meta",
+      "bytes": 155,
+      "sha256": "9f505a8355ad7be39f3a623dcc03f441be8d5d05e9039678ccc09e416f757f3b"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+      "sourcePath": "worlds/point-reyes-v1/scenario.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/scenario.json.meta",
+      "bytes": 155,
+      "sha256": "92ffa91730a51fb61ad5f0ed1fd8a3ed3fcc66a4867f943a04b6ec62c98df5ac"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+      "sourcePath": "worlds/point-reyes-v1/world.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/point-reyes-v1/world.json.meta",
+      "bytes": 155,
+      "sha256": "4ea9ea250dade4fb006ce8334b12cbe5aa22e51f0910be146c7699c0e8010517"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1.meta",
+      "bytes": 172,
+      "sha256": "81a13ad88391bf0ae0f197ca254cbdf052050575b07bb726047c7d19e877cad2"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+      "sourcePath": "worlds/suusamyr-v1/hydrology.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json.meta",
+      "bytes": 155,
+      "sha256": "df5ab7093cf0963142a86f253e5933617bb265cea6bb4bd101dc0cac775a9b3d"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+      "sourcePath": "worlds/suusamyr-v1/manifest.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/manifest.json.meta",
+      "bytes": 155,
+      "sha256": "71e4683ede43673aab52303793d23c2cd254e1207e22b35953fe38055118ca41"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+      "sourcePath": "worlds/suusamyr-v1/scenario.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/scenario.json.meta",
+      "bytes": 155,
+      "sha256": "245e0928af47f0a5ce43c4966a10fc67cf6a8169d46def10aebfe257a5c1d3a4"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+      "sourcePath": "worlds/suusamyr-v1/world.json",
+      "matchesSource": true
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/suusamyr-v1/world.json.meta",
+      "bytes": 155,
+      "sha256": "e4fc91167c0c743232f4009ac1316aee67af01569cd09243ed66c2174867582a"
+    }
+  ],
+  "ignoredCodeOrScenes": []
+}
