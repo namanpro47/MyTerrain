@@ -75,8 +75,8 @@ namespace Terra.UI
             if(annualRules!=null)
             {
                 var recipe=annualRules.actions.FirstOrDefault(a=>a.actionId==activeTool);
-                actionSummary.text=recipe==null?(annualPlanningHint??"Choose a project, then a field.  ‹ / › More projects"):recipe.title+" · "+Money(recipe.annualPublicOperatingCents)+" / year upkeep";
-                if(highlightedFieldCount.HasValue)actionSummary.text+=" · "+highlightedFieldCount.Value+" available fields";
+                actionSummary.text=recipe==null?(annualPlanningHint??"Choose a project · B to browse"):highlightedFieldCount==0?"No available field · choose another project":"Choose an outlined field";
+                if(recipe!=null&&highlightedFieldCount>0)actionSummary.text+=" · "+highlightedFieldCount.Value+" available";
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace Terra.UI
         }
         void SelectCatalog(string id)
         {
-            var action=actionRules?.Find(id);if(action!=null && annualRules!=null)catalogPage=Array.IndexOf(actionButtons.Where(p=>AnnualCategory(p.Value)==AnnualCategory(id)).Select(p=>p.Value).ToArray(),id)/4;
+            var action=actionRules?.Find(id);if(action!=null && annualRules!=null)catalogPage=Array.IndexOf(actionButtons.Where(p=>AnnualCategory(p.Value)==AnnualCategory(id)).Select(p=>p.Value).ToArray(),id)/catalogColumns;
             if(action!=null)ShowCategory(annualRules==null?action.category:AnnualCategory(id));else UpdateActionSummary();
         }
         public string LandRules(Site site)

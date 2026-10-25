@@ -17,12 +17,13 @@ namespace Terra.UI
         TextMeshProUGUI annualBudget,annualYear,annualWater,annualAvailable;
         Transform annualIndicators,commandBar;
         TextMeshProUGUI[] annualScores=new TextMeshProUGUI[3];
+        readonly string[] annualScoreReadout=new string[3];
         Image[] annualBars=new Image[3];
         Button endYearButton,reportButton,restartButton,futureButton,annualPrimary,annualDetails,recipeDetails;
         Transform budgetPanel;
         bool annualCompact,annualCompleted;
         public void MapView(string title){placeSubtitle.text=title??location.Subtitle;if(title!=null)annualYear.text="YOUR SAVED YEAR 10";}
-        public void HideAnnualPreview()=>tooltip.SetActive(false);
+        public void HideAnnualPreview(){tooltip.SetActive(false);ReflowPlanningDock();}
         TownActionDefinition inspectedRecipe;
         string annualPreviewBody,annualPreviewTimeline;
         Action annualPrimaryAction;
@@ -66,9 +67,9 @@ namespace Terra.UI
                 var caption=pair.Key.GetComponentsInChildren<TextMeshProUGUI>().Last();
                 caption.text=recipe==null?"—":CompactMoney(recipe.upfrontPublicCostCents);
             }
-            UpdateActionSummary();
+            ConfigurePlayFirst();UpdateActionSummary();
         }
-        int catalogPage;
+        int catalogPage,catalogColumns=4;
         readonly System.Collections.Generic.List<Button> catalogPageButtons=new System.Collections.Generic.List<Button>();
         static string AnnualCategory(string id) => new[]{"low-density-housing","high-density-housing","public-park","village-center"}.Contains(id)?"Homes & Community":new[]{"agricultural-storage","data-center","non-renewable-power","solar","wind","wastewater-upgrade"}.Contains(id)?"Work & Utilities":"Land & Nature";
         void ConfigureAnnualCatalog()
@@ -92,10 +93,10 @@ namespace Terra.UI
                     foreach(var text in button.GetComponentsInChildren<TextMeshProUGUI>())text.rectTransform.sizeDelta=new Vector2(154,text.rectTransform.sizeDelta.y);
                     var icon=button.transform.Find("Model icon")?.GetComponent<RectTransform>();if(icon!=null)icon.sizeDelta=new Vector2(150,62);
                 }
-                if(actions.Length>4)
+                if(actions.Length>3)
                 {
                     var prev=Button(row,"‹",new Vector2(0,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=Math.Max(0,catalogPage-1);ApplyCatalogPage();},22);
-                    var next=Button(row,"›",new Vector2(1,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=(catalogPage+1)%((actions.Length+3)/4);ApplyCatalogPage();},22);
+                    var next=Button(row,"›",new Vector2(1,1),new Vector2(0,0),new Vector2(30,124),()=>{catalogPage=(catalogPage+1)%((actions.Length+catalogColumns-1)/catalogColumns);ApplyCatalogPage();},22);
                     catalogPageButtons.Add(prev);catalogPageButtons.Add(next);
                 }
             }
@@ -107,7 +108,7 @@ namespace Terra.UI
             foreach(var group in actionRows.Keys)
             {
                 var buttons=actionButtons.Where(p=>AnnualCategory(p.Value)==group).Select(p=>p.Key).ToArray();
-                for(int i=0;i<buttons.Length;i++)buttons[i].gameObject.SetActive(i/4==catalogPage);
+                for(int i=0;i<buttons.Length;i++)buttons[i].gameObject.SetActive(i/catalogColumns==catalogPage);
             }
         }
         public void AnnualState(AnnualTown town,TownYearOutcomes baseline,TownYearOutcomes forecast)
@@ -116,7 +117,7 @@ namespace Terra.UI
             acceptedOutcomes=current;
             var guidance=AnnualPlanningGuidance.Create(town,current);
             var suggested=actionRules?.Find(guidance.actionId);
-            annualPlanningHint=suggested==null?guidance.message:guidance.need+": consider "+ShortTitle(suggested)+". Inspect a field, or End Year to wait.";
+            annualPlanningHint=suggested==null?guidance.message:guidance.need+" · inspect "+ShortTitle(suggested);
             UpdateActionSummary();
             bool completed=state.phase==TownPhase.Completed;
             if(annualCompleted!=completed)
@@ -132,8 +133,8 @@ namespace Terra.UI
             double[] next={forecast.economicScore,forecast.socialScore,forecast.environmentalScore};
             for(int i=0;i<3;i++)
             {
-                annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Last year  "+Signed(values[i]-before[i]))+"</size>";
-                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.54f,5);
+                annualScoreReadout[i]=annualScores[i].text=values[i].ToString("0.0")+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+next[i].ToString("0.0"):"Change  "+Signed(values[i]-before[i]))+"</size>";
+                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.40f,5);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());
             annualAvailable.text=Money(town.AvailableCents)+" <size=45%>available</size>";
@@ -151,9 +152,13 @@ namespace Terra.UI
         public void AnnualPreview(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,Action confirm,bool queued)
         {
             confirmEdit=confirm;tip.transform.parent.gameObject.SetActive(false);
+            var existing=state.queue.FirstOrDefault(q=>q.siteId==site?.id);
+            bool replacing=mode=="place"&&existing!=null&&recipe!=null&&existing.actionId!=recipe.actionId&&rejection==null;
+            // A blocked replacement still exposes Move/Remove for the real queued project.
+            if(mode=="place"&&queued&&rejection!=null&&existing!=null)recipe=annualRules.actions.First(a=>a.siteId==existing.siteId&&a.actionId==existing.actionId);
             inspectedRecipe=recipe;recipeDetails.gameObject.SetActive(recipe?.services!=null&&rejection==null&&mode=="place");
             tooltip.SetActive(site!=null||mode=="reset"||mode=="move");
-            if(!tooltip.activeSelf)return;
+            if(!tooltip.activeSelf){ReflowPlanningDock();return;}
             previewTitle.text=mode=="reset"?"Clear this year's plan":site?.name??"Choose a destination";
             var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id);
             var outcome=state.history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==site?.id);
@@ -169,7 +174,7 @@ namespace Terra.UI
             bool canEdit=queued&&state.phase==TownPhase.Planning&&mode=="place"&&rejection!=null;
             moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
             confirmEditButton.gameObject.SetActive(!canEdit&&state.phase==TownPhase.Planning);confirmEditButton.interactable=rejection==null;
-            SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":"Queue · Enter");
+            SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":replacing?"Replace · Enter":"Queue · Enter");
             if(state.phase==TownPhase.Completed&&asset==null)
                 previewBody.text=site?.protectedSite==true?"Protected scenario area. No project was accepted here.":"Existing land use. No new project was accepted here.\n\nInspect other sites, compare the landscape or start a new run.";
             else if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
@@ -179,7 +184,8 @@ namespace Terra.UI
             previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);
             annualPreviewBody=previewBody.text;
             annualPreviewTimeline=recipe==null?null:"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr";
-            LayoutAnnualPreview();Paint();
+            UpdateProjectFacts(site,recipe,state,mode,rejection,queued);
+            LayoutAnnualPreview();ReflowPlanningDock();Paint();
         }
         static string Bundle(TownActionDefinition recipe)=>recipe.services!=null?recipe.fundedUnit:recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
         public void AnnualDialog(string title,string body,string action,Action callback)
@@ -211,7 +217,7 @@ namespace Terra.UI
                 AnnualSecondary("Meter details",()=>AnnualMetrics(o,()=>AnnualReport(town,baseline,continuePlanning,backToChapter)));
             }
             else AnnualDialog("Year "+r.year+" · accepted","Cash "+Money(l.closingCashCents)+"\n"+o.economicExplanation+"\n"+o.socialExplanation+"\n"+o.environmentalExplanation,"Continue",continuePlanning);
-            if(backToChapter!=null){SetButtonText(annualPrimary,"Back to chapter");annualPrimaryAction=backToChapter;}
+            if(backToChapter!=null){SetButtonText(annualPrimary,AnnualOverviewOpen?"Back to year highlights":"Back to chapter");annualPrimaryAction=backToChapter;}
         }
         void AnnualProjectDetails(TownActionDefinition a,bool effects)
         {

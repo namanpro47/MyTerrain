@@ -8,6 +8,8 @@ var label=(TMPro.TextMeshProUGUI)ui.GetField("actionSummary",flags).GetValue(hud
 var layout=ui.GetMethod("LayoutAnnual",flags);
 var selected=(string)ui.GetField("activeTool",flags).GetValue(hud);
 bool originalLarge=hud.LargeText;
+var inspector=(UnityEngine.GameObject)ui.GetField("tooltip",flags).GetValue(hud);
+bool originalInspector=inspector.activeSelf;
 string saved=session.ExportSave();
 var definition=session.Definition;
 var baseline=Terra.Core.AnnualGameplay.Baseline(definition);
@@ -35,7 +37,7 @@ try
     Terra.Core.AnnualTownDemo.Advance(town,"guidance-hud-year1",provider);Render(town,"what changed");
     town.ContinuePlanning(town.Revision);Render(town,"Housing need");
     hud.Selected("public-park");
-    Check(label.text.Contains("upkeep")&&!label.text.Contains("Housing need"),"Selected project lost its own upkeep summary");
+    Check(label.text.Contains("outlined field")&&!label.text.Contains("Housing need"),"Selected project lost its field instruction");
     hud.Selected(null);Check(label.text.Contains("Housing need"),"Cancel did not restore contextual guidance");
     Terra.Core.AnnualTownDemo.Finish(town,provider);Render(town,"complete");
     // Every authored fallback and every real catalog title must fit the same existing row.
@@ -43,12 +45,15 @@ try
     foreach(System.Text.RegularExpressions.Match match in System.Text.RegularExpressions.Regex.Matches(source,"Say\\(\"([^\"]+)\"\\)"))messages.Add(match.Groups[1].Value);
     var rules=(Terra.Core.BuildActionRules)ui.GetField("actionRules",flags).GetValue(hud);
     var shortTitle=ui.GetMethod("ShortTitle",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);
-    foreach(var action in rules.actions)messages.Add("Output below target: consider "+shortTitle.Invoke(null,new object[]{action})+". Inspect a field, or End Year to wait.");
+    foreach(var action in rules.actions)messages.Add("Output below target · inspect "+shortTitle.Invoke(null,new object[]{action}));
     foreach(bool large in new[]{false,true})
     {
         if(hud.LargeText!=large)ui.GetMethod("ToggleText",flags).Invoke(hud,null);
         foreach(var size in new[]{new UnityEngine.Vector2(1024,576),new UnityEngine.Vector2(1280,720),new UnityEngine.Vector2(1440,900),new UnityEngine.Vector2(1920,1080)})
         {
+            foreach(bool inspecting in new[]{false,true})
+            {
+            inspector.SetActive(inspecting);
             layout.Invoke(hud,new object[]{size.x,size.y,size.x<1120||size.y<680});
             Check(label.fontSize>=(large?15.68f:14f)-.001f,"Hint did not retain readable/larger text size at "+size);
             foreach(string message in messages.Distinct())
@@ -65,6 +70,7 @@ try
                     "Selected project summary overflow: "+label.text+" at "+size+" larger="+large);
             }
             hud.Selected(null);hud.BuildAvailability(null);
+            }
         }
     }
     Check(session.ExportSave()==saved,"Disposable HUD test changed live saved state");
@@ -72,6 +78,7 @@ try
 finally
 {
     if(hud.LargeText!=originalLarge)ui.GetMethod("ToggleText",flags).Invoke(hud,null);
+    inspector.SetActive(originalInspector);
     hud.Selected(selected);
     hud.AnnualState(session.Engine,baseline,baseline);
     layout.Invoke(hud,new object[]{(float)UnityEngine.Screen.width,(float)UnityEngine.Screen.height,UnityEngine.Screen.width<1120||UnityEngine.Screen.height<680});

@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "command": "job status",
+  "data": {
+    "jobId": "6f113d11146447c88217f4b3a4ae2204",
+    "command": "script eval",
+    "state": "completed",
+    "cancellationRequested": false,
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "command": "script eval",
+      "result": {
+        "success": true,
+        "seconds": 629.5606306,
+        "output": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/Builds/Web"
+      },
+      "executionTimeMs": 630342,
+      "message": null,
+      "error": null,
+      "errorDetails": null,
+      "executedAt": "2026-10-25T16:32:19.049387Z"
+    },
+    "error": null,
+    "errorDetails": null,
+    "progress": null
+  },
+  "errors": [],
+  "warnings": []
+}

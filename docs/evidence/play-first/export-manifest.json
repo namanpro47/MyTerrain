@@ -1,0 +1,199 @@
+{
+  "source": "607e34e",
+  "files": 32,
+  "totalBytes": 39977460,
+  "entries": [
+    {
+      "path": "atlas/atlas.css",
+      "bytes": 16683,
+      "sha256": "e748054a9917c90cb92283f57ece6563141efadc173f0077db0dfeb22f3f460b",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/atlas.js",
+      "bytes": 7829,
+      "sha256": "42a0509ce2b0f9246d535c682fa7a66b0a1e7bed5ebdc1b9de4973c318a59fb9",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/CREDITS.md",
+      "bytes": 1618,
+      "sha256": "d31574c9fe12220e1e2b3bf943e824813965ce04797eb7156544aa6cfb4f21bd",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/globe.js",
+      "bytes": 10597,
+      "sha256": "5a670f8c35bf1f70bb790d16c05c3a3f591dd339d91aad1e76a47942de9eca53",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/images/earth.jpg",
+      "bytes": 2308798,
+      "sha256": "4f4240673a3a1b173d61b92ca4b07bac5fd17059ea5f725ba6da5a9c5386b7ba",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/images/favicon.svg",
+      "bytes": 209,
+      "sha256": "d301c382a2ecb649f0015ccc961544bf2e064518a77969ab945f726ec5c7b104",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/images/point-reyes.svg",
+      "bytes": 1320,
+      "sha256": "73a896019ec942deb84cc61bbfe8dd6de82f84c6daf148bf718b60317e9d0d7b",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/images/suusamyr.svg",
+      "bytes": 1218,
+      "sha256": "7b767db1308b3140ca2e147e788481ec5f6a3e58930a8f3efb50e26876a66dd4",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/images/wisconsin.svg",
+      "bytes": 1563,
+      "sha256": "560978b724f4a2f7645222b15582bd56ce6bbe363e6ba6cfbdf5525218ca4133",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/locations.js",
+      "bytes": 1858,
+      "sha256": "9ca5dcc1226b1305421b69c0c951968b635173fce6f1609c44c5be3909092df9",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/player.js",
+      "bytes": 5260,
+      "sha256": "69994c54819392a71bdd0bcef2a210215cb9a00b026f437519de9d1c1a744c9b",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/vendor/THREE-LICENSE.txt",
+      "bytes": 1102,
+      "sha256": "f57eb9202058667d12aebd854fe8a86d6feaeab51078180df5615bfdbd5cff05",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/vendor/three.module.min.js",
+      "bytes": 691654,
+      "sha256": "8e71269b773b81802e7f5f71d8528f1e0c29a82c55f0609845b528389aed8439",
+      "servedMatch": true
+    },
+    {
+      "path": "atlas/vendor/WATER-LICENSE.txt",
+      "bytes": 1087,
+      "sha256": "6d1ede0e89ea768228510dd432ed94b430d907de4a602307c49821603aec79de",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/2be0f02dede9cd1d5650c0cbf59a52e0.wasm.unityweb",
+      "bytes": 7953300,
+      "sha256": "3b0d38989316fe4e9ed089b36c82c31e1402f160c77c55e6666e3be66f21d922",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/3216a2065aa5d6bde0f730a39b3a1207.framework.js.unityweb",
+      "bytes": 67750,
+      "sha256": "fafe8a5b9f214039b6ff084a0318126f83b2c3fdeed7865996508484568fadd8",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/b25f7037e71969160e92ac71b17a7479.loader.js",
+      "bytes": 118806,
+      "sha256": "16d1c2c01367007fde5de9502bb1cf39abb9e315b522ae02da77f6637f31f1a6",
+      "servedMatch": true
+    },
+    {
+      "path": "Build/cc753778184518b96c579701cfdb9b68.data.unityweb",
+      "bytes": 27283530,
+      "sha256": "351819baa9ccb7d4bc43cec58c32d2f2a7d0f04741a32115bca4c08fa48f4074",
+      "servedMatch": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 7210,
+      "sha256": "03c83eff33ec5303a643d65bc0709c3f54de8f18670709aa989f30c03dc3c73c",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "bytes": 2205,
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "bytes": 3215,
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "bytes": 2260,
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "bytes": 947918,
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/hydrology.json",
+      "bytes": 2002,
+      "sha256": "a9b49f971e4b68782efce2b58cdae058600503f9249234f2867564e1d60eef62",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/manifest.json",
+      "bytes": 2171,
+      "sha256": "5219614172ed35f67e344a5ae8936ffad7f2ff3d7abbf53efc747cfd4797e538",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/scenario.json",
+      "bytes": 2261,
+      "sha256": "84fa04dd57b988318e780d1d2d279e63996fe00864f4120efdc30f8574b0e91b",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/point-reyes-v1/world.json",
+      "bytes": 259502,
+      "sha256": "9756974e8d28192d1a8056b6cef53bb678c71fd0867b39dc4dfb6217f962e798",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/hydrology.json",
+      "bytes": 1805,
+      "sha256": "1fa364a9ee5c56c724e88add2b5390666ba507fc7be443a47ce31c416e83f222",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/manifest.json",
+      "bytes": 2161,
+      "sha256": "05aa3d91c06d2981fb7eb438533cdb6c54cb88b3376d560fe4987f104dd67682",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/scenario.json",
+      "bytes": 2252,
+      "sha256": "753ee07a7bfc1d1ce3f41d36e40e376397a336684fc70f799e0922b94401cc0a",
+      "servedMatch": true
+    },
+    {
+      "path": "StreamingAssets/WorldPacks/suusamyr-v1/world.json",
+      "bytes": 268061,
+      "sha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+      "servedMatch": true
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 255,
+      "sha256": "3eb9a4b21bde2cd7789d8c99fae47e3560110967a22e739b532dd3b317dfab1b",
+      "servedMatch": true
+    }
+  ]
+}

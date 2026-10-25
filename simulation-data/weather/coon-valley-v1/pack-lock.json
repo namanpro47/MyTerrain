@@ -1,0 +1,9 @@
+{
+  "bytes": 87113,
+  "derivationVersion": "terra-weather-drivers-v1",
+  "packId": "coon-valley-weather-v1",
+  "path": "weather-pack.json",
+  "schemaVersion": 1,
+  "sha256": "5bf2c305473f2d1fb4b3a589f91995032bcd44b4551c0c4278745b08786540de",
+  "sourceLockSha256": "74c3770d190ad0e33dd7155d00b6520a8551881416dcaf2f0580da037e883579"
+}

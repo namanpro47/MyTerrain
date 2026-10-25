@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-25",
+  "reservation": 18,
+  "viewport": [
+    1280,
+    720
+  ],
+  "dpr": 1,
+  "route": "R, F9, Z, 2, Tab, Tab, Return; six Right/Down/Left/Up cycles held1200ms each, one uninterrupted native-input batch",
+  "controlPort": 61296,
+  "candidatePort": 61297,
+  "samples": {
+    "control": {
+      "entry": {
+        "location": "meadowbrook-v1",
+        "mode": "fresh-player",
+        "milliseconds": 16314.5,
+        "method": "entry handler to visible focused game, including transition"
+      },
+      "entryAt": "2026-10-25T16:36:58.571Z",
+      "timing": {
+        "seconds": 30.0310001373291,
+        "averageFps": 52.379207611083984,
+        "frameP50Ms": 16.0,
+        "frameP95Ms": 34.0,
+        "frameP99Ms": 39.0,
+        "maxFrameMs": 48.0,
+        "maxPreviewCpuMs": 6.099999904632568,
+        "maxPlacementCpuMs": 17.399999618530273,
+        "frames": 1573,
+        "framesOver33Ms": 80,
+        "framesOver200Ms": 0,
+        "previewEvents": 5,
+        "placementEvents": 1,
+        "cameraEvents": 1531,
+        "unfocusedFrames": 0
+      },
+      "timingAt": "2026-10-25T16:37:43.542Z",
+      "submissions": "submitted=1057; culled=1295; groundcoverCulled=277; groups=436",
+      "consolidation": "sourceBatches=907; drawCalls=362; savedDrawCalls=545",
+      "input": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 18.400000035762787
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 17.600000023841858
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 19.200000047683716
+          },
+          {
+            "kind": "placement",
+            "source": "keyboard",
+            "milliseconds": 28.899999976158142
+          }
+        ],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      },
+      "inputAt": "2026-10-25T16:37:43.581Z",
+      "state": "year=1; phase=Planning; revision=6; cash=1000000000; queued=2; assets=0",
+      "errors": []
+    },
+    "candidate": {
+      "entry": {
+        "location": "meadowbrook-v1",
+        "mode": "fresh-player",
+        "milliseconds": 14344.299999952316,
+        "method": "entry handler to visible focused game, including transition"
+      },
+      "entryAt": "2026-10-25T16:38:11.481Z",
+      "timing": {
+        "seconds": 30.010000228881836,
+        "averageFps": 55.64811706542969,
+        "frameP50Ms": 15.0,
+        "frameP95Ms": 36.0,
+        "frameP99Ms": 38.0,
+        "maxFrameMs": 55.0,
+        "maxPreviewCpuMs": 6.199999809265137,
+        "maxPlacementCpuMs": 17.0,
+        "frames": 1670,
+        "framesOver33Ms": 121,
+        "framesOver200Ms": 0,
+        "previewEvents": 5,
+        "placementEvents": 1,
+        "cameraEvents": 1626,
+        "unfocusedFrames": 0
+      },
+      "timingAt": "2026-10-25T16:38:55.166Z",
+      "submissions": "submitted=1096; culled=1654; groundcoverCulled=278; groups=436",
+      "consolidation": "sourceBatches=995; drawCalls=372; savedDrawCalls=623",
+      "input": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 18.30000001192093
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 17.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 18
+          },
+          {
+            "kind": "placement",
+            "source": "keyboard",
+            "milliseconds": 28.100000023841858
+          }
+        ],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      },
+      "inputAt": "2026-10-25T16:38:55.179Z",
+      "state": "year=1; phase=Planning; revision=6; cash=1000000000; queued=2; assets=0",
+      "errors": []
+    }
+  }
+}

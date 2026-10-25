@@ -48,15 +48,14 @@ namespace Terra.Gameplay
         }
         void ContinueAfterChapter()
         {
-            hud.CloseModal();
+            hud.CloseAnnualOverview();hud.CloseModal();
             if(annual.State.phase==TownPhase.Completed){ShowFuture();return;}
             if(annual.State.phase==TownPhase.Reviewing)chapters.Continue();
             SaveAnnual();Refresh();
         }
         void ShowAnnualLedger()
         {
-            bool hasChapter=chapters.ForYear(annual.State.history[annual.State.history.Length-1].year)!=null;
-            hud.AnnualReport(annual.Engine,annualBaseline,ContinueAfterChapter,hasChapter?(Action)ShowAcceptedReport:null);
+            hud.AnnualReport(annual.Engine,annualBaseline,ContinueAfterChapter,ShowAcceptedReport);
         }
     }
 }

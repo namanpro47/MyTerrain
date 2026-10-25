@@ -12,24 +12,24 @@ namespace Terra.Core
 
         public static AnnualPlanningGuidance Create(AnnualTown town, TownYearOutcomes current)
         {
-            if (town.Phase == TownPhase.Completed) return Say("Year 10 is complete. Compare your future, inspect history or start a new run.");
-            if (town.Phase == TownPhase.Resolving) return Say("This year is pending. Retry the same year or choose the labelled offline result.");
-            if (town.Phase == TownPhase.Reviewing) return Say("Read what changed and why, then continue to next year's plan.");
-            if (town.Queue.Length > 0) return Say("Plan reserved, not paid. Revise with Undo, or use End Year to review and commit.");
+            if (town.Phase == TownPhase.Completed) return Say("Year 10 complete · compare your future or start again.");
+            if (town.Phase == TownPhase.Resolving) return Say("Year pending · retry or choose the offline result.");
+            if (town.Phase == TownPhase.Reviewing) return Say("Read what changed, then plan next year.");
+            if (town.Queue.Length > 0) return Say("Reserved, not paid · Undo edits; End Year reviews.");
 
             var definition = town.Definition;
             var occupied = town.Assets.Select(a => a.siteId).ToArray();
             var vacant = definition.actions.Where(a => !occupied.Contains(a.siteId)).ToArray();
-            if (vacant.Length == 0) return Say("All project sites are committed. End Year waits; existing projects still advance.");
+            if (vacant.Length == 0) return Say("All sites are committed · End Year advances projects.");
             var affordable = vacant.Where(a => town.Preview(a.siteId, a.actionId) >= 0).ToArray();
-            if (affordable.Length == 0) return Say("No new project fits the available funds. End Year waits; upkeep and debt remain.");
-            if (town.History.Length == 0) return Say("Choose a project, inspect a highlighted field, then queue it. Cash stays unchanged.");
+            if (affordable.Length == 0) return Say("No project fits · End Year waits; upkeep and debt remain.");
+            if (town.History.Length == 0) return Say("Choose a project, then inspect an outlined field.");
 
             // Only recommend capacity for an unmet need, on a real vacant/affordable offer
             // that can open within the remaining game. This makes no claim about net scores.
             var economy = current?.economy;
             var targets = definition.economy;
-            if (economy == null || targets == null) return Say("Compare needs, timing and upkeep. Choose another project, or End Year to wait.");
+            if (economy == null || targets == null) return Say("Compare needs and upkeep · End Year can wait.");
             var candidates = affordable.Where(a => a.services != null && town.Year + a.constructionYears <= definition.years).ToArray();
             // Count already funded capacity that has not opened yet. Do not recommend another
             // home/park simply because its predecessor is still under construction/establishment.
@@ -46,13 +46,13 @@ namespace Terra.Core
             // Address constrained resources before inviting additional homes/jobs. A wastewater
             // plant never fixes drinking-water scarcity; the current catalog cannot add supply.
             if (economy.waterSupplied + .0001 < economy.waterDemand)
-                return Say("Drinking water is limited. Avoid extra demand; End Year can wait, but adds no supply.");
+                return Say("Water is limited · waiting adds no supply.");
             if (economy.energySupplied + .0001 < economy.energyDemand)
             {
                 if (targets.baselineEnergySupply + Capacity(s => s.energySupply) >= targets.baselineEnergyDemand + Capacity(s => s.energyDemand))
-                    return Say("Committed power is limited by timing or conditions. Inspect it, or End Year to wait.");
+                    return Say("Inspect committed power: timing or conditions limit it.");
                 return Option("Power need", a => a.services.energySupply > a.services.energyDemand)
-                    ?? Say("No affordable power project can open by Year 10. End Year can wait; needs remain.");
+                    ?? Say("No new power can open by Year 10 · needs remain.");
             }
             AnnualPlanningGuidance suggestion = null;
             if (economy.wastewaterTreated + .0001 < economy.wastewaterLoad
@@ -70,7 +70,7 @@ namespace Terra.Core
                 suggestion = Option("Output below target", a => a.productionUnits > definition.sites.First(s => s.id == a.siteId).baselineProductionUnits);
             if (suggestion == null && current.vegetatedAreaM2 < current.managedAreaM2 * targets.coverTargetFraction)
                 suggestion = Option("Cover below target", a => a.vegetatedFraction > definition.sites.First(s => s.id == a.siteId).baselineVegetatedFraction);
-            return suggestion ?? Say("Compare remaining needs and project trade-offs, or End Year to wait with upkeep.");
+            return suggestion ?? Say("Compare needs and trade-offs · waiting still has upkeep.");
         }
 
         static AnnualPlanningGuidance Say(string text) => new AnnualPlanningGuidance { message = text };

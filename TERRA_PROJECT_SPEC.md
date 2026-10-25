@@ -1,4 +1,4 @@
-# Terra: Shape Your World
+# MyTerrain: Shape Your World
 
 **Product & Implementation Specification**
 **Status:** Active north star — three rural locations, annual land-use strategy
@@ -7,6 +7,8 @@
 **Audience:** Ages 15–24
 **Platform:** Unity 6 + URP, desktop browser delivery
 **Business model:** Free, nonprofit/public-benefit; no ads, purchases, subscriptions or profit-driven features
+
+**Native Unity and naming correction (October 25):** The application is **MyTerrain** everywhere players see its name. The draggable globe, location markers, controls and descent must run inside Unity, using 3D rendering and uGUI/TMP. The HTML landing-page implementation is rejected; the browser wrapper only boots the Unity canvas. Internal Terra identifiers and save keys remain stable for compatibility.
 
 **Simulation-reference decision (October 25):** Peter chose one numerical reference base: **Coon Valley / Vernon County, Wisconsin**, for weather, agriculture and economic benchmarks, even when the fictional scenario name or selected landscape differs. Keep the three authorized terrain packs and separate saves; terrain provenance is separate from the shared simulation reference. Do not imply Wisconsin statistics are measurements of Point Reyes or Suusamyr. Label the experience: **"Fictional scenario · weather and economic references: Coon Valley, Wisconsin · other parameters are authored game assumptions."** County/state benchmarks retain their true geography, units and source year; unsupported costs/response curves remain authored. Inspect the supplied hackpack first and use NOAA for weather when no suitable, accessible hackpack series is quicker to validate. See [simulation approach](docs/SIMULATION_APPROACH.md) and [dataset audit](docs/HACKPACK_DATA_AUDIT.md). This is a requirements decision, not completed runtime wiring.
 
@@ -20,7 +22,7 @@
 
 ## 0. Read This First — The Project in One Minute
 
-**Terra lets you shape a real rural place over ten years, live with the consequences, and try another future.**
+**MyTerrain lets you shape a real rural place over ten years, live with the consequences, and try another future.**
 
 You are a fictional local-government decision maker in Meadowbrook Valley. Each year, inspect the land and community's needs, choose projects you can afford, review their future costs and effects, and commit the plan. The world changes as projects are built, landscapes establish and services operate. See what happened to the economy, community and environment, then adapt the next year's choices.
 
@@ -36,7 +38,7 @@ At Year 10, see the recognizable place you shaped, compare it with its opening a
 
 ## 1. Challenge and learning purpose
 
-The UNCCD challenge is engaging youth in sustainable land-use decisions: competing livelihoods and community needs, land degradation, water scarcity, recovery and local participation. Terra is an approachable strategy game, not a professional GIS or planning forecast.
+The UNCCD challenge is engaging youth in sustainable land-use decisions: competing livelihoods and community needs, land degradation, water scarcity, recovery and local participation. MyTerrain is an approachable strategy game, not a professional GIS or planning forecast.
 
 Learning comes from benefits, costs, uncertainty and repeated decisions. Geography is grounded in data; future public budgets, projects, demand, ownership/consent assumptions and outcomes are explicitly hypothetical. A small pilot can show preliminary comprehension and replay interest, not prove long-term behavior change.
 

@@ -1,49 +1,35 @@
-using System.Runtime.InteropServices;
 using Terra.Core;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace Terra.Gameplay
 {
     public sealed partial class TerraMain
     {
-        LocationProfile location=LocationProfile.All[0];
-        bool atlasVisible;
-#if UNITY_WEBGL && !UNITY_EDITOR
-        [DllImport("__Internal")] static extern int TerraLocationIndex();
-        [DllImport("__Internal")] static extern int TerraAtlasReducedMotion();
-        [DllImport("__Internal")] static extern void TerraLandscapeError(string message);
-#endif
-        void ConfigureLocation()
+        LocationProfile location=LocationProfile.All[0];bool atlasVisible,loadingLocation,arrivalPending;WorldAtlas atlas;
+        public bool LandscapeIsReady=>ready;
+        public void EnterSelectedLocation(LocationProfile selected)
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            location=LocationProfile.At(TerraLocationIndex());
-#else
-            location=LocationProfile.Find(PlayerPrefs.GetString("terra.editor.location","meadowbrook-v1"));
-#endif
+            if(loadingLocation&&location.PackId!=selected.PackId)
+            {WorldAtlas.Instance.BeginLoading();if(annual!=null)SaveAnnual();SceneManager.LoadScene(SceneManager.GetActiveScene().name);return;}
+            if(!loadingLocation)LoadLocation(selected);
+            else if(ready)WorldAtlas.Instance.LandscapeReady();
+        }
+        public void LoadLocation(LocationProfile selected)
+        {
+            WorldAtlas.Instance.BeginLoading();location=selected;loadingLocation=true;arrivalPending=true;
             if(!location.IsWisconsin){zoom=275;pitch=48;target=new Vector3(0,30,0);}
+            InitializeLandscape();hud.SetVisible(false);view.enabled=false;
         }
-        void ConfigureAtlasMotion()
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            hud.SetReducedMotion(TerraAtlasReducedMotion()!=0);
-#endif
-        }
-        // A visible browser atlas must own keyboard input. Async accepted-year work may
-        // still finish and save; it cannot be edited from behind the selector.
+        void ConfigureAtlasMotion(){hud.SetReducedMotion(WorldAtlas.Instance.ReducedMotion);}
         public void SetAtlasVisible(int visible)
         {
-            atlasVisible=visible!=0;LoseFocus("");
-#if UNITY_WEBGL && !UNITY_EDITOR
-            WebGLInput.captureAllKeyboardInput=!atlasVisible;
-#endif
-            if(view!=null)view.enabled=!atlasVisible;
-            if(atlasVisible){if(annual!=null)SaveAnnual();AudioListener.pause=true;}
-            else {AudioListener.pause=false;ConfigureAtlasMotion();}
+            atlasVisible=visible!=0;LoseFocus("");if(view!=null)view.enabled=!atlasVisible;hud?.SetVisible(!atlasVisible);
+            if(atlasVisible&&annual!=null)SaveAnnual();AudioListener.pause=atlasVisible;
         }
-        void ReportAtlasError(string message)
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            TerraLandscapeError(message);
-#endif
-        }
+        public void BeginAtlasDescent(){view.enabled=true;ConfigureAtlasMotion();shownZoom=zoom*(hud.ReducedMotion?1:1.8f);shownPitch=55;shownTarget=target;}
+        public void AtlasDescent(float progress)
+        {shownZoom=Mathf.Lerp(zoom*1.8f,zoom,Mathf.SmoothStep(0,1,progress));shownPitch=Mathf.Lerp(55,pitch,Mathf.SmoothStep(0,1,progress));RenderView();}
+        public void FinishAtlasDescent(){SetAtlasVisible(0);if(arrivalPending){arrivalPending=false;BeginAnnualArrival();}}
+        void ReportAtlasError(string message){WorldAtlas.Instance.LoadFailed(message);}
     }
 }
