@@ -1,0 +1,180 @@
+{
+  "exportSource": "7e2117d",
+  "sourceEquivalence": "Runtime Assets/Packages/ProjectSettings/scripts identical to main 22e5a84; later commits change docs/evidence only.",
+  "buildIdentity": "../peter-sync/final-build.json",
+  "localBackup": "Builds/Verified/peter-7e2117d",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "browser": "Chrome 155.0.8059.85",
+  "method": "Three actual 30-second foreground paths; own test tab only, other user/teammate tabs and Unity Editors preserved. No own Unity build or Play Mode during timing. No isolated-machine or low-end-hardware claim.",
+  "transformedPath": "Existing seven-project browser save; village Focus movement, Reset/opening movement, F6 overview movement. No save injection.",
+  "stable30Fallback": "Pass on this machine/export: all p95 <=33.3 ms.",
+  "strict60Target": "Not met: all p95 >16.7 ms.",
+  "rows": [
+    {
+      "path": "opening",
+      "recordedAt": "2026-10-25T05:40:46.454Z",
+      "performance": {
+        "seconds": 30.01300048828125,
+        "averageFps": 51.477691650390625,
+        "frameP50Ms": 19.0,
+        "frameP95Ms": 26.0,
+        "frameP99Ms": 36.0,
+        "maxFrameMs": 80.0,
+        "maxPreviewCpuMs": -1.0,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1545,
+        "framesOver33Ms": 37,
+        "framesOver200Ms": 0,
+        "previewEvents": 0,
+        "placementEvents": 0,
+        "cameraEvents": 1014,
+        "unfocusedFrames": 0
+      },
+      "inputLatency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    },
+    {
+      "path": "editing",
+      "recordedAt": "2026-10-25T05:41:45.883Z",
+      "performance": {
+        "seconds": 30.01599884033203,
+        "averageFps": 50.77292251586914,
+        "frameP50Ms": 20.0,
+        "frameP95Ms": 23.0,
+        "frameP99Ms": 26.0,
+        "maxFrameMs": 36.0,
+        "maxPreviewCpuMs": 1.0,
+        "maxPlacementCpuMs": 18.700000762939453,
+        "frames": 1524,
+        "framesOver33Ms": 1,
+        "framesOver200Ms": 0,
+        "previewEvents": 14,
+        "placementEvents": 1,
+        "cameraEvents": 867,
+        "unfocusedFrames": 0
+      },
+      "inputLatency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [
+          {
+            "kind": "placement",
+            "source": "keyboard",
+            "milliseconds": 35.19999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 17.600000023841858
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 19.80000001192093
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 18.099999994039536
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 19.69999998807907
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.399999976158142
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 23
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 27.400000005960464
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 21.099999994039536
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.200000017881393
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 22.900000005960464
+          },
+          {
+            "kind": "preview",
+            "source": "keyboard",
+            "milliseconds": 21.900000005960464
+          }
+        ],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    },
+    {
+      "path": "transformed",
+      "recordedAt": "2026-10-25T05:43:52.468Z",
+      "performance": {
+        "seconds": 30.001001358032227,
+        "averageFps": 46.56511306762695,
+        "frameP50Ms": 19.0,
+        "frameP95Ms": 32.0,
+        "frameP99Ms": 36.0,
+        "maxFrameMs": 66.0,
+        "maxPreviewCpuMs": -1.0,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1397,
+        "framesOver33Ms": 27,
+        "framesOver200Ms": 0,
+        "previewEvents": 0,
+        "placementEvents": 0,
+        "cameraEvents": 919,
+        "unfocusedFrames": 0
+      },
+      "inputLatency": {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    }
+  ]
+}

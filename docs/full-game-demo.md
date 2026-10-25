@@ -16,7 +16,7 @@ Record two actual runs with start/end times, selected projects/sites, mistakes a
 
 ## Current local checkpoint (not the accepted release)
 
-The integrated export from `e25c5d3` is preserved at `Builds/Verified/e25c5d3` in the full-implementation worktree. Its ten files / 41,415,454 bytes are pinned in [checkpoint identity](evidence/full-game/e25-checkpoint-identity.json). Serve that folder with the same local HTTP command as `Builds/Web`; do not rebuild over it. The earlier export and explicitly non-final recording remain available. This backup is usable for engineering review, but does not replace the still-open scenery acceptance, two final rehearsals, public complete run or final recorded fallback.
+The current perspective export is frozen at `Builds/Verified/peter-7e2117d` in the full-implementation worktree, matched to [Peter’s final export identity](evidence/peter-sync/final-build.json). Its [foreground checks](evidence/full-game/perspective-performance-summary.json) meet the documented stable-30 fallback on this machine. The preceding integrated export from `e25c5d3` is preserved at `Builds/Verified/e25c5d3` in the full-implementation worktree. Its ten files / 41,415,454 bytes are pinned in [checkpoint identity](evidence/full-game/e25-checkpoint-identity.json). Serve that folder with the same local HTTP command as `Builds/Web`; do not rebuild over it. The earlier export and explicitly non-final recording remain available. This backup is usable for engineering review, but does not replace the still-open scenery acceptance, two final rehearsals, public complete run or final recorded fallback.
 
 ## Claims to avoid
 

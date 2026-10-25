@@ -1,0 +1,44 @@
+[
+  {
+    "level": "info",
+    "message": "TERRA_WEB_READY 7081ms",
+    "timestamp": "2026-10-25T05:39:39.640Z",
+    "url": "http://127.0.0.1:8864/"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_SCENERY: buildMs=989; meshes=202; vertices=714415; materials=4\n",
+    "timestamp": "2026-10-25T05:39:43.534Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PHASE2_READY: meadowbrook-v1 1.0.0 year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0\n",
+    "timestamp": "2026-10-25T05:39:43.593Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INTERACTIVE_MS 11035",
+    "timestamp": "2026-10-25T05:39:43.593Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+    "timestamp": "2026-10-25T05:40:16.436Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  },
+  {
+    "level": "log",
+    "message": "TERRA_PERFORMANCE: {\"seconds\":30.01300048828125,\"averageFps\":51.477691650390625,\"frameP50Ms\":19.0,\"frameP95Ms\":26.0,\"frameP99Ms\":36.0,\"maxFrameMs\":80.0,\"maxPreviewCpuMs\":-1.0,\"maxPlacementCpuMs\":-1.0,\"frames\":1545,\"framesOver33Ms\":37,\"framesOver200Ms\":0,\"previewEvents\":0,\"placementEvents\":0,\"cameraEvents\":1014,\"unfocusedFrames\":0}\n",
+    "timestamp": "2026-10-25T05:40:46.454Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  },
+  {
+    "level": "info",
+    "message": "TERRA_INPUT_LATENCY {\"method\":\"DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency\",\"samples\":[],\"discardedStale\":0,\"visibility\":{\"hiddenAtStart\":false,\"focusedAtStart\":true,\"hiddenAtEnd\":false,\"focusedAtEnd\":true,\"changes\":[],\"blurEvents\":0}}",
+    "timestamp": "2026-10-25T05:40:46.468Z",
+    "url": "blob:http://127.0.0.1:8864/7be23198-4783-4b3d-9c65-06b19ca0181d"
+  }
+]
