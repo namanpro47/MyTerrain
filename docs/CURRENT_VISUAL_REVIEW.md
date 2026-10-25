@@ -1,5 +1,7 @@
 # Current visual review — Phase 2A remains open
 
+**Study43 unfinished checkpoint:** Current atlas/HUD main is merged; connected-meadow scripts and Editor captures are saved for review. No production adoption, new Chrome verification or visual acceptance. [Checkpoint and replay](evidence/phase2a/visual-rebuild/study43-checkpoint.md).
+
 **Studies41–42 rejected:** A layered sward reduces scatter but looks like a fuzzy carpet; an older CC0 Quaternius grass family remains noisy after correcting its FBX wrapper and adapting lighting. [Sward evidence](evidence/phase2a/visual-rebuild/study41-findings.md) · [asset trial and next construction decision](evidence/phase2a/visual-rebuild/study42-findings.md). These are Editor-only experiments, with no production adoption or Phase2A acceptance.
 
 **Study40 rejected asset trial:** The free AssetQuest forest family was tested with native cutout materials and an adapted volume-lighting control. Foliage and ground contact remain too noisy at play distance. [Captures, replay scripts and findings](evidence/phase2a/visual-rebuild/study40-findings.md) preserve this Editor-only experiment; no production adoption or visual acceptance. Study39 remains the last exported candidate with unresolved performance.

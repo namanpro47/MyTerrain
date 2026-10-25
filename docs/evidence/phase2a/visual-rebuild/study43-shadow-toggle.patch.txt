@@ -1,0 +1,21 @@
+diff --git a/Assets/Terra/Scripts/Rendering/InstancedNature.cs b/Assets/Terra/Scripts/Rendering/InstancedNature.cs
+index db449df..9894803 100644
+--- a/Assets/Terra/Scripts/Rendering/InstancedNature.cs
++++ b/Assets/Terra/Scripts/Rendering/InstancedNature.cs
+@@ -17,6 +17,7 @@ namespace Terra.Rendering
+         public int LastCulledGroundcoverBatches{get;private set;}
+         public static float DisplayPixelRatio{get;set;}=1;
+         public bool ShadowsOnly {get;set;}
++        public bool CastShadows {get;set;}=true;
+         float revealStarted=-1,revealDuration;
+         public void Reveal(float duration){revealStarted=Time.unscaledTime;revealDuration=duration;foreach(var batch in batches)batch.animated=new Matrix4x4[batch.transforms.Length];}
+         public void Add(GameObject prefab,List<Matrix4x4> transforms,Color tint,bool softGroundCover=false)
+@@ -142,7 +143,7 @@ namespace Terra.Rendering
+                 if(far&&b.distantEmpty)continue;
+                 var mesh=far?b.distant:mid?b.medium:b.mesh;
+                 var material=far?b.distantMaterial:mid?b.mediumMaterial:b.material;
+-                var parameters=new RenderParams(material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
++                var parameters=new RenderParams(material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:CastShadows?ShadowCastingMode.On:ShadowCastingMode.Off,receiveShadows=true};
+                 var matrices=b.transforms;
+                 if(revealStarted>=0)
+                 {
