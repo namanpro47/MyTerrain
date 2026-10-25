@@ -1,0 +1,38 @@
+{
+  "source": "7db6a5d9425dcf7a6465f09c55c671c6441f9991",
+  "browser": "Chrome",
+  "viewport": [
+    1280,
+    720
+  ],
+  "freshOrigins": [
+    "http://127.0.0.1:61249",
+    "http://127.0.0.1:61250",
+    "http://127.0.0.1:61251"
+  ],
+  "timing": "Existing TERRA_INTERACTIVE_MS measures performance.now() since page navigation; includes time spent choosing Explore, not just download time. Samples sequential; prior game closed. First sample overlapped anonymous HTTP/decoder verification. No network throttling.",
+  "arrivals": [
+    {
+      "sample": 1,
+      "interactiveMs": 12631,
+      "consoleErrors": 0
+    },
+    {
+      "sample": 2,
+      "interactiveMs": 10373,
+      "consoleErrors": 0
+    },
+    {
+      "sample": 3,
+      "interactiveMs": 11700,
+      "consoleErrors": 0
+    }
+  ],
+  "allUnder15Seconds": true,
+  "runtimeBytes": 39988802,
+  "runtimeByteBudget": 50000000,
+  "smoke": "Year 1 traditional farmland on West field; pending chapter failure safely retained plan; labelled offline chapter committed once at $10,898,000, $18,000 obligations; confirmed fast-forward ended Year 10 at $19,730,000 and 55/58/38.4; replay restored Year 1 $10,000,000, original meters and onboarding.",
+  "publicDeployment": false,
+  "finalVisualAcceptance": false,
+  "frameTimeAcceptance": false
+}

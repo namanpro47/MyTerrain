@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Lossless browser download reduction — October 25, 2026
+
+The existing Web export now uses Brotli with local/static-server fallback. [Build and actual Chrome verification](evidence/full-game/web-compression/README.md) pin clean source `7db6a5d`, 31 anonymously byte-verified files totaling **39,988,802 bytes**, three fresh arrivals **12.631 / 10.373 / 11.700 seconds**, and a successful project → offline annual chapter → Year 10 → replay smoke test. This main-based export is frozen locally. Art and frame pacing are unchanged; the separate terrain candidate's visual/frame-time gate and final public/rehearsal work remain open.
+
 ## Integrated terrain browser diagnostic — October 25, 2026
 
 The isolated `987d440` export now has [actual Chrome camera/editing and catalog undo/redo evidence](evidence/full-game/relief-browser/README.md). Previews ≤43.8 ms and placement feedback 43.4 ms pass the bounded input checks. Candidate p95 frame times 39/41 ms fail stable 30 FPS; sequential control `67f867e` measured 30 ms with matching viewport and focused telemetry. Actual initial Wisconsin responses total 52,557,275 bytes, above the 50 MB budget. Evidence is on main; candidate scenery remains isolated and unaccepted. Final quality/public release/rehearsal gates remain open.
