@@ -26,13 +26,13 @@ namespace Terra.Gameplay
             numericOpening = true;
             try
             {
-                var opened = await AnnualNumericTransactions.Open(definition, runId, store, cancellation);
+                var opened = await AnnualNumericTransactions.Open(definition, runId, store, cancellation, YieldNumericFrame);
                 if (destroyed) throw new ObjectDisposedException(nameof(AnnualTownSession));
                 // Build the read model before replacing the current session.
                 var view = opened.ReadEngine();
                 numeric = opened; town = view;
                 numeric.Changed += NumericCommitted;
-                NumericCommitted(numeric.SaveState);
+                PublishNumericObservers();
             }
             finally { numericOpening = false; }
         }
@@ -76,10 +76,25 @@ namespace Terra.Gameplay
         {
             if (destroyed) return;
             town = numeric.ReadEngine();
+            PublishNumericObservers();
+        }
+        void PublishNumericObservers()
+        {
             Publish();
             if (NumericStateChanged == null) return;
             foreach (Action<AnnualNumericSave> listener in NumericStateChanged.GetInvocationList())
                 try { listener(numeric.SaveState); } catch (Exception error) { Debug.LogException(error, this); }
+        }
+        async Task YieldNumericFrame(CancellationToken cancellation)
+        {
+            if (destroyed) throw new ObjectDisposedException(nameof(AnnualTownSession));
+#if UNITY_WEBGL && !UNITY_EDITOR
+            await Awaitable.NextFrameAsync(cancellation);
+#else
+            await Task.CompletedTask;
+#endif
+            cancellation.ThrowIfCancellationRequested();
+            if (destroyed) throw new ObjectDisposedException(nameof(AnnualTownSession));
         }
         void OnDestroy()
         {
