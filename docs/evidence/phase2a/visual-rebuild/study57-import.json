@@ -1,0 +1,88 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study57/import.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "Corn_3",
+          "scale": 1,
+          "fileScale": 0.01,
+          "rootRotation": "(270.02, 0.00, 0.00)",
+          "filters": [
+            {
+              "name": "Corn_3",
+              "vertices": 684,
+              "submeshes": 1,
+              "triangles": 348,
+              "bounds": "Center: (0.00, 0.00, 0.01), Extents: (0.00, 0.00, 0.01)",
+              "local": "(0.00, 0.00, 0.00)",
+              "rotation": "(270.02, 0.00, 0.00)",
+              "scale": "(100.00, 100.00, 100.00)",
+              "materials": [
+                {
+                  "name": "Green",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.519, 0.700, 0.391, 1.000)",
+                  "texture": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Corn_4",
+          "scale": 1,
+          "fileScale": 0.01,
+          "rootRotation": "(270.02, 0.00, 0.00)",
+          "filters": [
+            {
+              "name": "Corn_4",
+              "vertices": 1903,
+              "submeshes": 3,
+              "triangles": 958,
+              "bounds": "Center: (0.00, 0.00, 0.01), Extents: (0.00, 0.00, 0.01)",
+              "local": "(0.00, 0.00, 0.00)",
+              "rotation": "(270.02, 0.00, 0.00)",
+              "scale": "(100.00, 100.00, 100.00)",
+              "materials": [
+                {
+                  "name": "DarkGreen2",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.327, 0.427, 0.271, 1.000)",
+                  "texture": null
+                },
+                {
+                  "name": "Yellow",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.700, 0.630, 0.370, 1.000)",
+                  "texture": null
+                },
+                {
+                  "name": "Green",
+                  "shader": "Universal Render Pipeline/Lit",
+                  "color": "RGBA(0.519, 0.700, 0.391, 1.000)",
+                  "texture": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

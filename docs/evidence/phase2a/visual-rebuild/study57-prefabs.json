@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study57/prefabs.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "Corn_3",
+          "vertices": 684,
+          "triangles": 348,
+          "materials": [
+            {
+              "name": "Corn_3-Green",
+              "color": "RGBA(0.519, 0.700, 0.391, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            }
+          ]
+        },
+        {
+          "name": "Corn_4",
+          "vertices": 1903,
+          "triangles": 958,
+          "materials": [
+            {
+              "name": "Corn_4-DarkGreen2",
+              "color": "RGBA(0.327, 0.427, 0.271, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            },
+            {
+              "name": "Corn_4-Yellow",
+              "color": "RGBA(0.700, 0.630, 0.370, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            },
+            {
+              "name": "Corn_4-Green",
+              "color": "RGBA(0.519, 0.700, 0.391, 1.000)",
+              "shader": "Universal Render Pipeline/Simple Lit"
+            }
+          ]
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
