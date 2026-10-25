@@ -179,7 +179,13 @@ namespace Terra.Gameplay
         {
             // Keep the selected composition while panning; the overview has its own steeper pitch.
             yaw=-32;pitch=Mathf.Clamp(pitch,30,58);zoom=Mathf.Clamp(zoom,32,1000);
-            target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
+            if(parcelPack!=null)
+            {
+                var terrain=world.terrain;
+                target.x=Mathf.Clamp(target.x,terrain.xMin,terrain.xMin+(terrain.columns-1)*terrain.cellSizeM);
+                target.z=Mathf.Clamp(target.z,terrain.zMin,terrain.zMin+(terrain.rows-1)*terrain.cellSizeM);
+            }
+            else{target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);}
             if(ready)
             {
                 target.y=landscape.Height(target.x,target.z)+8+focusHeightOffset;

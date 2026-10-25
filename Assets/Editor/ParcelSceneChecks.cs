@@ -14,6 +14,21 @@ using Object=UnityEngine.Object;
 public static class ParcelSceneChecks
 {
     public static void BuildAndCheck(){Run();TerraBuild.BuildWeb();}
+    [MenuItem("Terra/Parcels/Build local functional preview")]
+    public static void BuildLocal()
+    {
+        Run();Phase1Setup.PackageFixture();
+        PlayerSettings.WebGL.template="PROJECT:Terra";
+        PlayerSettings.WebGL.compressionFormat=WebGLCompressionFormat.Gzip;
+        PlayerSettings.WebGL.decompressionFallback=true;
+        PlayerSettings.WebGL.nameFilesAsHashes=true;
+        PlayerSettings.WebGL.initialMemorySize=256;
+        UnityEditor.WebGL.UserBuildSettings.codeOptimization=UnityEditor.WebGL.WasmCodeOptimization.BuildTimes;
+        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Terra/Scenes/TerraMain.unity"},
+            locationPathName=Path.GetFullPath("Builds/ParcelPreview"),target=BuildTarget.WebGL,options=BuildOptions.None});
+        if(report.summary.result!=UnityEditor.Build.Reporting.BuildResult.Succeeded)throw new Exception("Parcel preview build failed");
+        Debug.Log("PARCEL_LOCAL_WEB_PASS: "+report.summary.totalTime.TotalSeconds+" seconds; functional BuildTimes/Gzip preview, not a release performance sample");
+    }
     public static void Run()
     {
         int checks=0;
