@@ -268,6 +268,10 @@ The weakest initial areas were scene composition and feedback readability: spars
 - **Frozen handoff:** WorldPack/runtime/art **v1**, DTO schema **1**, fixture **1.0.0**, three canonical hashes in `worlds/fixture-v1/checksums.sha256`. [WorldPack](worldpack-format.md), [runtime](runtime-contracts.md), [art](art-direction.md). [Ownership and runnable commands](PARALLEL_WORK.md). A complete source bundle cloned cleanly and passed packaging/checksums and scalar simulation example; [handoff verification](evidence/phase1/handoff-check.json). The final local bundle also includes this evidence. No remote or message to another engineer was created.
 - **Stop boundary:** Phase 1 complete. Phase 2/package A is the next separately authorized task on this same selected AOI; it has not begun.
 
+## Tree performance investigation — October 24, 2026
+
+Peter requested imported tree geometry/LOD counts and investigation of his slow Windows Chrome run. [Tree audit and reproducible diagnostic](evidence/tree-performance/README.md): 2,255 oak/shrub instances, three active custom LOD meshes (2,833 / 1,524 / 842 vertices), 264 batches. An isolated local player measured 8.23 FPS with trees, 14.73 without, and 8.77 with tree shadows only at a matched 1287 × 1304 buffer. One trial per mode; desktop lock prevented the planned repeated baseline, and active WebGL adapter was not established for these samples. Shadow cost is the leading next experiment, not a certified root cause. Census and diagnostic Web build passed. Normal game rendering/settings and the existing saved plan were not changed. No optimization, deployment or Phase 2A visual acceptance is claimed.
+
 ## Evidence entry template
 
 Copy this section for a phase when work starts. Keep notes brief and link concrete files/captures/logs rather than claiming success from a checklist alone.
