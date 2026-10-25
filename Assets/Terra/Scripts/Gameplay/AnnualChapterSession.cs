@@ -277,7 +277,7 @@ namespace Terra.Gameplay
         }
         public void RestoreSaved() { if (PlayerPrefs.HasKey(saveKey)) ImportSave(AnnualTownSession.ReadStored(saveKey)); }
         void Persist() { if (autoSave) Save(); }
-        static T Clone<T>(T value) => TownCopies.Copy(value);
+        static T Clone<T>(T value) where T : class => AnnualNumericJson.Copy(value);
         void Publish()
         {
             if (StateChanged == null) return;

@@ -23,6 +23,7 @@ namespace Terra.Gameplay
             CheckAdditionalContent = true,
             MaxDepth = 64
         };
+        public static T Copy<T>(T value) where T : class => value == null ? null : Read<T>(Write(value));
         public static AnnualTownDefinition ReadTownDefinition(string json) => Read<AnnualTownDefinition>(json);
         public static AnnualTownSnapshot ReadTownSave(string json) => Read<AnnualTownSnapshot>(json);
         public static AnnualChapterSave ReadChapterSave(string json) => Read<AnnualChapterSave>(json);
