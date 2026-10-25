@@ -57,6 +57,7 @@ public static class AnnualFeedbackWaveChecks
         AnnualTownDemo.Advance(town,"feedback-year1",new AuthoredAnnualConsequenceProvider());town.ContinuePlanning(town.Revision);
         var meadow=definition.actions.First(a=>a.siteId==farm.siteId&&a.actionId=="restore-grass");
         hud.AnnualState(town,baseline,AnnualGameplay.Forecast(town).outcomes);
+        hud.Selected(meadow.actionId); // Match the live conversion flow: arm the replacement before inspecting its field.
         hud.AnnualPreview(world.sites.First(s=>s.id==farm.siteId),meadow,town.Snapshot(),"place",null,()=>{},false);
         Check(Visible().Contains("Review change · Enter")&&Visible().Contains("no refund"),"Accepted field does not explain conversion.");
         Check(Visible().Contains((string)typeof(TerraHud).GetMethod("StatMoney",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{meadow.upfrontPublicCostCents+town.ConversionCost(farm.siteId)})),"Conversion preview omits its extra cost.");
