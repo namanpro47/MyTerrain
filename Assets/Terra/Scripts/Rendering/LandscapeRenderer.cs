@@ -320,7 +320,7 @@ namespace Terra.Rendering
         {
             availableFields.Clear();if(available!=null)availableFields.UnionWith(available);
             activeOutline=hover;chosenOutline=selected;settlingOutline=null;
-            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(1,.84f,.36f):new Color(1,.38f,.23f)):availableFields.Contains(pair.Key)?new Color(.35f,1f,.88f):chosen?new Color(.96f,.98f,.83f):new Color(.65f,.73f,.50f));}
+            foreach(var pair in outlines){bool active=pair.Key==hover,chosen=pair.Key==selected;pair.Value.sharedMaterial=BoundaryMat(active?(valid?new Color(.86f,.95f,.91f):new Color(1,.53f,.34f)):chosen?new Color(.96f,.87f,.58f):new Color(.42f,.59f,.54f));}
             ViewScale(boundaryScale);
         }
         Material BoundaryMat(Color color){if(!boundaryMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraBoundary"));material.SetColor("_BaseColor",color);boundaryMaterials.Add(color,material);}return material;}
@@ -328,9 +328,10 @@ namespace Terra.Rendering
         {
             FlushTreatmentSurface();
             boundaryScale=metresPerCssPixel;
-            foreach(var pair in outlines){float width=pair.Key==activeOutline?2.4f:availableFields.Contains(pair.Key)?2f:pair.Key==chosenOutline?1.8f:1;
+            foreach(var pair in outlines){float width=pair.Key==activeOutline?1.25f:pair.Key==chosenOutline?1f:.15f;
                 pair.Value.enabled=pair.Key==activeOutline||pair.Key==chosenOutline||availableFields.Contains(pair.Key);
                 pair.Value.startWidth=pair.Value.endWidth=(width+1.4f)*boundaryScale;}
+            ScalePlacementBoundaries();
         }
         public void ClearGhost()
         {
@@ -340,9 +341,14 @@ namespace Terra.Rendering
         public void Ghost(Site site,bool valid,string treatment)
         {
             ClearGhost();if(site==null)return;ghost=new GameObject("Placement preview").transform;ghost.SetParent(root,false);
-            if(!valid){Patch("Unavailable footprint",site.polygon,new Color(.62f,.29f,.23f),.22f,ghost);return;}
-            ghostSiteId=site.id;ghostTreatment=treatment;surfaceDirty=true;baselines[site.id].gameObject.SetActive(false);if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
-            BuildTreatment(site,treatment,ghost,true);
+            if(valid)
+            {
+                // A proposal has its own material. Hover never paints the accepted ground mask.
+                ghostSiteId=site.id;ghostTreatment=null;baselines[site.id].gameObject.SetActive(false);
+                if(proposals.TryGetValue(site.id,out var previous))previous.gameObject.SetActive(false);
+                BuildTreatment(site,treatment,ghost,true);TintPlacementGhost(ghost);
+            }
+            BuildPlacementBoundary(site,treatment,ghost,valid,false);
         }
         public Transform Apply(Site site,string treatment,float vegetationMaturity=1)
         {
@@ -482,7 +488,7 @@ namespace Terra.Rendering
         }
         void DestroyGroup(Transform group)
         {foreach(var f in group.GetComponentsInChildren<MeshFilter>(true))if(meshes.Remove(f.sharedMesh))Object.Destroy(f.sharedMesh);Object.Destroy(group.gameObject);}
-        public void Dispose(){if(forestFloor!=null)Object.Destroy(forestFloor);if(projectGrassMaterial!=null)Object.Destroy(projectGrassMaterial);if(projectPathMaterial!=null)Object.Destroy(projectPathMaterial);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
+        public void Dispose(){DisposePlacementMaterials();if(forestFloor!=null)Object.Destroy(forestFloor);if(projectGrassMaterial!=null)Object.Destroy(projectGrassMaterial);if(projectPathMaterial!=null)Object.Destroy(projectPathMaterial);if(treatmentSurface!=null)Object.Destroy(treatmentSurface);if(pathMask!=null)Object.Destroy(pathMask);if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
 
     }
 }
