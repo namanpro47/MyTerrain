@@ -1,5 +1,7 @@
 # Terra — phase status and evidence
 
+**Current visual implementation, study65:** Four metric homes now depict Wisconsin's already-counted fictional starting community, with house foundations and terrain-following road access. Square raised lawns were rejected. Compilation and35Editor checks pass, including source/state preservation and no-new-action Year10 display. [Captures, checks and remaining gaps](evidence/phase2a/visual-rebuild/study65-findings.md). Chrome/full-HUD/replay verification is pending; no visual acceptance or public release. The newly approved free BigRookGames pack is acquired to the account, not yet downloaded/evaluated.
+
 **Current visual candidate, study64:** Quieter shared soil shading and clearer crop leaves run in Chrome. Opening/field focus/living-margin preview/queue/undo are inspected, cash unchanged; first entry9.46s. Compilation and15 collector checks pass. The192m collector is integrated, but current combined performance is pending. [Actual captures and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Phase2A stays open; the next structural hypothesis depicts the scenario's existing fictional community.
 
 **Earlier saved work, study62:** Mixed conifer groves are an unfinished checkpoint. Integrated scene/LOD and Chrome checks are recorded; its paired camera timing failed at40ms p95. Study61 bank-profile tuning was rejected. [Checkpoint, trial captures and next checks](evidence/phase2a/visual-rebuild/study62-findings.md). Phase 2A remains open.

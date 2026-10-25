@@ -510,6 +510,21 @@
         }
       ],
       "detailStudy30": "Unchanged source texture strokes separated from coarse color variation at 40m scale. Oversized 80m study rejected. Editor and study31a Chrome captures recorded; not final acceptance."
+    },
+    {
+      "name": "Stylized Hand Painted Nature Pack - Free",
+      "creator": "BigRookGames",
+      "source": "https://assetstore.unity.com/packages/3d/vegetation/trees/stylized-hand-painted-nature-pack-free-177775",
+      "version": "1.1",
+      "acquired": "2026-10-25",
+      "tier": "Free",
+      "license": "Unity Asset Store EULA (Extension Asset)",
+      "licenseUrl": "https://unity.com/legal/as-terms",
+      "status": "User-authorized Terms/EULA acceptance completed; browser confirms account ownership. Not yet downloaded, imported or evaluated in-engine.",
+      "advertisedContents": "Three trees, five bushes, two bush platforms, dirt and grass textures; 50.7 MB listing. This is not a downloaded inventory.",
+      "receipt": "Local Builds/ArtResearch/Study65/bigrook-acquired.jpg",
+      "archive": null,
+      "sha256": null
     }
   ],
   "researchExclusions": [

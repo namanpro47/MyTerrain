@@ -195,7 +195,7 @@ namespace Terra.UI
             if(dataPage==0)ShowModal("Real land. Hypothetical choices.",
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
-                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stepped slopes, road finishes, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
+                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stepped slopes, road finishes, stream banks, water depths and bridge designs are illustrative. The four existing homes represent the fictional starting community; their locations are not surveyed buildings. Field parcels and individual trees were not surveyed.\n\n"+
                 "Eleven management opportunities (including a hypothetical wind site) and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is a simplified same-storm estimate; no flood or yield forecast.");
             else if(dataPage==1)ShowModal("Reading the terrain & cover",
                 "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m analytical grid. The miniature adds broad, stylized ledges on steep hillsides; these are not surveyed cliffs. Suitability and runoff still use the original analytical heights.\n\n"+

@@ -107,6 +107,7 @@ namespace Terra.Rendering
             BuildVegetation();
             BuildStreamsidePlants();
             BuildCultivatedContext();
+            BuildExistingCommunity();
             foreach(var site in world.sites)
             {
                 var holder=new GameObject("Baseline "+site.name).transform;holder.SetParent(root,false);baselines[site.id]=holder;

@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study65/instantiate.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "annual": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "homes": [
+          {
+            "x": -285,
+            "z": 4,
+            "yaw": 180,
+            "groundY": 16.193882,
+            "relief": 0.754929543,
+            "driveLength": 20.6971169,
+            "driveStart": "(-291.00, 4.00)",
+            "driveEnd": "(-297.78, -15.56)"
+          },
+          {
+            "x": -321,
+            "z": 18,
+            "yaw": 180,
+            "groundY": 17.02465,
+            "relief": 0.540500641,
+            "driveLength": 22.1387367,
+            "driveStart": "(-327.00, 18.00)",
+            "driveEnd": "(-334.25, -2.92)"
+          },
+          {
+            "x": -355,
+            "z": 35,
+            "yaw": 180,
+            "groundY": 17.41435,
+            "relief": 0.297948837,
+            "driveLength": 21.7544842,
+            "driveStart": "(-361.00, 35.00)",
+            "driveEnd": "(-371.11, 15.74)"
+          },
+          {
+            "x": -140,
+            "z": -20,
+            "yaw": 180,
+            "groundY": 13.2989511,
+            "relief": 0.733700752,
+            "driveLength": 30.676527,
+            "driveStart": "(-146.00, -20.00)",
+            "driveEnd": "(-151.24, -50.23)"
+          }
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
