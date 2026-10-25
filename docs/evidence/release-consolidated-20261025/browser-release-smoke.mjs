@@ -54,10 +54,11 @@ try{
  for(let i=0;i<50;i++){await key('Tab');await key('Enter');a=await audit();if(a.state.includes('queued=1'))break;}
  check(a.state.includes('queued=1'),'Project did not queue');await capture('placed');
  await endYear();a=await capture('year-accepted');const saved=a.state;
- check(saved.includes('phase=Reviewing'),'Year not accepted');
- await page.reload();await page.waitForFunction(()=>window.terraPlayer,null,{timeout:180000});await page.waitForTimeout(1500);await key('1');await key('Enter');
+ check(saved.includes('phase=Reviewing')&&saved.includes('assets=1')&&saved.includes('queued=0'),'Year/project not accepted');
+ const reloadLogStart=logs.length;await page.reload();await page.waitForFunction(()=>window.terraPlayer,null,{timeout:180000});await page.waitForTimeout(1500);await key('1');await key('Enter');
+ for(let i=0;i<120&&!logs.slice(reloadLogStart).some(l=>l.includes('MYTERRAIN_ARRIVAL'));i++)await page.waitForTimeout(500);
  a=await waitState(a=>a.state.includes('phase=Reviewing'));await capture('reload');
  check(a.state===saved,'Reload changed accepted state');
  check(!logs.some(l=>/PlayerPrefsException|NullReferenceException|ArgumentException:|RuntimeError|unreachable/.test(l))&&!errors.some(l=>/RuntimeError|unreachable/.test(l)),'Runtime save failure observed');
- await fs.writeFile(output+'checks.json',JSON.stringify({assertions,source:'a3eea78',version:browser.version(),errors,saved},null,2));
+ await fs.writeFile(output+'checks.json',JSON.stringify({assertions,source:'eb8cf16',version:browser.version(),errors,saved},null,2));
 }catch(e){await page.screenshot({path:output+'failure.png'});await fs.writeFile(output+'failure-logs.json',JSON.stringify(logs,null,2));throw e;}finally{await browser.close();}

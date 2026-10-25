@@ -1,0 +1,19 @@
+{
+  "buildSource": "eb8cf166d76ba3436099467d31d07f96314c0cf3",
+  "main": "8874226",
+  "runtimeBuildInputsIdentical": false,
+  "outstandingNewExperiments": [
+    {
+      "ref": "codex/community-locations",
+      "sha": "a404ff3a3eb9fd3dc0ac993bf58b6b39594e9f44",
+      "disposition": "Deferred unfinished regional reconstruction; completed community checkpoint1ca43cf already integrated"
+    },
+    {
+      "ref": "codex/web-texture-compression",
+      "sha": "4935468388112a881f00c571aca3a7534dca8bd3",
+      "disposition": "Deferred untested texture compression experiment"
+    }
+  ],
+  "previousBuildSource": "a3eea780f36e852e29203bf55125cdea93693246",
+  "note": "Combined source adds ready browser companion aabd2fe beyond latest Peter8874226; normal main push follows native gate."
+}
