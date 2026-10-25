@@ -1,0 +1,27 @@
+using System.Text.Json;
+using Terra.Core;
+using Terra.Contracts;
+var json = new JsonSerializerOptions {IncludeFields=true};
+string source="/Users/naman/.codex/worktrees/annual-numeric-client/Terra/Builds/AnnualNumericClientVectors/";
+var rules=JsonSerializer.Deserialize<AnnualTownDefinition>(File.ReadAllText(source+"dense-definition.json"),json)!;
+var save=JsonSerializer.Deserialize<AnnualNumericSave>(File.ReadAllText(source+"dense-save.json"),json)!;
+T Measure<T>(string label,Func<T> action) {
+ GC.Collect(); GC.WaitForPendingFinalizers(); GC.Collect();
+ long retained=GC.GetTotalMemory(false),start=GC.GetTotalAllocatedBytes(true);
+ var timer=System.Diagnostics.Stopwatch.StartNew();T value=action();timer.Stop();
+ Console.WriteLine(JsonSerializer.Serialize(new{label,allocatedBytes=GC.GetTotalAllocatedBytes(true)-start,retainedBefore=retained,retainedAfter=GC.GetTotalMemory(false),milliseconds=timer.Elapsed.TotalMilliseconds}));
+ return value;
+}
+Measure("Copy envelope",()=>TownCopies.Copy(save));
+Measure("Hash envelope",()=>AnnualNumericTransactions.Hash(save));
+Measure("Copy definition",()=>TownCopies.Copy(rules));
+Measure("Hash definition",()=>TownCopies.Hash(rules));
+Measure("Create engine",()=>new AnnualTown(rules,save.town.runId));
+Measure("Restore ten years",()=>AnnualTown.Restore(rules,save.town));
+var tx=Measure("Transactions.Open existing",()=>AnnualNumericTransactions.Open(rules,save.town.runId,new ReadStore(save)).GetAwaiter().GetResult());
+Measure("ReadEngine after open",()=>tx.ReadEngine());
+Console.WriteLine("Diagnostic .NET allocated bytes; not Unity heap/peak or browser performance evidence.");
+sealed class ReadStore(AnnualNumericSave save):IAnnualNumericStore {
+ public Task<AnnualNumericSave> Read(CancellationToken cancellation)=>Task.FromResult(TownCopies.Copy(save));
+ public Task Write(string expectedHash,AnnualNumericSave candidate,CancellationToken cancellation)=>throw new Exception("Read only");
+}
