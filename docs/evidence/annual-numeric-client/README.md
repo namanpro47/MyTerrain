@@ -55,3 +55,7 @@ The same exact-codec Mono probe now includes the real340-site Suusamyr ten-year 
 The prepared adapter, check scene, builder and installer also compile against the installed Unity6000.6.6f1 API assemblies in C#9/.NET Standard2.1, both Editor and WebGL conditional branches, with0 warnings/errors. This remains API compilation, not an executed Editor or IL2CPP player. See `tests/annual-numeric-client/web-player/UnityApiCompile.csproj`; supply `UnityManagedPath` and `UnityNewtonsoftPath` for the installed libraries.
 
 The linked-player harness records definition parsing, opening, reload and total elapsed milliseconds with its functional result. These are isolated fixture diagnostics, not full-game frame-time/load acceptance. Both Unity API compilation branches still pass after this instrumentation.
+
+## Actual Unity Editor result
+
+The disposable Unity6000.6.6f1 project passed **23 assertions** against source `ec39e38`: full sparse and340-site dense ten-year saves replay with exact envelope/report hashes; existing saves are not rewritten; fresh initial/planning writes acknowledge; optional projection failure retains the accepted numeric year; later local narration survives reload; legacy saving remains guarded. The package installer exited0 and UPM resolved the direct Newtonsoft3.2.2 pin. [Editor result](unity-checks.json) and [project/package/source identity](unity-project-identity.json). This check used injected JSON storage and did not touch PlayerPrefs or production scenes. The linked WebGL build/actual browser checks are still pending.
