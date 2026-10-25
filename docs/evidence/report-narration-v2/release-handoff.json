@@ -17,22 +17,22 @@
     "diffCheck": "pass"
   },
   "integration": [
-    "Acquire shared integration reservation and fetch/reconcile currentmain.",
-    "Cherry-pick629d082 or mergecodex/report-narration-v2; all runtime changes in that commit are ready. Include this handoff documentation commit if desired.",
-    "Run report-narration and existingchapters console checks using commands inREADME. Sharedhelper has portablecompile evidence; actualUnitycompile belongs to combinedrelease.",
-    "Only the new versioned annual adapter may send /report-chapter after numeric report save. Existingclient continues/chapter unchanged untiladapter lands.",
-    "No service deployment is included. StaticWebGLpublication does not publish thisloopbackservice."
+    "Acquire the shared integration reservation and fetch/reconcile current main.",
+    "Cherry-pick 629d082 or merge codex/report-narration-v2; all runtime changes in that commit are ready. Include the handoff documentation commits if desired.",
+    "Run report-narration and existing chapters console checks using the commands in README. The shared helper has portable compile evidence; actual Unity compilation belongs to the combined release.",
+    "Only the new versioned annual adapter may send /report-chapter after saving the numeric report. The existing client continues to use /chapter unchanged until the adapter lands.",
+    "No service deployment is included. Publishing static WebGL does not publish this loopback service."
   ],
   "unfinished": [
-    "Annual v4 numeric state/session/Unityclient adapter owned byComplete remaining implementation.",
-    "Client first-visible-mode persistence/late-response and automaticunreachable-service fallback requireintegrationtesting.",
-    "No liveprovider, Unity/IL2CPPconsumer or Chromev2UItest claimed.",
-    "Phase2Avisualquality and finalcombinedperformance/publicrun/rehearsal/recording gates remainopen."
+    "Annual v4 numeric state, session and Unity client adapter are owned by Complete remaining implementation.",
+    "Client persistence of the first visible mode, late responses and automatic fallback when the service is unreachable require integration testing.",
+    "No live provider, Unity/IL2CPP consumer or Chrome v2 UI test is claimed.",
+    "Phase 2A visual quality and final combined performance, public run, rehearsal and recording gates remain open."
   ],
   "rejectedOrExcluded": [
-    "No free-generated factualprose; modelselects canonicalfactblocks only.",
-    "No crop spatial runtime promotion; rejectedperformance candidate remainscodex/relief-validation.",
-    "No credentials, provider responses or generatedbuildinputs committed."
+    "The model selects canonical fact blocks only; it does not generate factual prose.",
+    "No crop spatial runtime promotion; the rejected performance candidate remains on codex/relief-validation.",
+    "No credentials, provider responses or generated build inputs are committed."
   ],
-  "resources": "NoEditor,Chrome,HTTPserverorjobactive; reservation46canceled forcombinedreleaseowner; fileclaimsreleased afterhandoff."
+  "resources": "No Editor, Chrome, HTTP server or job is active for this task. Reservation 46 was canceled for the combined release owner. File claims are released after handoff."
 }
