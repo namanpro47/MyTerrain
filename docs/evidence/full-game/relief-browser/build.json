@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "command": "build",
+  "data": {
+    "target": "WebGL",
+    "logFile": "/Users/naman/.codex/worktrees/full-implementation/Terra/Logs/relief-browser-build.log",
+    "version": null,
+    "editorErrors": [],
+    "provenance": "/Users/naman/.codex/worktrees/full-implementation/Terra/Logs/relief-browser-provenance.json",
+    "outputPath": null
+  },
+  "errors": [],
+  "warnings": []
+}
