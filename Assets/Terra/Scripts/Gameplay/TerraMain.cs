@@ -19,14 +19,16 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
+        string treatmentId="cultivate-standard",hoverId,selectedId,moveSource;bool removing;
+        readonly Dictionary<string,string> renderedTreatments=new Dictionary<string,string>();
+        string TargetId=>moveSource!=null?hoverId:hoverId??selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
         bool perspective=true;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
         float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
         public int Revision=>state?.Revision??-1;
-        public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
+        public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}; selected={selectedId}; move={moveSource}; remove={removing}; redo={state.CanRedo}";
         void Start()
         {
             gameObject.name="TerraMain";Application.runInBackground=true;
@@ -34,7 +36,7 @@ namespace Terra.Gameplay
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Trilight;
             RenderSettings.ambientSkyColor=new Color(.41f,.49f,.57f);RenderSettings.ambientEquatorColor=new Color(.30f,.37f,.32f);RenderSettings.ambientGroundColor=new Color(.18f,.23f,.18f);
             var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.20f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(38,-105,0);}
-            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview);
+            hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview,Redo,BeginMove,BeginRemove,Commit,ResetProposals);
             sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput=true;
@@ -73,9 +75,10 @@ namespace Terra.Gameplay
                 if(!uiHandled&&!hud.ModalOpen)
                 {
                     if(k.digit1Key.wasPressedThisFrame)Choose("cultivate-standard");if(k.digit2Key.wasPressedThisFrame)Choose("restore-grass");if(k.digit3Key.wasPressedThisFrame)Choose("water-swale");if(k.mKey.wasPressedThisFrame)Choose("cultivate-margin");
-                    if(k.zKey.wasPressedThisFrame)Undo();if(k.rKey.wasPressedThisFrame)ResetView();
+                    if(k.zKey.wasPressedThisFrame){if(k.shiftKey.isPressed)Redo();else Undo();}if(k.yKey.wasPressedThisFrame)Redo();
+                    if(k.vKey.wasPressedThisFrame)BeginMove();if(k.xKey.wasPressedThisFrame||k.deleteKey.wasPressedThisFrame)BeginRemove();if(k.rKey.wasPressedThisFrame)ResetView();
                     if(k.fKey.wasPressedThisFrame)FocusSite();
-                    if(k.tabKey.wasPressedThisFrame){int i=Array.FindIndex(world.sites,s=>s.id==hoverId);SetHover(world.sites[(i+1)%world.sites.Length]);}
+                    if(k.tabKey.wasPressedThisFrame){int i=Array.FindIndex(world.sites,s=>s.id==(TargetId??moveSource));SetHover(world.sites[(i+1)%world.sites.Length]);}
                     if(k.enterKey.wasPressedThisFrame)Commit();
                     var movement=new Vector3((k.rightArrowKey.isPressed?1:0)-(k.leftArrowKey.isPressed?1:0),0,(k.upArrowKey.isPressed?1:0)-(k.downArrowKey.isPressed?1:0));
                     if(movement.sqrMagnitude>0){target+=Quaternion.Euler(0,yaw,0)*movement.normalized*zoom*.7f*Time.unscaledDeltaTime;ApplyView();}
@@ -86,6 +89,7 @@ namespace Terra.Gameplay
             var mouse=Mouse.current;
             if(mouse!=null)
             {
+                if(mouse.rightButton.wasPressedThisFrame)Cancel();
                 Vector2 p=mouse.position.ReadValue();
                 if(mouse.leftButton.wasPressedThisFrame||mouse.middleButton.wasPressedThisFrame)Pointer(0,p,mouse.middleButton.isPressed||(k?.shiftKey.isPressed??false));
                 if(p!=last)Pointer(1,p,false);
@@ -133,13 +137,13 @@ namespace Terra.Gameplay
                 {
                     if(Vector2.Distance(position,down)>6)dragged=true;
                     if(dragged)
-                    {Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearGhost();}
+                    {Vector2 delta=(position-last)/Screen.height;var right=Quaternion.Euler(0,yaw,0)*Vector3.right;var forward=Quaternion.Euler(0,yaw,0)*Vector3.forward;target-=right*delta.x*zoom*2+forward*delta.y*zoom*2;ApplyView();landscape.ClearEditPreview();}
                 }
-                else if(!hud.ModalOpen)SetHover(UiAt(position)?null:landscape.Hit(view.ScreenPointToRay(position)));
+                else if(!hud.ModalOpen&&!UiAt(position))SetHover(landscape.Hit(view.ScreenPointToRay(position)));
                 last=position;return;
             }
             if(kind==2)
-            {bool place=pressed&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}}
+            {bool place=pressed&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place){var hit=landscape.Hit(view.ScreenPointToRay(position));if(hit!=null){SetHover(hit);Commit();}}else if(dragged)UpdatePreview();}
         }
         public void Scroll(float amount){if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;}
@@ -172,35 +176,74 @@ namespace Terra.Gameplay
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
-        void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}
-        void Cancel(){if(hud.ModalOpen){hud.CloseModal();return;}treatmentId="";hoverId=null;landscape.ClearGhost();hud.Selected("");UpdatePreview();}
-        void SetHover(Site site){string id=site?.id;if(id==hoverId)return;hoverId=id;UpdatePreview();}
-        EditCommand Command()=>new EditCommand{operation=state.TreatmentAt(hoverId)==null?"add":"replace",siteId=hoverId,treatmentId=treatmentId,expectedRevision=state.Revision};
+        string Recipe(string id)=>scenario.treatments.FirstOrDefault(t=>t.id==id)?.visualRecipeId;
+        void Choose(string id){if(!ready)return;moveSource=null;removing=false;treatmentId=id;hud.Selected(id);UpdatePreview();}
+        void Cancel(){if(hud.ModalOpen){hud.CloseModal();return;}pressed=false;dragged=false;uiDown=null;moveSource=null;removing=false;treatmentId="";hoverId=null;selectedId=null;landscape?.ClearEditPreview();hud.Selected("");UpdatePreview();}
+        void SetHover(Site site){if(site==null)return;string id=site.id;if(id==hoverId)return;hoverId=id;UpdatePreview();}
+        EditCommand Command()=>new EditCommand{operation=moveSource!=null?"move":removing?"remove":state.TreatmentAt(TargetId)==null?"add":"replace",siteId=moveSource??TargetId,destinationSiteId=moveSource!=null?hoverId:null,treatmentId=treatmentId,expectedRevision=state.Revision};
+        void BeginMove()
+        {
+            if(!ready||hud.ModalOpen)return;
+            if(moveSource!=null){moveSource=null;hoverId=selectedId;UpdatePreview();return;}
+            var id=TargetId;if(state.TreatmentAt(id)==null){Toast("Inspect a placed proposal to move it.");return;}
+            removing=false;moveSource=id;selectedId=id;treatmentId=state.TreatmentAt(id);hoverId=null;hud.Selected(treatmentId);UpdatePreview();
+        }
+        void BeginRemove()
+        {
+            if(!ready||hud.ModalOpen||moveSource!=null)return;
+            var id=TargetId;if(state.TreatmentAt(id)==null){Toast("Inspect a placed proposal to remove it.");return;}
+            selectedId=id;hoverId=id;removing=!removing;UpdatePreview();
+        }
         void UpdatePreview()
         {
-            if(!ready)return;var timer=System.Diagnostics.Stopwatch.StartNew();var site=world.sites.FirstOrDefault(s=>s.id==hoverId);var treatment=scenario.treatments.FirstOrDefault(t=>t.id==treatmentId);var result=state.Preview(Command());
-            bool alreadyPlaced=site!=null&&state.TreatmentAt(site.id)==treatmentId;
-            hud.Preview(site,treatment,result,state.Result);landscape.Highlight(hoverId,selectedId,result.valid||alreadyPlaced);landscape.ClearGhost();if(site!=null&&treatment!=null&&!alreadyPlaced)landscape.Ghost(site,result.valid,treatmentId);
+            if(!ready)return;var timer=System.Diagnostics.Stopwatch.StartNew();var command=Command();var site=world.sites.FirstOrDefault(s=>s.id==TargetId);
+            var source=world.sites.FirstOrDefault(s=>s.id==moveSource);
+            var treatment=scenario.treatments.FirstOrDefault(t=>t.id==(removing?state.TreatmentAt(TargetId):treatmentId));var result=state.Preview(command);
+            bool alreadyPlaced=site!=null&&state.TreatmentAt(site.id)==treatmentId&&!removing&&moveSource==null;
+            hud.Preview(site??source,treatment,result,state.Result,command.operation,source?.name,site!=null&&state.TreatmentAt(site.id)!=null);
+            landscape.ClearEditPreview();landscape.Highlight(TargetId,selectedId,result.valid||alreadyPlaced);
+            if(result.valid&&removing)landscape.PreviewOriginal(site);
+            else if(site!=null&&treatment!=null&&!alreadyPlaced){landscape.Ghost(site,result.valid,Recipe(treatmentId));if(result.valid&&source!=null)landscape.PreviewMoveSource(source);}
             performance.Preview(timer.Elapsed.TotalMilliseconds);
             if(!committing)BrowserPerformance.Feedback(0);
         }
         void Commit()
         {
-            if(!ready||hud.ModalOpen||hoverId==null||string.IsNullOrEmpty(treatmentId))return;var timer=System.Diagnostics.Stopwatch.StartNew();var before=state.Result;var result=state.Commit(Command());
+            if(!ready||hud.ModalOpen)return;var command=Command();if(command.siteId==null)return;
+            var timer=System.Diagnostics.Stopwatch.StartNew();var before=state.Result;var result=state.Commit(command);
             if(!result.valid){Toast(result.reason);return;}
-            committing=true;selectedId=hoverId;var site=world.sites.First(s=>s.id==hoverId);var visual=landscape.Apply(site,treatmentId);
-            // Reveal through ground colour and planted detail; keep all geometry seated on slopes.
+            committing=true;selectedId=command.operation=="move"?command.destinationSiteId:command.siteId;hoverId=null;moveSource=null;removing=false;
+            SyncLandscape();
             if(!hud.Muted&&placementSound!=null)sound.PlayOneShot(placementSound);
-            float change=result.result.production-before.production;
-            Toast(site.name+": "+(change>=0?"+":"")+change.ToString("0.#")+" illustrative units · "+(result.result.spentCredits-before.spentCredits)+" credits");
-            hoverId=null;Refresh();landscape.Settle(selectedId,hud.ReducedMotion);performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_COMMIT: "+Diagnostic);
+            float change=result.result.production-before.production;int cost=result.result.spentCredits-before.spentCredits;
+            string verb=command.operation=="move"?"Moved":command.operation=="remove"?"Removed":command.operation=="replace"?"Replaced":"Placed";
+            Toast(verb+": "+(change>=0?"+":"")+change.ToString("0.#")+" illustrative units · "+(cost<0?(-cost)+" credits refunded":cost+" credits spent"));
+            // Leave removals in inspect mode so the original land stays visible after commit.
+            if(command.operation=="remove"){treatmentId="";hud.Selected("");}
+            Refresh();landscape.Settle(selectedId,hud.ReducedMotion);performance.Placement(timer.Elapsed.TotalMilliseconds);committing=false;BrowserPerformance.Feedback(1);Debug.Log("TERRA_EDIT: "+command.operation+" "+Diagnostic);
         }
-        void Undo()
+        void SyncLandscape()
         {
-            if(!ready||hud.ModalOpen||!state.Undo())return;
-            foreach(var site in world.sites)landscape.Apply(site,state.TreatmentAt(site.id));selectedId=null;Refresh();Toast("Proposal undone. Previous land cover and credits restored.");Debug.Log("TERRA_UNDO: "+Diagnostic);
+            landscape.ClearEditPreview();
+            foreach(var site in world.sites)
+            {
+                string treatment=state.TreatmentAt(site.id);renderedTreatments.TryGetValue(site.id,out var previous);
+                if(treatment==previous)continue;
+                landscape.Apply(site,Recipe(treatment));renderedTreatments[site.id]=treatment;
+            }
         }
-        void Refresh(){hud.UpdateResult(state.Result,state.CanUndo,scenario.objectives.productionMin);UpdatePreview();}
+        void HistoryChanged(string message)
+        {
+            moveSource=null;removing=false;hoverId=null;selectedId=null;SyncLandscape();Refresh();Toast(message);Debug.Log("TERRA_HISTORY: "+Diagnostic);
+        }
+        void Undo(){if(ready&&!hud.ModalOpen&&state.Undo())HistoryChanged("Undone. Previous land cover and credits restored.");}
+        void Redo(){if(ready&&!hud.ModalOpen&&state.Redo())HistoryChanged("Redone. Proposal and credits restored.");}
+        void ResetProposals()
+        {
+            if(!ready||hud.ModalOpen)return;
+            if(state.Commit(new EditCommand{operation="reset",expectedRevision=state.Revision}).valid)HistoryChanged("All proposals reset. Z / Undo recovers your design.");
+        }
+        void Refresh(){hud.UpdateResult(state.Result,state.CanUndo,scenario.objectives.productionMin,state.CanRedo,state.HasProposals);UpdatePreview();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }

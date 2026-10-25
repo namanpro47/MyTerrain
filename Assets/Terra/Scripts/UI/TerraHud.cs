@@ -24,13 +24,13 @@ namespace Terra.UI
         readonly List<UnityEngine.UI.Button> buttons=new List<UnityEngine.UI.Button>();
         readonly Dictionary<TextMeshProUGUI,float> sizes=new Dictionary<TextMeshProUGUI,float>();
         readonly List<UnityEngine.UI.Image> cards=new List<UnityEngine.UI.Image>();
-        TextMeshProUGUI production,credits,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
+        TextMeshProUGUI production,credits,netProduction,coverSummary,tip,previewTitle,previewKind,previewBody,previewAction,toast,loadText,modalText;
         GameObject tooltip,loading,modal,modalShade,toastPanel,variants,guideSummary;
-        UnityEngine.UI.Button undoButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton;
+        UnityEngine.UI.Button undoButton,redoButton,resetButton,moveButton,removeButton,commitButton,motionButton,muteButton,textButton,dataPageButton,guideButton,closeButton;
         UnityEngine.UI.Image standard,margin; UnityEngine.UI.Button focus; int dataPage;string activeTool="";
         public bool ModalOpen=>modal.activeSelf; public float PixelRatio=>Mathf.Max(1,lastRatio);
         public bool ReducedMotion{get;private set;} public bool Muted{get;private set;} public bool LargeText{get;private set;}
-        public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume)
+        public TerraHud(Action<string> choose,Action undo,Action reset,Action cancel,Action retry,Action resume,Action redo,Action move,Action remove,Action commit,Action resetProposals)
         {
             this.resume=resume;retryLoad=retry;
             var canvas=new GameObject("Terra HUD",typeof(Canvas),typeof(UnityEngine.UI.CanvasScaler),typeof(UnityEngine.UI.GraphicRaycaster));root=canvas.transform;
@@ -47,10 +47,12 @@ namespace Terra.UI
             Label(identity,"T E R R A",new Vector2(0,1),new Vector2(18,-12),new Vector2(270,24),16,Accent,FontStyles.Bold);
             Label(identity,"Meadowbrook Valley",new Vector2(0,1),new Vector2(18,-35),new Vector2(278,28),23,Paper,FontStyles.Bold);
             Label(identity,"Wisconsin · real geography",new Vector2(0,1),new Vector2(18,-65),new Vector2(276,24),16,Soft);
-            var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,94),PanelColor);
+            var stats=Panel(root,"Measures",new Vector2(1,1),new Vector2(-24,-24),new Vector2(400,148),PanelColor);
             Label(stats,"PRODUCTIVE CAPACITY",new Vector2(0,1),new Vector2(18,-14),new Vector2(235,22),14,Soft);
             production=Label(stats,"—",new Vector2(0,1),new Vector2(18,-35),new Vector2(230,32),25,Paper,FontStyles.Bold);
-            Label(stats,"Runoff: not modeled yet",new Vector2(0,1),new Vector2(18,-69),new Vector2(250,22),14,Soft);
+            Label(stats,"Runoff: not modeled yet",new Vector2(0,1),new Vector2(18,-120),new Vector2(360,22),14,Soft);
+            netProduction=Label(stats,"",new Vector2(0,1),new Vector2(18,-71),new Vector2(360,22),14,Soft);
+            coverSummary=Label(stats,"",new Vector2(0,1),new Vector2(18,-96),new Vector2(370,22),14,Soft);
             Label(stats,"CREDITS",new Vector2(0,1),new Vector2(282,-14),new Vector2(104,22),14,Soft);
             credits=Label(stats,"—",new Vector2(0,1),new Vector2(282,-39),new Vector2(96,36),29,Accent,FontStyles.Bold);
             var dock=Panel(root,"Treatments",new Vector2(.5f,0),new Vector2(0,20),new Vector2(724,112),Ink);
@@ -69,14 +71,19 @@ namespace Terra.UI
             var guidance=Panel(root,"Context guidance",new Vector2(0,1),new Vector2(24,-126),new Vector2(310,56),PanelColor);
             tip=Label(guidance,"Choose a treatment\nto shape a proposal",new Vector2(.5f,.5f),Vector2.zero,new Vector2(286,48),16,Paper);tip.alignment=TextAlignmentOptions.Center;
             undoButton=Button(root,"Undo  Z",new Vector2(0,0),new Vector2(24,20),new Vector2(130,56),undo,16);
+            redoButton=Button(root,"Redo  Y",new Vector2(0,0),new Vector2(24,84),new Vector2(130,56),redo,16);
+            resetButton=Button(root,"Reset proposals",new Vector2(0,0),new Vector2(24,212),new Vector2(150,56),resetProposals,16);
             viewButton=Button(root,"Valley view  R",new Vector2(0,0),new Vector2(24,84),new Vector2(130,56),reset,16);
             guideButton=Button(root,"Field guide  G",new Vector2(1,0),new Vector2(-24,20),new Vector2(148,56),()=>{dataPage=0;ShowData();},16);
             controlsButton=Button(root,"Controls  ?",new Vector2(1,0),new Vector2(-24,84),new Vector2(148,56),ShowHelp,16);
-            tooltip=Panel(root,"Site preview",new Vector2(1,.5f),new Vector2(-24,-10),new Vector2(292,288),PanelColor).gameObject;
+            tooltip=Panel(root,"Site preview",new Vector2(1,1),new Vector2(-24,-184),new Vector2(292,328),PanelColor).gameObject;
             previewKind=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-16),new Vector2(256,24),14,Accent);
             previewTitle=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-45),new Vector2(256,52),22,Paper,FontStyles.Bold);
-            previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-105),new Vector2(256,133),17,Paper);
-            previewAction=Label(tooltip.transform,"",new Vector2(0,0),new Vector2(18,13),new Vector2(256,30),16,Accent);
+            previewBody=Label(tooltip.transform,"",new Vector2(0,1),new Vector2(18,-94),new Vector2(256,120),17,Paper);
+            commitButton=Button(tooltip.transform,"Place · Enter",new Vector2(0,0),new Vector2(18,68),new Vector2(256,44),commit,16);
+            previewAction=commitButton.GetComponentInChildren<TextMeshProUGUI>();
+            moveButton=Button(tooltip.transform,"Move  V",new Vector2(0,0),new Vector2(18,14),new Vector2(124,44),move,15);
+            removeButton=Button(tooltip.transform,"Remove  X",new Vector2(1,0),new Vector2(-18,14),new Vector2(124,44),remove,15);
             tooltip.SetActive(false);
             toastPanel=Panel(root,"Action feedback",new Vector2(.5f,1),new Vector2(0,-132),new Vector2(570,52),PanelColor).gameObject;toastPanel.SetActive(false);
             toast=Label(toastPanel.transform,"",new Vector2(.5f,.5f),Vector2.zero,new Vector2(538,46),16,Paper);toast.alignment=TextAlignmentOptions.Center;
@@ -107,8 +114,8 @@ namespace Terra.UI
 #endif
             var screen=new Vector2(Screen.width,Screen.height);if(screen==lastScreen&&Mathf.Approximately(ratio,lastRatio))return;lastScreen=screen;lastRatio=ratio;scaler.scaleFactor=ratio;
             float width=Screen.width/ratio,height=Screen.height/ratio;bool compact=width<1120;compactLayout=compact;tip.transform.parent.gameObject.SetActive(!compact&&!tooltip.activeSelf);
-            void Utility(UnityEngine.UI.Button b,bool right,int row){var r=b.GetComponent<RectTransform>();if(compact){r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(24+row*(right?156:138),right?-194:-130);}else{r.anchorMin=r.anchorMax=r.pivot=new Vector2(right?1:0,0);r.anchoredPosition=new Vector2(right?-24:24,20+row*64);}}
-            Utility(undoButton,false,0);Utility(viewButton,false,1);Utility(guideButton,true,0);Utility(controlsButton,true,1);
+            void Utility(UnityEngine.UI.Button b,bool right,int row){var r=b.GetComponent<RectTransform>();if(compact){r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(24+row*156,right?-194:-130);}else{r.anchorMin=r.anchorMax=r.pivot=new Vector2(right?1:0,0);r.anchoredPosition=new Vector2(right?-24:24,20+row*64);}}
+            Utility(undoButton,false,0);Utility(redoButton,false,1);Utility(viewButton,false,2);Utility(resetButton,false,3);Utility(guideButton,true,0);Utility(controlsButton,true,1);
             modal.transform.localScale=Vector3.one*Mathf.Min(1,(height-32)/650,(width-32)/800);
         }
         // F10 reports the rendered canvas for evidence; it never changes gameplay state.
@@ -128,25 +135,45 @@ namespace Terra.UI
         public void Ready()=>loading.SetActive(false);
         public void Progress(string message)=>loadText.text="<b>Preparing Meadowbrook Valley</b>\n\n<size=78%>"+message+"</size>";
         public void Error(string message){loadFailed=true;loading.SetActive(true);loadText.text="<b>The landscape could not open</b>\n\n<size=78%>"+message+"</size>";}
-        public void UpdateResult(WorldResult r,bool canUndo,float target){production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();undoButton.interactable=canUndo;}
+        static string Signed(float value)=> (value>=0?"+":"")+value.ToString("0.##");
+        static float Cover(WorldResult result,params string[] ids)=>result.coverAreas.Where(c=>ids.Contains(c.coverId)).Sum(c=>c.areaM2)/10000f;
+        public void UpdateResult(WorldResult r,bool canUndo,float target,bool canRedo,bool hasProposals)
+        {
+            production.text=r.production.ToString("0.#")+" <size=64%>illustrative units</size>";credits.text=r.remainingCredits.ToString();
+            netProduction.text=Signed(r.netProduction)+" from baseline "+r.baselineProduction.ToString("0.#")+" illustrative units";
+            coverSummary.text="Sites: "+Cover(r,"cultivated").ToString("0.##")+" ha crop · "+Cover(r,"grass","woodland").ToString("0.##")+" ha vegetation";
+            undoButton.interactable=canUndo;redoButton.interactable=canRedo;resetButton.interactable=hasProposals;Paint();
+        }
         public void Selected(string id){activeTool=id;int index=id.StartsWith("cultivate")?0:id=="restore-grass"?1:id=="water-swale"?2:-1;variants.SetActive(index==0);tip.text=index<0?"Choose a treatment\nto shape a proposal":"Tab: inspect · Enter: place\nF: focus · Esc: cancel";Paint();}
-        public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current)
+        public void Preview(Site site,Treatment treatment,Evaluation result,WorldResult current,string operation,string sourceName,bool hasProposal)
         {
             tooltip.SetActive(site!=null);tip.transform.parent.gameObject.SetActive(site==null&&!compactLayout);if(site==null)return;
-            previewTitle.text=site.name;previewKind.color=Accent;previewKind.text=site.protectedSite?"PROTECTED LEARNING ZONE":"HYPOTHETICAL SITE";
-            if(treatment==null){previewBody.text="Inspect the land, then choose a treatment to explore a change.";previewAction.text="1 Cultivate · 2 Restore · 3 Water";return;}
-            if(!result.valid){bool placed=result.reason=="This proposal is already placed.";previewKind.text=placed?"CURRENT PROPOSAL":"UNAVAILABLE";previewKind.color=placed?Accent:new Color(1,.69f,.55f);previewBody.text=placed?treatment.title+"\n\nThis treatment is already here.":result.reason;previewAction.text=placed?"Choose a tool or Z to undo":"Try another site or treatment";return;}
-            previewKind.color=Accent;
+            bool moving=operation=="move",removing=operation=="remove";
+            moveButton.interactable=hasProposal||moving;removeButton.interactable=hasProposal&&!moving;
+            SetButtonText(moveButton,moving?"Cancel move":"Move  V");SetButtonText(removeButton,removing?"Keep proposal":"Remove  X");
+            commitButton.interactable=result.valid;
+            previewTitle.text=site.name;previewKind.color=Accent;
+            previewKind.text=moving?"MOVE PROPOSAL":removing?"REMOVE PROPOSAL":site.protectedSite?"PROTECTED LEARNING ZONE":"HYPOTHETICAL SITE";
+            if(treatment==null){previewBody.text="Original land cover. Choose a treatment to preview a change.";previewAction.text="Choose a treatment";Paint();return;}
+            if(!result.valid)
+            {
+                bool placed=result.reason=="This proposal is already placed.";
+                previewKind.text=placed?"CURRENT PROPOSAL":moving?"MOVE FROM "+sourceName:site.protectedSite?"PROTECTED LEARNING ZONE":"UNAVAILABLE";
+                previewKind.color=placed||moving?Accent:new Color(1,.69f,.55f);
+                previewBody.text=placed?treatment.title+"\n\nChoose another treatment to replace it, or move / remove below.":result.reason;
+                previewAction.text=moving?"Choose a destination":placed?"Already placed":"Cannot place here";Paint();return;
+            }
             float delta=result.result.production-current.production;int cost=result.result.spentCredits-current.spentCredits;
-            previewBody.text=treatment.title+"\n\n<size=141%><b>"+cost+"</b></size> credits  ·  <size=141%><b>"+(delta>=0?"+":"")+delta.ToString("0.#")+"</b></size> units\n<size=82%>Illustrative productive capacity</size>\n<size=82%>Runoff estimate: not available</size>";
-            previewAction.text="Click / Enter to place   ·   Esc";
+            float vegetation=Cover(result.result,"grass","woodland")-Cover(current,"grass","woodland");
+            previewBody.text=(removing?"Restore original land":treatment.title)+"\n\n<b>"+(cost<0?(-cost)+" credits refunded":cost+" credits spent")+"</b>\n"+Signed(delta)+" illustrative units\n"+Signed(vegetation)+" ha vegetation";
+            previewAction.text=(moving?"Move here":removing?"Remove":operation=="replace"?"Replace":"Place")+" · Enter";Paint();
         }
         public void Toast(string text){toast.text=text;toastPanel.SetActive(!string.IsNullOrEmpty(text));}
         public void CloseModal(){modal.SetActive(false);modalShade.SetActive(false);Focus(null);resume?.Invoke();}
         public void ShowHelp()=>ShowModal("Make room for a better balance",
             "<b>01   Choose → inspect → place</b>\nUse the three treatments to explore a proposal. Inspect a site to see its exact cost and productive change. All production units are illustrative game accounting.\n\n"+
             "<b>02   Explore the valley</b>\nDrag or arrow keys to pan · Scroll or + / − to zoom\nF focuses a site · R returns to the valley\n\n"+
-            "<b>03   Experiment freely</b>\n1 / 2 / 3: tools · M: living margin · Tab: next site\nEnter: place · Z: undo · Escape: cancel or close\nG: field guide · ?: controls");
+            "<b>03   Experiment freely</b>\n1 / 2 / 3: tools · M: margin · Tab: next site\nEnter: confirm · V: move · X: remove\nZ: undo · Y / Shift+Z: redo · Esc / right-click: cancel\nReset proposals returns to baseline; Undo recovers it.");
         void ToggleText(){LargeText=!LargeText;foreach(var p in sizes)p.Key.fontSize=p.Value*(LargeText?1.12f:1);SetButtonText(textButton,LargeText?"Text: larger":"Text: standard");}
         public bool KeyboardInput(Keyboard k)
         {
