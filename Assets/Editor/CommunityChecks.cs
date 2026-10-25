@@ -36,6 +36,7 @@ public static class CommunityChecks
     }
     static void Capture(CommunityPack pack,Mesh mesh,Texture2D source)
     {
+        source.filterMode=FilterMode.Bilinear;source.mipMapBias=-10;source.wrapMode=TextureWrapMode.Clamp;
         var root=new GameObject("Community verification geometry");root.layer=29;root.transform.position=new Vector3(0,20000,0);
         var material=new Material(Resources.Load<Shader>("CommunityImagery"));material.SetTexture("_BaseMap",source);
         root.AddComponent<MeshFilter>().sharedMesh=mesh;root.AddComponent<MeshRenderer>().sharedMaterial=material;

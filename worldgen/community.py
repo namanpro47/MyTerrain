@@ -175,7 +175,7 @@ def build(args):
         })
         write(folder / 'checksums.json', {p.name: digest(p) for p in sorted(folder.iterdir())})
         validate(folder)
-        shutil.copytree(folder, output)
+        folder.rename(output)
     print(f'Imported {args.name}: {args.extent} m, {args.extent/args.pixels:.3f} m/image pixel, elevation {heights.min():.1f}–{heights.max():.1f} m; {output}')
 
 
