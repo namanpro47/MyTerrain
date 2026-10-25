@@ -72,6 +72,7 @@ namespace Terra.Gameplay
         public void Select(int index,bool snap=false)
         {
             if(notes!=null&&notes.activeSelf)return;
+            if(!snap&&Selected!=(index+3)%3)Terra.Audio.TerraAudio.Ensure().Request("atlas-select",3);
             Selected=(index+3)%3;var place=LocationProfile.At(Selected);region.text=regions[Selected];nameLabel.text=place.Name;description.text=descriptions[Selected];
             var p=places[Selected];coordinates.text=$"{p.x:0.00}° N    {Mathf.Abs(p.y):0.00}° {(p.y<0?"W":"E")}";
             for(int i=0;i<3;i++){choices[i].image.color=i==Selected?new Color(.17f,.29f,.29f):new Color(.065f,.13f,.16f);}
@@ -81,7 +82,7 @@ namespace Terra.Gameplay
         public void StartJourney()
         {
             if(Traveling||notes.activeSelf)return;if(!Visible)Show();Traveling=true;Visible=true;chosen=true;failure=null;focusing=false;pointerHeld=false;velocity=Vector2.zero;
-            journey=StartCoroutine(Travel());
+            Terra.Audio.TerraAudio.Ensure().Request("travel",6);journey=StartCoroutine(Travel());
         }
         IEnumerator Travel()
         {
@@ -100,17 +101,17 @@ namespace Terra.Gameplay
             duration=ReducedMotion?.2f:1.6f;
             for(float t=0;t<1;t+=Time.unscaledDeltaTime/duration){SetVeil(1-Mathf.SmoothStep(0,1,t));main.AtlasDescent(t);yield return null;}
             main.AtlasDescent(1);SetVeil(0);Visible=false;Traveling=false;canvas.gameObject.SetActive(false);main.FinishAtlasDescent();journey=null;
-            Debug.Log("MYTERRAIN_ARRIVAL: "+LocationProfile.At(Selected).PackId);
+            Terra.Audio.TerraAudio.Ensure().Request("arrival",7);Debug.Log("MYTERRAIN_ARRIVAL: "+LocationProfile.At(Selected).PackId);
         }
         public void BeginLoading(){landscapeReady=false;failure=null;}
         public void LandscapeReady(){landscapeReady=true;}
         public void LoadProgress(string message){if(Traveling)journeyStatus.text=message;}
-        public void LoadFailed(string message){failure="This landscape could not load. Please try again.\n"+message;}
+        public void LoadFailed(string message){Terra.Audio.TerraAudio.Ensure().Request("blocked",9);failure="This landscape could not load. Please try again.\n"+message;}
         void Retry(){retry.gameObject.SetActive(false);failure=null;landscapeReady=false;Traveling=false;Visible=false;distance=targetDistance=4.65f;SceneManager.LoadScene(SceneManager.GetActiveScene().name);}
         void SetVeil(float alpha){veil.color=new Color(Navy.r,Navy.g,Navy.b,alpha);veil.raycastTarget=alpha>.98f;}
         void Update()
         {
-            if(!Visible)return;var k=Keyboard.current;
+            if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(!Visible)return;var k=Keyboard.current;
             if(k!=null)
             {
                 if(k.escapeKey.wasPressedThisFrame){if(notes.activeSelf){notes.SetActive(false);return;}if(Traveling)Show();}

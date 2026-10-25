@@ -21,7 +21,7 @@ namespace Terra.Gameplay
         public Terra.Art.BuildActionCatalog buildActionCatalog;
         BuildActionRules buildActionRules;
         RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
-        Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
+        Camera view;WorldData world;Scenario scenario;LandscapeRenderer landscape;TerraHud hud;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=34,zoom=105;Vector3 target=new Vector3(-90,30,-70);
         bool perspective=true;float focusHeightOffset;
         UnityEngine.UI.Button uiDown;
@@ -34,7 +34,7 @@ namespace Terra.Gameplay
         {
             gameObject.name="TerraMain";Application.runInBackground=true;Application.targetFrameRate=60;
             view=Camera.main;view.orthographic=false;view.fieldOfView=36;view.nearClipPlane=1;view.farClipPlane=6000;view.clearFlags=CameraClearFlags.SolidColor;view.backgroundColor=new Color(.78f,.83f,.75f);ApplyView();
-            view.cullingMask&=~(1<<30);atlas=WorldAtlas.Attach(this);
+            InitializeAudio();view.cullingMask&=~(1<<30);atlas=WorldAtlas.Attach(this);
         }
         void InitializeLandscape()
         {
@@ -43,7 +43,6 @@ namespace Terra.Gameplay
             var sun=FindFirstObjectByType<Light>();if(sun!=null){sun.intensity=1.10f;sun.shadowStrength=.72f;sun.color=new Color(1,.96f,.86f);sun.transform.rotation=Quaternion.Euler(52,-100,0);}
             hud=new TerraHud(Choose,Undo,ResetView,Cancel,()=>SceneManager.LoadScene(SceneManager.GetActiveScene().name),UpdatePreview,location);
             hud.ConfigureEditing(BeginMove,BeginRemove,Redo,BeginReset);hud.ConfigureAtlas(()=>WorldAtlas.Instance.Show(),value=>WorldAtlas.Instance.SetMotion(value));
-            sound=gameObject.AddComponent<AudioSource>();sound.playOnAwake=false;sound.volume=.3f;InitializeAudio();
 #if UNITY_WEBGL && !UNITY_EDITOR
             WebGLInput.captureAllKeyboardInput=true;
 #endif
@@ -81,7 +80,8 @@ namespace Terra.Gameplay
         }
         void Update()
         {
-            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();AudioTick();var k=Keyboard.current;
+            AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;
+            if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
             {
@@ -138,7 +138,8 @@ namespace Terra.Gameplay
         }
         void Pointer(int kind,Vector2 position,bool panning)
         {
-            if(atlasVisible){WorldAtlas.Instance.Pointer(kind,position);return;}if(kind==0)AudioGesture();
+            if(kind==0)AudioGesture();if(Terra.Audio.TerraAudioPanel.ConsumedInput){Terra.Audio.TerraAudioPanel.Pointer(kind,position);return;}
+            if(atlasVisible){WorldAtlas.Instance.Pointer(kind,position);return;}
             hud.PointerHover(position,kind==0);
             if(kind==0)
             {
@@ -172,7 +173,7 @@ namespace Terra.Gameplay
             if(kind==2)
             {bool place=pressed&&!panGesture&&!dragged&&!overUi&&!UiAt(position)&&!hud.ModalOpen;pressed=false;if(place&&(editMode=="place"||editMode=="move")){SetHover(landscape.Hit(view.ScreenPointToRay(position)));Commit();}else if(dragged)UpdatePreview();}
         }
-        public void Scroll(float amount){if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
+        public void Scroll(float amount){if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;if(atlasVisible){WorldAtlas.Instance.Zoom(amount);return;}if(!ready||hud.ModalOpen||UiAt(last))return;zoom+=amount*zoom*.075f;ApplyView();}
         public void LoseFocus(string _){pressed=false;dragged=false;if(atlasVisible&&WorldAtlas.Instance!=null)WorldAtlas.Instance.Pointer(3,Vector2.zero);}
         void OnApplicationFocus(bool focused){if(!focused)LoseFocus("");}
         void ApplyView()
@@ -202,9 +203,10 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);landscape?.ScaleRunoffConnections();landscape?.AnnualViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
+        void ResetView(){Terra.Audio.TerraAudio.Ensure().Request("camera",2);focusHeightOffset=0;perspective=true;yaw=-32;pitch=location.IsWisconsin?34:48;zoom=location.IsWisconsin?105:275;target=location.IsWisconsin?new Vector3(-90,30,-70):new Vector3(0,30,0);ApplyView();}
         void FocusSite()
         {
+            Terra.Audio.TerraAudio.Ensure().Request("camera",2);
             // Preserve the annual full-footprint framing geometry at its calibrated pitch.
             yaw=-32;pitch=42;
             var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];
@@ -245,7 +247,7 @@ namespace Terra.Gameplay
             focusHeightOffset=target.y-landscape.Height(target.x,target.z)-8;
             ApplyView();Toast("Focused site · Scroll to zoom · R returns to the valley");
         }
-        void OnDestroy(){if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
+        void OnDestroy(){if(audioSession!=null)audioSession.Changed-=AnnualAudioChanged;if(chapters!=null)chapters.StateChanged-=ChapterChanged;landscape?.Dispose();}
         void Toast(string message){hud.Toast(message);toastUntil=Time.unscaledTime+3;}
     }
 }
