@@ -1,5 +1,10 @@
 # Terra — phase status and evidence
 
+## Globe-first browser opening — October 25, 2026
+
+Replaces the plain startup screen with a 42 KB preview of the actual native globe, matching Lilita One title, stars and small download/status line. No added wait or click; the live selector appears after native readiness, player binding and a rendered-frame opportunity. Retry and reduced-motion behavior remain available. Chrome verifies normal handoff, Point Reyes entry, compact/portrait layout and download-error retry; transport lifecycle checks pass. [Exact evidence and limits](evidence/globe-first-loading/README.md). TN-01/03/06, AX-01. Unity download size is unchanged; this is a template update, not a new engine export or public deployment.
+
+
 ## Pinned Wisconsin weather reference — October 25, 2026
 
 [Data preparation and consumer contract](../simulation-data/weather/README.md) provides 24 complete years of nearby La Crosse airport PRCP/TMAX/TMIN observations, 15 contiguous ten-year schedules, exact source/pack hashes and a daily companion for crop-season timing. **19 data/derivation tests pass** and all four products rebuild byte-for-byte offline. [Coverage, reproducibility and limitations](evidence/weather-reference/README.md). The common Coon Valley reference is regional, not on-site measurement; thresholds and later crop/exposure/recovery responses remain authored. This data-only delivery does not activate a new simulation, change legacy saves or certify browser behavior. The numeric/report-v2 consumer and visual/release gates remain open.
