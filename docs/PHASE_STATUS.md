@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Pinned Wisconsin weather reference — October 25, 2026
+
+[Data preparation and consumer contract](../simulation-data/weather/README.md) provides 24 complete years of nearby La Crosse airport PRCP/TMAX/TMIN observations, 15 contiguous ten-year schedules, exact source/pack hashes and a daily companion for crop-season timing. **19 data/derivation tests pass** and all four products rebuild byte-for-byte offline. [Coverage, reproducibility and limitations](evidence/weather-reference/README.md). The common Coon Valley reference is regional, not on-site measurement; thresholds and later crop/exposure/recovery responses remain authored. This data-only delivery does not activate a new simulation, change legacy saves or certify browser behavior. The numeric/report-v2 consumer and visual/release gates remain open.
+
 ## Approved play-first HUD — October 25, 2026
 
 The approved mockups now have native Unity implementation: quieter status panels, icon-labelled commands, a compact project inspector with real costs/dates, and nonmodal year highlights with optional story/budget and immediate continuation. [Final combined source `b4693ac`, captures and receipt](evidence/play-first/README.md) preserves main's native MyTerrain atlas and records **2,399 unchanged-core assertions**, **809 main UI + 16 chapter checks**, and **36 actual Chrome assertions**. Larger text fits at 1440×900, 1280×720 and 1024×576; menu keys, replacement previews, read-only history, globe/location transitions and reload pass. The local WebGL export has 20 byte-verified files / 40,089,616 bytes. No live provider, performance, public deployment or Phase 2A scenery acceptance is claimed.
