@@ -68,16 +68,16 @@ namespace Terra.Rendering
             {
                 float px=x+J(-.65f,.65f),pz=z+J(-.65f,.65f);
                 if(!Contains(polygon,px,pz)||(exclude?.Invoke(px,pz)??false))continue;
-                small.Add(PlantMatrix(tuft,px,pz,J(1.8f,3.2f),J(0,360)));
+                small.Add(PlantMatrix(tuft,px,pz,J(.38f,.70f),J(0,360)));
                 float cluster=Mathf.PerlinNoise((px+1000)*.06f,(pz+1000)*.06f);
-                if(rng.NextDouble()<.30)fine.Add(PlantMatrix(tall,px,pz,J(2.3f,3.5f),J(0,360)));
+                if(rng.NextDouble()<.30)fine.Add(PlantMatrix(tall,px,pz,J(.55f,.95f),J(0,360)));
                 if(withFlowers&&rng.NextDouble()<(cluster>.52f?.40:.08))
                 {
                     bool second=cluster>.62f;var model=second?bloom2:bloom;
-                    (second?flowers2:flowers).Add(PlantMatrix(model,px+.6f,pz+.4f,J(1.6f,2.8f),J(0,360)));
+                    (second?flowers2:flowers).Add(PlantMatrix(model,px+.6f,pz+.4f,J(.27f,.45f),J(0,360)));
                 }
             }
-            var nature=parent.gameObject.AddComponent<InstancedNature>();nature.Add(tuft,small,Color.white);nature.Add(tall,fine,Color.white);
+            var nature=parent.gameObject.AddComponent<InstancedNature>();nature.Add(tuft,small,Color.white,true);nature.Add(tall,fine,Color.white,true);
             nature.Add(bloom,flowers,Color.white);nature.Add(bloom2,flowers2,Color.white);
         }
         void PlantCultivation(Point[] polygon,Transform parent,bool baseline)
@@ -85,14 +85,14 @@ namespace Terra.Rendering
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);
             var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
-            const float spacing=2.4f;
+            const float spacing=1.35f;
             for(float x=Mathf.Ceil((l+1)/spacing)*spacing;x<r-1;x+=spacing)
             {
                 // Cultivated ground shares the field palette; individual plants supply its row rhythm.
-                for(float z=Mathf.Ceil((b+1)/1.6f)*1.6f;z<t-1;z+=1.6f)
+                for(float z=Mathf.Ceil((b+1)/1.1f)*1.1f;z<t-1;z+=1.1f)
                 {
                     if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x))continue;
-                    float size=.9f+(float)rng.NextDouble()*.2f;
+                    float size=.48f+(float)rng.NextDouble()*.12f;
                     plants.Add(PlantMatrix(grain,x+((float)rng.NextDouble()-.5f)*.2f,z,size,(float)rng.NextDouble()*12-6));
                 }
             }
@@ -109,16 +109,16 @@ namespace Terra.Rendering
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
                 var plants=new List<Matrix4x4>();
-                for(float z=Mathf.Ceil(cz/1.6f)*1.6f;z<Mathf.Min(cz+150,zmax-3);z+=1.6f)for(float x=Mathf.Ceil(cx/2.4f)*2.4f;x<Mathf.Min(cx+150,xmax-3);x+=2.4f)
+                for(float z=Mathf.Ceil(cz/1.1f)*1.1f;z<Mathf.Min(cz+150,zmax-3);z+=1.1f)for(float x=Mathf.Ceil(cx/1.35f)*1.35f;x<Mathf.Min(cx+150,xmax-3);x+=1.35f)
                 {
                     if(!VisualCropAt(x,z)||FieldTrackAt(x)||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
                     float variation=Mathf.PerlinNoise(x*.12f+500,z*.12f+500);
-                    plants.Add(PlantMatrix(grain,x,z,.9f+variation*.2f,variation*12-6));
+                    plants.Add(PlantMatrix(grain,x,z,.48f+variation*.12f,variation*12-6));
                 }
                 root.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
             }
         }
         // Illustrative access lanes, aligned across baseline and proposed planting, not surveyed tracks.
-        static bool FieldTrackAt(float x)=>((Mathf.RoundToInt(x/2.4f)%16)+16)%16==0;
+        static bool FieldTrackAt(float x)=>Mathf.Abs(Mathf.Repeat(x+19.2f,38.4f)-19.2f)<.8f;
     }
 }

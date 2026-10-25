@@ -1,5 +1,7 @@
 # Current visual review — Phase 2A remains open
 
+**Source checkpoint26:** smaller plant communities, revised crop scale and a forest-edge opening are saved as work in progress. Editor captures and a clean C# compile are recorded in the [study ledger](evidence/phase2a/visual-rebuild/README.md). Chrome evaluation is pending; the browser captures below remain study25.
+
 **Latest illustrated candidate: study25, October 24, 2026. Fine meadow material and palette sampling updated; visual and performance acceptance remain open. Not an accepted art direction.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md) govern this comparison. Refresh this page with actual Chrome output as the candidate changes; retain historical captures in the ledger.
 
 ## Current game: normal play

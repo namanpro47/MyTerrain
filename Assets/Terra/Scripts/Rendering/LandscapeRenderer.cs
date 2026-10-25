@@ -20,6 +20,7 @@ namespace Terra.Rendering
         readonly Dictionary<Color,Material> materials=new Dictionary<Color,Material>();
         readonly Dictionary<Color,Material> groundMaterials=new Dictionary<Color,Material>();
         readonly List<Mesh> meshes=new List<Mesh>();
+        readonly Dictionary<GameObject,float> plantFloors=new Dictionary<GameObject,float>();
         Texture2D visualCover,riverMask,pathMask;Material streamMaterial,swaleMaterial,pathMaterial;
         readonly List<CoverPatch>[,] coverIndex; readonly float xmin,zmin,xmax,zmax,cell;
         GameObject meshCanopy;
@@ -192,13 +193,23 @@ namespace Terra.Rendering
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
                     {
                         if(world.sites.Any(site=>Contains(site.polygon,px,pz)))continue;
-                        for(int i=0;i<4;i++)
+                        // Metre-scale plants form small stands with quiet ground between them.
+                        // These positions illustrate habitat structure, not observed plant locations.
+                        if(grouping>.44f)
                         {
-                            float gx=px+Range(-6,6),gz=pz+Range(-6,6);
-                            grasses.Add(PlantMatrix(tuft,gx,gz,Range(1.4f,2.8f),Range(0,360)));
+                            float angle=Range(0,Mathf.PI*2),radius=Range(2.5f,5.5f);
+                            int count=random.Next(9,17);
+                            for(int i=0;i<count;i++)
+                            {
+                                float theta=Range(0,Mathf.PI*2),distance=Mathf.Sqrt(Range(0,1))*radius;
+                                float u=Mathf.Cos(theta)*distance,v=Mathf.Sin(theta)*distance*.55f;
+                                float gx=px+Mathf.Cos(angle)*u-Mathf.Sin(angle)*v,gz=pz+Mathf.Sin(angle)*u+Mathf.Cos(angle)*v;
+                                if(CoverAt(gx,gz)!=cover||NearLine(gx,gz,3)||world.sites.Any(site=>Contains(site.polygon,gx,gz)))continue;
+                                grasses.Add(PlantMatrix(tuft,gx,gz,Range(.35f,.65f),Range(0,360)));
+                                if(i%4==0)fine.Add(PlantMatrix(wispy,gx+.3f,gz,Range(.5f,.85f),Range(0,360)));
+                                if(grouping>.57f&&i%5==0)flowers.Add(PlantMatrix(flower,gx,gz+.2f,Range(.25f,.42f),Range(0,360)));
+                            }
                         }
-                        if(random.NextDouble()<.3)fine.Add(PlantMatrix(wispy,px,pz,Range(2,3),Range(0,360)));
-                        if(grouping>.55f && random.NextDouble()<.25)flowers.Add(PlantMatrix(flower,px,pz,Range(1.5f,2.8f),Range(0,360)));
                         if(grouping<.30f && random.NextDouble()<.18)rocks.Add(PlantMatrix(stone,px,pz,Range(1.1f,2.2f),Range(0,360)));
                     }
                 }
@@ -207,8 +218,8 @@ namespace Terra.Rendering
                     canopy.Add(trees[i],groups[i],Color.white);
                 }
                 canopy.Add(bush,shrubs,Color.white);
-                nature.Add(tuft,grasses,Color.white);
-                nature.Add(wispy,fine,Color.white);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
+                nature.Add(tuft,grasses,Color.white,true);
+                nature.Add(wispy,fine,Color.white,true);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }
         }
         bool NearLine(float x,float z,float margin)
@@ -232,7 +243,7 @@ namespace Terra.Rendering
         Matrix4x4 PlantMatrix(GameObject prefab,float x,float z,float scale,float yaw)
         {
             float bottom=0;
-            if(prefab!=null)
+            if(prefab!=null&&!plantFloors.TryGetValue(prefab,out bottom))
             {
                 bottom=float.MaxValue;
                 foreach(var f in prefab.GetComponentsInChildren<MeshFilter>(true))
@@ -241,6 +252,7 @@ namespace Terra.Rendering
                     for(int i=0;i<8;i++){var point=b.center+Vector3.Scale(b.extents,new Vector3((i&1)==0?-1:1,(i&2)==0?-1:1,(i&4)==0?-1:1));bottom=Mathf.Min(bottom,matrix.MultiplyPoint3x4(point).y);}
                 }
                 if(bottom==float.MaxValue)bottom=0;
+                plantFloors[prefab]=bottom;
             }
             float radius=(prefab==tree?.04f:.15f)*scale;
             float ground=Mathf.Min(Height(x-radius,z),Height(x+radius,z),Height(x,z-radius),Height(x,z+radius));

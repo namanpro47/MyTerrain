@@ -19,12 +19,12 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=90;Vector3 target=new Vector3(-100,25,10);
         bool perspective=true;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
-        float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
+        float shownYaw=-32,shownPitch=37,shownZoom=90;Vector3 shownTarget=new Vector3(-100,25,10);
         public int Revision=>state?.Revision??-1;
         public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
         void Start()
@@ -171,7 +171,7 @@ namespace Terra.Gameplay
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
+        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=90;target=new Vector3(-100,25,10);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}

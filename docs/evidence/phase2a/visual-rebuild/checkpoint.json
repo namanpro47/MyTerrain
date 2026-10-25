@@ -394,5 +394,21 @@
     "comparisonLimitation": "Same3440x1352 CSS/buffer as21d, but route/workload not controlled; no causal performance improvement claim",
     "fullInteractionPerformanceAcceptance": false
   },
-  "previousGoalTurnClassification": "progress: committed22, added tested alternatives23/24/25 and source provenance; rejected weaker results; fixed visible palette mip bleed."
+  "previousGoalTurnClassification": "progress: committed22, added tested alternatives23/24/25 and source provenance; rejected weaker results; fixed visible palette mip bleed.",
+  "currentSourceStudy": {
+    "study": 26,
+    "status": "Work in progress saved at user request; Editor reviewed and compiled, Chrome pending",
+    "buildJob": "fb09e29b41d44109a735336560c519eb",
+    "changes": [
+      "Metre-scale meadow plants in irregular stands",
+      "Crop height and spacing hierarchy",
+      "Prefab floor cache",
+      "Forest-edge opening target -100/10, zoom90"
+    ],
+    "evidence": [
+      "study26-editor-first.png",
+      "study26-junction-editor.png",
+      "study26-edge-editor.png"
+    ]
+  }
 }
