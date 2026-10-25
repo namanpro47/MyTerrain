@@ -1,16 +1,17 @@
-✔ gesture gate, mute pause, page replacement cancels old audio, close stops, replay reuses cache (122.878166ms)
-✔ provider failure is visible and only explicit replay retries; no repeated frame spending (18.757083ms)
-✔ hidden tab pauses and does not request next segment until visible (9.6225ms)
-✔ same dialogue shares one generation and cached replay; key stays in upstream header (252.172209ms)
-✔ rejects origins, missing browser origin, arbitrary provider controls, empty/oversized/markup input before quota (90.348ms)
-✔ missing configuration and provider errors never echo secrets (41.327875ms)
-✔ throttle limits new spend; cached replay remains available (155.409125ms)
-✔ long dialogue is completely segmented without markup or dropped words (8.474333ms)
-ℹ tests 8
+✔ gesture gate, mute pause, page replacement cancels old audio, close stops, replay reuses cache (268.428375ms)
+✔ provider failure is visible and only explicit replay retries; no repeated frame spending (45.987208ms)
+✔ hidden tab pauses and does not request next segment until visible (29.679417ms)
+✔ same dialogue shares one generation and cached replay; key stays in upstream header (440.326875ms)
+✔ rejects origins, missing browser origin, arbitrary provider controls, empty/oversized/markup input before quota (108.87075ms)
+✔ missing configuration and provider errors never echo secrets (32.460958ms)
+✔ throttle limits new spend; cached replay remains available (351.453958ms)
+✔ long dialogue is completely segmented without markup or dropped words (7.833375ms)
+✔ allows only the actual Vercel preview hostname, not other projects (152.944167ms)
+ℹ tests 9
 ℹ suites 0
-ℹ pass 8
+ℹ pass 9
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 951.513667
+ℹ duration_ms 1686.668208

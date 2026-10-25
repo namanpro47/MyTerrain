@@ -36,3 +36,9 @@ test('throttle limits new spend; cached replay remains available',async t=>{
 test('long dialogue is completely segmented without markup or dropped words',()=>{
  const text=Array.from({length:500},(_,i)=>'word'+i).join(' ');const parts=split('<b>'+text+'</b>');assert.equal(parts.join(' '),text);assert.ok(parts.every(p=>p.length<=600));assert.deepEqual(split(''),[]);assert.equal(split('a'.repeat(1400)).join(''),'a'.repeat(1400));
 });
+
+test('allows only the actual Vercel preview hostname, not other projects',async t=>{
+ const f=await fixture(t,{env:{ELEVENLABS_API_KEY:'TEST_ONLY',VERCEL:'1',VERCEL_URL:'terra-preview-example.vercel.app'}});
+ assert.equal((await f.post('Welcome',{Origin:'https://terra-preview-example.vercel.app'})).status,200);
+ assert.equal((await f.post('Welcome',{Origin:'https://unrelated.vercel.app'})).status,403);
+});

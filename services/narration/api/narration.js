@@ -13,6 +13,8 @@ function createHandler({env=process.env, fetcher=fetch, cacheDir=path.join(os.tm
   const model=env.ELEVENLABS_MODEL || MODEL;
   const revision=createHash('sha256').update(`${voice}:${model}:0.55:0.75:0.96:v1`).digest('hex').slice(0,16);
   const allowed=new Set((env.TERRA_VOICE_ORIGINS || 'https://www.myterrain.io,https://myterrain.io,https://terra-browser.vercel.app').split(',').map(x=>x.trim()));
+  // Vercel supplies this deployment's own hostname; do not allow arbitrary *.vercel.app origins.
+  if(env.VERCEL_URL)allowed.add('https://'+env.VERCEL_URL);
   function json(res,status,error) {res.statusCode=status;res.setHeader('Content-Type','application/json');res.end(JSON.stringify({error}));}
   async function read(req) {
     if (req.body !== undefined) return typeof req.body==='string' ? JSON.parse(req.body) : req.body;
