@@ -1,6 +1,6 @@
 # HUD and continuous fields — October 25, 2026
 
-Task: replace the sprawling HUD with a reference-led interface and remove empty corridors between developed fields. Starting remote: `e0c887702db8cee8e6c26c0f2ed78404f1257e92`. Isolated worktree: `terra-hud-continuous`. Visual verification is in progress; this note does not certify Phase 2A or public deployment.
+Task: replace the sprawling HUD with a reference-led interface and remove empty corridors between developed fields. Starting remote: `e0c887702db8cee8e6c26c0f2ed78404f1257e92`. Isolated worktree: `terra-hud-continuous`. This bounded revision does not certify Phase 2A or public deployment.
 
 ## Reference decisions
 
@@ -10,6 +10,10 @@ Patterns **TN-03/04/05, CS-01/02 and AX-01**. Inspected the [Terra Nil 1.0.1 des
 - Cities: Skylines: compact bottom service/status controls, stable groups and distinct indicator colors.
 - Application: compact location/budget group; equal-status Economic/Social/Environmental meters; slate surfaces, mint selection, amber/blue/green indicators; miniature project art with upfront prices; three category tabs; a single bottom command strip with emphasized End Year. Exact costs, commitments, reports, settings and keyboard paths remain reachable.
 - Reference imagery remains outside game assets. No image generation, purchased resources or copied reference artwork.
+
+## Comparison with the previous implementation
+
+Compared the actual Chrome candidate with the [latest incoming proposed-field capture](../full-game/tint-property-proposed.jpg). That historical image is engineering evidence, not Phase 2A art acceptance. Its tall budget block and scattered left/right commands become a short balance block and a single bottom strip; card prices replace repeated eligible-site captions; the three indicators gain a consistent current/forecast hierarchy. The unchanged default camera and terrain remain visible, while Focus can show two adjoining restoration fields as one meadow. This is a HUD/placement improvement, not a claim that the wider landscape now matches Terra Nil's complete art quality.
 
 ## Connected parcels
 
@@ -21,10 +25,12 @@ Buildings keep their metric prefab/lot dimensions and terrain-fit rules; a manag
 
 This is definition **3.2.0**, with separate town and chapter save keys. Existing 3.1 saves remain untouched. Arrival explicitly tells a returning player that connected fields begin a new run and the prior-layout save was retained; historic costs, receipts and outcomes are never recomputed or refunded.
 
-## Verification so far
+## Verification
 
 - Dependency-free geometry compiler/check: eight parcels, ten shared edges, zero overlapping area; source cover totals and road/water buffers pass.
 - Connected layout: **608 full-game assertions**, all 17 variants, ten-year histories, bounded meters, budget/water conservation, save replay and manual/fast-forward equality. Two viable strategies retain no arrears: 86.2/99.0/52.1 and 94.2/91.0/61.5. These are authored scenario outcomes.
 - Legacy layout: **608 assertions** unchanged; annual core **94** plus gameplay **15** pass. Runs used the installed .NET 10 runtime with `DOTNET_ROLL_FORWARD=Major` for the net8 projects.
 - Unity initial GUI import exited unexpectedly. One controlled restart in the same isolated worktree, persistent batch mode with two workers, reached ready. Play-mode frames advanced 1258→1288. No other Editor was driven.
-- Chrome captures, final export identity and interaction results: pending below.
+- The actual Editor HUD passes **631 checks**: all 17 project variants, repeated layout changes at 1440×900 / 1280×720 / 1024×576, standard/larger text, an existing preview after resize, long site names and three budget balances. `hud-reflow-check.cs` is the replayable fixture; `hud-reflow-check.json` contains the result. This caught repeated-layout identity/price errors and larger-text overflow before delivery.
+- Intermediate Chrome playtest: queue adjacent West/Central restoration, undo (one proposal), redo (two), review $154,000 payment / $36,000 future obligations, offline acceptance, three chapter pages, Year 2 planning and saved reload with $10,846,000 cash and two assets. Static localhost has no AI backend; its labelled offline fallback was used.
+- Final-export captures and hashes are recorded below.
