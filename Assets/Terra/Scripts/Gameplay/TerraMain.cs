@@ -19,12 +19,12 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=90;Vector3 target=new Vector3(-100,25,10);
-        bool perspective=true;
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=42,zoom=58;Vector3 target=new Vector3(-115,30,10);
+        bool perspective=false;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
-        float shownYaw=-32,shownPitch=37,shownZoom=90;Vector3 shownTarget=new Vector3(-100,25,10);
+        float shownYaw=-32,shownPitch=42,shownZoom=58;Vector3 shownTarget=new Vector3(-115,30,10);
         public int Revision=>state?.Revision??-1;
         public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
         void Start()
@@ -147,12 +147,12 @@ namespace Terra.Gameplay
         void ApplyView()
         {
             // Deliberate illustrated camera: pan and zoom keep painted forms and light coherent.
-            yaw=-32;pitch=37;zoom=Mathf.Clamp(zoom,55,1000);
+            yaw=-32;pitch=42;zoom=Mathf.Clamp(zoom,32,1000);
             target.x=Mathf.Clamp(target.x,-480,480);target.z=Mathf.Clamp(target.z,-500,500);
             if(ready)
             {
                 target.y=landscape.Height(target.x,target.z)+8;
-                var offset=Quaternion.Euler(pitch,yaw,0)*Vector3.forward*(perspective?zoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850);
+                var offset=Quaternion.Euler(pitch,yaw,0)*Vector3.forward*(zoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad));
                 var position=target-offset;
                 target.y=Mathf.Max(target.y,landscape.Height(position.x,position.z)+35+offset.y);
             }
@@ -163,15 +163,15 @@ namespace Terra.Gameplay
             float t=!ready||hud.ReducedMotion?1:1-Mathf.Exp(-Time.unscaledDeltaTime*16);
             shownYaw=Mathf.LerpAngle(shownYaw,yaw,t);shownPitch=Mathf.Lerp(shownPitch,pitch,t);shownZoom=Mathf.Lerp(shownZoom,zoom,t);shownTarget=Vector3.Lerp(shownTarget,target,t);
             view.orthographic=!perspective;view.orthographicSize=shownZoom;view.transform.rotation=Quaternion.Euler(shownPitch,shownYaw,0);
-            float distance=perspective?shownZoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad):850;
+            float distance=shownZoom/Mathf.Tan(view.fieldOfView*.5f*Mathf.Deg2Rad);
             var position=shownTarget-view.transform.forward*distance;
             // Also protect the interpolated camera while crossing a wooded hillside.
-            if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
+            if(ready)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
             view.transform.position=position;float displayRatio=hud?.PixelRatio??1;
             InstancedNature.DisplayPixelRatio=displayRatio;Shader.SetGlobalFloat("_TerraDisplayPixelRatio",displayRatio);
             landscape?.ViewScale(2*shownZoom/Screen.height*displayRatio);
         }
-        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=90;target=new Vector3(-100,25,10);ApplyView();}
+        void ResetView(){perspective=false;yaw=-32;pitch=42;zoom=58;target=new Vector3(-115,30,10);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}

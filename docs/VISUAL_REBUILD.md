@@ -6,7 +6,7 @@
 
 ## The intended visual experience
 
-**Current comparison focus — after study27:** TN-02/05/09/10/11/12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) pairs the current candidate with Terra Nil. Study26 corrects oversized plants;27 integrates interventions into the terrain material and verifies reversible preview/cancel/undo. Direct visual quality remains substantially below reference and moving performance fails at p95=67 ms. Next test a stronger coherent material/foliage direction and representative framing; density, tint or projection changes alone are insufficient. [Isolated worktree](VISUAL_WORK_HANDOFF.md).
+**Current comparison focus — after study28e:** TN-01/02/05/09–12. [Actual Chrome review](CURRENT_VISUAL_REVIEW.md) pairs the candidate with Terra Nil. A coherent free ground family, corrected foliage edges/shadows and closer framing improve specific defects; they do not establish the requested whole-scene quality. Dirt routes, sparse plant communities, cultivation and swale construction remain conspicuous. Next replace plant-community/treatment construction materially, using the supplied family; do not continue tint/density trials.28e moves unused resources outside runtime loading, reducing checked transfer to36.79MB. [Isolated worktree](VISUAL_WORK_HANDOFF.md).
 
 An inviting, painterly rural landscape that is worth looking around before touching a tool. Woodland has soft, varied crowns and layered edges; fields read as cultivated land with convincing surface rhythms; water has a distinct bed, bank, surface, and relationship to surrounding vegetation. Warm sunlight and cool depth separate forms without washing everything into the same sage color. Interventions visibly belong to this world and improve or change its character.
 

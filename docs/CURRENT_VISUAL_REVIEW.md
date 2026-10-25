@@ -1,18 +1,18 @@
 # Current visual review — Phase 2A remains open
 
-**Latest Chrome candidate: study27, October 24, 2026. Terrain-integrated interventions; visual and performance gates remain failed.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md) govern this comparison. These are recoverable studies, not accepted art direction.
+**Latest Chrome candidate: study28e, October24,2026. Painterly ground family and corrected foliage rendering; Phase2A remains unaccepted.** The [persistent design reference](DESIGN_REFERENCE.md), [visual goal](PHASE_2A_GOAL.md), and [study ledger](evidence/phase2a/visual-rebuild/README.md) govern this comparison.
 
 ## Current game: normal play
 
-![Terra27 actual Chrome opening](evidence/phase2a/visual-rebuild/study27-default.jpg)
+![Terra28e actual Chrome opening](evidence/phase2a/visual-rebuild/study28e-default.jpg)
 
-Verified 1280×720 CSS/render buffer. Study 26 corrects oversized meadow/crop plants and frames a forest edge;27 integrates interventions into the terrain's own materials. Free artist models and textures remain the source assets. No image generation. The broad open terrain, mechanical fields and weak plant communities still leave a substantial reference gap.
+1280×720 CSS/render buffer. Free JulioVII grass/earth/stone color and matching relief replace the mixed ground family. Shared offset sampling removes repeated square stamps; distant paint converges to its average. Leaves now have alpha-safe import and matching cutout shadow/depth passes. The closer orthographic view enlarges landmarks but cuts the bridge at the left edge and still devotes too much of the image to sparse, uniform planting. No image generation or purchases.
 
-## Restoration now belongs to the terrain
+## Restoration in the new material family
 
-![Terra27 actual Chrome restoration](evidence/phase2a/visual-rebuild/study27-restored.jpg)
+![Terra28e actual Chrome restoration](evidence/phase2a/visual-rebuild/study28e-restored.jpg)
 
-The raised solid-color overlay is gone. Restored land shares terrain normals, artist paint/relief and lighting, with a narrow visual transition inside the management boundary. Exact site geometry, land-cover queries and accounting remain unchanged. Preview/cancel and undo restore the prior surface. This is a contact/material consistency improvement; the treatment still lacks the richness needed to pass.
+28d and28e have identical rendering code;28e moves inactive resources into an archive. Terrain-integrated restoration, source geometry and accounting remain unchanged. The meadow treatment still lacks the density, form and visual payoff of the reference. Fields remain mechanical and their earth texture is too dominant.
 
 ## Primary comparison: Terra Nil
 
@@ -26,9 +26,9 @@ The raised solid-color overlay is gone. Restored land shares terrain normals, ar
 
 ## Whole-location consistency
 
-![Terra study27: actual Chrome overview](evidence/phase2a/visual-rebuild/study27-overview.jpg)
+![Terra study28d: actual Chrome overview](evidence/phase2a/visual-rebuild/study28d-overview.jpg)
 
-Distinct canopy cohorts and low edge growth now extend across the location. The distant field surface represents crops as individual stalks become subpixel. Evaluate the zoom transition as well as this still; better frame time does not excuse a visible loss of quality.
+The distant paint no longer repeats as a checker. Canopy spacing, broad woodland gaps and the slab presentation still look schematic. This is a defect correction, not a whole-scene quality pass.
 
 ## Gaps that keep the gate open
 
@@ -36,12 +36,12 @@ Distinct canopy cohorts and low edge growth now extend across the location. The 
 |---|---|
 | Composition, scale and depth | Closer creek opening is more useful; empty ground, overly large repeated forms and overview slab still weaken the scene. |
 | Vegetation and environmental forms | Four branching forms and a low edge layer improve the canopy. Thin-tree stands remain sparse; broadleaf cohorts can still read as repeated clusters. |
-| Ground, fields, water and transitions | Meadow uses finer artist surface/relief and has continuous road verges. Broad areas remain visually uniform; cultivation still reads as mechanical rows remain weak. Treatments now share the terrain material, but planting and swale forms are still schematic. |
-| Lighting, color and atmosphere | Shorter, lighter shadows improve readability. Similar greens and broad smooth ground still weaken separation and richness. |
+| Ground, fields, water and transitions | One artist ground family improves consistency and the checker defect is removed. Dirt paths are too prominent; fields and restored planting remain mechanical. Swale forms are still schematic. |
+| Lighting, color and atmosphere | Alpha-safe foliage removes black outlines and mismatched leaf-card shadows. Similar greens and coarse plant communities still weaken separation and richness. |
 | Intervention appearance and transformation | Treatments now share the terrain material and have softened contact. Plant communities and swale construction remain too schematic. Future annual lifecycle visuals need the same standard. |
 | Whole-scene consistency | Close/wide representation is under evaluation. Required layouts, matched reviews, motion video and full delivery checks remain incomplete. |
 
 **No dimension is certified at the required 4.5/5.** No formal acceptance review, current public release or reference-parity claim follows from these studies. Use TN-02/09/10/11/12 when taking the next visual pass; use Cities: Skylines patterns for information design as the annual gameplay is built.
 
 
-Study 27 is isolated on `codex/visual-study20`; [integration handoff](VISUAL_WORK_HANDOFF.md). Preview/cancel, replacement-cancel, Restore and undo passed in Chrome. The moving/placement diagnostic failed at p95=67 ms, p99=75 ms, max=102 ms. No error-level logs; no performance acceptance, public deployment or annual-gameplay claim. The existing orthographic diagnostic did not solve scene richness. Next test a substantially stronger material/foliage direction and representative scene framing, not another tint/density cycle.
+Study28e remains isolated on `codex/visual-study20`; [integration handoff](VISUAL_WORK_HANDOFF.md).28d moving diagnostic first failed atp95=123ms,max224ms; after closing superseded visual tabs, the repeat measuredp95=33ms,p99=36ms,max40ms. Both are retained; this is not the three-route acceptance suite or a controlled causal comparison.28e archives unused resources, reducing checked transfer from55.09MB to36.79MB; exact-file serving checks pass. Final public deployment, fresh-cache suite, layouts, motion video and two passing visual reviews remain incomplete. **Do not spend the next pass on tint or texture density: change the plant-community and treatment construction materially.**

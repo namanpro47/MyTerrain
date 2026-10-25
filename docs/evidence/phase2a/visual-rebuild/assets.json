@@ -446,6 +446,60 @@
           "sha256": "85757a664fe95a0d3fb334c6fa7970b95e89ae674b56fbd78506e429aa8cdcc6"
         }
       ]
+    },
+    {
+      "name": "Stylized Grass & Dirt",
+      "creator": "JulioVII / Julio Sillet",
+      "source": "https://juliovii.itch.io/ftpgrass-dirt",
+      "acquired": "2026-10-24",
+      "archive": "Builds/ArtResearch/JulioGrassDirt/Stylized_GrassAndDirt.zip",
+      "sha256": "706bddc944f28c751a99fccbbd90f8b00cf5f89ea57f534b74aacc469733fd0d",
+      "license": "Creator page declares CC-BY (version unspecified); commercial application allowed except reselling. Archive contains no separate license file.",
+      "contents": "9 JPEG color/PBR families plus Blender file; no Unity shaders/demo. Paid Substance sources not acquired.",
+      "adaptation": "Four original color+normalogl pairs imported unchanged. Runtime color, scale, blend and relief adaptation. Max import resolution 2048, normal-map type, mipmaps and 4x anisotropy. Attribution in field guide.",
+      "selection": "Grass01 rejected as too broad/cloudy in28a/b. Grass02 with GrassAndDirt01, Dirt01, Stones02 exported for28 Chrome evaluation. No quality acceptance.",
+      "files": [
+        {
+          "path": "Assets/Terra/Resources/JulioGround/EdgeNormal.jpg",
+          "bytes": 401014,
+          "sha256": "ab377ce691d9324693d309bef418abd68793b793194caf061be387d725ab82c8"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/StonesNormal.jpg",
+          "bytes": 611206,
+          "sha256": "3397ae4dfb4fb4bd9fa7458b0da87a7271a18e81e7077ecfa652ff62d4395318"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/MeadowColor.jpg",
+          "bytes": 1619157,
+          "sha256": "76afde163ede9dd872afa8752d77d3c6a2a43df516192a9781aa042549d30fa9"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/EarthColor.jpg",
+          "bytes": 614893,
+          "sha256": "30db1e5d476cd810c116cf68c48e36fdaaa2c3697ef3acfbf356c02419747864"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/StonesColor.jpg",
+          "bytes": 618478,
+          "sha256": "dd414490ffddd55b6ca5ee564164f5d5a7d255f094352baf485c3d8f74fdd59e"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/EarthNormal.jpg",
+          "bytes": 658551,
+          "sha256": "45e6f23f6234f14ed1df9290beb4a5368e4822e4528441dfb213e0f6920a2f9a"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/EdgeColor.jpg",
+          "bytes": 669009,
+          "sha256": "5ce27b8f5e479da92acb2801f09611c7767376d7c680507e4a10fcfa9ce230df"
+        },
+        {
+          "path": "Assets/Terra/Resources/JulioGround/MeadowNormal.jpg",
+          "bytes": 851838,
+          "sha256": "ea510ef6122b232dad3c2b5351dcc04b84f15d27d6e4bb4d557c354b824c1dd0"
+        }
+      ]
     }
   ],
   "researchExclusions": [

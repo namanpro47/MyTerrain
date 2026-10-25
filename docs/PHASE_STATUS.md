@@ -30,9 +30,9 @@
 - **Design references:** TN-01/03/04/05/08, CS-01/02/04, AX-01. No new browser comparison is claimed for a documentation-only revision; later gates explicitly require real Chrome output versus an accepted Phase 2A benchmark.
 - **Verification:** [planning audit](evidence/planning/annual-gameplay-2026-10-24.md) records source/table reconciliation, local-link checks, diff hygiene and preservation of unrelated working changes. No runtime test counts are inferred from this document review.
 
-## Current Phase 2A checkpoint — study27
+## Current Phase 2A checkpoint — study28e
 
-[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Study26 corrects giant grass/flower scales and tests a forest-edge opening;27 replaces floating treatment-color meshes with a reversible terrain-material map. Source geography/accounting are unchanged. Renderer state checks and actual Chrome preview/cancel, replacement-cancel, Restore/undo pass at1280×720 CSS/render buffer. Moving diagnosticp95=67ms fails; no error-level logs. Broad ground, field repetition, plant communities and swale appearance remain substantially below reference. **No visual dimension is certified at4.5.** Local export identity verified; no current public deployment or annual-gameplay claim. [Full evidence](evidence/phase2a/visual-rebuild/README.md) · [isolated handoff](VISUAL_WORK_HANDOFF.md).
+[Current visual review](CURRENT_VISUAL_REVIEW.md) keeps actual Chrome output beside Terra Nil. Free JulioVII material family, alpha-safe foliage and matching shadow/depth passes, closer orthographic framing and nonrepeating paint sampling tested in Chrome.28d Restore/undo passes; moving samplep95=123ms initially, then33ms after superseded visual tabs closed; full performance gate pending.28e archives21 unused resources without deleting them; exact checked transfer36.79MB. **Visual gate remains failed:** composition, sparse communities, mechanical cultivation and swale construction are substantial gaps. No4.5 ratings or current public/annual acceptance. [Evidence](evidence/phase2a/visual-rebuild/README.md) · [integration handoff](VISUAL_WORK_HANDOFF.md).
 
 ## Fresh-build publication — October 24, 2026, 18:12 local
 

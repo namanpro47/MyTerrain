@@ -12,16 +12,7 @@ Shader "Terra/Artist Leaves"
     {
         Tags {"RenderType"="TransparentCutout" "Queue"="AlphaTest" "RenderPipeline"="UniversalPipeline"}
         Cull Off
-        Pass
-        {
-            Tags {"LightMode"="UniversalForward"}
-            AlphaToMask On
-            HLSLPROGRAM
-            #pragma vertex Vert
-            #pragma fragment Frag
-            #pragma multi_compile_instancing
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
-            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+        HLSLINCLUDE
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             CBUFFER_START(UnityPerMaterial)
@@ -32,6 +23,17 @@ Shader "Terra/Artist Leaves"
                 float4 _CrownExtent;
             CBUFFER_END
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
+        ENDHLSL
+        Pass
+        {
+            Tags {"LightMode"="UniversalForward"}
+            AlphaToMask On
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Frag
+            #pragma multi_compile_instancing
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
             struct A {float4 positionOS:POSITION;float3 normalOS:NORMAL;float2 uv:TEXCOORD0;UNITY_VERTEX_INPUT_INSTANCE_ID};
             struct V {float4 positionCS:SV_POSITION;float3 positionWS:TEXCOORD0;half3 normalWS:TEXCOORD1;float2 uv:TEXCOORD2;half variation:TEXCOORD3;};
             V Vert(A input)
@@ -61,7 +63,55 @@ Shader "Terra/Artist Leaves"
             }
             ENDHLSL
         }
-        UsePass "Universal Render Pipeline/Simple Lit/ShadowCaster"
-        UsePass "Universal Render Pipeline/Simple Lit/DepthOnly"
+        // Own alpha-tested passes share the exact material layout with the visible crown.
+        // A borrowed opaque Simple Lit pass casts leaf-card rectangles and mismatches its buffer.
+        Pass
+        {
+            Name "ShadowCaster"
+            Tags {"LightMode"="ShadowCaster"}
+            ZWrite On ZTest LEqual ColorMask 0
+            HLSLPROGRAM
+            #pragma vertex ShadowVert
+            #pragma fragment CutoutFrag
+            #pragma multi_compile_instancing
+            #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+            float3 _LightDirection;
+            float3 _LightPosition;
+            struct SA {float4 positionOS:POSITION;float3 normalOS:NORMAL;float2 uv:TEXCOORD0;UNITY_VERTEX_INPUT_INSTANCE_ID};
+            struct SV {float4 positionCS:SV_POSITION;float2 uv:TEXCOORD0;};
+            SV ShadowVert(SA input)
+            {
+                UNITY_SETUP_INSTANCE_ID(input);
+                SV o;float3 pos=TransformObjectToWorld(input.positionOS.xyz);
+                float3 n=TransformObjectToWorldNormal(input.normalOS);
+                #if _CASTING_PUNCTUAL_LIGHT_SHADOW
+                float3 lightDirection=normalize(_LightPosition-pos);
+                #else
+                float3 lightDirection=_LightDirection;
+                #endif
+                o.positionCS=ApplyShadowClamping(TransformWorldToHClip(ApplyShadowBias(pos,n,lightDirection)));
+                o.uv=TRANSFORM_TEX(input.uv,_BaseMap);return o;
+            }
+            half4 CutoutFrag(SV input):SV_Target
+            {clip(SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,input.uv).a*_BaseColor.a-_Cutoff);return 0;}
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "DepthOnly"
+            Tags {"LightMode"="DepthOnly"}
+            ZWrite On ColorMask R
+            HLSLPROGRAM
+            #pragma vertex DepthVert
+            #pragma fragment DepthFrag
+            #pragma multi_compile_instancing
+            struct DA {float4 positionOS:POSITION;float2 uv:TEXCOORD0;UNITY_VERTEX_INPUT_INSTANCE_ID};
+            struct DV {float4 positionCS:SV_POSITION;float2 uv:TEXCOORD0;};
+            DV DepthVert(DA input)
+            {UNITY_SETUP_INSTANCE_ID(input);DV o;o.positionCS=TransformObjectToHClip(input.positionOS.xyz);o.uv=TRANSFORM_TEX(input.uv,_BaseMap);return o;}
+            half4 DepthFrag(DV input):SV_Target
+            {clip(SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,input.uv).a*_BaseColor.a-_Cutoff);return input.positionCS.z;}
+            ENDHLSL
+        }
     }
 }

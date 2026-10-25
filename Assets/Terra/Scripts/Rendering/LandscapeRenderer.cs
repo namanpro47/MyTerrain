@@ -130,12 +130,15 @@ namespace Terra.Rendering
             }
             visualCover.SetPixels(pixels);visualCover.Apply();
             var material=GroundMat(Color.white);material.SetFloat("_SurfaceKind",3);
-            material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));
-            material.SetTexture("_BankMap",Resources.Load<Texture2D>("ArtistDirtGround"));
-            material.SetTexture("_GrassNormal",Resources.Load<Texture2D>("ArtistGrassNormal"));
-            material.SetTexture("_EarthNormal",Resources.Load<Texture2D>("ArtistDirtNormal"));
-            material.SetTexture("_MeadowPaint",Resources.Load<Texture2D>("MeadowPaint"));
-            material.SetTexture("_MeadowRelief",Resources.Load<Texture2D>("MeadowRelief"));
+            // A single artist-authored ground family supplies color and matching relief.
+            material.SetTexture("_BaseMap",Resources.Load<Texture2D>("JulioGround/EdgeColor"));
+            material.SetTexture("_BankMap",Resources.Load<Texture2D>("JulioGround/EarthColor"));
+            material.SetTexture("_GrassNormal",Resources.Load<Texture2D>("JulioGround/EdgeNormal"));
+            material.SetTexture("_EarthNormal",Resources.Load<Texture2D>("JulioGround/EarthNormal"));
+            material.SetTexture("_MeadowPaint",Resources.Load<Texture2D>("JulioGround/MeadowColor"));
+            material.SetTexture("_MeadowRelief",Resources.Load<Texture2D>("JulioGround/MeadowNormal"));
+            material.SetTexture("_StonesPaint",Resources.Load<Texture2D>("JulioGround/StonesColor"));
+            material.SetTexture("_StonesNormal",Resources.Load<Texture2D>("JulioGround/StonesNormal"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
             CreateTreatmentSurface(material);
             BuildPathMask(material);

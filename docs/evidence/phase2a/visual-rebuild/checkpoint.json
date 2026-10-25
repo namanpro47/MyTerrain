@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
-  "documentation": "Studies26/27 source/export and Chrome evidence recorded. Visual and performance gates remain failed.",
+  "documentation": "Study28e source/export and Chrome evidence; specific rendering improvements, visual gate remains failed.",
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
@@ -12,7 +12,7 @@
     "Final matched reviews, browser sizes, video, three performance routes, fresh loads and public delivery"
   ],
   "temporarySettings": "Own Unity Play stopped, background override off; auto-tick prior setting retained. Browser viewport reset after captures; current local tab retained.",
-  "nextDecision": "Substantially stronger coherent material/foliage direction and closer representative composition; do not repeat density/tint. Inspect terrain whole-mesh cost and leaf shadow/depth configuration without assuming cause.",
+  "nextDecision": "Materially rebuild plant-community and swale/treatment construction. Retain ground-family and leaf fixes provisionally; stop tint/density trials. Improve framing that currently clips bridge.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -28,7 +28,7 @@
     "console": "No errors returned; existing FSR warning"
   },
   "stateChecksNote": "139 real-pack checks passed at study12; not rerun for rendering-only edits. Study14 Chrome cultivation/restoration/undo verified; transformed batch bounds checked with zero corner failures.",
-  "resourceCandidate": "rubberduck CC0 grass02 paint+matching normal, unchanged pixels; runtime exposure/saturation. PamNawi CC0 paint rejected. Erces tree family retained. Grass palette mip bleed corrected; no paid or generated assets.",
+  "resourceCandidate": "JulioVII free CC-BY grass02, edge, earth and stone family; original pixels, runtime adaptation. Erces leaves alpha-safe imports and own cutout passes.21 inactive resources archived outside Resources.",
   "historicalStudy17BrowserChecks": {
     "scope": "Study17 normal, creek close, overview, settled cultivation/restoration/swale and undo",
     "cultivateCommit": {
@@ -461,5 +461,15 @@
     "consoleErrors": 0,
     "visual": "failed; no dimension certified at4.5",
     "publicDeployment": "not performed"
+  },
+  "study28": {
+    "export28": "1744654796bf46a4bf26394e8c3a205c",
+    "export28d": "a4179d06cd2e42bea61309870ecf8a8c",
+    "export28e": "19bdef6a164742e4a4300f572e87fe81",
+    "bytes28e": 36787416,
+    "archiveCount": 21,
+    "visualPass": false,
+    "performance": "28d first p95=123/max224; repeat after duplicate tab cleanup p95=33/p99=36/max40. No full acceptance suite.",
+    "checks": "Compile zero errors/warnings, ground/leaves no shader messages;28/28d Restore/undo;28d credits;28e1280 CSS/render, Restore5/42\u2192undo6/60 rev2, no errors, scenery1076ms, ordinary navigation7157ms."
   }
 }
