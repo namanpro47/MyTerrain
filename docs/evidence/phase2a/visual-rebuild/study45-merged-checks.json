@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return new { atlas=AtlasLocationChecks.Run(), annual=FullAnnualGameChecks.Run() };",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "atlas": "Atlas locations: 678 assertions passed; three distinct packs, 17 variants per pack, ten-year outcomes, save replay and cross-location rejection.",
+        "annual": "Full annual game: 34 Unity lifecycle/JSON checks; 127 eligible offers, 17 variants / 12 source families."
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

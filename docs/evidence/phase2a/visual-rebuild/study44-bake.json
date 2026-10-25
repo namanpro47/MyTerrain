@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study44-bake.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        {
+          "name": "NormalTree_1",
+          "height": 6.86662054,
+          "bottom": 0,
+          "vertices": 10379,
+          "triangles": 8520,
+          "submeshes": 2
+        },
+        {
+          "name": "NormalTree_3",
+          "height": 5.28103828,
+          "bottom": 0,
+          "vertices": 7340,
+          "triangles": 7096,
+          "submeshes": 2
+        },
+        {
+          "name": "NormalTree_5",
+          "height": 2.980054,
+          "bottom": 0,
+          "vertices": 2469,
+          "triangles": 2182,
+          "submeshes": 2
+        }
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,55 @@
+Shader "TerraStudies/ContinuousSward"
+{
+Properties { _Layer("Layer",Range(0,1))=0.5 _Height("Height",Float)=0.5 _MeadowPaint("Ground paint",2D)="white"{} _LandCoverMap("Cover",2D)="black"{} _PathMap("Paths",2D)="white"{} _RiverMap("River",2D)="white"{} _LandBounds("Bounds",Vector)=(0,0,1,1) }
+SubShader { Tags { "RenderPipeline"="UniversalPipeline" "Queue"="AlphaTest" "RenderType"="TransparentCutout" }
+Pass { Tags { "LightMode"="UniversalForward" } Cull Back ZWrite On
+HLSLPROGRAM
+#pragma vertex Vert
+#pragma fragment Frag
+#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+#pragma multi_compile_fragment _ _SHADOWS_SOFT
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+TEXTURE2D(_MeadowPaint); SAMPLER(sampler_MeadowPaint);
+TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
+TEXTURE2D(_PathMap); SAMPLER(sampler_PathMap);
+TEXTURE2D(_RiverMap); SAMPLER(sampler_RiverMap);
+CBUFFER_START(UnityPerMaterial)
+float _Layer,_Height;float4 _LandBounds;
+CBUFFER_END
+float Hash(float2 p){return frac(sin(dot(p,float2(127.1,311.7)))*43758.5453);}
+float Noise(float2 p){float2 i=floor(p),f=frac(p);f=f*f*(3-2*f);return lerp(lerp(Hash(i),Hash(i+float2(1,0)),f.x),lerp(Hash(i+float2(0,1)),Hash(i+1),f.x),f.y);}
+struct A {float4 positionOS:POSITION; float3 normalOS:NORMAL;};
+struct V {float4 positionCS:SV_POSITION;float3 p:TEXCOORD0;half3 n:TEXCOORD1;float3 base:TEXCOORD2;};
+V Vert(A i){V o;o.base=TransformObjectToWorld(i.positionOS.xyz);float2 p=o.base.xz;float drift=Noise(p*.31)*.6+Noise(p*.08)*.4;float height=_Height*lerp(.35,1.25,drift);o.p=o.base+float3(0,_Layer*height,0);o.n=TransformObjectToWorldNormal(i.normalOS);o.positionCS=TransformWorldToHClip(o.p);return o;}
+half4 Frag(V i):SV_Target
+{
+float2 uv=(i.base.xz-_LandBounds.xy)/_LandBounds.zw;
+float4 cover=SAMPLE_TEXTURE2D(_LandCoverMap,sampler_LandCoverMap,uv);
+float road=SAMPLE_TEXTURE2D(_PathMap,sampler_PathMap,uv).r;
+float river=SAMPLE_TEXTURE2D(_RiverMap,sampler_RiverMap,uv).r;
+clip(cover.b-.55);clip(road-.8);clip(river-.43);
+float2 p=i.base.xz;float drift=Noise(p*.31)*.6+Noise(p*.08)*.4;
+float2 blade=p*5.5+float2(_Layer*.33,_Layer*.14);
+float2 cell=floor(blade),local=frac(blade)-.5;
+float rnd=Hash(cell);float2 bend=float2(Hash(cell+27),Hash(cell+61))-.5;
+float radius=lerp(.46,.08,_Layer);
+float shape=length(local+bend*.6)-radius;
+float worldPixel=max(length(ddx(p)),length(ddy(p)));
+float coarse=saturate((worldPixel-.08)/.35);
+float density=lerp(-shape,.38-_Layer,coarse);
+clip(density);clip(lerp(.42,1,drift)-_Layer*.8);
+half3 paint=SAMPLE_TEXTURE2D(_MeadowPaint,sampler_MeadowPaint,p/12).rgb;
+half luma=dot(paint,half3(.2126,.7152,.0722));
+half3 albedo=half3(.22,.36,.095)*lerp(.85,1.15,drift);
+albedo*=lerp(.88,1.10,saturate(luma*2));
+albedo*=lerp(.59,1.12,pow(_Layer,.7));
+Light light=GetMainLight(TransformWorldToShadowCoord(i.base));
+half ndl=saturate(dot(normalize(i.n),light.direction));
+half3 lighting=SampleSH(normalize(i.n))+light.color*ndl*light.shadowAttenuation;
+return half4(albedo*lighting,1);
+}
+ENDHLSL
+}
+}
+}

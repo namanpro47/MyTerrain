@@ -1,5 +1,7 @@
 # Phase 2A visual rebuild evidence
 
+Latest: [Studies 47–48 checkpoint](study48-checkpoint.md) — rejected meadow trials and an integrated terrain-relief candidate; compile passes, fresh gameplay/browser validation pending. **Visual gate remains open.**
+
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 
 Read the [operative goal](../../../PHASE_2A_GOAL.md) and [visual research](../../../VISUAL_REBUILD.md). The prior [wide](../captures/1280-default.png) and [close](../captures/1280-close.png) captures are the rejected baseline.

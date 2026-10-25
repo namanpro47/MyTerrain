@@ -1,0 +1,28 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var type=main.GetType();var land=(Terra.Rendering.LandscapeRenderer)type.GetField("landscape",flags).GetValue(main);
+if(land==null)throw new System.InvalidOperationException("Landscape not ready");
+type.GetField("target",flags).SetValue(main,new UnityEngine.Vector3(40,65,160));type.GetField("zoom",flags).SetValue(main,45f);type.GetField("pitch",flags).SetValue(main,36f);type.GetField("yaw",flags).SetValue(main,-32f);type.GetField("perspective",flags).SetValue(main,true);type.GetMethod("ApplyView",flags).Invoke(main,null);
+var prior=UnityEngine.GameObject.Find("Study35 native understory");if(prior!=null)UnityEngine.Object.Destroy(prior);
+var root=new UnityEngine.GameObject("Study35 native understory");
+var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/TriForge Assets/Fantasy Worlds - DEMO Content/Prefabs/P_fwOF_ForestPlant_B_02.prefab");
+var mesh=source.GetComponent<UnityEngine.MeshFilter>().sharedMesh;var random=new System.Random(3501);float R(float a,float b)=>a+(float)random.NextDouble()*(b-a);
+int count=0;var near=land.GetType().GetMethod("NearLine",flags);
+for(float cz=0;cz<360;cz+=60)for(float cx=-150;cx<210;cx+=60){
+ var list=new System.Collections.Generic.List<UnityEngine.Matrix4x4>();
+ for(float z=cz+2;z<cz+60;z+=4)for(float x=cx+2;x<cx+60;x+=4){
+  float patch=UnityEngine.Mathf.PerlinNoise((x+2100)*.035f,(z+700)*.035f);
+  if(patch<.43f||land.CoverAt(x,z)!="woodland")continue;
+  bool edge=land.CoverAt(x-12,z)!="woodland"||land.CoverAt(x+12,z)!="woodland"||land.CoverAt(x,z-12)!="woodland"||land.CoverAt(x,z+12)!="woodland";
+  // Shade-tolerant illustrative colonies, denser at openings, with original plant geometry/material.
+  int plants=edge?12:7;
+  for(int i=0;i<plants;i++){
+   float px=x+R(-2.4f,2.4f),pz=z+R(-2.4f,2.4f);
+   if(land.CoverAt(px,pz)!="woodland"||(bool)near.Invoke(land,new object[]{px,pz,4f}))continue;
+   float scale=R(1.3f,2.3f);
+   list.Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(px,land.Height(px,pz)-mesh.bounds.min.y*scale,pz),UnityEngine.Quaternion.Euler(0,R(0,360),0),UnityEngine.Vector3.one*scale));count++;
+  }
+ }
+ var batch=new UnityEngine.GameObject("Understory patch");batch.transform.SetParent(root.transform,false);batch.AddComponent<Terra.Rendering.InstancedNature>().Add(source,list,UnityEngine.Color.white);
+}
+return new{count,trianglesPerPlant=mesh.triangles.Length/3,heightMeters=mesh.bounds.size.y,frame=UnityEngine.Time.frameCount,state=main.Diagnostic};

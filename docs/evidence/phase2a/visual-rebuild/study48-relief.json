@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study48-relief.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "meshCount": 202,
+        "vertices": 714415,
+        "instances": 393806,
+        "maxShift": 2.30962372,
+        "sourceWorldByteIdentical": true,
+        "annualState": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "temporaryDisplayAbstraction": true,
+        "frame": 4491
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

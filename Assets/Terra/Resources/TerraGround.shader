@@ -6,6 +6,7 @@ Shader "Terra/Illustrated Ground"
         _BaseMap("Base",2D)="white"{}
         _BankMap("Artist earth surface",2D)="white"{}
         _MeadowPaint("Painted meadow",2D)="white"{}
+        _MeadowScale("Meadow paint metres per tile",Float)=40
         _MeadowRelief("Matching painted meadow relief",2D)="bump"{}
         _GrassNormal("Artist grass relief",2D)="bump"{}
         _EarthNormal("Artist earth relief",2D)="bump"{}
@@ -14,6 +15,7 @@ Shader "Terra/Illustrated Ground"
         _Cutoff("Cutoff",Range(0,1))=0.5
         _SurfaceKind("Decorative surface",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
+        _CanopyMap("Illustrative tree footprint",2D)="black"{}
         _TreatmentMap("Reversible surface changes",2D)="black"{}
         _RiverMap("Illustrative bank distance",2D)="white"{}
         _PathMap("Mapped route union",2D)="white"{}
@@ -38,9 +40,11 @@ Shader "Terra/Illustrated Ground"
                 float4 _BaseMap_ST;
                 half _Cutoff;
                 half _SurfaceKind;
+                float _MeadowScale;
                 float4 _LandBounds;
             CBUFFER_END
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
+            TEXTURE2D(_CanopyMap); SAMPLER(sampler_CanopyMap);
             TEXTURE2D(_TreatmentMap); SAMPLER(sampler_TreatmentMap);
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
             TEXTURE2D(_BankMap); SAMPLER(sampler_BankMap);
@@ -125,7 +129,7 @@ Shader "Terra/Illustrated Ground"
                     cover=lerp(cover,half4(0,treatmentWeights.x,treatmentWeights.y,0),treatment.a);
                     // Readable painted plant/earth communities replace flat color classes.
                     // All relief remains shading: source heights, routes and analytical cover are unchanged.
-                    float2 uv=p/40;
+                    float2 uv=p/max(1,_MeadowScale);
                     half3 grassPaint=PaintedSample(TEXTURE2D_ARGS(_MeadowPaint,sampler_MeadowPaint),uv).rgb;
                     half3 edgePaint=PaintedSample(TEXTURE2D_ARGS(_BaseMap,sampler_BaseMap),uv).rgb;
                     half3 earthPaint=PaintedSample(TEXTURE2D_ARGS(_BankMap,sampler_BankMap),p/9).rgb;
@@ -144,6 +148,11 @@ Shader "Terra/Illustrated Ground"
                     // Keep the source brushwork inside a controlled meadow value range.
                     living=lerp(half3(.23,.38,.12),living,.15)*lerp(half3(1,1,1),grassStrokes,.55);
                     living*=lerp(1,.70,cover.r);
+                    float canopy=SAMPLE_TEXTURE2D(_CanopyMap,sampler_CanopyMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
+                    canopy=saturate(canopy+(Noise(p*.32)-.5)*.25)*cover.r;
+                    half3 litter=earthPaint*half3(.35,.37,.29);
+                    litter=lerp(litter,edgePaint*half3(.24,.40,.23),communities*.45);
+                    living=lerp(living,litter,canopy*.85);
                     float fieldU=p.x-12*sin(p.y*.012)-5*sin(p.y*.029);
                     float row=pow(.5+.5*sin(fieldU*4.654211),3);
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.6);
@@ -169,6 +178,15 @@ Shader "Terra/Illustrated Ground"
                     surfaceNormal=lerp(surfaceNormal,earthN,road);
                     surfaceNormal=normalize(lerp(half3(0,0,1),surfaceNormal,.45*fade));
 
+                }
+                if(_SurfaceKind>2.5) {
+                    half face=1-smoothstep(.62,.92,input.normalWS.y);
+                    float2 faceUV=abs(input.normalWS.x)>abs(input.normalWS.z)?float2(p.y,input.positionWS.y):float2(p.x,input.positionWS.y);
+                    // The artist earth map supplies broad sediment marks; projection
+                    // follows the face rather than stretching the horizontal grass paint.
+                    half3 facePaint=PaintedSample(TEXTURE2D_ARGS(_BankMap,sampler_BankMap),faceUV/float2(10,6)).rgb;
+                    albedo=lerp(albedo,facePaint*half3(.34,.35,.32),face);
+                    surfaceNormal=lerp(surfaceNormal,half3(0,0,1),face);
                 }
                 half3 normal=normalize(input.normalWS);
                 half3 tangent=normalize(half3(normal.y,-normal.x,0));

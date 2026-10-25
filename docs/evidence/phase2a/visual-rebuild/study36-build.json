@@ -1,0 +1,103 @@
+{
+  "sourceCommit": "a54d2fe91a240ca3cd6addd827032a04369a91d0",
+  "dirtyTrackedInputs": [
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/DOTween.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta",
+      "sha256": null
+    },
+    {
+      "path": "Assets/Settings/PC_RPAsset.asset",
+      "sha256": "fc735b492306d3f90c87573f0ce0bc30c8bf17aae19f1bf1275a7d89e72760e7"
+    },
+    {
+      "path": "Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+      "sha256": "f53586850a70c4f308e7e71b99b63881a49f38de4bd40f4edb7fe7ae6ecf8a52"
+    },
+    {
+      "path": "ProjectSettings/Packages/com.unity.pipeline/EditorPipelineConfig.json",
+      "sha256": "06a1c9835f436c094ef005b36badac9d812743aeca512a75a0880061adf78dc2"
+    }
+  ],
+  "worldPack": [
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/hydrology.json",
+      "sha256": "452ec23f4748828feb3d1d6f5407eac328f2cda63f7f287284f5a0972f1e955c"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/manifest.json",
+      "sha256": "99205285bec4cd9f551d47190cfe32c52275ebf6accd860ebd2d1d719f5c120a"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/scenario.json",
+      "sha256": "53deffff04b15d7697f11afa27f67f21c5ff4885b80bf76613d81c452d4ef004"
+    },
+    {
+      "path": "Assets/StreamingAssets/WorldPacks/meadowbrook-v1/world.json",
+      "sha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6"
+    }
+  ],
+  "jobId": "8d697c1341974ae4ac70359fe08395ca",
+  "state": "completed",
+  "result": "Study36 export completed; Chrome diagnostic complete; visual/performance acceptance remains open",
+  "postRefreshSerialization": {
+    "path": "Assets/Terra/Art/ExternalKit/BuildActions/Materials/flower.mat",
+    "sha256": "de7d7006082fb48fce4f9eeb86a44510b3e88e8670b69f3be6098f74241e71fd",
+    "note": "Unity normalized one _Color red float 0.78431374 to 0.7843137 during refresh/build; _BaseColor unchanged. Excluded from intentional source edits."
+  },
+  "buildMilliseconds": 269276,
+  "buildCompletedAt": "2026-10-25T07:03:39.292966Z",
+  "compressedBytes": 47796786,
+  "files": 9,
+  "viewport": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "height": 720,
+    "visibility": "visible",
+    "width": 1280
+  },
+  "performance": [
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE_STARTED: 30-second actual camera/placement path\n",
+      "timestamp": "2026-10-25T07:07:28.377Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    },
+    {
+      "level": "log",
+      "message": "TERRA_PERFORMANCE: {\"seconds\":30.016998291015625,\"averageFps\":46.34040832519531,\"frameP50Ms\":20.0,\"frameP95Ms\":32.0,\"frameP99Ms\":40.0,\"maxFrameMs\":52.0,\"maxPreviewCpuMs\":6.099999904632568,\"maxPlacementCpuMs\":19.600000381469727,\"frames\":1391,\"framesOver33Ms\":57,\"framesOver200Ms\":0,\"previewEvents\":5,\"placementEvents\":1,\"cameraEvents\":392,\"unfocusedFrames\":0}\n",
+      "timestamp": "2026-10-25T07:07:58.397Z",
+      "url": "blob:http://127.0.0.1:59134/5227b512-e5de-4721-b0df-b629c8ddd4f4"
+    }
+  ],
+  "limitations": [
+    "One diagnostic route, not the full three-path acceptance suite",
+    "46.34 average FPS versus study34b 59.94; no performance acceptance",
+    "Annual proposed/undo verified; established/mature shader colors still need pixel review",
+    "Visual reference gap remains; no accepted Phase 2A dimensions",
+    "Tracked source plus explicitly recorded local generated inputs; not a clean-worktree reproducibility claim"
+  ],
+  "captures": [
+    {
+      "file": "study36-chrome-close.png",
+      "sha256": "1dffaaea9cfaf458e311f54f3432bf39ca45212c64b13a02c5ddecc51b329784"
+    },
+    {
+      "file": "study36-chrome-opening.png",
+      "sha256": "77cf533fed6607d7bf8044b49ad45584822f0f775bb866eb71492d63bc940add"
+    },
+    {
+      "file": "study36-chrome-overview.png",
+      "sha256": "d2fb851f494efeadd08bb3207308138cfc3039b00f07355b050bf0ac61cc8f9f"
+    },
+    {
+      "file": "study36-chrome-queued.png",
+      "sha256": "b624033068a59b9a76ce24965d35bb8fdbf0d36a35f45687e77c8f1f018e06c9"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Public;
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();var land=(Terra.Rendering.LandscapeRenderer)main.GetType().GetField("landscape",flags).GetValue(main);
+var world=(Terra.Contracts.WorldData)land.GetType().GetField("world",flags).GetValue(land);var contains=land.GetType().GetMethod("Contains",flags|System.Reflection.BindingFlags.Static);var near=land.GetType().GetMethod("NearLine",flags);
+bool Region(float x,float z)=>x>-330&&x<170&&z>-230&&z<180;
+bool Site(float x,float z)=>world.sites.Any(s=>(bool)contains.Invoke(null,new object[]{s.polygon,x,z}));
+bool Near(float x,float z)=>(bool)near.Invoke(land,new object[]{x,z,4f});
+int removed=0;foreach(var nature in UnityEngine.Object.FindObjectsByType<Terra.Rendering.InstancedNature>(UnityEngine.FindObjectsSortMode.None))
+{
+ var batches=(System.Collections.IList)nature.GetType().GetField("batches",flags).GetValue(nature);
+ for(int k=batches.Count-1;k>=0;k--){var b=batches[k];var bt=b.GetType();if(!(bool)bt.GetField("groundcover",flags).GetValue(b))continue;var old=(UnityEngine.Matrix4x4[])bt.GetField("transforms",flags).GetValue(b);var keep=old.Where(m=>{var p=m.GetColumn(3);return !Region(p.x,p.z)||Site(p.x,p.z);}).ToArray();removed+=old.Length-keep.Length;if(keep.Length==0)batches.RemoveAt(k);else bt.GetField("transforms",flags).SetValue(b,keep);}
+}
+var root=new UnityEngine.GameObject("Study47 native artist meadow");var models=new System.Collections.Generic.List<UnityEngine.GameObject>();
+var texture=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>("Assets/Terra/Art/YughuesGrassStudy/diffuse.tga");
+foreach(string id in new[]{"01_t","02_t","03_t","04_t"})
+{
+ var source=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>("Assets/Terra/Art/YughuesGrassStudy/"+id+".obj");var child=UnityEngine.Object.Instantiate(source);var mesh=child.GetComponentInChildren<UnityEngine.MeshFilter>().sharedMesh;var bounds=mesh.bounds;var model=new UnityEngine.GameObject("Study47 "+id);model.transform.SetParent(root.transform,false);child.transform.SetParent(model.transform,false);child.transform.localScale=UnityEngine.Vector3.one/bounds.size.y;child.transform.localPosition=-new UnityEngine.Vector3(bounds.center.x,bounds.min.y,bounds.center.z)/bounds.size.y;
+ var mat=new UnityEngine.Material(UnityEngine.Shader.Find("Universal Render Pipeline/Simple Lit")){name="Study47 native grass "+id,enableInstancing=true};mat.SetTexture("_BaseMap",texture);mat.SetColor("_BaseColor",UnityEngine.Color.white);mat.SetFloat("_AlphaClip",1);mat.SetFloat("_Cutoff",.5f);mat.SetFloat("_Cull",0);mat.SetFloat("_Smoothness",0);mat.EnableKeyword("_ALPHATEST_ON");mat.renderQueue=2450;
+ foreach(var r in child.GetComponentsInChildren<UnityEngine.MeshRenderer>())r.sharedMaterial=mat;model.SetActive(false);models.Add(model);
+}
+var rng=new System.Random(4777);float J(float a,float b)=>a+(float)rng.NextDouble()*(b-a);int count=0;
+for(float z0=-230;z0<180;z0+=64)for(float x0=-330;x0<170;x0+=64)
+{
+ var lists=models.Select(m=>new System.Collections.Generic.List<UnityEngine.Matrix4x4>()).ToArray();
+ for(float z=z0+.5f;z<UnityEngine.Mathf.Min(z0+64,180);z+=1.1f)for(float x=x0+.5f;x<UnityEngine.Mathf.Min(x0+64,170);x+=1.1f)
+ {
+  float px=x+J(-.45f,.45f),pz=z+J(-.45f,.45f);var cover=land.CoverAt(px,pz);if((cover!="grass"&&cover!="sealed")||Site(px,pz)||Near(px,pz))continue;
+  float patch=UnityEngine.Mathf.PerlinNoise(px*.028f+19,pz*.028f+71);float growth=UnityEngine.Mathf.SmoothStep(0,1,UnityEngine.Mathf.InverseLerp(.22f,.7f,patch));float h=UnityEngine.Mathf.Lerp(.48f,1.65f,growth)*J(.85f,1.15f);int variant=patch>.57f?1:patch<.39f?2:0;
+  lists[variant].Add(UnityEngine.Matrix4x4.TRS(new UnityEngine.Vector3(px,land.Height(px,pz)-.07f,pz),UnityEngine.Quaternion.Euler(0,J(0,360),0),new UnityEngine.Vector3(h*1.8f,h,h*1.8f)));count++;
+ }
+ var tile=new UnityEngine.GameObject("Study47 meadow tile");tile.transform.SetParent(root.transform,false);var n=tile.AddComponent<Terra.Rendering.InstancedNature>();for(int i=0;i<models.Count;i++)n.Add(models[i],lists[i],UnityEngine.Color.white);
+}
+return new{removed,plants=count,variants=models.Count,temporaryOnly=true,frame=UnityEngine.Time.frameCount};

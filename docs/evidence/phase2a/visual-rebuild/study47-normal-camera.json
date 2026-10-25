@@ -1,0 +1,36 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/tmp/terra-study40-camera.cs",
+      "timeout": "60"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 116139,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+        "camera": "(51.97, 203.57, -297.20)",
+        "pixelHeight": 720,
+        "nature": [
+          "Clustered woodland tile",
+          "Clustered woodland tile",
+          "Clustered woodland tile",
+          "Meadowbrook Valley landscape",
+          "Grassland patch"
+        ]
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

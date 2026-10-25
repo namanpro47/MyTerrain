@@ -1,0 +1,72 @@
+[
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/ClusterLeaves.shader",
+    "bytes": 5946,
+    "sha256": "a85a769a842a61e97e2c77f748ad07cf151948dd4440f0ee29589d9605e57d32"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1.asset",
+    "bytes": 1102587,
+    "sha256": "c552c5ab541fc9f1dfd485d70d7f482713aec45c31eb5fa739c86ea59d483f0a"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1.prefab",
+    "bytes": 2711,
+    "sha256": "38e5208baf38008f70d4c9a7d297be77f31b19d5fea66f202ad8b8c3d715b77a"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_1-leaves.mat",
+    "bytes": 3708,
+    "sha256": "3926fa4a8364b2cc373cd795f0f08a3ad6b3b632b7f97d060337c4602e70c49e"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3.asset",
+    "bytes": 793752,
+    "sha256": "8eb2f7d2e2120d1d0dff0882a7ca1d28ab164a3d6cefa675dedf4a4386f9881b"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3.prefab",
+    "bytes": 2711,
+    "sha256": "3ebf81966ef3055edbd811e62cb95e770b1f083595e9164ae779da14ad307dfe"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_3-leaves.mat",
+    "bytes": 3705,
+    "sha256": "4149c8eb7a0aec7a196f1e35b968cebe57243eaf5d1d62b501c29dfeb9bf99d3"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5.asset",
+    "bytes": 267171,
+    "sha256": "121ab7f3009621255e4e161576b992aaff9a2c14a5dfe4ac71be755859ca4eaa"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5.prefab",
+    "bytes": 2711,
+    "sha256": "f4a8ce8fcab90f6d427739a7fdc9986976815a919aabc3c2a8d9ba4f4e325ce8"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/ClusterStudy/NormalTree_5-leaves.mat",
+    "bytes": 3711,
+    "sha256": "58c4c5088b90b10e8fe51b8b34f3b5ccd9a668632aa876168d0df0717ce96eda"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/Materials/NormalTree_Bark.mat",
+    "bytes": 4073,
+    "sha256": "cf0c018d63301484ce961608480976359002743b071bbc7601107738e42e38af"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Bark.png",
+    "bytes": 20875728,
+    "sha256": "17d8836b4eb3462c486bc0ca596d8d4dcde918c0ce0dd37eec9111b2e175be69"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Bark_Normal.png",
+    "bytes": 19087640,
+    "sha256": "8136a8d6dc18e6b055c7cb53cf42bc6bac41319e102289d8ba25ee5837fbc39b"
+  },
+  {
+    "path": "Assets/Terra/Art/QuaterniusUltimateNature/Textures/NormalTree_Leaves.png",
+    "bytes": 74828,
+    "sha256": "9f662296a285ca56b1ed56e952a198b93b466ae39ab7b6ee1c1ac1bd1c46242f"
+  }
+]
