@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Lightweight stream surface — October 25, 2026
+
+A one-pass stream update uses an explicitly bound free MIT normal texture, preserving reduced motion and the dry-swale output without adding camera copies or geometry. Source `67f867e` exports45.87MB; actual Chrome1280×720 confirms detail, unchanged Year1 ledger, exact motion freeze and zero errors. A matched single foreground sample gives p95 28ms versus25ms control with our Editor closed; final performance and scenery gates remain open. [Exact export, matched views, provenance and limitations](evidence/full-game/water-flow/README.md#corrected-chrome-decision--retain-bounded-improvement). No public deployment or Phase2A acceptance.
+
 ## Reference-led HUD and continuous fields — October 25, 2026
 
 The user's HUD/gap follow-up replaces the sprawling annual overlay with compact navy status panels, a strong USD balance, three equal indicators, pictorial priced project cards and a bottom command strip. Eight southern scenario parcels now share ten edges; surface treatments and planting meet across them. The source geography and metric building footprints stay intact. Definition 3.2 uses separate save keys so old committed histories are retained rather than recalculated.
