@@ -1,5 +1,9 @@
 # Terra — phase status and evidence
 
+## Crop grouping browser comparison — October 25, 2026
+
+[Focused Chrome comparison](evidence/phase2a/crop-spatial-browser-01/README.md) freezes clean-source `d4ae4f2` at 31 byte-verified runtime files / 48.09 MB. Control opening p95 is 18 ms; candidate opening/editing/Year10 are **22 / 39 / 26 ms**, all visible/focused. Editing still fails the 33.3 ms fallback; no browser speedup is established. Actual queue/undo/redo and confirmed two-project Year10 preserve $19.605M and 51.0/58.0/47.5, with zero browser errors. Single fresh-entry observations (18.653 s control / 15.675 s candidate) also miss 15 s. Main receives evidence only. Candidate art/runtime and final visual/performance/public-run/rehearsal/recording gates remain unaccepted.
+
 ## Main production refresh — October 25, 2026
 
 Published clean-source `913c79f`, with runtime/build inputs matching reconciled main `7e95434`, to [terra-browser.vercel.app](https://terra-browser.vercel.app/). Deployment `dpl_DvwrgFpEd8YyYUevRgbyqLXqbR1Z` is Ready; 31 files / 39,997,384 bytes match the frozen export publicly. Fresh Unity build and 804 automated checks passed. Local/public Chrome atlas, landscape, current HUD, placement and undo smoke checks passed with no error-level logs. [Exact identity, files, captures and limits](evidence/deployment-main-2026-10-25/README.md). This refresh does not merge unfinished visual candidates or accept Phase 2A; full public rehearsals and final performance acceptance remain open.
