@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 2,
+  "year": 1,
+  "acceptedTransitionId": "projection-public/finish-year-1",
+  "acceptedTransitionHash": "ccbecd4741071462e56984361f2c6097ad8d248b07ae47de5aeb8ab2f91a6a85",
+  "rulesVersion": "annual-numeric-v4.0.0",
+  "reportVersion": "annual-report-projection-v1",
+  "promptVersion": "report-highlight-selection-v2.0.0",
+  "modelVersion": "gemini-3.5-flash-lite",
+  "title": "Year 1: saved results",
+  "introduction": "Economic 68.8 (-3.8) \u00B7 Social 38.0 (-20.0) \u00B7 Environmental 38.7 (-0.2). Public cash $10,950,000.00 is saved. Scores are authored indices, rounded to 0.1; other non-money summaries are rounded to 0.001.",
+  "facts": [
+    {
+      "id": "budget",
+      "title": "Your saved public budget",
+      "text": "Opening $10,000,000.00; projects $50,000.00; prior debt paid $0.00; programs $0.00; operation $0.00; new repair $0.00; public receipts $0.00; appropriation $1,000,000.00. Closing $10,950,000.00; unpaid obligations $0.00. Private harvest is not public income. Closing cash carries forward without another appropriation.",
+      "siteIds": [],
+      "causalRuleIds": [
+        "annual-numeric-v4.0.0"
+      ]
+    },
+    {
+      "id": "disruption:east-09",
+      "title": "Saved impacts \u00B7 Brye-side field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.599 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "east-09"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "services",
+      "title": "Needs still unmet",
+      "text": "Energy 0; water 0; wastewater 0; housing 12; jobs 32. Each is its own scenario quantity; these values are not interchangeable units. The saved rubric links funded services, resources, output and land condition to the three scores.",
+      "siteIds": [],
+      "causalRuleIds": [
+        "full-rubric-numeric-v4"
+      ]
+    },
+    {
+      "id": "harvest:annual-wind-13",
+      "title": "Harvest \u00B7 Eastern wind opportunity",
+      "text": "corn with existing farming: 8.296 illustrative production units from 2.25 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.445%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "annual-wind-13"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-05",
+      "title": "Harvest \u00B7 Lower central field",
+      "text": "corn with existing farming: 5.769 illustrative production units from 1.56 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.729%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-05"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-02",
+      "title": "Harvest \u00B7 Central field",
+      "text": "corn with existing farming: 5.151 illustrative production units from 1.398 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.412%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-02"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-04",
+      "title": "Harvest \u00B7 Lower west field",
+      "text": "corn with existing farming: 4.865 illustrative production units from 1.32 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.412%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-04"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-03",
+      "title": "Harvest \u00B7 East field",
+      "text": "corn with existing farming: 4.359 illustrative production units from 1.183 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.412%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-03"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-01",
+      "title": "Harvest \u00B7 West field",
+      "text": "corn with existing farming: 3.651 illustrative production units from 0.991 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.412%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-01"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "harvest:south-06",
+      "title": "Harvest \u00B7 Lower east field",
+      "text": "corn with existing farming: 3.396 illustrative production units from 0.919 ha. The saved result combines weather response 97.6%, practice response 100%, and condition at harvest 94.671%. Reference harvest date Oct 15. These are authored responses, not a calibrated yield forecast.",
+      "siteIds": [
+        "south-06"
+      ],
+      "causalRuleIds": [
+        "corn-curve-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-01",
+      "title": "Saved impacts \u00B7 West field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.599 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-01"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-02",
+      "title": "Saved impacts \u00B7 Central field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.599 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-02"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-03",
+      "title": "Saved impacts \u00B7 East field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.599 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-03"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-04",
+      "title": "Saved impacts \u00B7 Lower west field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.599 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-04"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:annual-wind-13",
+      "title": "Saved impacts \u00B7 Eastern wind opportunity",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.567 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "annual-wind-13"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-06",
+      "title": "Saved impacts \u00B7 Lower east field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.34 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-06"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-05",
+      "title": "Saved impacts \u00B7 Lower central field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.282 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-05"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-07",
+      "title": "Saved impacts \u00B7 Meadow edge",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.236 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-07"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:west-10",
+      "title": "Saved impacts \u00B7 Western terrace",
+      "text": "6 recorded heavy-rain impacts reduced condition by 5.022 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "west-10"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:south-08",
+      "title": "Saved impacts \u00B7 Southern field",
+      "text": "6 recorded heavy-rain impacts reduced condition by 3.813 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "south-08"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:reserve-12",
+      "title": "Saved impacts \u00B7 Stream corridor",
+      "text": "6 recorded heavy-rain impacts reduced condition by 3.347 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "reserve-12"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "disruption:reserve-11",
+      "title": "Saved impacts \u00B7 Wooded slope",
+      "text": "6 recorded heavy-rain impacts reduced condition by 2.268 percentage points in total. This site has no recorded crop harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability.",
+      "siteIds": [
+        "reserve-11"
+      ],
+      "causalRuleIds": [
+        "authored-uniform-exposure-connected-groups-v1",
+        "illustrative-connected-rain-v1"
+      ]
+    },
+    {
+      "id": "recovery:annual-wind-13",
+      "title": "Carryover \u00B7 Eastern wind opportunity",
+      "text": "Recorded year-end recovery: 5.567 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "annual-wind-13"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:east-09",
+      "title": "Carryover \u00B7 Brye-side field",
+      "text": "Recorded year-end recovery: 5.599 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "east-09"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:reserve-11",
+      "title": "Carryover \u00B7 Wooded slope",
+      "text": "Recorded year-end recovery: 2.268 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "reserve-11"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:reserve-12",
+      "title": "Carryover \u00B7 Stream corridor",
+      "text": "Recorded year-end recovery: 3.347 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "reserve-12"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-01",
+      "title": "Carryover \u00B7 West field",
+      "text": "Recorded year-end recovery: 5.599 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-01"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-02",
+      "title": "Carryover \u00B7 Central field",
+      "text": "Recorded year-end recovery: 5.599 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-02"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-03",
+      "title": "Carryover \u00B7 East field",
+      "text": "Recorded year-end recovery: 5.599 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-03"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-04",
+      "title": "Carryover \u00B7 Lower west field",
+      "text": "Recorded year-end recovery: 5.599 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-04"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-05",
+      "title": "Carryover \u00B7 Lower central field",
+      "text": "Recorded year-end recovery: 5.282 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-05"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-06",
+      "title": "Carryover \u00B7 Lower east field",
+      "text": "Recorded year-end recovery: 5.34 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-06"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-07",
+      "title": "Carryover \u00B7 Meadow edge",
+      "text": "Recorded year-end recovery: 5.236 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-07"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:south-08",
+      "title": "Carryover \u00B7 Southern field",
+      "text": "Recorded year-end recovery: 3.813 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "south-08"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "recovery:west-10",
+      "title": "Carryover \u00B7 Western terrace",
+      "text": "Recorded year-end recovery: 5.022 condition percentage points. Public repair paid $0.00; remaining public repair debt $0.00. Closing condition 1 carries into the next year. Recovery does not change the harvest already reported; private recovery and paid public repair follow separate rules.",
+      "siteIds": [
+        "west-10"
+      ],
+      "causalRuleIds": [
+        "year-end-recovery-next-year-v1"
+      ]
+    },
+    {
+      "id": "weather-reference",
+      "title": "Weather reference used",
+      "text": "This accepted year uses La Crosse airport observations for 2015, record USW00014920:2015, from the run\u0027s pinned Wisconsin schedule. Precipitation is liquid equivalent. Crop and disruption responses are authored; wind and solar use separate constant assumptions, not inferred weather measurements.",
+      "siteIds": [],
+      "causalRuleIds": [
+        "authored-constant-generation-v1-no-irradiance-or-wind-data",
+        "terra-crop-calendar-weather-v1"
+      ]
+    },
+    {
+      "id": "reference",
+      "title": "What this scenario represents",
+      "text": "Fictional scenario \u00B7 weather and economic references: Coon Valley, Wisconsin \u00B7 other parameters are authored game assumptions.",
+      "siteIds": [],
+      "causalRuleIds": [
+        "annual-numeric-v4.0.0"
+      ]
+    }
+  ]
+}

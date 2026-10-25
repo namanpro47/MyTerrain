@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "acceptedTransitionId": "projection-public/finish-year-10",
+  "acceptedTransitionHash": "fe731ec1df847c12f2b84a5a548375113f31d3077953dec29ad9e30a3263786b",
+  "requestHash": "3b3df80d55408ebfcd2127edf41830da877fa5c05a3971b38bb4a1852ba4f258",
+  "rulesVersion": "annual-numeric-v4.0.0",
+  "reportVersion": "annual-report-projection-v1",
+  "promptVersion": "report-highlight-selection-v2.0.0",
+  "contractVersion": "report-selection-v2.0.0",
+  "modelVersion": "gemini-3.5-flash-lite",
+  "mode": "local",
+  "reasonCode": "service-unavailable",
+  "title": "Year 10: saved results",
+  "introduction": "Economic 51.7 (\u002B1.9) \u00B7 Social 40.8 (-0.1) \u00B7 Environmental 37.2 (\u002B0.4). Public cash $19,896,949.20 is saved. Scores are authored indices, rounded to 0.1; other non-money summaries are rounded to 0.001.",
+  "cards": [
+    {
+      "factId": "budget",
+      "title": "Your saved public budget",
+      "text": "Opening $18,902,753.89; projects $0.00; prior debt paid $0.00; programs $0.00; operation $2,000.00; new repair $3,804.69; public receipts $0.00; appropriation $1,000,000.00. Closing $19,896,949.20; unpaid obligations $0.00. Private harvest is not public income. Ending cash and obligations remain visible at the ten-year horizon."
+    },
+    {
+      "factId": "disruption:south-01",
+      "title": "Saved impacts \u00B7 West field",
+      "text": "9 recorded heavy-rain impacts reduced condition by 15.219 percentage points in total. 1 impacts occurred after harvest; those affect carryover condition, not the completed harvest. Local storage and the separate upstream component follow the saved connection rules. This is illustrative disruption, not flood depth or probability."
+    },
+    {
+      "factId": "services",
+      "title": "Needs still unmet",
+      "text": "Energy 0; water 0; wastewater 0; housing 12; jobs 31.066. Each is its own scenario quantity; these values are not interchangeable units. The saved rubric links funded services, resources, output and land condition to the three scores."
+    }
+  ]
+}
