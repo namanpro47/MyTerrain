@@ -8,12 +8,13 @@ namespace Terra.Core
     public sealed class WorldStateStore
     {
         readonly WorldData world; readonly Scenario scenario;
+        readonly Func<Site,string,string> placementRejection;
         Intervention[] current=Array.Empty<Intervention>(); readonly Stack<Intervention[]> history=new Stack<Intervention[]>();
         public int Revision { get; private set; }
         public bool CanUndo => history.Count>0;
         public WorldResult Result => Calculate(current);
         public string TreatmentAt(string siteId) => current.FirstOrDefault(x=>x.siteId==siteId)?.treatmentId;
-        public WorldStateStore(WorldData world, Scenario scenario) { this.world=world; this.scenario=scenario; }
+        public WorldStateStore(WorldData world, Scenario scenario, Func<Site,string,string> placementRejection=null) { this.world=world; this.scenario=scenario; this.placementRejection=placementRejection; }
         public Evaluation Preview(EditCommand command)
         {
             if(command.expectedRevision!=Revision) return Invalid("The landscape changed. Preview again.");
@@ -21,6 +22,7 @@ namespace Terra.Core
             var site=world.sites.FirstOrDefault(x=>x.id==command.siteId);
             if(site==null) return Invalid("Choose a management site.");
             if(site.protectedSite) return Invalid(site.protectionReason);
+            string rejection=placementRejection?.Invoke(site,command.treatmentId);if(rejection!=null)return Invalid(rejection);
             if(!site.allowedTreatments.Contains(command.treatmentId)) return Invalid("This treatment is not available at this site.");
             var existing=current.FirstOrDefault(x=>x.siteId==site.id);
             if(command.operation=="add" && existing!=null) return Invalid("This site already has a proposal.");

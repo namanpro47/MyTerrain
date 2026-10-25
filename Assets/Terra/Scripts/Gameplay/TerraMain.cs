@@ -18,6 +18,8 @@ namespace Terra.Gameplay
     public sealed class TerraMain : MonoBehaviour
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
+        public Terra.Art.BuildActionCatalog buildActionCatalog;
+        BuildActionRules buildActionRules;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
         bool perspective=true;
@@ -51,9 +53,12 @@ namespace Terra.Gameplay
         IEnumerator ShapeLandscape(Manifest m,WorldData w,Scenario s)
         {
             hud.Progress("Shaping the terrain and woodland…");yield return null;
-            world=w;scenario=s;state=new WorldStateStore(w,s);
+            try{buildActionRules=BuildActionRuntime.Expand(buildActionCatalog,ref w,ref s);}
+            catch(Exception e){Error(e.Message);yield break;}
+            world=w;scenario=s;state=new WorldStateStore(w,s,buildActionRules.Rejection);
+            hud.ConfigureBuildActions(buildActionCatalog,buildActionRules,w,Choose);
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
-            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.Build();}
+            try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.ConfigureBuildActions(buildActionCatalog,buildActionRules);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
             ready=true;ApplyView();hud.Ready();Choose(treatmentId);Refresh();Debug.Log("TERRA_PHASE2_READY: "+m.packId+" "+m.fixtureVersion+" "+Diagnostic);
             BrowserPerformance.Ready();

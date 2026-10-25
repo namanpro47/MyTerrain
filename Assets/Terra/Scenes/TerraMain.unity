@@ -373,6 +373,7 @@ MonoBehaviour:
   grassPrefab: {fileID: 255656563288966521, guid: 34db6b28707394f4ab33f464c315af9d, type: 3}
   shrubPrefab: {fileID: 6624010253755102361, guid: ee85e4c34cec04f2b9e313e9f8c18a61, type: 3}
   placementSound: {fileID: 8300000, guid: 156557b88f22c43208d2f412d17c652d, type: 3}
+  buildActionCatalog: {fileID: 11400000, guid: 9aa4fa18eb9e7434a9ef8306303779f3, type: 2}
 --- !u!4 &2024268996
 Transform:
   m_ObjectHideFlags: 0

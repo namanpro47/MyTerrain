@@ -1,5 +1,9 @@
 # Terra — implementation plan: one rural location
 
+**Annual-loop follow-up — October 24, 2026:** Peter authorized a minimal end-year summary and placeholder simulation while the teammate rebuilds the main UI. The separate **Terra → Annual Town → Playtest Year Loop** Editor window exercises queue → conclude → accepted summary → next-year planning on the same map. See [test steps and integration seams](docs/annual-town-runtime.md#test-the-annual-loop-without-touching-the-ui-overhaul). Main scene/HUD/rendering remain with the owner. This bounded assignment does not declare Phase 2A or the later production UI/LLM/model gates complete. Delivery is directly to `main`, with no new PR.
+
+**Current bounded assignment — October 24, 2026:** Peter separately authorized an additive annual town-state/public-budget/yearly-outcomes foundation while the main engineer continues the basics and visual rebuild. See [annual runtime and handoff](docs/annual-town-runtime.md). It introduces separate contracts/session code, preserves WorldPack/runoff v1 and does not modify scenes/HUD or certify Phase 2A. Its queue-only refund semantics supersede the proposal refund model for completed annual history; later phase integration needs an explicit revised roadmap.
+
 **Location naming:** The single location is **Meadowbrook Valley** in player-facing copy and all future phase/package work. It is a fictional display name for the already selected Wisconsin AOI, not a location change. Preserve real source names and the stable `coon-valley-brye-v1` data ID in provenance. See [the naming decision](docs/location-selection.md#name-and-provenance).
 
 **Planning baseline / rural-first revision:** October 24, 2026. **Status:** proposed execution plan; no implementation phase is certified complete by this document.

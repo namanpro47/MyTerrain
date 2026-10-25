@@ -1,0 +1,33 @@
+{
+  "dateUtc": "2026-10-25T01:02:19.3352309Z",
+  "unity": "6000.6.6f1",
+  "target": "WebGL",
+  "result": "Succeeded",
+  "catalogChecks": 826,
+  "legacyPhase1Checks": 27,
+  "legacyPhase2Checks": 139,
+  "finalVisualQa": "Reserved for Peter at his request. Earlier browser captures predate the centered-sample and short wastewater-label refinements.",
+  "performance": "No performance acceptance. Browser slowness reported by Peter; compilation optimization is not evidence that rendering/input bottlenecks are fixed.",
+  "buildFiles": [
+    {
+      "name": "0872a37cbef17c4a29d5e0aa99ab2bcd.framework.js.unityweb",
+      "bytes": 76877,
+      "sha256": "71A2C411F305697A692257633C40E4A1DF18BB1357E7BCB9A37B4590CEC3EE4C"
+    },
+    {
+      "name": "6ae2e47c150df53d3bc14e483e281601.data.unityweb",
+      "bytes": 13480674,
+      "sha256": "DC9AA756932DA031C8B5499E5506CDB6D6B10EEB874B14085854BE01349541C0"
+    },
+    {
+      "name": "929cde5ab7b18917511bdd9a04b5fcf1.wasm.unityweb",
+      "bytes": 9623796,
+      "sha256": "BE67FB067E58C943EE90489239693D0A2D14EA6E338F3125F49DD751663BC1E5"
+    },
+    {
+      "name": "acbc6248ffd171a3d7c1e245bc93e646.loader.js",
+      "bytes": 48779,
+      "sha256": "A43C357C18BB90DD7197A76B5CB6D0C5AF8787E6AFE11834904EC47E958C0CB6"
+    }
+  ]
+}

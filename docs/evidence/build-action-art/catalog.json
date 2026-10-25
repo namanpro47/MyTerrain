@@ -1,0 +1,446 @@
+{
+    "entries": [
+        {
+            "actionId": "cultivation",
+            "title": "Traditional farmland",
+            "dimensionNotes": "40 x 40 m illustrative field sample; clip/repeat to actual site. Crop rows 0.75 m apart.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/cultivation.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/cultivation.png",
+            "siteSizeMetres": {
+                "x": 40.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.48750001192092896,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 20.0,
+                    "y": 0.48750001192092896,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 624
+        },
+        {
+            "actionId": "cover-crop",
+            "title": "Cover crop",
+            "dimensionNotes": "40 x 40 m seasonal cover sample; no permanent loss of cropped area implied.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/cover-crop.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/cover-crop.png",
+            "siteSizeMetres": {
+                "x": 40.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.28999999165534973,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 20.0,
+                    "y": 0.28999999165534973,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 1584
+        },
+        {
+            "actionId": "conservation-rotation",
+            "title": "Conservation rotation",
+            "dimensionNotes": "40 x 40 m illustrative crop strips; depicts a practice, not simultaneous annual yields.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/conservation-rotation.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/conservation-rotation.png",
+            "siteSizeMetres": {
+                "x": 40.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.48750001192092896,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 20.0,
+                    "y": 0.48750001192092896,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 636
+        },
+        {
+            "actionId": "living-margin",
+            "title": "Living margin",
+            "dimensionNotes": "40 x 40 m sample with a 10 m reserved vegetated strip (25 percent); clip to site.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/living-margin.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/living-margin.png",
+            "siteSizeMetres": {
+                "x": 40.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.6200000047683716,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 20.0,
+                    "y": 0.6200000047683716,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 10620
+        },
+        {
+            "actionId": "ground-cover-restoration",
+            "title": "Ground-cover restoration",
+            "dimensionNotes": "40 x 40 m native meadow sample, scattered shrubs; does not prescribe woodland everywhere.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/ground-cover-restoration.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/ground-cover-restoration.png",
+            "siteSizeMetres": {
+                "x": 40.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.7000000476837158,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 20.0,
+                    "y": 0.7000000476837158,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 27804
+        },
+        {
+            "actionId": "vegetated-swale",
+            "title": "Vegetated swale",
+            "dimensionNotes": "30 m long, 2 m flat bottom, 0.6 m illustrative depth, 4H:1V vegetated sides; separate terrain excavation needed.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/vegetated-swale.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/vegetated-swale.png",
+            "siteSizeMetres": {
+                "x": 32.0,
+                "y": 10.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 0.7099999785423279,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 16.0,
+                    "y": 0.5899999737739563,
+                    "z": 5.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 262
+        },
+        {
+            "actionId": "low-density-housing",
+            "title": "Low-density housing",
+            "dimensionNotes": "One 12 x 9 m house, 3 m eaves, 5.8 m ridge; 26 x 32 m lot includes access and yard.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/low-density-housing.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/low-density-housing.png",
+            "siteSizeMetres": {
+                "x": 26.0,
+                "y": 32.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 3.112517833709717,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 13.0,
+                    "y": 3.112517833709717,
+                    "z": 16.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 3394
+        },
+        {
+            "actionId": "high-density-housing",
+            "title": "High-density housing",
+            "dimensionNotes": "32 x 18 m apartment block, four 3 m storeys, 13.2 m parapet; 44 x 38 m site.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/high-density-housing.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/high-density-housing.png",
+            "siteSizeMetres": {
+                "x": 44.0,
+                "y": 38.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 6.650000095367432,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 22.0,
+                    "y": 6.650000095367432,
+                    "z": 19.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 6216
+        },
+        {
+            "actionId": "public-park",
+            "title": "Public park",
+            "dimensionNotes": "48 x 40 m park; 8 x 6 m shelter, 2 m paths, benches and planted areas.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/public-park.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/public-park.png",
+            "siteSizeMetres": {
+                "x": 48.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 3.5,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 24.0,
+                    "y": 3.5,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 11486
+        },
+        {
+            "actionId": "agricultural-storage",
+            "title": "Agricultural storage",
+            "dimensionNotes": "30 x 18 m agricultural shed, 6 m eaves, 8.5 m ridge; two 5 m diameter grain bins. Not a distribution warehouse.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/agricultural-storage.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/agricultural-storage.png",
+            "siteSizeMetres": {
+                "x": 48.0,
+                "y": 42.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 4.431788444519043,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 24.0,
+                    "y": 4.431788444519043,
+                    "z": 21.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 730
+        },
+        {
+            "actionId": "data-center",
+            "title": "Data center",
+            "dimensionNotes": "54 x 32 m single-storey data hall, 7 m roof; cooling and utility yard. No computing/electrical capacity inferred.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/data-center.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/data-center.png",
+            "siteSizeMetres": {
+                "x": 80.0,
+                "y": 64.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 4.430000305175781,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 40.0,
+                    "y": 4.430000305175781,
+                    "z": 32.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 1428
+        },
+        {
+            "actionId": "village-center",
+            "title": "Village center",
+            "dimensionNotes": "Three two-storey shops with 3.2 m storeys, public square and access; representative village cluster.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/village-center.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/village-center.png",
+            "siteSizeMetres": {
+                "x": 64.0,
+                "y": 52.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 4.391556739807129,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 32.0,
+                    "y": 4.391556739807129,
+                    "z": 26.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 5714
+        },
+        {
+            "actionId": "non-renewable-power",
+            "title": "Gas power facility",
+            "dimensionNotes": "Authored small gas-engine facility: 32 x 20 x 9 m hall, 22 m exhaust stacks; no capacity or emissions claim.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/non-renewable-power.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/non-renewable-power.png",
+            "siteSizeMetres": {
+                "x": 72.0,
+                "y": 60.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 11.175000190734863,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 36.0,
+                    "y": 11.175000190734863,
+                    "z": 30.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 852
+        },
+        {
+            "actionId": "solar",
+            "title": "Solar array",
+            "dimensionNotes": "60 fixed-tilt tables, each 4.4 x 4.2 m, tilted 25 degrees; 7 m row spacing. No MW rating assigned.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/solar.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/solar.png",
+            "siteSizeMetres": {
+                "x": 64.0,
+                "y": 48.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 1.4357545375823975,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 32.0,
+                    "y": 1.4357545375823975,
+                    "z": 24.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 4356
+        },
+        {
+            "actionId": "wind",
+            "title": "Wind turbine",
+            "dimensionNotes": "100 m hub, 130 m rotor, 165 m maximum tip; 16 x 16 m pad. 65 m rotor envelope is not a legal setback or wind-farm spacing rule.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/wind.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/wind.png",
+            "siteSizeMetres": {
+                "x": 150.0,
+                "y": 150.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": -0.04999542236328125,
+                    "y": 82.5,
+                    "z": 33.5
+                },
+                "m_Extent": {
+                    "x": 56.291656494140625,
+                    "y": 82.5,
+                    "z": 41.5
+                }
+            },
+            "clearanceRadiusMetres": 65.0,
+            "landscapeSample": false,
+            "triangles": 940
+        },
+        {
+            "actionId": "stewardship-agreement",
+            "title": "Conservation / stewardship",
+            "dimensionNotes": "48 x 40 m landscape sample with restoration and a modest interpretation sign; no invented cultural motifs or assumed public access.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/stewardship-agreement.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/stewardship-agreement.png",
+            "siteSizeMetres": {
+                "x": 48.0,
+                "y": 40.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 4.0,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 24.0,
+                    "y": 4.0,
+                    "z": 20.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": true,
+            "triangles": 31072
+        },
+        {
+            "actionId": "wastewater-upgrade",
+            "title": "Wastewater treatment",
+            "dimensionNotes": "Two 12 m diameter treatment tanks, 20 x 10 m process building and two 8 x 16 m basins; no flow/capacity inferred.",
+            "prefab": "Assets/Terra/Art/ExternalKit/BuildActions/Prefabs/wastewater-upgrade.prefab",
+            "icon": "Assets/Terra/Art/ExternalKit/BuildActions/Icons/wastewater-upgrade.png",
+            "siteSizeMetres": {
+                "x": 64.0,
+                "y": 52.0
+            },
+            "meshBoundsMetres": {
+                "m_Center": {
+                    "x": 0.0,
+                    "y": 2.424999952316284,
+                    "z": 0.0
+                },
+                "m_Extent": {
+                    "x": 32.0,
+                    "y": 2.424999952316284,
+                    "z": 26.0
+                }
+            },
+            "clearanceRadiusMetres": 0.0,
+            "landscapeSample": false,
+            "triangles": 756
+        }
+    ]
+}

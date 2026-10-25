@@ -386,7 +386,7 @@ namespace Terra.Rendering
             var go=new GameObject(name);go.transform.SetParent(parent,false);go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=material;
         }
         void DestroyGroup(Transform group)
-        {foreach(var f in group.GetComponentsInChildren<MeshFilter>()){meshes.Remove(f.sharedMesh);Object.Destroy(f.sharedMesh);}Object.Destroy(group.gameObject);}
+        {foreach(var f in group.GetComponentsInChildren<MeshFilter>())if(meshes.Remove(f.sharedMesh))Object.Destroy(f.sharedMesh);Object.Destroy(group.gameObject);}
         public void Dispose(){if(visualCover!=null)Object.Destroy(visualCover);if(riverMask!=null)Object.Destroy(riverMask);if(pathMaterial!=null)UnityEngine.Object.Destroy(pathMaterial);if(streamMaterial!=null)Object.Destroy(streamMaterial);if(swaleMaterial!=null)Object.Destroy(swaleMaterial);foreach(var mesh in meshes)Object.Destroy(mesh);foreach(var material in materials.Values)Object.Destroy(material);foreach(var material in groundMaterials.Values)Object.Destroy(material);foreach(var material in boundaryMaterials.Values)Object.Destroy(material);}
     }
 }

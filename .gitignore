@@ -11,6 +11,9 @@
 /.vs/
 /.idea/
 *.csproj
+!tests/annual/Terra.AnnualChecks.csproj
+/tests/annual/bin/
+/tests/annual/obj/
 *.sln
 *.slnx
 *.user

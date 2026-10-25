@@ -1,5 +1,7 @@
 # Terra: Shape Your World
 
+**Authorized annual-foundation update — October 24, 2026:** Peter requested the town state machine, USD public budget and three yearly outcomes from [the updated annual PRD](docs/PRD_ANNUAL_GAMEPLAY.md). [Implementation and integration boundaries](docs/annual-town-runtime.md) supersede this document's immediate-only/no-annual-model assumptions for that bounded state module. The existing placement game and visual rebuild remain in place until the engine owner binds the new module; broader later-phase scope is not automatically started.
+
 **Product & Implementation Specification**  
 **Status:** Active north star — rural-first, one-location scope  
 **Date:** October 24, 2026  
