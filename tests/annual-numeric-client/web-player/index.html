@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><title>Linked Unity numeric save verification</title>
+<style>body{font:16px system-ui;max-width:1000px;margin:30px auto}canvas{width:320px;height:180px}pre{white-space:pre-wrap;background:#eef3e8;padding:20px}button{font:inherit;padding:10px}</style>
+<h1>Linked Unity numeric save verification</h1><p>Standalone test player. No production scenes, HUD or save keys.</p><button onclick="location.reload()">Reload and verify saved year</button>
+<pre id="result">Loading the isolated Unity player…</pre><canvas id="canvas" width="320" height="180"></canvas>
+<script>
+const buildUrl='Build';const script=document.createElement('script');script.src=buildUrl+'/{{{ LOADER_FILENAME }}}';
+script.onload=()=>createUnityInstance(document.querySelector('#canvas'),{dataUrl:buildUrl+'/{{{ DATA_FILENAME }}}',frameworkUrl:buildUrl+'/{{{ FRAMEWORK_FILENAME }}}',codeUrl:buildUrl+'/{{{ CODE_FILENAME }}}',streamingAssetsUrl:'StreamingAssets',companyName:'TerraChecks',productName:'NumericStorageCheck',productVersion:'1'},progress=>{document.querySelector('#result').textContent='Loading '+Math.round(progress*100)+'%'}).then(instance=>{window.unityInstance=instance}).catch(error=>{document.querySelector('#result').textContent='FAIL '+error});document.body.appendChild(script);
+</script>

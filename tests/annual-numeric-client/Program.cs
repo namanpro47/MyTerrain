@@ -52,6 +52,18 @@ var dying=new AnnualTownSession(); var slow=new Store {Block=true}; var pending=
 typeof(AnnualTownSession).GetMethod("OnDestroy",BindingFlags.Instance|BindingFlags.NonPublic)!.Invoke(dying,null);
 slow.Release(); bool disposed=false; try { await pending; } catch(ObjectDisposedException) { disposed=true; }
 Check(disposed && !dying.Initialized && slow.Value!=null,"Teardown does not publish or claim storage rollback");
+if(args.Contains("--unity-vectors"))
+{
+ while(session.State.phase!=TownPhase.Completed)
+ {
+  if(session.State.phase==TownPhase.Reviewing)await session.ContinueYearAsync(session.State.revision);
+  await session.ResolveNumericYearAsync("client-run/year"+session.State.year,session.State.revision,"missing-config");
+ }
+ Directory.CreateDirectory("Builds/AnnualNumericClientVectors");
+ File.WriteAllText("Builds/AnnualNumericClientVectors/definition.json",JsonSerializer.Serialize(rules,options));
+ File.WriteAllText("Builds/AnnualNumericClientVectors/save.json",session.ExportNumericSave());
+ Console.WriteLine("Unity cross-runtime vectors: "+session.NumericSaveState.saveHash);
+}
 Console.WriteLine($"PASS {checks} adapter assertions; Unity/browser verification still required.");
 sealed class Store : IAnnualNumericStore {
  public AnnualNumericSave Value; public bool Block; TaskCompletionSource wait;
