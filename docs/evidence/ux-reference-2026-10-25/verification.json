@@ -9,7 +9,7 @@
     "JavaScript syntax passes node --check",
     "17 timestamped JPEG captures exist and have correct magic bytes"
   ],
-  "chromeReview": "pending shared desktop slot",
+  "chromeReview": "Not performed for the finished research board: shared desktop remained occupied/queued. Static validation passed; no visual-layout or interaction acceptance claimed.",
   "humanComprehension": "not tested",
   "images": [
     {
