@@ -1,6 +1,6 @@
 # Phase 2A visual rebuild evidence
 
-Latest: [Study64](study64-findings.md) — camera comparisons and quieter crop material (Editor); [study63](study63-findings.md) — actual Chrome crop opening. **Visual and browser gates remain open.**
+Latest: [Study64](study64-findings.md) — current Chrome crop material, living-margin queue/undo and camera comparisons; [study63](study63-findings.md) — preceding crop construction. **Visual and browser gates remain open.**
 
 Status: active art studies; **not accepted**. The prior direction was rejected by the user on October 24, 2026.
 

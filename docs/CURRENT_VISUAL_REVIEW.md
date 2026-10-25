@@ -1,14 +1,10 @@
 # Current visual review — Phase 2A remains open
 
-**Latest playable browser evidence: study63.** Cultivated soil beds and broad-leaf crops now run in Chrome. The first entry reached the game in9.61s; camera performance and transformation checks are still pending. [Source-scoped findings](evidence/phase2a/visual-rebuild/study63-findings.md).
+**Latest playable browser evidence: study64**, sourcee3f4905. Shared quiet soil shading and brighter crop leaves improve the raised beds. Actual Chrome verifies living-margin preview/queue/undo with unchanged stored cash; one entry took9.46s. [Captures, raw logs and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Combined performance is still pending.
 
-![Current Chrome cultivated landscape](evidence/phase2a/visual-rebuild/study63-chrome-normal.jpg)
+![Current Chrome crop material candidate](evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg)
 
-The preceding conifer-only study62 failed its paired camera sample at40ms p95 (control34ms); the new crop build does not inherit a performance pass.
-
-**Newer Editor-only candidate, study64:** Shared quiet soil shading and brighter crop leaves separate the constructed forms more clearly. Camera alternatives did not solve the whole scene. [Comparison and limits](evidence/phase2a/visual-rebuild/study64-findings.md).
-
-![Editor crop material candidate](evidence/phase2a/visual-rebuild/study64-integrated-normal.png)
+Camera comparisons did not solve the broad empty-ground problem and were not promoted. Next structural study: depict the annual scenario's four existing fictional homes outside project footprints, using metric art and preserving all baseline accounting. This is an unimplemented scene hypothesis, not observed buildings or additional gameplay.
 
 The direct visual gaps remain: repetitive field rhythm, insufficient forest-floor layering, weak material transitions and a distant board-like wide view. No dimension is certified at4.5/5. The evidence below records earlier candidates and source-specific checks.
 

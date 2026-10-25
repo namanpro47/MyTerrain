@@ -1,6 +1,6 @@
 # Study64 — framing comparisons and quieter cultivated surfaces
 
-TN-01/02/09/12; [persistent reference](../../../DESIGN_REFERENCE.md), [unchanged visual gate](../../../PHASE_2A_GOAL.md). The source starts from7f258cc. **Editor candidate, not Chrome acceptance.** No image generation or new asset purchase.
+TN-01/02/09/12; [persistent reference](../../../DESIGN_REFERENCE.md), [unchanged visual gate](../../../PHASE_2A_GOAL.md). The source starts from7f258cc. **Chrome opening and margin queue/undo inspected; visual acceptance remains open.** No image generation or new asset purchase.
 
 ## Camera alternatives, rejected as the solution
 
@@ -25,3 +25,13 @@ The temporary diagnostic shader was archived then removed through AssetDatabase;
 ## Submission integration
 
 Merged3984343 (includingd620ff2/258af2) as4b05675. The192m submission grouping preserves source LOD/culling and500-instance capacity; [the preceding conifer-only Chrome comparison](../submission-cells-01/README.md) reports39→30ms p95 for its bounded paired path. This result cannot be applied to the new crop/material scene. On the combined source, [compilation](study64-combined-compile.json) has zero errors/warnings and [all15 collector checks](study64-combined-collector.json) pass after fresh advancing Play frames. New Web export and combined Chrome checks remain required.
+
+## Chrome material and margin check
+
+Frozen `Builds/Web64`, sourcee3f4905, build jobca8ab6ca52fa47a3b9fd0e0f3a6490ee completed successfully. [Anonymous served verification](study64-web-verification.json) checks all31 files /48,126,445 bytes including all location packs. This is an inventory, not initial transfer. The same six unrelated tracked Unity changes and unused imported assets were present; no clean Git-only export is claimed.
+
+Actual Chrome at1280×720, canvas1280×720,devicePixelRatio1: [normal](study64-chrome-normal.jpg), [West-field focus](study64-chrome-close.jpg), [player zoom](study64-chrome-leaf-detail.jpg). Quieter earth and brighter leaves carry through to the full HUD. The field is clearer but still repetitive; broad weak ground and woodland transitions remain. No visual dimension passes4.5.
+
+Actual Tab/F/zoom/M inputs show the [living-margin preview](study64-chrome-margin-preview.jpg); Enter produces the [queued proposal](study64-chrome-margin-queued.jpg) with$150K reserved and the proposal tint. Z/Escape [restores the crop baseline](study64-chrome-undo.jpg). [Raw logs](study64-chrome-logs.json) confirm Year1/Planning revision1/one proposal→revision2/zero proposals, stored cash1,000,000,000 cents and zero accepted assets throughout. No error-level entries. First entry-handler-to-focused-game observation9.4555s; not three fresh-cache loads. No timing/placement-latency claim from this visual sequence.
+
+The test tab was closed and own Editor11803 exited gracefully after these observations. The frozen export and served receipt were made available to the existing other chat for its annual/performance checks. Those results remain separate until received and inspected.

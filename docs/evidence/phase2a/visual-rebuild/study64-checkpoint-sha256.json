@@ -32,8 +32,8 @@
     "sha256": "7d6acff283e0b978d27b417dfac15e3eed2778c5acc873615e51b763f3025b9b"
   },
   "docs/evidence/phase2a/visual-rebuild/study64-findings.md": {
-    "bytes": 4605,
-    "sha256": "583dd0aad5263ea7bec0ba167ac4e9b58ea524b83e0e550e9b78880942839196"
+    "bytes": 6357,
+    "sha256": "c4ceb70bc89396a33f20b359fc97ecc1e21425b16d05bc8b34a5c744be40105d"
   },
   "docs/evidence/phase2a/visual-rebuild/study64-green-leaf-close.png": {
     "bytes": 1341454,
@@ -146,5 +146,37 @@
   "Assets/Terra/Scripts/Rendering/NatureSubmission.cs": {
     "bytes": 5233,
     "sha256": "1f3a118f5c47e51da68d9f559dde97f4bb47f62a23d940662866f7576159e9a0"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-logs.json": {
+    "bytes": 62235,
+    "sha256": "f60ba7777ad2350c70676a78d486c82bd089c72d91b4a1aeeb6c5e7c6aab0f76"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-undo.jpg": {
+    "bytes": 163552,
+    "sha256": "52709f3a5d4cabc1b1201323cd7ffc80cdecd4c23e1f7c101001b1f636b761dc"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-leaf-detail.jpg": {
+    "bytes": 170043,
+    "sha256": "22de216611cece30a73da182d840036b84cc35b610f35c74e73e93650a7e7a1e"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-margin-preview.jpg": {
+    "bytes": 167583,
+    "sha256": "756f0e743071ec14e8026573dffffeb49dbf3ff5f2557b72ba636168474d9449"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-margin-queued.jpg": {
+    "bytes": 172563,
+    "sha256": "8f06cb5bb825966345db920ecd95372b79ea4fca424538cd3e8bcbdb13ae6e89"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-normal.jpg": {
+    "bytes": 141954,
+    "sha256": "2be4b7086b34c3cfce63d9f8a75a8818216de2004af8189f50a3ee83771818cb"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-web-verification.json": {
+    "bytes": 9354,
+    "sha256": "dacd943e76606e94f79d390fc2a24fc2f8c479ec1c195125da73c1e5a8df7c4f"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study64-chrome-close.jpg": {
+    "bytes": 162214,
+    "sha256": "5d93272d9a858350f71283b6046d7ed5ba0f8b076e0d2c6b6b7f83a1a4e88fd4"
   }
 }
