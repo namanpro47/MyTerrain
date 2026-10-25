@@ -73,6 +73,34 @@
     "legacySchema30Replay": true,
     "modernEndingTargetsStillRequired": true,
     "tenYearChaptersAndEndingHandoff": true,
-    "note": "Retains responsive HUD, future comparison, timeline, audio and replay. Main fast-forward explicitly uses offline chapters. Added the missing standalone full-game project and CRLF-safe catalog title parsing."
+    "note": "Retains responsive HUD, future comparison, timeline, audio and replay. Main fast-forward explicitly uses offline chapters. Added the missing standalone full-game project and CRLF-safe catalog title parsing.",
+    "build": {
+      "result": "Success",
+      "seconds": 302.679,
+      "publishedFiles": 10,
+      "publishedBytes": 38106695,
+      "fullSchema31Replay": true
+    },
+    "browserManualYear": {
+      "year": 1,
+      "mode": "gemini",
+      "plan": "No new projects",
+      "closingCashCents": 1100000000,
+      "futureCommitmentsCents": 0,
+      "errors": 0,
+      "result": "Accepted AI chapter visible in final 3.1 game build; expected $11M cash matched."
+    },
+    "browserEnding": {
+      "year": 10,
+      "phase": "Complete",
+      "cashCents": 1985000000,
+      "economic": 42.3,
+      "social": 58,
+      "environmental": 42,
+      "sameConditionsComparisonVisible": true,
+      "offlineFastForwardLabelVisible": true,
+      "runtimeErrors": 0,
+      "result": "From accepted Gemini Year 1, confirmed offline fast-forward reached Year 10 and displayed the matched no-new-action comparison."
+    }
   }
 }
