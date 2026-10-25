@@ -1,0 +1,12 @@
+{
+  "url": "https://www.myterrain.io/",
+  "arrival": [
+    {
+      "level": "log",
+      "message": "MYTERRAIN_ARRIVAL: point-reyes-v1\n",
+      "timestamp": "2026-10-25T19:40:52.238Z",
+      "url": "blob:https://www.myterrain.io/0632f9a9-d9af-4c18-8cb2-d84746adf73b"
+    }
+  ],
+  "errors": []
+}
