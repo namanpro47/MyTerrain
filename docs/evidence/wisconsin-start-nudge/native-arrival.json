@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "return new {atlas=Terra.Gameplay.WorldAtlas.Instance.Diagnostic,frame=UnityEngine.Time.frameCount};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "atlas": "native-atlas visible=True traveling=True selected=0 ready=False lat=43.7 lon=-91.0",
+        "frame": 7556
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/wisconsin-start-nudge/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
