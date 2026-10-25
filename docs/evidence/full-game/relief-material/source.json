@@ -1,0 +1,40 @@
+{
+  "creator": "Katsukagi / 3DTextures.me",
+  "asset": "Stylized Cliff Rock 002",
+  "source": "https://3dtextures.me/2020/04/10/stylized-cliff-rock-002/",
+  "downloadFolder": "https://drive.google.com/drive/folders/1tcxd43bxjXJPU9lsKsZMqUaO8q6MoyCG",
+  "license": "CC0",
+  "licenseSource": "https://3dtextures.me/about/",
+  "retrieved": "2026-10-25",
+  "modifications": "None; original free 1024px maps, not paid 4K/Substance sources.",
+  "status": "Downloaded and visually inspected; not imported or evaluated in Terra, not selected.",
+  "files": [
+    {
+      "file": "Stylized_Cliff_Rock_002_basecolor.jpg",
+      "bytes": 143099,
+      "sha256": "9d39ede94b8f5ced2a239b51cf046e8483c886c644e203f7b581822ec6e856e4",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "file": "Stylized_Cliff_Rock_002_normal.jpg",
+      "bytes": 269607,
+      "sha256": "155aa72f8199498f91182df3df3ba7bfc0965909be7ceac509ff8264c9d2dbe3",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "file": "Stylized_Cliff_Rock_002_height.png",
+      "bytes": 318933,
+      "sha256": "3f21ffb62909b1f3d843f5663d7dba02dac70d9a1aa5dbbd24730a1377f187d5",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ]
+}
