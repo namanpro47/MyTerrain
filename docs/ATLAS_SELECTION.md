@@ -6,21 +6,21 @@ The user explicitly authorized a draggable globe, cinematic entry and three supp
 
 The user rejected the HTML landing page and explicitly required the draggable globe and descent **inside Unity**. The product is now **MyTerrain** wherever players see its name. Earlier HTML-atlas captures remain historical, not the accepted implementation.
 
-`WorldAtlas` owns a real textured 3D sphere, separate URP camera, atmospheric shell, geographic pins, uGUI buttons and TMP labels. Drag rotates with damped inertia; scroll and +/− zoom; 1–3 or Tab selects a region; Enter descends. Selection follows the shortest longitude arc. Field notes identify the imagery and distinguish observed geography from educational assumptions.
+`WorldAtlas` owns a real textured 3D sphere, separate URP camera, atmospheric shell, geographic pins, uGUI buttons and TMP labels. Drag rotates with damped inertia; scroll zooms. Clicking a marker or illustrated destination immediately starts descent. Keyboard users can focus with 1–3 or Tab and descend with Enter. Selection follows the shortest longitude arc. Field notes identify the imagery and distinguish observed geography from educational assumptions.
 
 Travel turns toward the selected coordinate, approaches the surface and fades through an atmospheric veil. It then loads the actual selected landscape and reveals its camera descending to the playable view. The load is never treated as complete before terrain and annual state are ready. Back/Escape cancels; failed loads expose retry. Reduced motion bypasses the sustained flight and is remembered.
 
 The native World atlas button or Shift+Escape returns to the globe. Same-place entry preserves the live scene; different-place entry reloads the gameplay scene behind the persistent atlas and restores that place's isolated save. Existing committed-year rules and save keys remain intact. Internal Terra names are retained for compatibility; they are not player branding.
 
-Patterns: **TN-01/02/03/06**, **AX-01**. A cinematic orbital scene, stylized sourced Earth, gold travel arcs and numbered destinations provide a game level-selection view. Native isometric biome miniatures support the three location choices; cream typography and gold travel action emphasize the selected landscape. See the [comparison study and new render evidence](evidence/myterrain-combined-release-oct25/README.md). This bounded atlas correction does not certify the separate Phase 2A landscape gate.
+Patterns: **TN-01/02/03/06**, **AX-01**. A cinematic orbital scene, stylized sourced Earth and numbered destinations provide a game level-selection view. Native isometric biome miniatures support the three location choices; Lilita One display typography and a gentle hover lift make the destinations feel like game pieces. The default view contains only the globe, MyTerrain wordmark, three destinations and one small settings icon. Descriptions, coordinates, control legends and the separate entry action were removed following the latest user feedback. Motion, audio and credits are behind the settings icon. See the [comparison study and new render evidence](evidence/myterrain-combined-release-oct25/README.md). This bounded atlas correction does not certify the separate Phase 2A landscape gate.
 
 ## Fixed catalog and evidence
 
 | Place | Stable pack / centre | Observed versus authored |
 |---|---|---|
 | Meadowbrook Valley, Wisconsin | `meadowbrook-v1`; 43.7015, −91.037 | Existing USGS 3DEP / NLCD / mapped lines and existing scenario. Original `coon-valley-brye-v1` provenance and save keys retained. |
-| Point Reyes, California | `point-reyes-v1`; 38.066, −122.810 | Real elevation near Point Reyes Station. Cover mosaic and ten opportunities are authored, not a national-park development plan or parcel survey. |
-| Suusamyr Valley, Kyrgyzstan | `suusamyr-v1`; 42.18, 73.96 | Real high-valley elevation. Cover and ten opportunities are authored. Shared USD budgets are educational units, not Kyrgyz public finances. |
+| Point Reyes, California | `point-reyes-v1`; 38.066, −122.810 | Real elevation near Point Reyes Station. Cover mosaic and buildable parcels are authored, not a national-park development plan or parcel survey. |
+| Suusamyr Valley, Kyrgyzstan | `suusamyr-v1`; 42.18, 73.96 | Real high-valley elevation. Cover and buildable parcels are authored. Shared USD budgets are educational units, not Kyrgyz public finances. |
 
 Each run stays in its selected place for ten years. The two new regional packs use the existing annual engine, project catalog and deterministic scenario rules. Every action variant has an eligible site. They do not introduce a second ledger, local economic calibration, observed drainage, a city simulator, geocoder or live world generation.
 
@@ -40,7 +40,7 @@ Earth is a July 2004 composite with a native shader colour treatment, not live i
 - Native runtime: `Assets/Terra/Scripts/Gameplay/WorldAtlas{,.Visuals}.cs` and `TerraMain.Atlas.cs`.
 - Native assets: `Assets/Terra/Resources/Atlas/`.
 - Browser: `Assets/WebGLTemplates/Terra/index.html` and `player.js` only boot the canvas and transport input. No browser location selection or camera animation.
-- Annual/chapter keys remain isolated by pack. Wisconsin retains current connected-field v3.2 state; other places keep v3.1. Cross-location restore is rejected.
+- Annual/chapter keys remain isolated by pack. The dense-parcel game uses separate version 4.0 save keys. Earlier connected-field v3.2 and other-location v3.1 keys are preserved, never reinterpreted as the new layout. Cross-location restore is rejected.
 - Editor Play and the WebGL build use the same globe and entry lifecycle. No EditorPrefs location bypass is required.
 
 ```sh

@@ -21,6 +21,17 @@ public static class PlacementClarityChecks
     static T Field<T>(object value,string name)=>(T)value.GetType().GetField(name,Private).GetValue(value);
     static void Invoke(object value,string name,params object[] args)=>value.GetType().GetMethod(name,Private).Invoke(value,args);
     static T Read<T>(string name)=>JsonUtility.FromJson<T>(File.ReadAllText("worlds/meadowbrook-v1/"+name+".json"));
+    static Rect WorldBounds(RectTransform rect)
+    {
+        var corners=new Vector3[4];rect.GetWorldCorners(corners);
+        return Rect.MinMaxRect(corners.Min(p=>p.x),corners.Min(p=>p.y),corners.Max(p=>p.x),corners.Max(p=>p.y));
+    }
+
+    public static void BuildVerifiedWeb()
+    {
+        try {RunBatch();MainGameChapterChecks.BuildVerifiedWeb();}
+        catch(Exception error){Debug.LogException(error);EditorApplication.Exit(1);}
+    }
 
     public static void RunBatch()
     {
@@ -55,6 +66,13 @@ public static class PlacementClarityChecks
                     var cards=Field<System.Collections.Generic.Dictionary<UnityEngine.UI.Button,string>>(hud,"actionButtons");
                     var card=cards.First(pair=>pair.Value==offer.actionId).Key;
                     Check(card.gameObject.activeInHierarchy,"Selected tool is hidden on another page: "+offer.actionId);
+                    var instruction=WorldBounds(Field<TextMeshProUGUI>(hud,"actionSummary").rectTransform);
+                    foreach(var visibleCard in cards.Keys.Where(b=>b.gameObject.activeInHierarchy))
+                    {
+                        var bounds=WorldBounds((RectTransform)visibleCard.transform);
+                        Check(!bounds.Overlaps(instruction)&&bounds.yMin>instruction.yMax,
+                            "Project card covers dock instruction at "+size+" (large text="+large+"): "+cards[visibleCard]);
+                    }
                     foreach(var text in card.GetComponentsInChildren<TextMeshProUGUI>())
                     {
                         text.ForceMeshUpdate();
@@ -65,8 +83,13 @@ public static class PlacementClarityChecks
                         hud.AnnualPreview(site,offer,town.Snapshot(),"place",reason,()=>{},false);
                         var rule=rules.Find(offer.actionId);
                         string space=rule.landscape?"Treats this whole field":$"{rule.width:0} × {rule.depth:0} m footprint · reserves this field's project slot";
+                        hud.HidePlacementFeedback();hud.Toast("Focused site");
+                        Check(Field<GameObject>(hud,"toastPanel").activeSelf,"Ordinary feedback is hidden outside placement");
                         hud.PlacementFeedback(reason==null?"PREVIEW":"BLOCKED",offer.title,site.name,
                             reason??"Reserve $70,000 · Click to queue",space,reason,7000000,993000000,Array.Empty<Vector3>(),null);
+                        Check(!Field<GameObject>(hud,"toastPanel").activeSelf,"Existing toast covers candidate guidance");
+                        hud.Toast("Choose an empty destination");
+                        Check(!Field<GameObject>(hud,"toastPanel").activeSelf,"New toast covers candidate guidance");
                         Check(position==dock.anchoredPosition&&dimensions==dock.sizeDelta&&scale==dock.localScale,"Hover moved the dock for "+offer.actionId+" at "+size);
                         Check(!Field<Transform>(hud,"placementCapsule").GetComponent<CanvasGroup>().blocksRaycasts,"Feedback intercepts placement clicks");
                         Canvas.ForceUpdateCanvases();
@@ -117,6 +140,9 @@ public static class PlacementClarityChecks
         Directory.CreateDirectory("docs/evidence/placement-clarity");
         File.WriteAllText("docs/evidence/placement-clarity/structural-checks.json",JsonUtility.ToJson(new Receipt{checks=checks,passed=true,scope="HUD state/layout, ledger immutability, actual placement geometry and shader; not browser or novice acceptance"},true));
         Debug.Log("PLACEMENT_CLARITY_CHECKS_PASSED: "+checks);
+        // Permit the chapter/HUD build checks to run in the same Editor process.
+        UnityEngine.Object.DestroyImmediate(Field<Transform>(hud,"root").gameObject);
+        UnityEngine.Object.DestroyImmediate(events.gameObject);
     }
     [Serializable] sealed class Receipt{public bool passed;public int checks;public string scope;}
 }

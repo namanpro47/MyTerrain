@@ -105,6 +105,8 @@ namespace Terra.UI
             placementInstruction.fontSize=LargeText?16.5f:15;
             placementAnchor.points=points;placementAnchor.view=camera;
             placementCapsule.gameObject.SetActive(true);
+            // Candidate guidance owns this space; an earlier camera/action toast must not cover it.
+            toastPanel.SetActive(false);
             previewKind.text=(status=="REPLACE PREVIEW"?"REPLACE":status=="MOVE PREVIEW"?"MOVE":status)+" · "+site;
             previewKind.color=blocked?blockedPlacement:Accent;
             // Even a failed replacement must identify the intended candidate and its first cause.
@@ -173,8 +175,8 @@ namespace Terra.UI
             var previous=state.history.Length>1?state.history[state.history.Length-2].outcomes:baseline;
             double[] values={current.economicScore,current.socialScore,current.environmentalScore};
             double[] before={previous.economicScore,previous.socialScore,previous.environmentalScore};
-            for(int i=0;i<3;i++)annualScoreReadout[i]=annualScores[i].text=values[i].ToString("0.0")+" <size=14>/100</size>\n<size=14>"+
-                (state.history.Length==0?"Starting condition":"Last year "+Signed(values[i]-before[i]))+"</size>";
+            for(int i=0;i<3;i++)annualScoreReadout[i]=annualScores[i].text=AnnualFeedback.Score(values[i])+" <size=14>/100</size>\n<size=14>"+
+                (state.history.Length==0?"Starting condition":"Last year "+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(before[i],values[i])))+"</size>";
             annualAvailable.text=Money(town.AvailableCents);
         }
     }

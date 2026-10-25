@@ -65,6 +65,11 @@ public static class AnnualFeedbackChecks
         Check(clear.availableDelta==edit.AvailableCents-old&&clear.availableDelta>0,"clear releases full plan");
         Check(AnnualFeedback.Money(-350000)=="-$3,500"&&AnnualFeedback.Money(350000)=="+$3,500","signed exact dollars");
         Check(AnnualFeedback.Points(0)=="0.0"&&!AnnualFeedback.Points(0).Contains("-"),"no negative zero");
+        Check(AnnualFeedback.Score(50.149)=="50.1"&&AnnualFeedback.Score(58.251)=="58.3"&&AnnualFeedback.DisplayDelta(50.149,58.251)==8.2,"visible Economic score difference, not rounded hidden difference");
+        Check(AnnualFeedback.DisplayDelta(38.849,38.951)==.2,"visible Environmental score difference");
+        Check(AnnualFeedback.DisplayDelta(58.251,50.149)==-8.2,"decline reverses the same displayed difference");
+        Check(AnnualFeedback.Score(10.05)=="10.1"&&AnnualFeedback.DisplayDelta(10.05,10.15)==.1,"consistent midpoint rounding");
+        Check(AnnualFeedback.DisplayDelta(50.11,50.14)==0&&AnnualFeedback.Points(AnnualFeedback.DisplayDelta(50.14,50.11))=="0.0","invisible precision changes do not produce a signed zero");
         Console.WriteLine("Annual feedback checks passed: "+checks);return checks;
     }
 }
