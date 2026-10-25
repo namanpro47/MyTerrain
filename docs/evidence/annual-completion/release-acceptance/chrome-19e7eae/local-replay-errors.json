@@ -1,0 +1,8 @@
+[
+  {
+    "level": "error",
+    "message": "PlayerPrefsException: Could not store preference value\n  at UnityEngine.PlayerPrefs.SetString (System.String key, System.String value) [0x00000] in <00000000000000000000000000000000>:0 \n\n",
+    "timestamp": "2026-10-25T20:15:58.928Z",
+    "url": "blob:http://127.0.0.1:61272/cdd16439-e214-41f8-900d-e3af7fefe966"
+  }
+]
