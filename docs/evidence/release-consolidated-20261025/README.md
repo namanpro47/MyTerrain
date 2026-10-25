@@ -12,6 +12,18 @@ Numeric schema-3 exact codec/directory/checkpoint work is merged as inactive pre
 
 ## Verification
 
-[Independent pure-source checks](source-checks.json). Combined native/WebGL/browser and public deployment verification follow before publication. Design reference patterns TN-01/03/04/05/06/08, CS-01/02/04 and AX-01 guide the browser review; these checks cannot close the separate scenery quality gate.
+[Independent pure-source checks](source-checks.json). The first frozen export `e74496b` failed actual Chrome Begin/save and was never published. The corrected source `2aeca9a` replaces the failing WebGL GZipStream path with a synchronous MIT-licensed fflate bridge and preserves exact doubles on restore; strict historical hashes and tamper rejection remain enforced. Corrected native verification passes 1,322 assertions plus 16 chapter assertions, with 24 codec and 36 chapter-session checks. See [corrected source](corrected-source.json). Design reference patterns TN-01/03/04/05/06/08, CS-01/02/04 and AX-01 guide the browser review; these checks cannot close the separate scenery quality gate.
 
 Vercel connector lacks team scope; the authenticated CLI confirms existing project terra-browser (`prj_PiYOquy8PBxGMztOM61NDOfN5aX0`) in namanpro47s-projects. Deploy the whole frozen export including narration server function; credentials remain in Vercel environment only.
+
+## Late main reconciliation
+
+Normal pushes brought the combined source to `b9c6686`, then `82bf735`. The latter incorporates the newly landed optional Take it local follow-up (`8a275b8`, `857530d`, verified by `b01d6ce`) and root acceptance evidence `3e6513f`. These runtime additions landed after the `2aeca9a` build freeze, so that export must not be described as matching latest main. A subsequent export is required for the final latest-main publication. No experimental texture-compression candidate or unfinished regional map reconstruction is enabled.
+
+Fresh anonymous preflights for `/session` and `/chapter` now return 204 with the exact requested origin for the Vercel alias and both custom-domain origins; the previous custom-domain CORS failure is historical. See [origin checks](chapter-origins.json).
+
+## Final combined build candidate
+
+Fresh main also delivered visual project statistics (`6415767`). The integrated native gate exposed stale lifetime-cost text expectations and a conversion fixture that did not arm its replacement tool. Tests now use the new public-cost wording, the compact money formatter and the actual selected-tool flow. The conversion overlay again explicitly says no refund, preserving the earlier guidance (TN-05, CS-01/02, AX-01). Source `a3eea780f36e852e29203bf55125cdea93693246` passes 2,138 native assertions plus 16 chapter checks and is the final build candidate. No balance values or accepted history were changed.
+
+The user requested a very quick Chrome check: load, Begin, one apartment, End Year, and unchanged accepted state after reload. The prior two-apartment harness stalled because successful placement intentionally returns to browse mode and the script failed to reselect the tool. This was a harness issue, not evidence of a second-placement regression.

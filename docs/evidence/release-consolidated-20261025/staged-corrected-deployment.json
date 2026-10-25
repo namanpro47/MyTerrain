@@ -1,0 +1,9 @@
+{
+  "source": "2aeca9a7fd9c4bbf3292c7286fb2fc4815c7c18a",
+  "deploymentId": "dpl_Ez4rYGtwaF9aRrNae6XJBzGPVnSQ",
+  "url": "https://terra-browser-qi0ilg9j5-namanpro47s-projects.vercel.app",
+  "target": "production",
+  "automaticDomainPromotion": false,
+  "latestMain": "82bf73595ad0a1324a93e41d05d1ba1a5193af28",
+  "note": "Staged pending critical Chrome save/reload check; late main Take it local runtime requires subsequent build."
+}
