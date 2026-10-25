@@ -1,0 +1,53 @@
+Shader "Terra/Artist Grain Field"
+{
+    Properties
+    {
+        [MainColor] _BaseColor("Grain colour",Color)=(.72,.62,.34,1)
+        [MainTexture] _BaseMap("Artist wheat",2D)="white"{}
+        _Cutoff("Silhouette",Range(0,1))=.35
+    }
+    SubShader
+    {
+        Tags {"RenderType"="TransparentCutout" "Queue"="AlphaTest" "RenderPipeline"="UniversalPipeline"}
+        Pass
+        {
+            Tags {"LightMode"="UniversalForward"}
+            Cull Off
+            AlphaToMask On
+            HLSLPROGRAM
+            #pragma vertex Vert
+            #pragma fragment Frag
+            #pragma multi_compile_instancing
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+            CBUFFER_START(UnityPerMaterial)
+                half4 _BaseColor;float4 _BaseMap_ST;half _Cutoff;
+            CBUFFER_END
+            TEXTURE2D(_BaseMap);SAMPLER(sampler_BaseMap);
+            struct A {float4 positionOS:POSITION;float2 uv:TEXCOORD0;UNITY_VERTEX_INPUT_INSTANCE_ID};
+            struct V {float4 positionCS:SV_POSITION;float3 positionWS:TEXCOORD0;float2 uv:TEXCOORD1;};
+            V Vert(A i)
+            {
+                UNITY_SETUP_INSTANCE_ID(i);
+                V o;o.positionWS=TransformObjectToWorld(i.positionOS.xyz);o.positionCS=TransformWorldToHClip(o.positionWS);o.uv=i.uv;return o;
+            }
+            half4 Frag(V i):SV_Target
+            {
+                half4 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,i.uv);
+                // Feed coverage to MSAA, retaining clipping on targets without multisampling.
+                half coverage=saturate((painted.a-_Cutoff)/max(fwidth(painted.a),.001)+.5);
+                clip(coverage-.01);
+                Light sun=GetMainLight(TransformWorldToShadowCoord(i.positionWS));
+                half3 light=SampleSH(half3(0,1,0))+sun.color*.85*lerp(.5,1,sun.shadowAttenuation);
+                // The artist's grayscale paint gives the stalk depth without stretching its grain silhouette.
+                float patch=.5+.5*sin(i.positionWS.x*.075+sin(i.positionWS.z*.043)*2.5);
+                half3 grain=lerp(_BaseColor.rgb*half3(.86,.85,.7),_BaseColor.rgb*half3(1.08,1.06,1.04),patch);
+                half height=lerp(.62,1,smoothstep(.22,.88,i.uv.y));
+                return half4(grain*light*height*lerp(.8,1,painted.r),coverage);
+            }
+            ENDHLSL
+        }
+    }
+}

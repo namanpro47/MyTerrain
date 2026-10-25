@@ -1,0 +1,81 @@
+[
+  {
+    "name": "ArtistSTOak1",
+    "height": 8.0,
+    "rootY": 0.0,
+    "footprint": [
+      -2.874538,
+      -4.61333752,
+      3.95222473,
+      3.739584
+    ],
+    "vertices": 2608,
+    "materials": [
+      "ArtistSTOakLeaf",
+      "ArtistSTOakTrunk"
+    ]
+  },
+  {
+    "name": "ArtistSTOak2",
+    "height": 8.0,
+    "rootY": 0.0,
+    "footprint": [
+      -3.80743,
+      -5.64754629,
+      2.87279582,
+      3.776401
+    ],
+    "vertices": 3057,
+    "materials": [
+      "ArtistSTOakLeaf",
+      "ArtistSTOakTrunk"
+    ]
+  },
+  {
+    "name": "ArtistSTOak4",
+    "height": 7.99999952,
+    "rootY": 0.0,
+    "footprint": [
+      -3.55958557,
+      -5.52987862,
+      3.35251331,
+      5.86239147
+    ],
+    "vertices": 2929,
+    "materials": [
+      "ArtistSTOakLeaf",
+      "ArtistSTOakTrunk"
+    ]
+  },
+  {
+    "name": "ArtistSTWillow2",
+    "height": 7.99999952,
+    "rootY": 0.0,
+    "footprint": [
+      -4.80960274,
+      -5.921993,
+      6.17102146,
+      5.509825
+    ],
+    "vertices": 2934,
+    "materials": [
+      "ArtistSTWillowTrunk",
+      "ArtistSTWillowLeaf"
+    ]
+  },
+  {
+    "name": "GeometricWheat",
+    "height": 2.36998272,
+    "rootY": 0.0,
+    "footprint": [
+      -0.79958415,
+      -0.660072267,
+      1.03501773,
+      0.775892437
+    ],
+    "vertices": 552,
+    "materials": [
+      "FieldWheat"
+    ]
+  }
+]

@@ -3,32 +3,34 @@
   "status": "goal-rewritten; visual-rebuild-active-not-passed",
   "documentation": "Local links and code fences checked; git diff --check passed",
   "latestStudy": {
-    "job": "b755f8f990a04ad7a86cf90229f17d2f",
+    "study": 14,
+    "job": "38514f19e996465f89505f751bae7e21",
     "build": "success",
-    "executionTimeMs": 58605,
+    "executionTimeMs": 109828,
     "browser": "Chrome",
     "nativeCaptureDimensions": [
       1728,
       940
     ],
-    "normalCapture": "study09-default.jpg",
-    "panCapture": "study09-pan.jpg",
-    "closeCapture": "study09-hillside.jpg",
-    "overviewCapture": "study09-overview.jpg",
-    "exportCheck": "study09-export-check.json",
+    "normalCapture": "study14-default.jpg",
+    "closeCapture": "study14-canopy-close.jpg",
+    "cropCapture": "study14-cultivation.jpg",
+    "transformationCapture": "study14-restored.jpg",
+    "overviewCapture": "study14-overview.jpg",
+    "exportCheck": "study14-export-check.json",
     "visualAcceptance": false
   },
   "stateChecks": 139,
   "knownWarning": "Existing FSR-upscaler shader unavailable warning; no post-processing quality claim",
   "openGaps": [
-    "painted canopy richness and volume",
-    "cultivated terrain and interventions",
-    "road/bank integration",
-    "whole-scene depth and composition",
-    "final browser performance and delivery gate"
+    "Dense crop cards look like a uniform carpet and regress rendering cost",
+    "Canopy repetition and dark noisy interiors; willow strip too continuous",
+    "Simple roads, flat water and unconvincing bank/ground transitions",
+    "83ms p95 controlled route exceeds stable-30 fallback",
+    "Final matched reviews, browser sizes, video, fresh loads and public delivery"
   ],
-  "temporarySettings": "Chrome viewport reset; Unity background override restored via CLI after checks",
-  "nextDecision": "User rejected image-generation-heavy approach. No further generation this pass. Evaluate coherent existing environment family with supplied shaders/materials/demo, then representative same-AOI scene at gameplay scale. Current painted cards and fixed-camera workaround disposable.",
+  "temporarySettings": "Chrome viewport not overridden. Unity Play mode stopped, main scene restored, background override restored off. Prior auto-tick retained.",
+  "nextDecision": "Reject dense nine-plant field cards. Test a sparse row construction and reduce overlap before further detail. Whole scene remains below the reference bar.",
   "historicalStudy05BrowserChecks": {
     "restoreCommit": {
       "revision": 1,
@@ -43,10 +45,37 @@
     "swalePreview": "Meadow edge rendered; cancelled successfully",
     "console": "No errors returned; existing FSR warning"
   },
-  "stateChecksNote": "139 checks are historical, not rerun for study09.",
+  "stateChecksNote": "139 real-pack checks passed at study12; not rerun for rendering-only edits. Study14 Chrome cultivation/restoration/undo verified; transformed batch bounds checked with zero corner failures.",
   "currentBrowserChecks": {
-    "scope": "Study09 limited pan/zoom/render inspection only",
+    "scope": "Study14 clean reload after user confirmed idle; normal, canopy close, overview, cultivation/restoration/undo",
+    "cultivateCommit": {
+      "revision": 1,
+      "production": 17,
+      "credits": 36
+    },
+    "restoreCommit": {
+      "revision": 3,
+      "production": 5,
+      "credits": 42
+    },
+    "finalUndo": {
+      "revision": 4,
+      "production": 6,
+      "credits": 60
+    },
+    "warmLocalLoadMs": 4451,
+    "interactionDiagnostic": {
+      "seconds": 30.004,
+      "p95Ms": 83,
+      "p99Ms": 109,
+      "maxFrameMs": 131,
+      "averageFps": 32.329,
+      "cameraEvents": 4,
+      "previewEvents": 10,
+      "placementEvents": 2,
+      "unfocusedFrames": 0
+    },
     "fullInteractionPerformanceAcceptance": false
   },
-  "resourceCandidate": "Elijah Cobden Nature Pack v1.1 downloaded and inspected outside Assets; not imported or accepted."
+  "resourceCandidate": "Free artist wheat cards with custom field shader are unaccepted. Generated studies archived outside Resources; compressed export reduced to 20,713,933 bytes. No purchases or image generation."
 }

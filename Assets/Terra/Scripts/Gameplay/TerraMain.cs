@@ -19,12 +19,12 @@ namespace Terra.Gameplay
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
-        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=150;Vector3 target=new Vector3(-35,25,-65);
+        string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
         bool perspective=true;
         UnityEngine.UI.Button uiDown;
         bool ready,pressed,dragged,overUi,committing;Vector2 down,last;float toastUntil;
         readonly BrowserPerformance performance=new BrowserPerformance();
-        float shownYaw=-32,shownPitch=37,shownZoom=150;Vector3 shownTarget=new Vector3(-35,25,-65);
+        float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
         public int Revision=>state?.Revision??-1;
         public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
         void Start()
@@ -66,7 +66,6 @@ namespace Terra.Gameplay
                 bool uiHandled=hud.KeyboardInput(k);
                 if(k.escapeKey.wasPressedThisFrame&&!uiHandled)Cancel();
                 if(k.f9Key.wasPressedThisFrame)performance.Start();
-                if(k.f4Key.wasPressedThisFrame)Toast(landscape.ToggleForestStudy()?"Painted forest study":"Textured mesh forest study");
                 if(k.f5Key.wasPressedThisFrame){perspective=true;yaw=-32;pitch=36;zoom=75;target=new Vector3(40,65,160);ApplyView();}
                 if(k.f6Key.wasPressedThisFrame){perspective=false;yaw=-32;pitch=58;zoom=580;target=new Vector3(0,30,0);ApplyView();Toast("Overview study · R returns to the landscape");}
                 if(k.f7Key.wasPressedThisFrame){perspective=!perspective;ApplyView();Toast(perspective?"Perspective study":"Orthographic study");}
@@ -170,7 +169,7 @@ namespace Terra.Gameplay
             if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
             view.transform.position=position;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));
         }
-        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=150;target=new Vector3(-35,25,-65);ApplyView();}
+        void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}
         void OnDestroy(){landscape?.Dispose();}
         void Choose(string id){if(!ready)return;treatmentId=id;hud.Selected(id);UpdatePreview();}

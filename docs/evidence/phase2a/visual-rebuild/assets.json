@@ -130,41 +130,45 @@
       "name": "Original painted meadow texture",
       "source": "Built-in image_gen tool",
       "date": "2026-10-24",
-      "path": "Assets/Terra/Resources/MeadowPaint.png",
+      "path": "Assets/Terra/Art/ArchivedStudies/MeadowPaint.png",
       "sha256": "83dc53cb9af0a9b1aa986138a5ae61c34eda25a24c99e2c0d54877c92d1603d4",
-      "status": "Imported and rendered as the ground detail layer in study 03; visual gate not passed",
+      "status": "Rejected historical study, archived outside Resources in study14; not active rendering",
       "promptRecord": "generated-meadow-prompt.md",
-      "use": "Illustrative terrain albedo; not measured vegetation or reference-game artwork"
+      "use": "Illustrative terrain albedo; not measured vegetation or reference-game artwork",
+      "historicalPath": "Assets/Terra/Resources/MeadowPaint.png"
     },
     {
       "name": "Original painted broadleaf cluster",
       "source": "Built-in image_gen tool",
       "date": "2026-10-24",
-      "path": "Assets/Terra/Resources/LeafPaint.png",
+      "path": "Assets/Terra/Art/ArchivedStudies/LeafPaint.png",
       "sha256": "c75ec5bee043d70778c265d735713689429aee03fa82a0d305c371abdfaf9352",
-      "status": "Imported and rendered in Chrome study 05; leaf detail increased, but canopy remains too flat and busy; not accepted",
+      "status": "Rejected historical study, archived outside Resources in study14; not active rendering",
       "promptRecord": "generated-leaf-prompt.md",
-      "use": "Illustrative leaf-card albedo and alpha; no surveyed species claim"
+      "use": "Illustrative leaf-card albedo and alpha; no surveyed species claim",
+      "historicalPath": "Assets/Terra/Resources/LeafPaint.png"
     },
     {
       "name": "Original painted temperate tree atlas",
       "source": "Built-in image_gen tool",
       "date": "2026-10-24",
-      "path": "Assets/Terra/Resources/PaintedTrees.png",
+      "path": "Assets/Terra/Art/ArchivedStudies/PaintedTrees.png",
       "sha256": "dcf91955bb9b065cfec5f384f12b3ae2b8e27e3c5ff72a4e5a29b58a46544747",
       "promptRecord": "generated-trees-prompt.md",
-      "status": "Rendered in Chrome study 08 after explicit material fixed stripped instancing variants; steep camera tilt exposes flat cards, so study 09 tests a deliberate fixed-angle camera; not accepted",
-      "use": "Original illustrative tree sprites; no measured species or individual-tree claim"
+      "status": "Rejected historical study, archived outside Resources in study14; not active rendering",
+      "use": "Original illustrative tree sprites; no measured species or individual-tree claim",
+      "historicalPath": "Assets/Terra/Resources/PaintedTrees.png"
     },
     {
       "name": "Original painted woodland understory atlas",
       "source": "Built-in image_gen tool",
       "date": "2026-10-24",
-      "path": "Assets/Terra/Resources/PaintedUnderstory.png",
+      "path": "Assets/Terra/Art/ArchivedStudies/PaintedUnderstory.png",
       "sha256": "0ee7450db26fb1abc6e05553ea88e2d426f7cbe4ed94b1ea530e75613120315c",
       "promptRecord": "generated-understory-prompt.md",
-      "status": "Rendered in study09 Chrome captures; unaccepted. Further generation stopped after user correction.",
-      "use": "Original illustrative shrubs; no measured species or individual-plant claim"
+      "status": "Rejected historical study, archived outside Resources in study14; not active rendering",
+      "use": "Original illustrative shrubs; no measured species or individual-plant claim",
+      "historicalPath": "Assets/Terra/Resources/PaintedUnderstory.png"
     },
     {
       "name": "Elijah Cobden Stylized Nature Pack",
@@ -186,15 +190,47 @@
         "scripts": 0
       },
       "inventory": "Builds/ArtResearch/ElijahCobdenNature/inventory.json",
-      "status": "Imported with supplied materials/shaders; demo rendered live in Unity 6 after enabling Terrain/TerrainPhysics. Forest direction not selected. Wheat is used in study11 browser candidate, with identity wrapper correcting prefab scale/origin.",
+      "status": "Supplied demo evaluated in Unity. Birch canopy not selected. Wheat rendered poorly in Chrome study11; coverage-preserving mipmaps exposed noisy thin stalks. Superseded by geometric wheat trial.",
       "attributionFile": "Assets/Stylised Nature/ATTRIBUTION.md",
       "modifications": [
         "GrassWheat material GPU instancing enabled",
-        "ArtistWheat wrapper preserves source root scale 100 and resets child local position to zero"
+        "ArtistWheat wrapper preserves source root scale 100 and resets child local position to zero",
+        "Wheat texture coverage-preserving mipmaps, alpha reference .5 and trilinear filtering",
+        "Study13: unchanged authored grass/earth textures copied into Resources, repeating mipmaps, luminance mapped into the terrain palette"
       ],
       "selectedImports": [
         "Assets/Terra/Resources/Nature/ArtistWheat.prefab"
-      ]
+      ],
+      "terrainTextureUses": [
+        {
+          "path": "Assets/Terra/Resources/ArtistGrassGround.png",
+          "sha256": "50a9e077fddd7c74dd41cd8e91665a9e715cbcb76d92fb1a28a6b5beb8093f07",
+          "bytes": 1008205
+        },
+        {
+          "path": "Assets/Terra/Resources/ArtistDirtGround.png",
+          "sha256": "d6c3344b41adf12305197c7179eaa0aaf2d8ba42b8ea9ca2475852be3d71d131",
+          "bytes": 491889
+        }
+      ],
+      "fieldClusterStudy": {
+        "study": 15,
+        "path": "Assets/Terra/Resources/Nature/FieldCluster.prefab",
+        "source": "Elijah Cobden WheatPatch, unchanged GrassWheat.png source pixels",
+        "construction": "Three source plants in a narrow row, 36 vertices; 2.4m row spacing, 1.6m longitudinal spacing, illustrative access lanes",
+        "shader": "TerraCropCards; alpha-to-coverage candidate",
+        "status": "Editor inspected; Chrome pending; not visually accepted"
+      },
+      "fieldClusterStudy14": {
+        "prefab": "Assets/Terra/Resources/Nature/FieldCluster.prefab",
+        "sourceGeometry": "Assets/Stylised Nature/Prefabs/WheatPatch.prefab",
+        "sourceTexture": "Assets/Stylised Nature/Materials/Textures/Grass/GrassWheat.png",
+        "shader": "Assets/Terra/Resources/TerraCropCards.shader",
+        "verticesPerCluster": 108,
+        "plantsPerCluster": 9,
+        "sourceTexturePixelsChanged": false,
+        "status": "Study14 candidate, not accepted"
+      }
     },
     {
       "name": "Elijah Cobden Stylized Trees Pack",
@@ -215,7 +251,62 @@
         "scripts": 0
       },
       "inventory": "Builds/ArtResearch/ElijahCobdenTrees/inventory.json",
-      "status": "Downloaded and inspected outside Assets. No GUID overlap with Nature Pack. Not imported or accepted."
+      "status": "Imported, supplied demo evaluated, adapted oak wrappers rendered in Chrome study12. Actual 3D volume, but uniform canopy and weak internal form remain below reference bar. Not accepted.",
+      "attributionFile": "Assets/Trees/ATTRIBUTION.md",
+      "modifications": [
+        "Identity wrapper normalizes to 8m base height and root contact",
+        "Separate form transform broadens X/Z 1.6x",
+        "Copied materials use coordinated palette and explicit GPU instancing"
+      ]
+    },
+    {
+      "name": "Quaternius Ultimate Crops Pack \u2014 selected wheat meshes",
+      "creator": "Quaternius",
+      "source": "https://quaternius.com/packs/ultimatecrops.html",
+      "downloadFolder": "https://drive.google.com/drive/folders/1r_WpDuffiJeQ3neYTvCEb0RI-yOB_afS",
+      "license": "CC0 1.0 Universal per creator page",
+      "acquired": "2026-10-24",
+      "selectedImports": [
+        {
+          "path": "Assets/Terra/Art/QuaterniusCrops/Wheat_3.fbx",
+          "bytes": 19660,
+          "sha256": "f88ac9af3e8c06314e3e17183a08810abb176f52f5721c4e73149d3b3dc854c8"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusCrops/Wheat_4.fbx",
+          "bytes": 16524,
+          "sha256": "ffe5684d4b8e3434e8e1908c3a0d980460e33da8259ca48d05844282fed76e1e"
+        },
+        {
+          "path": "Assets/Terra/Art/QuaterniusCrops/Wheat_Crop.fbx",
+          "bytes": 26316,
+          "sha256": "7cd64ed484010be32641782f58898dab81b3e806a4b010af8160d823b519f393"
+        }
+      ],
+      "attributionFile": "Assets/Terra/Art/QuaterniusCrops/ATTRIBUTION.md",
+      "status": "Three individual FBX sources acquired. Mature Wheat_4 combined into a three-stalk cluster and rendered in Chrome study12. Cultivate/undo verified; sparse repetitive appearance remains below bar. No new farming mechanics.",
+      "archiveNote": "Full-folder download attempted, not confirmed on disk; not claimed acquired."
+    },
+    {
+      "name": "FabinhoSC stylized branches research candidate",
+      "source": "https://opengameart.org/content/stylized-branches-texture",
+      "download": "https://opengameart.org/sites/default/files/treebranchstylizedextraameixa_0.png",
+      "license": "CC0 per creator page",
+      "localResearchPath": "/tmp/terra-free-foliage/FabinhoSC-branches.png",
+      "sha256": "4cd098e86db0c088010f38171716ac4c62cb37ca37336ef659ef1da367542d3c",
+      "status": "Downloaded and visually inspected; not imported, used, or accepted"
+    },
+    {
+      "name": "Symphonie Studio free Oak sample",
+      "source": "https://symphonie-studio.itch.io/stylizedforestkit",
+      "downloadFileId": 13248936,
+      "bytes": 50648638,
+      "sha256": "1a11bfc62f656c32c24e73a06608669ec9d730ddff5689d2e808344ba0c608f3",
+      "archivePath": "/tmp/terra-free-foliage/SymphonieOak.download",
+      "researchDirectory": "/tmp/terra-free-foliage/SymphonieOak",
+      "contents": "116 entries; one FBX, 12 prefabs across Built-in/URP/HDRP, 12 materials, 12 PNGs, 2 Shader Graphs and 5 subgraphs; no C# scripts",
+      "permissionEvidence": "Creator offers free Oak download and describes it as usable for any production; archive contains no separate license file. Do not label CC0 or assume source redistribution rights.",
+      "status": "Downloaded through creator file endpoint after browser download yielded no file; archive and diffuse texture inspected. Engine/visual evaluation pending; not in active renderer."
     }
   ]
 }

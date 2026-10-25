@@ -7,7 +7,7 @@ namespace Terra.Rendering
     // Spatial batches keep the new foliage family shared in memory rather than copying every vertex per tree.
     public sealed class InstancedNature : MonoBehaviour
     {
-        sealed class Batch { public Mesh mesh;public Material material;public int submesh;public Matrix4x4[] transforms,animated; }
+        sealed class Batch { public Mesh mesh;public Material material;public int submesh;public Matrix4x4[] transforms,animated;public Bounds bounds; }
         readonly List<Batch> batches=new List<Batch>();
         readonly List<Material> ownedMaterials=new List<Material>();
         public bool ShadowsOnly {get;set;}
@@ -24,23 +24,35 @@ namespace Terra.Rendering
                 {
                     var material=new Material(materials[Mathf.Min(sub,materials.Length-1)]);material.enableInstancing=true;
                     if(tint!=Color.white&&prefab.name.StartsWith("Grass"))material.color=tint;
-                    if(material.name.Contains("Leaves")){material.shader=Resources.Load<Shader>("TerraFoliage");if(tint!=Color.white)material.color=tint;if(prefab.name.StartsWith("CommonTree")||prefab.name.StartsWith("Bush")){material.SetTexture("_BaseMap",Resources.Load<Texture2D>("LeafPaint"));material.SetFloat("_Painted",1);}material.EnableKeyword("_ALPHATEST_ON");var bounds=filter.sharedMesh.bounds;material.SetVector("_CrownCenter",bounds.center+Vector3.up*bounds.extents.y*.3f);}
                     ownedMaterials.Add(material);
-                    // At most 128 instances; input groups are spatial so offscreen woodland is culled as small clusters.
-                    for(int start=0;start<transforms.Count;start+=128)
+                    // Dense crop clusters use larger batches; woodland retains smaller spatial groups.
+                    // RenderMeshInstanced stores both transform matrices: stay below its default 511-instance limit.
+                    int batchSize=(prefab.name=="GeometricWheat"||prefab.name=="FieldCluster")?500:128;
+                    for(int start=0;start<transforms.Count;start+=batchSize)
                     {
-                        var matrices=new Matrix4x4[Mathf.Min(128,transforms.Count-start)];
+                        var matrices=new Matrix4x4[Mathf.Min(batchSize,transforms.Count-start)];
                         for(int i=0;i<matrices.Length;i++)matrices[i]=transforms[start+i]*local;
-                        batches.Add(new Batch{mesh=filter.sharedMesh,submesh=sub,material=material,transforms=matrices});
+                        var bounds=TransformBounds(filter.sharedMesh.bounds,matrices[0]);
+                        for(int i=1;i<matrices.Length;i++)bounds.Encapsulate(TransformBounds(filter.sharedMesh.bounds,matrices[i]));
+                        batches.Add(new Batch{mesh=filter.sharedMesh,submesh=sub,material=material,transforms=matrices,bounds=bounds});
                     }
                 }
             }
+        }
+        static Bounds TransformBounds(Bounds local,Matrix4x4 matrix)
+        {
+            var e=local.extents;
+            var x=matrix.MultiplyVector(new Vector3(e.x,0,0));
+            var y=matrix.MultiplyVector(new Vector3(0,e.y,0));
+            var z=matrix.MultiplyVector(new Vector3(0,0,e.z));
+            var extent=new Vector3(Mathf.Abs(x.x)+Mathf.Abs(y.x)+Mathf.Abs(z.x),Mathf.Abs(x.y)+Mathf.Abs(y.y)+Mathf.Abs(z.y),Mathf.Abs(x.z)+Mathf.Abs(y.z)+Mathf.Abs(z.z));
+            return new Bounds(matrix.MultiplyPoint3x4(local.center),extent*2);
         }
         void LateUpdate()
         {
             foreach(var b in batches)
             {
-                var parameters=new RenderParams(b.material){shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
+                var parameters=new RenderParams(b.material){worldBounds=b.bounds,shadowCastingMode=ShadowsOnly?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On,receiveShadows=true};
                 var matrices=b.transforms;
                 if(revealStarted>=0)
                 {

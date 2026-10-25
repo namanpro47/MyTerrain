@@ -13,7 +13,7 @@ namespace Terra.Rendering
         {
             var p=site.polygon;float l=p.Min(v=>v.x),r=p.Max(v=>v.x),b=p.Min(v=>v.z),t=p.Max(v=>v.z);
             bool cultivated=treatment.StartsWith("cultivate");
-            Color ground=cultivated?new Color(.43f,.34f,.20f):new Color(.39f,.56f,.25f);
+            Color ground=cultivated?new Color(.67f,.56f,.30f):new Color(.39f,.56f,.25f);
             if(preview)ground=Color.Lerp(ground,new Color(.68f,.74f,.49f),.15f);
             Patch("Illustrative treatment soil",p,ground,.12f,parent);
             if(cultivated)
@@ -83,20 +83,19 @@ namespace Terra.Rendering
         void PlantCultivation(Point[] polygon,Transform parent,bool baseline)
         {
             float l=polygon.Min(v=>v.x),r=polygon.Max(v=>v.x),b=polygon.Min(v=>v.z),t=polygon.Max(v=>v.z);
-            var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();var furrows=new Geometry();
-            var grain=Resources.Load<GameObject>("Nature/ArtistWheat");
-            const float spacing=2.8f;
+            var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();
+            var grain=Resources.Load<GameObject>("Nature/FieldCluster");
+            const float spacing=2.4f;
             for(float x=Mathf.Ceil((l+1)/spacing)*spacing;x<r-1;x+=spacing)
             {
-                if(!baseline)Surface(Rectangle(x-.35f,b+2,x+.35f,t-2),.16f,furrows);
-                for(float z=Mathf.Ceil((b+1)/2.2f)*2.2f;z<t-1;z+=2.2f)
+                // Cultivated ground shares the field palette; individual plants supply its row rhythm.
+                for(float z=Mathf.Ceil((b+1)/1.6f)*1.6f;z<t-1;z+=1.6f)
                 {
-                    if(!Contains(polygon,x,z)||(baseline&&CoverAt(x,z)!="cultivated"))continue;
+                    if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x))continue;
                     float size=.9f+(float)rng.NextDouble()*.2f;
-                    plants.Add(PlantMatrix(grain,x+((float)rng.NextDouble()-.5f)*.35f,z,size,(float)rng.NextDouble()*60-30)*Matrix4x4.Scale(new Vector3(3.1f,.9f,3.1f)));
+                    plants.Add(PlantMatrix(grain,x+((float)rng.NextDouble()-.5f)*.2f,z,size,(float)rng.NextDouble()*12-6));
                 }
             }
-            MeshObject("Soft cultivation furrows",furrows,GroundMat(new Color(.35f,.28f,.17f)),parent);
             parent.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
         }
         void BuildBaselinePlants(Site site,Transform parent)
@@ -106,18 +105,20 @@ namespace Terra.Rendering
         }
         void BuildCultivatedContext()
         {
-            var grain=Resources.Load<GameObject>("Nature/ArtistWheat");
+            var grain=Resources.Load<GameObject>("Nature/FieldCluster");
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
                 var plants=new List<Matrix4x4>();
-                for(float z=Mathf.Ceil(cz/2.2f)*2.2f;z<Mathf.Min(cz+150,zmax-3);z+=2.2f)for(float x=Mathf.Ceil(cx/2.8f)*2.8f;x<Mathf.Min(cx+150,xmax-3);x+=2.8f)
+                for(float z=Mathf.Ceil(cz/1.6f)*1.6f;z<Mathf.Min(cz+150,zmax-3);z+=1.6f)for(float x=Mathf.Ceil(cx/2.4f)*2.4f;x<Mathf.Min(cx+150,xmax-3);x+=2.4f)
                 {
-                    if(CoverAt(x,z)!="cultivated"||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
+                    if(!VisualCropAt(x,z)||FieldTrackAt(x)||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
                     float variation=Mathf.PerlinNoise(x*.12f+500,z*.12f+500);
-                    plants.Add(PlantMatrix(grain,x,z,.9f+variation*.2f,variation*60-30)*Matrix4x4.Scale(new Vector3(3.1f,.9f,3.1f)));
+                    plants.Add(PlantMatrix(grain,x,z,.9f+variation*.2f,variation*12-6));
                 }
                 root.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
             }
         }
+        // Illustrative access lanes, aligned across baseline and proposed planting, not surveyed tracks.
+        static bool FieldTrackAt(float x)=>Mathf.Repeat(x+1200,38.4f)<2.4f;
     }
 }

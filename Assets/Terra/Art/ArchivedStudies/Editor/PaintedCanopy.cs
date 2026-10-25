@@ -16,7 +16,7 @@ namespace Terra.Rendering
         {
             if(transforms.Count==0)return;
             // A referenced instanced material keeps the required variant in player exports.
-            if(material==null)material=new Material(Resources.Load<Material>(Understory?"PaintedUnderstoryMaterial":"PaintedTreeMaterial"));
+            if(material==null)material=new Material(UnityEditor.AssetDatabase.LoadAssetAtPath<Material>("Assets/Terra/Art/ArchivedStudies/"+(Understory?"PaintedUnderstoryMaterial.mat":"PaintedTreeMaterial.mat")));
             // UVs and root pivots follow the inspected atlas, which has intentionally unequal tree silhouettes.
             bool left=variant%2==0,top=variant<2;
             float u0=left?0:.5375f,u1=left?.5375f:1,v0=top?.525f:0,v1=top?1:.525f;

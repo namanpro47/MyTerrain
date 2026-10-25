@@ -5,7 +5,52 @@ using UnityEngine;
 // Reproducible selected-subset import. The source archive/license is recorded in the visual rebuild register.
 public static class VisualRebuildAssets
 {
+    public static void PrepareFieldCluster()
+    {
+        var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Terra/Resources/Nature/ArtistWheat.prefab"));
+        var filter=source.GetComponentInChildren<MeshFilter>();
+        var copies=new System.Collections.Generic.List<CombineInstance>();
+        // A narrow planted row, not nine overlapping crosses covering every square metre.
+        for(int z=0;z<3;z++)
+            copies.Add(new CombineInstance{mesh=filter.sharedMesh,transform=Matrix4x4.TRS(new Vector3(0,0,(z-1)*.55f),Quaternion.Euler(0,z*37,0),new Vector3(1.05f,1.15f,1.05f))*filter.transform.localToWorldMatrix});
+        const string meshPath="Assets/Terra/Resources/Nature/FieldCluster.asset";
+        var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
+        if(mesh==null){mesh=new Mesh();AssetDatabase.CreateAsset(mesh,meshPath);}else mesh.Clear();
+        mesh.CombineMeshes(copies.ToArray(),true,true);EditorUtility.SetDirty(mesh);
+        const string materialPath="Assets/Terra/Resources/Nature/FieldCluster.mat";
+        var material=AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+        if(material==null){material=new Material(Resources.Load<Shader>("TerraCropCards"));AssetDatabase.CreateAsset(material,materialPath);}
+        material.shader=Resources.Load<Shader>("TerraCropCards");
+        material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Stylised Nature/Materials/Textures/Grass/GrassWheat.png"));
+        material.color=new Color(.72f,.62f,.34f);material.enableInstancing=true;EditorUtility.SetDirty(material);
+        var wrapper=new GameObject("FieldCluster");wrapper.AddComponent<MeshFilter>().sharedMesh=mesh;wrapper.AddComponent<MeshRenderer>().sharedMaterial=material;
+        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Resources/Nature/FieldCluster.prefab");
+        Object.DestroyImmediate(wrapper);Object.DestroyImmediate(source);AssetDatabase.SaveAssets();
+    }
     const string Root="Assets/Terra/Art/QuaterniusNature";
+    public static void PrepareGeometricWheat()
+    {
+        const string sourcePath="Assets/Terra/Art/QuaterniusCrops/Wheat_4.fbx";
+        var importer=(ModelImporter)AssetImporter.GetAtPath(sourcePath);
+        importer.isReadable=true;importer.importAnimation=false;importer.SaveAndReimport();
+        var source=Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(sourcePath));
+        var filters=source.GetComponentsInChildren<MeshFilter>();
+        var copies=new System.Collections.Generic.List<CombineInstance>();
+        foreach(var position in new[]{new Vector3(-.45f,0,-.4f),new Vector3(.45f,0,.1f),new Vector3(0,0,.45f)})
+            foreach(var filter in filters)
+                copies.Add(new CombineInstance{mesh=filter.sharedMesh,transform=Matrix4x4.TRS(position,Quaternion.Euler(0,position.x*47,0),new Vector3(9,2.7f,9))*filter.transform.localToWorldMatrix});
+        const string meshPath="Assets/Terra/Art/QuaterniusCrops/FieldWheat.asset";
+        var mesh=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
+        if(mesh==null){mesh=new Mesh();AssetDatabase.CreateAsset(mesh,meshPath);}else mesh.Clear();
+        mesh.CombineMeshes(copies.ToArray(),true,true);EditorUtility.SetDirty(mesh);
+        const string materialPath="Assets/Terra/Resources/Nature/FieldWheat.mat";
+        var material=AssetDatabase.LoadAssetAtPath<Material>(materialPath);
+        if(material==null){material=new Material(Shader.Find("Universal Render Pipeline/Simple Lit"));AssetDatabase.CreateAsset(material,materialPath);}
+        material.shader=Resources.Load<Shader>("TerraCrop");material.color=new Color(.74f,.65f,.38f);material.enableInstancing=true;EditorUtility.SetDirty(material);
+        var wrapper=new GameObject("GeometricWheat");wrapper.AddComponent<MeshFilter>().sharedMesh=mesh;wrapper.AddComponent<MeshRenderer>().sharedMaterial=material;
+        PrefabUtility.SaveAsPrefabAsset(wrapper,"Assets/Terra/Resources/Nature/GeometricWheat.prefab");
+        Object.DestroyImmediate(wrapper);Object.DestroyImmediate(source);AssetDatabase.SaveAssets();
+    }
     public static void PrepareArtistTrees()
     {
         foreach(var name in new[]{"STOak1","STOak2","STOak4","STWillow2"})
@@ -61,19 +106,19 @@ public static class VisualRebuildAssets
     }
     public static void PreparePaintedTrees()
     {
-        const string path="Assets/Terra/Resources/PaintedTreeMaterial.mat";
+        const string path="Assets/Terra/Art/ArchivedStudies/PaintedTreeMaterial.mat";
         var material=AssetDatabase.LoadAssetAtPath<Material>(path);
         if(material==null){material=new Material(Shader.Find("Terra/Painted Tree Study"));AssetDatabase.CreateAsset(material,path);}
-        material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Terra/Resources/PaintedTrees.png"));
+        material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Terra/Art/ArchivedStudies/PaintedTrees.png"));
         material.enableInstancing=true;EditorUtility.SetDirty(material);AssetDatabase.SaveAssets();
     }
     public static void PreparePaintedUnderstory()
     {
-        const string texturePath="Assets/Terra/Resources/PaintedUnderstory.png";
+        const string texturePath="Assets/Terra/Art/ArchivedStudies/PaintedUnderstory.png";
         var importer=(TextureImporter)AssetImporter.GetAtPath(texturePath);
         importer.alphaIsTransparency=true;importer.mipmapEnabled=true;importer.mipMapsPreserveCoverage=true;importer.alphaTestReferenceValue=.32f;
         importer.maxTextureSize=2048;importer.filterMode=FilterMode.Trilinear;importer.wrapMode=TextureWrapMode.Clamp;importer.SaveAndReimport();
-        const string path="Assets/Terra/Resources/PaintedUnderstoryMaterial.mat";
+        const string path="Assets/Terra/Art/ArchivedStudies/PaintedUnderstoryMaterial.mat";
         var material=AssetDatabase.LoadAssetAtPath<Material>(path);
         if(material==null){material=new Material(Shader.Find("Terra/Painted Tree Study"));AssetDatabase.CreateAsset(material,path);}
         material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));material.enableInstancing=true;

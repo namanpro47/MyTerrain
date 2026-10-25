@@ -93,7 +93,7 @@ namespace Terra.UI
             motionButton=Button(modal.transform,"Motion: full",new Vector2(0,0),new Vector2(32,86),new Vector2(234,56),()=>{ReducedMotion=!ReducedMotion;SetButtonText(motionButton,ReducedMotion?"Motion: reduced":"Motion: full");},16);
             muteButton=Button(modal.transform,"Sound: on",new Vector2(.5f,0),new Vector2(0,86),new Vector2(234,56),()=>{Muted=!Muted;SetButtonText(muteButton,Muted?"Sound: muted":"Sound: on");},16);
             textButton=Button(modal.transform,"Text: standard",new Vector2(1,0),new Vector2(-32,86),new Vector2(234,56),ToggleText,16);
-            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%3;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
+            dataPageButton=Button(modal.transform,"Sources & limits →",new Vector2(.5f,0),new Vector2(0,86),new Vector2(310,56),()=>{dataPage=(dataPage+1)%4;ShowData();},17);dataPageButton.gameObject.SetActive(false);modal.SetActive(false);
             loading=Panel(root,"Loading",new Vector2(.5f,.5f),Vector2.zero,new Vector2(540,250),PanelColor).gameObject;
             loadText=Label(loading.transform,"Preparing the landscape",new Vector2(0,1),new Vector2(28,-28),new Vector2(484,142),23,Paper);
             Button(loading.transform,"Try again",new Vector2(.5f,0),new Vector2(0,24),new Vector2(180,56),retry,17).name="Retry loading";
@@ -179,19 +179,23 @@ namespace Terra.UI
             if(dataPage==0)ShowModal("Real land. Hypothetical choices.",
                 "<b>Meadowbrook Valley</b> is a fictional name for Coon Valley / Brye Lane / Coon Creek, Wisconsin.\n\n"+
                 "<b>Bounds</b> · 43.697–43.706° N · 91.043–91.031° W (0.97 km²)\n\n"+
-                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks and water depths are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
+                "Real terrain, broad cover and mapped water/roads shape the landscape. Trees, crop rows, softened cover edges, stream banks, water depths and bridge designs are illustrative. Field parcels and individual trees were not surveyed.\n\n"+
                 "Ten management sites and two no-edit zones are game assumptions, not ownership or legal designations. Costs, demand, production units, soil B, the 50 mm storm and swale capacity are fictional. Runoff is unavailable; no flood or yield forecast.");
             else if(dataPage==1)ShowModal("Reading the terrain & cover",
                 "<b>01   Elevation · USGS 3DEP</b>\nWI_8County_2020_A20, April–May 2020; published January 2024. Bare earth, NAVD88 metres. The 1 m source is simplified to a 10 m grid, without vertical exaggeration.\n\n"+
                 "<b>02   Land cover · USGS / MRLC NLCD 2021</b>\n30 m classes, June 2023 release. Narrow margins are unresolved. Simplified display groups do not measure ecological condition.\n\n"+
                 "<b>A miniature, not a survey of every plant</b>\nCanopy shapes, crop rows, surface grain and vegetation clusters are illustrations. They do not add finer observed geographic data.");
-            else ShowModal("Mapped lines & the limits",
+            else if(dataPage==2)ShowModal("Mapped lines & the limits",
                 "<b>03   Water & roads · USGS National Map</b>\nNHD flowlines and transportation layers 30–32, retrieved October 24, 2026. Feature dates vary; drawn widths are illustrative. Federal source data are public domain.\n\n"+
                 "<b>What is not included</b>\nNo parcel, structure, tree, ownership or local soil survey. This crop is not a whole watershed. No external inflow or downstream flood protection is modeled.\n\n"+
                 "<b>Use this game to ask better questions</b>\nThe proposals are educational choices, not recommendations for real farms. Production units are illustrative accounting, not measured yields.");
+            else ShowModal("Art & acknowledgements",
+                "<b>Elijah Cobden · Stylized Trees & Nature Packs</b>\nCC BY 4.0 · creativecommons.org/licenses/by/4.0\nSources: elijahcobden.itch.io/stylized-trees-pack\nelijahcobden.itch.io/stylized-nature-pack\nAdapted proportions, palette, import settings and instancing.\n\n"+
+                "<b>Quaternius · Nature MegaKit & Ultimate Crops</b>\nCC0 · quaternius.com\nWheat meshes combined and scaled into illustrative field groups.\n\n"+
+                "<b>Kenney · Nature Kit & Interface Sounds</b>\nCC0 · kenney.nl\nThese artists do not endorse the game or its educational assumptions.");
             motionButton.gameObject.SetActive(false);muteButton.gameObject.SetActive(false);textButton.gameObject.SetActive(false);dataPageButton.gameObject.SetActive(true);
             guideSummary.SetActive(dataPage==0&&!LargeText);
-            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":"← Place & assumptions");
+            SetButtonText(dataPageButton,dataPage==0?"Terrain & cover →":dataPage==1?"Water & limits →":dataPage==2?"Art credits →":"← Place & assumptions");
         }
         void ShowModal(string title,string body)
         {guideSummary.SetActive(false);tooltip.SetActive(false);modalText.text="<size=140%><b>"+title+"</b></size>\n\n"+body;modalShade.SetActive(true);modal.SetActive(true);motionButton.gameObject.SetActive(true);muteButton.gameObject.SetActive(true);textButton.gameObject.SetActive(true);dataPageButton.gameObject.SetActive(false);Focus(closeButton);}

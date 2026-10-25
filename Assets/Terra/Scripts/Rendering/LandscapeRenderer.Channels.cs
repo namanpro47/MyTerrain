@@ -30,19 +30,25 @@ namespace Terra.Rendering
             var rush=Resources.Load<GameObject>("Nature/Grass_Common_Tall");var rock=Resources.Load<GameObject>("Nature/Rock_Medium_2");
             foreach(var feature in world.features.Where(f=>f.kind=="water"))
             {
-                var grasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();var route=RoundedWaterRoute(feature.points);
+                var grasses=new List<Matrix4x4>();var stones=new List<Matrix4x4>();var route=RoundedWaterRoute(feature.points);float next=3;
                 for(int i=1;i<route.Length;i++)
                 {
                     var a=new Vector2(route[i-1].x,route[i-1].z);var d=new Vector2(route[i].x,route[i].z)-a;var n=new Vector2(-d.y,d.x).normalized;
-                    for(float along=3;along<d.magnitude;along+=5)
+                    for(;next<d.magnitude;next+=3)
                     foreach(float side in new[]{-1f,1f})
                     {
-                        var center=a+d.normalized*along;var p=center+n*(feature.widthM*.5f+4+Range(0,1.5f))*side;
+                        var center=a+d.normalized*next;var p=center+n*(feature.widthM*.5f+4+Range(0,1.5f))*side;
                         if(!Inside(p.x,p.y)||world.features.Any(f=>f.kind=="path"&&DistanceToRoute(f.points,p.x,p.y)<f.widthM*.5f+2))continue;
                         float cluster=Mathf.PerlinNoise(p.x*.07f+500,p.y*.07f+500);
                         if(cluster>.42f)grasses.Add(PlantMatrix(rush,p.x,p.y,Range(.9f,1.6f),Range(0,360)));
-                        if(cluster>.58f&&random.NextDouble()<.4)stones.Add(PlantMatrix(rock,p.x,p.y,Range(.3f,.7f),Range(0,360)));
+                        if(cluster>.58f&&random.NextDouble()<.45)
+                        {
+                            var shelf=center+n*(feature.widthM*.5f+2.4f)*side;
+                            var stone=PlantMatrix(rock,shelf.x,shelf.y,Range(.7f,1.3f),Range(0,360));
+                            stone.m13-=2.65f;stones.Add(stone);
+                        }
                     }
+                    next-=d.magnitude;
                 }
                 var instances=root.gameObject.AddComponent<InstancedNature>();instances.Add(rush,grasses,Color.white);instances.Add(rock,stones,Color.white);
             }
@@ -74,7 +80,7 @@ namespace Terra.Rendering
             for(int z=0;z<rows;z++)for(int x=0;x<columns;x++)
             {
                 int i=z*columns+x;float px=xmin+x*dx,pz=zmin+z*dz;
-                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01(distance[i]/3.5f));
+                float cut=1-Mathf.SmoothStep(0,1,Mathf.Clamp01((distance[i]-2.0f)/2.4f));
                 vertices[i]=new Vector3(px,Height(px,pz)-cut*3.8f,pz);
                 byte value=(byte)(Mathf.Clamp01((distance[i]+3)/20)*255);colors[i]=new Color32(value,value,value,255);
             }

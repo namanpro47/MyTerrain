@@ -4,6 +4,7 @@ Shader "Terra/Illustrated Ground"
     {
         [MainColor] _BaseColor("Land colour", Color) = (0.5,0.6,0.3,1)
         _BaseMap("Base",2D)="white"{}
+        _BankMap("Artist earth surface",2D)="white"{}
         _Cutoff("Cutoff",Range(0,1))=0.5
         _SurfaceKind("Decorative surface",Float)=0
         _LandCoverMap("Visual cover weights",2D)="white"{}
@@ -33,6 +34,7 @@ Shader "Terra/Illustrated Ground"
             CBUFFER_END
             TEXTURE2D(_LandCoverMap); SAMPLER(sampler_LandCoverMap);
             TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
+            TEXTURE2D(_BankMap); SAMPLER(sampler_BankMap);
             TEXTURE2D(_RiverMap); SAMPLER(sampler_RiverMap);
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; };
             struct V { float4 positionCS:SV_POSITION; float3 positionWS:TEXCOORD0; half3 normalWS:TEXCOORD1; };
@@ -49,8 +51,8 @@ Shader "Terra/Illustrated Ground"
                 half3 albedo=_BaseColor.rgb*(.84+broad*.32+grain);
                 // Fine marks fade before becoming pixel noise at the valley camera.
                 if (_SurfaceKind > .5 && _SurfaceKind < 1.5) {
-                    float paintedValue=dot(SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/32).rgb,half3(.2126,.7152,.0722));
-                    albedo*=clamp(paintedValue/.18,.94,1.06);
+                    float paintedValue=dot(SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/24).rgb,half3(.2126,.7152,.0722));
+                    albedo*=clamp(paintedValue/.18,.78,1.22);
                     float2 cellPos=p*.55;
                     float seed=Hash(floor(cellPos));
                     float2 local=frac(cellPos)-.5;
@@ -71,19 +73,21 @@ Shader "Terra/Illustrated Ground"
                     half3 field=lerp(half3(.61,.53,.28),half3(.76,.65,.36),patches);
                     float row=(.5+.5*sin((p.x+p.y*.11)*2.5));
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.45);
-                    field*=1-.16*pow(row,3)*rowFade;
+                    field*=1-.06*pow(row,3)*rowFade;
                     // Coarse mapped sealed pixels are context; the separate mapped route defines its visible surface.
                     half3 verge=lerp(meadow,half3(.62,.58,.43),.35+patches*.15);
                     albedo=woodland*cover.r+field*cover.g+meadow*cover.b+verge*cover.a;
                     float bankDistance=SAMPLE_TEXTURE2D(_RiverMap,sampler_RiverMap,(p-_LandBounds.xy)/_LandBounds.zw).r;
                     // A distinct dark earth face meets a narrow grassy lip; avoid broad pale outlined banks.
-                    float bank=1-smoothstep(.29,.35,bankDistance);
-                    half3 bankColor=lerp(half3(.24,.25,.17),half3(.40,.36,.24),smoothstep(.16,.30,bankDistance));
+                    float bank=1-smoothstep(.34,.38,bankDistance);
+                    half3 bankColor=lerp(half3(.24,.25,.17),half3(.40,.36,.24),smoothstep(.23,.36,bankDistance));
                     albedo=lerp(albedo,bankColor,bank);
                     albedo=SRGBToLinear(albedo);
-                    half3 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/32).rgb;
+                    half3 painted=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,p/24).rgb;
                     float paintValue=dot(painted,half3(.2126,.7152,.0722));
-                    albedo*=lerp(clamp(paintValue/.18,.97,1.03),1,saturate(cover.g*.65+cover.a+bank));
+                    albedo*=lerp(clamp(paintValue/.18,.78,1.22),1,saturate(cover.g*.75+cover.a+bank));
+                    float earth=dot(SAMPLE_TEXTURE2D(_BankMap,sampler_BankMap,p/12).rgb,half3(.2126,.7152,.0722));
+                    albedo*=lerp(1,clamp(earth/.16,.75,1.25),bank);
                     albedo*=.995+Noise(p*.9)*.01;
                 }
                 half3 normal=normalize(input.normalWS);

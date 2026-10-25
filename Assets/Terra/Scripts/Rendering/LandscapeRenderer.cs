@@ -22,8 +22,7 @@ namespace Terra.Rendering
         readonly List<Mesh> meshes=new List<Mesh>();
         Texture2D visualCover,riverMask;Material streamMaterial,swaleMaterial,pathMaterial;
         readonly List<CoverPatch>[,] coverIndex; readonly float xmin,zmin,xmax,zmax,cell;
-        GameObject meshCanopy,paintedCanopy;
-        public bool ToggleForestStudy(){bool painted=!paintedCanopy.activeSelf;paintedCanopy.SetActive(painted);meshCanopy.GetComponent<InstancedNature>().ShadowsOnly=painted;return painted;}
+        GameObject meshCanopy;
         Transform ghost;string ghostSiteId;Material glintMaterial;LineRenderer settlingOutline;float settleStarted;
         static readonly Color Wood=new Color(.20f,.35f,.24f),Field=new Color(.64f,.60f,.34f),Meadow=new Color(.46f,.59f,.34f),Water=new Color(.22f,.48f,.51f);
         sealed class Geometry
@@ -56,7 +55,7 @@ namespace Terra.Rendering
         Material Mat(Color color)
         {if(!materials.TryGetValue(color,out var m)){m=new Material(template){color=color};if(m.HasProperty("_Smoothness"))m.SetFloat("_Smoothness",.08f);materials.Add(color,m);}return m;}
         Material GroundMat(Color color)
-        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("MeadowPaint"));material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
+        {if(!groundMaterials.TryGetValue(color,out var material)){material=new Material(Resources.Load<Shader>("TerraGround"));material.SetColor("_BaseColor",color);material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));material.SetFloat("_SurfaceKind",color.b>color.r*1.5f?2:color.g>color.r*1.1f?1:0);groundMaterials.Add(color,material);}return material;}
         static Color CoverColor(string id)=>id=="woodland"?Wood:id=="cultivated"?Field:id=="water"?Water:id=="sealed"?new Color(.62f,.58f,.46f):Meadow;
         public void Build()
         {
@@ -64,9 +63,10 @@ namespace Terra.Rendering
             BuildVisualGround();
             BuildEdge();
             foreach(var f in world.features.Where(f=>f.kind=="water"))
-            {Ribbon(RoundedWaterRoute(f.points),f.widthM+6,new Color(.13f,.48f,.49f),-.75f,root,"Mapped stream centreline");}
+            {Ribbon(RoundedWaterRoute(f.points),f.widthM+5.2f,new Color(.13f,.48f,.49f),-2.1f,root,"Mapped stream centreline");}
             foreach(var f in world.features.Where(f=>f.kind=="path"))
             {BuildPath(f.points,f.widthM);}
+            BuildCrossings();
             BuildVegetation();
             BuildStreamsidePlants();
             BuildCultivatedContext();
@@ -108,28 +108,45 @@ namespace Terra.Rendering
             for(int z=0;z<resolution;z++)for(int x=0;x<resolution;x++)
             {
                 float px=Mathf.Lerp(xmin,xmax,(x+.5f)/resolution),pz=Mathf.Lerp(zmin,zmax,(z+.5f)/resolution);
-                Color value=Color.clear;
-                for(int dz=-1;dz<=1;dz++)for(int dx=-1;dx<=1;dx++)
+                string cover=CoverAt(px,pz);
+                pixels[z*resolution+x]=cover=="woodland"?new Color(1,0,0,0):cover=="cultivated"?new Color(0,1,0,0):cover=="sealed"?new Color(0,0,0,1):new Color(0,0,1,0);
+            }
+            // A continuous illustrative mask rounds the 30 m source raster; source classifications are untouched.
+            var blurred=new Color[pixels.Length];
+            for(int pass=0;pass<2;pass++)
+            {
+                for(int z=0;z<resolution;z++)for(int x=0;x<resolution;x++)
                 {
-                    string cover=CoverAt(px+dx*5,pz+dz*5);
-                    value+=cover=="woodland"?new Color(1,0,0,0):cover=="cultivated"?new Color(0,1,0,0):cover=="sealed"?new Color(0,0,0,1):new Color(0,0,1,0);
+                    Color sum=Color.clear;float weight=0;
+                    for(int k=-5;k<=5;k++)
+                    {
+                        float w=Mathf.Exp(-k*k/18f);
+                        int sx=pass==0?Mathf.Clamp(x+k,0,resolution-1):x;
+                        int sz=pass==1?Mathf.Clamp(z+k,0,resolution-1):z;
+                        sum+=pixels[sz*resolution+sx]*w;weight+=w;
+                    }
+                    blurred[z*resolution+x]=sum/weight;
                 }
-                pixels[z*resolution+x]=value/9;
+                var swap=pixels;pixels=blurred;blurred=swap;
             }
             visualCover.SetPixels(pixels);visualCover.Apply();
             var material=GroundMat(Color.white);material.SetFloat("_SurfaceKind",3);
-            material.SetTexture("_BaseMap",Resources.Load<Texture2D>("MeadowPaint"));
+            material.SetTexture("_BaseMap",Resources.Load<Texture2D>("ArtistGrassGround"));
+            material.SetTexture("_BankMap",Resources.Load<Texture2D>("ArtistDirtGround"));
             material.SetTexture("_LandCoverMap",visualCover);material.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
             BuildChannelTerrain(material);
+        }
+        bool VisualCropAt(float x,float z)
+        {
+            float weight=visualCover.GetPixelBilinear((x-xmin)/(xmax-xmin),(z-zmin)/(zmax-zmin)).g;
+            return weight>.52f;
         }
         void BuildVegetation()
         {
             var nature=root.gameObject.AddComponent<InstancedNature>();
             meshCanopy=new GameObject("Textured mesh forest study");meshCanopy.transform.SetParent(root,false);var canopy=meshCanopy.AddComponent<InstancedNature>();
-            paintedCanopy=new GameObject("Original painted forest study");paintedCanopy.transform.SetParent(root,false);var painted=paintedCanopy.AddComponent<PaintedCanopy>();
-            var understory=paintedCanopy.AddComponent<PaintedCanopy>();understory.Understory=true;canopy.ShadowsOnly=false;paintedCanopy.SetActive(false);
-            var trees=new[]{Resources.Load<GameObject>("Nature/ArtistSTOak1"),Resources.Load<GameObject>("Nature/ArtistSTOak2"),Resources.Load<GameObject>("Nature/ArtistSTOak4")};
-            var bush=Resources.Load<GameObject>("Nature/Bush_Common");
+            var trees=new[]{Resources.Load<GameObject>("Nature/ArtistSTOak1"),Resources.Load<GameObject>("Nature/ArtistSTOak2"),Resources.Load<GameObject>("Nature/ArtistSTOak4"),Resources.Load<GameObject>("Nature/ArtistSTWillow2")};
+            var bush=Resources.Load<GameObject>("Nature/ArtistSTOak4");
             var tuft=Resources.Load<GameObject>("Nature/Grass_Common_Short");
             var wispy=Resources.Load<GameObject>("Nature/Grass_Wispy_Short");
             var flower=Resources.Load<GameObject>("Nature/Flower_3_Group");
@@ -147,9 +164,10 @@ namespace Terra.Rendering
                     float grouping=Mathf.PerlinNoise((px+1400)*.014f,(pz+1400)*.014f);
                     if(cover=="woodland" && !(grouping<.36f&&random.NextDouble()<.82))
                     {
-                        int species=random.Next(4);float scale=Range(2.2f,3.7f);
-                        groups[species].Add(PlantMatrix(trees[species%3],px,pz,scale,Range(0,360))*Matrix4x4.Scale(new Vector3(1.05f,1.15f,1.05f)));
-                        if(random.NextDouble()<.42)shrubs.Add(PlantMatrix(bush,px+Range(-7,7),pz+Range(-7,7),Range(2.8f,4.8f),Range(0,360)));
+                        bool streamside=world.features.Any(f=>f.kind=="water"&&DistanceToRoute(f.points,px,pz)<32);
+                        int species=streamside?3:random.Next(3);float scale=grouping>.54f?Range(3.0f,4.0f):Range(1.8f,2.7f);
+                        groups[species].Add(PlantMatrix(trees[species],px,pz,scale,Range(0,360))*Matrix4x4.Scale(new Vector3(1.05f,1.15f,1.05f)));
+                        if(random.NextDouble()<.42)shrubs.Add(PlantMatrix(bush,px+Range(-7,7),pz+Range(-7,7),Range(.35f,.7f),Range(0,360)));
                     }
                     if(cover=="grass" || cover=="woodland"&&grouping<.4f)
                     {
@@ -166,15 +184,9 @@ namespace Terra.Rendering
                 }
                 for(int i=0;i<4;i++)
                 {
-                    canopy.Add(trees[i%3],groups[i],Color.white);
-                    var rooted=new List<Matrix4x4>();
-                    foreach(var matrix in groups[i]){var m=matrix;var position=m.GetColumn(3);position.y=Height(position.x,position.z);m.SetColumn(3,position);rooted.Add(m);}
-                    painted.Add(rooted,i);
+                    canopy.Add(trees[i],groups[i],Color.white);
                 }
-                canopy.Add(bush,shrubs,new Color(.46f,.62f,.25f));
-                var shrubVariants=new[]{new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>(),new List<Matrix4x4>()};
-                for(int i=0;i<shrubs.Count;i++){var m=shrubs[i];var p=m.GetColumn(3);p.y=Height(p.x,p.z);m.SetColumn(3,p);shrubVariants[i%4].Add(m);}
-                for(int i=0;i<4;i++)understory.Add(shrubVariants[i],i);
+                canopy.Add(bush,shrubs,Color.white);
                 nature.Add(tuft,grasses,Color.white);
                 nature.Add(wispy,fine,Color.white);nature.Add(flower,flowers,Color.white);nature.Add(stone,rocks,Color.white);
             }

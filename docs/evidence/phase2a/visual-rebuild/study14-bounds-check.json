@@ -1,0 +1,7 @@
+{
+  "batches": 1083,
+  "instances": 173190,
+  "cropInstances": 158638,
+  "cropVerticesPerCluster": 108,
+  "transformedBoundCornerFailures": 0
+}
