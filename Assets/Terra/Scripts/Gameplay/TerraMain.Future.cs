@@ -99,7 +99,7 @@ namespace Terra.Gameplay
             string text="You committed "+action.title+" at "+site.name+" in Year "+asset.startedYear+".\n\n"+
                 (firstOperating==null?"It had not reached the operating stage by Year 10.":"Its first operating year was Year "+firstOperating.year+".")+
                 "\n\nFinal state: "+final.phase+" · establishment "+(final.maturity*100).ToString("0")+"%.\n"+final.explanation+
-                "\n\nIllustrative production: "+final.productionUnits.ToString("0.0")+" units; services: "+final.serviceUnits.ToString("0.0")+" units.\nConfigured runoff retention: "+final.retentionCapacityM3.ToString("0")+" m³; not a flood-risk estimate.\n\nInspect its real-sized footprint in the final valley. These are saved game outcomes, not a local forecast.";
+                "\n\nFunded bundle: "+action.fundedQuantity.ToString("0.##")+" × "+action.fundedUnit+".\nTown-wide service delivery depends on resources and demand; capacity is not occupancy or need met.\nConfigured runoff retention: "+final.retentionCapacityM3.ToString("0")+" m³; not a flood-risk estimate.\n\nInspect its real-sized footprint in the final valley. These are saved game outcomes, not a local forecast.";
             hud.AnnualDialog("Your projects · "+(index+1)+" / "+assets.Length,"<size=88%>"+text+"</size>","Inspect this site",()=>{
                 comparisonMap=false;hud.MapView(null);RefreshLandscape();hud.CloseModal();selectedId=hoverId=asset.siteId;Refresh();FocusSite();
             });
