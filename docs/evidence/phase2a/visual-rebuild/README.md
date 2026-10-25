@@ -501,3 +501,6 @@ Import job `db9dc473c1414203b0959444f53be2f8` is waiting in Unity's `ActiveTrust
 - [Study59: shaped soil beds and young crops](study59-findings.md) — unfinished Editor-only checkpoint; scripts, shader, receipts and captures preserved without adopting the experiment.
 
 - [Study60: layered river meadows](study60-findings.md) — retained candidate with actual Chrome views, queue/undo, terrain contact and one passing stable30 camera path; full visual gate remains open.
+
+- [Study61 bank profile](study61-findings.md) — rejected runtime-only comparison.
+- [Study62 conifer groves](study62-findings.md) — compiled, baked unfinished checkpoint; integrated/Chrome checks pending.

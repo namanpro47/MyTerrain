@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra/Builds/ArtResearch/Study61/profile.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "changed": 8823,
+        "state": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "/Users/naman/.codex/worktrees/terra-visual-rebuild/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,46 @@
+if(UnityEngine.Application.isPlaying)throw new System.Exception("Import in Edit mode");
+var source="Builds/ArtResearch/QuaterniusUltimateNature";var folder="Assets/Terra/Art/QuaterniusUltimateNature/PineStudy62";
+if(!UnityEditor.AssetDatabase.IsValidFolder(folder))UnityEditor.AssetDatabase.CreateFolder("Assets/Terra/Art/QuaterniusUltimateNature","PineStudy62");
+foreach(var name in new[]{"PineTree_1","PineTree_3"})System.IO.File.Copy(source+"/FBX/"+name+".fbx",folder+"/"+name+".fbx",false);
+foreach(var name in new[]{"PineTree_Leaves","PineTree_Bark","PineTree_Bark_Normal"})System.IO.File.Copy(source+"/Textures/"+name+".png",folder+"/"+name+".png",false);
+UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+foreach(var name in new[]{"PineTree_Leaves","PineTree_Bark","PineTree_Bark_Normal"})
+{
+ var imp=(UnityEditor.TextureImporter)UnityEditor.AssetImporter.GetAtPath(folder+"/"+name+".png");imp.maxTextureSize=name.EndsWith("Leaves")?2048:1024;imp.mipmapEnabled=true;
+ if(name.EndsWith("Normal"))imp.textureType=UnityEditor.TextureImporterType.NormalMap;
+ if(name.EndsWith("Leaves")){imp.alphaIsTransparency=true;imp.mipMapsPreserveCoverage=true;imp.alphaTestReferenceValue=.5f;}
+ imp.SaveAndReimport();
+}
+var results=new System.Collections.Generic.List<object>();
+foreach(var name in new[]{"PineTree_1","PineTree_3"})
+{
+ var imp=(UnityEditor.ModelImporter)UnityEditor.AssetImporter.GetAtPath(folder+"/"+name+".fbx");imp.isReadable=true;imp.importAnimation=false;imp.importCameras=false;imp.importLights=false;imp.SaveAndReimport();
+ var sourceModel=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(folder+"/"+name+".fbx");var root=new UnityEngine.GameObject(name);var child=UnityEngine.Object.Instantiate(sourceModel,root.transform,false);
+ try
+ {
+  foreach(var renderer in child.GetComponentsInChildren<UnityEngine.MeshRenderer>())
+  {
+   var materials=renderer.sharedMaterials;
+   for(int i=0;i<materials.Length;i++)
+   {
+    string sourceName=materials[i].name;var mat=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>(folder+"/"+sourceName+".mat");
+    if(mat==null)
+    {
+     mat=new UnityEngine.Material(UnityEngine.Shader.Find("Universal Render Pipeline/Lit")){name=sourceName,enableInstancing=true};mat.SetColor("_BaseColor",UnityEngine.Color.white);mat.SetFloat("_Smoothness",0);mat.SetFloat("_Cull",0);
+     mat.SetTexture("_BaseMap",UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>(folder+"/"+sourceName+".png"));
+     if(sourceName.Contains("Leaves")){mat.SetFloat("_AlphaClip",1);mat.SetFloat("_Cutoff",.5f);mat.SetFloat("_AlphaToMask",1);mat.EnableKeyword("_ALPHATEST_ON");mat.SetOverrideTag("RenderType","TransparentCutout");mat.renderQueue=2450;}
+     else{mat.SetTexture("_BumpMap",UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Texture2D>(folder+"/PineTree_Bark_Normal.png"));mat.EnableKeyword("_NORMALMAP");}
+     UnityEditor.AssetDatabase.CreateAsset(mat,folder+"/"+sourceName+".mat");
+    }
+    materials[i]=mat;
+   }
+   renderer.sharedMaterials=materials;
+  }
+  var bounds=new UnityEngine.Bounds();bool any=false;
+  foreach(var renderer in root.GetComponentsInChildren<UnityEngine.MeshRenderer>()){if(!any){bounds=renderer.bounds;any=true;}else bounds.Encapsulate(renderer.bounds);}
+  var prefab=UnityEditor.PrefabUtility.SaveAsPrefabAsset(root,folder+"/"+name+".prefab");
+  results.Add(new{name,bounds=bounds.ToString(),height=bounds.size.y,triangles=prefab.GetComponentsInChildren<UnityEngine.MeshFilter>().Sum(m=>m.sharedMesh.triangles.Length/3),materials=prefab.GetComponentsInChildren<UnityEngine.MeshRenderer>().SelectMany(m=>m.sharedMaterials).Select(m=>new{name=m.name,texture=m.mainTexture==null?"missing":m.mainTexture.name}).ToArray()});
+ }
+ finally{UnityEngine.Object.DestroyImmediate(root);}
+}
+UnityEditor.AssetDatabase.SaveAssets();return results;

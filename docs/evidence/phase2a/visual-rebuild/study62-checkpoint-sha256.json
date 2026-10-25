@@ -1,0 +1,202 @@
+{
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineCanopy.mat": {
+    "bytes": 1069,
+    "sha256": "cd1f139f6f8ebf76a5489c65648d40e02eeb852dd6ce086595a14e57f9cb99ae"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineCanopy.mat.meta": {
+    "bytes": 188,
+    "sha256": "476dc75635380ca26a13c51d20cc7dca1615ebd36ee7dd81646db24a11429067"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_1.fbx": {
+    "bytes": 80700,
+    "sha256": "422030a832482332115f10dc25ddc38993a55c33ebc13531e3cf194219f30984"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_1.fbx.meta": {
+    "bytes": 3063,
+    "sha256": "bf185dc4eb7b3677af0ac1cf0613dde7e4b452f932d0c0b619b56adc206b1a7a"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_1.prefab": {
+    "bytes": 3669,
+    "sha256": "ea8060667559ed35b07428c96e7a56131abbee5fcb89ef38f6a9a4fd65fec531"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_1.prefab.meta": {
+    "bytes": 154,
+    "sha256": "fc96a4e7c64c52414c7e1c9aa7914be4b9deeec293b0dea8133dd82014451f49"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_3.fbx": {
+    "bytes": 76748,
+    "sha256": "1c98fa39e4b0e3b4915548dfc45f6faf489e86a6c9807db34a942e2e7f63a1f5"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_3.fbx.meta": {
+    "bytes": 3063,
+    "sha256": "901b3f8eea7e140c3bcb52ccb904ed3160d943aac2e75476fcb3c838ee7fa711"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_3.prefab": {
+    "bytes": 3664,
+    "sha256": "c657e676c528c0de3f7f6d3e671c52952e5c5aaf06f8d99788f13781fe9272cd"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_3.prefab.meta": {
+    "bytes": 154,
+    "sha256": "d5985f8ff076d7753d48fba9e51a8e331b7682536d129a0a964995cb03bae8a8"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark.mat": {
+    "bytes": 4068,
+    "sha256": "7cebd0f4046cae09039528bfb4a668c9bce5511c4c1d5bc45117504dd8ac9099"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark.mat.meta": {
+    "bytes": 188,
+    "sha256": "30485be8e49f09ad4bd1726ba1980d40e06d7fb9040706ae4b11aa3f31987f10"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark.png": {
+    "bytes": 15436565,
+    "sha256": "dcda0e989e2d0f6325e2fb994589d6be9e71191dd3f888b15d22720d5527fe0f"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark.png.meta": {
+    "bytes": 3069,
+    "sha256": "5278b77b8c71aa49894aa711a6c2551c370ec62c5ab7af510daf618dc3eff7e8"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark_Normal.png": {
+    "bytes": 20937374,
+    "sha256": "d23c7bbce3f0052ade223d3195c24bc4e8d870b33a23c788c9bd87026fa2c79b"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Bark_Normal.png.meta": {
+    "bytes": 3069,
+    "sha256": "b97729cfc5315d4c341062fe8944a02be5d8e27e3afd72a26915d3421a54c3a6"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Leaves.mat": {
+    "bytes": 4032,
+    "sha256": "35f0b5594612a6445aae1f392bf01f8df862e6027a500150de87326add4dc804"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Leaves.mat.meta": {
+    "bytes": 188,
+    "sha256": "178cfa72de84223bbfb19908072593fa1a2969a03e3e8bf5cec5b114b8d79a9f"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Leaves.png": {
+    "bytes": 491019,
+    "sha256": "8d3e0b49043639089ec68a36058c5b2ceea3fadded773adf7d9acbd006c49e1c"
+  },
+  "Assets/Terra/Art/QuaterniusUltimateNature/Pine/PineTree_Leaves.png.meta": {
+    "bytes": 3069,
+    "sha256": "c4a97ddefc5eeba32c0cd1a55f38b6061d8decd9a160844cc7d2374aecb7a578"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-capture.cs.txt": {
+    "bytes": 846,
+    "sha256": "e084245717082ee58de1a0b8b2bc872bd806a3dbc58394f9bb6015c85c2471b9"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-close.cs.txt": {
+    "bytes": 1024,
+    "sha256": "0bdaa39112c8bfd70667e508c84bf79e840a79c58382759b27c4c30aec09e968"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-control-close.png": {
+    "bytes": 1521797,
+    "sha256": "61ca573c7fbf4ad135b99104b239f524077ed230be35e2c2cb8dedfa33f27abb"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-control-normal.png": {
+    "bytes": 1712982,
+    "sha256": "a217a117e8f04219174bea40bbbb9111ac4f4c2488d88a31cbac68d3921ffcfd"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-findings.md": {
+    "bytes": 970,
+    "sha256": "56d274399f07ae2fa01eb8d4be48afe81591c890174f302b420f72b3292734e6"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-normal.cs.txt": {
+    "bytes": 1413,
+    "sha256": "5c5ea466aee2ce8537a48e03224db0ba4bc680d9463793ea3725b582a7232aee"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-profile-close.png": {
+    "bytes": 1518497,
+    "sha256": "41b4bf1cebf57e289d60e5af08062b00386aadba5129f6e472d54fd2e0267b66"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-profile-normal.png": {
+    "bytes": 1712472,
+    "sha256": "d68ff876197d69db9d6aa3efa565d01a55664ecf51ad17125ccfb4a22f547fbe"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-profile.cs.txt": {
+    "bytes": 3487,
+    "sha256": "5d2ce5a50e9db5786915ca8f012fabbc785e0329689e42866354076463abb4a4"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study61-profile.json": {
+    "bytes": 671,
+    "sha256": "c8080770aea0c74d7acab9487cb58dcb09d292ce70874fd15eabd6f81a77df44"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-adapted-close.png": {
+    "bytes": 1570402,
+    "sha256": "d4c737373f868e589ab91bf6e2793e16323d94124d7e77864ab8f7a560076248"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-adapted-normal.png": {
+    "bytes": 1703559,
+    "sha256": "ddf9876ab5de444431143b11b6b550b61fa984f3b1c81081e0dd14bcedbaad91"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-bake.cs.txt": {
+    "bytes": 448,
+    "sha256": "1f8a1a515dae77ab4f8bf313f81b83945de39bcc0b6d67ee5f541fb62fe5ff25"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-bake.json": {
+    "bytes": 823,
+    "sha256": "e708136664e00017c9ba209518d7e4728b3d7177a78bd97ca9bc3d439be1b7ca"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-capture.cs.txt": {
+    "bytes": 846,
+    "sha256": "0e2ce6507ad4ad7a8edc9339d7d648c265fc488c46d5d3d3cd7c852760d3bae6"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-close.cs.txt": {
+    "bytes": 1023,
+    "sha256": "d75b1e9e8c874eb5895c49c56b9fd4f548dfd44b97e457394ce796e45264c598"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-compile-builder.json": {
+    "bytes": 269,
+    "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-compile.json": {
+    "bytes": 269,
+    "sha256": "9b892538d554a9af4768b5b465dbdf626277beff4fd02bff13eac83fcaac76c2"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-control-normal.png": {
+    "bytes": 1712846,
+    "sha256": "7cf842b55b18028513cb1187586a0856fbff5df8257dde3ddfa4a568df106e35"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-findings.md": {
+    "bytes": 2641,
+    "sha256": "b30bd09b20b15e79d1ee9eddae9f4bffc8220326dcb9a21860abcb41f041cd2d"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-import.cs.txt": {
+    "bytes": 3886,
+    "sha256": "82482d58e6ab1360b1a1cfc334e773efbbad6fcd149e53cc0ec3c0c7233fdec4"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-import.json": {
+    "bytes": 1456,
+    "sha256": "85dc3812544fe2d399f05770df41b3be358b1fc8f5548ab89ebd07b543ef0982"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-material.cs.txt": {
+    "bytes": 874,
+    "sha256": "7d69c5f45e69b80593a2fea8be12f7845c6fac12477e1a32872b78453dec163c"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-material.json": {
+    "bytes": 579,
+    "sha256": "d1fc6c9482834dfc2579fcffbaa4b556d7f09d59add177123eab1733a1b5a934"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-native-normal.png": {
+    "bytes": 1717640,
+    "sha256": "3e09ffeb7678db3a26415e52a64912bd8f6537145906871361597ee9e5f84e50"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-normal.cs.txt": {
+    "bytes": 1413,
+    "sha256": "70d2bd616b1c2f9a9228768b2eadbcb860c40f90a409feaf220e090b191764b9"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-pines.cs.txt": {
+    "bytes": 2627,
+    "sha256": "9e6565aee52fe7252b3af0c8d20f9bcff71b70c04205ff79413efc0477aad0f9"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-pines.json": {
+    "bytes": 795,
+    "sha256": "06f8228ea0baadf4ab98230ff9f5f17d700c1e4ea0b2c4fa318ba9ed9fdb2fa4"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-topology.cs.txt": {
+    "bytes": 899,
+    "sha256": "2fe386821cb711e6dcfc4c77dd17beff4edfe0151f313fb7808b5dfcced7c79e"
+  },
+  "docs/evidence/phase2a/visual-rebuild/study62-topology.json": {
+    "bytes": 1159,
+    "sha256": "39b51bd7d7b6c616eb0a8ad3dc23a4e77620883d4c71548c54c135566eacc1e8"
+  }
+}

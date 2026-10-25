@@ -65,7 +65,7 @@ public static class ClusteredForestAssets
         return existing;
     }
 
-    static Mesh Reduce(Mesh source, float leafFraction, float barkFraction)
+    internal static Mesh Reduce(Mesh source, float leafFraction, float barkFraction)
     {
         var barkSource = Object.Instantiate(source);
         barkSource.subMeshCount = 1;
@@ -114,7 +114,7 @@ public static class ClusteredForestAssets
             parent[Find(indices[i + 2])] = Find(indices[i]);
         }
         var cards = indices.Distinct().GroupBy(Find).Select(g => g.ToArray()).ToArray();
-        if (cards.Any(c => c.Length != 4)) throw new InvalidOperationException("Expected independent four-vertex artist leaf cards.");
+        if (fraction < 1 && cards.Any(c => c.Length != 4)) throw new InvalidOperationException("Expected independent four-vertex artist leaf cards when reducing foliage.");
         var centers = cards.Select(c => c.Aggregate(Vector3.zero, (sum, i) => sum + points[i]) / c.Length).ToArray();
         int wanted = Mathf.Max(1, Mathf.RoundToInt(cards.Length * fraction));
         var selected = new HashSet<int>();
@@ -137,7 +137,7 @@ public static class ClusteredForestAssets
         var newTangents = new List<Vector4>();
         var map = new Dictionary<int, int>();
         // Preserve projected coverage as card count falls; do not shrink the crown into bare branches.
-        float breadth = Mathf.Sqrt(1 / fraction) * .96f;
+        float breadth = fraction >= 1 ? 1 : Mathf.Sqrt(1 / fraction) * .96f;
         var envelope = source.bounds;
         envelope.Expand(source.bounds.size * .04f);
         foreach (int card in selected.OrderBy(i => i))
