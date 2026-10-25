@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "Builds/CombinedCrops/normal-96.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "path": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/CombinedCrops/normal-96.png",
+        "width": 1280,
+        "height": 720,
+        "frame": 2710,
+        "cellSize": 96,
+        "source": 900,
+        "draws": 680,
+        "submitted": 1047,
+        "culled": 1296
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

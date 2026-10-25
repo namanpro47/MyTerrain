@@ -2,13 +2,19 @@
 
 **Current visual candidate, study64:** Quieter shared soil shading and clearer crop leaves run in Chrome. Opening/field focus/living-margin preview/queue/undo are inspected, cash unchanged; first entry9.46s. Compilation and15 collector checks pass. The192m collector is integrated, but current combined performance is pending. [Actual captures and limits](evidence/phase2a/visual-rebuild/study64-findings.md). Phase2A stays open; the next structural hypothesis depicts the scenario's existing fictional community.
 
-**Earlier saved work, study62:** Mixed conifer groves are an unfinished checkpoint. Compilation and asset bake pass; integrated scene/LOD and Chrome verification remain pending. Study61 bank-profile tuning was rejected. [Checkpoint, trial captures and next checks](evidence/phase2a/visual-rebuild/study62-findings.md). Phase 2A remains open.
+**Earlier saved work, study62:** Mixed conifer groves are an unfinished checkpoint. Integrated scene/LOD and Chrome checks are recorded; its paired camera timing failed at40ms p95. Study61 bank-profile tuning was rejected. [Checkpoint, trial captures and next checks](evidence/phase2a/visual-rebuild/study62-findings.md). Phase 2A remains open.
 
 **Earlier visual candidate, study60:** Layered Wisconsin river meadows improve shoreline contact and plant hierarchy. Compilation and2,912 actual terrain-ray checks pass; Chrome shows the full HUD at720p/900p/1080p and preserves cash through queue/undo. One focused30s camera route:23ms p95, no>200ms frames. This is bounded candidate evidence, not the full visual/performance/public gate. [Captures, provenance and remaining gaps](evidence/phase2a/visual-rebuild/study60-findings.md).
 
-**Latest visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Actual Chrome proposal→Year3→reload and 42 lifecycle/render checks pass; full-scene visual and performance acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
+**Earlier visual study, 55:** Restoration now uses layered grass swaths and flowering pockets, growing with saved annual maturity. Actual Chrome proposal→Year3→reload and 42 lifecycle/render checks pass; full-scene visual and performance acceptance remain open. [Evidence and remaining gaps](evidence/phase2a/visual-rebuild/study55-findings.md).
 
 **Subsequent visual studies57–58:** mature corn geometry and a baked grain surface were both rejected at normal/close distances. The retained scenery remains study55; submission consolidation `2f8543d` is integrated on the visual branch as `5b8ad52`, with compilation and 15 collector checks passing locally. [Comparisons and integration boundary](evidence/phase2a/visual-rebuild/study57-findings.md). No art acceptance or new public release.
+
+## Larger nature groups and crop integration — October 25, 2026
+
+[Candidate `d620ff2`](evidence/phase2a/submission-cells-01/README.md) changes nature aggregation from 96m to 192m after existing source culling/LOD selection. Exact matrix/bounds/capacity checks and paired camera captures pass. In one sequential focused Chrome comparison at 1280×720, conifer control p95 is 39ms and candidate p95 is 30ms; queue/undo preserve cash and accepted history. These bounded results do not replace three final combined paths. The frozen candidate has 31 byte-verified files /48,086,076 bytes. Source/import and benchmark limits are explicit in the receipt.
+
+[Combined crop check `3984343`](evidence/phase2a/combined-crops-01/README.md) integrates crop/material checkpoint `7f258cc` with that grouping. Editor replay preserves 32,451 eligible instance identities/transforms; crop preview/apply/remove restores all 373 baseline geometry/placement hashes exactly. No annual year or combined Chrome test is claimed. **Main receives evidence only**; candidate runtime/art remains isolated. Phase 2A, final public export, complete public run, rehearsals and recording remain open.
 
 ## Consolidated vegetation — bounded Chrome performance pass, October 25, 2026
 

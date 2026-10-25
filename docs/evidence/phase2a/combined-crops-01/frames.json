@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "command": "unity command job",
+  "data": null,
+  "errors": [
+    {
+      "code": "COMMAND_FAILED",
+      "message": "Pipeline server returned 504 Gateway Timeout: Request Timed Out. 'job wait' did not complete within its 10 s timeout. It may still be running and its effects may still land. Pass a larger --timeout (seconds), or submit it as a job."
+    }
+  ],
+  "warnings": []
+}
