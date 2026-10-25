@@ -14,6 +14,7 @@ var oldTarget=camera.targetTexture;var oldActive=UnityEngine.RenderTexture.activ
 var texture=new UnityEngine.Texture2D(1440,900,UnityEngine.TextureFormat.RGB24,false);
 try {
  camera.targetTexture=target;camera.aspect=1.6f;camera.cullingMask|=1;camera.transform.localPosition=new UnityEngine.Vector3(-4.65f*1.6f*.105f,-.23f,-4.65f);
+ type.GetMethod("PositionPins",flags).Invoke(atlas,null);
  canvas.renderMode=UnityEngine.RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=.3f;UnityEngine.Canvas.ForceUpdateCanvases();
  for(int i=0;i<3;i++) {var geo=(UnityEngine.Vector3)type.GetMethod("Geo",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{places[i]});var world=earth.TransformPoint(geo*1.012f);var screen=camera.WorldToViewportPoint(world);pins[i].anchoredPosition=new UnityEngine.Vector2((screen.x-.5f)*ui.rect.width,(screen.y-.5f)*ui.rect.height);}
  UnityEngine.Canvas.ForceUpdateCanvases();camera.Render();UnityEngine.RenderTexture.active=target;texture.ReadPixels(new UnityEngine.Rect(0,0,1440,900),0,0);texture.Apply();

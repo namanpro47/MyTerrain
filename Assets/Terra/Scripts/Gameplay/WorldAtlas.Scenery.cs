@@ -46,7 +46,7 @@ namespace Terra.Gameplay
         void Polygon(Transform parent,Color color,params Vector2[] vertices)
         {
             var rect=Box(parent,"Illustrated terrain",Vector2.zero,Vector2.zero,new Vector2(100,100));
-            var shape=rect.gameObject.AddComponent<AtlasPolygon>();shape.Points=vertices;shape.color=color;shape.raycastTarget=false;
+            rect.gameObject.AddComponent<CanvasRenderer>();var shape=rect.gameObject.AddComponent<AtlasPolygon>();shape.Points=vertices;shape.color=color;shape.raycastTarget=false;
         }
         void Tree(Transform p,float x,float y,float size,Color c)
         {

@@ -32,3 +32,13 @@ After integrating study65, audio04549ad, narration629d082 and guidancecb9e37e: a
 ### Coordination note
 
 One local integration command used semicolon sequencing after a busy reservation57 response and therefore merged the two frozen feature commits before acquiring integration. No shared branch push, fetch, deployment, owner file or Editor operation occurred in that interval. The candidate is isolated and the other integrator only published its feature checkpoint. Subsequent resource acquisitions are checked in separate calls before dependent actions. This is a workflow deviation, not a passing reservation receipt.
+
+## Native rendered review
+
+Actual Unity camera and Canvas output was inspected at 1440 × 900 for all three destinations. The fixture temporarily renders the existing overlay Canvas through the atlas camera; it is an engine composition check, not a browser screenshot. `editor-first-rejected.png` records the too-light first pass and missing miniature geometry. Adding the required CanvasRenderer fixed the miniatures. Explicit shader colour conversion corrected the washed-out palette; the required Color.hlsl include fixes the initially detected Metal shader error. All four atlas shaders now report zero messages. The settings row was moved off the planet/travel arc, and Focus was widened to prevent wrapping.
+
+Final native captures: `editor-atlas.png`, `editor-point-reyes.png`, `editor-suusamyr.png`. No artwork was composited into these outputs. The capture refreshes actual pin visibility/selection before rendering to avoid a one-frame stale preview after synchronous selection. Runtime updates pins every frame.
+
+Combined Unity validation on the final audio hooks (`e8ac9eb`): 678 location/ten-year/save-replay assertions; 34 annual lifecycle/JSON checks; 380 audio checks; 809 HUD checks plus 16 chapter checks; 35 merged community/terrain/lifecycle checks. All pass. The native scene also completed a real Wisconsin arrival. This does not claim browser or frame-time acceptance, nor close the separate Phase 2A scenery gate.
+
+The first headless launcher imported successfully but exited with its process group. A detached persistent launcher fixed the lifecycle; the same owned project was used throughout. Play and Editor were stopped and the desktop reservation released after review. No other chat's Editor was operated.

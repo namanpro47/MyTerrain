@@ -5,6 +5,7 @@ HLSLPROGRAM
 #pragma vertex vert
 #pragma fragment frag
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 struct A {float4 positionOS:POSITION;float3 normalOS:NORMAL;float2 uv:TEXCOORD0;};
 struct V {float4 positionCS:SV_POSITION;float3 normal:TEXCOORD0;float2 uv:TEXCOORD1;float3 world:TEXCOORD2;};
 TEXTURE2D(_MainTex);SAMPLER(sampler_MainTex);
@@ -24,7 +25,7 @@ half4 frag(V i):SV_Target
     float light=saturate(dot(n,normalize(float3(-.65,.75,-1))));
     float rim=pow(1-saturate(dot(n,v)),3);
     float3 color=surface*(.42+light*.83)+float3(.15,.47,.52)*rim*.70;
-    return half4(color,1);
+    return half4(SRGBToLinear(color),1);
 }
 ENDHLSL
 } } }

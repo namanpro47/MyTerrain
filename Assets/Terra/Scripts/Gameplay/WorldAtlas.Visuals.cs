@@ -44,10 +44,10 @@ namespace Terra.Gameplay
             BuildSky(panel);
             Text(panel,"MyTerrain",new Vector2(0,1),new Vector2(58,-30),new Vector2(350,62),42,Cream).fontStyle=FontStyles.Bold;
             Text(panel,"C H O O S E   Y O U R   L A N D S C A P E",new Vector2(0,1),new Vector2(60,-97),new Vector2(600,24),12,Muted);
-            motion=Button(panel,"Motion: full",new Vector2(1,1),new Vector2(-58,-40),new Vector2(145,36),()=>SetMotion(!ReducedMotion));
+            motion=Button(panel,"Motion: full",new Vector2(0,1),new Vector2(60,-145),new Vector2(145,36),()=>SetMotion(!ReducedMotion));
             motion.GetComponentInChildren<TextMeshProUGUI>().text=ReducedMotion?"Motion: reduced":"Motion: full";
-            Button(panel,"Sound  U",new Vector2(1,1),new Vector2(-215,-40),new Vector2(120,36),Terra.Audio.TerraAudioPanel.Show);
-            Button(panel,"Field notes  I",new Vector2(1,1),new Vector2(-348,-40),new Vector2(140,36),()=>notes.SetActive(true));
+            Button(panel,"Sound  U",new Vector2(0,1),new Vector2(216,-145),new Vector2(116,36),Terra.Audio.TerraAudioPanel.Show);
+            Button(panel,"Field notes  I",new Vector2(0,1),new Vector2(344,-145),new Vector2(140,36),()=>notes.SetActive(true));
             region=Text(panel,"",new Vector2(0,.5f),new Vector2(62,194),new Vector2(420,28),14,Gold);
             nameLabel=Text(panel,"",new Vector2(0,.5f),new Vector2(58,103),new Vector2(415,146),54,Cream);nameLabel.fontStyle=FontStyles.Bold;nameLabel.lineSpacing=-12;
             description=Text(panel,"",new Vector2(0,.5f),new Vector2(62,-8),new Vector2(342,64),20,Muted);
@@ -72,7 +72,7 @@ namespace Terra.Gameplay
             }
             Button(panel,"−",new Vector2(1,.5f),new Vector2(-46,-65),new Vector2(40,40),()=>Zoom(1));
             Button(panel,"+",new Vector2(1,.5f),new Vector2(-46,-15),new Vector2(40,40),()=>Zoom(-1));
-            Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-46,-116),new Vector2(64,34),()=>Select(Selected));
+            Button(panel,"Focus",new Vector2(1,.5f),new Vector2(-46,-116),new Vector2(82,36),()=>Select(Selected));
             Text(panel,"1 / 2 / 3   Choose     ·     Drag   Rotate     ·     Scroll   Zoom     ·     Enter   Travel",new Vector2(.5f,0),new Vector2(0,35),new Vector2(1100,26),15,Muted,TextAlignmentOptions.Center);
             var notesRect=Box(uiRoot,"Atlas field notes",Vector2.one*.5f,Vector2.zero,new Vector2(700,580));notes=notesRect.gameObject;
             var notesBackground=notes.AddComponent<UnityEngine.UI.Image>();notesBackground.sprite=rounded;notesBackground.type=UnityEngine.UI.Image.Type.Sliced;notesBackground.color=new Color(.09f,.16f,.19f);
