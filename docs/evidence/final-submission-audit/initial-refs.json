@@ -1,0 +1,480 @@
+{
+  "main": "8b988fc4d29d6bca92613c932fb9c841f3b8e5ac",
+  "candidate": "045a39fc7eb9f8670b8f005077157e55afaa05ec",
+  "refs": [
+    {
+      "ref": "codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "missingFromMain": 3,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-completion",
+      "sha": "64384a04e956f623a38c07b7bfa611c941fe231b",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-feedback",
+      "sha": "e74496bf55ffa77427be69dcb221bb3bd70f3b41",
+      "missingFromMain": 150,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-gameplay-integration",
+      "sha": "d9d6523e8236fc810273142ae01935b24621b97c",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-guidance",
+      "sha": "5b98da3e9b76fe9b108cfbf026a10c31a3f039ce",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "missingFromMain": 20,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-numeric-transactions",
+      "sha": "fc319013f5e798a0a88880534cde443729d91b8d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-release-acceptance",
+      "sha": "18f5e5131fa957863760f39fea8ec7877b1362d3",
+      "missingFromMain": 10,
+      "missingFromCandidate": 3
+    },
+    {
+      "ref": "codex/annual-report-projection",
+      "sha": "388267df7799960e6e2b386557f1bdda8b9bc1a7",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "missingFromMain": 2,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-simulation",
+      "sha": "d908c01d28e8b4d11d98db8e728793917538202b",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-simulation-resolution",
+      "sha": "b5576bae9181ea70718ac610730635f72f61bff3",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/annual-simulation-review",
+      "sha": "573425d04a01ed8372cdef1a7b84eedc3757f174",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/community-locations",
+      "sha": "6660a9b11bc920a616cd89f8b127a43d521d59f0",
+      "missingFromMain": 20,
+      "missingFromCandidate": 5
+    },
+    {
+      "ref": "codex/elevenlabs-narration",
+      "sha": "3b9db8964effaa5736cc4d329050b744b548f852",
+      "missingFromMain": 9,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/field-notes-ux",
+      "sha": "2e2b1064f14e7ffbc22b4caf2780d14dead8f663",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/full-implementation",
+      "sha": "a143632aa3ba3740c24ee0b69eb2c84dc0ed2ff1",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/game-overlay-design",
+      "sha": "1acab594936deeae77b5d1697b54e20452cc071a",
+      "missingFromMain": 5,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/globe-first-loading",
+      "sha": "83a03d972e0e0ca64faeb3d15b86a3a2234e53a5",
+      "missingFromMain": 0,
+      "missingFromCandidate": 4
+    },
+    {
+      "ref": "codex/hud-continuous-fields",
+      "sha": "18016cf5f67d30972a8f241087cab29a52c12611",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/living-atlas",
+      "sha": "45a87481f01bf5360de169ee502e92697b5b68e4",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/native-stream-study",
+      "sha": "68808695594cd1f0ad7a582a0b397ad88a471dcc",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/native-unity-atlas",
+      "sha": "ce27355f6bd7b1c55e1c53c2db00b1b748ccf926",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "missingFromMain": 24,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/parallel-coordination",
+      "sha": "970e8af174c3318ccd14690e3161cac3e0a192e1",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/parallel-package-integration",
+      "sha": "9304ba88e409e30565f7ec34b7cd443a00a3d8da",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/peter-release-20261025",
+      "sha": "c403a5e0beab151a161acc485e87a6473cffc0d0",
+      "missingFromMain": 1,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/phase3-editing",
+      "sha": "c49a3c22722148b1f645963ef0a8b27e9eb63d8f",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/phase3-review-study",
+      "sha": "d78dbbaac5dd775f51bd212d7476a76197d65a28",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/phase4-consequences",
+      "sha": "5e9621bc721ae7365a9198812746b33ddafbfd3d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "missingFromMain": 19,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "missingFromMain": 16,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/publish-main-oct25",
+      "sha": "ba59445314f62e98287e1c33ecc811817273acf6",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/release-consolidated-20261025",
+      "sha": "045a39fc7eb9f8670b8f005077157e55afaa05ec",
+      "missingFromMain": 155,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/relief-validation",
+      "sha": "4e5951c33b2fa1bc1dd7d08ad0bf76dda6e15a01",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/report-narration-v2",
+      "sha": "028ba08283c85c973c1242588aadc904141220ce",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/terra-nil-interaction-study",
+      "sha": "070cdf21c66b02fc6872fa3909840707a6a5b9a5",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/terra-sound",
+      "sha": "4709c5ac812abdaff7b6bd634b0710d61095703d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/terra-sync-peter",
+      "sha": "de7f83bb21c07a518e1c0950586b5ae19a4b1b3a",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/terra-vercel-refresh",
+      "sha": "5deb32d73b61bf718026f6ba1a758d1d0235647c",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/unity-setup",
+      "sha": "de7f83bb21c07a518e1c0950586b5ae19a4b1b3a",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "missingFromMain": 11,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "missingFromMain": 8,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/visual-study20",
+      "sha": "dc3a2e82cc1ed47fd798d29e5ba6bed6886cef03",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/weather-reference",
+      "sha": "67c01417906b74a8f024ae9975158cb1dda6979d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/web-compression",
+      "sha": "7c322e980087060f79b272f022ba94273283e04c",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "codex/web-texture-compression",
+      "sha": "8b988fc4d29d6bca92613c932fb9c841f3b8e5ac",
+      "missingFromMain": 0,
+      "missingFromCandidate": 6
+    },
+    {
+      "ref": "codex/wisconsin-start-nudge",
+      "sha": "603b31fd820f1c5ad585a4181c72b1eccc04df1c",
+      "missingFromMain": 5,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "main",
+      "sha": "ba59445314f62e98287e1c33ecc811817273acf6",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin",
+      "sha": "8b988fc4d29d6bca92613c932fb9c841f3b8e5ac",
+      "missingFromMain": 0,
+      "missingFromCandidate": 6
+    },
+    {
+      "ref": "origin/codex/action-feedback",
+      "sha": "def794c4842b29ffd50d93f8e14bc14ce343b20b",
+      "missingFromMain": 3,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-guidance",
+      "sha": "5b98da3e9b76fe9b108cfbf026a10c31a3f039ce",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-numeric-client",
+      "sha": "3d86708e942b596ba2a31e552a5716fc99226fd6",
+      "missingFromMain": 20,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-numeric-transactions",
+      "sha": "fc319013f5e798a0a88880534cde443729d91b8d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-release-acceptance",
+      "sha": "18f5e5131fa957863760f39fea8ec7877b1362d3",
+      "missingFromMain": 10,
+      "missingFromCandidate": 3
+    },
+    {
+      "ref": "origin/codex/annual-report-projection",
+      "sha": "388267df7799960e6e2b386557f1bdda8b9bc1a7",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-run-directory",
+      "sha": "8b33cc94b56b4a1363bd92809bff3ab11911ea2d",
+      "missingFromMain": 2,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-simulation",
+      "sha": "d908c01d28e8b4d11d98db8e728793917538202b",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-simulation-resolution",
+      "sha": "b5576bae9181ea70718ac610730635f72f61bff3",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-simulation-review",
+      "sha": "573425d04a01ed8372cdef1a7b84eedc3757f174",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/annual-town-state",
+      "sha": "a4ba01e28bf0af4300ea77c66723f2c49fb1e954",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/field-notes-ux",
+      "sha": "2e2b1064f14e7ffbc22b4caf2780d14dead8f663",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/native-unity-atlas",
+      "sha": "ce27355f6bd7b1c55e1c53c2db00b1b748ccf926",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/numeric-directory-browser",
+      "sha": "b1282a9db723246658aad8d9f4e6580f3eb6258e",
+      "missingFromMain": 24,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/phase3-editing",
+      "sha": "c49a3c22722148b1f645963ef0a8b27e9eb63d8f",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/placement-clarity",
+      "sha": "ae36a25bdee0298464a76e2625e09ef3cc3f9059",
+      "missingFromMain": 19,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/placement-visual-followup",
+      "sha": "c2e5e68464a23bffadfdda7353ba74c6bb5fbb99",
+      "missingFromMain": 16,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/relief-validation",
+      "sha": "4e5951c33b2fa1bc1dd7d08ad0bf76dda6e15a01",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/report-narration-v2",
+      "sha": "028ba08283c85c973c1242588aadc904141220ce",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/terra-nil-interaction-study",
+      "sha": "070cdf21c66b02fc6872fa3909840707a6a5b9a5",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/terra-sound",
+      "sha": "4709c5ac812abdaff7b6bd634b0710d61095703d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/unity-setup",
+      "sha": "a02dc6ccb6837e1bdfb461d3667d8cd2ac4c1862",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/visual-field70",
+      "sha": "99ef1b8d769bce2f62b436ff441ed4afa1d77d5d",
+      "missingFromMain": 11,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/visual-field76",
+      "sha": "eb457329496d4aeb9640c32d68c1d9111efd7e96",
+      "missingFromMain": 8,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/visual-study20",
+      "sha": "dc3a2e82cc1ed47fd798d29e5ba6bed6886cef03",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/weather-reference",
+      "sha": "67c01417906b74a8f024ae9975158cb1dda6979d",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/web-compression",
+      "sha": "4a232e5dc14f6253b628ad16717b2d3e5f391b02",
+      "missingFromMain": 0,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/codex/wisconsin-start-nudge",
+      "sha": "603b31fd820f1c5ad585a4181c72b1eccc04df1c",
+      "missingFromMain": 5,
+      "missingFromCandidate": 0
+    },
+    {
+      "ref": "origin/main",
+      "sha": "8b988fc4d29d6bca92613c932fb9c841f3b8e5ac",
+      "missingFromMain": 0,
+      "missingFromCandidate": 6
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "reviewedSource": "a8598e4",
+  "comparedMain": "8b988fc",
+  "loadingArtworkPreserved": true,
+  "chapterWaitingAndAutomaticResultPreserved": true,
+  "narrationTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "chapterSessionTests": {
+    "status": "passed",
+    "checks": 30,
+    "source": "cd6a193",
+    "command": "DOTNET_ROLL_FORWARD=Major dotnet run --project tests/annual-player-rules/ChapterSessionChecks.csproj",
+    "limits": "Transport and Unity stubs; not browser evidence",
+    "testHarnessFix": "dfa6dac"
+  },
+  "uncommittedOriginalCheckout": "Unity editor runtime state and Devpost artwork preserved",
+  "unfinishedGeographyAndVisualStudies": "Preserved in owner worktrees; not certified for production",
+  "storageFixReview": {
+    "source": "2aeca9a7fd9c4bbf3292c7286fb2fc4815c7c18a",
+    "exactValidationUnchanged": true,
+    "saveFormat": "terra-gzip-v1",
+    "legacyPlainJsonReadable": true,
+    "webGlCodecFailureDoesNotOverwritePreviousKey": true,
+    "nativePathUnchanged": true,
+    "parser": "Existing strict AnnualNumericJson; no tolerance introduced",
+    "requiredFinalVerification": "Native/IL2CPP build, actual Chrome start/save/reload/replay, public asset hashes",
+    "internalCopies": "Exact Json.NET copy within gameplay assembly; preserves core assembly accessibility"
+  },
+  "browserHarnessReview": {
+    "observed": "First apartment queued at revision 2; subsequent iterations stayed at queued=1",
+    "cause": "Successful placement intentionally clears treatmentId; harness selected Apartments only once before two placements",
+    "fix": "Select Apartments before each placement iteration",
+    "applicationChangeNeeded": false
+  }
+}
