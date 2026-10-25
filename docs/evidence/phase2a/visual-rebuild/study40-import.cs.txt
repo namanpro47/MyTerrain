@@ -1,0 +1,12 @@
+if(UnityEditor.EditorApplication.isPlaying)throw new System.Exception("Stop own trial before importing assets");
+var source="Builds/ArtResearch/AssetQuestForestDemo/Forest_Kit_AssetQuest_Itch_FREE_DEMO";
+var destination="Assets/Terra/Art/AssetQuestForestDemo";
+var wanted=new[]{"Birch_Tree_1","Pine_Tree_1","Blackberry_Bush_1b","Raspberry_Bush_1b","Forest_Grass_1","Green_Patch_1","Fern_1a","Stinging_Nettle_1","Woodruff_Cluster_1","Tree_Stump_1"};
+System.IO.Directory.CreateDirectory(destination+"/Models");System.IO.Directory.CreateDirectory(destination+"/Textures");
+foreach(var name in wanted)System.IO.File.Copy(source+"/Meshes_DEMO/"+name+".fbx",destination+"/Models/"+name+".fbx",false);
+foreach(var path in System.IO.Directory.GetFiles(source+"/Textures"))System.IO.File.Copy(path,destination+"/Textures/"+System.IO.Path.GetFileName(path),false);
+foreach(var path in System.IO.Directory.GetFiles(source,"*.txt"))System.IO.File.Copy(path,destination+"/"+System.IO.Path.GetFileName(path),false);
+UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceSynchronousImport);
+var rows=new System.Collections.Generic.List<object>();
+foreach(var name in wanted){var path=destination+"/Models/"+name+".fbx";var go=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.GameObject>(path);var renderers=go.GetComponentsInChildren<UnityEngine.MeshRenderer>();var bounds=renderers[0].bounds;foreach(var r in renderers)bounds.Encapsulate(r.bounds);rows.Add(new{name,bounds=bounds.ToString(),meshes=go.GetComponentsInChildren<UnityEngine.MeshFilter>().Select(f=>new{name=f.sharedMesh.name,vertices=f.sharedMesh.vertexCount,triangles=f.sharedMesh.triangles.Length/3,submeshes=f.sharedMesh.subMeshCount,scale=f.transform.lossyScale.ToString(),materials=f.GetComponent<UnityEngine.MeshRenderer>().sharedMaterials.Select(m=>m.name).ToArray()}).ToArray()});}
+return rows;

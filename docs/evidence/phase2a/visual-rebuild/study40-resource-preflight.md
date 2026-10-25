@@ -1,6 +1,6 @@
 # Study40 — free forest family preflight
 
-Research only; no imported production assets, in-engine trial, acceptance score or purchase. Patterns TN-02/09/10/12 from the [persistent reference](../../../DESIGN_REFERENCE.md). [Study39](study39-findings.md) leaves visual and performance gates open.
+Updated: the bounded in-engine trial is complete and rejected; see [findings and replay evidence](study40-findings.md). No production adoption, acceptance score or purchase. Patterns TN-02/09/10/12 from the [persistent reference](../../../DESIGN_REFERENCE.md). [Study39](study39-findings.md) leaves visual and performance gates open.
 
 ## AssetQuest free demo
 
@@ -12,7 +12,7 @@ The archive's `Forest_Kit_License_DEMO.txt` explicitly grants CC0 for personal, 
 
 The demo contains 17 FBX models: birch, pine, blackberry and raspberry bushes, forest grass, green patch, fern, nettle, woodruff, stump, five mushroom/conk groups, robin and wren. It also includes a TGA plant atlas and PNG color palette. This is an alternative woodland/understory family, not a complete rural ground/water/crop solution. Birds and additional authored locations are not proposed scope.
 
-Next evaluation: preserve the current export; import this bounded sample outside Resources; configure materials according to the readme; test actual silhouettes at ordinary play distance before choosing assets. Compare an integrated patch of the existing Wisconsin landscape, with unchanged scientific cover/heights and annual state. Reject if it adds fine noise or loses form at play distance. Do not infer quality from a single isolated model or restrict the camera to conceal it.
+Original evaluation plan (now completed; see findings): preserve the current export; import this bounded sample outside Resources; configure materials according to the readme; test actual silhouettes at ordinary play distance before choosing assets. Compare an integrated patch of the existing Wisconsin landscape, with unchanged scientific cover/heights and annual state. Reject if it adds fine noise or loses form at play distance. Do not infer quality from a single isolated model or restrict the camera to conceal it.
 
 ## Other candidates screened
 
