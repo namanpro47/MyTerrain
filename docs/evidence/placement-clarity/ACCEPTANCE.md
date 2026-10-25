@@ -17,7 +17,7 @@ Implementation checkpoint: `6e188ee`. Native fixture: base `13a15a4` plus Field 
 
 Native total: **2,839 passed** =2,051placement/intent/layout assertions +788existing play-first HUD assertions. This total must not be represented as2,839browser interactions. Initial native setup failure and the discovered/fixed uppercase heading clip are recorded in HANDOFF.md.
 
-P0 reference board contains the supplied screenshots and17sampled frames from the linked video. Its final Chrome layout inspection is queued separately. The actual game and the reference schematic are distinct artifacts.
+P0 reference board contains the supplied screenshots and17sampled frames from the linked video. All six schematic states were clicked, captured and visually reviewed in Chrome; see reference-board-review.json and reference-*.png. A callout collision and ambiguous uncommitted reservation wording were fixed. The actual game and the reference schematic are distinct artifacts.
 
 P5 uncoached human comprehension remains open if participants are unavailable, as permitted by the approved plan. The proposed4-of-5/60-second target is not an achieved result. The broader Phase2A scenery gate remains independent.
 
