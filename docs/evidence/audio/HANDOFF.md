@@ -27,3 +27,9 @@ These calls require the complete additive `Assets/Terra/Scripts/Audio` runtime a
 3. Preserve main input guards for sound settings and the `player.js` browser focus bridge.
 4. Run `TerraAudioChecks.Run()` on the combined source and Chrome smoke the actual combined export. A scene-only confirmation is insufficient for browser audio.
 5. No new external account, API key, paid asset, plugin or package is needed. The source bank and license material ship in the repository.
+
+## Shared HUD / main handoff
+
+The final shared-file hooks add native click feedback that survives callback rebinding and common Web/keyboard activation feedback. They also clear a held map gesture while sound settings are open. `TerraHud.cs`, `TerraMain.cs` and `TerraMain.Editing.cs` are now frozen for this sound pass and will be excluded from the new validation task claim. The Field Notes owner may add its `ResetFieldNotes()`, `LayoutFieldNotes()` and wheel bridge. Keep the Sound settings consumed-input guard at the beginning of `Scroll` ahead of Field Notes handling; sound settings must remain modal. Preserve the audio constructor/teardown, button feedback component and keyboard dispatch hooks.
+
+Initial source04549ad passed380 Unity import checks and completed the browser export. The later shared click-feedback completion still needs the final incremental build and Chrome receipt; this is not yet a final release-ready assertion.

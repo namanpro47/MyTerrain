@@ -80,7 +80,7 @@ namespace Terra.Gameplay
         }
         void Update()
         {
-            AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput)return;
+            AudioTick();if(Terra.Audio.TerraAudioPanel.ConsumedInput){pressed=false;dragged=false;uiDown=null;return;}
             if(atlasVisible)return;if(ready&&(Keyboard.current?.shiftKey.isPressed??false)&&(Keyboard.current?.escapeKey.wasPressedThisFrame??false)){WorldAtlas.Instance.Show();return;}hud?.Layout();if(!ready){hud?.KeyboardInput(Keyboard.current);return;}performance.Tick();var k=Keyboard.current;
             if(k?.anyKey.wasPressedThisFrame??false)AudioGesture();
             if(k!=null)
@@ -153,7 +153,7 @@ namespace Terra.Gameplay
                 var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=position},hits);
                 var up=hits.Count>0?hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>():null;
                 var button=uiDown;uiDown=null;pressed=false;
-                if(up==button&&button.IsInteractable())button.onClick.Invoke();return;
+                if(up==button&&button.IsInteractable()){Terra.Audio.TerraAudio.Ensure().Click();button.onClick.Invoke();}return;
             }
 #endif
             if(kind==3){pressed=false;return;}

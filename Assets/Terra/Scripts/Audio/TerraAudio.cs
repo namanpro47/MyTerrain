@@ -210,7 +210,7 @@ namespace Terra.Audio
             if (musicAge >= duration - 6)
             {
                 musicIndex = 1 - musicIndex;
-                var next = music[musicIndex]; next.Stop(); next.time = 0;
+                var next = music[musicIndex]; next.Stop();
                 if (Ready(next.clip)) next.Play();
                 musicAge = 0; musicFade = 0;
             }

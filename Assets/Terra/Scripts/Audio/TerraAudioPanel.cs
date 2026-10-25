@@ -132,6 +132,7 @@ namespace Terra.Audio
             var line = r.gameObject.AddComponent<UnityEngine.UI.Outline>(); line.effectDistance = new Vector2(2,2); line.effectColor = Mint;
             b.onClick.AddListener(() => { TerraAudio.Instance.Click(); action(); });
             var t = Text(r,label,new Vector2(-size.x*.5f,0),size,18,Paper); t.alignment = TextAlignmentOptions.Center;
+            int index=buttons.Count;var feedback=r.gameObject.AddComponent<TerraAudioButton>();feedback.Hover=()=>Select(index);
             buttons.Add(b); return b;
         }
         void OnDestroy() { if (instance == this) instance = null; }
