@@ -10,8 +10,8 @@ namespace Terra.Audio
     {
         public static TerraAudio Instance { get; private set; }
         public const string PreferencePrefix = "myterrain.audio.v1.";
-        public static readonly string[] Buses = { "master", "music", "ambience", "effects" };
-        readonly float[] levels = { .8f, .55f, .65f, .8f };
+        public static readonly string[] Buses = { "master", "music", "ambience", "effects", "narration" };
+        readonly float[] levels = { .8f, .55f, .65f, .8f, 1f };
         readonly Dictionary<string, AudioClip> clips = new Dictionary<string, AudioClip>();
         readonly Dictionary<string, float> cooldowns = new Dictionary<string, float>();
         readonly Dictionary<string, int> variations = new Dictionary<string, int>();
@@ -215,7 +215,7 @@ namespace Terra.Audio
                 musicAge = 0; musicFade = 0;
             }
             musicFade = Mathf.MoveTowards(musicFade, 1, dt / 6);
-            musicDuck = Mathf.MoveTowards(musicDuck, Time.unscaledTime < duckUntil ? .55f : 1, dt * 1.5f);
+            musicDuck = Mathf.MoveTowards(musicDuck, TerraNarration.Instance?.Speaking == true ? .25f : Time.unscaledTime < duckUntil ? .55f : 1, dt * 1.5f);
             float gain = levels[0] * levels[1] * focusGain * (report ? .65f : ending ? .9f : .8f) * musicDuck;
             music[musicIndex].volume = gain * Mathf.Sin(musicFade * Mathf.PI * .5f);
             music[1 - musicIndex].volume = gain * Mathf.Cos(musicFade * Mathf.PI * .5f);
