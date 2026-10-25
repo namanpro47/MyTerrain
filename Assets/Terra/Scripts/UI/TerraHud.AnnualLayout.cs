@@ -20,7 +20,7 @@ namespace Terra.UI
             var left=ScreenRect(budgetPanel);var right=ScreenRect(tooltip.transform);
             var dock=ScreenRect(actionDock);var feedback=ScreenRect(toastPanel.transform);
             return UnityEngine.Rect.MinMaxRect(Mathf.Min((left.xMax+padding-canvas.x)/canvas.width,.45f),
-                Mathf.Min((dock.yMax+padding-canvas.y)/canvas.height,.48f),
+                Mathf.Min(((annualCompleted?canvas.y:dock.yMax)+padding-canvas.y)/canvas.height,.48f),
                 Mathf.Max((right.xMin-padding-canvas.x)/canvas.width,.55f),
                 Mathf.Max((feedback.yMin-padding-canvas.y)/canvas.height,.52f));
         }
@@ -28,7 +28,7 @@ namespace Terra.UI
         // Secondary actions share the catalog footer; prices remain in the selected-site panel.
         void LayoutAnnual(float width,float height,bool compact)
         {
-            annualCompact=compact;actionSummary.gameObject.SetActive(!compact);
+            annualCompact=compact;actionDock.gameObject.SetActive(!annualCompleted);actionSummary.gameObject.SetActive(!compact);
             ((RectTransform)actionDock).sizeDelta=new Vector2(760,compact?160:222);
             void Place(Button button,Transform parent,Vector2 anchor,Vector2 position,Vector2 size)
             {
@@ -39,8 +39,8 @@ namespace Terra.UI
             var utilities=new[]{undoButton,redoButton,resetProposalsButton,viewButton,guideButton,controlsButton};
             for(int i=0;i<utilities.Length;i++)
             {
-                var button=utilities[i];
-                if(compact)Place(button,actionDock,new Vector2(0,0),new Vector2(17+i*121,6),new Vector2(116,30));
+                var button=utilities[i];button.gameObject.SetActive(!annualCompleted||i>=3);
+                if(compact&&!annualCompleted)Place(button,actionDock,new Vector2(0,0),new Vector2(17+i*121,6),new Vector2(116,30));
                 else
                 {
                     bool right=i>=4;int row=i==0?0:i==1?2:i==2?3:i==3?1:i-4;
@@ -49,6 +49,7 @@ namespace Terra.UI
                 }
                 foreach(var label in button.GetComponentsInChildren<TextMeshProUGUI>())label.fontSize=(compact?14:16)*(LargeText?1.12f:1);
             }
+            endYearButton.gameObject.SetActive(!annualCompleted);
             Place(endYearButton,compact?budgetPanel:root,new Vector2(compact?0:1,0),compact?new Vector2(16,8):new Vector2(-24,148),new Vector2(compact?134:148,compact?38:56));
             Place(reportButton,compact?budgetPanel:root,new Vector2(compact?0:1,0),compact?new Vector2(160,8):new Vector2(-24,212),new Vector2(compact?134:148,compact?38:56));
             foreach(var b in new[]{endYearButton,reportButton})if(!compact)b.transform.SetSiblingIndex(modalShade.transform.GetSiblingIndex());

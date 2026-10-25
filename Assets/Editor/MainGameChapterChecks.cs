@@ -100,6 +100,20 @@ public static class MainGameChapterChecks
             hud.AnnualChapterReport(town.Engine,chapters.ForYear(10),()=>futureOpened=true,()=>{});
             Click("Read chapter →");Click("Next card →");Click("Next card →");Click("See ten-year future");
             Check(futureOpened&&town.State.year==10,"Final chapter did not hand off to the future without a Year 11.");
+            hud.CloseModal();
+            var baseline=AnnualGameplay.Baseline(definition);
+            hud.AnnualState(town.Engine,baseline,AnnualGameplay.Forecast(town.Engine).outcomes);
+            foreach(bool compact in new[]{false,true})
+            {
+                typeof(TerraHud).GetMethod("LayoutAnnual",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic)
+                    .Invoke(hud,new object[]{compact?1024f:1440f,compact?576f:900f,compact});
+                var audit=JsonUtility.FromJson<TerraHud.UiAudit>(hud.Audit());
+                Check(!audit.controls.Any(c=>c.name.StartsWith("Build ")||c.name=="Button Undo  Z"||c.name=="Button Redo  Y"||c.name=="Button Clear all  X"),"Completed map exposes construction controls.");
+                Check(audit.controls.Any(c=>c.name=="Button Valley view  R")&&audit.controls.Any(c=>c.name=="Button Field guide  G")&&audit.controls.Any(c=>c.name=="Button Controls  ?"),"Completed map hid an exploration control.");
+            }
+            town.Initialize(definition,"replayed-ui-run");hud.AnnualState(town.Engine,baseline,AnnualGameplay.Forecast(town.Engine).outcomes);
+            var replayAudit=JsonUtility.FromJson<TerraHud.UiAudit>(hud.Audit());
+            Check(replayAudit.controls.Any(c=>c.name.StartsWith("Build ")&&c.enabled),"Replay did not restore the build catalog.");
         }
         finally
         {

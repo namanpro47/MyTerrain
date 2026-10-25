@@ -90,6 +90,7 @@ namespace Terra.UI
         bool CatalogSelected(Button button) => actionButtons.TryGetValue(button,out var id)?id==activeTool:categoryButtons.TryGetValue(button,out var category)&&category==activeCategory;
         bool BuildMenuKeyboard(UnityEngine.InputSystem.Keyboard keyboard)
         {
+            if(annualCompleted)return false;
             if(keyboard.bKey.wasPressedThisFrame){catalogKeyboard=!catalogKeyboard;Focus(catalogKeyboard?categoryButtons.Keys.First():null);return true;}
             if(!catalogKeyboard)return false;
             if(keyboard.escapeKey.wasPressedThisFrame){catalogKeyboard=false;Focus(null);return true;}

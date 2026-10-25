@@ -19,7 +19,7 @@ namespace Terra.UI
         Image[] annualBars=new Image[3];
         Button endYearButton,reportButton,restartButton,futureButton,annualPrimary,annualDetails,recipeDetails;
         Transform budgetPanel;
-        bool annualCompact;
+        bool annualCompact,annualCompleted;
         public void MapView(string title){placeSubtitle.text=title??"Wisconsin · real geography";if(title!=null)annualYear.text="YOUR SAVED YEAR 10";}
         public void HideAnnualPreview()=>tooltip.SetActive(false);
         TownActionDefinition inspectedRecipe;
@@ -108,6 +108,13 @@ namespace Terra.UI
         {
             var state=town.Snapshot();var current=state.history.LastOrDefault()?.outcomes??baseline;
             acceptedOutcomes=current;
+            bool completed=state.phase==TownPhase.Completed;
+            if(annualCompleted!=completed)
+            {
+                annualCompleted=completed;catalogKeyboard=false;
+                if(focus!=null&&(focus.transform.IsChildOf(actionDock)||focus==undoButton||focus==redoButton||focus==resetProposalsButton))Focus(null);
+                lastScreen=Vector2.zero;Layout();
+            }
             var previous=state.history.Length>1?state.history[state.history.Length-2].outcomes:baseline;
             bool planning=state.phase==TownPhase.Planning;
             double[] values={current.economicScore,current.socialScore,current.environmentalScore};

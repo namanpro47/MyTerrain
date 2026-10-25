@@ -1,0 +1,56 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "docs/evidence/full-game/annual-terrain-integration-check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": [
+        "initial ground",
+        "Editor preview construction plus surface/ground flush: 92.4502 ms (not browser latency)",
+        "valid preview: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "preview cancel restores positions and normals exactly",
+        "accepted swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "replacement preview removes depression",
+        "replacement cancel restores accepted depression: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "undo restores positions and normals exactly",
+        "analytical height and cover unchanged",
+        "ground shader has no errors",
+        "shader message: Warning use of potentially uninitialized variable (PaintedFilteredSample)",
+        "queued swale before remove preview: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "remove preview restores ground",
+        "remove preview restores surface",
+        "cancel removal restores queued swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "remove queued swale restores baseline",
+        "building preview preserves outside source cover",
+        "building placement preserves outside source cover",
+        "rotation surface matches planted band 1",
+        "rotation surface matches planted band 2",
+        "rotation surface matches planted band 3",
+        "narrow rotation strips contain living groundcover: 850 instances",
+        "annual queued swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "annual undo restores ground",
+        "annual redo restores swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "annual operating Year 10 swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "accepted save replay swale: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "accepted reload preserves ledger and surface",
+        "read-only baseline comparison",
+        "return from comparison restores accepted ground: 446 lowered vertices; deepest 1.149994 m; 309 shared vertices match",
+        "rendering leaves live session and accepted history unchanged",
+        "restore actual scene after isolated fixture"
+      ]
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}
