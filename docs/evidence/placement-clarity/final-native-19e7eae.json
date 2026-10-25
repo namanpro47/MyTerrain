@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": 4115,
+  "scope": "HUD state/layout, ledger immutability, actual placement geometry and shader; not browser or novice acceptance",
+  "sourceCommit": "19e7eae835ed4c06a21d42887a9a53ed28cc4fc2",
+  "receiptSource": "/Users/naman/.codex/worktrees/unity-myterrain-globe/Terra/docs/evidence/placement-clarity/structural-checks.json"
+}
