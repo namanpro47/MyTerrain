@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import subprocess
 parser=argparse.ArgumentParser()
 parser.add_argument('--pack', choices=['meadowbrook-v1','fixture-v1'], default='meadowbrook-v1')
 args=parser.parse_args()
@@ -18,6 +19,9 @@ else:
     expected=json.loads((source/'checksums.json').read_text())
 for name in names:
     assert hashlib.sha256((source/name).read_bytes()).hexdigest()==expected[name],f'Pack checksum mismatch: {name}'
+if args.pack=='meadowbrook-v1':
+    subprocess.run(['python3',str(root/'scripts/prepare-hydrology.py'),'--check'],check=True)
+    names.append('hydrology.json')
 target.mkdir(parents=True,exist_ok=True)
 for name in names:shutil.copyfile(source/name,target/name)
-print(f'Packaged {args.pack} / v1 (3 files, checksums verified).')
+print(f'Packaged {args.pack} / v1 ({len(names)} files, checksums verified).')

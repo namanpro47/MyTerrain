@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "command": "command script eval",
+  "data": {
+    "command": "script eval",
+    "parameters": {
+      "code": "Phase1Checks.Run(); Phase2Checks.Run(); Phase3Checks.Run(); return Phase4Checks.Run();"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": "Phase 4: 98 Unity checks passed"
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7801,
+      "projectPath": "/Users/naman/.codex/worktrees/phase3-editing/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -251,6 +251,8 @@ Use the rewritten [goal brief](docs/PHASE_2A_GOAL.md), [visual rebuild direction
 
 ### Phase 3 — The editable-world foundation
 
+**Execution exception — October 24, 2026:** the user explicitly authorized Phase 3 editing in an isolated worktree alongside the other worker’s Phase 2A rebuild. Complete and verify the editing slice there; integrate it with the accepted visual result afterward. This exception does not certify Phase 2A or start Phase 4.
+
 **Goal:** building and revising proposals feels good even without mission framing. **Depends on:** phase 2A engineering/internal visual gate; any pending human review stays explicit. Preserve the accepted Phase 2A components and design benchmark when adding editing operations.
 
 1. Finish `WorldStateStore`, intervention rules, command validation, snapshot history, and full recomputation over the small set of sites.
@@ -265,6 +267,8 @@ Use the rewritten [goal brief](docs/PHASE_2A_GOAL.md), [visual rebuild direction
 **Shortcut:** site snapping, fixed recipes, full refunds, no physics-based placement. **Defer:** freeform drawing, street editing, zoning, real estate economics, campaign menus.
 
 ### Phase 4 — Environmental consequences and Manage Water
+
+**Execution exception — October 24, 2026:** the user requested the next phase while Phase 2A continues in parallel. Completed Phase 3 (`c49a3c2`) is the foundation; Phase 4 runs in `codex/phase4-consequences` without taking ownership of the visual worker’s checkout. This advances consequences only. Phase 2A visual acceptance, combined presentation/performance acceptance, and Phase 5 remain separate gates. [Implementation and evidence](docs/PHASE_4_CONSEQUENCES.md).
 
 **Goal:** the same actions drive explainable social, economic, and environmental trade-offs. **Depends on:** phase 3 + package B.
 
