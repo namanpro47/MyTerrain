@@ -1,0 +1,97 @@
+{
+  "candidate": {
+    "source": "67f867e",
+    "performance": [
+      {
+        "seconds": 30.0050048828125,
+        "averageFps": 64.85585021972656,
+        "frameP50Ms": 13.000006675720215,
+        "frameP95Ms": 28.0,
+        "frameP99Ms": 35.0,
+        "maxFrameMs": 49.00000762939453,
+        "maxPreviewCpuMs": 0.20000000298023224,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 1946,
+        "framesOver33Ms": 30,
+        "framesOver200Ms": 0,
+        "previewEvents": 2,
+        "placementEvents": 0,
+        "cameraEvents": 19,
+        "unfocusedFrames": 0
+      }
+    ],
+    "errors": [],
+    "annual": [
+      "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0",
+      "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+    ],
+    "inputAndVisibility": [
+      {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    ]
+  },
+  "control": {
+    "source": "dce9219",
+    "performance": [
+      {
+        "seconds": 30.005001068115234,
+        "averageFps": 68.75520324707031,
+        "frameP50Ms": 13.0,
+        "frameP95Ms": 25.0,
+        "frameP99Ms": 34.0,
+        "maxFrameMs": 48.0,
+        "maxPreviewCpuMs": 0.10000000149011612,
+        "maxPlacementCpuMs": -1.0,
+        "frames": 2063,
+        "framesOver33Ms": 22,
+        "framesOver200Ms": 0,
+        "previewEvents": 2,
+        "placementEvents": 0,
+        "cameraEvents": 19,
+        "unfocusedFrames": 0
+      }
+    ],
+    "errors": [],
+    "annual": [
+      "TERRA_ANNUAL_STATE: year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+    ],
+    "inputAndVisibility": [
+      {
+        "method": "DOM input to first rAF after Unity feedback; presentation opportunity, not physical display latency",
+        "samples": [],
+        "discardedStale": 0,
+        "visibility": {
+          "hiddenAtStart": false,
+          "focusedAtStart": true,
+          "hiddenAtEnd": false,
+          "focusedAtEnd": true,
+          "changes": [],
+          "blurEvents": 0
+        }
+      }
+    ]
+  },
+  "method": "Chrome 1280x720, 30-second foreground R-reset route: pan right/back, zoom in/out, reset. Own Editor closed, other team workloads not controlled; candidate tab closed before control. Two previews, zero placements, 19 camera events, zero unfocused frames each. One trial per variant: comparative observation, not final three-path gate.",
+  "firstArrivalSeconds": 11.264,
+  "motion": {
+    "motion": {
+      "changedPixels": 1419,
+      "pixels": 1500
+    },
+    "reduced": {
+      "changedPixels": 0,
+      "pixels": 1500
+    }
+  }
+}

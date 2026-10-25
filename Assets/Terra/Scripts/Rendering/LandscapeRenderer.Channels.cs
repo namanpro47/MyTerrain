@@ -128,6 +128,9 @@ namespace Terra.Rendering
             {
                 streamMaterial=new Material(Resources.Load<Shader>("TerraWater"));streamMaterial.SetFloat("_NaturalBanks",1);
                 streamMaterial.SetTexture("_RiverMap",riverMask);streamMaterial.SetVector("_LandBounds",new Vector4(xmin,zmin,xmax-xmin,zmax-zmin));
+                var normal=Resources.Load<Texture2D>("Water/SurfaceNormal");
+                streamMaterial.SetTexture("_SurfaceNormal",normal);
+                Debug.Log($"TERRA_STREAM_SURFACE: normal={(normal==null?"missing":normal.name)}; size={(normal==null?0:normal.width)}; cameraCopies=0; worldSpaceNormals=true");
             }
             return streamMaterial;
         }

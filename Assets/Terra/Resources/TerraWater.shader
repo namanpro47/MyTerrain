@@ -1,6 +1,6 @@
 Shader "Terra/Painted Stream"
 {
-    Properties { _MotionTime("Motion time",Float)=0 _NaturalBanks("Natural bank detail",Float)=0 _RiverMap("Bank distance",2D)="black"{} _LandBounds("Bounds",Vector)=(0,0,1,1) }
+    Properties { _MotionTime("Motion time",Float)=0 _SurfaceNormal("Artist surface normal",2D)="bump"{} _NaturalBanks("Natural bank detail",Float)=0 _RiverMap("Bank distance",2D)="black"{} _LandBounds("Bounds",Vector)=(0,0,1,1) }
     SubShader
     {
         Tags {"RenderPipeline"="UniversalPipeline" "Queue"="Transparent" "RenderType"="Transparent"}
@@ -19,6 +19,7 @@ Shader "Terra/Painted Stream"
             CBUFFER_START(UnityPerMaterial)
                 float _MotionTime;float _NaturalBanks;float4 _LandBounds;
             CBUFFER_END
+            TEXTURE2D(_SurfaceNormal);SAMPLER(sampler_SurfaceNormal);
             TEXTURE2D(_RiverMap);SAMPLER(sampler_RiverMap);
             struct A { float4 positionOS:POSITION; float3 normalOS:NORMAL; float2 uv:TEXCOORD0; };
             struct V { float4 positionCS:SV_POSITION; float3 positionWS:TEXCOORD0; half3 normalWS:TEXCOORD1; float2 uv:TEXCOORD2; };
@@ -34,6 +35,7 @@ Shader "Terra/Painted Stream"
                 float edge=lerp(abs(i.uv.x-.5)*2,smoothstep(.10,.285,bankDistance),_NaturalBanks);
                 float shallow=smoothstep(.28,.95,edge+wash*.18);
                 half3 deep=lerp(half3(.12,.39,.40),half3(.25,.49,.47),wash);
+                deep=lerp(deep,lerp(half3(.15,.42,.48),half3(.26,.52,.57),wash),_NaturalBanks);
                 half3 shore=lerp(half3(.34,.49,.37),half3(.50,.61,.46),Noise(p*.6));
                 half3 albedo=SRGBToLinear(lerp(deep,shore,shallow*.82));
                 float footprint=max(length(ddx(p)),length(ddy(p)));
@@ -47,7 +49,20 @@ Shader "Terra/Painted Stream"
                 rim*=smoothstep(.35,.75,Noise(p*.8))*fade;
                 Light sun=GetMainLight(TransformWorldToShadowCoord(i.positionWS));
                 half light=.72+.28*sun.shadowAttenuation;
-                return half4(albedo*light+(ripple*.065+rim*.045)*half3(.72,.87,.82), .98);
+                if(_NaturalBanks<.5)return half4(albedo*light+(ripple*.065+rim*.045)*half3(.72,.87,.82),.98);
+                // World-space normals: the generated channel has no tangent attribute.
+                half3 normalA=UnpackNormal(SAMPLE_TEXTURE2D(_SurfaceNormal,sampler_SurfaceNormal,p*.16+float2(_MotionTime*.025,_MotionTime*.018)));
+                half3 normalB=UnpackNormal(SAMPLE_TEXTURE2D(_SurfaceNormal,sampler_SurfaceNormal,p*.29+float2(-_MotionTime*.018,_MotionTime*.024)));
+                half2 slope=(normalA.xy+normalB.xy)*.28*fade;
+                half3 surfaceNormal=normalize(half3(slope.x,1,slope.y));
+                half3 viewDirection=GetWorldSpaceNormalizeViewDir(i.positionWS);
+                half3 halfDirection=normalize(sun.direction+viewDirection);
+                half specular=pow(saturate(dot(surfaceNormal,halfDirection)),56)*sun.shadowAttenuation;
+                half sky=pow(1-saturate(dot(surfaceNormal,viewDirection)),3);
+                half3 reflected=SRGBToLinear(half3(.65,.79,.80));
+                half3 water=lerp(albedo*light,reflected,sky*.38);
+                water+=(ripple*.045+rim*.025)*half3(.72,.87,.82)+specular*.25*sun.color;
+                return half4(water,.98-shallow*.05);
             }
             ENDHLSL
         }

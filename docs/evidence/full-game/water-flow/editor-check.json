@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "command": "command script eval_file",
+  "data": {
+    "command": "script eval_file",
+    "parameters": {
+      "file": "docs/evidence/full-game/water-flow/editor-check.cs"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "frame": 456,
+        "shader": "Terra/Painted Stream",
+        "texture": "Assets/Terra/Resources/Water/SurfaceNormal.png",
+        "textureSize": [
+          1024,
+          1024
+        ],
+        "extraDepthOrColorPasses": false,
+        "fullAndReducedMotionClock": true,
+        "annualDiagnostic": "year=1; phase=Planning; revision=0; cash=1000000000; queued=0; assets=0"
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7803,
+      "projectPath": "/Users/naman/.codex/worktrees/full-implementation/Terra"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

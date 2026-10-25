@@ -1,0 +1,88 @@
+{
+  "method": "Actual shell script with isolated mock vercel executable. No network or deployment.",
+  "checks": [
+    {
+      "input": "(default)",
+      "resolvedDirectory": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Web",
+      "mockCalls": [
+        [
+          "link",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Web",
+          "--yes",
+          "--project",
+          "terra-browser",
+          "--scope",
+          "namanpro47s-projects"
+        ],
+        [
+          "deploy",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Web",
+          "--prod",
+          "--yes",
+          "--scope",
+          "namanpro47s-projects"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "input": "Builds/Verified/67f867e",
+      "resolvedDirectory": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+      "mockCalls": [
+        [
+          "link",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+          "--yes",
+          "--project",
+          "terra-browser",
+          "--scope",
+          "namanpro47s-projects"
+        ],
+        [
+          "deploy",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+          "--prod",
+          "--yes",
+          "--scope",
+          "namanpro47s-projects"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "input": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+      "resolvedDirectory": "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+      "mockCalls": [
+        [
+          "link",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+          "--yes",
+          "--project",
+          "terra-browser",
+          "--scope",
+          "namanpro47s-projects"
+        ],
+        [
+          "deploy",
+          "--cwd",
+          "/Users/naman/.codex/worktrees/full-implementation/Terra/Builds/Verified/67f867e",
+          "--prod",
+          "--yes",
+          "--scope",
+          "namanpro47s-projects"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "input": "missing export",
+      "passed": true,
+      "mockCalls": 0
+    }
+  ]
+}

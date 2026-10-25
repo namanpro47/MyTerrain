@@ -1,0 +1,16 @@
+var main=UnityEngine.Object.FindFirstObjectByType<Terra.Gameplay.TerraMain>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var before=main.Diagnostic;
+var landscape=(Terra.Rendering.LandscapeRenderer)typeof(Terra.Gameplay.TerraMain).GetField("landscape",flags).GetValue(main);
+var materials=UnityEngine.Object.FindObjectsByType<UnityEngine.MeshRenderer>(UnityEngine.FindObjectsSortMode.None).Where(r=>r.name=="Mapped stream centreline").Select(r=>r.sharedMaterial).Distinct().ToArray();
+if(materials.Length!=1)throw new System.Exception("Expected one shared stream material");
+var material=materials.Single();var normal=material.GetTexture("_SurfaceNormal");
+if(normal==null)throw new System.Exception("Runtime surface normal was not bound in the actual runtime material");
+if(UnityEditor.ShaderUtil.ShaderHasError(material.shader))throw new System.Exception("Stream shader failed compilation");
+var camera=UnityEngine.Camera.main;var data=camera.GetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>();
+if(data!=null&&(data.requiresDepthTexture||data.requiresColorTexture))throw new System.Exception("Unexpected camera depth/color copy");
+float time=material.GetFloat("_MotionTime");landscape.Tick(12.5f,false);
+if(material.GetFloat("_MotionTime")!=12.5f)throw new System.Exception("Clock did not advance");
+landscape.Tick(18,true);if(material.GetFloat("_MotionTime")!=0)throw new System.Exception("Reduced motion did not freeze");landscape.Tick(time,false);
+if(main.Diagnostic!=before)throw new System.Exception("Ledger changed");
+return new{frame=UnityEngine.Time.frameCount,shader=material.shader.name,texture=UnityEditor.AssetDatabase.GetAssetPath(normal),textureSize=new[]{normal.width,normal.height},extraDepthOrColorPasses=false,fullAndReducedMotionClock=true,annualDiagnostic=before};

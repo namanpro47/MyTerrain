@@ -9,3 +9,5 @@
 - **Fonts**: system Avenir Next / Avenir / Segoe UI and Georgia; no third-party font download or network dependency.
 
 All resources required for the atlas ship locally. No paid assets, runtime map service, API keys, analytics, location permissions, or image generation.
+
+- **Stream surface normal**: MatrixRex, Uber Stylized Water, MIT. Unmodified Normal1 texture; adapted world-space sampling in Terra. Pinned source: https://github.com/MatrixRex/Uber-Stylized-Water/tree/1fdd16c6312611fef7fb248dee86cdd3fd456a1e . Full notice: `vendor/WATER-LICENSE.txt`.
