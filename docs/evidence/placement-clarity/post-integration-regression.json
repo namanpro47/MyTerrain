@@ -1,0 +1,10 @@
+{
+  "command": "DOTNET_ROLL_FORWARD=Major dotnet run --project tests/full-game/Terra.FullGameChecks.csproj",
+  "branchHead": "e61ab3c",
+  "mergedRemoteMain": "f4bd323506a8c9a904c784703de5ab664591ff17",
+  "exitCode": 0,
+  "totalAssertions": 1014,
+  "includedAnnualFeedbackAssertions": 345,
+  "includedPlanningGuidanceAssertions": 61,
+  "scope": "Pure game rules and planning guidance; not Unity render or Chrome acceptance"
+}
