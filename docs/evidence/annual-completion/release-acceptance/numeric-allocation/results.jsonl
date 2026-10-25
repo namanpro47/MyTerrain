@@ -1,0 +1,9 @@
+{"label":"Copy envelope","allocatedBytes":14450552,"retainedBefore":161414464,"retainedAfter":169944600,"milliseconds":95.4763}
+{"label":"Hash envelope","allocatedBytes":165662712,"retainedBefore":170619800,"retainedAfter":271674792,"milliseconds":733.9841}
+{"label":"Copy definition","allocatedBytes":5574392,"retainedBefore":169055264,"retainedAfter":174659592,"milliseconds":44.71}
+{"label":"Hash definition","allocatedBytes":44095344,"retainedBefore":175997568,"retainedAfter":217092176,"milliseconds":228.9253}
+{"label":"Create engine","allocatedBytes":65668952,"retainedBefore":171743104,"retainedAfter":215582936,"milliseconds":333.034}
+{"label":"Restore ten years","allocatedBytes":854391400,"retainedBefore":175215512,"retainedAfter":235319448,"milliseconds":2069.6012}
+{"label":"Transactions.Open existing","allocatedBytes":2543295848,"retainedBefore":187756536,"retainedAfter":335698000,"milliseconds":5462.1429}
+{"label":"ReadEngine after open","allocatedBytes":853982344,"retainedBefore":197972488,"retainedAfter":353698296,"milliseconds":1526.6834}
+Diagnostic .NET allocated bytes; not Unity heap/peak or browser performance evidence.

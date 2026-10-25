@@ -1,0 +1,134 @@
+[
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T19:59:58.684Z",
+    "url": "blob:https://terra-browser.vercel.app/184efbf3-1453-4415-8367-05bef44e511a"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:00:08.257Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:00:08.291Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:00:08.330Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:00:08.366Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:01:06.262Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:01:08.794Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:02:37.534Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "Shader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported or has been stripped from the build (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.\n",
+    "timestamp": "2026-10-25T20:03:30.338Z",
+    "url": "blob:https://terra-browser.vercel.app/f09cb857-8b94-4b35-9279-c33808a98735"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:03:40.818Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:03:40.849Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:03:40.933Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:03:40.975Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:04:10.538Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:04:13.456Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:04:58.116Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:05:24.814Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:05:54.647Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:06:29.317Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:06:53.280Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:07:16.671Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  },
+  {
+    "level": "warn",
+    "message": "[UnityCache] Response is served without Content-Length header. Please reconfigure server to include valid Content-Length for better download performance.",
+    "timestamp": "2026-10-25T20:07:37.878Z",
+    "url": "https://terra-browser.vercel.app/Build/e91078f1c7c891e8304e5d9aedc74e88.loader.js"
+  }
+]

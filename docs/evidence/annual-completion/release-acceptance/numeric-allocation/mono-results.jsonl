@@ -1,0 +1,9 @@
+{"label":"Copy envelope","allocatedBytes":19382696,"retainedBefore":25775968,"retainedAfter":29433752,"milliseconds":167.6096}
+{"label":"Hash envelope","allocatedBytes":155829568,"retainedBefore":25821600,"retainedAfter":95373448,"milliseconds":750.64}
+{"label":"Copy definition","allocatedBytes":7182216,"retainedBefore":25855848,"retainedAfter":26669552,"milliseconds":58.337900000000005}
+{"label":"Hash definition","allocatedBytes":48144416,"retainedBefore":25856040,"retainedAfter":51371224,"milliseconds":170.5539}
+{"label":"Create engine","allocatedBytes":74535912,"retainedBefore":25890824,"retainedAfter":52920184,"milliseconds":362.3089}
+{"label":"Restore ten years","allocatedBytes":837935960,"retainedBefore":25885336,"retainedAfter":44819760,"milliseconds":3879.2829}
+{"label":"Transactions.Open existing","allocatedBytes":2668344832,"retainedBefore":25916048,"retainedAfter":71250768,"milliseconds":13712.645400000001}
+{"label":"ReadEngine after open","allocatedBytes":837891992,"retainedBefore":31522000,"retainedAfter":50462112,"milliseconds":3951.1907}
+Installed Unity Mono allocation diagnostic; not linked WebAssembly peak or performance acceptance.

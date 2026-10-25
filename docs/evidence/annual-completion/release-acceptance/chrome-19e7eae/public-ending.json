@@ -1,0 +1,169 @@
+{
+  "captured": "2026-10-25T20:08:02.400Z",
+  "audit": {
+    "cssWidth": 1728,
+    "cssHeight": 940,
+    "pixelRatio": 2,
+    "modal": true,
+    "largeText": false,
+    "reducedMotion": false,
+    "muted": false,
+    "labels": [
+      {
+        "text": "MyTerrain   /   FIELD NOTES",
+        "rect": {
+          "x": 496,
+          "y": 167,
+          "width": 730,
+          "height": 24
+        },
+        "bodyCssPx": 14,
+        "minGlyphCssPx": 14,
+        "preferredHeight": 15.649999618530273,
+        "availableHeight": 24
+      },
+      {
+        "text": "<size=140%><b>Ten years in Meadowbrook Valley</b></size>\n\n<size=88%>YOUR YEAR 10                 NO NEW ACTION\nEconomic  <b>61.2</b>                       50.1\nSocial  <b>63.5</b>                              58.0\nEnvironmental  <b>41.7</b>               38.8\nScenario targets: E 75 / S 75 / Env 60. Met 0 of 3; each is independent.\n\nAll three indicators match or exceed no new action. These gains carry public costs and ongoing commitments.\n\nPublic spending $1,484,000\nClosing cash $18,676,000 · no-action cash $19,850,000\nReceipts $160,000 · appropriations $10,000,000\nOutstanding beyond Year 10: $28,000 (includes arrears $0)\n\nSame opening services, weather, appropriation and rules. Scenario indicators, not a forecast. Inspect the map, history or choose New run.</size>",
+        "rect": {
+          "x": 496,
+          "y": 206,
+          "width": 736,
+          "height": 440
+        },
+        "bodyCssPx": 20,
+        "minGlyphCssPx": 17.600000381469727,
+        "preferredHeight": 379.3500061035156,
+        "availableHeight": 440
+      },
+      {
+        "text": "Return to landscape  Esc",
+        "rect": {
+          "x": 722,
+          "y": 719,
+          "width": 284,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "Compare the landscape",
+        "rect": {
+          "x": 810,
+          "y": 655,
+          "width": 414,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      },
+      {
+        "text": "History & takeaway",
+        "rect": {
+          "x": 504,
+          "y": 655,
+          "width": 214,
+          "height": 52
+        },
+        "bodyCssPx": 17,
+        "minGlyphCssPx": 17,
+        "preferredHeight": 19,
+        "availableHeight": 52
+      }
+    ],
+    "controls": [
+      {
+        "name": "Button Return to landscape  Esc",
+        "enabled": true,
+        "rect": {
+          "x": 714,
+          "y": 717,
+          "width": 300,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button ",
+        "enabled": true,
+        "rect": {
+          "x": 802,
+          "y": 653,
+          "width": 430,
+          "height": 56
+        }
+      },
+      {
+        "name": "Button All proposals",
+        "enabled": true,
+        "rect": {
+          "x": 496,
+          "y": 653,
+          "width": 230,
+          "height": 56
+        }
+      }
+    ],
+    "panels": [
+      {
+        "x": 16,
+        "y": 16,
+        "width": 310,
+        "height": 54
+      },
+      {
+        "x": 16,
+        "y": 792,
+        "width": 116,
+        "height": 36
+      },
+      {
+        "x": 364,
+        "y": 874,
+        "width": 1000,
+        "height": 56
+      },
+      {
+        "x": 16,
+        "y": 78,
+        "width": 310,
+        "height": 100
+      },
+      {
+        "x": 1224,
+        "y": 16,
+        "width": 488,
+        "height": 94
+      },
+      {
+        "x": 602,
+        "y": 528,
+        "width": 344,
+        "height": 128
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "width": 1728,
+        "height": 940
+      },
+      {
+        "x": 464,
+        "y": 145,
+        "width": 800,
+        "height": 650
+      }
+    ]
+  },
+  "state": [
+    {
+      "level": "log",
+      "message": "TERRA_ANNUAL_STATE: year=10; phase=Completed; revision=22; cash=1867600000; queued=0; assets=3\n",
+      "timestamp": "2026-10-25T20:08:02.227Z",
+      "url": "blob:https://terra-browser.vercel.app/f09cb857-8b94-4b35-9279-c33808a98735"
+    }
+  ]
+}
