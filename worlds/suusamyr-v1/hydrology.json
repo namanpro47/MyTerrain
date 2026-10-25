@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "terra-landscape-runoff-v1",
+  "worldSha256": "f048e0dec8ec996c0113e87ba491e0a5e9385d392fae5ccf5d19837252af8d4d",
+  "partitionSha256": "cf9f0236b25f330fc4ed82f05f97430cf295355b2ae86f2888db848ffb18fd90",
+  "analysisAreaM2": 1440000,
+  "sourceId": "usda-tr55-1986",
+  "sourceUrl": "https://www.hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables",
+  "assumptionSourceId": "scenario-assumptions-v1",
+  "connectionNote": "Each regional site is isolated. No mapped drainage or external inflow. Cover and soil are authored assumptions.",
+  "parameters": [
+    {
+      "coverId": "cultivated",
+      "curveNumber": 78
+    },
+    {
+      "coverId": "grass",
+      "curveNumber": 61
+    },
+    {
+      "coverId": "woodland",
+      "curveNumber": 55
+    },
+    {
+      "coverId": "sealed",
+      "curveNumber": 98
+    }
+  ],
+  "context": [
+    {
+      "id": "context-grass",
+      "coverId": "grass",
+      "areaM2": 1184000
+    }
+  ],
+  "connections": [
+    {
+      "siteId": "region-01",
+      "groupId": "site-only-region-01"
+    },
+    {
+      "siteId": "region-02",
+      "groupId": "site-only-region-02"
+    },
+    {
+      "siteId": "region-03",
+      "groupId": "site-only-region-03"
+    },
+    {
+      "siteId": "region-04",
+      "groupId": "site-only-region-04"
+    },
+    {
+      "siteId": "region-05",
+      "groupId": "site-only-region-05"
+    },
+    {
+      "siteId": "region-06",
+      "groupId": "site-only-region-06"
+    },
+    {
+      "siteId": "region-07",
+      "groupId": "site-only-region-07"
+    },
+    {
+      "siteId": "region-08",
+      "groupId": "site-only-region-08"
+    },
+    {
+      "siteId": "region-09",
+      "groupId": "site-only-region-09"
+    },
+    {
+      "siteId": "region-10",
+      "groupId": "site-only-region-10"
+    }
+  ]
+}

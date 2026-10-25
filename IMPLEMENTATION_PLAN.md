@@ -1,11 +1,13 @@
 # Terra — implementation plan: ten years in one rural place
 
+**October 25 bounded addition:** The user explicitly authorized the three-location Living Atlas: draggable globe, cinematic entry, Wisconsin / Point Reyes / rural Suusamyr selection, distinct packs and save isolation. See [ATLAS_SELECTION.md](docs/ATLAS_SELECTION.md). This supersedes older one-location/no-selector limits for these three destinations only; it does not close Phase 2A.
+
 **Revised October 24, 2026 by explicit user direction.** The [canonical spec](TERRA_PROJECT_SPEC.md) now makes annual public-budget decisions and economic/social/environmental outcomes the core game. [ACTIONS_AND_EFFECTS.md](docs/ACTIONS_AND_EFFECTS.md) preserves all twelve chart rows and specifies required behavior. [Peter's PRD](docs/PRD_ANNUAL_GAMEPLAY.md) is the source proposal, with an adoption note. [PHASE_STATUS.md](docs/PHASE_STATUS.md) records what is actually implemented.
 
 **Annual chapters follow-up — October 24, 2026:** Peter requested next-chapter progression and a free/low-cost LLM connection. [Annual chapters](docs/annual-chapters.md) adds a local Gemini service, validated narrative over the existing authored annual outcomes, persistent receipts, explicit offline fallback and ten-year chapter continuation. This is a bounded extension of the annual module. Main-game integration, approved causal effect rules, same-weather comparison and Phase 2A acceptance remain separate.
 
 
-**Scope:** one real Meadowbrook Valley AOI across all years and phases; no additional map, city level or live generator. Housing, industry, community and utility projects from the chart are now intentional hypothetical options on this rural map. This supersedes the old “three tools are the whole game” restriction, not the rural setting. Geographic source names and `coon-valley-brye-v1` remain stable.
+**Scope:** choose one of the three fixed rural AOIs in the Living Atlas, then stay in that place across all ten years; no fourth map, city level or live generator. Housing, industry, community and utility projects from the chart are now intentional hypothetical options on each rural map. This supersedes the old “three tools are the whole game” restriction, not the rural setting. Geographic source names and `coon-valley-brye-v1` remain stable.
 
 **Delivery principle:** prove the annual loop in the playable scene, then deepen it. Do not finish an instant-placement mission and bolt years onto its ending. The full release includes all twelve families; a staged starter subset is a milestone, not a scope cut. Planning changes here do not execute all phases, start a goal, publish, or message another worker.
 

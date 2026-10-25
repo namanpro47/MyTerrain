@@ -25,8 +25,11 @@ public static class Phase1Setup
     }
     public static void PackageFixture()
     {
-        string source="worlds/meadowbrook-v1",target="Assets/StreamingAssets/WorldPacks/meadowbrook-v1";
-        Directory.CreateDirectory(target);foreach(var name in new[]{"manifest.json","world.json","scenario.json","hydrology.json"})File.Copy(Path.Combine(source,name),Path.Combine(target,name),true);
+        foreach(var location in Terra.Core.LocationProfile.All)
+        {
+            string source="worlds/"+location.PackId,target="Assets/StreamingAssets/WorldPacks/"+location.PackId;
+            Directory.CreateDirectory(target);foreach(var name in new[]{"manifest.json","world.json","scenario.json","hydrology.json"})File.Copy(Path.Combine(source,name),Path.Combine(target,name),true);
+        }
         AssetDatabase.Refresh();
     }
 }

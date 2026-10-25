@@ -21,7 +21,7 @@ namespace Terra.UI
         Button endYearButton,reportButton,restartButton,futureButton,annualPrimary,annualDetails,recipeDetails;
         Transform budgetPanel;
         bool annualCompact,annualCompleted;
-        public void MapView(string title){placeSubtitle.text=title??"Wisconsin · real geography";if(title!=null)annualYear.text="YOUR SAVED YEAR 10";}
+        public void MapView(string title){placeSubtitle.text=title??location.Subtitle;if(title!=null)annualYear.text="YOUR SAVED YEAR 10";}
         public void HideAnnualPreview()=>tooltip.SetActive(false);
         TownActionDefinition inspectedRecipe;
         string annualPreviewBody,annualPreviewTimeline;
