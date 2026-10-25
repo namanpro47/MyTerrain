@@ -38,3 +38,8 @@
 /.venv-worldgen/
 /worldgen/cache/
 __pycache__/
+
+# Standalone consequence integration checks.
+!/tests/consequences/ConsequencesChecks.csproj
+/tests/consequences/bin/
+/tests/consequences/obj/

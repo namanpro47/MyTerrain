@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using Terra.Contracts;
+using Terra.Core;
+using System.Text;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Networking;
 namespace Terra.Geography
 {
     public static class WorldPackLoader
     {
-        public static IEnumerator Load(string root,Action<Manifest,WorldData,Scenario> ready,Action<string> fail,Action<string> progress=null)
+        public static IEnumerator Load(string root,Action<Manifest,WorldData,Scenario> ready,Action<string> fail,Action<string> progress=null,Action<RunoffConfiguration> modelReady=null)
         {
             string manifestText=null,worldText=null,scenarioText=null,error=null;
             progress?.Invoke("Reading the location and source manifest…");
@@ -26,6 +29,21 @@ namespace Terra.Geography
             WorldData w=null;Scenario s=null;
             try{w=JsonUtility.FromJson<WorldData>(worldText);s=JsonUtility.FromJson<Scenario>(scenarioText);PackValidator.Validate(m,w,s);}
             catch(Exception e){fail("WorldPack rejected: "+e.Message);yield break;}
+            if(modelReady!=null)
+            {
+                string modelText=null;progress?.Invoke("Preparing the same-storm runoff estimate…");
+                yield return Read(root+"/hydrology.json",x=>modelText=x,x=>error=x);
+                if(error!=null){fail(error);yield break;}
+                RunoffConfiguration config=null;
+                try
+                {
+                    config=JsonUtility.FromJson<RunoffConfiguration>(modelText);
+                    using(var hash=SHA256.Create())
+                    {var actual=BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(worldText))).Replace("-","").ToLowerInvariant();if(config.worldSha256!=actual)throw new Exception("Runoff configuration does not match the landscape. Rebuild the pack.");}
+                    modelReady(config);
+                }
+                catch(Exception e){fail("Runoff configuration rejected: "+e.Message);yield break;}
+            }
             ready(m,w,s);
         }
         static IEnumerator Read(string url,Action<string> done,Action<string> fail)

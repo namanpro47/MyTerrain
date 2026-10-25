@@ -75,6 +75,10 @@ namespace Terra.Gameplay
             hud.EditingPreview(editMode,site,proposalSite,state.TreatmentAt(proposalSite?.id),result,state.Result,
                 world.sites.FirstOrDefault(s=>s.id==moveSourceId)?.name,
                 state.CanRedo,state.HasProposals,ConfirmEdit);
+            var connectionIds=runoff.ConnectedSites(site?.id);
+            bool waterTool=treatmentId=="water-swale"&&(editMode=="place"||editMode=="move");
+            landscape.ShowRunoffConnections(waterTool&&site!=null&&site.allowedTreatments.Contains("water-swale")?connectionIds:Array.Empty<string>());
+            hud.RunoffPreview(site,result,state.Result,connectionIds,waterTool,editMode);
             performance.Preview(timer.Elapsed.TotalMilliseconds);
             if(!committing)BrowserPerformance.Feedback(0);
         }

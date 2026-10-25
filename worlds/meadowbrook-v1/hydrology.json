@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "modelVersion": "terra-landscape-runoff-v1",
+  "worldSha256": "78bf6d9140faa70f56f9c1ba47848561653de3eab7143399fdd0e59a0899bac6",
+  "partitionSha256": "52f4e66d4b288a9126f5588b6026dc3e07266d3805ed615b3b0884ef5bd719ec",
+  "analysisAreaM2": 1486800,
+  "sourceId": "usda-tr55-1986",
+  "sourceUrl": "https://www.hec.usace.army.mil/confluence/hmsdocs/hmstrm/cn-tables",
+  "assumptionSourceId": "scenario-assumptions-v1",
+  "connectionNote": "Hypothetical groups; not measured drainage. Unchanged context is isolated from devices.",
+  "parameters": [
+    {
+      "coverId": "cultivated",
+      "curveNumber": 78
+    },
+    {
+      "coverId": "grass",
+      "curveNumber": 61
+    },
+    {
+      "coverId": "woodland",
+      "curveNumber": 55
+    },
+    {
+      "coverId": "sealed",
+      "curveNumber": 98
+    }
+  ],
+  "context": [
+    {
+      "id": "context-cultivated",
+      "coverId": "cultivated",
+      "areaM2": 398459.750921
+    },
+    {
+      "id": "context-grass",
+      "coverId": "grass",
+      "areaM2": 324167.538193
+    },
+    {
+      "id": "context-sealed",
+      "coverId": "sealed",
+      "areaM2": 79882.739732
+    },
+    {
+      "id": "context-woodland",
+      "coverId": "woodland",
+      "areaM2": 595814.971154
+    }
+  ],
+  "connections": [
+    {
+      "siteId": "south-01",
+      "groupId": "isolated-south-01"
+    },
+    {
+      "siteId": "south-02",
+      "groupId": "isolated-south-02"
+    },
+    {
+      "siteId": "south-03",
+      "groupId": "eastern-plots"
+    },
+    {
+      "siteId": "south-04",
+      "groupId": "southern-plots"
+    },
+    {
+      "siteId": "south-05",
+      "groupId": "southern-plots"
+    },
+    {
+      "siteId": "south-06",
+      "groupId": "eastern-plots"
+    },
+    {
+      "siteId": "south-07",
+      "groupId": "southern-plots"
+    },
+    {
+      "siteId": "south-08",
+      "groupId": "southern-plots"
+    },
+    {
+      "siteId": "east-09",
+      "groupId": "eastern-plots"
+    },
+    {
+      "siteId": "west-10",
+      "groupId": "isolated-west-10"
+    },
+    {
+      "siteId": "reserve-11",
+      "groupId": "isolated-reserve-11"
+    },
+    {
+      "siteId": "reserve-12",
+      "groupId": "isolated-reserve-12"
+    }
+  ]
+}

@@ -18,6 +18,7 @@ namespace Terra.Gameplay
     public sealed partial class TerraMain : MonoBehaviour
     {
         public Material terrainMaterial;public GameObject treePrefab,cropPrefab,grassPrefab,shrubPrefab;public AudioClip placementSound;
+        RunoffConfiguration runoffConfiguration;LandscapeRunoff runoff;
         Camera view;WorldData world;Scenario scenario;WorldStateStore state;LandscapeRenderer landscape;TerraHud hud;AudioSource sound;
         string treatmentId="cultivate-standard",hoverId,selectedId;float yaw=-32,pitch=37,zoom=115;Vector3 target=new Vector3(-193,25,-43);
         bool perspective=true;
@@ -26,7 +27,7 @@ namespace Terra.Gameplay
         readonly BrowserPerformance performance=new BrowserPerformance();
         float shownYaw=-32,shownPitch=37,shownZoom=115;Vector3 shownTarget=new Vector3(-193,25,-43);
         public int Revision=>state?.Revision??-1;
-        public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}";
+        public string Diagnostic=>state==null?"loading":$"revision={Revision}; production={state.Result.production}; credits={state.Result.remainingCredits}; hover={hoverId}; tool={treatmentId}; discharged={state.Result.dischargedM3}; retained={state.Result.retainedM3}";
         void Start()
         {
             gameObject.name="TerraMain";Application.runInBackground=true;
@@ -44,7 +45,7 @@ namespace Terra.Gameplay
 #if !UNITY_WEBGL || UNITY_EDITOR
             root="file://"+root;
 #endif
-            StartCoroutine(WorldPackLoader.Load(root,Loaded,Error,hud.Progress));
+            StartCoroutine(WorldPackLoader.Load(root,Loaded,Error,hud.Progress,c=>runoffConfiguration=c));
         }
         void Error(string reason){hud.Error(reason);Debug.LogError("TERRA_PACK_ERROR: "+reason);}
         void Loaded(Manifest m,WorldData w,Scenario s)
@@ -52,7 +53,9 @@ namespace Terra.Gameplay
         IEnumerator ShapeLandscape(Manifest m,WorldData w,Scenario s)
         {
             hud.Progress("Shaping the terrain and woodland…");yield return null;
-            world=w;scenario=s;state=new WorldStateStore(w,s);
+            world=w;scenario=s;
+            try{runoff=new LandscapeRunoff(w,s,runoffConfiguration);state=new WorldStateStore(w,s,runoff);hud.ConfigureRunoff(runoff.RainfallMm);}
+            catch(Exception e){Error("Could not prepare runoff estimates: "+e.Message);yield break;}
             var scenery=new GameObject("Meadowbrook Valley real landscape").transform;
             try{landscape=new LandscapeRenderer(w,terrainMaterial,scenery,treePrefab,cropPrefab,grassPrefab,shrubPrefab);landscape.Build();}
             catch(Exception e){Error("Could not shape the landscape: "+e.Message);yield break;}
@@ -170,7 +173,7 @@ namespace Terra.Gameplay
             var position=shownTarget-view.transform.forward*distance;
             // Also protect the interpolated camera while crossing a wooded hillside.
             if(ready&&perspective)position.y=Mathf.Max(position.y,landscape.Height(position.x,position.z)+35);
-            view.transform.position=position;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));
+            view.transform.position=position;landscape?.ViewScale(2*shownZoom/Screen.height*(hud?.PixelRatio??1));landscape?.ScaleRunoffConnections();
         }
         void ResetView(){perspective=true;yaw=-32;pitch=37;zoom=115;target=new Vector3(-193,25,-43);ApplyView();}
         void FocusSite(){var site=world.sites.FirstOrDefault(s=>s.id==(hoverId??selectedId))??world.sites[0];float x=site.polygon.Average(p=>p.x),z=site.polygon.Average(p=>p.z);target=new Vector3(x,landscape.Height(x,z)+8,z);zoom=72;ApplyView();Toast("Close view · Scroll to zoom · R returns to the valley");}

@@ -7,7 +7,7 @@ namespace Terra.Core
     // Immutable baseline DTOs are owned by the loader. This store never writes to them.
     public sealed class WorldStateStore
     {
-        readonly WorldData world; readonly Scenario scenario;
+        readonly WorldData world; readonly Scenario scenario;readonly LandscapeRunoff runoff;
         Intervention[] current=Array.Empty<Intervention>(); readonly Stack<Intervention[]> history=new Stack<Intervention[]>();
         readonly Stack<Intervention[]> future=new Stack<Intervention[]>();
         public int Revision { get; private set; }
@@ -16,7 +16,7 @@ namespace Terra.Core
         public bool HasProposals => current.Length>0;
         public WorldResult Result => Calculate(current);
         public string TreatmentAt(string siteId) => current.FirstOrDefault(x=>x.siteId==siteId)?.treatmentId;
-        public WorldStateStore(WorldData world, Scenario scenario) { this.world=world; this.scenario=scenario; }
+        public WorldStateStore(WorldData world, Scenario scenario,LandscapeRunoff runoff=null) { this.world=world; this.scenario=scenario;this.runoff=runoff; }
         public Evaluation Preview(EditCommand command)
         {
             if(command==null) return Invalid("Choose an editing action.");
@@ -80,9 +80,10 @@ namespace Terra.Core
                 foreach(var fraction in cover){if(!areas.ContainsKey(fraction.coverId))areas[fraction.coverId]=0;areas[fraction.coverId]+=site.analysisAreaM2*fraction.fraction;}
                 results.Add(new SiteResult{siteId=site.id,production=production,productionDelta=production-site.baselineProduction});
             }
-            return new WorldResult{revision=Revision,spentCredits=spent,remainingCredits=scenario.budget-spent,production=total,baselineProduction=baseline,netProduction=total-baseline,
+            var result=new WorldResult{revision=Revision,spentCredits=spent,remainingCredits=scenario.budget-spent,production=total,baselineProduction=baseline,netProduction=total-baseline,
                 runoffAvailable=false,coverAreas=areas.OrderBy(x=>x.Key).Select(x=>new CoverArea{coverId=x.Key,areaM2=x.Value}).ToArray(),sites=results.ToArray(),
                 explanations=new[]{new ExplanationFact{code="illustrative-production",value=total,unit="game-units",sourceId="scenario-assumptions-v1"}}};
+            runoff?.Apply(proposals,result);return result;
         }
     }
 }

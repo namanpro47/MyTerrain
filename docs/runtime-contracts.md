@@ -29,6 +29,12 @@ The checked example is `tests/fixtures/simulation/input.json` → `expected.json
 
 Direct runoff convention: S=25400/CN−254 mm; Q=0 when P≤0.2S, otherwise Q=(P−0.2S)²/(P+0.8S); m³=Q×area/1000. This is an educational direct-runoff estimate, not flood depth, routing, timing, erosion or water quality. Recipe curve numbers are documented scenario assumptions pending package B review.
 
+## Phase 4 integration
+
+`LandscapeRunoff` is injected into the store for the real scene. Legacy fixture callers may omit it and retain explicitly unavailable hydrology. `hydrology.json` version 1 / `terra-landscape-runoff-v1` carries validated context areas, CN mappings, world/partition hashes and hypothetical connections. The WorldPack loader rejects a world-hash mismatch. Existing geography/DTO schemas stay at v1.
+
+The complete 1,486,800 m² context partition is evaluated once, including unchanged surroundings. Preserve the frozen area-weighted CN within a site; sum independent runoff volumes across sites/context. Only connected group volume is available to a device. The unchanged context is isolated from all devices. `baseline-discharge`, `context-generated`, `managed-generated`, `analysis-area` and `managed-area` explanation facts expose domain and baseline quantities. `sites[]` still contains only canonical management/protected sites and preserves production. The HUD uses absolute deltas, including zero baselines. See [Phase 4](PHASE_4_CONSEQUENCES.md) for accepted parameter mappings, source, group memberships and limits.
+
 ## Content seam
 
 Player-facing location copy uses **Meadowbrook Valley**. Keep the existing location/source IDs stable, and retain real geographic names in provenance only; see [naming policy](location-selection.md#name-and-provenance).

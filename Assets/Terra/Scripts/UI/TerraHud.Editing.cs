@@ -30,8 +30,9 @@ namespace Terra.UI
             confirmEdit=confirm;redoButton.interactable=canRedo;resetProposalsButton.interactable=hasProposals;
             bool editing=mode!="place";
             bool canEdit=proposalSite!=null&&currentTreatment!=null;
-            moveButton.gameObject.SetActive(!editing&&canEdit);removeButton.gameObject.SetActive(!editing&&canEdit);
-            confirmEditButton.gameObject.SetActive(editing);confirmEditButton.interactable=result.valid;
+            moveButton.gameObject.SetActive(!editing&&canEdit&&!result.valid);removeButton.gameObject.SetActive(!editing&&canEdit&&!result.valid);
+            confirmEditButton.gameObject.SetActive(editing||result.valid);
+            if(!editing)SetButtonText(confirmEditButton,result.reason=="Ready to replace"?"Replace · Enter":"Place · Enter");confirmEditButton.interactable=result.valid;
             if(editing)
             {
                 tooltip.SetActive(true);tip.transform.parent.gameObject.SetActive(false);
@@ -42,7 +43,7 @@ namespace Terra.UI
                 {
                     int cost=result.result.spentCredits-current.spentCredits;float productionDelta=result.result.production-current.production;
                     previewBody.text=(mode=="move"?"From "+sourceName:mode=="reset"?"Restore all original cover.":"Restore original cover.")+
-                        "\n\n"+(cost<0?(-cost)+" credits refunded":cost+" credits spent")+"\n"+(productionDelta>=0?"+":"")+productionDelta.ToString("0.#")+" illustrative units\nUndo restores your design.";
+                        "\n\n"+(cost<0?(-cost)+" credits refunded":cost+" credits spent")+"\n"+(productionDelta>=0?"+":"")+productionDelta.ToString("0.#")+" illustrative units";
                 }
                 else previewBody.text=result.reason;
                 previewAction.text="Enter to confirm · Esc to cancel";

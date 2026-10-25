@@ -264,6 +264,8 @@ Use the rewritten [goal brief](docs/PHASE_2A_GOAL.md), [visual rebuild direction
 
 ### Phase 4 — Environmental consequences and Manage Water
 
+**Execution exception — October 24, 2026:** the user requested the next phase while Phase 2A continues in parallel. Completed Phase 3 (`c49a3c2`) is the foundation; Phase 4 runs in `codex/phase4-consequences` without taking ownership of the visual worker’s checkout. This advances consequences only. Phase 2A visual acceptance, combined presentation/performance acceptance, and Phase 5 remain separate gates. [Implementation and evidence](docs/PHASE_4_CONSEQUENCES.md).
+
 **Goal:** the same actions drive explainable social, economic, and environmental trade-offs. **Depends on:** phase 3 + package B.
 
 1. Integrate the pure simulation evaluator and sourced/documented parameter assumptions. Freeze the chosen storm for a run; baseline and proposal share it.
