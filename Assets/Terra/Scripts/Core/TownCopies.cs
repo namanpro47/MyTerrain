@@ -39,12 +39,38 @@ namespace Terra.Core
             if (value == null) { text.Append("null;"); return; }
             var type = value.GetType();
             if (value is string s) { text.Append(s.Length).Append(':').Append(s).Append(';'); return; }
-            if (value is double d) { text.Append(d.ToString("R", System.Globalization.CultureInfo.InvariantCulture)).Append(';'); return; }
-            if (value is float f) { text.Append(f.ToString("R", System.Globalization.CultureInfo.InvariantCulture)).Append(';'); return; }
+            if (value is double d) { text.Append(RoundTrip(d)).Append(';'); return; }
+            if (value is float f) { text.Append(RoundTrip(f)).Append(';'); return; }
             if (type.IsValueType) { text.Append(Convert.ToString(value, System.Globalization.CultureInfo.InvariantCulture)).Append(';'); return; }
             if (value is Array a) { text.Append('[').Append(a.Length).Append(':'); foreach (var item in a) Append(text, item); text.Append(']'); return; }
             foreach (var field in type.GetFields(BindingFlags.Public | BindingFlags.Instance).OrderBy(f => f.Name, StringComparer.Ordinal))
             { Append(text, field.Name); Append(text, field.GetValue(value) ?? (field.FieldType == typeof(string) ? "" : null)); }
+        }
+
+        // Preserve Unity/Mono's existing v1 hashes on the .NET server. Modern .NET's
+        // "R" uses shortest formatting; Mono first tries 15/7 significant digits.
+        // Changing Unity's format would invalidate existing accepted saves.
+        static string RoundTrip(double value)
+        {
+#if NET8_0_OR_GREATER
+            if (value == 0) return "0";
+            var culture = System.Globalization.CultureInfo.InvariantCulture;
+            var shortText = value.ToString("G15", culture);
+            return double.Parse(shortText, culture) == value ? shortText : value.ToString("G17", culture);
+#else
+            return value.ToString("R", System.Globalization.CultureInfo.InvariantCulture);
+#endif
+        }
+        static string RoundTrip(float value)
+        {
+#if NET8_0_OR_GREATER
+            if (value == 0) return "0";
+            var culture = System.Globalization.CultureInfo.InvariantCulture;
+            var shortText = value.ToString("G7", culture);
+            return float.Parse(shortText, culture) == value ? shortText : value.ToString("G9", culture);
+#else
+            return value.ToString("R", System.Globalization.CultureInfo.InvariantCulture);
+#endif
         }
     }
 }

@@ -1,5 +1,15 @@
 # Terra — phase status and evidence
 
+## Annual chapters and Gemini adapter — separately authorized October 24, 2026
+
+Peter requested next-chapter progression and a cheapest/free LLM connection. [Annual chapters](annual-chapters.md) adds a .NET 8 localhost service using Gemini 2.5 Flash-Lite, up to three factual cards per year, persistent first-response receipts, explicit offline fallback, chapter autosave/restore, next-year planning and confirmed ten-year continuation. The main scene/HUD/renderer remain with the engine owner.
+
+**Validated:** 94 existing annual model checks, 28 chapter/service checks and 16 Unity integration checks. A real Unity-serialized request is replayed by the server as a regression fixture. Interactive testing found and fixed .NET/Mono round-trip number formatting differences in v1 hashes; Unity's existing save format is preserved. HTTP checks confirmed missing-key 503, malformed-input 422, rejected-origin 403 and allowed-preflight 204.
+
+Actual Windows Editor controls verified queued spending, a missing-key request leaving Year 1/cash unchanged, restart/autosave restoration of that pending request, explicit offline acceptance, Year 2 planning and confirmed Year 10 completion. [Missing-key recovery](evidence/annual-town/chapter-missing-key.png), [Year 1 chapter](evidence/annual-town/chapter-year1-offline.png), [Year 2 planning](evidence/annual-town/chapter-year2-planning.png), [Year 10](evidence/annual-town/chapter-year10-offline.png). [Verification receipt](evidence/annual-town/chapter-verification.json).
+
+**Limits:** no Gemini credential was available, so no real model call, quota, latency or prose-quality pass is claimed. This version narrates deterministic illustrative outcomes; approved causal rules for AI-generated effects remain unimplemented. No hosted service, public deployment, main-game annual UI integration, same-weather no-action comparison, browser acceptance or Phase 2A certification. Unity reported missing render-pipeline package-cache UI files during import; these did not prevent compilation or the chapter checks. Unrelated Unity-generated settings/meta changes were excluded.
+
 ## Categorized action UI — separately authorized October 24, 2026
 
 Peter requested the 17 PRD actions in the playable UI, grouped by use, plus an explanation of land/water restrictions. The [catalog integration](build-action-ui.md) adds **Farming, Residential, Community, Utilities and Nature** tabs, matching model icons, full-scale previews/placement, eligibility counts and explicit restriction feedback. All 17 are selectable; 16 fit at least one existing field. The 150 × 150 m wind site fits none and is not rescaled. Swales retain their two authored eligible sites, and protected/background land stays unavailable.

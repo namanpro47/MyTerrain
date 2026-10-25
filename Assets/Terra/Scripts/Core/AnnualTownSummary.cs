@@ -16,7 +16,7 @@ namespace Terra.Core
         public AnnualOutcomeSummary economic, social, environmental;
         public string[] siteChanges;
 
-        public const string PlaceholderNotice = "SIMULATION PLACEHOLDER - authored rules, not a forecast. No LLM, crop-yield model or flood simulation is connected.";
+        public const string PlaceholderNotice = "SIMULATION PLACEHOLDER - authored rules, not a forecast. No calibrated crop-yield model or flood simulation is connected.";
 
         public static AnnualTownSummary Latest(AnnualTown town)
         {

@@ -12,6 +12,16 @@
 /.idea/
 *.csproj
 !tests/annual/Terra.AnnualChecks.csproj
+!services/chapters/Terra.Chapters.csproj
+!tests/chapters/Terra.ChapterChecks.csproj
+/services/chapters/bin/
+/services/chapters/obj/
+/services/chapters/data/
+/tests/chapters/bin/
+/tests/chapters/obj/
+.env
+.env.*
+!.env.example
 /tests/annual/bin/
 /tests/annual/obj/
 *.sln

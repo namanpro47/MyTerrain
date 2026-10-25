@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-24",
+  "baseCommit": "e247431eebb6a2c4c3a5d48cc0bb911a02e54f25",
+  "modelAssertions": 94,
+  "chapterServiceAssertions": 28,
+  "unityAssertions": 16,
+  "unityVersion": "6000.6.6f1",
+  "dotnetSdk": "8.0.318",
+  "liveProviderTested": false,
+  "publicDeployment": false,
+  "mainGameIntegration": false,
+  "crossRuntimeFixture": "tests/chapters/fixtures/unity-pending-year.json",
+  "httpChecks": {
+    "missingKey": 503,
+    "untrustedOrigin": 403,
+    "allowedPreflight": 204,
+    "invalidInput": 422
+  },
+  "interactiveEditorChecks": [
+    "Queued West field Open plot; cash remained USD 60000 during missing-key failure",
+    "Restored frozen request after editor restart",
+    "Explicit offline acceptance: USD 24000 upfront, USD 20000 appropriation, USD 56000 closing cash",
+    "Continued Year 2 with committed project",
+    "Confirmed offline continuation: Year 10 completed; USD 225200 cash; USD 1200 outstanding obligation"
+  ],
+  "limitations": [
+    "No credentialed Gemini request or live latency/prose evaluation",
+    "No browser/main-game UI acceptance",
+    "Authored simulation, not an AI causal-effects model",
+    "Unity package-cache converter USS/UXML files missing during import; chapter compile and checks passed"
+  ],
+  "sourceSha256": {
+    "Assets/Terra/Scripts/Contracts/AnnualChapterContracts.cs": "daa772be8fe3f4efda0f39a485db70a513c54ac84cff28119db84d831005ae39",
+    "Assets/Terra/Scripts/Core/AnnualChapters.cs": "4348bffe13f1769d8678a2dc2f237259dd5cb9d3368945a852af638e5694e594",
+    "Assets/Terra/Scripts/Core/TownCopies.cs": "7ca4ecd0bbad10021d6cb7b46d057f28a085996c7de6aaa35c18707911777ba2",
+    "Assets/Terra/Scripts/Gameplay/AnnualChapterSession.cs": "f41732a8c6f0d1672eb1f29652bd6d993f5d329ec89da75352814f42f74a30f2",
+    "Assets/Editor/AnnualTownPlaytestWindow.cs": "7851dff5a56f44cbc9f624679199242490cd4b2362a0ba6bca7a01799cfa411e",
+    "Assets/Editor/AnnualChapterChecks.cs": "0aa1f91aaee6ad51231a6d4cad355277f6fdef14211aa7068487e1eb609ec13a",
+    "services/chapters/ChapterService.cs": "f8d5fb401b5ae9a6d0cc99f7dd80ee7ac5f075db67851529f6ec5ed91b611a15",
+    "services/chapters/GeminiNarrator.cs": "1d358e9a9dd9c11cefd70febc0357590cedefc460b597303688c0dc59c38c7f1",
+    "services/chapters/Program.cs": "0861c95ae225f4fe9870b647c4d4f743f765becf0506a1299ac58c73fe969706"
+  }
+}
