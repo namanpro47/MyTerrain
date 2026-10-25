@@ -49,6 +49,13 @@ namespace Terra.Gameplay
                 resolutionTiming = System.Diagnostics.Stopwatch.StartNew();
                 frozen = Freeze();
                 if (frozen == null) return; // Already reviewing/completed: never reroll.
+                if(town.Engine.PlayerRulesActive)
+                {
+                    // Commit and save the numerical year before optional remote prose.
+                    var submitted=frozen;
+                    Accept(AnnualChapters.Offline(submitted));
+                    frozen=submitted;
+                }
                 Persist(); // Save frozen request before the first network request.
                 readyForFallback = true;
                 refreshedSession = false;
@@ -138,10 +145,16 @@ namespace Terra.Gameplay
             // Validate content AND all outcomes against a detached replay before any live mutation.
             AnnualChapters.ValidateReceipt(frozen, receipt);
             var current = town.State;
-            if (current.phase != TownPhase.Resolving || current.pendingRequest.inputHash != frozen.snapshot.pendingRequest.inputHash
-                || current.pendingRequest.runId != frozen.snapshot.runId)
+            var accepted=current.history.FirstOrDefault(r=>r.acceptedRequest.requestId==frozen.snapshot.pendingRequest.requestId);
+            bool proseOnly=town.Engine.PlayerRulesActive&&accepted!=null
+                && TownCopies.Hash(accepted.acceptedConsequences)==TownCopies.Hash(receipt.consequences)
+                && current.runId==frozen.snapshot.runId;
+            if (!proseOnly&&(current.phase != TownPhase.Resolving || current.pendingRequest.inputHash != frozen.snapshot.pendingRequest.inputHash
+                || current.pendingRequest.runId != frozen.snapshot.runId))
                 throw new InvalidOperationException("This chapter belongs to an old run or plan. It was not applied.");
-            town.CompleteYear(receipt.consequences);
+            if(!proseOnly)town.CompleteYear(receipt.consequences);
+            if(town.Engine.PlayerRulesActive)town.Save();
+            receipts.RemoveAll(r=>r.consequences.requestId==receipt.consequences.requestId);
             receipts.Add(Clone(receipt));
             frozen = null;
             Persist();
@@ -163,6 +176,7 @@ namespace Terra.Gameplay
         }
         public void Continue()
         {
+            if (Busy&&town.Engine.PlayerRulesActive)StopRequest();
             if (Busy) throw new InvalidOperationException("Wait for the chapter to finish.");
             town.ContinueYear(town.State.revision); Persist(); Publish();
         }
@@ -220,6 +234,8 @@ namespace Terra.Gameplay
             if (save == null || save.schemaVersion != 1 || save.town == null || save.chapters == null)
                 throw new ArgumentException("Expected an annual chapter save.");
             var definition = town.Definition;
+            var current=town.State;
+            if(town.Engine.PlayerRulesActive&&save.town.runId==current.runId&&save.town.history.Length<current.history.Length)save.town=current;
             AnnualTown.Restore(definition, save.town);
             var seen = new HashSet<string>(StringComparer.Ordinal);
             foreach (var receipt in save.chapters)
@@ -234,11 +250,12 @@ namespace Terra.Gameplay
                 if (receipt.schemaVersion != 1 || receipt.rulesVersion != AnnualChapters.RulesVersion
                     || (receipt.mode != "offline" && receipt.mode != "gemini") || string.IsNullOrWhiteSpace(receipt.model)
                     || JsonUtility.ToJson(receipt.consequences) != JsonUtility.ToJson(report.acceptedConsequences)
-                    || receipt.consequences.effects == null || receipt.consequences.effects.Length != 0)
+                    || receipt.consequences.effects == null || (!town.Engine.PlayerRulesActive&&receipt.consequences.effects.Length != 0))
                     throw new ArgumentException("Chapter receipt does not match the saved year.");
             }
             town.ImportSave(JsonUtility.ToJson(save.town));
             receipts.Clear(); receipts.AddRange(save.chapters.OrderBy(c => c.consequences.year).Select(Clone));
+            if(town.Engine.PlayerRulesActive&&town.State.history.Length>0&&ForYear(town.State.history.Last().year)==null)receipts.Add(AnnualChapters.OfflineAccepted(town.Engine));
             frozen = null; Error = null; Persist(); Publish();
         }
         public void ResetForRun()

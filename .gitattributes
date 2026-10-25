@@ -2,3 +2,7 @@
 worlds/**/*.json text eol=lf
 worlds/**/*.geojson text eol=lf
 worlds/**/*.sha256 text eol=lf
+
+# Numeric weather digests pin exact LF bytes on every platform.
+simulation-data/weather/**/*.json text eol=lf
+Assets/Terra/Resources/AnnualSimulation/*.json text eol=lf

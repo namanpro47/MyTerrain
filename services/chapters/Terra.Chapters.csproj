@@ -12,6 +12,9 @@
     <Compile Include="../../Assets/Terra/Scripts/Core/ReportNarration.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Contracts/WorldContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.PlayerRules.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Core/AnnualPlayerRules.cs" />
+    <Compile Include="../../Assets/Terra/Scripts/Contracts/AnnualPlayerRuleContracts.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualTown.Simulation.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualSimulation.cs" />
     <Compile Include="../../Assets/Terra/Scripts/Core/AnnualSimulationWeather.cs" />

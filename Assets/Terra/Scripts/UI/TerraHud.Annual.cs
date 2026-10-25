@@ -134,22 +134,22 @@ namespace Terra.UI
             for(int i=0;i<3;i++)
             {
                 annualScoreReadout[i]=annualScores[i].text=AnnualFeedback.Score(values[i])+" <size=50%>/100</size>"+"\n<size=50%>"+(planning?"Year-end  "+AnnualFeedback.Score(next[i]):"Change  "+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(before[i],values[i])))+"</size>";
-                annualBars[i].rectTransform.sizeDelta=new Vector2((float)values[i]*1.40f,5);
+                annualBars[i].rectTransform.sizeDelta=new Vector2((float)Math.Max(0,Math.Min(100,values[i]))*1.40f,5);
             }
             annualYear.text="YEAR "+state.year+"/"+annualRules.years+" · "+(state.phase==TownPhase.Completed?"COMPLETE":state.phase==TownPhase.Reviewing?"REVIEW":state.phase.ToString().ToUpperInvariant());
-            annualAvailable.text=Money(town.AvailableCents)+" <size=45%>available</size>";
-            annualBudget.text="Cash  "+Money(state.cashCents)+"\nCommitted  "+Money(town.CommittedCents)+"   ·   Plan  "+Money(town.QueuedCommitmentCents);
+            annualAvailable.text=Money(town.BuildingBlockedByDebt?state.cashCents:town.AvailableCents)+" <size=45%>"+(town.BuildingBlockedByDebt?"debt · builds paused":"available")+"</size>";
+            annualBudget.text=(town.BuildingBlockedByDebt?"Debt · new construction blocked  ":"Cash  ")+Money(state.cashCents)+"\nCommitted  "+Money(town.CommittedCents)+"   ·   Plan  "+Money(town.QueuedCommitmentCents);
             undoButton.interactable=town.CanUndo;redoButton.interactable=town.CanRedo;resetProposalsButton.interactable=planning&&state.queue.Length>0;
             reportButton.interactable=state.history.Length>0;
             SetButtonText(endYearButton,planning?"End Year":state.phase==TownPhase.Resolving?"Year pending →":"Year report →");
-            foreach(var pair in actionButtons)pair.Key.interactable=planning&&annualRules.actions.Any(a=>a.actionId==pair.Value);
+            foreach(var pair in actionButtons)pair.Key.interactable=planning&&!town.BuildingBlockedByDebt&&annualRules.actions.Any(a=>a.actionId==pair.Value);
             Paint();
         }
         public void AnnualWater(SimulationOutput current,SimulationOutput preview)
         {
             annualWater.text="Fixed storm · discharged "+current.dischargedM3.ToString("N0")+" m³\nYear-end cover: "+preview.dischargedM3.ToString("N0")+" m³ · not flood risk";
         }
-        public void AnnualPreview(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,Action confirm,bool queued)
+        public void AnnualPreview(Site site,TownActionDefinition recipe,AnnualTownSnapshot state,string mode,string rejection,Action confirm,bool queued,Action cancelAccepted=null)
         {
             confirmEdit=confirm;tip.transform.parent.gameObject.SetActive(false);
             var existing=state.queue.FirstOrDefault(q=>q.siteId==site?.id);
@@ -160,7 +160,7 @@ namespace Terra.UI
             tooltip.SetActive(site!=null||mode=="reset"||mode=="move");
             if(!tooltip.activeSelf){ReflowPlanningDock();return;}
             previewTitle.text=mode=="reset"?"Clear this year's plan":site?.name??"Choose a destination";
-            var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id);
+            var asset=state.assets.FirstOrDefault(a=>a.siteId==site?.id&&a.cancelledYear==0);
             var outcome=state.history.LastOrDefault()?.outcomes.sites.FirstOrDefault(s=>s.siteId==site?.id);
             previewKind.text=asset!=null?"ACCEPTED · "+outcome?.phase.ToString().ToUpperInvariant():queued?"QUEUED · NOT YET PAID":state.phase==TownPhase.Completed?"YEAR 10 · READ-ONLY":"YEAR "+state.year+" PROPOSAL";
             previewKind.color=rejection==null?Accent:Soft;
@@ -169,22 +169,24 @@ namespace Terra.UI
                 previewBody.text="<b>"+recipe.title+"</b>\n"+Money(recipe.upfrontPublicCostCents)+" upfront\n"+Money(recipe.annualPublicOperatingCents)+" / yr × "+recipe.operatingYears+"\nReserve "+Money(recipe.upfrontPublicCostCents+recipe.annualPublicOperatingCents*recipe.operatingYears+recipe.annualPublicPaymentCents*recipe.paymentYears)+"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr\n"+(recipe.services==null?Bundle(recipe):(recipe.services.occupiedAreaM2/10000).ToString("0.00")+" ha · "+recipe.services.energyDemand.ToString("0.#")+" energy / "+recipe.services.waterDemand.ToString("0.#")+" water units");
 
             else if(asset!=null)
-                previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\n"+(state.phase==TownPhase.Completed?"Final accepted project.":"Permanent this run. Use another field.");
+                previewBody.text=annualRules.actions.First(a=>a.siteId==asset.siteId&&a.actionId==asset.actionId).title+"\nStarted year "+asset.startedYear+"\nEstablishment "+((outcome?.maturity??0)*100).ToString("0")+"%\n\n"+(state.phase==TownPhase.Completed?"Final accepted project.":"Browse to cancel. Refund depends on construction progress.");
             else previewBody.text=site?.protectedSite==true?"Protected by the scenario. No construction or conversion here.":"Choose an annual action. Projects must fit at their real size.";
             bool canEdit=queued&&state.phase==TownPhase.Planning&&mode=="place"&&rejection!=null;
-            moveButton.gameObject.SetActive(canEdit);removeButton.gameObject.SetActive(canEdit);
+            moveButton.gameObject.SetActive(canEdit&&existing?.actionId!=AnnualPlayerRules.CancelAction);removeButton.gameObject.SetActive(canEdit&&existing?.actionId!=AnnualPlayerRules.CancelAction);
             confirmEditButton.gameObject.SetActive(!canEdit&&state.phase==TownPhase.Planning);confirmEditButton.interactable=rejection==null;
             SetButtonText(confirmEditButton,mode=="reset"?"Clear queued plan":mode=="remove"?"Remove proposal":mode=="move"?"Move proposal":replacing?"Replace · Enter":"Queue · Enter");
             if(state.phase==TownPhase.Completed&&asset==null)
                 previewBody.text=site?.protectedSite==true?"Protected scenario area. No project was accepted here.":"Existing land use. No new project was accepted here.\n\nInspect other sites, compare the landscape or start a new run.";
             else if(rejection!=null&&!queued&&asset==null&&site!=null)previewBody.text=rejection;
-            previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Accepted projects stay in place.":queued?"Queued · V to move · Delete to remove":state.phase==TownPhase.Completed?"Future · compare, learn or replay.":"Choose an action and eligible field.";
+            previewAction.text=rejection==null?(mode=="place"?"Reserves funds; End Year pays.":"Enter to confirm · Esc cancels"):asset!=null?"Browse to review cancellation.":queued?"Queued · V to move · Delete to remove":state.phase==TownPhase.Completed?"Future · compare, learn or replay.":"Choose an action and eligible field.";
             previewAction.gameObject.SetActive(!recipeDetails.gameObject.activeSelf);
             previewAction.fontSize=sizes[previewAction]*(LargeText?1.12f:1);previewAction.rectTransform.anchoredPosition=new Vector2(18,68);previewAction.rectTransform.sizeDelta=new Vector2(256,35);
             previewBody.fontSize=sizes[previewBody]*(LargeText?1.12f:1);previewBody.rectTransform.sizeDelta=new Vector2(256,120);
             annualPreviewBody=previewBody.text;
             annualPreviewTimeline=recipe==null?null:"\nOpens Y"+(state.year+recipe.constructionYears)+" · matures "+recipe.establishmentYears+" yr";
             UpdateProjectFacts(site,recipe,state,mode,rejection,queued);
+            if(asset!=null&&!queued&&recipe==null&&state.phase==TownPhase.Planning&&cancelAccepted!=null)
+            {confirmEdit=cancelAccepted;confirmEditButton.gameObject.SetActive(true);confirmEditButton.interactable=true;SetButtonText(confirmEditButton,"Cancel project…");previewAction.text="Review progress and refund before queueing.";}
             LayoutAnnualPreview();ReflowPlanningDock();Paint();
         }
         static string Bundle(TownActionDefinition recipe)=>recipe.services!=null?recipe.fundedUnit:recipe.actionId=="low-density-housing"?"1 serviced home · 26 × 32 m lot":recipe.actionId=="public-park"?"1 small park · 48 × 40 m":(recipe.fundedQuantity/10000).ToString("0.00")+" ha management agreement";
@@ -205,7 +207,7 @@ namespace Terra.UI
             var h=town.History;var r=h.Last();var p=h.Length>1?h[h.Length-2].outcomes:baseline;var o=r.outcomes;var l=r.ledger;
             if(o.economy!=null)
             {
-                AnnualDialog("Year "+r.year+" · accepted", "<size=88%>"+r.acceptedRequest.driver.description+"\n\nCash "+Money(l.openingCashCents)+" → <b>"+Money(l.closingCashCents)+"</b>\nProjects "+Money(l.upfrontPaidCents)+" · operation "+Money(l.operatingPaidCents)+"\nRepairs "+Money(l.repairPaidCents)+" · old arrears paid "+Money(l.arrearsPaidCents)+"\nReceipts "+Money(l.publicReceiptsCents)+" · appropriation "+Money(l.appropriationCents)+"\nArrears "+Money(l.closingArrearsCents)+" · future commitments "+Money(l.futureCommitmentsCents)+"\n\nEconomic "+AnnualFeedback.Score(o.economicScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.economicScore,o.economicScore))+") · Social "+AnnualFeedback.Score(o.socialScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.socialScore,o.socialScore))+")\nEnvironment "+AnnualFeedback.Score(o.environmentalScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.environmentalScore,o.environmentalScore))+")\n\n"+o.sites.Count(x=>x.phase==TownAssetPhase.Building&&!string.IsNullOrEmpty(x.actionId))+" building · "+o.sites.Count(x=>x.phase==TownAssetPhase.Establishing&&!string.IsNullOrEmpty(x.actionId))+" establishing · "+o.disruptedSites+" disrupted sites\n"+string.Join("\n",o.economy.reasons)+"</size>",town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1):"See ten-year future",continuePlanning);
+                AnnualDialog("Year "+r.year+" · accepted", "<size=88%>"+r.acceptedRequest.driver.description+"\n\nCash "+Money(l.openingCashCents)+" → <b>"+Money(l.closingCashCents)+"</b>\nProjects "+Money(l.upfrontPaidCents)+" · operation "+Money(l.operatingPaidCents)+"\nRepairs "+Money(l.repairPaidCents)+" · old arrears paid "+Money(l.arrearsPaidCents)+"\nCapital refund "+Money(l.capitalRefundCents)+" · receipts "+Money(l.publicReceiptsCents)+" · appropriation "+Money(l.appropriationCents)+"\nArrears "+Money(l.closingArrearsCents)+" · future commitments "+Money(l.futureCommitmentsCents)+"\n\nEconomic "+AnnualFeedback.Score(o.economicScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.economicScore,o.economicScore))+") · Social "+AnnualFeedback.Score(o.socialScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.socialScore,o.socialScore))+")\nEnvironment "+AnnualFeedback.Score(o.environmentalScore)+" ("+AnnualFeedback.Points(AnnualFeedback.DisplayDelta(p.environmentalScore,o.environmentalScore))+")\n\n"+o.sites.Count(x=>x.phase==TownAssetPhase.Building&&!string.IsNullOrEmpty(x.actionId))+" building · "+o.sites.Count(x=>x.phase==TownAssetPhase.Establishing&&!string.IsNullOrEmpty(x.actionId))+" establishing · "+o.disruptedSites+" disrupted sites\n"+string.Join("\n",o.economy.reasons)+"</size>",town.Phase==TownPhase.Reviewing?"Plan year "+(town.Year+1):"See ten-year future",continuePlanning);
                 AnnualSecondary("Meter details",()=>AnnualMetrics(o,()=>AnnualReport(town,baseline,continuePlanning,backToChapter)));
             }
             else AnnualDialog("Year "+r.year+" · accepted","Cash "+Money(l.closingCashCents)+"\n"+o.economicExplanation+"\n"+o.socialExplanation+"\n"+o.environmentalExplanation,"Continue",continuePlanning);
@@ -214,8 +216,8 @@ namespace Terra.UI
         void AnnualProjectDetails(TownActionDefinition a,bool effects)
         {
             if(a?.services==null)return;var s=a.services;
-            string body=effects?"<b>When operating and funded</b>\nProductive output "+a.productionUnits.ToString("0.0")+" units · sustained jobs "+s.jobs+"\nHomes "+s.homes+" · recreation "+s.recreation+" · local services "+s.localServices+"\nEnergy generated "+s.energySupply+" (clean "+s.cleanEnergySupply+") · energy used "+s.energyDemand+"\nWater used "+s.waterDemand+" · wastewater "+s.wastewaterLoad+"\nWastewater treatment "+s.wastewaterCapacity+" · connected runoff capacity "+a.retentionCapacityM3+" m³\nEmissions pressure "+s.emissionsPressure+" scenario units\n\n<b>Trade-offs</b>"+"\nOccupies "+s.occupiedAreaM2.ToString("N0")+" m²; previous production on that land is displaced. Useful services cap at unmet need. Upkeep and resource shortages limit operation; saved conditions can change output. These are scenario units, not forecasts."
-                :a.fundedUnit+"\n\nUpfront "+Money(a.upfrontPublicCostCents)+"\nOperating cost "+Money(a.annualPublicOperatingCents)+" / yr for "+a.operatingYears+" operating years\nProgram payment "+Money(a.annualPublicPaymentCents)+" / yr for "+a.paymentYears+" years\nEligible receipt "+Money(a.annualPublicReceiptsCents)+" / yr; housing needs occupied, supplied homes\nConstruction "+a.constructionYears+" years · establishment "+a.establishmentYears+" years\n\n"+a.ownerOperator+". Fictional consent/access are scenario prerequisites. Total project cost is unknown; this is the public contribution. No historic refund.";
+            string body=effects?"<b>When operating and funded</b>\nProductive output "+a.productionUnits.ToString("0.0")+" units · sustained jobs "+s.jobs+"\nHomes "+s.homes+" · recreation "+s.recreation+" · local services "+s.localServices+"\nEnergy generated "+s.energySupply+" (clean "+s.cleanEnergySupply+") · energy used "+s.energyDemand+"\nWater used "+s.waterDemand+" · wastewater "+s.wastewaterLoad+"\nWastewater treatment "+s.wastewaterCapacity+" · connected runoff capacity "+a.retentionCapacityM3+" m³\nEmissions pressure "+s.emissionsPressure+" scenario units\n\n<b>Trade-offs</b>"+"\nOccupies "+s.occupiedAreaM2.ToString("N0")+" m²; previous production on that land is displaced. Useful services cap at unmet need. Public upkeep is charged even if cash becomes negative; saved regional events can change output. New construction stops until the balance is repaid. These are scenario units, not forecasts."
+                :a.fundedUnit+"\n\nUpfront "+Money(a.upfrontPublicCostCents)+"\nOperating cost "+Money(a.annualPublicOperatingCents)+" / yr for "+a.operatingYears+" operating years\nProgram payment "+Money(a.annualPublicPaymentCents)+" / yr for "+a.paymentYears+" years\nEligible receipt "+Money(a.annualPublicReceiptsCents)+" / yr; housing needs occupied, supplied homes\nConstruction "+a.constructionYears+" years · establishment "+a.establishmentYears+" years\n\n"+a.ownerOperator+". Fictional consent/access are scenario prerequisites. Total project cost is unknown; this is the public contribution. Cancellation returns the unfinished fraction of public capital; completed capital and spent upkeep return $0.";
             AnnualDialog(a.title,"<size=86%>"+body+"</size>",effects?"Costs & agreement":"Services & trade-offs",()=>AnnualProjectDetails(a,!effects));
             AnnualSecondary("Return to plan",CloseModal);
         }

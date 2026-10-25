@@ -17,6 +17,7 @@ namespace Terra.Contracts
         public TownYearDriver[] drivers;
         public TownScoreRubric rubric;
         public TownEconomyDefinition economy;
+        public TownPlayerRules playerRules;
         public TownSimulationDefinition simulation;
     }
 
@@ -54,6 +55,7 @@ namespace Terra.Contracts
         public string id, description, evidenceLevel;
         public double productionFactor = 1;
         public long unexpectedPublicRepairCents;
+        public TownRegionalEvent[] regionalEvents;
     }
 
     [Serializable] public sealed class TownPlannedAction { public string siteId, actionId; }
@@ -63,6 +65,8 @@ namespace Terra.Contracts
         public string siteId, actionId;
         public int startedYear;
         public double condition = 1;
+        public int cancelledYear;
+        public double clearedVegetatedFraction;
     }
 
     [Serializable] public sealed class TownYearRequest
@@ -97,6 +101,7 @@ namespace Terra.Contracts
         public long operatingDueCents, operatingPaidCents, repairDueCents, repairPaidCents;
         public long openingArrearsCents, arrearsPaidCents, closingArrearsCents;
         public long appropriationCents, publicReceiptsCents, closingCashCents, futureCommitmentsCents;
+        public long capitalRefundCents;
     }
 
     [Serializable] public sealed class TownSiteYearResult

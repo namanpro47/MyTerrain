@@ -1,7 +1,9 @@
 # Regional natural hazards and saved annual results
 
+**Runtime update — October 25:** Peter subsequently approved inferred game likelihoods. [Player rules v5](ANNUAL_PLAYER_RULES.md) now enables three authored hazards per region in the current annual UI. The research catalogue below remains a source inventory with null measured rates; it is not silently promoted to measured annual probabilities. Source links support hazard identity; the enabled chance, exposure and damage coefficients are game estimates. Numeric-v4 weather/crop transactions remain a separate, unchanged path.
+
 Research started October 25, 2026. Source base: refreshed `origin/main` `13a15a4`.
-Scope: source-backed event inventory and likelihood research for the three existing regions; no runtime, probability activation, new action, UI or deployment changes.
+Original research scope: source-backed event inventory and likelihood research for the three existing regions; no runtime, probability activation, new action, UI or deployment changes.
 
 ## Decision in plain English
 
@@ -122,4 +124,4 @@ For each enabled event, require:
 4. **Connection/exposure:** check the actual playable footprints against appropriate source layers before enabling coastal, slope or channel-specific losses. Missing exposure is unavailable, not zero.
 5. **Engine handoff:** attach enabled profiles and accepted event facts to the existing annual simulation owner. Save a complete numeric result before asking for yearly/ten-year narration; no change to the numeric ledger is inferred from prose.
 
-Delivered: this initial research document, 18 structured hazard candidates across three regions, 11 source entries, downloaded-source metadata and reproducible Wisconsin proxy counts. [Consistency checks](../simulation-data/hazards/validation.research.json) verified all source references, disabled/null runtime probabilities, canonical weather/PDF hashes and the illustrative ledger; all four weather counts were independently reproduced from the daily companion. The check explicitly records the Windows working-copy byte mismatch above. No runtime-ready exact annual damaging-site probability is certified by this pass. Hazard rolls remain disabled; the existing weather pack and authored scenarios retain their stated status. No Unity/browser/provider test or production deployment was performed.
+Delivered: this initial research document, 18 structured hazard candidates across three regions, 11 source entries, downloaded-source metadata and reproducible Wisconsin proxy counts. [Consistency checks](../simulation-data/hazards/validation.research.json) verified all source references, disabled/null runtime probabilities, canonical weather/PDF hashes and the illustrative ledger; all four weather counts were independently reproduced from the daily companion. The check explicitly records the Windows working-copy byte mismatch above. No runtime-ready exact annual damaging-site probability is certified by this pass. The initial research did not enable hazard rolls; the existing weather pack and authored scenarios retain their stated status. No Unity/browser/provider test or production deployment was performed.

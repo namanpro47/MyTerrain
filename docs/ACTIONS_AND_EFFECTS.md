@@ -1,5 +1,7 @@
 # Actions & Effects — annual gameplay contract
 
+**Approved player-rule revision — October 25, 2026:** Peter approved charging upkeep into a negative public cash balance, blocking new construction until repayment, cancelling accepted projects for the unfinished fraction of upfront public capital (completed projects return $0), signed Environmental scores down to -100, and explicitly inferred regional hazard chances. These decisions supersede the earlier no-borrowing, permanent-project, all-scores-0–100 and unverified-hazards-disabled requirements below for new player-rules-v5 runs. Use upkeep rather than a second utility rationing simulation. Existing rule versions and saves keep their original behaviour. See [exact rules, limits and validation](ANNUAL_PLAYER_RULES.md).
+
 **Decision date:** October 24, 2026. **Status:** approved product direction; recipe design and integration requirements, not shipped gameplay. Read with [the canonical spec](../TERRA_PROJECT_SPEC.md) and [delivery plan](../IMPLEMENTATION_PLAN.md). Source: the user's supplied Actions & Effects screenshot and transcription, plus [Peter's annual PRD](PRD_ANNUAL_GAMEPLAY.md). This document preserves the requested numbers; it does not validate them as real project quotes or outcome forecasts.
 
 ## The player's decision

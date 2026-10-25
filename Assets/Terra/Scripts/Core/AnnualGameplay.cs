@@ -70,6 +70,7 @@ namespace Terra.Core
                 throw new InvalidOperationException("Numeric-v4 planning requires a conditional range; an unplayed harvest is not a forecast.");
             var copy=AnnualTown.Restore(town.Definition,town.Snapshot());
             if(copy.Phase==TownPhase.Reviewing||copy.Phase==TownPhase.Completed)return copy.History.Last();
+            copy.NeutralPlanningDriver();
             return AnnualTownDemo.Advance(copy,copy.PendingRequest?.requestId??copy.RunId+"/preview/"+copy.Revision,new AuthoredAnnualConsequenceProvider());
         }
         public static TownYearOutcomes Baseline(AnnualTownDefinition definition)
