@@ -50,10 +50,11 @@ try
         foreach(var size in new[]{new UnityEngine.Vector2(1024,576),new UnityEngine.Vector2(1280,720),new UnityEngine.Vector2(1440,900),new UnityEngine.Vector2(1920,1080)})
         {
             layout.Invoke(hud,new object[]{size.x,size.y,size.x<1120||size.y<680});
+            Check(label.fontSize>=(large?15.68f:14f)-.001f,"Hint did not retain readable/larger text size at "+size);
             foreach(string message in messages.Distinct())
             {
                 label.text=message;label.ForceMeshUpdate(true,true);
-                Check(label.preferredWidth<=label.rectTransform.rect.width+.1f&&label.preferredHeight<=label.rectTransform.rect.height+.1f,
+                Check(label.preferredWidth>0&&label.preferredHeight>0&&label.preferredWidth<=label.rectTransform.rect.width+.1f&&label.preferredHeight<=label.rectTransform.rect.height+.1f,
                     "Hint overflow: "+message+" at "+size+" larger="+large+" needs "+label.preferredWidth+"x"+label.preferredHeight);
             }
         }

@@ -74,7 +74,7 @@ namespace Terra.UI
             float dockWidth=688,cardHeight=compact?70:86;
             actionDock.localScale=Vector3.one*Mathf.Min(1,(width-220)/dockWidth);
             Position(actionDock,new Vector2(.5f,0),new Vector2(0,66),new Vector2(dockWidth,compact?140:158));
-            actionSummary.gameObject.SetActive(true);actionSummary.rectTransform.anchoredPosition=new Vector2(14,6);actionSummary.rectTransform.sizeDelta=new Vector2(660,20);actionSummary.fontSize=12;
+            actionSummary.gameObject.SetActive(true);actionSummary.rectTransform.anchoredPosition=new Vector2(14,6);actionSummary.rectTransform.sizeDelta=new Vector2(660,20);actionSummary.fontSize=14*(LargeText?1.12f:1);
             int ci=0;
             foreach(var category in categoryButtons.Keys)
             {Position(category.transform,new Vector2(0,1),new Vector2(8+ci++*224,-6),new Vector2(220,30));foreach(var label in category.GetComponentsInChildren<TextMeshProUGUI>()){label.rectTransform.sizeDelta=new Vector2(210,28);label.fontSize=14;}}
