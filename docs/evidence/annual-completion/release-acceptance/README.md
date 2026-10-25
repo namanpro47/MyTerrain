@@ -17,3 +17,13 @@ A separate repeated-family check buys as many affordable, fitting projects of ea
 The wrapper has only syntax checks so far; actual capture, download, decoding and visible content still require Chrome verification. Its source placeholder must be replaced with the tested release identifier. The final public complete run, two timed rehearsals, matching fallback, combined performance and separate Phase 2A visual acceptance remain open. Human playtesting is explicitly unavailable by user instruction.
 
 Design references for actual checks: TN-01 (landscape focus), TN-03/04/05 (clear status, tools and feedback), TN-08 (ending), CS-01/02/04 (information and spatial consequences), AX-01 (legible accessible controls). Compare actual output with the current accepted HUD captures while preserving the unaccepted scenery status.
+
+## Final minimal-selector release preparation
+
+The release owner deployed source **19e7eae835ed4c06a21d42887a9a53ed28cc4fc2**, Unity6000.6.6f1, deployment `dpl_8oY5izzcxAmi7nGXD86LXFiuLuNc`. The owner's receipts under `docs/evidence/myterrain-combined-release-oct25` verify all21public assets against the frozen export on both production aliases. Our full-run test uses `https://terra-browser.vercel.app`, whose chapter-service origin is allowed. The custom domain currently has a separately recorded backend origin-allowlist issue and uses disclosed local summaries when chapters are unavailable.
+
+The final22-file export/config receipt totals57,113,602bytes. This misses the plan's <50MB target; a functional browser run does not waive that limit. The independent Phase2A visual gate remains unaccepted.
+
+A comparison of Core/Contracts/Simulation and streamed world sources from770d4c0 to19e7eae shows only `AnnualFeedback.cs` changed: display score/delta formatting. The annual ledger, recipes, drivers, geometry and rules used by the recorded strategy routes are unchanged. This is source-diff evidence, not a claim of rerunning the old route fixtures on the new source.
+
+The separate local wrapper at `Builds/Recording/19e7eae` was prepared from the owner's frozen export. All24other original files, including later generated local Vercel metadata, remain byte-identical; only index.html is changed and record-local.js is added. Its manifest records these differences. No public deployment or shared export was modified. Actual capture, download and decoded-video inspection remain pending.
