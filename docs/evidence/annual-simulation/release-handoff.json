@@ -1,0 +1,25 @@
+{
+  "owner": "01a173b3-7b93-7012-94cd-187a4433e564",
+  "branch": "codex/annual-simulation",
+  "codeCommit": "fed75bedf883b742a35861804d3bb6d955b9d248",
+  "baseCommit": "67c01417906b74a8f024ae9975158cb1dda6979d",
+  "refreshedMain": "13a15a43c43bab9e0eb6a2a90bded4bb4d7aba0c",
+  "readyForMain": false,
+  "readyForDeployment": false,
+  "disposition": "Preserve entire branch as unfinished work; do not merge into the combined release. Optional additive weather-only commits58e58e3 and821a022 are inactive but are not needed for the current release.",
+  "checks": {
+    "weatherAndLegacyCompatibility": 124,
+    "connectedFullGameStress": 2399,
+    "publishedLegacyTenYearFixtures": 2,
+    "unity": false,
+    "chrome": false
+  },
+  "unfinished": [
+    "Authoritative numeric transition not implemented",
+    "Schema3 factory intentionally rejected by existing AnnualTown validator",
+    "Per-site persistence, crop/event resolution, endogenous repair and score deltas unfinished",
+    "Client save-first acceptance, report-v2 adapter and automatic fallback unfinished",
+    "Sensitivity, new-model and Chrome acceptance unfinished"
+  ],
+  "integrationInstructions": "Do not cherry-pick fed75be into main. The branch is a preservation checkpoint only. Keep shipped3.x gameplay/saves unchanged. Resume the numeric implementation after combined-release coordination using the documented continuation boundary."
+}
