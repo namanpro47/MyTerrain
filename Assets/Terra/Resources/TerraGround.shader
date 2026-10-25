@@ -59,7 +59,7 @@ Shader "Terra/Illustrated Ground"
             float Noise(float2 p){float2 i=floor(p),f=frac(p);f=f*f*(3-2*f);return lerp(lerp(Hash(i),Hash(i+float2(1,0)),f.x),lerp(Hash(i+float2(0,1)),Hash(i+1),f.x),f.y);}
             // Blend three translated samples over a triangular lattice. Adjacent triangles
             // share anchors, so paint stays continuous without repeating a square stamp.
-            half4 PaintedSample(TEXTURE2D_PARAM(tex,smp),float2 uv)
+            half4 PaintedFilteredSample(TEXTURE2D_PARAM(tex,smp),float2 uv,bool averageDetail)
             {
                 float2 dx=ddx(uv),dy=ddy(uv);
                 float distant=smoothstep(.035,.09,max(length(dx),length(dy)));
@@ -76,11 +76,19 @@ Shader "Terra/Illustrated Ground"
                 float2 oa=float2(Hash(a),Hash(a+37))*17;
                 float2 ob=float2(Hash(b),Hash(b+37))*17;
                 float2 oc=float2(Hash(c),Hash(c+37))*17;
-                half4 paint=SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+oa,dx,dy)*weights.x
-                    +SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+ob,dx,dy)*weights.y
-                    +SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+oc,dx,dy)*weights.z;
+                half4 paint=average;
+                if(averageDetail)
+                    paint=SAMPLE_TEXTURE2D_LOD(tex,smp,uv+oa,6)*weights.x
+                        +SAMPLE_TEXTURE2D_LOD(tex,smp,uv+ob,6)*weights.y
+                        +SAMPLE_TEXTURE2D_LOD(tex,smp,uv+oc,6)*weights.z;
+                else
+                    paint=SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+oa,dx,dy)*weights.x
+                        +SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+ob,dx,dy)*weights.y
+                        +SAMPLE_TEXTURE2D_GRAD(tex,smp,uv+oc,dx,dy)*weights.z;
                 return lerp(paint,average,distant);
             }
+            half4 PaintedSample(TEXTURE2D_PARAM(tex,smp),float2 uv)
+            {return PaintedFilteredSample(TEXTURE2D_ARGS(tex,smp),uv,false);}
             half4 Frag(V input):SV_Target
             {
                 float2 p=input.positionWS.xz;
@@ -117,7 +125,7 @@ Shader "Terra/Illustrated Ground"
                     cover=lerp(cover,half4(0,treatmentWeights.x,treatmentWeights.y,0),treatment.a);
                     // Readable painted plant/earth communities replace flat color classes.
                     // All relief remains shading: source heights, routes and analytical cover are unchanged.
-                    float2 uv=p/22;
+                    float2 uv=p/40;
                     half3 grassPaint=PaintedSample(TEXTURE2D_ARGS(_MeadowPaint,sampler_MeadowPaint),uv).rgb;
                     half3 edgePaint=PaintedSample(TEXTURE2D_ARGS(_BaseMap,sampler_BaseMap),uv).rgb;
                     half3 earthPaint=PaintedSample(TEXTURE2D_ARGS(_BankMap,sampler_BankMap),p/9).rgb;
@@ -129,15 +137,20 @@ Shader "Terra/Illustrated Ground"
                     float communities=smoothstep(.28,.72,Noise(p*.045)*.6+Noise(p*.11)*.4);
                     float edgeWeight=saturate(cover.r*.8+cover.a*.45+cover.b*communities*.28);
                     half3 living=lerp(grassPaint,edgePaint,edgeWeight);
+                    half3 grassAverage=PaintedFilteredSample(TEXTURE2D_ARGS(_MeadowPaint,sampler_MeadowPaint),uv,true).rgb;
+                    half3 grassStrokes=clamp(grassPaint/max(grassAverage,.025),.55,1.55);
                     half paintLuma=dot(living,half3(.2126,.7152,.0722));
                     living=lerp(paintLuma.xxx,living,.65)*half3(.43,.64,.56);
                     // Keep the source brushwork inside a controlled meadow value range.
-                    living=lerp(half3(.23,.38,.12),living,.35);
+                    living=lerp(half3(.23,.38,.12),living,.15)*lerp(half3(1,1,1),grassStrokes,.55);
                     living*=lerp(1,.70,cover.r);
-                    float row=pow(.5+.5*sin(p.x*4.654211),3);
+                    float fieldU=p.x-12*sin(p.y*.012)-5*sin(p.y*.029);
+                    float row=pow(.5+.5*sin(fieldU*4.654211),3);
                     float rowFade=1-saturate(max(length(ddx(p)),length(ddy(p)))*.6);
                     half3 fieldPaint=lerp(earthPaint,grassPaint*half3(1.08,.86,.4),.36)*(1-row*.12*rowFade);
                     fieldPaint=lerp(half3(.42,.38,.16),fieldPaint,.5);
+                    float band=.5+.5*sin(fieldU*.1636246);
+                    fieldPaint*=lerp(half3(.80,.92,.64),half3(1.04,1.01,.94),smoothstep(.18,.82,band));
                     albedo=lerp(living,fieldPaint,cover.g);
                     surfaceNormal=lerp(lerp(grassN,edgeN,edgeWeight),earthN,cover.g);
                     float bankDistance=SAMPLE_TEXTURE2D(_RiverMap,sampler_RiverMap,(p-_LandBounds.xy)/_LandBounds.zw).r;

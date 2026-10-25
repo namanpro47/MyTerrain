@@ -83,18 +83,21 @@ namespace Terra.Rendering
             var rng=new System.Random((int)(l*71+b*131)+612);var plants=new List<Matrix4x4>();
             var grain=Resources.Load<GameObject>("Nature/FieldCluster");
             const float spacing=1.35f;
-            for(float x=Mathf.Ceil((l+1)/spacing)*spacing;x<r-1;x+=spacing)
+            // A shared curved planting coordinate keeps neighbouring source patches continuous.
+            // These rows and access lanes are an illustration, not surveyed farm infrastructure.
+            for(float z=Mathf.Ceil((b+1)/1.1f)*1.1f;z<t-1;z+=1.1f)
             {
-                // Cultivated ground shares the field palette; individual plants supply its row rhythm.
-                for(float z=Mathf.Ceil((b+1)/1.1f)*1.1f;z<t-1;z+=1.1f)
+                float offset=FieldOffset(z);
+                for(float u=Mathf.Ceil((l+1-offset)/spacing)*spacing;u<r-1-offset;u+=spacing)
                 {
-                    if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x))continue;
-                    float size=.48f+(float)rng.NextDouble()*.12f;
-                    plants.Add(PlantMatrix(grain,x+((float)rng.NextDouble()-.5f)*.2f,z,size,(float)rng.NextDouble()*12-6));
+                    float x=u+offset;
+                    if(!Contains(polygon,x,z)||(baseline&&!VisualCropAt(x,z))||FieldTrackAt(x,z))continue;
+                    plants.Add(FieldPlant(grain,x,z,(float)rng.NextDouble()));
                 }
             }
             parent.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
         }
+
         void BuildBaselinePlants(Site site,Transform parent)
         {
             PlantCultivation(site.polygon,parent,true);
@@ -106,16 +109,30 @@ namespace Terra.Rendering
             for(float cz=zmin;cz<zmax;cz+=150)for(float cx=xmin;cx<xmax;cx+=150)
             {
                 var plants=new List<Matrix4x4>();
-                for(float z=Mathf.Ceil(cz/1.1f)*1.1f;z<Mathf.Min(cz+150,zmax-3);z+=1.1f)for(float x=Mathf.Ceil(cx/1.35f)*1.35f;x<Mathf.Min(cx+150,xmax-3);x+=1.35f)
+                for(float z=Mathf.Ceil(cz/1.1f)*1.1f;z<Mathf.Min(cz+150,zmax-3);z+=1.1f)
                 {
-                    if(!VisualCropAt(x,z)||FieldTrackAt(x)||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
-                    float variation=Mathf.PerlinNoise(x*.12f+500,z*.12f+500);
-                    plants.Add(PlantMatrix(grain,x,z,.48f+variation*.12f,variation*12-6));
+                    float offset=FieldOffset(z);
+                    for(float u=Mathf.Ceil((cx-offset)/1.35f)*1.35f;u<Mathf.Min(cx+150,xmax-3)-offset;u+=1.35f)
+                    {
+                        float x=u+offset;
+                        if(!VisualCropAt(x,z)||FieldTrackAt(x,z)||NearLine(x,z,8)||world.sites.Any(site=>Contains(site.polygon,x,z)))continue;
+                        float variation=Mathf.PerlinNoise(x*.12f+500,z*.12f+500);
+                        plants.Add(FieldPlant(grain,x,z,variation));
+                    }
                 }
+
                 root.gameObject.AddComponent<InstancedNature>().Add(grain,plants,Color.white);
             }
         }
         // Illustrative access lanes, aligned across baseline and proposed planting, not surveyed tracks.
-        static bool FieldTrackAt(float x)=>Mathf.Abs(Mathf.Repeat(x+19.2f,38.4f)-19.2f)<.8f;
+        static float FieldOffset(float z)=>12*Mathf.Sin(z*.012f)+5*Mathf.Sin(z*.029f);
+        static float FieldSlope(float z)=>.144f*Mathf.Cos(z*.012f)+.145f*Mathf.Cos(z*.029f);
+        static bool FieldTrackAt(float x,float z)=>Mathf.Abs(Mathf.Repeat(x-FieldOffset(z)+19.2f,38.4f)-19.2f)<.65f;
+        Matrix4x4 FieldPlant(GameObject grain,float x,float z,float variation)
+        {
+            float size=.62f+variation*.12f;
+            float yaw=Mathf.Atan(FieldSlope(z))*Mathf.Rad2Deg;
+            return PlantMatrix(grain,x,z,size,yaw)*Matrix4x4.Scale(new Vector3(2.0f,1,1.15f));
+        }
     }
 }
